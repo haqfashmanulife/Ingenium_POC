@@ -1,0 +1,1252 @@
+      *************************
+       IDENTIFICATION DIVISION.
+      *************************
+
+       PROGRAM-ID. XSOM0100.
+
+       COPY XCWWCRHT.
+
+      *****************************************************************
+      **  MEMBER :  XSOM0100                                         **
+      **  REMARKS:  THIS MODULE ALLOWS 'BROWSE', 'INQUIRE',          **
+      **            'MAINTAIN', AND 'DELETE' ON THE USEC TABLE.      **
+      **            THE USER COUNT ON THE USCL RECORDS IS MAINTAINED **
+      **            AS THE USER IS ADDED TO OR REMOVED FROM THE      **
+      **            SECURITY CLASSES.                                **
+      **  DOMAIN :  SY                                               **
+      **  CLASS  :  PD                                               **
+      *****************************************************************
+      **  DATE     AUTH.  DESCRIPTION                                **
+      **                                                             **
+53-062**  30NOV95  VK     ARCHITECTURE CHANGES TO SUPPORT GRAPHICAL  **
+53-062**                  USER INTERFACE                             **
+53-063**  30NOV95  VK     CHANGES TO SUPPORT I/O PROGRAMS            **
+53-064**  30NOV95  TJS    SET MORE DATA INDICATOR FOR GUI            **
+54-001**  01SEP96  KRH    MODIFICATIONS FOR MAINTAINABILITY          **
+54-010**  01SEP96  JMG    MODIFICATIONS FOR SPANISH SUPPORT          **
+557660**  30SEP97  CG     CHANGE TO STANDARD                         **
+557698**  30SEP97  MM     CHANGES TO SUPPORT MIX-CASE                **
+557708**  30SEP97  MM     NEW CICS ABEND PROCESSING                  **
+008455**  31MAR98  552    EXTENSIVE NUMERIC FORMATTIING              **
+007766**  30OCT98  56     ARCHITECTURE CHANGES TO SUPPORT PASSING    **
+007766**                  PARAMETERS VIA AN ADDRESS                  **
+013578** 15DEC99   60     REMOVAL OF 3270 LOGIC, MIR RENAMES         **
+014660**  15DEC99  60     REMOVAL OF XCPPMEXT                        **
+014590**  15DEC99  60     ARCHITECTURAL CHANGES                      **
+01MI06**  01AUG01  EKM    MCL SECURITY CHANGES                       **
+02MI01**  30JUN02  MAW    LOGIN FAILURE MONITORING AND PASSWORD      **
+02MI01**                  ENCRYPTION                                 **
+SMI01a** 10SEP2002 YUC    Add Name, Employee Code and PIT ID          
+P02188**  21MAR05  RZ     NEW SECURITY ENHANCEMENT                   **
+MP310B**  14MAY18  CTS    ADDED NEW UW LEVELS FOR MP310NB IMPROV     **
+UYS100**  10FEB22  CTS    ADDED NEW POL ADMIN CLASS CODE FOR UYS100  **
+      *****************************************************************
+      /
+      **********************
+       ENVIRONMENT DIVISION.
+      **********************
+      *
+      ***************
+       DATA DIVISION.
+      ***************
+      *
+       WORKING-STORAGE SECTION.
+      *
+53-062 COPY XCWWPGWS REPLACING '$VAR1' BY 'XSOM0100'.
+
+       COPY SQLCA.
+007766 COPY XCWLPTR.
+
+
+014590*COPY XCWL0030.
+
+       01  WS-WORKING-STORAGE.
+           05  WS-SUB                       PIC S9(4)  VALUE ZERO COMP.
+           05  WS-MAX-BROWSE-LINES          PIC S9(4)  VALUE +10  COMP.
+           05  WS-USCL-COUNT-FLAG           PIC X(01).
+               88  WS-USCL-COUNT-UPDATED               VALUE 'Y'.
+
+           05  WS-BUS-FCN-ID            PIC X(04).
+               88  WS-BUS-FCN-RETRIEVE  VALUE '1910'.
+               88  WS-BUS-FCN-CREATE    VALUE '1911'.
+               88  WS-BUS-FCN-UPDATE    VALUE '1912'.
+               88  WS-BUS-FCN-DELETE    VALUE '1913'.
+               88  WS-BUS-FCN-LIST      VALUE '1914'.
+           05  WS-HOLD-PASSWORD.
+               10  WS-PASSW-CHAR  OCCURS 8  PIC X(01).
+           05  WS-PASSW-LENGTH              PIC S9(4)  COMP.
+           05  WS-PASSW-SUB                 PIC S9(4)  COMP.
+
+P02188     05  WS-ERROR-IND                 PIC X(01).
+P02188         88  WS-ERROR-FOUND-YES                  VALUE 'Y'.
+P02188         88  WS-ERROR-FOUND-NO                   VALUE 'N'.
+P02188     05  WS-GLOB-PROCESSDATE          PIC X(10).
+
+      /
+       COPY XCWEBLCH.
+       COPY XCWWWKDT.
+      /
+007766*01  WGLOB-GLOBAL-AREA.
+007766*COPY XCWWGLOB.
+      /
+       COPY XCFWUSEC.
+       COPY XCFRUSEC.
+      /
+       COPY XCFWUSCL.
+       COPY XCFRUSCL.
+      /
+       COPY XCFWPRTR.
+       COPY XCFRPRTR.
+      /
+       COPY XCFWXTAB.
+       COPY XCFRXTAB.
+      /
+54-001 COPY XCWWPASS.
+      /
+557698 COPY XCWW0005.
+557698 COPY XCWL0005.
+      /
+       COPY XCWL0280.
+      /
+P02188 COPY XCWLDTLK.
+P02188 COPY XCWL1670.
+P02188 COPY XCWL1680.
+      /
+       COPY XCWL0290.
+      /
+02MI01 COPY XCWL9684.
+      /
+      *****************
+       LINKAGE SECTION.
+      *****************
+      /
+007766 01 WGLOB-GLOBAL-AREA.
+007766 COPY XCWWGLOB.
+       COPY XCWM0100.
+      /
+007766 PROCEDURE DIVISION USING WGLOB-GLOBAL-AREA
+53-062                          MIR-PARM-AREA.
+
+      *--------------
+       0000-MAINLINE.
+      *--------------
+
+557708     PERFORM ABND-1000-HANDLE-ABEND
+557708        THRU ABND-1000-HANDLE-ABEND-X.
+
+           PERFORM INIT-1000-INITIALIZE
+              THRU INIT-1000-INITIALIZE-X.
+
+           PERFORM 2000-PROCESS-REQUEST
+              THRU 2000-PROCESS-REQUEST-X.
+
+           PERFORM EXIT-1000-FINALIZE
+              THRU EXIT-1000-FINALIZE-X.
+
+
+           GOBACK.
+
+       0000-MAINLINE-X.
+           EXIT.
+      /
+      *---------------------
+       2000-PROCESS-REQUEST.
+      *---------------------
+
+           SET  MIR-RETRN-OK       TO TRUE.
+           MOVE MIR-BUS-FCN-ID     TO WS-BUS-FCN-ID.
+
+008455     PERFORM 0290-1000-BUILD-PARM-INFO
+008455        THRU 0290-1000-BUILD-PARM-INFO-X.
+           PERFORM 9300-SETUP-MSIN-REFERENCE
+              THRU 9300-SETUP-MSIN-REFERENCE-X.
+
+
+      *    PROCESS SCREEN FUNCTIONS
+      *
+           EVALUATE TRUE
+
+               WHEN WS-BUS-FCN-RETRIEVE
+                    PERFORM  2100-PROCESS-RETRIEVE
+                        THRU 2100-PROCESS-RETRIEVE-X
+
+               WHEN WS-BUS-FCN-LIST
+                    PERFORM  2500-PROCESS-LIST
+                        THRU 2500-PROCESS-LIST-X
+
+               WHEN WS-BUS-FCN-CREATE
+                    PERFORM  2200-PROCESS-CREATE
+                        THRU 2200-PROCESS-CREATE-X
+
+               WHEN WS-BUS-FCN-UPDATE
+                    PERFORM  2300-PROCESS-UPDATE
+                        THRU 2300-PROCESS-UPDATE-X
+
+               WHEN WS-BUS-FCN-DELETE
+                    PERFORM  2400-PROCESS-DELETE
+                        THRU 2400-PROCESS-DELETE-X
+
+               WHEN OTHER
+                    SET MIR-RETRN-INVALD-RQST  TO TRUE
+
+           END-EVALUATE.
+
+
+       2000-PROCESS-REQUEST-X.
+           EXIT.
+      /
+      *---------------------
+       2100-PROCESS-RETRIEVE.
+      *---------------------
+
+           MOVE MIR-USER-ID           TO WUSEC-USER-ID.
+557660     PERFORM USEC-1000-READ
+557660        THRU USEC-1000-READ-X.
+
+           IF WUSEC-IO-OK
+               PERFORM 9200-MOVE-RECORD-TO-SCREEN
+                  THRU 9200-MOVE-RECORD-TO-SCREEN-X
+
+           ELSE
+               PERFORM 9100-BLANK-DATA-FIELDS
+                  THRU 9100-BLANK-DATA-FIELDS-X
+
+               MOVE WUSEC-KEY         TO WGLOB-MSG-PARM (1)
+               MOVE 'XS00000001'      TO WGLOB-MSG-REF-INFO
+               PERFORM  0260-1000-GENERATE-MESSAGE
+                   THRU 0260-1000-GENERATE-MESSAGE-X
+557660     END-IF.
+
+       2100-PROCESS-RETRIEVE-X.
+           EXIT.
+      /
+      *--------------------
+       2200-PROCESS-CREATE.
+      *--------------------
+
+           MOVE MIR-USER-ID           TO WUSEC-USER-ID.
+           PERFORM USEC-1000-READ
+              THRU USEC-1000-READ-X.
+
+           IF WUSEC-IO-OK
+               PERFORM 9200-MOVE-RECORD-TO-SCREEN
+                  THRU 9200-MOVE-RECORD-TO-SCREEN-X
+
+               MOVE WUSEC-KEY         TO WGLOB-MSG-PARM (1)
+               MOVE 'XS00000003'      TO WGLOB-MSG-REF-INFO
+               PERFORM 0260-1000-GENERATE-MESSAGE
+                  THRU 0260-1000-GENERATE-MESSAGE-X
+
+               GO TO 2200-PROCESS-CREATE-X
+557660     END-IF.
+
+           PERFORM 2210-CREATE-EDITS
+              THRU 2210-CREATE-EDITS-X.
+
+           IF WGLOB-MSG-ERROR-SW > ZERO
+               GO TO 2200-PROCESS-CREATE-X
+557660     END-IF.
+
+           MOVE MIR-USER-ID           TO WUSEC-USER-ID.
+           PERFORM  USEC-1000-CREATE
+               THRU USEC-1000-CREATE-X.
+
+02MI01     PERFORM  9684-1000-BUILD-PARM-INFO
+02MI01         THRU 9684-1000-BUILD-PARM-INFO-X.
+02MI01     MOVE RUSEC-USER-PSWD-TXT   TO L9684-INPUT-STRING.
+02MI01     PERFORM  9684-1000-ENCRYPT-DATA
+02MI01         THRU 9684-1000-ENCRYPT-DATA-X.
+02MI01     MOVE L9684-OUTPUT-STRING   TO RUSEC-USER-PSWD-TXT
+02MI01                                   RUSEC-PREV-PSWD-1-TXT
+02MI01                                   RUSEC-PREV-PSWD-2-TXT
+02MI01                                   RUSEC-PREV-PSWD-3-TXT
+02MI01                                   RUSEC-PREV-PSWD-4-TXT
+02MI01                                   RUSEC-PREV-PSWD-5-TXT
+02MI01                                   RUSEC-PREV-PSWD-6-TXT
+02MI01                                   RUSEC-PREV-PSWD-7-TXT
+02MI01                                   RUSEC-PREV-PSWD-8-TXT.
+
+P02188     MOVE WGLOB-PROCESS-DATE    TO RUSEC-USER-ID-CREAT-DT.
+P02188     MOVE '0'                   TO RUSEC-USER-UNSUCS-QTY.
+P02188     SET RUSEC-USER-LOGIN-FIRST TO TRUE.
+P02188     
+P02188     MOVE WGLOB-PROCESS-DATE    TO L1680-INTERNAL-1.
+P02188     MOVE ZERO                  TO L1680-NUMBER-OF-YEARS.
+P02188     MOVE ZERO                  TO L1680-NUMBER-OF-MONTHS.
+P02188     MOVE 15                    TO L1680-NUMBER-OF-DAYS.
+P02188     PERFORM 1680-3000-ADD-Y-M-D-TO-DATE
+P02188        THRU 1680-3000-ADD-Y-M-D-TO-DATE-X.
+P02188     MOVE L1680-INTERNAL-2      TO RUSEC-USER-ID-XPRY-DT.
+           
+           PERFORM  USEC-1000-WRITE
+               THRU USEC-1000-WRITE-X.
+
+           PERFORM  9200-MOVE-RECORD-TO-SCREEN
+               THRU 9200-MOVE-RECORD-TO-SCREEN-X.
+
+           MOVE 'XS00000004'          TO WGLOB-MSG-REF-INFO.
+           PERFORM  0260-1000-GENERATE-MESSAGE
+               THRU 0260-1000-GENERATE-MESSAGE-X.
+
+       2200-PROCESS-CREATE-X.
+           EXIT.
+      /
+      *------------------
+       2210-CREATE-EDITS.
+      *------------------
+
+           IF MIR-USER-ID = SPACES
+               MOVE 'XS01000008'      TO WGLOB-MSG-REF-INFO
+               PERFORM  0260-1000-GENERATE-MESSAGE
+                   THRU 0260-1000-GENERATE-MESSAGE-X
+557660     END-IF.
+
+       2210-CREATE-EDITS-X.
+           EXIT.
+      /
+      *--------------------
+       2300-PROCESS-UPDATE.
+      *--------------------
+
+P02188     SET WS-ERROR-FOUND-NO      TO TRUE.
+ 
+           MOVE MIR-USER-ID           TO WUSEC-USER-ID.
+           PERFORM USEC-1000-READ-FOR-UPDATE
+              THRU USEC-1000-READ-FOR-UPDATE-X.
+
+           IF WUSEC-IO-NOT-FOUND
+              PERFORM 9100-BLANK-DATA-FIELDS
+                 THRU 9100-BLANK-DATA-FIELDS-X
+
+              MOVE WUSEC-KEY          TO WGLOB-MSG-PARM (1)
+              MOVE 'XS00000006'       TO WGLOB-MSG-REF-INFO
+              PERFORM  0260-1000-GENERATE-MESSAGE
+                  THRU 0260-1000-GENERATE-MESSAGE-X
+
+              GO TO 2300-PROCESS-UPDATE-X
+557660     END-IF.
+
+           PERFORM  2330-UPDATE-EDITS
+               THRU 2330-UPDATE-EDITS-X.
+
+P02188     IF WS-ERROR-FOUND-YES
+P02188        GO TO 2300-PROCESS-UPDATE-X
+P02188     END-IF.
+ 
+           PERFORM USEC-2000-REWRITE
+              THRU USEC-2000-REWRITE-X.
+
+           IF WGLOB-MSG-ERROR-SW > ZERO
+              MOVE 'XS00000008'       TO WGLOB-MSG-REF-INFO
+              PERFORM  0260-1000-GENERATE-MESSAGE
+                  THRU 0260-1000-GENERATE-MESSAGE-X
+
+           ELSE
+              MOVE 'XS00000007'       TO WGLOB-MSG-REF-INFO
+              PERFORM  0260-1000-GENERATE-MESSAGE
+                  THRU 0260-1000-GENERATE-MESSAGE-X
+
+557660     END-IF.
+
+       2300-PROCESS-UPDATE-X.
+           EXIT.
+      /
+      *------------------
+       2330-UPDATE-EDITS.
+      *------------------
+
+           IF MIR-USER-LANG-CD = SPACES
+              MOVE RUSEC-USER-LANG-CD TO MIR-USER-LANG-CD
+557660     END-IF.
+
+           PERFORM 2331-EDIT-USER-LANG
+              THRU 2331-EDIT-USER-LANG-X.
+
+           IF MIR-PRTR-ID = SPACES
+              MOVE RUSEC-PRTR-ID      TO MIR-PRTR-ID
+557660     END-IF.
+
+           PERFORM 2332-EDIT-PRINTER-DEST
+              THRU 2332-EDIT-PRINTER-DEST-X.
+
+           IF MIR-BR-ID = SPACES
+              MOVE RUSEC-BR-ID        TO MIR-BR-ID
+557660     END-IF.
+
+           PERFORM 2333-EDIT-BRANCH-CODE
+              THRU 2333-EDIT-BRANCH-CODE-X.
+
+           IF MIR-USER-PSWD-XPRY-DUR NOT = SPACES
+              PERFORM 2335-EDIT-PASSWORD-EXPIRY
+                 THRU 2335-EDIT-PASSWORD-EXPIRY-X
+
+           ELSE
+              MOVE RUSEC-USER-PSWD-XPRY-DUR 
+                                      TO L0290-INPUT-NUMBER
+              MOVE 'N'                TO L0290-SIGN-IND
+008455*       MOVE +4                        TO L0290-LENGTH
+              MOVE ZERO               TO L0290-PRECISION
+008455        MOVE +4                 TO L0290-MAX-OUT-LEN
+008455        SET L0290-DCML-SUPPRESS        TO TRUE
+              PERFORM 0290-1000-NUMERIC-FORMAT
+                 THRU 0290-1000-NUMERIC-FORMAT-X
+
+              MOVE L0290-OUTPUT-DATA  TO MIR-USER-PSWD-XPRY-DUR
+557660     END-IF.
+
+           IF MIR-SECUR-CLAS-ID = SPACES
+              MOVE RUSEC-SECUR-CLAS-ID              TO MIR-SECUR-CLAS-ID
+557660     END-IF.
+
+           PERFORM 2336-EDIT-SECURITY-CLASS
+              THRU 2336-EDIT-SECURITY-CLASS-X.
+
+P02188*    IF  MIR-USER-PSWD-TXT NOT = SPACES
+01MI06*    AND MIR-USER-PSWD-TXT NOT = RUSEC-USER-PSWD-TXT
+P02188*       PERFORM 2337-EDIT-PASSWORD
+P02188*          THRU 2337-EDIT-PASSWORD-X
+
+02MI01*    ELSE
+02MI01*       MOVE RUSEC-USER-PSWD-TXT              TO MIR-USER-PSWD-TXT
+P02188*557660     END-IF.
+
+P02188     IF  MIR-USER-PSWD-TXT NOT = SPACES
+P02188        IF  ( RUSEC-USER-LOGIN-LOCK
+P02188            OR RUSEC-USER-LOGIN-XPRY )
+P02188        AND NOT MIR-UNLOCK-SELECT-YES
+P02188*MSG: USER ID HAS BEEN LOCKED, PLEASE CLICK UNLOCK CHECKBOX.
+P02188            MOVE 'XS01009002'      TO WGLOB-MSG-REF-INFO
+P02188            PERFORM 0260-1000-GENERATE-MESSAGE
+P02188               THRU 0260-1000-GENERATE-MESSAGE-X
+P02188            SET WS-ERROR-FOUND-YES TO TRUE
+P02188            GO TO 2330-UPDATE-EDITS-X
+P02188        ELSE
+P02188            PERFORM 2337-EDIT-PASSWORD
+P02188               THRU 2337-EDIT-PASSWORD-X
+P02188        END-IF
+P02188     END-IF
+
+P02188     IF  MIR-UNLOCK-SELECT-YES 
+P02188     AND  MIR-USER-PSWD-TXT = SPACES
+
+P02188         MOVE ZERO                   TO RUSEC-USER-UNSUCS-QTY-N
+P02188         SET RUSEC-USER-LOGIN-OTHER  TO TRUE
+P02188   
+P02188         MOVE WGLOB-PROCESS-DATE     TO L1680-INTERNAL-1
+P02188         MOVE ZERO                   TO L1680-NUMBER-OF-YEARS
+P02188         MOVE ZERO                   TO L1680-NUMBER-OF-MONTHS
+P02188         MOVE 30                     TO L1680-NUMBER-OF-DAYS
+P02188         PERFORM 1680-3000-ADD-Y-M-D-TO-DATE
+P02188            THRU 1680-3000-ADD-Y-M-D-TO-DATE-X
+P02188         MOVE L1680-INTERNAL-2       TO RUSEC-USER-ID-XPRY-DT
+P02188     END-IF.
+
+           IF MIR-DEPT-ID NOT = SPACES
+              PERFORM 2338-EDIT-DEPARTMENT
+                 THRU 2338-EDIT-DEPARTMENT-X
+
+           ELSE
+              MOVE RUSEC-DEPT-ID      TO MIR-DEPT-ID
+557660     END-IF.
+
+           IF MIR-USER-RPT-DSTRB-CD NOT = SPACES
+              PERFORM 2339-EDIT-DISTRIBUTION
+                 THRU 2339-EDIT-DISTRIBUTION-X
+
+           ELSE
+              MOVE RUSEC-USER-RPT-DSTRB-CD  
+                                      TO MIR-USER-RPT-DSTRB-CD
+557660     END-IF.
+
+SMI01a     IF MIR-KA-GIV-NM NOT = SPACES
+SMI01a        MOVE MIR-KA-GIV-NM      TO RUSEC-KA-GIV-NM
+SMI01a     ELSE
+SMI01a        MOVE RUSEC-KA-GIV-NM    TO MIR-KA-GIV-NM
+SMI01a     END-IF.
+SMI01a     IF MIR-KA-SUR-NM NOT = SPACES
+SMI01a        MOVE MIR-KA-SUR-NM      TO RUSEC-KA-SUR-NM
+SMI01a     ELSE
+SMI01a        MOVE RUSEC-KA-SUR-NM    TO MIR-KA-SUR-NM
+SMI01a     END-IF.
+SMI01a     IF MIR-KJ-GIV-NM NOT = SPACES
+SMI01a        MOVE MIR-KJ-GIV-NM      TO RUSEC-KJ-GIV-NM
+SMI01a     ELSE
+SMI01a        MOVE RUSEC-KJ-GIV-NM    TO MIR-KJ-GIV-NM
+SMI01a     END-IF.
+SMI01a     IF MIR-KJ-SUR-NM NOT = SPACES
+SMI01a        MOVE MIR-KJ-SUR-NM      TO RUSEC-KJ-SUR-NM
+SMI01a     ELSE
+SMI01a        MOVE RUSEC-KJ-SUR-NM    TO MIR-KJ-SUR-NM
+SMI01a     END-IF.
+MP310B     IF MIR-UW-CLAS-CD NOT = SPACES
+MP310B        MOVE MIR-UW-CLAS-CD      TO RUSEC-UW-CLAS-CD
+MP310B     ELSE
+MP310B        MOVE RUSEC-UW-CLAS-CD    TO MIR-UW-CLAS-CD
+MP310B     END-IF.
+MP310B
+SMI01a     IF MIR-MLJ-EMPLE-ID NOT = SPACES
+SMI01a        PERFORM 233A-EDIT-EMPLOYEE
+SMI01a           THRU 233A-EDIT-EMPLOYEE-X
+SMI01a     ELSE
+SMI01a        MOVE RUSEC-MLJ-EMPLE-ID TO MIR-MLJ-EMPLE-ID
+SMI01a     END-IF.
+SMI01a     IF MIR-PIT-ID NOT = SPACES
+SMI01a        PERFORM 233B-EDIT-PIT
+SMI01a           THRU 233B-EDIT-PIT-X
+SMI01a     ELSE
+SMI01a        MOVE RUSEC-PIT-ID       TO MIR-PIT-ID
+SMI01a     END-IF.
+UYS100     IF  MIR-POL-ADMIN-CLAS-CD NOT = SPACES
+UYS100         PERFORM  233C-EDIT-POL-ADMIN
+UYS100             THRU 233C-EDIT-POL-ADMIN-X
+UYS100     ELSE
+UYS100         MOVE RUSEC-POL-ADMIN-CLAS-CD TO MIR-POL-ADMIN-CLAS-CD
+UYS100     END-IF.
+
+       2330-UPDATE-EDITS-X.
+           EXIT.
+      *--------------------
+       2331-EDIT-USER-LANG.
+      *--------------------
+
+           IF MIR-USER-LANG-CD = EBLCH-BLANK-FIELD-CHAR
+               MOVE SPACE             TO MIR-USER-LANG-CD
+557660     END-IF.
+
+           MOVE MIR-USER-LANG-CD      TO WXTAB-ETBL-VALU-ID.
+           PERFORM LANG-1000-EDIT-USER-LANGUAGE
+              THRU LANG-1000-EDIT-USER-LANGUAGE-X.
+
+           IF WXTAB-IO-OK
+               MOVE MIR-USER-LANG-CD  TO RUSEC-USER-LANG-CD
+
+           ELSE
+               MOVE 'XS01000001'      TO WGLOB-MSG-REF-INFO
+               PERFORM 0260-1000-GENERATE-MESSAGE
+                   THRU 0260-1000-GENERATE-MESSAGE-X
+557660     END-IF.
+
+       2331-EDIT-USER-LANG-X.
+           EXIT.
+      /
+      *-----------------------
+       2332-EDIT-PRINTER-DEST.
+      *-----------------------
+
+           IF MIR-PRTR-ID = EBLCH-BLANK-FIELD-CHAR
+               MOVE SPACE             TO MIR-PRTR-ID
+557660     END-IF.
+
+           MOVE MIR-PRTR-ID           TO WPRTR-PRTR-ID.
+           PERFORM PRTR-1000-READ
+              THRU PRTR-1000-READ-X.
+
+           IF WPRTR-IO-OK
+               MOVE MIR-PRTR-ID       TO RUSEC-PRTR-ID
+           ELSE
+               MOVE 'XS01000002'      TO WGLOB-MSG-REF-INFO
+               PERFORM 0260-1000-GENERATE-MESSAGE
+                   THRU 0260-1000-GENERATE-MESSAGE-X
+557660     END-IF.
+
+       2332-EDIT-PRINTER-DEST-X.
+           EXIT.
+      /
+      *----------------------
+       2333-EDIT-BRANCH-CODE.
+      *----------------------
+
+           IF MIR-BR-ID = EBLCH-BLANK-FIELD-CHAR
+               MOVE SPACE             TO MIR-BR-ID
+557660     END-IF.
+
+           MOVE MIR-BR-ID             TO WXTAB-ETBL-VALU-ID.
+           PERFORM BRCH-1000-EDIT-BRANCH-CODE
+              THRU BRCH-1000-EDIT-BRANCH-CODE-X.
+
+           IF WXTAB-IO-OK
+               MOVE MIR-BR-ID         TO RUSEC-BR-ID
+           ELSE
+               MOVE 'XS01000003'      TO WGLOB-MSG-REF-INFO
+               PERFORM 0260-1000-GENERATE-MESSAGE
+                   THRU 0260-1000-GENERATE-MESSAGE-X
+557660     END-IF.
+
+       2333-EDIT-BRANCH-CODE-X.
+           EXIT.
+      /
+      *--------------------------
+       2335-EDIT-PASSWORD-EXPIRY.
+      *--------------------------
+
+           IF MIR-USER-PSWD-XPRY-DUR = EBLCH-BLANK-FIELD-CHAR
+               MOVE ZERO              TO MIR-USER-PSWD-XPRY-DUR
+557660     END-IF.
+
+           MOVE MIR-USER-PSWD-XPRY-DUR              TO L0280-INPUT-DATA.
+           MOVE 'N'                   TO L0280-SIGN-IND.
+           MOVE +4                    TO L0280-LENGTH.
+           MOVE ZERO                  TO L0280-PRECISION.
+           MOVE 'Y'                   TO L0280-SPACE-PERMITTED-IND.
+           PERFORM 0280-1000-NUMERIC-EDIT
+              THRU 0280-1000-NUMERIC-EDIT-X.
+
+           IF L0280-OK
+               MOVE L0280-OUTPUT      TO RUSEC-USER-PSWD-XPRY-DUR
+               MOVE RUSEC-USER-PSWD-XPRY-DUR 
+                                      TO L0290-INPUT-NUMBER
+               MOVE 'N'               TO L0290-SIGN-IND
+008455*        MOVE +4                 TO L0290-LENGTH
+               MOVE ZERO              TO L0290-PRECISION
+008455         MOVE +4                TO L0290-MAX-OUT-LEN
+008455         SET L0290-DCML-SUPPRESS TO TRUE
+               PERFORM 0290-1000-NUMERIC-FORMAT
+                  THRU 0290-1000-NUMERIC-FORMAT-X
+
+               MOVE L0290-OUTPUT-DATA TO MIR-USER-PSWD-XPRY-DUR
+           ELSE
+               MOVE 'XS01000005'      TO WGLOB-MSG-REF-INFO
+               PERFORM 0260-1000-GENERATE-MESSAGE
+                   THRU 0260-1000-GENERATE-MESSAGE-X
+557660     END-IF.
+
+       2335-EDIT-PASSWORD-EXPIRY-X.
+           EXIT.
+      /
+      *-------------------------
+       2336-EDIT-SECURITY-CLASS.
+      *-------------------------
+
+           IF MIR-SECUR-CLAS-ID = EBLCH-BLANK-FIELD-CHAR
+               MOVE SPACE             TO MIR-SECUR-CLAS-ID
+557660     END-IF.
+
+           MOVE MIR-SECUR-CLAS-ID     TO WUSCL-SECUR-CLAS-ID.
+           PERFORM USCL-1000-READ
+              THRU USCL-1000-READ-X.
+
+           IF WUSCL-IO-OK
+               IF RUSEC-SECUR-CLAS-ID  NOT = SPACE
+                   MOVE RUSEC-SECUR-CLAS-ID 
+                                      TO WUSCL-SECUR-CLAS-ID
+                   PERFORM USCL-1000-READ
+                      THRU USCL-1000-READ-X
+
+                   IF WUSCL-IO-OK
+                       PERFORM 2340-UPDATE-USCL-COUNTS
+                          THRU 2340-UPDATE-USCL-COUNTS-X
+
+                       MOVE MIR-SECUR-CLAS-ID      
+                                      TO RUSEC-SECUR-CLAS-ID
+                   ELSE
+                       MOVE 'XS01000007'    
+                                      TO WGLOB-MSG-REF-INFO
+                       PERFORM 0260-1000-GENERATE-MESSAGE
+                           THRU 0260-1000-GENERATE-MESSAGE-X
+557660             END-IF
+
+               ELSE
+                   PERFORM 2340-UPDATE-USCL-COUNTS
+                      THRU 2340-UPDATE-USCL-COUNTS-X
+
+                   MOVE MIR-SECUR-CLAS-ID          
+                                      TO RUSEC-SECUR-CLAS-ID
+557660         END-IF
+           ELSE
+               MOVE 'XS01000006'      TO WGLOB-MSG-REF-INFO
+               PERFORM 0260-1000-GENERATE-MESSAGE
+                   THRU 0260-1000-GENERATE-MESSAGE-X
+557660     END-IF.
+
+       2336-EDIT-SECURITY-CLASS-X.
+           EXIT.
+      /
+      *-------------------
+       2337-EDIT-PASSWORD.
+      *-------------------
+
+           IF MIR-USER-PSWD-TXT = EBLCH-BLANK-FIELD-CHAR
+               MOVE SPACE             TO MIR-USER-PSWD-TXT
+557660     END-IF.
+
+02MI01     PERFORM  9684-1000-BUILD-PARM-INFO
+02MI01         THRU 9684-1000-BUILD-PARM-INFO-X.
+02MI01     MOVE MIR-USER-PSWD-TXT   TO L9684-INPUT-STRING.
+02MI01     PERFORM  9684-1000-ENCRYPT-DATA
+02MI01         THRU 9684-1000-ENCRYPT-DATA-X.
+ 
+01MI06*
+01MI06*    IF PASSWORD REPEATS OLD PASSWORD, NOT VALID
+01MI06*
+02MI01*    IF  MIR-USER-PSWD-TXT   = RUSEC-USER-PSWD-TXT
+02MI01*    OR  MIR-USER-PSWD-TXT   = RUSEC-PREV-PSWD-1-TXT
+02MI01*    OR  MIR-USER-PSWD-TXT   = RUSEC-PREV-PSWD-2-TXT
+02MI01*    OR  MIR-USER-PSWD-TXT   = RUSEC-PREV-PSWD-3-TXT
+02MI01*    OR  MIR-USER-PSWD-TXT   = RUSEC-PREV-PSWD-4-TXT
+02MI01*    OR  MIR-USER-PSWD-TXT   = RUSEC-PREV-PSWD-5-TXT
+02MI01*    OR  MIR-USER-PSWD-TXT   = RUSEC-PREV-PSWD-6-TXT
+02MI01*    OR  MIR-USER-PSWD-TXT   = RUSEC-PREV-PSWD-7-TXT
+02MI01*    OR  MIR-USER-PSWD-TXT   = RUSEC-PREV-PSWD-8-TXT
+ 
+02MI01     IF  L9684-OUTPUT-STRING = RUSEC-USER-PSWD-TXT
+02MI01     OR  L9684-OUTPUT-STRING = RUSEC-PREV-PSWD-1-TXT
+02MI01     OR  L9684-OUTPUT-STRING = RUSEC-PREV-PSWD-2-TXT
+02MI01     OR  L9684-OUTPUT-STRING = RUSEC-PREV-PSWD-3-TXT
+02MI01     OR  L9684-OUTPUT-STRING = RUSEC-PREV-PSWD-4-TXT
+02MI01     OR  L9684-OUTPUT-STRING = RUSEC-PREV-PSWD-5-TXT
+02MI01     OR  L9684-OUTPUT-STRING = RUSEC-PREV-PSWD-6-TXT
+02MI01     OR  L9684-OUTPUT-STRING = RUSEC-PREV-PSWD-7-TXT
+02MI01     OR  L9684-OUTPUT-STRING = RUSEC-PREV-PSWD-8-TXT
+01MI06*MSG: NEW PASSWORD ALREADY USED. PLEASE RE-ENTER A NEW PASSWORD
+01MI06        MOVE 'XS01009000'               TO WGLOB-MSG-REF-INFO
+01MI06        PERFORM  0260-1000-GENERATE-MESSAGE
+01MI06            THRU 0260-1000-GENERATE-MESSAGE-X
+01MI06        GO TO 2337-EDIT-PASSWORD-X
+01MI06     END-IF.
+           
+           MOVE MIR-USER-PSWD-TXT     TO WPASS-PASSWORD.
+           PERFORM PASS-1000-EDIT-PASSWORD
+              THRU PASS-1000-EDIT-PASSWORD-X.
+
+P02188     IF  RUSEC-USER-LOGIN-LOCK
+P02188     OR RUSEC-USER-LOGIN-XPRY
+P02188         MOVE '0'                    TO RUSEC-USER-UNSUCS-QTY
+P02188         SET RUSEC-USER-LOGIN-OTHER  TO TRUE
+P02188     END-IF.
+P02188   
+P02188     MOVE WGLOB-PROCESS-DATE         TO L1680-INTERNAL-1.
+P02188     MOVE ZERO                       TO L1680-NUMBER-OF-YEARS.
+P02188     MOVE ZERO                       TO L1680-NUMBER-OF-MONTHS.
+P02188     MOVE ZERO                       TO L1680-NUMBER-OF-DAYS
+P02188     PERFORM 1680-3000-ADD-Y-M-D-TO-DATE
+P02188        THRU 1680-3000-ADD-Y-M-D-TO-DATE-X.
+P02188     MOVE L1680-INTERNAL-2           TO WS-GLOB-PROCESSDATE.
+P02188   
+P02188     MOVE WGLOB-PROCESS-DATE         TO L1680-INTERNAL-1.
+P02188     MOVE ZERO                       TO L1680-NUMBER-OF-YEARS.
+P02188     MOVE ZERO                       TO L1680-NUMBER-OF-MONTHS.
+P02188   
+P02188     IF WS-GLOB-PROCESSDATE = RUSEC-USER-ID-CREAT-DT
+P02188         MOVE 15                     TO L1680-NUMBER-OF-DAYS
+P02188         SET RUSEC-USER-LOGIN-FIRST  TO TRUE
+P02188     ELSE
+P02188         MOVE 30                     TO L1680-NUMBER-OF-DAYS
+P02188         SET RUSEC-USER-LOGIN-OTHER  TO TRUE
+P02188     END-IF.
+P02188   
+P02188     PERFORM 1680-3000-ADD-Y-M-D-TO-DATE
+P02188        THRU 1680-3000-ADD-Y-M-D-TO-DATE-X.
+P02188     MOVE L1680-INTERNAL-2           TO RUSEC-USER-ID-XPRY-DT.
+
+**********
+********** SET TO SYSTEM DATE BEFORE THE SIGN ON PASSWORD CHANGE IS
+********** IMPLEMENTED
+**********
+           IF NOT WPASS-PASSWORD-IN-ERROR
+013578*        MOVE WWKDT-ZERO-DT     TO RUSEC-USER-PSWD-CHNG-DT
+01MI06*        MOVE WGLOB-SYSTEM-DATE-INT TO RUSEC-USER-PSWD-CHNG-DT
+01MI06         MOVE WWKDT-ZERO-DT     TO RUSEC-USER-PSWD-CHNG-DT
+01MI06         MOVE RUSEC-PREV-PSWD-7-TXT      TO RUSEC-PREV-PSWD-8-TXT
+01MI06         MOVE RUSEC-PREV-PSWD-6-TXT      TO RUSEC-PREV-PSWD-7-TXT
+01MI06         MOVE RUSEC-PREV-PSWD-5-TXT      TO RUSEC-PREV-PSWD-6-TXT
+01MI06         MOVE RUSEC-PREV-PSWD-4-TXT      TO RUSEC-PREV-PSWD-5-TXT
+01MI06         MOVE RUSEC-PREV-PSWD-3-TXT      TO RUSEC-PREV-PSWD-4-TXT
+01MI06         MOVE RUSEC-PREV-PSWD-2-TXT      TO RUSEC-PREV-PSWD-3-TXT
+01MI06         MOVE RUSEC-PREV-PSWD-1-TXT      TO RUSEC-PREV-PSWD-2-TXT
+01MI06         MOVE RUSEC-USER-PSWD-TXT        TO RUSEC-PREV-PSWD-1-TXT
+02MI01*        MOVE MIR-USER-PSWD-TXT TO RUSEC-USER-PSWD-TXT
+02MI01         MOVE L9684-OUTPUT-STRING TO RUSEC-USER-PSWD-TXT
+01MI06*MSG: PASSWORD RESET COMPLETE.
+01MI06        MOVE 'XS01009001'               TO WGLOB-MSG-REF-INFO
+01MI06        PERFORM  0260-1000-GENERATE-MESSAGE
+01MI06            THRU 0260-1000-GENERATE-MESSAGE-X
+557660     END-IF.
+
+       2337-EDIT-PASSWORD-X.
+           EXIT.
+      /
+      *---------------------
+       2338-EDIT-DEPARTMENT.
+      *---------------------
+
+           IF MIR-DEPT-ID = EBLCH-BLANK-FIELD-CHAR
+              MOVE SPACE              TO MIR-DEPT-ID
+557660     END-IF.
+
+           MOVE MIR-DEPT-ID           TO WXTAB-ETBL-VALU-ID.
+           PERFORM DEPT-1000-EDIT-DEPT-CD
+              THRU DEPT-1000-EDIT-DEPT-CD-X.
+
+           IF WXTAB-IO-OK
+               MOVE MIR-DEPT-ID       TO RUSEC-DEPT-ID
+           ELSE
+               MOVE 'XS01000009'      TO WGLOB-MSG-REF-INFO
+               PERFORM 0260-1000-GENERATE-MESSAGE
+                   THRU 0260-1000-GENERATE-MESSAGE-X
+557660     END-IF.
+
+       2338-EDIT-DEPARTMENT-X.
+           EXIT.
+      /
+      *-----------------------
+       2339-EDIT-DISTRIBUTION.
+      *-----------------------
+
+           IF MIR-USER-RPT-DSTRB-CD = EBLCH-BLANK-FIELD-CHAR
+              MOVE SPACE              TO MIR-USER-RPT-DSTRB-CD
+557660     END-IF.
+
+           MOVE MIR-USER-RPT-DSTRB-CD TO WXTAB-ETBL-VALU-ID.
+           PERFORM DIST-1000-EDIT-DIST-CD
+              THRU DIST-1000-EDIT-DIST-CD-X.
+
+           IF WXTAB-IO-OK
+               MOVE MIR-USER-RPT-DSTRB-CD          
+                                      TO RUSEC-USER-RPT-DSTRB-CD
+           ELSE
+               MOVE 'XS01000010'      TO WGLOB-MSG-REF-INFO
+               PERFORM 0260-1000-GENERATE-MESSAGE
+                   THRU 0260-1000-GENERATE-MESSAGE-X
+557660     END-IF.
+
+       2339-EDIT-DISTRIBUTION-X.
+           EXIT.
+      /
+SMI01a*--------------------------
+SMI01a 233A-EDIT-EMPLOYEE.
+SMI01a*--------------------------
+SMI01a 
+SMI01a     IF MIR-MLJ-EMPLE-ID = EBLCH-BLANK-FIELD-CHAR
+SMI01a         MOVE ZERO              TO MIR-MLJ-EMPLE-ID
+SMI01a     END-IF.
+SMI01a 
+SMI01a     MOVE MIR-MLJ-EMPLE-ID      TO L0280-INPUT-DATA.
+SMI01a     MOVE 'N'                   TO L0280-SIGN-IND.
+SMI01a     MOVE +6                    TO L0280-LENGTH.
+SMI01a     MOVE ZERO                  TO L0280-PRECISION.
+SMI01a     MOVE 'Y'                   TO L0280-SPACE-PERMITTED-IND.
+SMI01a     PERFORM 0280-1000-NUMERIC-EDIT
+SMI01a        THRU 0280-1000-NUMERIC-EDIT-X.
+SMI01a 
+SMI01a     IF L0280-OK
+SMI01a         MOVE L0280-OUTPUT      TO RUSEC-MLJ-EMPLE-ID-N
+SMI01a         MOVE RUSEC-MLJ-EMPLE-ID
+SMI01a                                TO L0290-INPUT-NUMBER
+SMI01a         MOVE 'N'               TO L0290-SIGN-IND
+SMI01a         MOVE ZERO              TO L0290-PRECISION
+SMI01a         MOVE +6                TO L0290-MAX-OUT-LEN
+SMI01a         SET L0290-DCML-SUPPRESS TO TRUE
+SMI01a         PERFORM 0290-1000-NUMERIC-FORMAT
+SMI01a            THRU 0290-1000-NUMERIC-FORMAT-X
+SMI01a 
+SMI01a         MOVE L0290-OUTPUT-DATA TO MIR-MLJ-EMPLE-ID
+SMI01a     ELSE
+SMI01a* MSG EMPLOYEE CODE NOT NUMERIC
+SMI01a         MOVE 'XS01000011'      TO WGLOB-MSG-REF-INFO
+SMI01a         PERFORM 0260-1000-GENERATE-MESSAGE
+SMI01a             THRU 0260-1000-GENERATE-MESSAGE-X
+SMI01a     END-IF.
+SMI01a 
+SMI01a 233A-EDIT-EMPLOYEE-X.
+SMI01a     EXIT.
+SMI01a/
+SMI01a*--------------------------
+SMI01a 233B-EDIT-PIT.
+SMI01a*--------------------------
+SMI01a 
+SMI01a     IF MIR-PIT-ID = EBLCH-BLANK-FIELD-CHAR
+SMI01a         MOVE ZERO              TO MIR-PIT-ID
+SMI01a     END-IF.
+SMI01a 
+SMI01a     MOVE MIR-PIT-ID            TO L0280-INPUT-DATA.
+SMI01a     MOVE 'N'                   TO L0280-SIGN-IND.
+SMI01a     MOVE +10                   TO L0280-LENGTH.
+SMI01a     MOVE ZERO                  TO L0280-PRECISION.
+SMI01a     MOVE 'Y'                   TO L0280-SPACE-PERMITTED-IND.
+SMI01a     PERFORM 0280-1000-NUMERIC-EDIT
+SMI01a        THRU 0280-1000-NUMERIC-EDIT-X.
+SMI01a 
+SMI01a     IF L0280-OK
+SMI01a         MOVE L0280-OUTPUT      TO RUSEC-PIT-ID-N
+SMI01a         MOVE RUSEC-PIT-ID      TO L0290-INPUT-NUMBER
+SMI01a         MOVE 'N'               TO L0290-SIGN-IND
+SMI01a         MOVE ZERO              TO L0290-PRECISION
+SMI01a         MOVE +10               TO L0290-MAX-OUT-LEN
+SMI01a         SET L0290-DCML-SUPPRESS TO TRUE
+SMI01a         PERFORM 0290-1000-NUMERIC-FORMAT
+SMI01a            THRU 0290-1000-NUMERIC-FORMAT-X
+SMI01a 
+SMI01a         MOVE L0290-OUTPUT-DATA TO MIR-PIT-ID
+SMI01a     ELSE
+SMI01a* MSG PIT ID NOT NUMERIC
+SMI01a         MOVE 'XS01000012'      TO WGLOB-MSG-REF-INFO
+SMI01a         PERFORM 0260-1000-GENERATE-MESSAGE
+SMI01a             THRU 0260-1000-GENERATE-MESSAGE-X
+SMI01a     END-IF.
+SMI01a 
+SMI01a 233B-EDIT-PIT-X.
+SMI01a     EXIT.
+SMI01a/
+UYS100
+UYS100*---------------------
+UYS100 233C-EDIT-POL-ADMIN.
+UYS100*---------------------
+UYS100
+UYS100     IF  MIR-POL-ADMIN-CLAS-CD  = EBLCH-BLANK-FIELD-CHAR
+UYS100         MOVE SPACES                  TO  MIR-POL-ADMIN-CLAS-CD
+UYS100     END-IF.
+UYS100
+UYS100     MOVE MIR-POL-ADMIN-CLAS-CD       TO WXTAB-ETBL-VALU-ID.
+UYS100     MOVE 'PADCL'                     TO WXTAB-ETBL-TYP-ID.
+UYS100     MOVE WGLOB-EDIT-LANG             TO WXTAB-ETBL-LANG-CD.
+UYS100 
+UYS100     PERFORM  XTAB-1000-READ
+UYS100         THRU XTAB-1000-READ-X.
+UYS100     IF  WXTAB-IO-OK
+UYS100         MOVE MIR-POL-ADMIN-CLAS-CD   TO RUSEC-POL-ADMIN-CLAS-CD
+UYS100     ELSE
+UYS100         MOVE 'XS01000013'            TO WGLOB-MSG-REF-INFO
+UYS100         PERFORM  0260-1000-GENERATE-MESSAGE
+UYS100             THRU 0260-1000-GENERATE-MESSAGE-X
+UYS100     END-IF.
+UYS100
+UYS100 233C-EDIT-POL-ADMIN-X.
+UYS100     EXIT.
+UYS100/
+      *------------------------
+       2340-UPDATE-USCL-COUNTS.
+      *------------------------
+
+           IF MIR-SECUR-CLAS-ID = RUSEC-SECUR-CLAS-ID
+              GO TO 2340-UPDATE-USCL-COUNTS-X
+557660     END-IF.
+
+           MOVE MIR-SECUR-CLAS-ID     TO WUSCL-SECUR-CLAS-ID.
+           PERFORM USCL-1000-READ-FOR-UPDATE
+              THRU USCL-1000-READ-FOR-UPDATE-X.
+
+           IF WUSCL-IO-OK
+               ADD +1                 TO RUSCL-SECUR-USER-CTR
+               PERFORM USCL-2000-REWRITE
+                  THRU USCL-2000-REWRITE-X
+
+           ELSE
+               MOVE WUSCL-KEY         TO WGLOB-MSG-PARM (1)
+               MOVE 'XS00000006'      TO WGLOB-MSG-REF-INFO
+               PERFORM  0260-1000-GENERATE-MESSAGE
+                   THRU 0260-1000-GENERATE-MESSAGE-X
+
+               GO TO 2340-UPDATE-USCL-COUNTS-X
+557660     END-IF.
+
+           IF RUSEC-SECUR-CLAS-ID  = SPACES
+               GO TO 2340-UPDATE-USCL-COUNTS-X
+557660     END-IF.
+
+           MOVE RUSEC-SECUR-CLAS-ID   TO WUSCL-SECUR-CLAS-ID.
+           PERFORM USCL-1000-READ-FOR-UPDATE
+              THRU USCL-1000-READ-FOR-UPDATE-X.
+
+           IF WUSCL-IO-OK
+               ADD -1                 TO RUSCL-SECUR-USER-CTR
+               PERFORM USCL-2000-REWRITE
+                  THRU USCL-2000-REWRITE-X
+
+           ELSE
+               MOVE WUSCL-KEY         TO WGLOB-MSG-PARM (1)
+               MOVE 'XS00000006'      TO WGLOB-MSG-REF-INFO
+               PERFORM  0260-1000-GENERATE-MESSAGE
+                   THRU 0260-1000-GENERATE-MESSAGE-X
+557660     END-IF.
+
+       2340-UPDATE-USCL-COUNTS-X.
+           EXIT.
+      /
+      *--------------------
+       2400-PROCESS-DELETE.
+      *--------------------
+
+           MOVE MIR-USER-ID           TO WUSEC-USER-ID.
+           PERFORM  USEC-1000-READ-FOR-UPDATE
+               THRU USEC-1000-READ-FOR-UPDATE-X.
+
+           IF WUSEC-IO-OK
+              PERFORM 2440-UPDATE-USCL-COUNT
+                 THRU 2440-UPDATE-USCL-COUNT-X
+
+              IF WS-USCL-COUNT-UPDATED
+                 PERFORM  USEC-1000-DELETE
+                     THRU USEC-1000-DELETE-X
+
+                 MOVE 'XS00000011'    TO WGLOB-MSG-REF-INFO
+                 PERFORM  0260-1000-GENERATE-MESSAGE
+                     THRU 0260-1000-GENERATE-MESSAGE-X
+
+557660        END-IF
+557660***     ELSE
+557660***        NEXT SENTENCE
+           ELSE
+              MOVE WUSEC-KEY          TO WGLOB-MSG-PARM (1)
+              MOVE 'XS00000010'       TO WGLOB-MSG-REF-INFO
+              PERFORM  0260-1000-GENERATE-MESSAGE
+                  THRU 0260-1000-GENERATE-MESSAGE-X
+557660     END-IF.
+
+
+       2400-PROCESS-DELETE-X.
+           EXIT.
+      /
+      *-----------------------
+       2440-UPDATE-USCL-COUNT.
+      *-----------------------
+
+           MOVE SPACES                TO WS-USCL-COUNT-FLAG.
+
+           IF RUSEC-SECUR-CLAS-ID  NOT > SPACE
+              MOVE 'Y'                TO WS-USCL-COUNT-FLAG
+              GO TO 2440-UPDATE-USCL-COUNT-X
+557660     END-IF.
+
+           MOVE RUSEC-SECUR-CLAS-ID   TO WUSCL-SECUR-CLAS-ID.
+           PERFORM USCL-1000-READ-FOR-UPDATE
+              THRU USCL-1000-READ-FOR-UPDATE-X.
+
+           IF WUSCL-IO-OK
+               ADD -1                 TO RUSCL-SECUR-USER-CTR
+               MOVE 'Y'               TO WS-USCL-COUNT-FLAG
+               PERFORM USCL-2000-REWRITE
+                  THRU USCL-2000-REWRITE-X
+
+           ELSE
+               MOVE WUSCL-KEY         TO WGLOB-MSG-PARM (1)
+               MOVE 'XS01000007'      TO WGLOB-MSG-REF-INFO
+               PERFORM  0260-1000-GENERATE-MESSAGE
+                   THRU 0260-1000-GENERATE-MESSAGE-X
+557660     END-IF.
+
+       2440-UPDATE-USCL-COUNT-X.
+           EXIT.
+      /
+      *------------------
+       2500-PROCESS-LIST.
+      *------------------
+
+
+           MOVE SPACES                TO MIR-USER-ID-G.
+           MOVE SPACES                TO MIR-USER-LANG-CD-G.
+           MOVE SPACES                TO MIR-SECUR-CLAS-ID-G.
+           MOVE SPACES                TO MIR-USER-PSWD-XPRY-DUR-G.
+           MOVE SPACES                TO MIR-USER-PSWD-TXT-G.
+           MOVE SPACES                TO MIR-DEPT-ID-G.
+           MOVE SPACES                TO MIR-BR-ID-G.
+           MOVE SPACES                TO MIR-PRTR-ID-G.
+SMI01a     MOVE SPACES                TO MIR-KA-GIV-NM-G.
+SMI01a     MOVE SPACES                TO MIR-KA-SUR-NM-G.
+MP310B     MOVE SPACES                TO MIR-UW-CLAS-CD-G.
+UYS100     MOVE SPACES                      TO 
+UYS100                                       MIR-POL-ADMIN-CLAS-CD-G.
+
+           MOVE LOW-VALUES            TO WUSEC-KEY.
+           MOVE HIGH-VALUES           TO WUSEC-ENDBR-KEY.
+           MOVE MIR-USER-ID           TO WUSEC-USER-ID.
+
+           PERFORM USEC-1000-BROWSE
+              THRU USEC-1000-BROWSE-X.
+
+           IF WUSEC-IO-EOF
+53-064        MOVE 'XS00000034'       TO WGLOB-MSG-REF-INFO
+              PERFORM  0260-1000-GENERATE-MESSAGE
+                  THRU 0260-1000-GENERATE-MESSAGE-X
+
+              GO TO 2500-PROCESS-LIST-X
+           ELSE
+              PERFORM  USEC-2000-READ-NEXT
+                  THRU USEC-2000-READ-NEXT-X
+
+              IF WUSEC-IO-EOF
+                 MOVE 'XS00000025'    TO WGLOB-MSG-REF-INFO
+                 PERFORM  0260-1000-GENERATE-MESSAGE
+                     THRU 0260-1000-GENERATE-MESSAGE-X
+
+                 GO TO 2500-PROCESS-LIST-X
+557660        END-IF
+557660     END-IF.
+
+557660     PERFORM  2510-PROCESS-LIST-READ
+557660        THRU  2510-PROCESS-LIST-READ-X VARYING WS-SUB FROM +1
+                    BY +1 UNTIL WS-SUB > WS-MAX-BROWSE-LINES OR
+                    WUSEC-IO-EOF.
+
+           IF WUSEC-IO-EOF
+              MOVE 'XS00000025'       TO WGLOB-MSG-REF-INFO
+              PERFORM  0260-1000-GENERATE-MESSAGE
+                  THRU 0260-1000-GENERATE-MESSAGE-X
+
+           ELSE
+              MOVE 'XS00000014'       TO WGLOB-MSG-REF-INFO
+53-064        SET WGLOB-MORE-DATA-EXISTS TO TRUE
+              PERFORM  0260-1000-GENERATE-MESSAGE
+                  THRU 0260-1000-GENERATE-MESSAGE-X
+557660     END-IF.
+
+           PERFORM  USEC-3000-END-BROWSE
+               THRU USEC-3000-END-BROWSE-X.
+
+       2500-PROCESS-LIST-X.
+           EXIT.
+      /
+      *-------------------------
+       2510-PROCESS-LIST-READ.
+      *-------------------------
+
+           MOVE RUSEC-USER-ID         TO MIR-USER-ID-T  (WS-SUB).
+           MOVE RUSEC-USER-LANG-CD    TO MIR-USER-LANG-CD-T  (WS-SUB).
+           MOVE RUSEC-SECUR-CLAS-ID   TO MIR-SECUR-CLAS-ID-T (WS-SUB).
+           MOVE RUSEC-USER-PSWD-XPRY-DUR
+                                      TO L0290-INPUT-NUMBER.
+           MOVE 'N'                   TO L0290-SIGN-IND.
+008455*    MOVE +4                       TO L0290-LENGTH.
+           MOVE ZERO                  TO L0290-PRECISION.
+008455     MOVE +4                    TO L0290-MAX-OUT-LEN.
+008455     SET L0290-DCML-SUPPRESS       TO TRUE.
+           PERFORM 0290-1000-NUMERIC-FORMAT
+              THRU 0290-1000-NUMERIC-FORMAT-X.
+
+           MOVE L0290-OUTPUT-DATA  TO MIR-USER-PSWD-XPRY-DUR-T (WS-SUB).
+           MOVE RUSEC-USER-PSWD-TXT   TO MIR-USER-PSWD-TXT-T (WS-SUB).
+           MOVE RUSEC-DEPT-ID         TO MIR-DEPT-ID-T (WS-SUB).
+           MOVE RUSEC-BR-ID           TO MIR-BR-ID-T  (WS-SUB).
+           MOVE RUSEC-PRTR-ID         TO MIR-PRTR-ID-T (WS-SUB).
+SMI01a     MOVE RUSEC-KA-GIV-NM       TO MIR-KA-GIV-NM-T (WS-SUB).
+SMI01a     MOVE RUSEC-KA-SUR-NM       TO MIR-KA-SUR-NM-T (WS-SUB).
+MP310B     MOVE RUSEC-UW-CLAS-CD      TO MIR-UW-CLAS-CD-T (WS-SUB).
+UYS100     MOVE RUSEC-POL-ADMIN-CLAS-CD     TO
+UYS100                               MIR-POL-ADMIN-CLAS-CD-T (WS-SUB).
+           PERFORM  USEC-2000-READ-NEXT
+               THRU USEC-2000-READ-NEXT-X.
+
+           IF WS-SUB = WS-MAX-BROWSE-LINES
+              IF WUSEC-IO-OK
+                 MOVE RUSEC-USER-ID   TO MIR-USER-ID
+557660        END-IF
+557660     END-IF.
+
+       2510-PROCESS-LIST-READ-X.
+           EXIT.
+      /
+      *-----------------------
+       9100-BLANK-DATA-FIELDS.
+      *-----------------------
+
+           MOVE SPACES                TO MIR-IO-AREA.
+           MOVE WUSEC-USER-ID         TO MIR-USER-ID.
+
+       9100-BLANK-DATA-FIELDS-X.
+           EXIT.
+      /
+      *---------------------------
+       9200-MOVE-RECORD-TO-SCREEN.
+      *---------------------------
+
+           MOVE RUSEC-USER-ID         TO MIR-USER-ID.
+           MOVE RUSEC-USER-LANG-CD    TO MIR-USER-LANG-CD.
+           MOVE RUSEC-PRTR-ID         TO MIR-PRTR-ID.
+           MOVE RUSEC-SECUR-CLAS-ID   TO MIR-SECUR-CLAS-ID.
+           MOVE RUSEC-BR-ID           TO MIR-BR-ID.
+           MOVE RUSEC-DEPT-ID         TO MIR-DEPT-ID.
+           MOVE RUSEC-USER-RPT-DSTRB-CD 
+                                      TO MIR-USER-RPT-DSTRB-CD.
+           MOVE RUSEC-USER-PSWD-XPRY-DUR
+                                      TO L0290-INPUT-NUMBER.
+           MOVE 'N'                   TO L0290-SIGN-IND.
+008455*    MOVE +4                       TO L0290-LENGTH.
+           MOVE ZERO                  TO L0290-PRECISION.
+008455     MOVE +4                    TO L0290-MAX-OUT-LEN.
+008455     SET L0290-DCML-SUPPRESS       TO TRUE.
+           PERFORM 0290-1000-NUMERIC-FORMAT
+              THRU 0290-1000-NUMERIC-FORMAT-X.
+
+           MOVE L0290-OUTPUT-DATA     TO MIR-USER-PSWD-XPRY-DUR.
+01MI06*    MOVE RUSEC-USER-PSWD-TXT   TO MIR-USER-PSWD-TXT.
+SMI01a     MOVE RUSEC-KA-GIV-NM       TO MIR-KA-GIV-NM.
+SMI01a     MOVE RUSEC-KA-SUR-NM       TO MIR-KA-SUR-NM.
+SMI01a     MOVE RUSEC-KJ-GIV-NM       TO MIR-KJ-GIV-NM.
+SMI01a     MOVE RUSEC-KJ-SUR-NM       TO MIR-KJ-SUR-NM.
+SMI01a     MOVE RUSEC-MLJ-EMPLE-ID    TO MIR-MLJ-EMPLE-ID.
+SMI01a     MOVE RUSEC-PIT-ID          TO MIR-PIT-ID.
+MP310B     MOVE RUSEC-UW-CLAS-CD      TO MIR-UW-CLAS-CD.
+UYS100     MOVE RUSEC-POL-ADMIN-CLAS-CD     TO MIR-POL-ADMIN-CLAS-CD.
+
+       9200-MOVE-RECORD-TO-SCREEN-X.
+           EXIT.
+      /
+      *--------------------------
+       9300-SETUP-MSIN-REFERENCE.
+      *--------------------------
+
+           MOVE SPACES                TO WGLOB-MSIN-REFERENCE.
+           MOVE WGLOB-COMPANY-CODE    TO WGLOB-REF-COMPANY-CODE.
+
+       9300-SETUP-MSIN-REFERENCE-X.
+           EXIT.
+      /
+       COPY XCPPINIT.
+
+       COPY XCPPEXIT.
+      /
+       COPY XCPEBRCH.
+      /
+       COPY XCPEDEPT.
+      /
+       COPY XCPEDIST.
+      /
+       COPY XCPELANG.
+      /
+54-001 COPY XCPPPASS.
+      /
+557698 COPY XCPS0005.
+557698 COPY XCPL0005.
+      /
+       COPY XCPL0280.
+      /
+008455 COPY XCPS0290.
+       COPY XCPL0290.
+      /
+       COPY XCCL0260.
+P02188 COPY XCPL1680.
+      /
+014660*COPY XCPPMEXT.
+      /
+557708*COPY XCCPHNDL.
+557708 COPY XCCPABND.
+       COPY XCCP0030.
+      /
+02MI01 COPY XCCL9684.
+02MI01 COPY XCPS9684.
+      /
+      *****************************************************************
+      *  FILE I/O PROCESS MODULES
+      *****************************************************************
+       COPY XCPBUSEC.
+      /
+       COPY XCPNUSEC.
+      /
+       COPY XCPUUSEC.
+      /
+       COPY XCPAUSEC.
+      /
+       COPY XCPCUSEC.
+      /
+       COPY XCPXUSEC.
+      /
+       COPY XCPNUSCL.
+      /
+       COPY XCPUUSCL.
+      /
+       COPY XCPNPRTR.
+      /
+       COPY XCPNXTAB.
+ 
+      *****************************************************************
+      **                   END OF PROGRAM XSOM0100                   **
+      *****************************************************************

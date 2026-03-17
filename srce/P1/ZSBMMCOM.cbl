@@ -1,0 +1,691 @@
+      *************************
+       IDENTIFICATION DIVISION.
+      *************************
+
+       PROGRAM-ID. ZSBMMCOM.
+
+       COPY XCWWCRHT.
+
+      *****************************************************************
+      **  MEMBER : CSBMMCOM                                          **
+      **  REMARKS: ONE SHOT PROGAM FOR COMMISSION RECORD LAYOUT      **
+      **           CHANGE                                            **
+      **           THIS MODULE WILL CONVERT OLD TP88 AND NB88        **
+      **           FILE FORMAT IN TO NEW AT88 FILE FORMAT            **
+      **  DOMAIN : AG                                                **
+      **  CLASS  : PD                                                **
+      *****************************************************************
+      **  DATE      AUTH.  DESCRIPTION                               **
+      **                                                             **
+NWLCOM**  08OCTG09  CTS    CREATION OF MODULE                        **
+MP143C**  15FEB11   CTS    ADD ADVANCED MEDICAL BENEFIT INDICATOR    ** 
+MP161H**  22DEC11   CTS    ADD TWO NEW FIELDS WP INDICATOR AND       ** 
+MP161H**                   INSURED GENDER FOR NIP                    **
+MP181A**  08MAY12   CTS    CHANGES DONE FOR APL COMMISSIONS - MGA    **
+MP181A**                   AND WMD CHANNEL POLICIES                  **
+TVI004**  31JUL12  CTS    CHANGES FOR TVI COMMISSIONS                **
+M245E1**  27MAY14   CTS   CHANGES FOR SPWL COMMISSIONS               **
+M319C1**  24JUL17   CTS   CHANGES DONE AS PART OF FXWL               **
+FFF10L**  15OCT20   CTS   CHANGES FOR CR COMMISIONS                  **
+TMCR14**  18DEC20   CTS   CHANGES FOR NWL CR14 & FFF SMBC COMMISSIONS**
+FFCR80**  03MAR22   CTS   CHANGES FOR FFF COMMISSION CR80 CHANGES    **
+UYS019**  18JAN23   CTS   CHANGES FOR COLI COMMISSION CHANGES        **
+S24009**  10APR23   CTS   CHANGES FOR COMMISSION CHANGES             **
+NV3C01**  23FEB23  CTS    COMMISSION CHANGES FOR SULV3               **
+MOR137**  21MAY24  CTS    FIX FOR NEW FIELD IN MCOM FOR NCT POLICY   **
+      *****************************************************************
+      /
+      **********************
+       ENVIRONMENT DIVISION.
+      **********************
+
+       INPUT-OUTPUT SECTION.
+
+       FILE-CONTROL.
+
+           SELECT CIPF-DATA-FILE ASSIGN     TO ZSCIPF
+                  ORGANIZATION   IS LINE SEQUENTIAL
+                  ACCESS         IS SEQUENTIAL
+                  FILE STATUS    IS WCIPF-SEQ-FILE-STATUS.
+
+
+      /
+      ***************
+       DATA DIVISION.
+      ***************
+
+       FILE SECTION.
+
+       FD  CIPF-DATA-FILE
+           RECORDING MODE IS F
+           BLOCK CONTAINS 0 RECORDS
+           LABEL RECORDS ARE STANDARD.
+
+MP161H* 01  RCIPF-SEQ-REC-INFO               PIC X(473). 
+MP181A*MP161H  01  RCIPF-SEQ-REC-INFO               PIC X(518).
+TVI004*MP181A  01  RCIPF-SEQ-REC-INFO               PIC X(553).
+M245E1*TVI004  01  RCIPF-SEQ-REC-INFO               PIC X(566).
+M319C1*M245E1  01  RCIPF-SEQ-REC-INFO               PIC X(589).
+FFF10L*M319C1  01  RCIPF-SEQ-REC-INFO               PIC X(610).
+TMCR14*FFF10L  01  RCIPF-SEQ-REC-INFO               PIC X(634).
+FFCR80*TMCR14  01  RCIPF-SEQ-REC-INFO               PIC X(640).
+UYS019*FFCR80  01  RCIPF-SEQ-REC-INFO               PIC X(663).
+NV3C01*UYS019  01  RCIPF-SEQ-REC-INFO               PIC X(690).
+MOR137*NV3C01  01  RCIPF-SEQ-REC-INFO               PIC X(703).
+MOR137  01  RCIPF-SEQ-REC-INFO               PIC X(716).
+
+      *************************
+       WORKING-STORAGE SECTION.
+      *************************
+       COPY XCWWPGWS REPLACING '$VAR1' BY 'ZSBMMCOM'.
+
+       COPY SQLCA.
+      /
+       COPY XCWL0035.
+
+       COPY XCWWHDG.
+      /
+MP143C*       01  WS-AT88-SEQ-REC-INFO.
+MP143C*           05  WS-OLD-AT88-SEQ-REC-INFO     PIC X(473).
+MP143C*           05  WS-ADDED-AT88-SEQ-REC-INFO.
+MP143C*               10  WS-PREM-PMT-PERI         PIC 9(03).
+MP143C*               10  WS-INSRD-RT-AGE          PIC 9(03).
+MP143C*               10  WS-CWA-PRCES-DT          PIC X(10).
+MP143C*               10  WS-LIAB-STRT-DT          PIC X(10).
+MP143C*               10  WS-PREM-PD-DT            PIC X(10).
+MP143C*               10  WS-POL-CHNL-CD           PIC X(01).
+MP143C*               10  WS-CVG-ME-DUR            PIC 9(03).
+
+MP161H*MP143C 01  WS-AT88-SEQ-REC-INFO.
+MP161H*MP143C     05  WS-OLD-AT88-SEQ-REC-INFO     PIC X(513).
+MP161H*MP143C     05  WS-ADDED-AT88-SEQ-REC-INFO.
+MP161H*MP143C         10  WS-ADV-MED-BNFT-IND      PIC X(01).
+
+
+MP181A*MP161H 01  WS-AT88-SEQ-REC-INFO.
+MP181A*MP161H     05  WS-OLD-AT88-SEQ-REC-INFO     PIC X(516).
+MP181A*MP161H     05  WS-ADDED-AT88-SEQ-REC-INFO.
+MP181A*MP161H         10  WS-WP-IND                PIC X(01).
+MP181A*MP161H         10  WS-INSRD-SEX-CD          PIC X(01).
+TVI004*MP181A 01  WS-AT88-SEQ-REC-INFO.
+TVI004*MP181A     05  WS-OLD-AT88-SEQ-REC-INFO     PIC X(529).
+TVI004*MP181A     05  WS-ADDED-AT88-SEQ-REC-INFO.
+TVI004*MP181A         10  WS-APL-PREM-IND          PIC X(01).
+TVI004*MP181A         10  WS-APL-BAL-AMT           PIC 9(13).
+TVI004*MP181A         10  WS-APL-EFF-DT            PIC X(10).
+M245E1*TVI004 01  WS-AT88-SEQ-REC-INFO.
+M245E1*TVI004     05  WS-OLD-AT88-SEQ-REC-INFO     PIC X(553).
+M245E1*TVI004     05  WS-ADDED-AT88-SEQ-REC-INFO.
+M245E1*TVI004         10 WS-ISS-STD-PREM-AMT          PIC 9(13).
+M319C1*M245E1 01  WS-AT88-SEQ-REC-INFO.
+M319C1*M245E1     05  WS-OLD-AT88-SEQ-REC-INFO     PIC X(566).
+M319C1*M245E1     05  WS-ADDED-AT88-SEQ-REC-INFO.
+M319C1*M245E1         10 WS-SNGL-PREM-AMT          PIC 9(13).
+M319C1*M245E1         10 WS-PMT-CRCY-CD            PIC X(02).
+M319C1*M245E1         10 WS-TTM-RT-ISSDT           PIC X(08).
+FFF10L*M319C1 01  WS-AT88-SEQ-REC-INFO.
+FFF10L*M319C1     05  WS-OLD-AT88-SEQ-REC-INFO     PIC X(610).
+FFF10L*M319C1     05  WS-ADDED-AT88-SEQ-REC-INFO.
+FFF10L*M319C1         10 WS-TTM-RT-FST-COMMDT      PIC 9(08).
+FFF10L*M319C1         10 WS-MPREM-AMT              PIC 9(13).
+TMCR14*FFF10L 01  WS-AT88-SEQ-REC-INFO.
+TMCR14*FFF10L     05  WS-OLD-AT88-SEQ-REC-INFO     PIC X(634).
+TMCR14*FFF10L     05  WS-ADDED-AT88-SEQ-REC-INFO.
+TMCR14*FFF10L         10 WS-ACCUM-PREM-PMT-DUR     PIC 9(05).
+TMCR14*FFF10L         10 WS-FULL-ADV-PMT-IND       PIC X(01).
+TMCR14*FFF10L            88 WS-FULL-ADV-PMT-YES    VALUE '1'.
+TMCR14*FFF10L            88 WS-FULL-ADV-PMT-NO     VALUE '0'.  
+FFCR80*TMCR14 
+FFCR80*TMCR14 01  WS-AT88-SEQ-REC-INFO.
+FFCR80*TMCR14     05  WS-OLD-AT88-SEQ-REC-INFO     PIC X(640).
+FFCR80*TMCR14     05  WS-ADDED-AT88-SEQ-REC-INFO.
+FFCR80*TMCR14         10  WS-TTM-RT-LST-BUSDT      PIC 9(08).
+FFCR80*TMCR14         10  WS-REISS-CD              PIC 9(01).
+FFCR80*TMCR14            88  WS-REISS-YES          VALUE 1 .
+FFCR80*TMCR14            88  WS-REISS-NO           VALUE 0 .
+FFCR80*TMCR14         10 WS-MTHLY-PREM-AMT         PIC 9(13).
+FFCR80*TMCR14         10 WS-PREM-PMT-CMPLT-IND     PIC X(01).
+FFCR80*TMCR14            88  WS-PREM-PMT-CMPLT-YES VALUE 'Y'.
+FFCR80*TMCR14            88  WS-PREM-PMT-CMPLT-NO  VALUE 'N'.
+FFCR80*TMCR14 
+UYS019*FFCR80 01  WS-AT88-SEQ-REC-INFO.
+UYS019*FFCR80     05  WS-OLD-AT88-SEQ-REC-INFO     PIC X(663).
+UYS019*FFCR80     05  WS-ADDED-AT88-SEQ-REC-INFO.
+UYS019*FFCR80         10 WS-AD-HOC-PMT-IND         PIC X(01).
+UYS019*FFCR80            88  WS-AD-HOC-PMT-YES     VALUE 'Y'.
+UYS019*FFCR80            88  WS-AD-HOC-PMT-IND-NO  VALUE 'N'.
+UYS019
+NV3C01*UYS019 01  WS-AT88-SEQ-REC-INFO.
+NV3C01*UYS019     05  WS-OLD-AT88-SEQ-REC-INFO.    
+NV3C01*S24009         10  WS-AT88-SEQ-REC-INFO-1   PIC X(220).
+NV3C01*S24009         10  WS-LRG-PROD-CD           PIC X(03).
+NV3C01*SS4009 	       10  WS-SML-PROD-CD           PIC X(03).
+NV3C01*S24009         10  WS-AT88-SEQ-REC-INFO-2   PIC X(438).
+NV3C01*UYS019     05  WS-ADDED-AT88-SEQ-REC-INFO.
+NV3C01*UYS019	       10  WS-CANCER-TYP-CD         PIC X(02).
+NV3C01*UYS019	       10  WS-LOW-CSV-IND           PIC X(01).
+NV3C01*UYS019             88  WS-LOW-CSV-YES       VALUE '1'.
+NV3C01*UYS019             88  WS-LOW-CSV-NO        VALUE '0'.
+NV3C01*UYS019             88  WS-LOW-CSV-NLCSV     VALUE '2'.
+NV3C01*UYS019	       10  WS-FRST-POL-DUR          PIC X(02).
+NV3C01*UYS019	       10  WS-DED-EXP-TYP-CD	    PIC X(01).
+NV3C01*UYS019             88  WS-DED-EXP-TYP-1     VALUE '1'.
+NV3C01*UYS019             88  WS-DED-EXP-TYP-0     VALUE '0'.
+NV3C01*UYS019             88  WS-DED-EXP-TYP-2     VALUE '2'.
+NV3C01*UYS019         10  WS-BASE-SML-PROD-CD      PIC X(03).
+NV3C01*UYS019         10  WS-BASE-LRG-PROD-CD      PIC X(03).
+NV3C01*UYS019         10  WS-PROD-TYP-CD           PIC X(01).
+NV3C01*UYS019             88  WS-PROD-TYP-1        VALUE '1'.
+NV3C01*UYS019             88  WS-PROD-TYP-9        VALUE '9'.
+NV3C01*UYS019         10  WS-ISS-FACE-AMT          PIC 9(13).
+UYS019
+FFCR80      
+FFCR80*TMCR14
+FFCR80*TMCR14 01  WS-AREA.
+FFCR80*TMCR14     05  WS-TOT-PMT-PERI           PIC 9(03).
+FFCR80*TMCR14     05  WS-PREM-PMT-CMPLT-DT      PIC X(10).
+MOR137*NV3C01 01  WS-AT88-SEQ-REC-INFO.
+MOR137*NV3C01     05  WS-OLD-AT88-SEQ-REC-INFO     PIC X(690).
+MOR137*NV3C01     05  WS-ADDED-AT88-SEQ-REC-INFO.
+MOR137*NV3C01         10 WS-MTHLY-STD-PREM         PIC 9(13).
+MOR137 01  WS-AT88-SEQ-REC-INFO.
+MOR137     05  WS-OLD-AT88-SEQ-REC-INFO     PIC X(703).
+MOR137     05  WS-ADDED-AT88-SEQ-REC-INFO.
+MOR137         10 WS-ANN-PREM-LNG-TRM       PIC 9(13).
+UYS019
+UYS019 01  WS-AREA.
+UYS019     05  WS-CVG-NUM                   PIC X(02).
+UYS019     05  WS-CVG-NUM-N                 REDEFINES
+UYS019         WS-CVG-NUM                   PIC 9(02).
+UYS019     05  WS-CVG-MAT-AGE-CD            PIC X(02).
+UYS019         88  WS-CVG-MAT-AGE-45        VALUE '45'.
+ 
+              
+       01  WCIPF-SEQ-IO-WORK-AREA.
+           05  WCIPF-SEQ-FILE-NAME          PIC X(04)
+                                            VALUE 'CIPF'.
+           05  WCIPF-SEQ-IO-COMMAND         PIC X(02).
+           05  WCIPF-SEQ-FILE-STATUS        PIC X(02).
+           05  WCIPF-SEQ-IO-STATUS          PIC 9(01).
+               88  WCIPF-SEQ-IO-OK          VALUE 0.
+               88  WCIPF-SEQ-IO-NOT-FOUND   VALUE 7.
+               88  WCIPF-SEQ-IO-EOF         VALUE 8.
+               88  WCIPF-SEQ-IO-ERROR       VALUE 9.
+
+     /
+      *****************************************************************
+      *  COMMON COPYBOOKS                                             *
+      *****************************************************************
+       01  WGLOB-GLOBAL-AREA.
+       COPY XCWWGLOB.
+
+       COPY XCWWWKDT.
+       COPY XCWWTIME.
+      /
+       COPY XCWLDTLK.
+      /
+       COPY XCWTFCMD.
+      /
+       COPY CCWWCCC.
+      /
+       COPY CCWWINDX.
+      /
+       COPY CCSRTP88.
+       COPY CCSWTP88.
+TMCR14 COPY CCWWCVGS.
+      /
+      *****************************************************************
+      *  I/O COPYBOOKS                                                *
+      *****************************************************************
+      /
+       COPY XCSWOCF.
+       COPY XCSROCF.
+      /
+       COPY XCSWBCF.
+       COPY XCSRBCF.
+      /
+TMCR14 COPY CCFWPH.
+TMCR14 COPY CCFRPH.
+TMCR14/
+TMCR14 COPY CCFWCVG.
+TMCR14 COPY CCFRCVG.
+TMCR14 COPY CCFRPOL.
+UYS019 COPY CCFWPOL.
+UYS019 COPY CCFRETAB.
+UYS019 COPY CCFWETAB.
+UYS019 COPY CCFWTH.
+UYS019 COPY CCFRTH.
+UYS019 COPY NCFRTTAB.
+UYS019 COPY NCFWTTAB.
+TMCR14/
+      /
+      *****************************************************************
+      *  CALL MODULE PARAMETER INFORMATION                            *
+      *****************************************************************
+       COPY CCWLPGA.
+       COPY CCWL0010.
+       COPY XCWL0040.
+       COPY CCWL0950.
+      /
+       COPY XCWL2490.
+       COPY XCWL1670.
+       COPY XCWL1680.
+       COPY XCWL1640.
+      /
+TMCR14 COPY CCWLSTB3.
+      /
+UYS019 COPY XCWL1660.
+UYS019/
+      ********************
+       PROCEDURE DIVISION.
+      ********************
+
+      *---------------
+       0000-MAIN-LINE.
+      *---------------
+
+           PERFORM  0100-OPEN-FILES
+               THRU 0100-OPEN-FILES-X.
+
+           PERFORM  1000-INIT-FOR-COMPANY
+               THRU 1000-INIT-FOR-COMPANY-X.
+
+           PERFORM  2000-PROCESS-TRANSACTIONS
+               THRU 2000-PROCESS-TRANSACTIONS-X
+              UNTIL WCIPF-SEQ-IO-EOF.
+
+           PERFORM  9999-CLOSE-FILES
+               THRU 9999-CLOSE-FILES-X.
+
+           STOP RUN.
+
+       0000-MAIN-LINE-X.
+           EXIT.
+      /
+      *----------------
+       0100-OPEN-FILES.
+      *----------------
+
+           PERFORM  OCF-3000-OPEN-OUTPUT
+               THRU OCF-3000-OPEN-OUTPUT-X.
+
+           MOVE ZERO                        TO WCIPF-SEQ-IO-STATUS.
+
+           OPEN INPUT CIPF-DATA-FILE.
+
+           IF WCIPF-SEQ-FILE-STATUS  NOT = ZERO
+              PERFORM  9700-HANDLE-ERROR
+                  THRU 9700-HANDLE-ERROR-X
+           END-IF.
+
+           PERFORM  TP88-3000-OPEN-OUTPUT
+               THRU TP88-3000-OPEN-OUTPUT-X.
+
+       0100-OPEN-FILES-X.
+           EXIT.
+      /
+      *----------------------
+       1000-INIT-FOR-COMPANY.
+      *----------------------
+
+           MOVE 'CP'                        TO WGLOB-COMPANY-CODE.
+
+           MOVE 'ZSBMMCOM'                  TO WGLOB-MAIN-PGM-ID
+                                               WGLOB-CRNT-PGM-ID.
+
+           PERFORM  0010-1000-INIT-DEFAULT
+               THRU 0010-1000-INIT-DEFAULT-X.
+
+           PERFORM  0950-0000-INIT-PARM-INFO
+               THRU 0950-0000-INIT-PARM-INFO-X.
+
+           PERFORM  0950-1000-GET-COMPANY-NAME
+               THRU 0950-1000-GET-COMPANY-NAME-X.
+
+           PERFORM  1100-INIT-OCF-TITLES
+               THRU 1100-INIT-OCF-TITLES-X.
+
+       1000-INIT-FOR-COMPANY-X.
+           EXIT.
+      /
+      *---------------------
+       1100-INIT-OCF-TITLES.
+      *---------------------
+      *
+      * SET UP THE TITLE/HEADING LINES FOR THE OCF REPORT
+      *
+           MOVE ZERO                        TO L0040-ERROR-CNT.
+      *
+           MOVE 'XS00000145'                TO WGLOB-MSG-REF-INFO.
+           PERFORM  0260-2000-GET-MESSAGE
+               THRU 0260-2000-GET-MESSAGE-X.
+           MOVE WGLOB-MSG-TXT               TO L0040-SYSTEM-ID.
+           MOVE L0950-COMPANY-NAME          TO L0040-COMPANY-NAME.
+
+           PERFORM  0040-1000-INIT-TITLE
+               THRU 0040-1000-INIT-TITLE-X.
+
+           PERFORM  0040-3000-WRITE-OTHER
+               THRU 0040-3000-WRITE-OTHER-X.
+
+       1100-INIT-OCF-TITLES-X.
+           EXIT.
+      /
+      *-------------------------
+       2000-PROCESS-TRANSACTIONS.
+      *-------------------------
+      *
+      * READ RECORD FROM INPUT FILE(TP88,NB88) ONE AT TIME
+      * UNTIL END-OF FILE REACHED.
+      *
+           PERFORM  9500-CIPF-READ
+               THRU 9500-CIPF-READ-X.
+           IF NOT WCIPF-SEQ-IO-OK
+               GO TO 2000-PROCESS-TRANSACTIONS-X
+           END-IF.
+
+       2000-PROCESS-TRANSACTIONS-X.
+           EXIT.
+      /
+
+      *---------------
+       9500-CIPF-READ.
+      *---------------
+
+
+           INITIALIZE WS-AT88-SEQ-REC-INFO.
+UYS019     INITIALIZE WS-AREA.
+           
+MP143C*    MOVE WWKDT-ZERO-DT               TO WS-CWA-PRCES-DT.
+MP143C*    MOVE WWKDT-ZERO-DT               TO WS-LIAB-STRT-DT.
+MP143C*    MOVE WWKDT-ZERO-DT               TO WS-PREM-PD-DT.
+MP143C*    MOVE ZERO                        TO WS-ADV-MED-BNFT-IND.
+MP181A*MP161H     MOVE ZERO                        TO WS-WP-IND.
+MP181A*MP161H     MOVE ZERO                        TO WS-INSRD-SEX-CD.
+TVI004*MP181A     MOVE SPACES                      TO WS-APL-PREM-IND.
+TVI004*MP181A     MOVE ZERO                        TO WS-APL-BAL-AMT.
+TVI004*MP181A     MOVE WWKDT-ZERO-DT               TO WS-APL-EFF-DT.
+M245E1*TVI004     MOVE ZERO                        TO WS-ISS-STD-PREM-AMT.
+M319C1*M245E1     MOVE ZERO                        TO WS-SNGL-PREM-AMT.
+M319C1*M245E1     MOVE SPACES                      TO WS-PMT-CRCY-CD.
+M319C1*M245E1     MOVE ZERO                        TO WS-TTM-RT-ISSDT.
+FFF10L*M319C1     MOVE ZERO                        TO WS-TTM-RT-FST-COMMDT.
+FFF10L*M319C1     MOVE ZERO                        TO WS-MPREM-AMT.
+TMCR14*FFF10L     MOVE ZERO                        TO WS-ACCUM-PREM-PMT-DUR.
+TMCR14*FFF10L     SET WS-FULL-ADV-PMT-NO           TO TRUE.
+FFCR80*TMCR14     MOVE '00000100'                  TO WS-TTM-RT-LST-BUSDT.
+FFCR80*TMCR14     MOVE ZERO                        TO WS-REISS-CD.
+FFCR80*TMCR14     MOVE ZERO                        TO WS-MTHLY-PREM-AMT.
+FFCR80*TMCR14     SET WS-PREM-PMT-CMPLT-NO         TO TRUE.
+UYS019*FFCR80     SET WS-AD-HOC-PMT-IND-NO         TO TRUE.
+MOR137*NV3C01     MOVE ZEROES                      TO WS-MTHLY-STD-PREM.
+MOR137     MOVE ZEROES                      TO WS-ANN-PREM-LNG-TRM.
+
+           MOVE ZERO                        TO WCIPF-SEQ-IO-STATUS.
+
+           READ CIPF-DATA-FILE
+                AT END
+                  MOVE 8                    TO WCIPF-SEQ-IO-STATUS
+                  GO TO 9500-CIPF-READ-X.
+
+           IF RCIPF-SEQ-REC-INFO EQUAL HIGH-VALUES
+              MOVE 8                        TO WCIPF-SEQ-IO-STATUS
+           END-IF.
+
+           IF WCIPF-SEQ-FILE-STATUS  NOT = ZERO
+              PERFORM  9700-HANDLE-ERROR
+                  THRU 9700-HANDLE-ERROR-X
+           END-IF.
+
+           MOVE RCIPF-SEQ-REC-INFO          TO WS-OLD-AT88-SEQ-REC-INFO.
+MOR137*NV3C01     MOVE ZEROES                      TO WS-MTHLY-STD-PREM.           
+MOR137     MOVE ZEROES                      TO WS-ANN-PREM-LNG-TRM.           
+TMCR14*FF10L
+TMCR14*FF10L     IF  RCIPF-SEQ-REC-INFO(12:6) ='893040'
+TMCR14*FF10L     AND RCIPF-SEQ-REC-INFO(407:2) ='FF'
+TMCR14*FF10L     AND RCIPF-SEQ-REC-INFO(632:3) ='012'
+TMCR14*FF10L         MOVE '00001'               TO WS-ACCUM-PREM-PMT-DUR
+TMCR14*FF10L     END-IF.
+TMCR14*FF10L
+FFCR80*TMCR14
+FFCR80*TMCR14     IF (RCIPF-SEQ-REC-INFO(407:2) = 'WL'
+FFCR80*TMCR14     OR  RCIPF-SEQ-REC-INFO(407:2) = 'W2')
+FFCR80*TMCR14         PERFORM  9700-1000-PREM-PMT-CMLPT-IND
+FFCR80*TMCR14             THRU 9700-1000-PREM-PMT-CMLPT-IND-X
+FFCR80*TMCR14     END-IF.
+NV3C01*UYS019
+NV3C01*UYS019     PERFORM  9600-SET-COLI-PROD-FIELDS
+NV3C01*UYS019         THRU 9600-SET-COLI-PROD-FIELDS-X.
+
+           MOVE WS-AT88-SEQ-REC-INFO        TO RTP88-SEQ-REC-INFO.
+      *
+      *  WRITE THE NEW FORMAT FILE IN THE PATH SPECIFIED IN THE PROC
+      *
+           PERFORM  TP88-1000-WRITE
+               THRU TP88-1000-WRITE-X.
+
+       9500-CIPF-READ-X.
+           EXIT.
+
+NV3C01*UYS019*--------------------------
+NV3C01*UYS019 9600-SET-COLI-PROD-FIELDS.
+NV3C01*UYS019*--------------------------
+NV3C01*UYS019
+NV3C01*UYS019     MOVE RCIPF-SEQ-REC-INFO(41:2)    TO WS-CVG-NUM-N.
+NV3C01*UYS019
+NV3C01*UYS019     MOVE RCIPF-SEQ-REC-INFO(31:7)    TO WPOL-POL-ID.
+NV3C01*UYS019
+NV3C01*UYS019     PERFORM  POL-1000-READ
+NV3C01*UYS019         THRU POL-1000-READ-X.
+NV3C01*UYS019              
+NV3C01*UYS019     IF NOT WPOL-IO-OK
+NV3C01*UYS019         GO TO 9600-SET-COLI-PROD-FIELDS-X
+NV3C01*UYS019     END-IF.
+NV3C01*UYS019
+NV3C01*UYS019     PERFORM  CVGS-1000-LOAD-CVGS-ARRAY
+NV3C01*UYS019         THRU CVGS-1000-LOAD-CVGS-ARRAY-X.
+NV3C01*UYS019
+NV3C01*S24009     IF  WS-CVG-NUM-N  = RPOL-POL-BASE-CVG-NUM
+NV3C01*S24009         MOVE ZEROS                   TO WS-LRG-PROD-CD
+NV3C01*S24009                                         WS-SML-PROD-CD
+NV3C01*S24009     END-IF.
+NV3C01*UYS019
+NV3C01*UYS019     MOVE ZEROS                       TO WS-CANCER-TYP-CD.
+NV3C01*UYS019
+NV3C01*UYS019     SET WS-LOW-CSV-NO                TO TRUE.
+NV3C01*UYS019
+NV3C01*UYS019* FIRST POLICY PERIOD
+NV3C01*UYS019     MOVE ZEROS                       TO WS-FRST-POL-DUR.
+NV3C01*UYS019
+NV3C01*UYS019*DEDUCTIVE EXPENSE TYPE AND LOW CSV INDICATOR   
+NV3C01*UYS019     SET WS-DED-EXP-TYP-0             TO TRUE.
+NV3C01*UYS019
+NV3C01*UYS019* LARGE PRODUCT CODE
+NV3C01*UYS019     MOVE RPOL-PLAN-ID                TO WTTAB-ETBL-VALU-ID.
+NV3C01*UYS019     PERFORM  PRLG-1000-EDIT
+NV3C01*UYS019         THRU PRLG-1000-EDIT-X.
+NV3C01*UYS019     IF  WTTAB-IO-OK
+NV3C01*UYS019         MOVE RTTAB-TTBL-VALU-TXT     TO WS-BASE-LRG-PROD-CD
+NV3C01*UYS019     END-IF.
+NV3C01*UYS019
+NV3C01*UYS019* SMALL PRODUCT CD
+NV3C01*UYS019     MOVE RPOL-PLAN-ID                TO WTTAB-ETBL-VALU-ID.
+NV3C01*UYS019
+NV3C01*UYS019     PERFORM  PRSM-1000-EDIT
+NV3C01*UYS019         THRU PRSM-1000-EDIT-X.
+NV3C01*UYS019
+NV3C01*UYS019     IF  WTTAB-IO-OK
+NV3C01*UYS019         MOVE RTTAB-TTBL-VALU-TXT     TO WS-BASE-SML-PROD-CD
+NV3C01*UYS019     END-IF.
+NV3C01*UYS019
+NV3C01*UYS019* PRODUCT TYPE CD - '1' FOR UNISYS & RPU PRODUCTS
+NV3C01*UYS019*                   '9' FOR OTHER PRODUCTS 
+NV3C01*UYS019     IF  RPOL-POL-STAT-PAID-UP
+NV3C01*UYS019         SET WS-PROD-TYP-1            TO TRUE
+NV3C01*UYS019     ELSE 
+NV3C01*UYS019         SET WS-PROD-TYP-9            TO TRUE
+NV3C01*UYS019     END-IF.
+NV3C01*UYS019
+NV3C01*UYS019* ISSUE FACE AMOUNT
+NV3C01*UYS019     MOVE ZEROS                       TO WS-ISS-FACE-AMT.
+NV3C01*UYS019
+NV3C01*UYS019 9600-SET-COLI-PROD-FIELDS-X.
+NV3C01*UYS019     EXIT.
+NV3C01*UYS019/
+FFCR80*TMCR14*-----------------------------
+FFCR80*TMCR14 9700-1000-PREM-PMT-CMLPT-IND.
+FFCR80*TMCR14*-----------------------------
+FFCR80*TMCR14
+FFCR80*TMCR14     INITIALIZE WS-TOT-PMT-PERI.
+FFCR80*TMCR14
+FFCR80*TMCR14     MOVE RCIPF-SEQ-REC-INFO(31:7)    TO WCVG-POL-ID.
+FFCR80*TMCR14     MOVE RCIPF-SEQ-REC-INFO(41:2)    TO WCVG-CVG-NUM-N.
+FFCR80*TMCR14
+FFCR80*TMCR14     PERFORM  CVG-1000-READ
+FFCR80*TMCR14         THRU CVG-1000-READ-X.
+FFCR80*TMCR14              
+FFCR80*TMCR14     IF NOT WCVG-IO-OK
+FFCR80*TMCR14         GO TO  9700-1000-PREM-PMT-CMLPT-IND-X
+FFCR80*TMCR14     END-IF.
+FFCR80*TMCR14
+FFCR80*TMCR14      IF  RCVG-CVG-NUM-N = '01'
+FFCR80*TMCR14      AND RCVG-CVG-STBL-3-CD  NOT  = SPACES
+FFCR80*TMCR14
+FFCR80*TMCR14         PERFORM  STB3-1000-BUILD-PARM-INFO
+FFCR80*TMCR14             THRU STB3-1000-BUILD-PARM-INFO-X
+FFCR80*TMCR14
+FFCR80*TMCR14         MOVE RCVG-CVG-STBL-3-CD      TO LSTB3-CVG-STBL-3-CD
+FFCR80*TMCR14         MOVE RCVG-CVG-RT-AGE-N       TO LSTB3-CVG-RT-AGE
+FFCR80*TMCR14         MOVE RCVG-PLAN-ID            TO LSTB3-PLAN-ID
+FFCR80*TMCR14
+FFCR80*TMCR14         PERFORM  STB3-3000-GET-PREM-PMT-DUR
+FFCR80*TMCR14             THRU STB3-3000-GET-PREM-PMT-DUR-X
+FFCR80*TMCR14
+FFCR80*TMCR14         MOVE LSTB3-PREM-PMT-PERI     TO WS-TOT-PMT-PERI
+FFCR80*TMCR14
+FFCR80*TMCR14     ELSE
+FFCR80*TMCR14         MOVE RCVG-CVG-STBL-1-CD-N    TO WS-TOT-PMT-PERI
+FFCR80*TMCR14     END-IF.
+FFCR80*TMCR14
+FFCR80*TMCR14** RIDER COVERAGE BASED ON AGE CHECK
+FFCR80*TMCR14     MOVE RCVG-PLAN-ID                TO WPH-PLAN-ID.
+FFCR80*TMCR14     PERFORM  PH-1000-READ
+FFCR80*TMCR14         THRU PH-1000-READ-X.
+FFCR80*TMCR14     IF  WPH-IO-OK
+FFCR80*TMCR14     AND RPH-XPRY-DT-CALC-STBL-1-AGE
+FFCR80*TMCR14         COMPUTE WS-TOT-PMT-PERI = RCVG-CVG-STBL-1-CD-N 
+FFCR80*TMCR14                                 -  RCVG-CVG-RT-AGE-N
+FFCR80*TMCR14     END-IF.
+FFCR80*TMCR14         
+FFCR80*TMCR14     MOVE RCVG-CVG-ISS-EFF-DT         TO L1680-INTERNAL-1.
+FFCR80*TMCR14     MOVE ZERO                        TO L1680-NUMBER-OF-DAYS.
+FFCR80*TMCR14     MOVE ZERO                        TO L1680-NUMBER-OF-MONTHS.
+FFCR80*TMCR14     MOVE WS-TOT-PMT-PERI             TO L1680-NUMBER-OF-YEARS.
+FFCR80*TMCR14         
+FFCR80*TMCR14     PERFORM  1680-3000-ADD-Y-M-D-TO-DATE
+FFCR80*TMCR14         THRU 1680-3000-ADD-Y-M-D-TO-DATE-X.
+FFCR80*TMCR14     MOVE L1680-INTERNAL-2            TO WS-PREM-PMT-CMPLT-DT.
+FFCR80*TMCR14         
+FFCR80*TMCR14     IF  (WS-PREM-PMT-CMPLT-DT <=
+FFCR80*TMCR14                  RCIPF-SEQ-REC-INFO(500:10))
+FFCR80*TMCR14                 SET WS-PREM-PMT-CMPLT-YES 
+FFCR80*TMCR14                                      TO TRUE
+FFCR80*TMCR14     END-IF.
+FFCR80*TMCR14
+FFCR80*TMCR14 9700-1000-PREM-PMT-CMLPT-IND-X.
+FFCR80*TMCR14     EXIT.
+
+      *-----------------------
+       9700-HANDLE-ERROR.
+      *-----------------------
+
+           MOVE WCIPF-SEQ-FILE-NAME          TO WGLOB-TABLE-NAME.
+           MOVE WCIPF-SEQ-FILE-STATUS        TO WGLOB-SEQ-FILE-STATUS.
+           MOVE WCIPF-SEQ-IO-COMMAND         TO WGLOB-IO-COMMAND.
+           PERFORM  0030-3000-QSAM-ERROR
+               THRU 0030-3000-QSAM-ERROR-X.
+
+       9700-HANDLE-ERROR-X.
+           EXIT.
+
+      *-----------------
+       9999-CLOSE-FILES.
+      *-----------------
+
+           MOVE ZERO                        TO WCIPF-SEQ-IO-STATUS.
+
+           CLOSE CIPF-DATA-FILE.
+
+           IF WCIPF-SEQ-FILE-STATUS  NOT = ZERO
+              PERFORM  9700-HANDLE-ERROR
+                  THRU 9700-HANDLE-ERROR-X
+           END-IF.
+
+           PERFORM  TP88-4000-CLOSE
+               THRU TP88-4000-CLOSE-X.
+
+           PERFORM  OCF-4000-CLOSE
+               THRU OCF-4000-CLOSE-X.
+
+       9999-CLOSE-FILES-X.
+           EXIT.
+      /
+      *****************************************************************
+      *  PROCESSING COPYBOOKS                                         *
+      *****************************************************************
+       COPY XCPL0035.
+       COPY XCPPTIME.
+       COPY CCPPCCC.
+      /
+       COPY XCPL0040.
+      /
+       COPY CCPS0010.
+       COPY CCPL0010.
+      /
+       COPY CCPS0950.
+       COPY CCPL0950.
+      /
+       COPY XCPL0260.
+      /
+       COPY XCPL2490.
+       COPY XCPS2490.
+      /
+TMCR14 COPY CCPLSTB3.
+TMCR14 COPY CCPSSTB3.      
+TMCR14/
+UYS019 COPY CCPEPRLG.
+UYS019 COPY CCPEPRSM.
+UYS019 COPY XCPL1660.
+UYS019/
+      *****************************************************************
+      *  FILE I/O PROCESS MODULE                                      *
+      *****************************************************************
+       COPY XCPLOCF.
+       COPY XCPOOCF.
+      /
+       COPY XCPLBCF.
+       COPY XCPNBCF.
+       COPY XCPOBCF.
+      /
+       COPY XCPL1680.
+       COPY XCPL1640.
+      /
+       COPY CCPOTP88.
+       COPY CCPATP88.
+       COPY CCPLTP88.
+      /
+TMCR14 COPY CCPNCVG.
+TMCR14 COPY CCPNPH.
+UYS019 COPY NCPPCVGS.
+UYS019 COPY NCPNTTAB.
+UYS019 COPY CCPNTH.
+UYS019 COPY CCPNPOL.
+UYS019 COPY CCPBETAB.
+      /
+      *****************************************************************
+      *  ERROR HANDLING ROUTINES                                      *
+      *****************************************************************
+       COPY XCPL0030.
+      *****************************************************************
+      **                 END OF PROGRAM ZSBMMCOM                     **
+      *****************************************************************
