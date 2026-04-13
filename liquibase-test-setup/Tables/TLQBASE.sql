@@ -2,31 +2,25 @@
 --changeset firoz:create_tlqbase_table
 
 -------------------------------------------------------------------------------
--- Set DB2 CURRENT PATH
--- appSchema is injected by Liquibase via --changeLogParameter
--------------------------------------------------------------------------------
-
-SET CURRENT PATH = "SYSIBM","SYSFUN","SYSPROC","SYSIBMADM",${appSchema}
-
--------------------------------------------------------------------------------
 -- Create table TLQBASE
+-- Schema is controlled by Liquibase via defaultSchemaName
 -------------------------------------------------------------------------------
 
-CREATE TABLE ${appSchema}.TLQBASE (
-    ID        INTEGER NOT NULL,
-    NAME      VARCHAR(50),
-    CREATED_TS TIMESTAMP DEFAULT CURRENT TIMESTAMP
+CREATE TABLE TLQBASE (
+    ID          INTEGER NOT NULL,
+    NAME        VARCHAR(50),
+    CREATED_TS  TIMESTAMP DEFAULT CURRENT TIMESTAMP
 );
 
 -------------------------------------------------------------------------------
--- Add Primary Key
+-- Add primary key
 -------------------------------------------------------------------------------
 
-ALTER TABLE ${appSchema}.TLQBASE
+ALTER TABLE TLQBASE
     ADD CONSTRAINT PK_TLQBASE PRIMARY KEY (ID);
 
 -------------------------------------------------------------------------------
--- Rollback section
+-- Rollback definitions
 -------------------------------------------------------------------------------
---rollback ALTER TABLE ${appSchema}.TLQBASE DROP CONSTRAINT PK_TLQBASE
---rollback DROP TABLE ${appSchema}.TLQBASE
+--rollback ALTER TABLE TLQBASE DROP CONSTRAINT PK_TLQBASE
+--rollback DROP TABLE TLQBASE;
