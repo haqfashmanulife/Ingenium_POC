@@ -1,0 +1,945 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:35 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1390-DR-O.htm                                                
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  01NB10  KC       New U/W Forms                                              
+*  B00137  BMB      fixed display of enterable fields                          
+*  B00149  BMB      fixed display width of key fields                          
+*  B00172  BMB      Add parent or guardian question to forms - MIR-FLD-ID-070  
+*  B00173  BMB      Fields 046 and 047 and 048 are now radio selections        
+*  B00159  BMB      Field 029 removed - it only belongs in Interviewers form   
+*  B00192  BMB      Fields 001 and 059 added                                   
+*  B00224  BMB      Field 056 added - MED-CNFRM-CD (B00609)                    
+*  B00367  BMB      Add Medical Report number: RPT-NUM-ID - MIR-FLD-ID-072     
+*  B00533  SRO      Add ill 1 week ind - MIR-FLD-ID-073 and                    
+*  B00533           Add alcohol ind - MIR-FLD-ID-029 and                       
+*  B00533           Add Impact question - MIR-FLD-ID-074                       
+*  HNB002  HIN/AI   NEW FIELDS FOR UPLOAD                                      
+*  HNB002  JSY      Add Handwritten Notes checkboxes and Incomplete data       
+*  HNB002  JSY      checkboxes - MIR-DV-QSTN-RESP-TXT-077,                     
+*  HNB002  JSY      MIR-DV-QSTN-RESP-TXT-078, MIR-DV-QSTN-RESP-TXT-079,        
+*  HNB002  JSY      MIR-DV-QSTN-RESP-TXT-080                                   
+*  HNB103  HIN/AI   SIMPLE TEST PHASE 1                                        
+*  HNB103  JBR      added 060, 062 and 067 x-ray,blood test and EKG            
+*  HIS039  HIN/JY   Change description on Handwritten Notes and Incomplete     
+*                   Indicators and remove unanswered radio buttons             
+*  NWLUWF  CTS      Changes for U/W forms revision for NWL
+*  ATF008  CTS      Changes for U/W forms - changes.
+*  MP253F  CTS      CHANGES DONE TO INCLUDE LTC RIDER FOR UL
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1390-DR-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="QuestionText" id="QuestionText" value="" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel" width="160">
+                        <label for="MIR-DV-INSRD-CLI-NM">被保険者名:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="5">
+                        <span id="MIR-DV-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel" width="160">
+                        <label for="MIR-CLI-ID">クライアントID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel" width="100">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel" width="100">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel" width="160">
+                        <label for="MIR-STCKR-ID">被保険シール番号:</label>
+                    </td>
+                    <td class="celldisplaykey" >
+                        <span id="MIR-STCKR-ID" stype="Text" displayonly="yes">MIR-STCKR-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel" width="100">
+                        <label for="MIR-CLI-BTH-DT">生年月日:</label>
+                    </td>
+                    <td class="celldisplaykey" >
+                        <span id="MIR-CLI-BTH-DT" stype="Text" displayonly="yes">MIR-CLI-BTH-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel" width="100">
+                        <label for="MIR-CLI-SEX-CD">性別:</label>
+                    </td>
+                    <td class="celldisplaykey" >
+                        <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="698">申込書済日</td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="430">
+                    告知日:
+                    </td>
+                    <td class="celldisplay" width="262">
+                        <span id="MIR-DV-QSTN-RESP-TXT-001" stype="Date" displayonly="yes">MIR-DV-QSTN-RESP-TXT-001</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="430">
+                    診査日:
+                    </td>
+                    <td class="celldisplay" width="262">
+                        <span id="MIR-DV-QSTN-RESP-TXT-059" stype="Date" displayonly="yes">MIR-DV-QSTN-RESP-TXT-059</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="430">
+                    報状番号:
+                    </td>
+                    <td class="celldisplay" width="262">
+                        <span id="MIR-DV-QSTN-RESP-TXT-072" stype="Text" displayonly="yes">MIR-DV-QSTN-RESP-TXT-072</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+             <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="698">手書の備考とデータ不備のインジケータ</td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="430">
+                    本社記入欄「告知」あり
+                    </td>   
+                    <td class="celldisplay" width="262">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-077" value="Y" stype="YesNo" disabled="yes" onclick="onYesNo('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-077" value="N" stype="YesNo" disabled="yes" onclick="onYesNo('No')" onfocus="saveValue(); enterField(this)">いいえ</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="430">
+                    本社記入欄「検診」あり
+                    </td>   
+                    <td class="celldisplay" width="262">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-078" value="Y" stype="YesNo" disabled="yes" onclick="onYesNo('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-078" value="N" stype="YesNo" disabled="yes" onclick="onYesNo('No')" onfocus="saveValue(); enterField(this)">いいえ</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="430">
+                    本社記入欄「不備1」あり
+                    </td>   
+                    <td class="celldisplay" width="262">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-079" value="Y" stype="YesNo" disabled="yes" onclick="onYesNo('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-079" value="N" stype="YesNo" disabled="yes" onclick="onYesNo('No')" onfocus="saveValue(); enterField(this)">いいえ</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="430">
+                    本社記入欄「不備２」あり
+                    </td>   
+                    <td class="celldisplay" width="262">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-080" value="Y" stype="YesNo" disabled="yes" onclick="onYesNo('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-080" value="N" stype="YesNo" disabled="yes" onclick="onYesNo('No')" onfocus="saveValue(); enterField(this)">いいえ</input>
+                    </td>
+                </tr>
+            </table>
+
+            <br />
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="698">
+                   被保険者(15歳未満の場合)との続柄
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" width="430">質問</td>
+                    <td class="celldisplayheading" width="262">回答</td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="430">
+                    親権者または後見人との続柄をご記入下さい。 
+                    </td>   
+                    <td class="celldisplay" width="262">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-070" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">父母</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-070" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">その他</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-070" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="695">健康状態</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" width="431">質問</td>
+                    <td class="celldisplayheading" width="245">回答</td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="414">
+                    <ol START="1"><li>
+                        最近1週間以内で、からだにぐあいの悪いところがありますか?
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="262">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-073" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-073" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-073" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <ol START="2"><li>                    
+                        最近３ヵ月以内に、医師の診察、検査、治療、投薬を受けたことがありますか？また、その結果、検査・治療・入院・手術をすすめられたことがありますか?
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-002" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-002" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-002" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <ol START="3"><li>
+                        過去５年以内に、病気やけがで、継続して７日以上の入院をしたことがありますか?
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-003" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-003" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-003" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <ol START="4"><li>
+                        過去５年以内に、病気やけがで、手術を受けたことがありますか?
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-004" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-004" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-004" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="414">
+                    <ol START="5"><li>
+                        過去５年以内に、７日間以上にわたり、医師の診察、検査、治療、投薬をうけたことがありますか? 
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="262">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-014" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-014" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-014" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="414">
+                    <ol START="6"><li>
+                        過去2年以内に健康診断、人間ドックを受けたことがありますか?
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="262">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-015" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-015" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-015" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="414">
+                    <dd><li>
+                        「はい」の場合、検査の異常（要再検査、要精密検査、要治療を含みます）を指摘された事がありますか？
+                        
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="262">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-016" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-016" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-016" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+            </table>
+            <br />
+
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="662">身体障害</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" width="418">質問</td>
+                    <td class="celldisplayheading" width="258">回答</td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="427">
+                    <ol START="7"><li>
+                    視力、聴力、言語、そしゃく機能に障害がありますか? 
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="249">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-017" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-017" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-017" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="427">
+                    <ol START="8"><li>
+                        手、足、指について欠損または機能に障害がありますか、または背骨（脊柱）に変形や障害がありますか?
+                        
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="249">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-018" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-018" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-018" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+            </table>
+            <br />
+
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="662">女性の場合満16歳以上</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" width="418">質問</td>
+                    <td class="celldisplayheading" colspan="2" width="258">回答</td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="427">
+                    <ol START="9"><li>
+                        過去5年以内に、子宮・卵巣・乳房の病気で、入院したり手術をうけたこと、または7日間以上にわたり、医師の診察・検査・投薬をうけたことがありますか?
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" colspan="2" width="249">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-019" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-019" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-019" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="427">
+                    <ol START="10"><li>
+                    過去5年以内に、妊娠・分娩に伴う異常で、入院したり手術を受けたことがありますか?（帝王切開を含みます）
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" colspan="2" width="249">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-020" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-020" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-020" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                 <tr>
+                    <td class="celldisplay" width="427">
+                    <ol START="11"><li>
+                        現在、妊娠していますか?
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" colspan="2" width="249">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-021" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-021" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-021" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                 <tr>
+                    <td class="celldisplay" width="427">
+                    <dd><li>
+                        「はい」の場合、妊娠第何週または何月ですか？
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="124">
+                         <span id="MIR-DV-QSTN-RESP-TXT-023" stype="text" displayonly="yes">MIR-DV-QSTN-RESP-TXT-023</span>週間     
+                    </td>
+                    <td class="celldisplay" width="125">
+                         <span id="MIR-DV-QSTN-RESP-TXT-022" stype="text" displayonly="yes">MIR-DV-QSTN-RESP-TXT-022</span>月間 
+                    </td>
+                </tr>
+            </table>
+            <br />
+
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="662">喫煙
+                      </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" width="418">質問</td>
+                    <td class="celldisplayheading" width="258">回答</td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="427">
+                    <ol START="12"><li>
+                        過去1年以内に、喫煙をしたことがありますか? 
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="249">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-075" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-075" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-075" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="698">検診書</td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="430">
+                    診査医コード 
+                    </td>
+                    <td class="celldisplay" width="262">
+                        <span id="MIR-DV-QSTN-RESP-TXT-028" stype="text" displayonly="yes">MIR-DV-QSTN-RESP-TXT-028</span>
+                    </td>
+                </tr>
+            </table>
+
+            <br />
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="695">医師診断</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" width="431">質問</td>
+                    <td class="celldisplayheading" width="245">回答</td>
+                </tr>    
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <ol START="12"><li>
+                        一般状態: 黄疸、貧血、浮種、腫瘤、腫脹、甲状腺腫、リンパ節腫
+                   </li></ol> 
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-030" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-030" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-030" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <ol START="13"><li>
+                        胸部: 胸廓変形、打診、聴診、心界、心音の異常
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-031" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-031" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-031" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <ol START="14"><li>
+                        腹部: 圧痛、抵抗、腫瘤、肝臓肥大、脾腫
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-032" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-032" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-032" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <ol START="15"><li>
+                        神経系: 動作、表情、言語、知能の異常、振せん、麻痺
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-033" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-033" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-033" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <ol START="16"><li>
+                        感覚器: 視力、聴力、眼、耳、鼻の異常
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-034" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-034" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-034" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <ol START="17"><li>
+                        運動器: 脊柱、四肢、指、関節の異常
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-035" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-035" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-035" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="414">
+                    <ol START="18"><li>
+                        特徴:手術痕、瘢痕、灸痕、奇形、入墨、母斑
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="262">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-036" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-036" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-036" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="414">
+                    <ol START="19"><li>
+                        その他:上記以外の異常所見（扁桃肥大、注射痕など） 
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="262">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-037" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-037" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-037" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+            </table>
+
+            <br />
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="695">計測</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" width="431">
+                        <b>下記の質問に、記入してください:</b> 
+                    </td>    
+                    <td class="celldisplayheading" width="245">
+                    </td>       
+                </tr>
+                
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <ol START="20"><li></li></ol>
+                    <dd><li>
+                        身長
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <span id="MIR-DV-QSTN-RESP-TXT-026" stype="text" displayonly="yes">MIR-DV-QSTN-RESP-TXT-026</span>
+                        cm 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <dd><li>
+                        胸囲
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <span id="MIR-DV-QSTN-RESP-TXT-038" stype="text" displayonly="yes">MIR-DV-QSTN-RESP-TXT-038</span>
+                        cm 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <dd><li>
+                        腹囲
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <span id="MIR-DV-QSTN-RESP-TXT-039" stype="text" displayonly="yes">MIR-DV-QSTN-RESP-TXT-039</span>
+                        cm 
+                    </td>
+                </tr>
+                
+                 <tr>
+                    <td class="celldisplay" width="414">
+                    <dd><li>
+                        体重
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <span id="MIR-DV-QSTN-RESP-TXT-027" stype="text" displayonly="yes">MIR-DV-QSTN-RESP-TXT-027</span>
+                        kg 
+                    </td>
+                </tr>
+              </table>
+            <br />
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="695">脈拍 / 血圧</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" width="431">質問</td>
+                    <td class="celldisplayheading" width="245">回答</td>
+                </tr>    
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <ol START="21"><li>
+                        脈拍数
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <span id="MIR-DV-QSTN-RESP-TXT-040" stype="text" displayonly="yes">MIR-DV-QSTN-RESP-TXT-040</span>回/分
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <dd><li>
+                        不整脈あり
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-041" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-041" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-041" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <dd><li>
+                        「はい」の場合の結滞数
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="245">
+                       <span id="MIR-DV-QSTN-RESP-TXT-042" stype="text" displayonly="yes">MIR-DV-QSTN-RESP-TXT-042</span>回/分
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <ol START="22"><li></li></ol>
+                    <dd><li>
+                        最大血圧数
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="245">
+                       <span id="MIR-DV-QSTN-RESP-TXT-043" stype="text" displayonly="yes">MIR-DV-QSTN-RESP-TXT-043</span>mmHg
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="414">
+                    <dd><li>
+                        最小血圧数
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="262">
+                       <span id="MIR-DV-QSTN-RESP-TXT-044" stype="text" displayonly="yes">MIR-DV-QSTN-RESP-TXT-044</span>mmHg
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="695">尿検査</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" width="431">質問</td>
+                    <td class="celldisplayheading" width="245">回答</td>
+                </tr>    
+                <tr>
+                    <td class="celldisplay" width="431">
+                    <ol START="23"><li>
+                        尿不検に○ない場合「はい」
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="245">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-045" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-045" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-045" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="400">
+                    <dd><li>
+                        「はい」の場合の蛋白 
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="276">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-046" value="1" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">1</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-046" value="2" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">2</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-046" value="3" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">3</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-046" value="4" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">4</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-046" value="5" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">5</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-046" value="6" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="400">
+                    <dd><li>
+                        「はい」の場合の糖
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="276">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-047" value="1" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">1</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-047" value="2" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">2</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-047" value="3" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">3</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-047" value="4" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">4</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-047" value="5" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">5</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-047" value="6" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="400">
+                    <dd><li>
+                        「はい」の場合の潜血
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="276">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-048" value="1" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">1</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-048" value="2" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">2</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-048" value="3" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">3</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-048" value="4" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">4</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-048" value="5" stype="YesNo" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="695">嗜好</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" width="431">質問</td>
+                    <td class="celldisplayheading" width="245">回答</td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="414">
+                    <ol START="24"><li>
+                    </li></ol>
+                    <dd><li>
+                        飲酒
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="262"> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-029" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-029" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-029" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                  </tr>
+                  <tr>
+                  <td class="celldisplay" width="414">
+                    <dd><li>
+                        過去1年以内の喫煙
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="262"> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-024" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-024" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-024" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                  </tr>
+                   <tr>
+                    <td class="celldisplay" width="427">
+                    <dd><li>
+                        一日平均本数
+                        
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="249">
+                        <span id="MIR-DV-QSTN-RESP-TXT-025" stype="text" displayonly="yes">MIR-DV-QSTN-RESP-TXT-025</span>本
+                    </td>
+                </tr>
+            </table>    
+            <br />
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="695">総合質問</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" width="431">質問</td>
+                    <td class="celldisplayheading" width="245">回答</td>
+                </tr>    
+                <tr>
+                    <td class="celldisplay" width="414">
+                    <ol START="25"><li>
+                        受信者との面識
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="262">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-049" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-049" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-049" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="414">
+                    <ol START="26"><li>
+                        診査に影響を及ぼした点
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="262">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-074" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-074" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-074" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="414">
+                    <ol START="27"><li>
+                        写真付証明書あり
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="262">
+                        <span id="MIR-DV-QSTN-RESP-TXT-056" stype="Text" displayonly="yes">MIR-DV-QSTN-RESP-TXT-056</span>
+                    </td>
+                </tr>
+                
+            </table>
+     
+            <br />
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="695">医療検査済み
+</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" width="431">質問</td>
+                    <td class="celldisplayheading" width="245">回答</td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="414">
+                    <ol START="29"><li>
+                    </li></ol>
+                    <dd><li>
+                        心電図検査は行われたか？ 
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="262"> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-067" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNo('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-067" value="N" stype="YesNoUnanswered" onclick="onYesNo('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                    </td>
+                  </tr>
+                  <tr>
+                  <td class="celldisplay" width="414">
+                    <dd><li>
+                        血液検査は行われたか？
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="262"> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-062" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNo('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-062" value="N" stype="YesNoUnanswered" onclick="onYesNo('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                    </td>
+                  </tr>
+                  <tr>
+                  <td class="celldisplay" width="414">
+                    <dd><li>
+                        胸部レントゲン検査は行われたか？ 
+                    </li></dd>
+                    </td>
+                    <td class="celldisplay" width="262"> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-060" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNo('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-060" value="N" stype="YesNoUnanswered" onclick="onYesNo('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                    </td>
+                  </tr>
+            </table>    
+            <br />
+<!-- NWLUWF -->
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="695">健康状態</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="695">特定疾病保障特約・特定疾病収入保障特約・手術給付金付ガン入院特約・ガン診断給付金特約・ガン死亡保障特約・ターミナル特約にお申込みの方におうかがいします。 </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" width="431">質問</td>
+                    <td class="celldisplayheading" width="245">回答</td>
+                </tr>
+                <tr>
+                <!-- ATF008 CHANGES STARTS -->
+		<!-- REMOVING THE FOLLOWING CHANGES
+                    <td class="celldisplay" width="431"><ol START="30"><li>
+                         過去１０年以内に、がん（上皮内ガンを含む）、肉腫、悪性リンパ腫、白血病になったことがをありますか
+                    </li></ol></td>
+		    <td class="celldisplay" width="245">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-082" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-082" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-082" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td> -->
+		<!-- ADDING THE FOLLOWING CHANGES -->
+                    <td class="celldisplay" width="431"><ol START="30"><li>
+                       過去5年前までに、がん（上皮内ガンを含む）、肉腫、悪性リンパ腫、白血病で医師の診察・検査・治療・投薬を受けたことがありますか
+                    </li></ol></td>
+		    <td class="celldisplay" width="245">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-083" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-083" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-083" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td> 
+		<!-- ATF008 CHANGES ENDS -->
+                </tr>
+            </table>
+<!-- NWLUWF -->
+<!--MP253F- Changes starts here-->
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldisplayheading" colspan="3" width="662">介護保障特約に申し込みの場合</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" width="418">質問</td>
+                    <td class="celldisplayheading" width="258">回答</td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="427"><ol START="31"><li>
+                        今までに、公的介護保障制度の要介護または要支援の認定を受けたことがありますか、または現在認定申請を行っていますか。
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="249">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-107" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-107" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-107" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" width="427"><ol START="32"><li>
+                        現在、以下①～⑦の日常生活の動作のいずれかにおいて、他者の介助または補助具を必要としますか。
+                        ①歩行　②食事　③排せつ　④入浴　⑤衣服の着脱　⑥店舗での買い物　
+                        ⑦公共の交通機関を利用しての外出                    
+                    </li></ol>
+                    </td>
+                    <td class="celldisplay" width="249">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-108" value="Y" stype="YesNoUnanswered" disabled="yes" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-108" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" disabled="yes" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-108" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" disabled="yes" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+            </table>
+<!--MP253F- Changes ends here-->
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/BF1392-I.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

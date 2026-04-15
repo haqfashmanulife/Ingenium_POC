@@ -1,0 +1,214 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:26 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0812-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2"                               
+*  PR0001  ROC      MVA 20% Free Withdrawal                                    
+*  FT7001 AKATO  FT7 Label Change 14JUN2004 
+*  NWLLPS  CTS      Add Minimum Loan amount field    
+*  MP162A  CTS      corrected the comment line 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                 	               
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0812-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PLAN-ID">プラン:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-LOC-GR-ID">所在地グループ:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-LOC-GR-ID" stype="Text" displayonly="yes">MIR-LOC-GR-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">無料引出情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-WTHDR-CD">ベース:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FREE-WTHDR-CD" id="MIR-FREE-WTHDR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-WTHDR-PERI-CD">期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FREE-WTHDR-PERI-CD" id="MIR-FREE-WTHDR-PERI-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-WTHDR-QTY">期間内回数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FREE-WTHDR-QTY" id="MIR-FREE-WTHDR-QTY" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-WTHDR-DUR">期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FREE-WTHDR-DUR" id="MIR-FREE-WTHDR-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">早期解約控除額インジケータ</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SURR-CHRG-IND">所在地早期解約控除額制限該当:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-SURR-CHRG-IND" id="MIR-SURR-CHRG-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-NET-FREE-WTHDR-IND">早期解約控除額より無料引出額除外:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-NET-FREE-WTHDR-IND" id="MIR-NET-FREE-WTHDR-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="7">ユニバーサル生命保険情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UL-NLAPS-GUAR-DUR">無失効保証期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-UL-NLAPS-GUAR-DUR" id="MIR-UL-NLAPS-GUAR-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INIT-GRACE-MO-DUR">契約当初猶予期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-INIT-GRACE-MO-DUR" id="MIR-INIT-GRACE-MO-DUR" stype="Text" maxlength="2" onfocus="enterField(this)" size="05" />
+                    </td>
+                    <td class="celllabeldataentry">  ヶ月  </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-INIT-GRACE-DY-DUR" id="MIR-INIT-GRACE-DY-DUR" stype="Text" maxlength="2" onfocus="enterField(this)" size="05" />
+                    </td>
+                    <td class="celllabeldataentry">日  </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UL-NLAPS-DED-QTY">復活に必要な最低目標支払月数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-UL-NLAPS-DED-QTY" id="MIR-UL-NLAPS-DED-QTY" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry" />
+                    <td class="celllabelrightalign" colspan="2" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">クーリングオフ処理オプション</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-LK-DT-CALC-CD">終了日計算:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FREE-LK-DT-CALC-CD" id="MIR-FREE-LK-DT-CALC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-NTU-PRCES-CD">クーリングオフ時返金保証:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-NTU-PRCES-CD" id="MIR-NTU-PRCES-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-LK-REQIR-CD">ファンド要件:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FREE-LK-REQIR-CD" id="MIR-FREE-LK-REQIR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-LK-FND-CD">ファンド指定:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FREE-LK-FND-CD" id="MIR-FREE-LK-FND-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">貸付処理オプション</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DSCNT-LOAN-CV-IND">最高貸付額計算に割引率を適用:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DSCNT-LOAN-CV-IND" id="MIR-DSCNT-LOAN-CV-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-LOAN-CV-PCT">キャッシュバリューに対する最高貸付可能率:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-MAX-LOAN-CV-PCT" id="MIR-MAX-LOAN-CV-PCT" stype="Percent" elength="7" decimals="4" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+<!-- MP162A changes start here -->
+<!-- <!- NWLLPS -Changes Starts Here -> -->
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MIN-LOAN-AMT">最少貸付額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MIN-LOAN-AMT" id="MIR-MIN-LOAN-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td>
+                    </td> 
+                </tr>
+<!-- <!- NWLLPS -Changes Ends Here -> -->
+<!-- MP162A changes end here -->
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

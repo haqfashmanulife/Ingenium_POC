@@ -1,0 +1,327 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:33 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1510-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016736  611J     Code cleanup
+*  017150  612J     Remove Currency decimals="2"
+*  HCL103  HIN/CL   CREATE MASTER CLAIM              (HCL103A)
+*  PR0M92  AT       Add Hitachi upload recycling days
+*  IPCAMC  CTS      Add fields for IPCAMC
+*  M119NB  CTS      ADD FIELD FOR LINC AGE LIMIT AND LINC FACE AMOUNT FOR
+*                   UNDER 15 AGE INSURED.
+*  MP176B  CTS      Add fields for ARM - Bulk Policy Number
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1510-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CO-ID">会社:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CO-ID" stype="Text" displayonly="yes">MIR-CO-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PREV-UPDT-DT">前回更新日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PREV-UPDT-DT" stype="Date" displayonly="yes">MIR-PREV-UPDT-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">契約諸情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CO-DFLT-LANG-CD">既定言語:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CO-DFLT-LANG-CD" stype="Text" displayonly="yes">MIR-CO-DFLT-LANG-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CO-REG-CUT-DT">登録契約締切日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CO-REG-CUT-DT" stype="Date" displayonly="yes">MIR-CO-REG-CUT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CO-AUD-CTR-LOB-CD">監査カウンタインジケータ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CO-AUD-CTR-LOB-CD" stype="Text" displayonly="yes">MIR-CO-AUD-CTR-LOB-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CO-BNK-EDIT-IND">銀行照会トランザクションの情報使用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CO-BNK-EDIT-IND" id="MIR-CO-BNK-EDIT-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <h2>
+                採番
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">契約番号</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CO-POL-ID-ASIGN-CD">契約番号割当:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CO-POL-ID-ASIGN-CD" stype="Text" displayonly="yes">MIR-CO-POL-ID-ASIGN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ID-ASIGN-QTY">割当可能数上限:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-ASIGN-QTY" stype="Text" displayonly="yes">MIR-POL-ID-ASIGN-QTY</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">就業不能給付請求番号</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CO-NXT-CLM-NUM">次回障害年金請求番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CO-NXT-CLM-NUM" stype="Text" displayonly="yes">MIR-CO-NXT-CLM-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAX-ASIGN-CLM-NUM">就業不能給付請求番号最大割当可能数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAX-ASIGN-CLM-NUM" stype="Text" displayonly="yes">MIR-MAX-ASIGN-CLM-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">医療クレーム番号</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CO-NXT-CLMA-NUM">次回マスタークレーム番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CO-NXT-CLMA-NUM" stype="Text" displayonly="yes">MIR-CO-NXT-CLMA-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAX-ASIGN-CLMA-NUM">マスタークレーム番号最大割当可能数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAX-ASIGN-CLMA-NUM" stype="Text" displayonly="yes">MIR-MAX-ASIGN-CLMA-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+<!-- IPCAMC -->
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">死亡マスタークレーム番号</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CO-NXT-DCLM-NUM">次回死亡マスタークレーム番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CO-NXT-DCLM-NUM" stype="Text" displayonly="yes">MIR-CO-NXT-DCLM-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAX-ASIGN-DCLM-NUM">死亡マスタークレーム番号最大割当可能数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAX-ASIGN-DCLM-NUM" stype="Text" displayonly="yes">MIR-MAX-ASIGN-DCLM-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+<!-- IPCAMC -->
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">税制適格退職貯蓄制度受領番号</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NXT-RRSP-RECPT-NUM">次回税制適格退職貯蓄制度受領番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NXT-RRSP-RECPT-NUM" stype="Text" displayonly="yes">MIR-NXT-RRSP-RECPT-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAX-RECPT-TRY-NUM">税制適格退職貯蓄制度受領番号最大割当可能数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAX-RECPT-TRY-NUM" stype="Text" displayonly="yes">MIR-MAX-RECPT-TRY-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+<!-- MP176B CHANGES START -->
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">一括証券番号</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NXT-BULK-POL-ID">次回一括証券番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NXT-BULK-POL-ID" stype="Text" displayonly="yes">MIR-NXT-BULK-POL-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAX-BULK-POL-QTY">一括申込書番号　最大確認回数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAX-BULK-POL-QTY" stype="Text" displayonly="yes">MIR-MAX-BULK-POL-QTY</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+<!-- MP176B CHANGES END -->
+            <h2>
+                テーブルアクセス
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">身長体重照会</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-HWTB-MAX-CHILD-AGE">性分割年齢上限:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HWTB-MAX-CHILD-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-HWTB-MAX-CHILD-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CO-HWTB-SCALE-CD">計測基準:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CO-HWTB-SCALE-CD" stype="Text" displayonly="yes">MIR-CO-HWTB-SCALE-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">査定人割当インジケータ</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UWAR-ALPHA-IND">被保険者名の第一文字から使用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-UWAR-ALPHA-IND" id="MIR-UWAR-ALPHA-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UWAR-LOB-IND">商品種別から使用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-UWAR-LOB-IND" id="MIR-UWAR-LOB-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UWAR-SERV-BR-IND">保全担当支社から使用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-UWAR-SERV-BR-IND" id="MIR-UWAR-SERV-BR-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UWAR-TCR-AMT-IND">合計額から使用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-UWAR-TCR-AMT-IND" id="MIR-UWAR-TCR-AMT-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">被保険者のLINC選択制限</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LINC-LIFE-FACE-AMT">最高LINC保険金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LINC-LIFE-FACE-AMT" stype="Currency" elength="16" displayonly="yes">MIR-LINC-LIFE-FACE-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LINC-HLTH-FACE-AMT">最高医療疾病保険金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LINC-HLTH-FACE-AMT" stype="Currency" elength="16" displayonly="yes">MIR-LINC-HLTH-FACE-AMT</span>
+                    </td>
+                </tr>
+<!-- M119NB -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UNDR15-LINC-FACE-AMT">15歳未満LINC最高保険金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UNDR15-LINC-FACE-AMT" stype="Currency" elength="16" displayonly="yes">MIR-UNDR15-LINC-FACE-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LINC-AGE-LMT">LINC年齢限度:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LINC-AGE-LMT" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-LINC-AGE-LMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="1" class="celldisplayheading">ﾋﾀﾁ ｱｯﾌﾟﾛｰﾄﾞ</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MEDIC-FORM-RECY-DY">ﾘｻｲｸﾙ日数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MEDIC-FORM-RECY-DY" stype="Number" elength="2" decimals="0" displayonly="yes">MIR-MEDIC-FORM-RECY-DY</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

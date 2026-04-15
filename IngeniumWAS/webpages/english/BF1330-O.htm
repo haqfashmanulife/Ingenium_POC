@@ -1,0 +1,779 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:28 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1330-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling
+*  016736  611J     Code Cleanup
+*  017150  612J     Remove Currency decimals="2"
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UY3004  CTS             HTML POLICY TRIM                                     *
+*
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1330-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad()"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+      	                  <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CSN-REC-NUM">Reinsurance Cession Record:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CSN-REC-NUM" stype="Text" displayonly="yes">MIR-CSN-REC-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                    </td>
+                    <td class="celldisplaykey">
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-CSN-REC-CTR">Number of Reinsurance on Coverage:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-CSN-REC-CTR" stype="Text" displayonly="yes">MIR-CVG-CSN-REC-CTR</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Coverage Data">Coverage Data</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Cession Data">Cession Data</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Base Reinsurance Premium">Base Reinsurance
+                            Premium</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Benefit / Extra Reinsurance Premium">Benefits / Extra
+                            Reinsurance Premium</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Miscellaneous Data">Miscellaneous Data</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Coverage Data">Coverage Data</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <p class="celldisplay">
+                        <label for="MIR-PLAN-ID">Plan:</label>
+                        </p>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-CSTAT-CD">Coverage Status:</label>
+                    </td>
+                    <td class="celldisplay">
+	                     <span id="MIR-CVG-CSTAT-CD" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-SMKR-CD">Smoker Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SMKR-CD" stype="Text" displayonly="yes">MIR-CVG-SMKR-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-PAR-CD">Coverage Participation:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PAR-CD" stype="Text" displayonly="yes">MIR-CVG-PAR-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-SEX-CD">Sex:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SEX-CD" stype="Text" displayonly="yes">MIR-CVG-SEX-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-RT-AGE">Age:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-RT-AGE" stype="Text" displayonly="yes">MIR-CVG-RT-AGE</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-STBL-1-CD">Sub-table 1:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-1-CD" stype="Text" displayonly="yes">MIR-CVG-STBL-1-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-STBL-2-CD">Sub-table 2:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-2-CD" stype="Text" displayonly="yes">MIR-CVG-STBL-2-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-STBL-3-CD">Sub-table 3:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-3-CD" stype="Text" displayonly="yes">MIR-CVG-STBL-3-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-STBL-4-CD">Sub-table 4:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-4-CD" stype="Text" displayonly="yes">MIR-CVG-STBL-4-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-FACE-AMT">Face Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-CVG-FACE-AMT" stype="Currency" elength="15" decimals="0" signed="yes" displayonly="yes">MIR-CVG-FACE-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-BASIC-PREM-AMT">Annual Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-CVG-BASIC-PREM-AMT" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-CVG-BASIC-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-FE-PREM-AMT">Flat Extra Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-CVG-FE-PREM-AMT" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-CVG-FE-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-ME-PREM-AMT">Multiple Extra Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-ME-PREM-AMT" stype="Currency" decimals="0" displayonly="yes">MIR-CVG-ME-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-CVG-FE-REASN-CD">Flat Extra Premium - Reason:</label>
+                    </td>
+                    <td class="celldisplay">
+                    <span id="MIR-CVG-FE-REASN-CD" stype="Text" displayonly="yes">MIR-CVG-FE-REASN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                            <label for="MIR-CVG-ME-REASN-CD">Multiple Extra Premium - Reason:</label>
+                    </td>
+                    <td class="celldisplay">
+                            <span id="MIR-CVG-ME-REASN-CD" stype="Text" displayonly="yes">MIR-CVG-ME-REASN-CD</span>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-FE-DUR">Flat Extra Premium - Duration:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-FE-DUR" stype="Text" displayonly="yes">MIR-CVG-FE-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-ME-DUR">Multiple Extra Premium - Duration:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-ME-DUR" stype="Text" displayonly="yes">MIR-CVG-ME-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSRD-CLI-ID">Client Number of Lives Insured:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-ID" stype="Text" displayonly="yes">MIR-INSRD-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-ME-FCT">Multiple Extra Rating:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-ME-FCT" stype="Number" elength="3" decimals="2" signed="yes" displayonly="yes">MIR-CVG-ME-FCT</span>
+
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                    Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Cession Data">Cession Data</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ASSUM-CO-REF-ID">Cession Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ASSUM-CO-REF-ID" stype="Text" displayonly="yes">MIR-ASSUM-CO-REF-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-EFF-DT">Reinsurance Effective Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                       <span id="MIR-CSN-EFF-DT" stype="Date" displayonly="yes">MIR-CSN-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-PD-TO-DT">Reinsurance Paid to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-PD-TO-DT" stype="Date" displayonly="yes">MIR-CSN-PD-TO-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-MAT-XPRY-DT">Maturity / Expiry Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-MAT-XPRY-DT" stype="Date" displayonly="yes">MIR-CSN-MAT-XPRY-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-PLAN-ID">Plan:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-PLAN-ID" stype="Text" displayonly="yes">MIR-CSN-PLAN-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-SMKR-CD">Smoker Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-SMKR-CD" stype="Text" displayonly="yes">MIR-CSN-SMKR-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-PAR-CD">Coverage Participation:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-PAR-CD" stype="Text" displayonly="yes">MIR-CSN-PAR-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-SEX-CD">Sex:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-SEX-CD" stype="Text" displayonly="yes">MIR-CSN-SEX-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-RT-AGE">Age:</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-CSN-RT-AGE" stype="Number" elength="3" decimals="0"  displayonly="yes">MIR-CSN-RT-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ASSUM-CO-ID">Reinsurance Company:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ASSUM-CO-ID" stype="Text" displayonly="yes">MIR-ASSUM-CO-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-REINS-TYP-CD">Reinsurance Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-REINS-TYP-CD" stype="Text" displayonly="yes">MIR-CSN-REINS-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-TRTY-TYP-CD">Reinsurance Treaty Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-TRTY-TYP-CD" stype="Text" displayonly="yes">MIR-CSN-TRTY-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-CRNT-RSK-AMT">Cession Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-CRNT-RSK-AMT" stype="Currency" elength="15" decimals="0" displayonly="yes">MIR-CSN-CRNT-RSK-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-RETEN-AMT">Retention Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-CSN-RETEN-AMT" stype="Currency" elength="15" decimals="0"  displayonly="yes">MIR-CSN-RETEN-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-ORIG-RSK-AMT">Original Cession Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-CSN-ORIG-RSK-AMT" stype="Currency" elength="15" decimals="0"  displayonly="yes">MIR-CSN-ORIG-RSK-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-LIFE-ALLOW-ID">Original Cession Amount Treaty:</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-CSN-LIFE-ALLOW-ID" stype="Text" displayonly="yes">MIR-CSN-LIFE-ALLOW-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-WP-FACE-AMT">Waiver of Premium (WP) Face Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-CSN-WP-FACE-AMT" stype="Currency" elength="15" decimals="0"  displayonly="yes">MIR-CSN-WP-FACE-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-AD-FACE-AMT">Accidental Death (AD) Face Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-AD-FACE-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CSN-AD-FACE-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-FE-FCT">Flat Extra Factor:</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-CSN-FE-FCT" stype="Number" elength="5" decimals="2"  displayonly="yes">MIR-CSN-FE-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-ME-FCT">Multiple Extra Factor:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-ME-FCT" stype="Number" elength="5" decimals="2"  displayonly="yes">MIR-CSN-ME-FCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-PREM-OFFST-DUR">Premium Duration Offset:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-PREM-OFFST-DUR" stype="Text" displayonly="yes">MIR-CSN-PREM-OFFST-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-RSK-CALC-CD">Risk Indicator:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-RSK-CALC-CD" stype="Text" displayonly="yes">MIR-CSN-RSK-CALC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-RSK-DECR-AMT">Risk Amount Decrement:</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-CSN-RSK-DECR-AMT" stype="Currency" elength="11" decimals="0"  displayonly="yes">MIR-CSN-RSK-DECR-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-CHNG-EFF-DT">Change Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-CHNG-EFF-DT" stype="Date" displayonly="yes">MIR-CSN-CHNG-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-STAT-CD">Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-STAT-CD" stype="Text" displayonly="yes">MIR-CSN-STAT-CD</span>
+                    </td>
+                     <td class="celldisplaylabel">
+                    <label for="MIR-CSN-PREV-STAT-CD">Previous Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                    <span id="MIR-CSN-PREV-STAT-CD" stype="Text" displayonly="yes">MIR-CSN-PREV-STAT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                    Back to top
+                </a>
+            </p>
+            <p align="right"><a name="Base Reinsurance Premium"></a></p>
+            <table class="tabledisplay">
+              <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        Base Reinsurance Premium
+                    </td>
+              </tr>
+              <tr>
+                <td class="celldisplaylabel">
+                		<label for="MIR-CSN-BASIC-PREM-AMT">Reinsurer Annual Premium:</label>
+                </td>
+                <td class="celldisplay">
+                		<span id="MIR-CSN-BASIC-PREM-AMT" stype="Currency" elength="13" decimals="0" displayonly="yes">MIR-CSN-BASIC-PREM-AMT</span>
+                </td>
+                <td class="celldisplaylabel">
+                		<label for="MIR-CSN-LIFE-ALLOW-AMT">Allowance:</label>
+                </td>
+                <td class="celldisplay">
+                		<span id="MIR-DV-LIFE-ALLOW-AMT" stype="Currency" elength="15"  displayonly="yes">MIR-DV-LIFE-ALLOW-AMT</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="celldisplaylabel">
+                		<label for="MIR-CSN-TOT-NPREM-AMT">Total Reinsurance Premium:</label>
+                </td>
+                <td class="celldisplay">
+                		<span id="MIR-CSN-TOT-NPREM-AMT" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-CSN-TOT-NPREM-AMT</span>
+                </td>
+                <td class="celldisplaylabel">
+                		<label for="MIR-CSN-TOT-ALLOW-AMT">Total Allowance:</label>
+                </td>
+                <td class="celldisplay">
+                		<span id="MIR-CSN-TOT-ALLOW-AMT" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-CSN-TOT-ALLOW-AMT</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="celldisplaylabel">
+                		<label for="MIR-CSN-NPREM-YTD-AMT">Gross Premium Year to Date:</label>
+                </td>
+                <td class="celldisplay">
+                		<span id="MIR-CSN-NPREM-YTD-AMT" stype="Currency" elength="15" decimals="0"  displayonly="yes">MIR-CSN-NPREM-YTD-AMT</span>
+                </td>
+                <td class="celldisplaylabel">
+                		<label for="MIR-DV-PREM-PD-YR-QTY">Number of Years Premiums Paid:</label>
+                </td>
+                <td class="celldisplay">
+                		<span id="MIR-DV-PREM-PD-YR-QTY" stype="Text" displayonly="yes">MIR-DV-PREM-PD-YR-QTY</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="celldisplaylabel">
+                		<label for="MIR-CSN-PFEE-AMT">Policy Fee:</label>
+                </td>
+                <td class="celldisplay">
+                		<span id="MIR-CSN-PFEE-AMT" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-CSN-PFEE-AMT</span>
+                </td>
+                <td class="celldisplaylabel">
+                		<label for="MIR-CSN-RESTR-PREM-IND">Restrict automatic calculation of reinsurance premiums:</label>
+                </td>
+                <td class="celldisplay">
+                     <input type="checkbox" name="MIR-CSN-RESTR-PREM-IND" id="MIR-CSN-RESTR-PREM-IND" stype="Indicator" value="Y" disabled="yes" />
+                </td>
+              </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                    Back to top
+                </a>
+            </p>
+            <p align="right"><a name="Benefit / Extra Reinsurance Premium"></a></p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Benefits Data for Disability Income">Benefit /
+                        Extra Reinsurance Premium</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">Benefit / Extra</td>
+                    <td class="celldisplayheading">Premium</td>
+                    <td class="celldisplayheading">Treaty</td>
+                    <td class="celldisplayheading">Allowance</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-WP-PREM-AMT">Waiver of Premium (WP):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-WP-PREM-AMT" stype="Currency" elength="13" decimals="0"  displayonly="yes">MIR-CSN-WP-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-WP-ALLOW-ID" stype="Text" displayonly="yes">MIR-CSN-WP-ALLOW-ID</span>
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-AD-PREM-AMT">Accidental Death (AD):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-AD-PREM-AMT" stype="Currency" elength="13" decimals="0"  displayonly="yes">MIR-CSN-AD-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-AD-ALLOW-ID" stype="Text" displayonly="yes">MIR-CSN-AD-ALLOW-ID</span>
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-FE-PREM-AMT">Flat Extra (FE)
+                        Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-FE-PREM-AMT" stype="Currency" elength="13" decimals="0"  displayonly="yes">MIR-CSN-FE-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-FE-ALLOW-ID" stype="Text" displayonly="yes">MIR-CSN-FE-ALLOW-ID</span>
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-ME-PREM-AMT">Multiple Extra (ME)
+                        Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-ME-PREM-AMT" stype="Currency" elength="13" decimals="0"  displayonly="yes">MIR-CSN-ME-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-ME-ALLOW-ID" stype="Text" displayonly="yes">MIR-CSN-ME-ALLOW-ID</span>
+                    </td>
+                    <td class="celldisplay">
+                            <span id="MIR-DV-ME-ALLOW-AMT" stype="Currency" elength="15"  displayonly="yes">MIR-DV-ME-ALLOW-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-COLA-PREM-AMT">Cost of Living Adjustments (COLA):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-COLA-PREM-AMT" stype="Currency" elength="11" decimals="0" displayonly="yes">MIR-CSN-COLA-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-COLA-ALLOW-ID" stype="Text" displayonly="yes">MIR-CSN-COLA-ALLOW-ID</span>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-DV-COLA-ALLOW-AMT" stype="Currency" elength="15" decimals="0" displayonly="yes">MIR-DV-COLA-ALLOW-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-LTA-PREM-AMT">Lifetime Accident (LTA):</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-CSN-LTA-PREM-AMT" stype="Currency" elength="11" decimals="0"  displayonly="yes">MIR-CSN-LTA-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-LTA-ALLOW-ID" stype="Text" displayonly="yes">MIR-CSN-LTA-ALLOW-ID</span>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-DV-LTA-ALLOW-AMT" stype="Currency" elength="15" decimals="0"  displayonly="yes">MIR-DV-LTA-ALLOW-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-LTB-PREM-AMT">Lifetime Benefits (LTB):</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-CSN-LTB-PREM-AMT" stype="Currency" elength="11" decimals="0" displayonly="yes">MIR-CSN-LTB-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-LTB-ALLOW-ID" stype="Text" displayonly="yes">MIR-CSN-LTB-ALLOW-ID</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LTB-ALLOW-AMT" stype="Currency" elength="15" decimals="0" displayonly="yes">MIR-DV-LTB-ALLOW-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OWN-OCCP-PREM-AMT">Own Occupation Definition of Disability
+                        (OCC):</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-OWN-OCCP-PREM-AMT" stype="Currency" elength="11" decimals="0" displayonly="yes">MIR-OWN-OCCP-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OWN-OCCP-ALLOW-ID" stype="Text" displayonly="yes">MIR-OWN-OCCP-ALLOW-ID</span>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-DV-OWN-OCCP-ALLOW-AMT" stype="Currency" elength="15" decimals="0" displayonly="yes">MIR-DV-OWN-OCCP-ALLOW-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PDISAB-PREM-AMT">Partial Disability (PDIS):</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-PDISAB-PREM-AMT" stype="Currency" elength="11" decimals="0" displayonly="yes">MIR-PDISAB-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PDISAB-ALLOW-ID" stype="Text" displayonly="yes">MIR-PDISAB-ALLOW-ID</span>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-DV-PDISAB-ALLOW-AMT" stype="Currency" elength="15" decimals="0" displayonly="yes">MIR-DV-PDISAB-ALLOW-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-REDC-EP-PREM-AMT">Reduced Elimination Period in Event of Hospitalization (HOSP):</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-REDC-EP-PREM-AMT" stype="Currency" elength="11" decimals="0"  displayonly="yes">MIR-REDC-EP-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REDC-EP-ALLOW-ID" stype="Text" displayonly="yes">MIR-REDC-EP-ALLOW-ID</span>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-DV-REDC-EP-ALLOW-AMT" stype="Currency" elength="15" decimals="0"  displayonly="yes">MIR-DV-REDC-EP-ALLOW-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                        Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Miscellaneous Data">Miscellaneous Data</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BCK-BILL-REASN-CD">Billing Adjustment Flag:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BCK-BILL-REASN-CD" stype="Text" displayonly="yes">MIR-BCK-BILL-REASN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BCK-BILL-PREM-AMT">Billing Adjustment Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BCK-BILL-PREM-AMT" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-BCK-BILL-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BCK-BILL-ALLOW-AMT">Billing Adjustment Allowance:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BCK-BILL-ALLOW-AMT" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-BCK-BILL-ALLOW-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-TOT-VAR-PREM-AMT">Total Adjustment Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-DV-TOT-VAR-PREM-AMT" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-DV-TOT-VAR-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-NOTI-DT">Date Notify Message To Be
+                        Produced :</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSN-NOTI-DT" stype="Date" displayonly="yes">MIR-CSN-NOTI-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSN-NOTI-CD">Notify Reason:</label>
+                    </td>
+                    <td class="celldisplay">
+							<span id="MIR-CSN-NOTI-CD" stype="Text" displayonly="yes">MIR-CSN-NOTI-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Coverage Data">Coverage Data</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Cession Data">Cession Data</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Base Reinsurance Premium">Base
+                            Reinsurance Premium</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Benefit / Extra Reinsurance Premium">Benefits
+                            / Extra Reinsurance Premium</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Miscellaneous Data">Miscellaneous Data</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+	    </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

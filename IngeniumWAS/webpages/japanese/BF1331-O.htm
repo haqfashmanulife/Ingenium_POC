@@ -1,0 +1,65 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:33 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1331-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2"  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                          
+*  UY3004  CTS             HTML POLICY TRIM                                     *
+*
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1331-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad()"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <p>
+                <label for="MIR-CSN-REC-NUM">再保険レコード:</label>
+                <span id="MIR-CSN-REC-NUM" stype="Text" displayonly="yes">MIR-CSN-REC-NUM</span>
+            </p>
+            <p>
+                <label for="MIR-CVG-NUM">保障番号:</label>
+                <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+            </p>
+            <p>
+                <label for="MIR-POL-ID-BASE">証券番号:</label>
+                <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+            </p>
+            <p>
+                <label for="MIR-POL-ID-SFX">枝番:</label>
+                <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+            </p>
+            <p>
+                <input type="hidden" name="action" id="action" stype="Hidden" />
+            </p>
+            <p>
+                <input type="hidden" name="index" id="index" stype="Hidden" />
+            </p>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

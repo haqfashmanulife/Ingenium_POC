@@ -1,0 +1,298 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:59 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9800-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Who      Description                                                
+*                                                                              
+*  02NB64  WBP      Initial version                                            
+*  FT7001 AKATO  FT7 Label Change 14JUN2004                          	               
+*  M213K1  CTS      CHANGES FOR ADDING NEW FIELD BASE RIDER CVG NUM1,
+*                   BASE RIDER CVG NUM2 AND GROUP ID  AS PART RUM
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+             
+*
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9800-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="5">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">処理日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CVG-REC-CTR">保障数:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">契約状況:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">子会社:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Existing Coverages">既存保障</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#New Coverages">新規保障</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+<!-- M213K1 Changes Colspan 7 to 10 -->
+                     <td colspan="10" class="celldisplayheading">
+<!-- M213K1 Changes end -->
+                        <a name="Existing Coverages">既存保障</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">保障</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PLAN-ID-T[1]">プラン</label>
+                    </td>
+<!-- M213K1 Changes Begin -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-PRIM-1-CVG-NUM-T[1]">主特約保障番号1</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PRIM-2-CVG-NUM-T[1]">主特約保障番号2</label>
+                    </td>
+					<td class="celldisplayheading">
+					    <label for="MIR-CVG-PRIM-GR-ID-T[1]">グループID</label>
+					</td>
+<!-- M213K1 Changes end -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-ID-T[1]">被保険クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-INSRD-CLI-NM-T[1]">被保険者名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-ISS-EFF-DT-1">発行日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-FACE-AMT-T[1]">保険金額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-CSTAT-CD-T[1]">ステータス</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>
+                    </td>
+<!-- M213K1 Changes Begin -->
+                    <td class="celldisplay">
+                        <span id="MIR-PRIM-1-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-PRIM-1-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PRIM-2-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-PRIM-2-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PRIM-GR-ID-T[]" stype="Text" displayonly="yes">MIR-CVG-PRIM-GR-ID-T[]</span>
+                    </td>
+<!-- M213K1 Changes end -->
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INSRD-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-ISS-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-CVG-ISS-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-FACE-AMT-T[]" stype="Currency" elength="15" displayonly="yes">MIR-CVG-FACE-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                        トップへ戻る
+                </a>
+            </p>
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+<!-- M213K1 Changes colspan 9 to 12 -->
+                    <td colspan="12" class="celldisplayheading">                  
+                        <a name="New Coverages">新規保障</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading"></td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NEW-CVG-NUM-T[1]">保障</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NEW-PLAN-ID-T[1]">プラン</label>
+                    </td>
+<!-- M213K1 Changes Begin -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-NEW-PRIM-1-CVG-NUM-T[1]">主特約保障番号1</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NEW-PRIM-2-CVG-NUM-T[1]">主特約保障番号2</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NEW-CVG-PRIM-GR-ID-T[1]">>グループID</label>
+                    </td>
+<!-- M213K1 Changes end -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-NEW-INSRD-CLI-ID-T[1]">被保険クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NEW-DV-INSRD-CLI-NM-T[1]">被保険者名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NEW-CVG-ISS-EFF-DT-1">発行日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NEW-CVG-FACE-AMT-T[1]">保険金額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NEW-CVG-CSTAT-CD-T[1]">ステータス</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NEW-CVG-SETL-IND-T[1]">将来的な成立</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-NEW-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-NEW-PLAN-ID-T[]</span>
+                    </td>
+<!-- M213K1 Changes Begin -->
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-PRIM-1-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-NEW-PRIM-1-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-PRIM-2-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-NEW-PRIM-2-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-CVG-PRIM-GR-ID-T[]" stype="Text" displayonly="yes">MIR-NEW-CVG-PRIM-GR-ID-T[]</span>
+                    </td>
+<!-- M213K1 Changes end -->
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-INSRD-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-NEW-INSRD-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-DV-INSRD-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-NEW-DV-INSRD-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-CVG-ISS-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-NEW-CVG-ISS-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-CVG-FACE-AMT-T[]" stype="Currency" elength="15" displayonly="yes">MIR-NEW-CVG-FACE-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-CVG-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-NEW-CVG-CSTAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-CVG-SETL-IND-T[]" stype="Text" displayonly="yes">MIR-NEW-CVG-SETL-IND-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                        トップへ戻る
+                </a>
+            </p>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Existing Coverages">既存保障</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#New Coverages">新規保障</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

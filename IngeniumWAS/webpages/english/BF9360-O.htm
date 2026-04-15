@@ -1,0 +1,529 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:51 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9360-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  01PR10  CSS      New for MCL
+*  02GL03  MAW      ADD POL-BT-SUSP-AMT, POL-PD-SUSP-AMT, POL-CC-SUSP-AMT
+*  1CPR03  EKM      ADD MIR-DV-SURRCHRG-T
+*  M00011  ROC      OUTSTANDING DISBURSEMENT
+*                      ADD OS-DISB-SURR-AMT, OS-DISB-MAT-AMT,
+*                      ADD OS-DISB-DTH-AMT,  OS-DISB-CLM-AMT,
+*                      ADD OS-DISB-AD-AMT
+*  MFPFU7  AC       ADD SELECT-T
+*  MP5002  CTS      ADD FLEXFUND SURRENDER CHARGE TYPE
+*  ISLADM  CTS      CHANGES FOR INSURANCE LAW PROJECT
+*  MP1669   CTS     To support APL,loan inFuture/Back dated trial calculation
+*  Q13469  CTS      CHANGES TO REMOVE ACCRUED INTEREST FIELD
+*  M213L1  CTS      ADMIN CHANGES FOR RUM
+*  C19016  CTS      PS-SD97335 CHANGES TO RETURN CSV VALUE TO
+*                   POST LAPSE SURRENDER VALUE
+*  MP245K  CTS      CHANGES DONE FOR FA-REDUCTION AND SURRENDER
+*  MP271A  CTS      CHANGES DONE FOR SEPERATE WITHHOLDING TAX
+*  MP302K  CTS      CHANGES DONE FOR SURVIVAL DEFERAL BENEFIT AMOUNT AND
+*                   DEFERRAL INTEREST
+*  MP334A  CTS      CHANGES TO ADD TOTAL PAID PREMIUM FIELD
+*  RPU013  CTS      CHANGES DONE FOR POLICY SERVICE AFTER RPU PROCESSING
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge. 
+*  UYS32E  CTS      ADITIONAL ITEM FOR UNEARNED INTEREST
+*  UY3071  CTS      HEALTH CONGRATULATORY BENEFIT
+*  UY3053  CTS      FULL SURRENDER 
+*  UY3136  CTS      EDUCATIONAL CONGRATULATORY BENEFIT
+*  CD3002  CTS      CHANGES DONE AS PART OF CERBERUS DAY-3                      *
+*********************************************************************************
+ -->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9360-O</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad(); onLoadCustom()"> -->
+    <body class="bodyws" onLoad="onLoad(); SubInpTrimPolicy(); onLoadCustom()">
+<!--  UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<!--  MP1669 changes starts here -->
+      <input type="hidden" name="MIR-DV-UNDO-VALID-CD" id="MIR-DV-UNDO-VALID-CD" stype="Hidden" />
+<!--  MP1669 changes ends here -->
+<!--  C19016 changes starts here -->
+      <input type="hidden" name="MIR-POL-TRAD-NON-SEG-FND-IND" id="MIR-POL-TRAD-NON-SEG-FND-IND" stype="Hidden" />
+<!--  C19016 changes ends here -->
+<table class="tabledisplaykey">
+<tr>
+<td class="celldisplaykeylabel">
+<label for="MIR-APPL-CTL-PRCES-DT">Process Date:</label></td><td class="celldisplaykey"><span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span></td>
+<td class="celldisplaykeylabel">
+<label for="MIR-POL-ID-BASE">Policy Id:</label></td><td class="celldisplaykey"><span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span></td>
+</tr>
+<tr>
+<td class="celldisplaykeylabel">
+<label for="MIR-POL-ID-SFX">Suffix:</label></td><td class="celldisplaykey"><span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span></td>
+<!-- MP5002 CHANGE STARTS -->
+<td class="celldisplaykeylabel">
+<label for="MIR-SURR-CHRG-TYP-CD">FlexFund Surrender Charge type :</label></td><td class="celldisplaykey"><span id="MIR-SURR-CHRG-TYP-CD" stype="Text" displayonly="yes">MIR-SURR-CHRG-TYP-CD</span></td>
+<!-- MP5002 CHANGE ENDS -->
+</tr>
+<!-- ISLADM Changes Start here -->
+<tr>
+<td class="celldisplaykeylabel">
+<label for="MIR-SURR-FORM-ACPT-DT">Surrender Request Form Acceptance Date:</label></td>
+<td class="celldisplaykey">
+<span id="MIR-SURR-FORM-ACPT-DT" stype="Date" displayonly="yes">MIR-SURR-FORM-ACPT-DT</span></td>
+<td class="celldisplaykeylabel">
+<label for="MIR-ASIGN-SURR-EFF-DT">Assigned Surrender Effective Date for Policy with Assignee:</label></td>
+<td class="celldisplaykey">
+<span id="MIR-ASIGN-SURR-EFF-DT" stype="Date"  displayonly="yes">MIR-ASIGN-SURR-EFF-DT</span></td>
+</tr>
+<tr>
+<td class="celldisplaykeylabel">
+<label for="MIR-POL-STEP-IN-RIGHT-IND">Policy with Step-In Right:</label></td>
+<td class="celldisplaykey">
+<input type="checkbox" name="MIR-POL-STEP-IN-RIGHT-IND" id="MIR-POL-STEP-IN-RIGHT-IND" stype="Indicator" value="Y" disabled="yes"/></td>
+<!-- MP334A CHANGES START HERE -->
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-TOT-PD-PREM-AMT">Total Premium Paid for the Policy:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-TOT-PD-PREM-AMT" stype="Currency" displayonly="yes">MIR-TOT-PD-PREM-AMT</span>
+                    </td>
+<!-- MP334A CHANGES ENDS HERE -->
+</tr>
+<!-- RPU013 CHANGES START HERE -->
+<tr>
+<td class="celldisplaykeylabel">
+<label for="MIR-RPU-TRNST-CNCL-IND">During RPU Transition Period Cancel:</label></td>
+<td class="celldisplaykey">
+<input type="checkbox" name="MIR-RPU-TRNST-CNCL-IND" id="MIR-RPU-TRNST-CNCL-IND" stype="Indicator" value="Y" disabled="yes"/></td>
+</tr>
+<!-- RPU013 CHANGES ENDS HERE -->
+<!-- ISLADM Changes End here -->
+</table>
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+<input type="hidden" name="index" id="index" stype="Hidden"/>
+<br />
+<table class="tabledisplay">
+<tr>
+<td class="celldisplayheading">
+<label for="MIR-SBSDRY-CO-ID">Sub Company:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-DV-OWN-CLI-NM">Owner Name:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-POL-CVG-REC-CTR">Number of Coverages:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-POL-CSTAT-CD">Policy Status:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-DV-POL-CSV-AMT">Cash Surrender Value:</label></td>
+<!-- MP271A Changes Start here -->
+<td class="celldisplayheading">
+<label for="MIR-DV-NATNL-TAXWH-AMT">Separate Withholding Tax (Income Tax):</label></td>
+<td class="celldisplayheading">
+<label for="MIR-DV-LOC-TAXWH-AMT">Separate Withholding Tax (Local Tax):</label></td>
+<!-- MP271A Changes End here -->
+<td class="celldisplayheading">
+<!-- MP245K Changes Start here -->
+<label for="MIR-DV-PAYO-CSV-AMT">Cash Surrender Value(Pay-out Currency):</label></td>
+<!-- MP271A Changes Start here -->
+<td class="celldisplayheading">
+<label for="MIR-DV-PREM-RFND-AMT">Refund Premium(JPY):</label></td>
+<!-- MP271A Changes End here -->
+<td class="celldisplayheading">
+<!-- MP245K Changes End here -->
+<label for="MIR-POST-LAPS-SUR-AMT">Post-Lapse Surrender Value:</label></td>
+</tr>
+
+<tr>
+<td class="celldisplay">
+<span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span></td>
+<td class="celldisplay">
+<span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span></td>
+<td class="celldisplay">
+<span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span></td>
+<td class="celldisplay">
+<span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span></td>
+
+<td class="celldisplay">
+<span id="MIR-DV-POL-CSV-AMT" stype="Currency" elength="19"  signed="yes" displayonly="yes">MIR-DV-POL-CSV-AMT</span></td>
+<!-- MP271A Changes Start here -->
+<td class="celldisplay">
+<span id="MIR-DV-NATNL-TAXWH-AMT" stype="Currency" elength="19"  signed="yes" displayonly="yes">MIR-DV-NATNL-TAXWH-AMT</span></td>
+<td class="celldisplay">
+<span id="MIR-DV-LOC-TAXWH-AMT" stype="Currency" elength="19"  signed="yes" displayonly="yes">MIR-DV-LOC-TAXWH-AMT</span></td>
+<!-- MP271A Changes Ends here -->
+<!-- MP245K Changes Start here -->
+<td class="celldisplay">
+<span id="MIR-DV-PAYO-CSV-AMT" stype="Currency" elength="19"  signed="yes" displayonly="yes">MIR-DV-PAYO-CSV-AMT</span></td>
+<!-- MP245K Changes End here -->
+<!-- MP271A Changes Start here -->
+<td class="celldisplay">
+<span id="MIR-DV-PREM-RFND-AMT" stype="Currency" elength="19"  signed="yes" displayonly="yes"> MIR-DV-PREM-RFND-AMT </span></td>
+<!-- MP271A Changes Ends here -->
+<td class="celldisplay">
+<span id="MIR-POST-LAPS-SUR-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-POST-LAPS-SUR-AMT</span></td>
+</tr>
+</table>
+<!-- MP1669 Changes Start here -->
+<br />
+<table class="tabledisplay">
+<tr>
+<td class="celldisplayheading">
+<label for="MIR-DV-UNEARN-PREM">Unearned Premium:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-PREM-XCES-SHRT-AMT">Excess / Shortage in Premium:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-APL-LOAN-AMT">APL Balance:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-DV-APL-LOAN-INT-AMT">APL Interest:</label></td>
+<!-- UYS32E Policy Loan Repayment Start Here -->
+<td class="celldisplayheading">
+<label for="MIR-SRVBEN-DEFR-AMT">Survival Benefit Deferral Amount:</label></td>
+<!-- UYS32E Policy Loan Repayment End Here -->
+<!-- UY3071 Changes Start Here -->
+<td class="celldisplayheading">
+<label for="MIR-HLTBEN-DEFR-AMT">Health Congratulatory Benefit:</label></td>
+<!-- UY3071 Changes End Here -->
+<!-- UY3136 Changes Start Here -->
+<td class="celldisplayheading">
+<label for="MIR-EDU-CNGR-AMT"> Educational Congratulatory Benefit:</label></td>
+<!-- UY3136 Changes End Here -->
+<td class="celldisplayheading">
+<label for="MIR-LOAN-AMT">Policy Loan Balance:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-DV-LOAN-INT-AMT">Policy Loan Interest:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-LOAN-XCES-SHRT-AMT">Excess / Shortage of Policy Loan Interest:</label></td>
+<!-- Q13469 Changes Starts here -->
+<!-- td class="celldisplayheading -->
+<!-- label for="MIR-DV-ADV-PMT-INT-AMT">Accrued Interest for Prepayment:</label></td -->
+<!-- Q13469 Changes ends here -->
+<!-- MP302K Changes Starts here -->
+<!-- UYS32E ADDITIOANL ITEM FOR UNEARNED INTEREST   Start Here -->
+<!-- <td class="celldisplayheading">
+<label for="MIR-SRVBEN-DEFR-AMT">Survival Benefit Deferral Amount:</label></td> -->
+<td class="celldisplayheading">
+<label for="MIR-UNEARN-LOAN-INT-AMT">Unearned Interest:</label></td>
+<!-- UYS32E ADDITIOANL ITEM FOR UNEARNED INTEREST End Here -->
+<td class="celldisplayheading">
+<label for="MIR-SRVBEN-DEFR-INT-AMT">Deferral Interest:</label></td>
+<!-- MP302K Changes Ends here -->
+</tr>
+
+<tr>
+<td class="celldisplay">
+<span id="MIR-DV-UNEARN-PREM" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-DV-UNEARN-PREM</span></td>
+<td class="celldisplay">
+<span id="MIR-PREM-XCES-SHRT-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-PREM-XCES-SHRT-AMT</span></td>
+<td class="celldisplay">
+<span id="MIR-APL-LOAN-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-APL-LOAN-AMT</span></td>
+<td class="celldisplay">
+<span id="MIR-DV-APL-LOAN-INT-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-DV-APL-LOAN-INT-AMT</span></td>
+<!-- UYS32E ADDITIOANL ITEM FOR UNEARNED INTEREST Start Here -->
+<td class="celldisplay">
+<span id="MIR-SRVBEN-DEFR-AMT" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-SRVBEN-DEFR-AMT</span></td>
+<!-- UYS32E ADDITIOANL ITEM FOR UNEARNED INTEREST END HERE -->
+<!-- UY3071 Changes Start Here -->
+<td class="celldisplay">
+<span id="MIR-HLTBEN-DEFR-AMT" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-HLTBEN-DEFR-AMT</span></td>
+<!-- UY3071 Changes END HERE -->
+<!-- UY3136 Changes Start Here -->
+<td class="celldisplay">
+<span id="MIR-EDU-CNGR-AMT" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-EDU-CNGR-AMT</span></td>
+<!-- UY3136 Changes END HERE -->
+<td class="celldisplay">
+<span id="MIR-LOAN-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-LOAN-AMT</span></td>
+<td class="celldisplay">
+<span id="MIR-DV-LOAN-INT-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-DV-LOAN-INT-AMT</span></td>
+<td class="celldisplay">
+<span id="MIR-LOAN-XCES-SHRT-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-LOAN-XCES-SHRT-AMT</span></td>
+<!-- Q13469 Changes Starts here -->
+<!--td class="celldisplay"-->
+<!-- span id="MIR-DV-ADV-PMT-INT-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-DV-ADV-PMT-INT-AMT</span></td -->
+<!-- Q13469 Changes ends here -->
+<!-- MP302K Changes Starts here -->
+<!-- UYS32E ADDITIOANL ITEM FOR UNEARNED INTEREST Start Here -->
+<!--<td class="celldisplay">
+<span id="MIR-SRVBEN-DEFR-AMT" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-SRVBEN-DEFR-AMT</span></td> -->
+<td class="celldisplay">
+<span id="MIR-UNEARN-LOAN-INT-AMT" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-UNEARN-LOAN-INT-AMT</span></td>
+<!-- UYS32E ADDITIOANL ITEM FOR UNEARNED INTEREST End Here -->
+<td class="celldisplay">
+<span id="MIR-SRVBEN-DEFR-INT-AMT" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-SRVBEN-DEFR-INT-AMT</span></td>
+<!-- MP302K Changes Ends here -->
+
+</tr>
+</table>
+<br />
+<!-- MP1669 Changes End here -->
+<table class="tabledisplay">
+<tr>
+<td class="celldisplayheading">
+<label for="MIR-POL-OS-DISB-AMT">Outstanding Disbursement:</label></td>
+<td class="celldisplayheading">
+    <label for="MIR-OS-DISB-SURR-AMT">OS Disb - Surrender:</label>
+</td>
+<td class="celldisplayheading">
+    <label for="MIR-OS-DISB-MAT-AMT">OS Disb - Maturity:</label>
+</td>
+<td class="celldisplayheading">
+    <label for="MIR-OS-DISB-DTH-AMT">OS Disb - Death:</label>
+</td>
+<td class="celldisplayheading">
+    <label for="MIR-OS-DISB-CLM-AMT">OS Disb - Claim:</label>
+</td>
+<td class="celldisplayheading">
+    <label for="MIR-OS-DISB-AD-AMT">OS Disb - Acc Death:</label>
+</td>
+<!-- CD3002 CHANGES STARTS HERE -->
+<td class="celldisplayheading">
+    <label for="MIR-FRACT-ACUM-PREM-AMT">Accumulation Value for fractions less than a year:</label>
+</td>
+<td class="celldisplayheading">
+    <label for="MIR-RAV-DEFR-BAL-AMT">Rider A/V:</label>
+</td>
+<td class="celldisplayheading">
+    <label for="MIR-RAV-DLY-INT-AMT">Rider A/V Daily Interest:</label>
+</td>
+<!-- CD3002 CHANGES ENDS HERE -->
+</tr>
+
+<tr>
+<td class="celldisplay">
+<span id="MIR-POL-OS-DISB-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-POL-OS-DISB-AMT</span></td>
+<td class="celldisplay">
+    <span id="MIR-OS-DISB-SURR-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-OS-DISB-SURR-AMT</span>
+</td>
+<td class="celldisplay">
+    <span id="MIR-OS-DISB-MAT-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-OS-DISB-MAT-AMT</span>
+</td>
+<td class="celldisplay">
+    <span id="MIR-OS-DISB-DTH-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-OS-DISB-DTH-AMT</span>
+</td>
+<td class="celldisplay">
+    <span id="MIR-OS-DISB-CLM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-OS-DISB-CLM-AMT</span>
+</td>
+<td class="celldisplay">
+    <span id="MIR-OS-DISB-AD-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-OS-DISB-AD-AMT</span>
+</td>
+<!-- CD3002 CHANGES STARTS HERE -->
+<td class="celldisplay">
+    <span id="MIR-FRACT-ACUM-PREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-FRACT-ACUM-PREM-AMT</span>
+</td>
+<td class="celldisplay">
+    <span id="MIR-RAV-DEFR-BAL-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-RAV-DEFR-BAL-AMT</span>
+</td>
+<td class="celldisplay">
+    <span id="MIR-RAV-DLY-INT-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-RAV-DLY-INT-AMT</span>
+</td>
+<!-- CD3002 CHANGES ENDS HERE -->
+
+</tr>
+</table>
+
+<br />
+<table class="tabledisplay">
+
+<tr>
+<td class="celldisplayheading">
+<label for="MIR-POL-UL-SHRT-AMT">Shortage Amount:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-POL-PREM-SUSP-AMT">Premium Suspense:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-POL-BT-SUSP-AMT">Bank Transfer Suspense:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-POL-PD-SUSP-AMT">Payroll Deduction Suspense:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-POL-CC-SUSP-AMT">Cash Collection Suspense:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-POL-PD-TO-DT-NUM">Paid to Date:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-UL-LAPS-STRT-DT">Lapse Start Date:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-DV-FUND-QUOTE-DT">Fund Quote Date:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-DV-GCSV-QUOTE-DT">Guaranteed Cash Value Quote Date:</label></td>
+</tr>
+
+<tr>
+<td class="celldisplay">
+<span id="MIR-POL-UL-SHRT-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-POL-UL-SHRT-AMT</span></td>
+<td class="celldisplay">
+<span id="MIR-POL-PREM-SUSP-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-POL-PREM-SUSP-AMT</span></td>
+<td class="celldisplay">
+<span id="MIR-POL-BT-SUSP-AMT" stype="Currency" elength="13"  signed="yes" displayonly="yes">MIR-POL-BT-SUSP-AMT</span></td>
+<td class="celldisplay">
+<span id="MIR-POL-PD-SUSP-AMT" stype="Currency" elength="13"  signed="yes" displayonly="yes">MIR-POL-PD-SUSP-AMT</span></td>
+<td class="celldisplay">
+<span id="MIR-POL-CC-SUSP-AMT" stype="Currency" elength="13"  signed="yes" displayonly="yes">MIR-POL-CC-SUSP-AMT</span></td>
+<td class="celldisplay">
+<span id="MIR-POL-PD-TO-DT-NUM" stype="Date" displayonly="yes">MIR-POL-PD-TO-DT-NUM</span></td>
+<td class="celldisplay">
+<span id="MIR-UL-LAPS-STRT-DT" stype="Date" displayonly="yes">MIR-UL-LAPS-STRT-DT</span></td>
+<td class="celldisplay">
+<span id="MIR-DV-FUND-QUOTE-DT" stype="Date" displayonly="yes">MIR-DV-FUND-QUOTE-DT</span></td>
+<td class="celldisplay">
+<span id="MIR-DV-GCSV-QUOTE-DT" stype="Date" displayonly="yes">MIR-DV-GCSV-QUOTE-DT</span></td>
+</tr>
+</table>
+<!-- UY3053 Changes Start here -->
+<br />
+<table class="tabledisplay">
+<tr>
+<td class="celldisplayheading">
+<label for="MIR-INCR-SRVBEN-AMT">CSV of Increased Survival Benefit:</label>
+</td>
+<td class="celldisplayheading">
+<label for="MIR-INCR-WL-AMT">CSV of Increased Whole Life:</label>
+</td>
+<td class="celldisplayheading">
+    <label for="MIR-VEST-AMT">Vesting Amount:</label>
+</td>
+<td class="celldisplayheading">
+    <label for="MIR-CNVR-BAL-AMT">CSV of Conversion Balance:</label>
+</td>
+<td class="celldisplayheading">
+    <label for="MIR-TAX-QUAL-AMT">Tax Qualification amount:</label>
+</td>
+<td class="celldisplayheading">
+    <label for="MIR-DEFR-DIV-AMT">Dividend Amount:</label>
+</td>
+<td class="celldisplayheading">
+    <label for="MIR-EDUC-ANN-AMT">Educational Annuity amount:</label>
+</td>
+<td class="celldisplayheading">
+<label for="MIR-NO-ACCDNT-BNFT-AMT">No Accidental Benefit:</label>
+</td>
+<td class="celldisplayheading">
+<label for="MIR-SAV-RIDER-AMT">Saving Rider Deferred Amount:</label>
+</td>
+</tr>
+
+<tr>
+<td class="celldisplay">
+<span id="MIR-INCR-SRVBEN-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-INCR-SRVBEN-AMT</span>
+</td>
+<td class="celldisplay">
+<span id="MIR-INCR-WL-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-INCR-WL-AMT</span>
+</td>
+<td class="celldisplay">
+    <span id="MIR-VEST-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-VEST-AMT</span>
+</td>
+<td class="celldisplay">
+    <span id="MIR-CNVR-BAL-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CNVR-BAL-AMT</span>
+</td>
+<td class="celldisplay">
+    <span id="MIR-TAX-QUAL-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-TAX-QUAL-AMT</span>
+</td>
+<td class="celldisplay">
+    <span id="MIR-DEFR-DIV-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DEFR-DIV-AMT</span>
+</td>
+<td class="celldisplay">
+    <span id="MIR-EDUC-ANN-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-EDUC-ANN-AMT</span>
+</td>
+<td class="celldisplay">
+    <span id="MIR-NO-ACCDNT-BNFT-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-NO-ACCDNT-BNFT-AMT</span>
+</td>
+<td class="celldisplay">
+    <span id="MIR-SAV-RIDER-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-SAV-RIDER-AMT</span>
+</td>
+</tr>
+</table>
+<!-- UY3053 Changes Ends here -->
+<br />
+<table id="cvgTable" class="tabledisplay" genrows="0">
+
+<tr>
+<td class="celldisplayheading"><label for="SELECT-T[1]"/></td>
+<td class="celldisplayheading"><label for="MIR-CVG-NUM-T[1]">Coverage Number</label></td>
+<!-- M213L1 Changes Starts here -->
+<td class="celldisplayheading"><label for="MIR-CVG-PRIM-GR-ID-T[1]">Group ID</label></td>
+<!-- M213L1 Changes End here -->
+<td class="celldisplayheading"><label for="MIR-PLAN-ID-T[1]">Type of Plan</label></td>
+<td class="celldisplayheading"><label for="MIR-DV-ACUM-FND-VAL-T[1]">Accumulated Fund Value Amount</label></td>
+<td class="celldisplayheading"><label for="MIR-DV-MKTVAL-T[1]">MVA</label></td>
+<td class="celldisplayheading"><label for="MIR-DV-SURRCHRG-T[1]">Surrender Charge</label></td>
+<td class="celldisplayheading"><label for="MIR-DV-NET-FUND-VAL-T[1]">Net Fund Value</label></td>
+<td class="celldisplayheading"><label for="MIR-DV-GCSV-AMT-T[1]">Guaranteed Cash Value</label></td>
+<td class="celldisplayheading"><label for="MIR-DV-NET-GCSV-AMT-T[1]">Coverage Net Surrender Value</label></td>
+<td class="celldisplayheading"><label for="MIR-CVG-INS-TYP-CD-T[1]"/></td>
+</tr>
+
+<tr>
+<td class="celldisplay"><input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()"/>
+</td>
+<td class="celldisplay"><span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+</td>
+<!-- M213L1 Changes Starts here -->
+<td class="celldisplay"><span id="MIR-CVG-PRIM-GR-ID-T[]" stype="Text" displayonly="yes">MIR-CVG-PRIM-GR-ID-T[]</span>
+</td>
+<!-- M213L1 Changes End here -->
+<td class="celldisplay"><span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-DV-ACUM-FND-VAL-T[]" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-DV-ACUM-FND-VAL-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-DV-MKTVAL-T[]" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-DV-MKTVAL-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-DV-SURRCHRG-T[]" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-DV-SURRCHRG-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-DV-NET-FUND-VAL-T[]" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-DV-NET-FUND-VAL-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-DV-GCSV-AMT-T[]" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-DV-GCSV-AMT-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-DV-NET-GCSV-AMT-T[]" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-DV-NET-GCSV-AMT-T[]</span>
+</td>
+<td class="celldisplay"><input type="hidden" name="MIR-CVG-INS-TYP-CD-T[]" id="MIR-CVG-INS-TYP-CD-T[]" stype="Hidden"/>
+</td>
+</tr>
+
+</table>
+<!-- MP245K Changes Start here -->
+       <table class="tabledisplay" >
+                <tr>
+                    <td class="celldisplayheading" colspan="17">Foreign Currency product information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PAYO-JPY-BNFT-CD">JPY benefit Rider</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-JP-XCHNG-EFF-DT">Exchange Effective date to JPY</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-JP-XCHNG-RT">Exchange rate to JPY</label>
+                    </td>
+                 </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAYO-JPY-BNFT-CD" stype="Text" displayonly="yes">MIR-DV-PAYO-JPY-BNFT-CD</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-JP-XCHNG-EFF-DT" stype="Text" displayonly="yes">MIR-DV-JP-XCHNG-EFF-DT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-JP-XCHNG-RT" stype="Text" elength="7" decimals="2" signed="yes" displayonly="yes">MIR-DV-JP-XCHNG-RT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+<!-- MP245K Changes End here -->
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<script src="../js/BF9360-O.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

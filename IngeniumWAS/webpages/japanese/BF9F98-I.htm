@@ -1,0 +1,155 @@
+﻿<!--
+# Converted from PathFinder 2.2 to 3.0 Jun 18, 2004 3:13:13 PM EDT
+
+#*******************************************************************************
+#*  Component:   BF9F98-I                                                      *
+#*  Description: CWA REFUND APPROVAL/REJECTION SCREEN                          *
+#*******************************************************************************
+#*  Chg#    Release  Description                                               *
+#*                                                                             *
+#*  CA0002  CTS      Intial version                                            *
+#*  105526  CTS      MISMATCH CODE FIXED                                       *
+#*  105529  CTS      FIXED DONE FOR DATE CHANGES                               *
+#*  23774B  CTS      Changes done for ie retirement project to make it         *
+#*                   compatible for microsoft edge. Changes in html include    *
+#*                   adding "id" attribute for all input fields and changes in *
+#*                   java scripts to modify certain functions/commands which   *
+#*                   are no longer compatilble with edge.                      *
+#*******************************************************************************
+ -->
+<html>
+    <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9F98-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-APP-FORM-ID">申込書番号：</label>
+                    </td>
+                     <td class="celldatakey">
+                         <input type="text" value=" " name="MIR-POL-APP-FORM-ID" id="MIR-POL-APP-FORM-ID" stype="Text" maxlength="15" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+                <p align="Left">
+                   契約者名・被保険者名での検索について<br></br>
+                   <!-- CHANGES STARTS FOR 105526 -->
+                   <!-- 入力欄に入力した文字列で始まる契約者名・被保険者名を検索しますので,<br></br> -->
+                   入力欄に入力した文字列で始まる契約者名・被保険者名を検索しますので、<br></br>
+                   <!-- CHANGES END FOR 105526 -->
+                   先頭から正確に入力してください。（最後まで入力しなくても、途中までの入力で検索可能です。)<br></br>
+                   例 ： 「株式会社　マニュライフ」を検索する場合<br></br>
+                    <!-- CHANGES STARTS FOR 105526 -->
+                   <!-- ○ 「株式会社　マニュ」<br><br></br></br> -->
+                    <!-- × 「（株）マニュ」<br></br> -->
+                   ○ 「株式会社　マニュ」<br></br>
+                   × 「（株）マニュ」<br><br></br></br>
+                   <!-- CHANGES END FOR 105526 -->
+                    契約者名で検索する場合、以下の点にご注意ください。<br></br>								
+                    ・個人契約の場合は「契約者姓カナ」、「契約者名カナ」のいずれかまたは両方を入力してください。<br></br> 
+                    ・法人契約の場合は「契約者法人名カナ」を入力してください。<br></br> 
+                </p>                  
+            <table class="tabledatakey">
+                <tr>
+                   <td class="celldatakeylabel">
+                        <label for="MIR-OWN-SUR-NM">契約者姓カナ:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-OWN-SUR-NM" id="MIR-OWN-SUR-NM" stype="Text" maxlength="50" onfocus="enterField(this)" />
+                    </td>
+
+                    <td class="celldatakeylabel">
+                        <label for="MIR-OWN-FRST-NM">契約者名カナ：</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-OWN-FRST-NM" id="MIR-OWN-FRST-NM" stype="Text" maxlength="50" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                 <tr>
+                   <td class="celldatakeylabel">
+                        <label for="MIR-OWN-CO-NM">契約者法人名カナ：</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-OWN-CO-NM" id="MIR-OWN-CO-NM" stype="Text" maxlength="50" onfocus="enterField(this)" />
+                    </td>
+                  </tr>
+                <tr>
+                <td class="celldatakeylabel">
+                        <label for="MIR-INSRD-SUR-NM">被保険者姓カナ：</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-INSRD-SUR-NM" id="MIR-INSRD-SUR-NM" stype="Text" maxlength="50" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                    <!-- CHANGES STARTS FOR 105526 -->
+                    <!--    <label for="MIR-INSRD-FRST-NM">被保険者名カナ：</label> -->
+                        <label for="MIR-INSRD-FRST-NM">被保険者名カナ：</label>
+                    <!-- CHANGES STARTS FOR 105526 -->
+                     </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-INSRD-FRST-NM" id="MIR-INSRD-FRST-NM" stype="Text" maxlength="50" onfocus="enterField(this)" />
+                    </td>
+                 </tr>
+                 <tr>
+                   <td class="celldatakeylabel">
+                    <!-- CHANGES STARTS FOR 105526 -->
+                      <!--  <label for="MIR-SERV-AGT-ID">扱者コード：</label> -->
+                        <label for="MIR-SERV-AGT-ID">扱者コード：</label>
+                    <!-- CHANGES END FOR 105526 -->
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-SERV-AGT-ID" id="MIR-SERV-AGT-ID" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                  </tr>
+                </table>
+                <p align="Left">
+                   MGA扱の場合、以下の点にご注意ください。<br></br>
+                    ・「扱者コード」欄には「代理店コード」を入力願います。<br></br>
+                    ・「募集人名/募集人コード」での検索はできません.<br></br>
+                </p>
+            <table class="tabledatakey">
+                <tr>
+                   <td class="celldatakeylabel">
+                        <label for="MIR-SRCH-PERI-STRT-DT">検索期間(開始):</label>
+                    </td>
+                    <td class="celldatakey">
+                        <!-- CHANGES STARTS FOR 105529 -->
+                     <!--   <input type="text" value=" " name="MIR-SRCH-PERI-STRT-DT" id="MIR-SRCH-PERI-STRT-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)" /> -->
+                        <input type="text" value=" " name="MIR-SRCH-PERI-STRT-DT" id="MIR-SRCH-PERI-STRT-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)" />
+                        <!-- CHANGES END FOR 105529 -->
+                    </td>
+
+                    <td class="celldatakeylabel">
+                        <label for="MIR-SRCH-PERI-END-DT">検索期間(終了):</label>
+                    </td>
+                    <td class="celldatakey">
+                        <!-- CHANGES STARTS FOR 105529 -->
+                     <!--   <input type="text" value=" " name="MIR-SRCH-PERI-END-DT" id="MIR-SRCH-PERI-END-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)" /> -->
+                        <input type="text" value=" " name="MIR-SRCH-PERI-END-DT" id="MIR-SRCH-PERI-END-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)" />
+                        <!-- CHANGES END FOR 105529 -->
+                    </td>
+                </tr>
+                <tr>
+                <td class="celldatakeylabel">
+                        <label for="MIR-RFND-USER-ID">払出依頼者ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-RFND-USER-ID" id="MIR-RFND-USER-ID" stype="Text" maxlength="8" onfocus="enterField(this)" />
+                    </td>
+                 </tr>
+            </table>
+
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

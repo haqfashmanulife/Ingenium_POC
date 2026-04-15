@@ -1,0 +1,884 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:20 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0712-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling
+*  017150  612J     Remove Currency decimals="2"
+*  015550  CTS      Changes as part of New Emperor Era Name
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0712-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+        <script>
+
+function onLoad1()
+
+{
+
+	setEmperorDate("MIR-ANUTNT-1-BTH-DT");
+
+}
+
+</script>
+        <script>
+
+function onLoad2()
+
+{
+
+	setEmperorDate("MIR-ANUTNT-2-BTH-DT");
+
+}
+
+</script>
+    </head>
+    <body class="bodyws" onload="onLoad1(); onLoad2(); onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <a name="top" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-ORIG-CD">Origin of Funds:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="4">
+                        <span id="MIR-CVG-ORIG-CD" stype="Text" displayonly="yes">MIR-CVG-ORIG-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-IA-QUOT-NUM">Quote Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-IA-QUOT-NUM" stype="Text" displayonly="yes">MIR-IA-QUOT-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#RequestInformation">Request Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#QuoteInformation">Quote Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Miscellaneous">Miscellaneous</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AnnuitantInformation">Annuitant Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#IncomeGuaranteedtobePaid">Income Guaranteed to be Paid</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#IncomeInformation">Income Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#IncomeAdjustment">Income Adjustment</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AnnualInterestandScaleInformation">Annual Interest and Scale Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#InterestRateInformation">Interest Rate Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CommissionInformation">Commission Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#MortalityInformation">Mortality Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#OtherInformation">Other Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#StatusInformation">Status Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#DeathInformation">Death Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="RequestInformation">Request Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-AGT-NM-TXT">Agent Name:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-AGT-NM-TXT" id="MIR-IA-QUOT-AGT-NM-TXT" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-CO-NM-TXT">Company of Quote:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-CO-NM-TXT" id="MIR-IA-QUOT-CO-NM-TXT" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-REF-TXT">Client Reference Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-REF-TXT" id="MIR-IA-QUOT-REF-TXT" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="QuoteInformation">Quote Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-USER-ID">User ID:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-USER-ID" id="MIR-USER-ID" stype="Text" maxlength="8" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-XPRY-DT">Expiry Date of Quote:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-XPRY-DT" id="MIR-IA-QUOT-XPRY-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-EFF-DT">Effective Date of Quote:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-EFF-DT" id="MIR-IA-QUOT-EFF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-EFF-TIME">Effective Time of Quote:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-EFF-TIME" id="MIR-IA-QUOT-EFF-TIME" stype="Time" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="Miscellaneous">Miscellaneous</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-TYP-CD">Annuity Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-QUOT-TYP-CD" id="MIR-IA-QUOT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PLAN-ID">Plan:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PLAN-ID" id="MIR-PLAN-ID" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-BTH-DT-USE-CD">Birth Date of Annuitant Used:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-BTH-DT-USE-CD" id="MIR-IA-BTH-DT-USE-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-FND-SRC-CD">Fund Source:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-QUOT-FND-SRC-CD" id="MIR-IA-QUOT-FND-SRC-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-CTRY-CD">Country:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-IA-QUOT-CTRY-CD" stype="Text" displayonly="yes">MIR-IA-QUOT-CTRY-CD</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-PNSN-QUALF-CD">Pension Qualifier:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-PNSN-QUALF-CD" id="MIR-IA-PNSN-QUALF-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-JNT-PMT-CD">Joint Payment Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-QUOT-JNT-PMT-CD" id="MIR-IA-QUOT-JNT-PMT-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="AnnuitantInformation">Annuitant Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign" />
+                    <td class="celllabelleftalign">Birth Date</td>
+                    <td class="celllabelleftalign">Emperor Date</td>
+                    <td class="celllabelleftalign">Sex</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">First Annuitant:</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ANUTNT-1-BTH-DT" id="MIR-ANUTNT-1-BTH-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" emperorDate="myEmperorDate1" />
+                    </td>
+                    <td>
+                        <select name="myEmperorDate1" id="myEmperorDate1" stype="EmperorDate" onblur="validateField(this)" onfocus="enterField(this)" serverDate="MIR-ANUTNT-1-BTH-DT">
+                            <option value="" />
+                            <option value="M">Meiji</option>
+                            <option value="T">Taisho</option>
+                            <option value="S">Showa</option>
+                            <option value="H">Heisei</option>
+<!-- 015550 CHANGES START HERE -->
+                            <option value="R">Reiwa</option>
+<!-- 015550 CHANGES ENDS HERE -->
+                        </select>
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate1" id="myEmperorDate1" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-ANUTNT-1-BTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate1" id="myEmperorDate1" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-ANUTNT-1-BTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate1" id="myEmperorDate1" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-ANUTNT-1-BTH-DT" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ANUTNT-1-SEX-CD" id="MIR-ANUTNT-1-SEX-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">Second Annuitant:</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ANUTNT-2-BTH-DT" id="MIR-ANUTNT-2-BTH-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" emperorDate="myEmperorDate2" />
+                    </td>
+                    <td>
+                        <select name="myEmperorDate2" id="myEmperorDate2" stype="EmperorDate" onblur="validateField(this)" onfocus="enterField(this)" serverDate="MIR-ANUTNT-2-BTH-DT">
+                            <option value="" />
+                            <option value="M">Meiji</option>
+                            <option value="T">Taisho</option>
+                            <option value="S">Showa</option>
+                            <option value="H">Heisei</option>
+<!-- 015550 CHANGES START HERE -->
+                            <option value="R">Reiwa</option>
+<!-- 015550 CHANGES ENDS HERE -->
+                        </select>
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate2" id="myEmperorDate2" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-ANUTNT-2-BTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate2" id="myEmperorDate2" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-ANUTNT-2-BTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate2" id="myEmperorDate2" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-ANUTNT-2-BTH-DT" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ANUTNT-2-SEX-CD" id="MIR-ANUTNT-2-SEX-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="6">
+                        <a name="IncomeGuaranteedtobePaid">Income Guaranteed to be Paid</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-GUAR-YR-DUR">Number of Years:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-GUAR-YR-DUR" id="MIR-IA-GUAR-YR-DUR" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-GUAR-MO-DUR">Number of Months:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-GUAR-MO-DUR" id="MIR-IA-GUAR-MO-DUR" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-GUAR-AGE">Age:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-GUAR-AGE" id="MIR-IA-QUOT-GUAR-AGE" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="IncomeInformation">Income Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INCM-MODE-CD">Income Mode:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-INCM-MODE-CD" id="MIR-IA-INCM-MODE-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-CALC-TYP-CD">Calculation Base:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-CALC-TYP-CD" id="MIR-IA-CALC-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-GRS-SPREM-AMT">Gross Single Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-GRS-SPREM-AMT" id="MIR-IA-GRS-SPREM-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-INCM-AMT">Ultimate Periodic Income:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-INCM-AMT" id="MIR-IA-QUOT-INCM-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-PREM-PMT-DT">Premium Payment Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-PREM-PMT-DT" id="MIR-IA-PREM-PMT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INCM-STRT-DT">Income Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INCM-STRT-DT" id="MIR-IA-INCM-STRT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-TAX-EXCL-PCT">Tax Exclusion Ratio:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-IA-TAX-EXCL-PCT" id="MIR-IA-TAX-EXCL-PCT" stype="Percent" elength="4" decimals="1" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-TAXBL-INCM-AMT">Taxable Income:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-TAXBL-INCM-AMT" id="MIR-IA-TAXBL-INCM-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-FED-TAXWH-AMT">Tax Withholding Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-FED-TAXWH-AMT" id="MIR-IA-FED-TAXWH-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="IncomeAdjustment">Income Adjustment</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INCM-1-ADJ-FCT">Factor 1 - Death of First Annuitant:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INCM-1-ADJ-FCT" id="MIR-IA-INCM-1-ADJ-FCT" stype="Number" elength="5" decimals="4" signed="yes" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INCM-2-ADJ-FCT">Factor 2 - Death of Second Annuitant:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INCM-2-ADJ-FCT" id="MIR-IA-INCM-2-ADJ-FCT" stype="Number" elength="5" decimals="4" signed="yes" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INCM-ADJ-DT">Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INCM-ADJ-DT" id="MIR-IA-INCM-ADJ-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INCM-ADJ-AMT">Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INCM-ADJ-AMT" id="MIR-IA-INCM-ADJ-AMT" stype="Currency" elength="12" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="AnnualInterestandScaleInformation">Annual Interest and Scale Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INT-RT-ID">Annual Interest:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-INT-RT-ID" id="MIR-IA-INT-RT-ID" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INT-PREM-ID">Interest Premium Scale:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INT-PREM-ID" id="MIR-IA-INT-PREM-ID" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INT-LEGAL-ID">Interest Statutory Scale:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INT-LEGAL-ID" id="MIR-IA-INT-LEGAL-ID" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INT-TAX-ID">Interest Tax Scale:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INT-TAX-ID" id="MIR-IA-INT-TAX-ID" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="5">
+                        <a name="InterestRateInformation">Interest Rate Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-INT-1-PCT">Interest Rate (1):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-IA-QUOT-INT-1-PCT" id="MIR-IA-QUOT-INT-1-PCT" stype="Percent" elength="7" decimals="4" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-INT-2-PCT">Interest Rate (2):</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="2">
+                        <input type="text" name="MIR-IA-QUOT-INT-2-PCT" id="MIR-IA-QUOT-INT-2-PCT" stype="Percent" elength="7" decimals="4" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INT-1-RT-MO-DUR">Interest Rate Applies:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INT-1-RT-MO-DUR" id="MIR-IA-INT-1-RT-MO-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">Months</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INT-1-RT-DY-DUR" id="MIR-IA-INT-1-RT-DY-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">Days</td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="CommissionInformation">Commission Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign" />
+                    <td class="celllabelleftalign">(1)</td>
+                    <td class="celllabelleftalign">(2)</td>
+                    <td class="celllabelleftalign">(3)</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">Rate:</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-IA-COMM-BAND-1-PCT" id="MIR-IA-COMM-BAND-1-PCT" stype="Percent" elength="5" decimals="2" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-IA-COMM-BAND-2-PCT" id="MIR-IA-COMM-BAND-2-PCT" stype="Percent" elength="5" decimals="2" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-IA-COMM-BAND-3-PCT" id="MIR-IA-COMM-BAND-3-PCT" stype="Percent" elength="5" decimals="2" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">Amount:</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-COMM-BAND-1-AMT" id="MIR-IA-COMM-BAND-1-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-COMM-BAND-2-AMT" id="MIR-IA-COMM-BAND-2-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-COMM-BAND-3-AMT" id="MIR-IA-COMM-BAND-3-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-COMM-MAX-AMT">Maximum Commission Payable:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-COMM-MAX-AMT" id="MIR-IA-COMM-MAX-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-TOT-COMM-AMT">Total Commission Payable:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-IA-TOT-COMM-AMT" stype="Currency" elength="13" displayonly="yes">MIR-IA-TOT-COMM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-PFEE-AMT">Policy Fee Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-PFEE-AMT" id="MIR-IA-QUOT-PFEE-AMT" stype="Currency" elength="11" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="MortalityInformation">Mortality Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-MORT-UVAL-ID">Annuity Mortality:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-MORT-UVAL-ID" id="MIR-IA-MORT-UVAL-ID" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-MORT-PREM-ID">Mortality Premium Scale:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-MORT-PREM-ID" id="MIR-IA-MORT-PREM-ID" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-MORT-LEGAL-ID">Mortality Statutory Scale:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-MORT-LEGAL-ID" id="MIR-IA-MORT-LEGAL-ID" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-MORT-TAX-ID">Mortality Tax Scale:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-MORT-TAX-ID" id="MIR-IA-MORT-TAX-ID" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="OtherInformation">Other Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-BNFT-CD">Valuation Benefit Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-QUOT-BNFT-CD" id="MIR-IA-QUOT-BNFT-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-NPREM-AMT">Net Premium Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-NPREM-AMT" id="MIR-IA-QUOT-NPREM-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-GUAR-TRM-FCT">Term Certain Factor:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-GUAR-TRM-FCT" id="MIR-IA-GUAR-TRM-FCT" stype="Number" elength="9" decimals="5" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-LIFE-FCT">Life Factor:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-LIFE-FCT" id="MIR-IA-QUOT-LIFE-FCT" stype="Number" elength="9" decimals="5" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-DEFR-FCT">Deferral Factor:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-DEFR-FCT" id="MIR-IA-QUOT-DEFR-FCT" stype="Number" elength="9" decimals="5" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-TOT-FCT">Total Annuity Factor:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-TOT-FCT" id="MIR-IA-QUOT-TOT-FCT" stype="Number" elength="9" decimals="5" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="StatusInformation">Status Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-STAT-CD">Quote Status:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <select name="MIR-IA-QUOT-STAT-CD" id="MIR-IA-QUOT-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-QUOT-STAT-CD">Old Quote Status:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <select name="MIR-PREV-QUOT-STAT-CD" id="MIR-PREV-QUOT-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-QUOT-STAT-CHNG-DT">Status Changed Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-QUOT-STAT-CHNG-DT" id="MIR-QUOT-STAT-CHNG-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-STAT-CHNG-USER-ID">Status Change User Initials:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-STAT-CHNG-USER-ID" stype="Text" displayonly="yes">MIR-STAT-CHNG-USER-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-REPL-IA-QUOT-NUM">Replaced / Replacing Quote Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-REPL-IA-QUOT-NUM" id="MIR-REPL-IA-QUOT-NUM" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-PRT-RQST-CD">Printout Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DV-PRT-RQST-CD" id="MIR-DV-PRT-RQST-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="DeathInformation">Death Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-JNT-DTH-CD">Joint Death Status:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-QUOT-JNT-DTH-CD" id="MIR-IA-QUOT-JNT-DTH-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-ANUTNT-DTH-DT">Effective Date of Death:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-ANUTNT-DTH-DT" id="MIR-IA-ANUTNT-DTH-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-DTH-INCM-AMT">Death Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-DTH-INCM-AMT" id="MIR-IA-DTH-INCM-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#RequestInformation">Request Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#QuoteInformation">Quote Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Miscellaneous">Miscellaneous</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AnnuitantInformation">Annuitant Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#IncomeGuaranteedtobePaid">Income Guaranteed to be Paid</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#IncomeInformation">Income Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#IncomeAdjustment">Income Adjustment</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AnnualInterestandScaleInformation">Annual Interest and Scale Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#InterestRateInformation">Interest Rate Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CommissionInformation">Commission Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#MortalityInformation">Mortality Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#OtherInformation">Other Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#StatusInformation">Status Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#DeathInformation">Death Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/EmperorDates.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

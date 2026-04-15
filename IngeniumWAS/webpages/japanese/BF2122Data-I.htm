@@ -1,0 +1,185 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:11 PM EDT
+*
+*********************************************************************************
+*  Component:   BF2122Data-I.htm                                               
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2"                               
+*  PF 3.0  PF30     Corrected "-T-" to "-T[" for some fields  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                   
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF2122Data-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-ID">契約者クライアントID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SERV-AGT-ID">保全担当募集人ID:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-SERV-AGT-ID" id="MIR-SERV-AGT-ID" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-NFO-CD">不没収（継続）オプション:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-NFO-CD" id="MIR-POL-NFO-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-DIV-OPT-CD">配当オプション:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-DIV-OPT-CD" id="MIR-POL-DIV-OPT-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-CLI-ID">譲受人クライアントID:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-CLI-ID" id="MIR-DV-CLI-ID" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-TYP-CD">住所タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-ADDR-TYP-CD" id="MIR-CLI-ADDR-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-CLI-REL-SUB-CD">契約/ｸﾗｲｱﾝﾄ関係ﾀｲﾌﾟ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-CLI-REL-SUB-CD" id="MIR-POL-CLI-REL-SUB-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="ALL=POLICIES">全契約を更新:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" name="ALL-POLICIES1" id="ALL-POLICIES1" value="Y" onclick="onCheckAll('MIR-DV-SELCT-CD-T[')" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-SELCT-CD-T[1]">選択</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-BASE-T[1]">証券番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-SFX-T[1]">枝番</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SBSDRY-CO-ID-T[1]">子会社</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CSTAT-CD-T[1]">契約ｽﾃｰﾀｽ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SERV-AGT-ID-T[1]">保全担当募集人ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-NFO-CD-T[1]">不没収（継続）ｵﾌﾟｼｮﾝ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-DIV-OPT-CD-T[1]">配当ｵﾌﾟｼｮﾝ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-T[1]">譲受人ｸﾗｲｱﾝﾄID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ADDR-TYP-CD-T[1]">住所タイプ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CLI-REL-SUB-CD-T[1]">契約/ｸﾗｲｱﾝﾄ関係ﾀｲﾌﾟ</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-DV-SELCT-CD-T[]" id="MIR-DV-SELCT-CD-T[]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SBSDRY-CO-ID-T[]" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SERV-AGT-ID-T[]" stype="Text" displayonly="yes">MIR-SERV-AGT-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-NFO-CD-T[]" stype="Text" displayonly="yes">MIR-POL-NFO-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DIV-OPT-CD-T[]" stype="Text" displayonly="yes">MIR-POL-DIV-OPT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-ADDR-TYP-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CLI-REL-SUB-CD-T[]" stype="Text" displayonly="yes">MIR-POL-CLI-REL-SUB-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

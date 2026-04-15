@@ -1,0 +1,456 @@
+<!--   
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:41 PM EDT
+*
+*********************************************************************************  
+*  Component:   BF1722-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************  
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  602J     Add onLoad() function to <body> tag for currency scaling   
+*  016109  602J     Free Fund Transfer Provision                               
+*  017150  612J     Remove Currency decimals="2"  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                          
+*                                                                              
+*********************************************************************************  
+ -->  
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1722-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">  
+            <input type="hidden" name="action" id="action" stype="Hidden" />  
+            <input type="hidden" name="index" id="index" stype="Hidden" />  
+            <a name="top" />  
+            <table class="tabledisplaykey">  
+                <tr>  
+                    <td class="celldisplaykeylabel">  
+                        <label for="MIR-PLAN-ID">プラン:</label>  
+                    </td>  
+                    <td class="celldisplaykey">  
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>  
+                    </td>  
+                </tr>  
+            </table>  
+            <br />  
+            <center>  
+                <table class="tableanchors">  
+                    <tr>  
+                        <td class="cellanchors">  
+                         <a href="#FundControlInformation">ファンド管理情報</a>  
+                        </td>  
+                        <td class="cellanchors">  
+                            <a href="#UnitPriceUsed">ユニット価格</a>  
+                        </td>  
+                        <td class="cellanchors">  
+                            <a href="#PaymentsChargeInformation">払込/請求データ</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#NotificationTransferFeeInformation">通知/移転手数料</a> 
+                        </td> 
+                    </tr> 
+                </table> 
+            </center> 
+            <center> 
+                <table class="tableanchors"> 
+                    <tr> 
+                        <td class="cellanchors"> 
+                            <a href="#FreeFundTransferInformation">無料ファンド移転</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PartialSurrenderInformation">一部解約</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#GuaranteedInformation">保証額</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#CommissionDetails">手数料詳細</a> 
+                        </td> 
+                    </tr> 
+                </table> 
+            </center> 
+            <br /> 
+            <table class="tabledataentry"> 
+                <tr> 
+                    <td colspan="4" class="celldataentryheading"> 
+                        <a name="FundControlInformation">ファンド管理情報</a> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-PLAN-REQIR-FND-CD">必要ファンド:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <select name="MIR-PLAN-REQIR-FND-CD" id="MIR-PLAN-REQIR-FND-CD" size="1" stype="Selection" onfocus="enterField(this)" /> 
+                    </td> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-PLAN-MAX-FND-QTY">ファンド数上限:</label> 
+                    </td> 
+                    <td class="ccelllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-PLAN-MAX-FND-QTY" id="MIR-PLAN-MAX-FND-QTY" stype="Text" maxlength="3" onfocus="enterField(this)" /> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-MIN-AUTO-TRMN-AMT">自動終了ベンチマーク:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-MIN-AUTO-TRMN-AMT" id="MIR-MIN-AUTO-TRMN-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" /> 
+                    </td> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-AUTO-TRMN-MO-DUR">自動終了期間        
+          (月):</label>    
+                    </td>    
+                    <td class="celllabeldataentry">    
+                        <input type="text" value=" " name="MIR-AUTO-TRMN-MO-DUR" id="MIR-AUTO-TRMN-MO-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />    
+                    </td>    
+                </tr>    
+                <tr>    
+                    <td class="celllabelrightalign">    
+                        <label for="MIR-PEND-PMT-INT-RT-ID">ペンディング払込利息:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <select name="MIR-PEND-PMT-INT-RT-ID" id="MIR-PEND-PMT-INT-RT-ID" size="1" stype="Selection" onfocus="enterField(this)" />   
+                    </td>   
+                    <td class="celllabelrightalign">   
+                        <label for="MIR-XFER-INT-RT-ID">ペンディング移転利息:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <select name="MIR-XFER-INT-RT-ID" id="MIR-XFER-INT-RT-ID" size="1" stype="Selection" onfocus="enterField(this)" />   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celllabelrightalign">   
+                        <label for="MIR-MIN-INT-ELIG-AMT">積立残高利息に対する最低必要額:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <input type="text" value=" " name="MIR-MIN-INT-ELIG-AMT" id="MIR-MIN-INT-ELIG-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />   
+                    </td>   
+                    <td class="celllabelrightalign">   
+                        <label for="MIR-INT-CALC-TYP-CD">利息計算方式:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <select name="MIR-INT-CALC-TYP-CD" id="MIR-INT-CALC-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" />   
+                    </td>   
+                </tr>   
+            </table>   
+            <br />   
+            <table class="tabledataentry">   
+                <tr>   
+                    <td colspan="4" class="celldataentryheading">   
+                        <a name="UnitPriceUsed">ユニット価格</a>   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celllabelrightalign">   
+                        <label for="MIR-PLAN-PURCH-DIR-CD">購入:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <select name="MIR-PLAN-PURCH-DIR-CD" id="MIR-PLAN-PURCH-DIR-CD" size="1" stype="Selection" onfocus="enterField(this)" />   
+                    </td>   
+                    <td class="celllabelrightalign">   
+                        <label for="MIR-MTHV-CV-DIR-CD">月応当日計算:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <select name="MIR-MTHV-CV-DIR-CD" id="MIR-MTHV-CV-DIR-CD" size="1" stype="Selection" onfocus="enterField(this)" />   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celllabelrightalign">   
+                        <label for="MIR-XFER-IN-DIR-CD">ファンドへの資産移転:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <select name="MIR-XFER-IN-DIR-CD" id="MIR-XFER-IN-DIR-CD" size="1" stype="Selection" onfocus="enterField(this)" />   
+                    </td>   
+                    <td class="celllabelrightalign">   
+                        <label for="MIR-XFER-OUT-DIR-CD">ファンドからの資産移転:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <select name="MIR-XFER-OUT-DIR-CD" id="MIR-XFER-OUT-DIR-CD" size="1" stype="Selection" onfocus="enterField(this)" />   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celllabelrightalign">   
+                        <label for="MIR-PLAN-WTHDR-DIR-CD">引出:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <select name="MIR-PLAN-WTHDR-DIR-CD" id="MIR-PLAN-WTHDR-DIR-CD" size="1" stype="Selection" onfocus="enterField(this)" />   
+                    </td>   
+                    <td class="celllabelrightalign" />   
+                    <td class="celllabeldataentry" />   
+                </tr>   
+            </table>   
+            <br />   
+            <table class="tabledataentry">   
+                <tr>   
+                    <td colspan="4" class="celldataentryheading">   
+                        <a name="PaymentsChargeInformation">払込/請求データ</a>   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celllabelrightalign">   
+                        <label for="MIR-MIN-INIT-DPOS-AMT">初回最低払込額:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <input type="text" value=" " name="MIR-MIN-INIT-DPOS-AMT" id="MIR-MIN-INIT-DPOS-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />   
+                    </td>   
+                    <td class="celllabelrightalign">   
+                        <label for="MIR-SETUP-CHRG-AMT">セットアップ手数料:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <input type="text" value=" " name="MIR-SETUP-CHRG-AMT" id="MIR-SETUP-CHRG-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celllabelrightalign">   
+                        <label for="MIR-MIN-ADDL-DPOS-AMT">最低追加払込額:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <input type="text" value=" " name="MIR-MIN-ADDL-DPOS-AMT" id="MIR-MIN-ADDL-DPOS-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />   
+                    </td>   
+                    <td class="celllabelrightalign" />   
+                    <td class="celllabeldataentry" />   
+                </tr>   
+            </table>   
+            <p align="right">   
+                <a href="#top" class="backtotop">   
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />   
+                    トップに戻る    
+                </a>    
+            </p>    
+            <table class="tabledataentry">    
+                <tr>    
+                    <td colspan="4" class="celldataentryheading">    
+                        <a name="NotificationTransferFeeInformation">通知/移転手数料</a>   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celllabelrightalign">   
+                        <label for="MIR-PLAN-DPOS-NOTI-CD">通知タイプ:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <select name="MIR-PLAN-DPOS-NOTI-CD" id="MIR-PLAN-DPOS-NOTI-CD" size="1" stype="Selection" onfocus="enterField(this)" />   
+                    </td>   
+                    <td class="celllabelrightalign">   
+                        <label for="MIR-MIN-CNFRM-NOTI-AMT">最低額確認通知:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <input type="text" value=" " name="MIR-MIN-CNFRM-NOTI-AMT" id="MIR-MIN-CNFRM-NOTI-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celllabelrightalign">   
+                        <label for="MIR-XFER-FEE-TYP-CD">移転手数料タイプ:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <select name="MIR-XFER-FEE-TYP-CD" id="MIR-XFER-FEE-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" />   
+                    </td>   
+                    <td class="celllabelrightalign">   
+                        <label for="MIR-PLAN-OUT-ALLOC-CD">分配引出方式:</label>   
+                    </td>   
+                    <td class="celllabeldataentry">   
+                        <select name="MIR-PLAN-OUT-ALLOC-CD" id="MIR-PLAN-OUT-ALLOC-CD" size="1" stype="Selection" onfocus="enterField(this)" />   
+                    </td>   
+                </tr>   
+            </table>   
+            <br />   
+            <table class="tabledataentry">   
+                <tr>   
+                    <td colspan="4" class="celldataentryheading">   
+                        無料ファンド移転情報  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-FREE-XFER-CD">計算ベース:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <select name="MIR-FREE-XFER-CD" id="MIR-FREE-XFER-CD" size="1" stype="Selection" onfocus="enterField(this)" />  
+                    </td>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-FREE-XFER-PERI-CD">期間:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <select name="MIR-FREE-XFER-PERI-CD" id="MIR-FREE-XFER-PERI-CD" size="1" stype="Selection" onfocus="enterField(this)" />  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-FREE-XFER-QTY">期間内無料移転数:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-FREE-XFER-QTY" id="MIR-FREE-XFER-QTY" stype="Text" maxlength="2" onfocus="enterField(this)" size="20" /> 
+                    </td> 
+                    <td class="celllabelrightalign"> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                    </td> 
+                </tr> 
+            </table> 
+            <br /> 
+            <table class="tabledataentry"> 
+                <tr> 
+                    <td colspan="4" class="celldataentryheading"> 
+                        <a name="PartialSurrenderInformation">一部解約情報</a>  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-PLAN-MIN-PSUR-AMT">最低金額:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <input type="text" value=" " name="MIR-PLAN-MIN-PSUR-AMT" id="MIR-PLAN-MIN-PSUR-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />  
+                    </td>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-PLAN-MAX-PSUR-CD">上限:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <select name="MIR-PLAN-MAX-PSUR-CD" id="MIR-PLAN-MAX-PSUR-CD" size="1" stype="Selection" onfocus="enterField(this)" />  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-PLAN-MAX-PSUR-QTY">期間内上限:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <input type="text" value=" " name="MIR-PLAN-MAX-PSUR-QTY" id="MIR-PLAN-MAX-PSUR-QTY" stype="Text" maxlength="3" onfocus="enterField(this)" />  
+                    </td>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-MAX-PSUR-MO-DUR">最大期間(月):</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <input type="text" value=" " name="MIR-MAX-PSUR-MO-DUR" id="MIR-MAX-PSUR-MO-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />  
+                    </td>  
+                </tr>  
+            </table>  
+            <br />  
+            <table class="tabledataentry">  
+                <tr>  
+                    <td class="celldataentryheading" colspan="4">  
+                        <a name="GuaranteedInformation">保証額</a>  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-GUAR-VALU-CALC-CD">各種支払金計算方式:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <select name="MIR-GUAR-VALU-CALC-CD" id="MIR-GUAR-VALU-CALC-CD" size="1" stype="Selection" onfocus="enterField(this)" />  
+                    </td>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-DB-GUAR-VALU-PCT">最低死亡給付率:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <input type="text" name="MIR-DB-GUAR-VALU-PCT" id="MIR-DB-GUAR-VALU-PCT" stype="Percent" elength="7" decimals="4" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-MAT-GUAR-VALU-PCT">最低満期支払率:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <input type="text" name="MIR-MAT-GUAR-VALU-PCT" id="MIR-MAT-GUAR-VALU-PCT" stype="Percent" elength="7" decimals="4" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />  
+                    </td>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-SURR-GUAR-VALU-PCT">最低解約支払率:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <input type="text" name="MIR-SURR-GUAR-VALU-PCT" id="MIR-SURR-GUAR-VALU-PCT" stype="Percent" elength="7" decimals="4" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />  
+                    </td>  
+                </tr>  
+            </table>  
+            <br />  
+            <table class="tabledataentry">  
+                <tr>  
+                    <td class="celldataentryheading" colspan="4">  
+                        <a name="CommissionDetails">手数料詳細</a>  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-DPOS-COMM-RH-ID">手数料ポインタ:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <select name="MIR-DPOS-COMM-RH-ID" id="MIR-DPOS-COMM-RH-ID" size="1" stype="Selection" onfocus="enterField(this)" />  
+                    </td>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-CV-COMM-RH-ID">ファンド価額手数料ポインタ:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <select name="MIR-CV-COMM-RH-ID" id="MIR-CV-COMM-RH-ID" size="1" stype="Selection" onfocus="enterField(this)" />  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-CV-COMM-CALC-DUR">ファンド価額手数料相殺(月数):</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <input type="text" value=" " name="MIR-CV-COMM-CALC-DUR" id="MIR-CV-COMM-CALC-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />  
+                    </td>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-PLAN-CV-COMM-IND">ファンドの手数料支払:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <input type="checkbox" value="Y" name="MIR-PLAN-CV-COMM-IND" id="MIR-PLAN-CV-COMM-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />  
+                    </td>  
+                </tr>  
+            </table>  
+            <p align="right">  
+                <a href="#top" class="backtotop">  
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />  
+                    トップに戻る   
+                </a>   
+            </p>   
+            <center>   
+                <table class="tableanchors">   
+                    <tr>   
+                        <td class="cellanchors">   
+                            <a href="#FundControlInformation">ファンド管理情報</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#UnitPriceUsed">ユニット価格</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#PaymentsChargeInformation">支払/請求データ</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#NotificationTransferFeeInformation">通知/移転手数料</a> 
+                        </td> 
+                    </tr> 
+                </table> 
+            </center> 
+            <center> 
+                <table class="tableanchors"> 
+                    <tr> 
+                        <td class="cellanchors"> 
+                            <a href="#FreeFundTransferInformation">無料ファンド移転</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PartialSurrenderInformation">一部解約</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#GuaranteedInformation">保証額</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#CommissionDetails">手数料詳細</a> 
+                        </td> 
+                    </tr> 
+                </table> 
+            </center> 
+        </form> 
+    </body> 
+    <script src="../js/ActionHandlers.js"></script> 
+    <script src="../js/MessageFunctions.js"></script> 
+    <script src="../js/MessagesJapanese.js"></script> 
+    <script src="../js/ClientLevelEdits.js"></script> 
+    <script src="../js/GlobalUserMethods.js"></script> 
+</html> 

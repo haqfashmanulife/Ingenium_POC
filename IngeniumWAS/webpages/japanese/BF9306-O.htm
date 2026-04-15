@@ -1,0 +1,172 @@
+﻿<!--
+*
+*********************************************************************************
+*  Component:   BF9306-O.htm                                                    *
+*  Description: CREATED FOR ADVANCE PAYMENT QUOTE SCREEN                        *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  AUTHOR Description                                          *
+*                                                                               *
+*  NWLPP1  30APR10  CTS    INITIAL VERSION                                      *
+*                                                                               *
+*  23774B  CTS      Changes done for ie retirement project to make it           *
+*                   compatible for microsoft edge. Changes in html include      *
+*                   adding "id" attribute for all input fields and changes in   *
+*                   java scripts to modify certain functions/commands which     *
+*                   are no longer compatilble with edge.
+*  UYS133  CTS      PD group size field addition  
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+                       *
+*********************************************************************************
+ -->
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9306-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+        <input type="hidden" name="action" id="action" stype="Hidden" />
+        <input type="hidden" name="index" id="index" stype="Hidden" />
+        <table class="tabledisplaykey">
+               <tr>
+                   <td class="celldisplaykeylabel">
+                       <label for="MIR-POL-ID-BASE">証券番号:</label>
+                   </td>
+                   <td class="celldisplaykey">
+                       <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                   </td>
+                   <td class="celldisplaykeylabel">
+                       <label for="MIR-POL-ID-SFX">枝番:</label>
+                   </td>
+                   <td class="celldisplaykey">
+                       <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                   </td>
+               </tr>
+               <tr>
+                   <td class="celldisplaykeylabel">
+                       <label for="MIR-ADV-PMT-YR">前払年月数:</label>
+                   </td>
+                   <td class="celldisplaykey">
+                       <span id="MIR-ADV-PMT-YR" stype="Text" displayonly="yes">MIR-ADV-PMT-YR</span>
+                       <span id="MIR-ADV-PMT-MO" stype="Text" displayonly="yes">MIR-ADV-PMT-MO</span>
+                   </td>
+                   <td class="celldisplaykeylabel">
+                       <label for="MIR-PLAN-ID">プラン:</label>
+                   </td>
+                   <td class="celldisplaykey">
+                       <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                   </td>
+               </tr>
+               <tr>
+                   <td class="celldisplaykeylabel">
+                       <label for="MIR-CALC-DATE">計算基準日:</label>
+                   </td>
+                   <td class="celldisplaykey">
+                       <span id="MIR-CALC-DATE" stype="Date" displayonly="yes">MIR-CALC-DATE</span>
+                   </td>
+               </tr>
+        </table>
+   <br />
+   <table class="tabledisplay">
+                <tr>
+                     <td class="celldisplaylabel">
+                         <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                     </td>
+                     <td class="celldisplay" colspan="3">
+                         <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-TYP-CD">払込経路:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TYP-CD" stype="Text" displayonly="yes">MIR-POL-BILL-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">払込回数:</label>
+                    </td>
+                    <td class="celldisplay">
+                      <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td class="celldisplaylabel">
+                      <label for="MIR-POL-MPREM-AMT">払方別保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                      <span id="MIR-POL-MPREM-AMT" stype="Currency" displayonly="yes">MIR-POL-MPREM-AMT</span>
+                    </td>
+<!-- UYS133 CHANGE STARTS HERE -->
+<!--                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/> -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PD-GR-TYP-CD">団体規模:</label>
+                    </td>
+                    <td class="celldisplay">
+                      <span id="MIR-PD-GR-TYP-CD" stype="Text" displayonly="yes">MIR-PD-GR-TYP-CD</span>
+                    </td>
+<!-- UYS133 CHANGE ENDS HERE -->
+                 </tr>
+                 <tr>
+                    <td class="celldisplaylabel">
+                      <label for="MIR-ADV-PMT-STRT-DT">前払始期:</label>
+                    </td>
+                    <td class="celldisplay">
+                      <span id="MIR-ADV-PMT-STRT-DT" stype="Date" displayonly="yes">MIR-ADV-PMT-STRT-DT</span>
+                    </td>
+                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                 </tr>
+                 <tr>
+                    <td class="celldisplaylabel">
+                      <label for="MIR-ADV-PMT">前払:</label>
+                    </td>
+                    <td class="celldisplay">
+                      <span id="MIR-ADV-PMT" stype="Currency" displayonly="yes">MIR-ADV-PMT</span>
+                    </td>
+                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                 </tr>
+                 <tr>
+                    <td class="celldisplaylabel">
+                      <label for="MIR-OS-PREM">未収保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                      <span id="MIR-OS-PREM" stype="Currency" displayonly="yes">MIR-OS-PREM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                      <label for="MIR-ADV-PMT-RFND-AMT">前払追加/払出金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                      <span id="MIR-ADV-PMT-RFND-AMT" stype="Currency" displayonly="yes">MIR-ADV-PMT-RFND-AMT</span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td class="celldisplaylabel">
+                      <label for="MIR-TOT-PREM">合計保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                      <span id="MIR-TOT-PREM" stype="Currency" displayonly="yes">MIR-TOT-PREM</span>
+                    </td>
+                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                 </tr>
+            </table>
+            <br />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

@@ -1,0 +1,91 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:54 PM EDT
+*
+*********************************************************************************
+*  Component:   SignOnStart.htm                                                
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016905  611J     Change case on button file names to work on Sun platform   
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                           
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body background="../images/ingbgrnd.gif">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" value="ACTION_NEXT" />
+            <div align="left">
+                <table border="0" cellpadding="3" cellspacing="0" width="578">
+                    <tr>
+                        <td height="423" rowspan="5" width="232">
+                            <img border="0" src="../english/images/login1.gif" align="right" width="79" height="423" />
+                        </td>
+                        <td colspan="3" height="250" width="330">
+                            <p align="left" />
+                        </td>
+                    </tr>
+                        <tr>
+                            <td align="left" width="6" />
+                            <td align="left" width="121">
+                                <label for="MIR-USER-ID">Name:</label>
+                            </td>
+                            <td align="left" width="187">
+                                <input type="text" name="MIR-USER-ID" id="MIR-USER-ID" size="15" tabindex="1" mandatory="yes" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" width="6" />
+                            <td align="left" width="121">
+                                <label for="MIR-USER-PSWD-TXT">Password:</label>
+                            </td>
+                            <td align="left" width="187">
+                                <input type="password" name="MIR-USER-PSWD-TXT" id="MIR-USER-PSWD-TXT" size="15" tabindex="2" mandatory="yes" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" width="6" />
+                            <td align="left" width="121">
+                                <label for="MIR-CO-ID">Company:</label>
+                            </td>
+                            <td align="left" width="187">
+                                <select name="MIR-CO-ID" id="MIR-CO-ID" tabindex="3" mandatory="yes">
+<!--  We have to hard-code the company options here if we are using the Cics sources for xtab. This is because
+     you can't access the Cics Xtab source until you are signed on
+ -->
+                                    <option value="" />
+                                    <option value="CP">Default Company</option>
+                                    <option value="OC">Other Company</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" width="6" />
+                            <td align="left" width="316" colspan="2">
+                                <p align="center">
+                                    <input type="image" border="0" src="../english/images/submit.gif" alt="Submit" tabindex="4" width="143" height="38" />
+                                </p>
+                            </td>
+                        </tr>
+                </table>
+            </div>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

@@ -1,0 +1,378 @@
+<!--
+*********************************************************************************
+*  Component:   BF9C90-O.htm
+*  Description:Output Screen for Future Billing Request Inquiry Process
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*  M117PB  CTS      Initial Version
+*  FFF10P  CTS      NOMURA ONLINE CHANGES
+*  130660  CTS      BUG FIX FOR SCHEDULED ADV PREM PAYMENT FIELD CHANGES
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  UYS133  CTS      PD group size field addition
+*  27549A  CTS      CHANGES DONE AS PART OF CDAP                                *
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9C90-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PBRQ-EFF-DT">Effective Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PBRQ-EFF-DT" stype="Date" displayonly="yes">MIR-PBRQ-EFF-DT</span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-POL-FUT-ACTV-TYP-CD">Activity Type:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-POL-FUT-ACTV-TYP-CD" stype="Text" displayonly="yes">MIR-DV-POL-FUT-ACTV-TYP-CD</span>
+                    </td>
+               </tr>
+<!-- 27549A Change Starts Here -->
+                  <tr>
+                     <td class="celldisplaykeylabel">
+			         <label for="MIR-ATO-NOT-APPL-IND">ATO not applicable:</label>
+			         </td>
+			         <td class="celldisplaykey">
+			           <input type="checkbox"  name="MIR-ATO-NOT-APPL-IND" id="MIR-ATO-NOT-APPL-IND" stype="Indicator" value="Y" disabled="yes"  />
+                    </td>
+                 </tr>
+<!-- 27549A Change Ends Here -->
+             </table>
+
+                <h2>
+                    <a name="Billing Request Change Information">Billing Request Change Information</a>
+                </h2>
+
+
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="Billing Change Information">Billing Change Information</a>
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FUT-BILL-TYP-CD">Billing Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FUT-BILL-TYP-CD" stype="Text" displayonly="yes">MIR-POL-FUT-BILL-TYP-CD</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FUT-BILL-MODE-CD">Premium Mode:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FUT-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-FUT-BILL-MODE-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FUT-PAC-DRW-DY">Deposit Day:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FUT-PAC-DRW-DY" stype="Day" displayonly="yes">MIR-POL-FUT-PAC-DRW-DY</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FUT-ACTV-STAT-CD">Activity Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FUT-ACTV-STAT-CD" stype="Text" displayonly="yes">MIR-POL-FUT-ACTV-STAT-CD</span>
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FUT-MPREM-AMT">Modal Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FUT-MPREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-FUT-MPREM-AMT</span>
+                    </td>
+                   <!--130660 CHANGES BEGIN-->
+                    <!-- <td class ="celldisplay" />
+                    <td class ="celldisplay" />   -->
+
+                    <td class="celldisplaylabel">
+                     <label for="MIR-FUT-SCHD-ADV-PMT-DUR">Scheduled Advanced Premium Payment Frequency:</label>
+                    </td>
+                    <td class="celldisplay">
+                      <span id="MIR-FUT-SCHD-ADV-PMT-DUR" stype="Text" displayonly="yes">MIR-FUT-SCHD-ADV-PMT-DUR</span>
+                    </td>
+                   <!--130660 CHANGES END-->
+                </tr>
+             </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="Payor Information">Payor Information</a>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FUT-PAYR-CLI-ID"> Payor Client ID</label>
+                    </td>
+                     <td class="celldisplay">
+                         <span id="MIR-DV-FUT-PAYR-CLI-ID" stype="Text" displayonly="yes">MIR-DV-FUT-PAYR-CLI-ID</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FUT-PAYR-SUB-CD">Account Type</label>
+                    </td>
+
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FUT-PAYR-SUB-CD" stype="Text" displayonly="yes">MIR-DV-FUT-PAYR-SUB-CD</span>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FUT-PAYR-ADDR-CD">Payor Client Address Type</label>
+                    </td>
+
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FUT-PAYR-ADDR-CD" stype="Text" displayonly="yes">MIR-DV-FUT-PAYR-ADDR-CD</span>
+                    </td>
+                    <td class ="celldisplay" />
+                    <td class ="celldisplay" />
+                </tr>
+            </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="Payroll Deduction Information">Payroll Deduction Relationships</a>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FUT-LBILL-CLI-ID">Client ID</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FUT-LBILL-CLI-ID" stype="Text" displayonly="yes">MIR-DV-FUT-LBILL-CLI-ID</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FUT-LBILL-CLI-NM">Payroll Deduction Name</label>
+                    </td>
+
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FUT-LBILL-CLI-NM" stype="Text" displayonly="yes">MIR-DV-FUT-LBILL-CLI-NM</span>
+                    </td>
+                 </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FUT-LBILL-ADDR-CD">Address Type</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FUT-LBILL-ADDR-CD" stype="Text" displayonly="yes">MIR-DV-FUT-LBILL-ADDR-CD</span>
+                    </td>
+                    <td class ="celldisplay" />
+                    <td class ="celldisplay" />
+                </tr>
+
+              </table>
+
+                <h2>
+                    <a name="Current Policy Billing Information">Current Policy Billing Information</a>
+                </h2>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="General Billing Information">General Billing Information</a>
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-TYP-CD">Billing Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TYP-CD" stype="Text" displayonly="yes">MIR-POL-BILL-TYP-CD</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">Premium Mode:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAC-DRW-DY">Deposit Day:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAC-DRW-DY" stype="Day" displayonly="yes">MIR-POL-PAC-DRW-DY</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MPREM-AMT">Current Modal Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MPREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-MPREM-AMT</span>
+                    </td>
+                </tr>
+                <!--130660 CHANGES BEGIN-->
+                <tr>
+                    <td class="celldisplaylabel">
+                     <label for="MIR-SCHD-ADV-PMT-DUR">Scheduled Advanced Premium Payment Frequency:</label>
+                    </td>
+                    <td class="celldisplay">
+                      <span id="MIR-SCHD-ADV-PMT-DUR" stype="Text" displayonly="yes">MIR-SCHD-ADV-PMT-DUR</span>
+                    </td>
+<!--UYS133 CHANGE STARTS HERE -->
+                   <!--   <td class="celldisplaylabel"></td>
+                      <td class="celldisplay"></td> -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PD-GR-TYP-CD">PD group size:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PD-GR-TYP-CD" stype="Text" displayonly="yes">MIR-PD-GR-TYP-CD</span>
+                    </td>
+<!--UYS133 CHANGE ENDS HERE -->
+                 </tr>
+                 <!--130660 CHANGES END-->
+
+
+             </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="Payor Information">Payor Information</a>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-PAYR-CLI-ID"> Payor Client ID</label>
+                    </td>
+                     <td class="celldisplay">
+                         <span id="MIR-DV-PAYR-CLI-ID" stype="Text" displayonly="yes">MIR-DV-PAYR-CLI-ID</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-PAYR-SUB-CD">Account Type</label>
+                    </td>
+
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAYR-SUB-CD" stype="Text" displayonly="yes">MIR-DV-PAYR-SUB-CD</span>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-PAYR-ADDR-CD">Payor Client Address Type</label>
+                    </td>
+
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAYR-ADDR-CD" stype="Text" displayonly="yes">MIR-DV-PAYR-ADDR-CD</span>
+                    </td>
+                    <td class ="celldisplay" />
+                    <td class ="celldisplay" />
+                </tr>
+            </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="Payroll Deduction Information">Payroll Deduction Relationships</a>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-LBILL-CLI-ID">Client ID</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LBILL-CLI-ID" stype="Text" displayonly="yes">MIR-DV-LBILL-CLI-ID</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-LBILL-CLI-NM">Payroll Deduction Name</label>
+                    </td>
+
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LBILL-CLI-NM" stype="Text" displayonly="yes">MIR-DV-LBILL-CLI-NM</span>
+                    </td>
+                 </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-LBILL-ADDR-CD">Address Type</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LBILL-ADDR-CD" stype="Text" displayonly="yes">MIR-DV-LBILL-ADDR-CD</span>
+                    </td>
+                    <td class ="celldisplay" />
+                    <td class ="celldisplay" />
+                </tr>
+
+              </table>
+
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

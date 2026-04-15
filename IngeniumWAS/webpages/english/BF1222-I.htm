@@ -1,0 +1,1531 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:27 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1222-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016110  602J     Postal Code Default Selection Box
+*  016218  602J     Switch First Name and Last Name fields
+*  016246  602J     Add onLoad() function to <body> tag for currency scaling
+*  016411  602J     Relabel phone number to contact information
+*  016905  611J     Change case on button file names to work on Sun platform
+*  017150  612J     Remove Currency decimals="2"
+*  01AD05  BMB      Changes to the Japanese address fields
+*                   - Address Code is now the driver field
+*                   - JP-ADDR has been replaced by PREFCT-TXT
+*                   - Samakata-bu (ADDR-ADDL) changed to 72 bytes
+*                   - Prefecture, City and Neighborhood added for KA
+*
+*  01AD05  BMB      - added <script src="../js/kana_kanji.js"></script>
+*                   -  onkeypress="KanaKeyCheck()" added for Samakata-bu
+*                   - removed  <script src="../js/AddrLine.js"></script>
+*
+*  01AD05  BMB      - added <script src="../js/CountryJapan.js"></script>
+*                   -  onload="saveCountryCodeDeflt()"
+*                   -  onclick="CountryJapan()"
+*                   -  onchange="CountryJapan()"
+*  B10010  BMB      - added <script src="../js/OnlyKana.js"></script>
+*                   - removed script "/js/kana_kanji.js"
+*                   - on submit method added - chkSamakatabu()
+*                   - onchange method for Samakata-bu - onlyKatakana()
+*  B10010  BMB      - added <script src="../js/OnlyKanji.js"></script>
+*                   - on submit methods added for Kanji names
+*                   - onkeypress method for added for Kanji names
+*                   - onchange method for added for Kanji names
+*  B10294  BMB      - middle initials hidden from display
+*  P00251  EKM      Add Kana checking for Bank Account Holder Names
+*  EN001604         - Add MIR-HZRD-OCCP-CD field.
+*  IPCAMC  CTS      - Change the length of Cause of Death field
+*                   - Add Cause Description field
+*  ABF420  CTS      -Changes done to display 'Cause Description' field as
+*                   non-editable field
+*  ABU236  CTS      -Changes made to display the Client Death Details
+*  EN7763  CTS      - Changes to restrict client name input length to 12 characters
+*  MP334A  CTS      - changes done for the addition of successsor client category
+*  015550  CTS      - Changes as part of New emperor era name
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  TLB041  CTS      CORPORATE POLICY HOLDER NAME & ADDRESS EXPANSION
+*  TLCR16  CTS      - Change of insured address retention method
+*  TL0582  CTS      - Fix for kanji company name max characters
+*  27550A  CTS      CHANGES DONE FOR RETURN MAIL FLAG CONTROL  
+*  23823C  CTS      - CWS EMAIL ADDRESS                
+*  29746F  CTS      CHANGES AS PART OF CERBERUS NEW BUSINESS                  
+*  CR1866  CTS      CHANGES AS PART OF CR-1866 JIRA                           *
+***********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1222-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+        <script>
+
+function onLoad1()
+
+{
+
+        setEmperorDate("MIR-CLI-BTH-DT");
+
+
+}
+
+</script>
+        <script>
+
+function onLoad2()
+
+{
+
+        setEmperorDate("MIR-CLI-DTH-DT");
+
+
+}
+
+</script>
+
+    </head>
+    <body class="bodyws" onload="splitBranchall(); onLoad(); onLoad1(); onLoad2(); saveCountryCodeDeflt();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="chkSamakatabu();chkKanaNames();chkKanjiNames();chkBnkKanaNames();updateBranchall();return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[1]" id="MIR-BNK-BR-ID-T[1]" jpnbranch="Branch-T[1]" jpnsubbranch="SubBranch-T[1]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[2]" id="MIR-BNK-BR-ID-T[2]" jpnbranch="Branch-T[2]" jpnsubbranch="SubBranch-T[2]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[3]" id="MIR-BNK-BR-ID-T[3]" jpnbranch="Branch-T[3]" jpnsubbranch="SubBranch-T[3]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[4]" id="MIR-BNK-BR-ID-T[4]" jpnbranch="Branch-T[4]" jpnsubbranch="SubBranch-T[4]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[5]" id="MIR-BNK-BR-ID-T[5]" jpnbranch="Branch-T[5]" jpnsubbranch="SubBranch-T[5]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[6]" id="MIR-BNK-BR-ID-T[6]" jpnbranch="Branch-T[6]" jpnsubbranch="SubBranch-T[6]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[7]" id="MIR-BNK-BR-ID-T[7]" jpnbranch="Branch-T[7]" jpnsubbranch="SubBranch-T[7]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[8]" id="MIR-BNK-BR-ID-T[8]" jpnbranch="Branch-T[8]" jpnsubbranch="SubBranch-T[8]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[9]" id="MIR-BNK-BR-ID-T[9]" jpnbranch="Branch-T[9]" jpnsubbranch="SubBranch-T[9]" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-CLI-NM">Client Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-CLI-NM" stype="Text" displayonly="yes">MIR-DV-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PREV-UPDT-DT">Date Last Maintained:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PREV-UPDT-DT" stype="Date" displayonly="yes">MIR-PREV-UPDT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-ID">Client ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Name">Name</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Profile">Profile</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Address">Address</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Employment">Employment</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Banking">Banking</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Underwriting">Underwriting</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Consolidate">Consolidate</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Contact">Contact</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Financial">Financial</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PreviousInformation">Previous Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <h2>
+                <a name="Name">Name</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Katakana Name</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-MAIL-TITL-TXT">Title:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-MAIL-TITL-TXT" id="MIR-CLI-MAIL-TITL-TXT" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ENTR-SUR-NM-T[1]">Last Name:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ENTR-SUR-NM-T[1]" id="MIR-CLI-ENTR-SUR-NM-T[1]" stype="Text" maxlength="25"
+                               onkeypress="KanaKeyCheck()"
+                               onchange="onlyKatakana()"
+                               onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry">
+                        <input type="hidden" value=" " name="MIR-CLI-MID-INIT-NM-T[1]" id="MIR-CLI-MID-INIT-NM-T[1]" stype="Hidden" maxlength="1" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ENTR-GIV-NM-T[1]">First Name:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ENTR-GIV-NM-T[1]" id="MIR-CLI-ENTR-GIV-NM-T[1]" stype="Text" maxlength="25"
+                               onkeypress="KanaKeyCheck()"
+                               onchange="onlyKatakana()"
+                               onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-SFX-NM">Suffix:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-SFX-NM" id="MIR-CLI-SFX-NM" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ENTR-CO-NM-T[1]">Company Name:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- TLB041 Client Name Length changes
+                        <input type="text" value=" " name="MIR-CLI-ENTR-CO-NM-T[1]" id="MIR-CLI-ENTR-CO-NM-T[1]" stype="Text" maxlength="50"
+                    -->
+                        <input type="text" value=" " name="MIR-CLI-ENTR-CO-NM-T[1]" id="MIR-CLI-ENTR-CO-NM-T[1]" stype="Text" maxlength="100"
+                               onkeypress="KanaKeyCheck()"
+                               onchange="onlyKatakana()"
+                               onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Status</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-UPDT-NM-IND">Update previous name:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-UPDT-NM-IND" id="MIR-DV-UPDT-NM-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-CLI-PREV-NM-IND">Client has a previous name(s):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" name="MIR-DV-CLI-PREV-NM-IND" id="MIR-DV-CLI-PREV-NM-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-NM-CHNG-DT">Client Name Change Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-NM-CHNG-DT" stype="Date" displayonly="yes">MIR-CLI-NM-CHNG-DT</span>
+                    </td>
+                    <td class="celllabelrightalign"></td>
+                    <td class="celllabeldataentry"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Kanji Name</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ENTR-SUR-NM-T[1]">Last Name:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+<!-- EN7763 Restrict Client Name Length
+                        <input type="text" value=" " name="MIR-CLI-ENTR-SUR-NM-T[2]" id="MIR-CLI-ENTR-SUR-NM-T[2]" stype="Text" maxlength="25"
+-->
+                        <input type="text" value=" " name="MIR-CLI-ENTR-SUR-NM-T[2]" id="MIR-CLI-ENTR-SUR-NM-T[2]" stype="Text" maxlength="12"
+                               onkeypress="KanjiKeyCheck()"
+                               onchange="onlyKanji()"
+                               onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry">
+                        <input type="hidden" value=" " name="MIR-CLI-MID-INIT-NM-T[2]" id="MIR-CLI-MID-INIT-NM-T[2]" stype="Hidden" maxlength="1" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ENTR-GIV-NM-T[1]">First Name:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+<!-- EN7763 Restrict Client Name Length
+                        <input type="text" value=" " name="MIR-CLI-ENTR-GIV-NM-T[2]" id="MIR-CLI-ENTR-GIV-NM-T[2]" stype="Text" maxlength="25"
+-->
+                        <input type="text" value=" " name="MIR-CLI-ENTR-GIV-NM-T[2]" id="MIR-CLI-ENTR-GIV-NM-T[2]" stype="Text" maxlength="12"
+                               onkeypress="KanjiKeyCheck()"
+                               onchange="onlyKanji()"
+                               onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ENTR-CO-NM-T[1]">Company Name:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- TLB041 Client Name Length changes
+                        <input type="text" value=" " name="MIR-CLI-ENTR-CO-NM-T[2]" id="MIR-CLI-ENTR-CO-NM-T[2]" stype="Text" maxlength="50"
+                     -->
+                    <!-- TL0582 Only 50 Kanji characters allowed
+                        <input type="text" value=" " name="MIR-CLI-ENTR-CO-NM-T[2]" id="MIR-CLI-ENTR-CO-NM-T[2]" stype="Text" maxlength="100"
+                     -->
+                        <input type="text" value=" " name="MIR-CLI-ENTR-CO-NM-T[2]" id="MIR-CLI-ENTR-CO-NM-T[2]" stype="Text" maxlength="50"
+                               onkeypress="KanjiKeyCheck()"
+                               onchange="onlyKanji()"
+                               onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+
+Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Profile">Profile</a>
+            </h2>
+            <table class="tabledataentry" width="700">
+                <tr>
+                    <td class="celldataentryheading" colspan="4" width="700">Profile</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign" width="89">
+                        <label for="MIR-CLI-BTH-DT">Birth Date:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="148">
+                        <input type="text" value=" " name="MIR-CLI-BTH-DT" id="MIR-CLI-BTH-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" emperorDate="myEmperorDate" />
+                    </td>
+                    <td class="celllabelrightalign" width="127">
+                        <label for="myEmperorDate">Emperor Date:</label>
+                    </td>
+                    <td width="196">
+                        <select name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" onblur="validateField(this)" onfocus="enterField(this)" serverDate="MIR-CLI-BTH-DT">
+                            <option value="" />
+                            <option value="M">Meiji</option>
+                            <option value="T">Taisho</option>
+                            <option value="S">Showa</option>
+                            <option value="H">Heisei</option>
+<!-- 015550 CHANGES START HERE -->
+                            <option value="R">Reiwa</option>
+<!-- 015550 CHANGES ENDS HERE -->
+                        </select>
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-CLI-BTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-CLI-BTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-CLI-BTH-DT" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign" width="89">
+                        <label for="MIR-CLI-BTH-LOC-CD">Birth Location:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="148">
+                        <select name="MIR-CLI-BTH-LOC-CD" id="MIR-CLI-BTH-LOC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+
+                    <td class="celllabelrightalign" width="127">
+                        <label for="MIR-CLI-SEX-CD">Sex:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="196">
+                        <select name="MIR-CLI-SEX-CD" id="MIR-CLI-SEX-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CORP-TAX-RPT-MO">Tax Report Month:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-CORP-TAX-RPT-MO" id="MIR-CLI-CORP-TAX-RPT-MO" stype="Text" maxlength="2" onfocus="enterField(this)" size="2" />
+                    </td>
+                    <td class="celllabelrightalign"></td>
+                    <td class="celllabeldataentry"></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign" width="89">
+                        <label for="MIR-CLI-SMKR-CD">Smoker:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="148">
+                        <select name="MIR-CLI-SMKR-CD" id="MIR-CLI-SMKR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign" width="127">
+                        <label for="MIR-CLI-TAX-ID">Tax Identification ID:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="196">
+                        <input type="text" value=" " name="MIR-CLI-TAX-ID" id="MIR-CLI-TAX-ID" stype="Text" maxlength="9" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign" width="89">
+                        <label for="MIR-CLI-MARIT-STAT-CD">Marital Status:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="148">
+                        <select name="MIR-CLI-MARIT-STAT-CD" id="MIR-CLI-MARIT-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign" width="127">
+                        <label for="MIR-CLI-PIN-RESET-TXT">Reset Identification:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="196">
+                        <input type="text" value=" " name="MIR-CLI-PIN-RESET-TXT" id="MIR-CLI-PIN-RESET-TXT" stype="Text" maxlength="25" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+<!-- MP334A CHANGES START HERE -->
+                <tr>
+                    <td class="celllabelrightalign" width="127">
+                        <label for="MIR-BPSS-MTCH-CD">Successor Category:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="196">
+                        <select name="MIR-BPSS-MTCH-CD" id="MIR-BPSS-MTCH-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+<!-- 27550A CHANGES START HERE -->
+                  <!--   <td class="celllabelrightalign"></td>
+                    <td class="celllabeldataentry"></td> -->
+                    <td class="celllabelrightalign" width="248">
+                        <label for="MIR-RETRN-MAIL-IND">Return Mail Flag:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="236">
+                        <input type="checkbox" value="Y" name="MIR-RETRN-MAIL-IND" id="MIR-RETRN-MAIL-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+<!-- MP334A CHANGES ENDS HERE -->
+<!-- 27550A CHANGES ENDS HERE -->
+<!-- 23823C CHANGES START HERE -->
+                <tr>
+                   <td class="celllabelrightalign"></td>
+                   <td class="celllabeldataentry"></td>
+                   <td class="celllabelrightalign" >
+                        <label for="MIR-CWS-EMAIL-ADDR-TXT">CWS Registrant Email Address:</label>
+                   </td>
+                    <td class="celllabeldataentry" >
+                        <span id="MIR-CWS-EMAIL-ADDR-TXT" displayonly="yes" stype="Text">MIR-CWS-EMAIL-ADDR-TXT</span>
+                    </td>					
+                </tr>
+<!-- 23823C CHANGES ENDS HERE -->
+            </table>
+            <br />
+            <table class="tabledataentry" width="847">
+                <tr>
+<!-- ABU236 CHANGES START HERE -->
+                    <td class="celldataentryheading" colspan="8" width="847">Status</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign" width="169">
+                        <label for="MIR-UNMTCH-MAIL-IND">Unmatched mail:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="168">
+                        <input type="checkbox" value="Y" name="MIR-UNMTCH-MAIL-IND" id="MIR-UNMTCH-MAIL-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td></td>
+                    <td class="celllabelrightalign" width="248">
+                        <label for="MIR-CLI-AGE-PROOF-IND">Proof of age submitted:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="236">
+                        <input type="checkbox" value="Y" name="MIR-CLI-AGE-PROOF-IND" id="MIR-CLI-AGE-PROOF-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign" width="169">
+                        <label for="MIR-CLI-CHRTY-IND">Client has been identified as a charity:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="168">
+                        <input type="checkbox" value="Y" name="MIR-CLI-CHRTY-IND" id="MIR-CLI-CHRTY-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td></td>
+                    <td class="celllabelrightalign" width="248">
+                        <label for="MIR-CLI-CNFD-IND">Access to client information is confidential:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="236">
+                        <input type="checkbox" value="Y" name="MIR-CLI-CNFD-IND" id="MIR-CLI-CNFD-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign" width="169">
+                        <label for="MIR-CLI-DTH-DT">Date of Death:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="168">
+                        <input type="text" value=" " name="MIR-CLI-DTH-DT" id="MIR-CLI-DTH-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" emperorDate="myEmperorDate2" />
+                    </td>
+                    <td></td>
+                    <td class="celllabelrightalign" width="248">
+                        <label for="myEmperorDate2">Emperor Date:</label>
+                    </td>
+                    <td width="236">
+                        <select name="myEmperorDate2" id="myEmperorDate2" stype="EmperorDate" onblur="validateField(this)" onfocus="enterField(this)" serverDate="MIR-CLI-DTH-DT">
+                            <option value="" />
+                            <option value="M">Meiji</option>
+                            <option value="T">Taisho</option>
+                            <option value="S">Showa</option>
+                            <option value="H">Heisei</option>
+<!-- 015550 CHANGES START HERE -->
+                            <option value="R">Reiwa</option>
+<!-- 015550 CHANGES ENDS HERE -->
+
+                        </select>
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate2" id="myEmperorDate2" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-CLI-DTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate2" id="myEmperorDate2" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-CLI-DTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate2" id="myEmperorDate2" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-CLI-DTH-DT" />
+                    </td>
+                </tr>
+                <tr>
+<!-- IPCAMC -->
+                    <td class="celllabelrightalign" width="169">
+                        <label for="MIR-CLI-DTH-REASN-CD">Cause of Death:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="168">
+                        <input type="text" name="MIR-CLI-DTH-REASN-CD" id="MIR-CLI-DTH-REASN-CD" stype="Text" maxlength="3" onfocus="enterField(this)"/>
+                    </td>
+                    <td>
+                        <img align="left" border="0" height="26" onclick="doRefresh()" src="../english/images/refresh.gif" width="70" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-DTH-REASN-TXT">Cause Description:</label>
+                    </td>
+                    <td class="celllabeldataentry" align="left">
+                        <span id="MIR-CLI-DTH-REASN-TXT" displayonly="yes" stype="TextArea">MIR-CLI-DTH-REASN-TXT</span>
+                    </td>
+<!-- IPCAMC -->
+                </tr>
+<!-- ABU236 CHANGES END HERE -->
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+
+Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Address">Address</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Current Address</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-LOC-CD">Address Code:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-LOC-CD" id="MIR-CLI-ADDR-LOC-CD" stype="Text" maxlength="8" onfocus="enterField(this)" size="21" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CRNT-LOC-CD">Location Code:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-CRNT-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-CRNT-LOC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-PSTL-CD">Postal Code:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-PSTL-CD" id="MIR-CLI-PSTL-CD" stype="Text" maxlength="9" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CTRY-CD">Country:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-CTRY-CD" id="MIR-CLI-CTRY-CD" size="1" stype="Selection" onfocus="enterField(this)" onclick="CountryJapan(this)" onchange="CountryJapan(this)"></select>
+                    </td>
+                </tr>
+<!-- TLCR16 CHANGES START HERE -->
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INSRD-ADDR-LOC-CD">Insured Address Code:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-INSRD-ADDR-LOC-CD" id="MIR-INSRD-ADDR-LOC-CD" stype="Text" maxlength="8" onfocus="enterField(this)" size="21" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+<!-- TLCR16 CHANGES ENDS HERE -->
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="2">Kanji Address</td>
+                    <td class="celldisplayheading" colspan="2">Katakana Address</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-PREFCT-TXT">Address:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREFCT-TXT" stype="Text" displayonly="yes">MIR-CLI-PREFCT-TXT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-KA-PREFCT-TXT" stype="Text" displayonly="yes">MIR-CLI-KA-PREFCT-TXT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-CITY-NM-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-CITY-NM-TXT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-KA-CITY-TXT" stype="Text" displayonly="yes">MIR-CLI-KA-CITY-TXT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-LN-1-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-1-TXT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-KA-NGHBRHD-TXT" stype="Text" displayonly="yes">MIR-CLI-KA-NGHBRHD-TXT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-ADDL-TXT-T[1]">Samakata-bu:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-ADDL-TXT-T[1]" id="MIR-CLI-ADDR-ADDL-TXT-T[1]" stype="Text" maxlength="72"
+                               onkeypress="KanaKeyCheck()"
+                               onchange="onlyKatakana()"
+                               onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-CNTCT-TXT">Contact Information:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-CNTCT-TXT" id="MIR-CLI-ADDR-CNTCT-TXT" stype="Text" maxlength="50" onfocus="enterField(this)" size="50" />
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Address Status</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-YR-DUR">Years at Address:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-YR-DUR" id="MIR-CLI-ADDR-YR-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-CHNG-DT-T[1]">Address Changed Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-ADDR-CHNG-DT-T[1]" stype="Date" displayonly="yes">MIR-CLI-ADDR-CHNG-DT-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-STAT-CD-T[1]">Address Status:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-ADDR-STAT-CD-T[1]" id="MIR-CLI-ADDR-STAT-CD-T[1]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ADDR-STAT-CHNG-DT-T[1]">Address Status Changed Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-ADDR-STAT-CHNG-DT-T[1]" stype="Date" displayonly="yes">MIR-ADDR-STAT-CHNG-DT-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-UPDT-ADDR-IND">Update previous address:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-UPDT-ADDR-IND" id="MIR-DV-UPDT-ADDR-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-PREV-ADDR-IND">Previous Address:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" name="MIR-DV-PREV-ADDR-IND" id="MIR-DV-PREV-ADDR-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+
+ Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Employment">Employment</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="7">Employment Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-OCCP-ID">Occupation:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-OCCP-ID" id="MIR-OCCP-ID" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-OCCP-CLAS-CD">Occupation Class:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="4">
+                        <select name="MIR-CLI-OCCP-CLAS-CD" id="MIR-CLI-OCCP-CLAS-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-INCM-EARN-CD">Income Class:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-INCM-EARN-CD" id="MIR-CLI-INCM-EARN-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-WRK-QTY">Hours Worked:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-WRK-QTY" id="MIR-CLI-WRK-QTY" stype="Text" maxlength="5" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-WRK-CD" id="MIR-CLI-WRK-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">/</td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-WRK-DUR-CD" id="MIR-CLI-WRK-DUR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-PRPS-RETIR-DT">Proposed Retirement Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-PRPS-RETIR-DT" id="MIR-CLI-PRPS-RETIR-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-TXEMP-CD">Tax Exempt:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="4">
+                        <select name="MIR-CLI-TXEMP-CD" id="MIR-CLI-TXEMP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-UIC-QUALF-IND">UIC Qualified:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CLI-UIC-QUALF-IND" id="MIR-CLI-UIC-QUALF-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-WRK-RES-IND">Work at Home:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="1">
+                        <input type="checkbox" value="Y" name="MIR-CLI-WRK-RES-IND" id="MIR-CLI-WRK-RES-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-HZRD-OCCP-CD">Hazardous Occupation Code:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="4">
+                        <select name="MIR-HZRD-OCCP-CD" id="MIR-HZRD-OCCP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-WRK-PT-IND">Part-time:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CLI-WRK-PT-IND" id="MIR-CLI-WRK-PT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-SELF-EMPL-IND">Self-employed:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="4">
+                        <input type="checkbox" value="Y" name="MIR-CLI-SELF-EMPL-IND" id="MIR-CLI-SELF-EMPL-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Current Katakana Employer</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-EMPLR-NM-T[1]"> Name:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-EMPLR-NM-T[1]" id="MIR-CLI-EMPLR-NM-T[1]" stype="Text" maxlength="50" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-EMPL-YR-DUR">Years with Employer:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-EMPL-YR-DUR" id="MIR-CLI-EMPL-YR-DUR" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-EMPLR-ADDR-1-TXT-T[1]"> Address:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-EMPLR-ADDR-1-TXT-T[1]" id="MIR-EMPLR-ADDR-1-TXT-T[1]" stype="Text" maxlength="25" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-EMPLR-ADDR-2-TXT-T[1]" id="MIR-EMPLR-ADDR-2-TXT-T[1]" stype="Text" maxlength="25" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-EMPLR-LOC-CD">Province/State:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-EMPLR-LOC-CD" id="MIR-CLI-EMPLR-LOC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="2">Current Kanji Employer</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-EMPLR-NM-T[1]"> Name:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-EMPLR-NM-T[2]" id="MIR-CLI-EMPLR-NM-T[2]" stype="Text" maxlength="50" onfocus="enterField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-EMPLR-ADDR-1-TXT-T[1]"> Address:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-EMPLR-ADDR-1-TXT-T[2]" id="MIR-EMPLR-ADDR-1-TXT-T[2]" stype="Text" maxlength="25" onfocus="enterField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-EMPLR-ADDR-2-TXT-T[2]" id="MIR-EMPLR-ADDR-2-TXT-T[2]" stype="Text" maxlength="25" onfocus="enterField(this)" size="20" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+
+ Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Banking">Banking</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Chargecard Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CR-CARD-TYP-CD">Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-CR-CARD-TYP-CD" id="MIR-CLI-CR-CARD-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CR-CARD-NUM">Account Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-CR-CARD-NUM" id="MIR-CLI-CR-CARD-NUM" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" genrows="9">
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-BNK-ACCT-NUM-T[1]">Bank Account Number</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-BNK-ID-T[1]">Bank Number</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="Branch-T[1]">Branch Number</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="SubBranch-T[1]">Sub Branch Number</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-BNK-ACCT-ID-T[1]">Account Number</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-BNK-ACCT-HLDR-NM-T[1]">Accountholder Name</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-BNK-ACCT-TYP-CD-T[1]">Account Type</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-BNK-ACCT-MICR-IND-T[1]">Cheque from account is MICR-encoded</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-BNK-ACCT-NUM-T[]" stype="Text" displayonly="yes">MIR-CLI-BNK-ACCT-NUM-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-BNK-ID-T[]" id="MIR-BNK-ID-T[]" stype="Text" maxlength="4" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="Branch-T[]" id="Branch-T[]" stype="Text" maxlength="3" onfocus="enterField(this)" onblur="updateBranchall()" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="SubBranch-T[]" id="SubBranch-T[]" stype="Text" maxlength="2" onfocus="enterField(this)" onblur="updateBranchall()" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-BNK-ACCT-ID-T[]" id="MIR-BNK-ACCT-ID-T[]" stype="Text" maxlength="7" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-BNK-ACCT-HLDR-NM-T[]" id="MIR-BNK-ACCT-HLDR-NM-T[]" stype="Text" maxlength="50"
+                               onkeypress="KanaKeyCheck()"
+                               onchange="onlyKatakana()"
+                               onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BNK-ACCT-TYP-CD-T[]" id="MIR-BNK-ACCT-TYP-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-BNK-ACCT-MICR-IND-T[]" id="MIR-BNK-ACCT-MICR-IND-T[]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+
+Back to top
+                </a>
+            </p>
+<!-- 29746F CHANGES START -->
+            <h2>
+                <a name="Payout Bank Account">Payout Bank Account</a>
+            </h2>
+            <table class="tabledataentry" genrows="9">
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-PAYO-BNK-ACCT-NUM-T[1]">Bank Account Number</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-PAYO-BNK-ID-T[1]">Bank Number</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-PAYO-BNK-BR-ID-T[1]">Branch Number</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-PAYO-SUB-BR-ID-T[1]">Sub Branch Number</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-PAYO-BNK-ACCT-ID-T[1]">Account Number</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-PAYO-BNK-ACCT-HLDR-NM-T[1]">Accountholder Name</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-PAYO-BNK-ACCT-TYP-CD-T[1]">Account Type</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-PAYO-ACCT-MICR-IND-T[1]">Cheque from account is MICR-encoded</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-PAYO-BNK-ACCT-NUM-T[]" stype="Text" displayonly="yes">MIR-PAYO-BNK-ACCT-NUM-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PAYO-BNK-ID-T[]" id="MIR-PAYO-BNK-ID-T[]" stype="Text" maxlength="4" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PAYO-BNK-BR-ID-T[]" id="MIR-PAYO-BNK-BR-ID-T[]" stype="Text" maxlength="3" onfocus="enterField(this)" onblur="updateBranchall()" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PAYO-SUB-BR-ID-T[]" id="MIR-PAYO-SUB-BR-ID-T[]" stype="Text" maxlength="2" onfocus="enterField(this)" onblur="updateBranchall()" />
+                    </td>
+                    <td class="celllabeldataentry">
+<!-- CR1866 CHANGES START -->
+<!--                    <input type="text" value=" " name="MIR-PAYO-BNK-ACCT-ID-T[]" id="MIR-PAYO-BNK-ACCT-ID-T[]" stype="Text" maxlength="7" onfocus="enterField(this)" /> -->
+                        <input type="text" value=" " name="MIR-PAYO-BNK-ACCT-ID-T[]" id="MIR-PAYO-BNK-ACCT-ID-T[]" stype="Text" maxlength="17" onfocus="enterField(this)" />
+<!-- CR1866 CHANGES END -->
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PAYO-BNK-ACCT-HLDR-NM-T[]" id="MIR-PAYO-BNK-ACCT-HLDR-NM-T[]" stype="Text" maxlength="50"
+                               onkeypress="KanaKeyCheck()"
+                               onchange="onlyKatakana()"
+                               onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PAYO-BNK-ACCT-TYP-CD-T[]" id="MIR-PAYO-BNK-ACCT-TYP-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-PAYO-ACCT-MICR-IND-T[]" id="MIR-PAYO-ACCT-MICR-IND-T[]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+<!-- 29746F CHANGES END -->
+            <h2>
+                <a name="Underwriting">Underwriting</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Underwriting</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-MIB-IND-CD">MIB Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-MIB-IND-CD" id="MIR-CLI-MIB-IND-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-PRST-RT">Persistency Rate:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-CLI-PRST-RT" id="MIR-CLI-PRST-RT" stype="Percent" elength="3" decimals="0" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-PREV-DCLN-IND">Client previously declined by company:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CLI-PREV-DCLN-IND" id="MIR-CLI-PREV-DCLN-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-PREV-DCLN-DT">Declined Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-PREV-DCLN-DT" id="MIR-CLI-PREV-DCLN-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-UWGDECN-CD">Underwriting Decision:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-UWGDECN-CD" stype="Text" displayonly="yes">MIR-CLI-UWGDECN-CD</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-UWGDECN-TYP-CD">Decision Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-UWGDECN-TYP-CD" stype="Text" displayonly="yes">MIR-CLI-UWGDECN-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-UWGDECN-DT">UW Decision Changed Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-UWGDECN-DT" stype="Date" displayonly="yes">MIR-CLI-UWGDECN-DT</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UWG-WRKSHT-NUM">Worksheet Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-UWG-WRKSHT-NUM" stype="Text" displayonly="yes">MIR-UWG-WRKSHT-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UW-USER-1-ID">1st Underwriter Initials:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-UW-USER-1-ID" stype="Text" displayonly="yes">MIR-UW-USER-1-ID</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UW-USER-2-ID">2nd Underwriter Initials:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-UW-USER-2-ID" stype="Text" displayonly="yes">MIR-UW-USER-2-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CMPLT-CCAS-IND">Clear case processing attempted:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" name="MIR-CLI-CMPLT-CCAS-IND" id="MIR-CLI-CMPLT-CCAS-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+
+Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Consolidate">Consolidate</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Client Consolidation</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-CNSLDT-CLI-ID">Previous Consolidated Client ID:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-PREV-CNSLDT-CLI-ID" stype="Text" displayonly="yes">MIR-PREV-CNSLDT-CLI-ID</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CNSLDT-DT">Last Consolidation Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-CNSLDT-DT" stype="Date" displayonly="yes">MIR-CLI-CNSLDT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-LEGIT-DUP-IND">Legitimate duplicate - Do not consolidate:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CLI-LEGIT-DUP-IND" id="MIR-CLI-LEGIT-DUP-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <h2>
+                <a name="Contact">Contact</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Servicing Agent
+        </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-AGT-ID">Agent ID:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-AGT-ID" id="MIR-AGT-ID" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-AGT-STAT-CD">Agent Status:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-AGT-STAT-CD" stype="Text" displayonly="yes">MIR-AGT-STAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-AGT-NM">Name:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <span id="MIR-DV-AGT-NM" stype="Text" displayonly="yes">MIR-DV-AGT-NM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Contact</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-LANG-CD">Correspondence Language:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-LANG-CD" id="MIR-CLI-LANG-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-STMT-DT">Statement Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-STMT-DT" id="MIR-CLI-STMT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CLAS-CD">Classification:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-CLAS-CD" id="MIR-CLI-CLAS-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CLAS-CHNG-DT">Classification Change Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-CLAS-CHNG-DT" stype="Date" displayonly="yes">MIR-CLI-CLAS-CHNG-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BEST-TIME-CALL-TXT">Best Time to Call:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-BEST-TIME-CALL-TXT" id="MIR-BEST-TIME-CALL-TXT" stype="Text" maxlength="15" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-COMNT-TXT">Additional Comments:</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-COMNT-TXT" id="MIR-CLI-COMNT-TXT" stype="Text" maxlength="237" onfocus="enterField(this)" size="90" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+
+ Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Financial">Financial</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Suspense Account</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-SUSP-AMT">Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-SUSP-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-CLI-SUSP-AMT</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-SUSP-CRCY-CD">Currency:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-SUSP-CRCY-CD" stype="Text" displayonly="yes">MIR-CLI-SUSP-CRCY-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SUSP-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-SUSP-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SUSP-SBSDRY-CO-ID</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-SUSP-CHNG-DT">Change Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-SUSP-CHNG-DT" stype="Date" displayonly="yes">MIR-CLI-SUSP-CHNG-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <h2>
+                <a name="PreviousInformation">Previous Information</a>
+            </h2>
+            <table class="tabledataentry" genrows="3">
+                <tr>
+                    <td class="celldataentryheading" colspan="5">Previous Names</td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-PREV-TITL-TXT-T[1]">Title</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-ENTR-PREV-SUR-NM-T[1]">Last Name</label>
+                    </td>
+                    <td class="celldataentryheading" />
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-ENTR-PREV-GIV-NM-T[1]">First Name</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-PREV-SFX-NM-T[1]">Suffix</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-PREV-TITL-TXT-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-TITL-TXT-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-ENTR-PREV-SUR-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-ENTR-PREV-SUR-NM-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry" />
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-ENTR-PREV-GIV-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-ENTR-PREV-GIV-NM-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-PREV-SFX-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-SFX-NM-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Previous Address</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-PREV-ADDR-LOC-CD-T[1]">Address Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-ADDR-LOC-CD-T[1]" stype="Text" displayonly="yes">MIR-CLI-PREV-ADDR-LOC-CD-T[1]</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-PREV-CRNT-LOC-CD-T[1]">Location Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-CRNT-LOC-CD-T[1]" stype="Text" displayonly="yes">MIR-CLI-PREV-CRNT-LOC-CD-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-PREV-PSTL-CD-T[1]">Postal Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-PSTL-CD-T[1]" stype="Text" displayonly="yes">MIR-CLI-PREV-PSTL-CD-T[1]</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-PREV-CTRY-CD-T[1]">Country:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-CTRY-CD-T[1]" stype="Text" displayonly="yes">MIR-CLI-PREV-CTRY-CD-T[1]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="2">Previous Kanji Address</td>
+                    <td class="celldisplayheading" colspan="2">Previous Katakana Address</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-PREV-PREFCT-TXT-T[1]">Previous Address:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-PREFCT-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-PREV-PREFCT-TXT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-KA-PREFCT-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-PREV-KA-PREFCT-TXT-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-CITY-NM-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-PREV-CITY-NM-TXT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-KA-CITY-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-PREV-KA-CITY-TXT-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-ADDR-LN-1-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-PREV-ADDR-LN-1-TXT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-KA-NGHBRHD-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-PREV-KA-NGHBRHD-TXT-T[1]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-PREV-ADDR-ADDL-TXT-T[1]">Samakata-bu:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-CLI-PREV-ADDR-ADDL-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-PREV-ADDR-ADDL-TXT-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-PREV-CNTCT-TXT-T[1]">Contact Information:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-CLI-PREV-CNTCT-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-PREV-CNTCT-TXT-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-PREV-ADDR-YR-DUR-T[1]">Years at Previous Address:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-ADDR-YR-DUR-T[1]" stype="Text" displayonly="yes">MIR-CLI-PREV-ADDR-YR-DUR-T[1]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Previous Employer</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-PREV-EMPLR-NM-T[1]">Previous Employer Name:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-PREV-EMPLR-NM-T[1]" id="MIR-CLI-PREV-EMPLR-NM-T[1]" stype="Text" maxlength="50" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-EMPL-YR-DUR">Years with Employer:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PREV-EMPL-YR-DUR" id="MIR-PREV-EMPL-YR-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-PREV-EMPLR-NM-T[1]">Previous Employer Name:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-PREV-EMPLR-NM-T[2]" id="MIR-CLI-PREV-EMPLR-NM-T[2]" stype="Text" maxlength="50" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <center>
+                <br />
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Name">Name</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Profile">Profile</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Address">Address</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Employment">Employment</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Banking">Banking</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Underwriting">Underwriting</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Consolidate">Consolidate</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Contact">Contact</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Financial">Financial</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PreviousInformation">Previous Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+<!--
+<table class="tabledisplay" genrows="2" >
+
+<tr>
+
+<td class="celldisplayheading"><label for="MIR-CLI-GIV-NM-T[1]">First Name:</label></td>
+<td class="celldisplayheading"><label for="MIR-CLI-SUR-NM-T[1]">Last Name:</label></td>
+</tr>
+
+<tr>
+
+<td class="celldisplay"><input type="text" value=" " name="MIR-CLI-GIV-NM-T[]" id="MIR-CLI-GIV-NM-T[]" stype="Text" maxlength="25"   onfocus="enterField(this)"/>
+</td>
+<td class="celldisplay"><input type="text" value=" " name="MIR-CLI-SUR-NM-T[]" id="MIR-CLI-SUR-NM-T[]" stype="Text" maxlength="25"   onfocus="enterField(this)"/>
+</td>
+</tr>
+</table>
+<table class="tabledisplay" genrows="2" >
+
+<tr>
+
+<td class="celldisplayheading"><label for="MIR-CLI-CO-NM-T[1]">Company Name:</label></td>
+</tr>
+
+<tr>
+
+<td class="celldisplay"><input type="text" value=" " name="MIR-CLI-CO-NM-T[]" id="MIR-CLI-CO-NM-T[]" stype="Text" maxlength="50"   onfocus="enterField(this)"/>
+</td>
+</tr>
+</table>
+ -->
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/BF1222.js"></script>
+    <script src="../js/JapaneseBranch.js"></script>
+    <script src="../js/EmperorDates.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/OnlyKana.js"></script>
+    <script src="../js/OnlyKanji.js"></script>
+    <script src="../js/CountryJapan.js"></script>
+</html>

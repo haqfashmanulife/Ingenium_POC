@@ -1,0 +1,214 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:28 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1302-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling
+*  016736  611J     Code Cleanup
+*  017150  612J     Remove Currency decimals="2"
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UY3004  16JUL21  SUBSEQUENT HTML POLICY TRIM                                 *
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1302-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="5">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-CSTAT-CD">Coverage Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-CSTAT-CD" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Policy Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PLAN-ID">Type of Plan:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PLAN-ID" id="MIR-PLAN-ID" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-SUM-INS-AMT">Sum Insured Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-SUM-INS-AMT" id="MIR-CVG-SUM-INS-AMT" stype="Currency" elength="15" signed="yes" mandatory="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-INS-TYP-CD">Type of Insurance:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-INS-TYP-CD" id="MIR-CVG-INS-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CRNT-LOC-CD">Residence Location:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-CRNT-LOC-CD" id="MIR-CLI-CRNT-LOC-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ISS-LOC-CD">Issue Location:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-ISS-LOC-CD" id="MIR-POL-ISS-LOC-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-PAR-CD">Coverage
+                        Participation:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-PAR-CD" id="MIR-CVG-PAR-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-SUPP-BNFT-CD">Supplementary Benefit:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-SUPP-BNFT-CD" id="MIR-CVG-SUPP-BNFT-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-CRCY-CD">Currency:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-CRCY-CD" id="MIR-POL-CRCY-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-REG-CD">Jurisdiction Policy Registered:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-REG-CD" id="MIR-POL-REG-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SERV-BR-ID">Branch:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-SERV-BR-ID" id="MIR-SERV-BR-ID" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-REINS-CD">Reinsurance:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-REINS-CD" id="MIR-POL-REINS-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Movement Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-MVT-LN-CD">Movement Report Line Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DV-MVT-LN-CD" id="MIR-DV-MVT-LN-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-MVT-CD">Count:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DV-MVT-CD" id="MIR-DV-MVT-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-POL-MVT-CD">Policy Movement:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DV-POL-MVT-CD" id="MIR-DV-POL-MVT-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-CVG-MVT-CD">Coverage Movement:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DV-CVG-MVT-CD" id="MIR-DV-CVG-MVT-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+	    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

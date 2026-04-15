@@ -1,0 +1,224 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:19 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0490-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016411  602J     Relabel phone number to contact information                
+*  017150  612J     Remove Currency decimals="2"                               
+*  01AD05  BMB      Changes to the Japanese address fields                     
+*                   - Address Code is now the driver field                     
+*                   - JP-ADDR has been replaced by PREFCT-TXT                  
+*                   - Samakata-bu (ADDR-ADDL) changed to 72 bytes              
+*                   - Prefecture, City and Neighborhood added for KA           
+*  C18250  CTS      Display the new TCLIA Kanji samakata-bu field in address and
+*                   client inquiry screen
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0490-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-CLI-NM">クライアント名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-CLI-NM" stype="Text" displayonly="yes">MIR-DV-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-ID">クライアントID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-ADDR-TYP-CD">住所タイプ:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ADDR-TYP-CD" stype="Text" displayonly="yes">MIR-CLI-ADDR-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-ADDR-SEQ-NUM">シーケンス番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ADDR-SEQ-NUM" stype="Text" displayonly="yes">MIR-CLI-ADDR-SEQ-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">住所</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ADDR-EFF-DT-NUM">住所発効日（入居日）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ADDR-EFF-DT-NUM" stype="Text" displayonly="yes">MIR-ADDR-EFF-DT-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ADDR-END-DT-NUM">住所失効日（退居日）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ADDR-END-DT-NUM" stype="Text" displayonly="yes">MIR-ADDR-END-DT-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-YR-DUR">居住年数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-YR-DUR" stype="Text" displayonly="yes">MIR-CLI-ADDR-YR-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-CHNG-DT-T[1]">住所変更日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-CHNG-DT-T[1]" stype="Date" displayonly="yes">MIR-CLI-ADDR-CHNG-DT-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-STAT-CD-T[1]">住所ステータス:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-STAT-CD-T[1]" stype="Text" displayonly="yes">MIR-CLI-ADDR-STAT-CD-T[1]</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ADDR-STAT-CHNG-DT-T[1]">住所ステータス変更日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ADDR-STAT-CHNG-DT-T[1]" stype="Date" displayonly="yes">MIR-ADDR-STAT-CHNG-DT-T[1]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-LOC-CD">住所コード:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-ADDR-LOC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-CRNT-LOC-CD">州/国:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-CRNT-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-CRNT-LOC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-PSTL-CD">郵便番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PSTL-CD" stype="Text" displayonly="yes">MIR-CLI-PSTL-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-CTRY-CD">国:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-CTRY-CD" stype="Text" displayonly="yes">MIR-CLI-CTRY-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="2">住所</td>
+                    <td class="celldisplayheading" colspan="2">住所（ｶﾀｶﾅ）</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-PREFCT-TXT-T[1]">住所:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREFCT-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-PREFCT-TXT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-KA-PREFCT-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-KA-PREFCT-TXT-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-CITY-NM-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-CITY-NM-TXT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-KA-CITY-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-KA-CITY-TXT-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-LN-1-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-1-TXT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-KA-NGHBRHD-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-KA-NGHBRHD-TXT-T[1]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-ADDL-TXT-T[1]">住所カナ部:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-CLI-ADDR-ADDL-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-ADDR-ADDL-TXT-T[1]</span>
+                    </td>
+                </tr>
+<!-- C18250 Changes start -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-KJ-TXT-T[1]">住所漢字:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-CLI-ADDR-KJ-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-ADDR-KJ-TXT-T[1]</span>
+                    </td>
+                </tr>
+<!-- C18250 Changes end -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-CNTCT-TXT">連絡先:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-CLI-ADDR-CNTCT-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-CNTCT-TXT</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

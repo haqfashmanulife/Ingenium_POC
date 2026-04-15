@@ -1,0 +1,303 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:44 PM EDT
+*
+*********************************************************************************
+*  Component:   BF6977-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                           
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF6977-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CF-EFF-DT">Index Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CF-EFF-DT" stype="Date" displayonly="yes">MIR-CF-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CF-SEQ-NUM">Index Sequence Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CF-SEQ-NUM" stype="Text" maxlength="3" displayonly="yes">MIR-CF-SEQ-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CF-STAT-CD">Cash Flow Status:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="5">
+                        <span id="MIR-CF-STAT-CD" stype="Text" displayonly="yes">MIR-CF-STAT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="5">Balance Calculation:</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <p align="left">
+                            <label for="MIR-DV-CRNT-FND-AMT">Current Amount</label>
+                        </p>
+                    </td>
+                    <td class="celldisplaylabel" align="center">
+                        <p align="center">=</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">
+                            <label for="MIR-DV-INDX-INCR-AMT">Index Increase Amount</label>
+                        </p>
+                    </td>
+                    <td class="celldisplaylabel" align="center">
+                        <p align="center">+</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">
+                            <label for="MIR-CF-FND-BAL-AMT">Previous Amount</label>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CRNT-FND-AMT" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-DV-CRNT-FND-AMT</span>
+                    </td>
+                    <td class="celldisplay" align="center">
+                        <p align="center">=</p>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INDX-INCR-AMT" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-DV-INDX-INCR-AMT</span>
+                    </td>
+                    <td class="celldisplay" align="center">
+                        <p align="center">+</p>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-FND-BAL-AMT" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-CF-FND-BAL-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="5">Increase Calculation Detail</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <p align="left">
+                            <label for="MIR-DV-INDX-INCR-AMT-2">Index Increase Amount</label>
+                        </p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="center">=</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">
+                            <label for="MIR-DV-INDX-INCR-PCT">Index Increase Percentage</label>
+                        </p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="center">*</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">
+                            <label for="MIR-CF-FND-BAL-AMT-2">Previous Amount/100</label>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INDX-INCR-AMT-2" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-DV-INDX-INCR-AMT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <p align="center">=</p>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INDX-INCR-PCT" stype="Percent" elength="14" decimals="5" signed="yes" displayonly="yes">MIR-DV-INDX-INCR-PCT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <p align="center">*</p>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-FND-BAL-AMT-2" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-CF-FND-BAL-AMT-2</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Index Increase Percentage</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" colspan="4">
+                        <p align="left">Index Increase Percentage  Index Growth Factor * Participation Rate      (if greater than Floor Rate and less than Cap Rate)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <p align="left">
+                            <label for="MIR-DV-INDX-GRWTH-FCT">Index Growth Factor</label>
+                        </p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">
+                            <label for="MIR-RTBL-1-RT">Participation Rate</label>
+                        </p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">
+                            <label for="MIR-RTBL-3-RT">Floor Rate</label>
+                        </p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">
+                            <label for="MIR-RTBL-2-RT">Cap Rate</label>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INDX-GRWTH-FCT" stype="Number" elength="6" decimals="3" signed="yes" displayonly="yes">MIR-DV-INDX-GRWTH-FCT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-1-RT" stype="Percent" elength="14" decimals="5" signed="yes" displayonly="yes">MIR-RTBL-1-RT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-3-RT" stype="Percent" elength="14" decimals="5" signed="yes" displayonly="yes">MIR-RTBL-3-RT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-2-RT" stype="Percent" elength="14" decimals="5" signed="yes" displayonly="yes">MIR-RTBL-2-RT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="7">Index Growth Factor</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <p align="left">
+                            <label for="MIR-DV-INDX-GRWTH-FCT-2">Index Growth      Factor</label>
+                        </p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="center">=</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">
+                            <label for="MIR-PURCH-PRIC-1-AMT-3">(Index End of Period</label>
+                        </p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="center">-</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">
+                            <label for="MIR-PURCH-PRIC-1-AMT-2">Index      Beginning of Period)</label>
+                        </p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="center">/</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">
+                            <label for="MIR-PURCH-PRIC-1-AMT">Index Beginning of      Period:</label>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INDX-GRWTH-FCT-2" stype="Number" elength="6" decimals="3" signed="yes" displayonly="yes">MIR-DV-INDX-GRWTH-FCT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <p align="center">=</p>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PURCH-PRIC-1-AMT-3" stype="Currency" elength="18" decimals="9" signed="yes" displayonly="yes">MIR-PURCH-PRIC-1-AMT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <p align="center">-</p>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PURCH-PRIC-1-AMT-2" stype="Currency" elength="18" decimals="9" signed="yes" displayonly="yes">MIR-PURCH-PRIC-1-AMT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <p align="center">/</p>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PURCH-PRIC-1-AMT" stype="Currency" elength="18" decimals="9" signed="yes" displayonly="yes">MIR-PURCH-PRIC-1-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

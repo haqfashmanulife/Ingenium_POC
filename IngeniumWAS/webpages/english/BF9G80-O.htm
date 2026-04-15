@@ -1,0 +1,355 @@
+<!--
+*
+*********************************************************************************
+*  Component:   BF9G80-O.htm                                                    *
+*  Description: CREATED FOR ANNUITY PAYOUT TRANSFER QUOTE SCREEN                *
+*                                                                               *
+*********************************************************************************
+*  Chg#     Release  Author  Description
+*  TDM22A   02MAR20  CTS     INITIAL VERSION
+*  23774B            CTS     Changes done for ie retirement project to make it
+*                            compatible for microsoft edge. Changes in html include
+*                            adding "id" attribute for all input fields and changes in
+*                            java scripts to modify certain functions/commands which
+*                            are no longer compatilble with edge.
+*  UY3004  CTS      INPUT HTML POLICY TRIM - 10 BYTES -> 7 BYTES
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9G80-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-ANTY-STRT-DT">Annuity Commencement Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                         <span id="MIR-ANTY-STRT-DT" stype="Date" displayonly="yes">MIR-ANTY-STRT-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PRCES-DT">Process Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                         <span id="MIR-PRCES-DT" stype="Date" displayonly="yes">MIR-PRCES-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-ANTY-PAYO-PERI-CD">Annuity Payout Period:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-ANTY-PAYO-PERI-CD" stype="Text" displayonly="yes">MIR-ANTY-PAYO-PERI-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                       <label for="MIR-ANUTNT-TYP-CD">Annuitant Type:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-ANUTNT-TYP-CD" stype="Text" displayonly="yes">MIR-ANUTNT-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-FINAL-DPOS-DED-CD">Final deposit deduction Ind:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-FINAL-DPOS-DED-CD" stype="Text" displayonly="yes">MIR-FINAL-DPOS-DED-CD</span>
+                    </td>
+                </tr>
+            </table>
+   <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="6" class="celldisplayheading">
+                        <a name="Policy Details">Policy Details</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ID">Plan Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+	                <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+					<td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+				</tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ISS-EFF-DT">Policy issue date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT</span>
+                    </td>
+                     <td class="celldisplaylabel">
+                        <label for="MIR-PREM-PMT-PERI-CD">Premium Payment Period:</label>
+                      </td>
+                      <td class="celldisplay">
+                        <span id="MIR-PREM-PMT-PERI-CD" stype="Text" displayonly="yes">MIR-PREM-PMT-PERI-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                       <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text"  displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREM-XPRY-DT">Premium Expiry Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREM-XPRY-DT" stype="Date" displayonly="yes">MIR-PREM-XPRY-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-FACE-AMT">Face amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FACE-AMT" stype="Currency" elength="13" displayonly="yes">MIR-FACE-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SSTD-PREM-PERI-CD">Substandard premium period:</label>
+                    </td>
+                       <td class="celldisplay">
+                      <span id="MIR-SSTD-PREM-PERI-CD" stype="Text" displayonly="yes">MIR-SSTD-PREM-PERI-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OWN-CLI-NM">Policyholder Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-OWN-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-POL-HLDR-SEX-CD">Policyholder Gender:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-HLDR-SEX-CD" stype="Text" displayonly="yes">MIR-POL-HLDR-SEX-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OWNR-REL-INSR-CD">Relationship of Insured to Policy Owner:</label>
+                    </td>
+                    <td class="celldisplay">
+                      <span id="MIR-OWNR-REL-INSR-CD" stype="Text" displayonly="yes">MIR-OWNR-REL-INSR-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSRD-NM">Insured Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-NM" stype="Text" displayonly="yes">MIR-INSRD-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-INSRD-SEX-CD">Insured Gender:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-SEX-CD" stype="Text" displayonly="yes">MIR-INSRD-SEX-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSRD-AGE">Insured Age:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-AGE" stype="Number" elength="3" signed="yes" displayonly="yes">MIR-INSRD-AGE</span>
+                    </td>
+                </tr>
+            </table>
+   <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="6" class="celldisplayheading">Annuity Transfer Rider (Trial calculation contents)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANUTNT-NAME">Annuitant:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANUTNT-NAME" stype="Text"  displayonly="yes">MIR-ANUTNT-NAME</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-STRT-DT">Annuity Commencement Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-STRT-DT" stype="Date" displayonly="yes">MIR-ANTY-STRT-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-PAYO-PERI-CD">Annuity payout period:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-PAYO-PERI-CD" stype="Text" displayonly="yes">MIR-ANTY-PAYO-PERI-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-TERM-TXT">Term of annuity:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-TERM-TXT" stype="Text" value = "AC" displayonly="yes" >MIR-ANTY-TERM-TXT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-PAYO-TYP-TXT">Annuity type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-PAYO-TYP-TXT" stype="Text" value = "FT" displayonly="yes" >MIR-ANTY-PAYO-TYP-TXT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-PAYO-TIME-TXT">Payout times:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-PAYO-TIME-TXT" stype="Text" value = "OY" displayonly="yes" >MIR-ANTY-PAYO-TIME-TXT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-AMT">Annuity Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-AMT" stype="Currency" elength="13" displayonly="yes">MIR-ANTY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-RESRC-AMT">Annuity Resource:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-RESRC-AMT" stype="Currency" elength="13"  displayonly="yes">MIR-ANTY-RESRC-AMT</span>
+                    </td>
+	                <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+				</tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-LIAB-RSRV-AMT">Liability reserve:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-LIAB-RSRV-AMT" stype="Currency" elength="13"  displayonly="yes">MIR-ANTY-LIAB-RSRV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-APL-BAL-AMT">APL Balance:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-APL-BAL-AMT" stype="Currency" elength="13"  displayonly="yes">MIR-APL-BAL-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-APL-INT-AMT">APL Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-APL-INT-AMT" stype="Currency" elength="13"  displayonly="yes">MIR-APL-INT-AMT</span>
+                    </td>
+               </tr>
+               <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-BAL-AMT">Balance of policy loans:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-BAL-AMT" stype="Currency" elength="13"  displayonly="yes">MIR-LOAN-BAL-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-INT-AMT">Interest of policy loans:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-INT-AMT" stype="Currency" elength="13"  displayonly="yes">MIR-LOAN-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SHRT-LOAN-AMT">Shortage of Policy Loan Repayments:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-LOAN-AMT" stype="Currency" elength="13"  displayonly="yes">MIR-SHRT-LOAN-AMT</span>
+                    </td>
+               </tr>
+               <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SHRT-PREM-AMT">Shortage of premiums:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-PREM-AMT" stype="Currency" elength="13"  displayonly="yes">MIR-SHRT-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-PREM-AMT">Outstanding Premiums:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-PREM-AMT" stype="Currency" elength="13"  displayonly="yes">MIR-OS-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UNEARN-PREM-AMT">Unearned Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UNEARN-PREM-AMT" stype="Currency" elength="13"  displayonly="yes">MIR-UNEARN-PREM-AMT</span>
+                    </td>
+               </tr>
+               <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OVR-PD-PREM-AMT">Overpaid premiums:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OVR-PD-PREM-AMT" stype="Currency" elength="13"  displayonly="yes">MIR-OVR-PD-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OVR-PD-LOAN-AMT">Overpaid policy loan repayments:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OVR-PD-LOAN-AMT" stype="Currency" elength="13"  displayonly="yes">MIR-OVR-PD-LOAN-AMT</span>
+                    </td>
+					<td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+               </tr>
+               <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PD-PREM-AMT">Paid premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PD-PREM-AMT" stype="Currency" elength="13"  displayonly="yes">MIR-PD-PREM-AMT</span>
+                    </td>
+ 			       <td class="celldisplaylabel" />
+                   <td class="celldisplay" />
+			       <td class="celldisplaylabel" />
+                   <td class="celldisplay" />
+               </tr>
+            </table>
+   <br />
+
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="6" class="celldisplayheading">Submission Deadline</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SUBMSN-LAST-DT">Submission Deadline:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUBMSN-LAST-DT" stype="Date" displayonly="yes">MIR-SUBMSN-LAST-DT</span>
+                    </td>
+	                <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+					<td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+				</tr>
+            </table>
+            <br />
+
+    <br />
+    </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

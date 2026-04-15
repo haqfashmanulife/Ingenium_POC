@@ -1,0 +1,754 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:32 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1222-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  01AD05  BMB      Changes to the Japanese address fields                     
+*                   - Address Code is now the driver field                     
+*                   - JP-ADDR has been replaced by PREFCT-TXT                  
+*                   - Samakata-bu (ADDR-ADDL) changed to 72 bytes              
+*                   - Prefecture, City and Neighborhood added for KA           
+*  B10294  BMB      - middle initials hidden from display                      
+*  M00024  AT       Add corporate tax report month                             
+*  EN001604         - Add Hazardous Occupation code
+*  IPCAMC  CTS      - Change the length of Cause of Death field
+*                   - Add Cause Description field
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1222-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <p>
+                <label for="MIR-CLI-ID">Client Number:</label>
+                <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+            </p>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNK-ACCT-HLDR-NM-T[1]">Accountholder Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNK-ACCT-ID-T[1]">Account Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNK-ACCT-MICR-IND-T[1]">Cheque from account is MICR-encoded</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNK-ACCT-TYP-CD-T[1]">Account Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNK-BR-ID-T[1]">Branch Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNK-ID-T[1]">Bank Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-BNK-ACCT-NUM-T[1]">Bank Account Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNK-NM-T[1]">Bank Name</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-HLDR-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-ACCT-HLDR-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-ID-T[]" stype="Text" displayonly="yes">MIR-BNK-ACCT-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-BNK-ACCT-MICR-IND-T[]" id="MIR-BNK-ACCT-MICR-IND-T[]" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-BNK-ACCT-TYP-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-BR-ID-T[]" stype="Text" displayonly="yes">MIR-BNK-BR-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ID-T[]" stype="Text" displayonly="yes">MIR-BNK-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-BNK-ACCT-NUM-T[]" stype="Text" displayonly="yes">MIR-CLI-BNK-ACCT-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-NM-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-PREV-EMPLR-NM-T[1]">Previous Employer Name</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-EMPLR-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-EMPLR-NM-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-EMPLR-NM-T[1]">Current Employer Name</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-EMPLR-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-EMPLR-NM-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-EMPLR-ADDR-1-TXT-T[1]">Current Employer Address</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-EMPLR-ADDR-2-TXT-T[1]">Current Employer Address</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-EMPLR-ADDR-1-TXT-T[]" stype="Text" displayonly="yes">MIR-EMPLR-ADDR-1-TXT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-EMPLR-ADDR-2-TXT-T[]" stype="Text" displayonly="yes">MIR-EMPLR-ADDR-2-TXT-T[]</span> 
+                    </td> 
+                </tr> 
+            </table> 
+            <table class="tabledisplay" genrows="0" >
+                <tr> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-CLI-ADDR-LOC-CD">Address Code:</label>
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-CLI-PSTL-CD-T[1]">Postal Code</label>
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-CLI-PREFCT-TXT">Prefecture</label>
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-CLI-CITY-NM-TXT-T[1]">City</label>
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-CLI-ADDR-LN-1-TXT-T[1]">Neighborhood</label>
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-CLI-KA-PREFCT-TXT">Prefecture</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-KA-CITY-TXT">City</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-KA-NGHBRHD-TXT">Neighborhood</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-ADDR-LOC-CD</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PSTL-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-PSTL-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREFCT-TXT" stype="Text" displayonly="yes">MIR-CLI-PREFCT-TXT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-CITY-NM-TXT-T[]" stype="Text" displayonly="yes">MIR-CLI-CITY-NM-TXT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-LN-1-TXT-T[]" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-1-TXT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-KA-PREFCT-TXT" stype="Text" displayonly="yes">MIR-CLI-KA-PREFCT-TXT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-KA-CITY-TXT" stype="Text" displayonly="yes">MIR-CLI-KA-CITY-TXT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-KA-NGHBRHD-TXT" stype="Text" displayonly="yes">MIR-CLI-KA-NGHBRHD-TXT</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledisplay" genrows="0" >
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ADDR-YR-DUR">Years at Address</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ADDR-STAT-CD-T[1]">Address Status</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ADDR-STAT-CHNG-DT-T[1]">Address Status Changed Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ADDR-CHNG-DT-T[1]">Address Changed Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-CRNT-LOC-CD">Location Code</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-CTRY-CD">Country</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-YR-DUR" stype="Text" displayonly="yes">MIR-CLI-ADDR-YR-DUR</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ADDR-STAT-CHNG-DT-T[]" stype="Date" displayonly="yes">MIR-ADDR-STAT-CHNG-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-ADDR-STAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-CHNG-DT-T[]" stype="Date" displayonly="yes">MIR-CLI-ADDR-CHNG-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-CRNT-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-CRNT-LOC-CD</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-CTRY-CD" stype="Text" displayonly="yes">MIR-CLI-CTRY-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-ADDL-TXT-T[1]">Samakata-bu:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-CLI-ADDR-ADDL-TXT-T[1]" stype="Text" displayonly="yes">MIR-CLI-ADDR-ADDL-TXT-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-CNTCT-TXT">Contact Information: </label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-CLI-ADDR-CNTCT-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-CNTCT-TXT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-CO-NM-T[1]">Company Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ENTR-CO-NM-T[1]">Company Name</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-CO-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-CO-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ENTR-CO-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-ENTR-CO-NM-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ENTR-GIV-NM-T[1]">First Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ENTR-SUR-NM-T[1]">Last Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-GIV-NM-T[1]">First Name</label>
+                    </td>
+                    <td class="celldisplayheading" />
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-SUR-NM-T[1]">Last Name</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ENTR-GIV-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-ENTR-GIV-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ENTR-SUR-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-ENTR-SUR-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-GIV-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-GIV-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay" />
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-SUR-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-SUR-NM-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-PREV-ADDR-LOC-CD-T[1]">Address Code</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-PREV-PSTL-CD-T[1]">Postal Code</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-PREV-PREFCT-TXT-1">Prefecture</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-PREV-CITY-NM-TXT-T[1]">City</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-PREV-ADDR-LN-1-TXT-T[1]">Address</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-PREV-KA-PREFCT-TXT-1">Prefecture</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-PREV-KA-CITY-TXT-1">City</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-PREV-KA-NGHBRHD-TXT-1">Neighborhood</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-PREV-ADDR-YR-DUR-T[1]">Years at Address</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-PREV-CRNT-LOC-CD-T[1]">Prefecture</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-PREV-CTRY-CD-T[1]">Country</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-ADDR-LOC-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-ADDR-LOC-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-PSTL-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-PSTL-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-PREFCT-TXT-1" stype="Text" displayonly="yes">MIR-CLI-PREV-PREFCT-TXT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-CITY-NM-TXT-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-CITY-NM-TXT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-ADDR-LN-1-TXT-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-ADDR-LN-1-TXT-T[]</span> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-PREV-KA-PREFCT-TXT-1" stype="Text" displayonly="yes">MIR-CLI-PREV-KA-PREFCT-TXT-1</span>
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-PREV-KA-CITY-TXT-1" stype="Text" displayonly="yes">MIR-CLI-PREV-KA-CITY-TXT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PREV-KA-NGHBRHD-TXT-1" stype="Text" displayonly="yes">MIR-CLI-PREV-KA-NGHBRHD-TXT-1</span>
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-PREV-ADDR-YR-DUR-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-ADDR-YR-DUR-T[]</span> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-PREV-CRNT-LOC-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-CRNT-LOC-CD-T[]</span> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-PREV-CTRY-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-CTRY-CD-T[]</span> 
+                    </td> 
+                </tr> 
+            </table> 
+            <table class="tabledisplay" genrows="0"> 
+                <tr> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-CLI-ENTR-PREV-GIV-NM-T[1]">蜷・/label> 
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-CLI-ENTR-PREV-SUR-NM-T[1]">蟋・/label> 
+                    </td> 
+                    <td class="celldisplayheading" /> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-CLI-PREV-SFX-NM-T[1]">閧ｩ譖ｸ遲・/label> 
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-CLI-PREV-TITL-TXT-T[1]">謨ｬ遘ｰ</label> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-ENTR-PREV-GIV-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-ENTR-PREV-GIV-NM-T[]</span> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-ENTR-PREV-SUR-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-ENTR-PREV-SUR-NM-T[]</span> 
+                    </td> 
+                    <td class="celldisplay" /> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-PREV-SFX-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-SFX-NM-T[]</span> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-PREV-TITL-TXT-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-TITL-TXT-T[]</span> 
+                    </td> 
+                </tr> 
+            </table> 
+            <p> 
+                <input type="hidden" name="action" id="action" stype="Hidden" /> 
+            </p> 
+            <p> 
+                <input type="hidden" name="index" id="index" stype="Hidden" /> 
+            </p> 
+            <p> 
+                <label for="MIR-AGT-ID">蜍滄寔莠ｺID:</label> 
+                <span id="MIR-AGT-ID" stype="Text" displayonly="yes">MIR-AGT-ID</span>  
+            </p>  
+            <p>  
+                <label for="MIR-BEST-TIME-CALL-TXT">騾｣邨｡譛驕ｩ譎る俣蟶ｯ:</label>  
+                <span id="MIR-BEST-TIME-CALL-TXT" stype="Text" displayonly="yes">MIR-BEST-TIME-CALL-TXT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-ADDR-CNTY-CD">蝨ｰ譁ｹ陦梧帆蛹ｺ:</label>  
+                <span id="MIR-CLI-ADDR-CNTY-CD" stype="Text" displayonly="yes">MIR-CLI-ADDR-CNTY-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-ADDR-MUN-CD">蝨ｰ譁ｹ閾ｪ豐ｻ菴・</label>  
+                <span id="MIR-CLI-ADDR-MUN-CD" stype="Text" displayonly="yes">MIR-CLI-ADDR-MUN-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-ADDR-YR-DUR">螻・ｽ丞ｹｴ謨ｰ:</label>  
+                <span id="MIR-CLI-ADDR-YR-DUR" stype="Text" displayonly="yes">MIR-CLI-ADDR-YR-DUR</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-AGE-PROOF-IND">蟷ｴ鮨｢遒ｺ隱肴ｸ・</label>  
+                <input type="checkbox" name="MIR-CLI-AGE-PROOF-IND" id="MIR-CLI-AGE-PROOF-IND" stype="Indicator" value="Y" disabled="yes" />  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-BTH-DT">逕溷ｹｴ譛域律:</label>  
+                <span id="MIR-CLI-BTH-DT" stype="Date" displayonly="yes">MIR-CLI-BTH-DT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-BTH-LOC-CD">蜃ｺ逕溷慍:</label>  
+                <span id="MIR-CLI-BTH-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-BTH-LOC-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-CHRTY-IND">螂醍ｴ・・・諷亥埋蝗｣菴・</label>  
+                <input type="checkbox" name="MIR-CLI-CHRTY-IND" id="MIR-CLI-CHRTY-IND" stype="Indicator" value="Y" disabled="yes" />  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-CLAS-CD">蛻・｡・</label>  
+                <span id="MIR-CLI-CLAS-CD" stype="Text" displayonly="yes">MIR-CLI-CLAS-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-CNFD-IND">繧ｯ繝ｩ繧､繧｢繝ｳ繝域ュ蝣ｱ縺ｯ讖溷ｯ・桶縺・</label>  
+                <input type="checkbox" name="MIR-CLI-CNFD-IND" id="MIR-CLI-CNFD-IND" stype="Indicator" value="Y" disabled="yes" />  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-COMNT-TXT">霑ｽ險・</label>  
+                <span id="MIR-CLI-COMNT-TXT" stype="Text" displayonly="yes">MIR-CLI-COMNT-TXT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-CR-CARD-NUM">繧ｯ繝ｬ繧ｸ繝・ヨ繧ｫ繝ｼ繝臥分蜿ｷ:</label>  
+                <span id="MIR-CLI-CR-CARD-NUM" stype="Text" displayonly="yes">MIR-CLI-CR-CARD-NUM</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-CR-CARD-TYP-CD">繧ｯ繝ｬ繧ｸ繝・ヨ繧ｫ繝ｼ繝峨ち繧､繝・</label>  
+                <span id="MIR-CLI-CR-CARD-TYP-CD" stype="Text" displayonly="yes">MIR-CLI-CR-CARD-TYP-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-CRNT-LOC-CD">驛ｽ驕灘ｺ懃恁/蟾・</label>  
+                <span id="MIR-CLI-CRNT-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-CRNT-LOC-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-CTRY-CD">蝗ｽ:</label>  
+                <span id="MIR-CLI-CTRY-CD" stype="Text" displayonly="yes">MIR-CLI-CTRY-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-DTH-DT">豁ｻ莠｡譌･:</label>  
+                <span id="MIR-CLI-DTH-DT" stype="Date" displayonly="yes">MIR-CLI-DTH-DT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-DTH-REASN-CD">豁ｻ莠｡蜴溷屏:</label>  
+                <span id="MIR-CLI-DTH-REASN-CD" stype="Text" displayonly="yes">MIR-CLI-DTH-REASN-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-DTH-REASN-TXT">原因名:</label>  
+                <span id="MIR-CLI-DTH-REASN-TXT" stype="TextArea" displayonly="yes">MIR-CLI-DTH-REASN-TXT</span>  
+            </p> 
+            <p>  
+                <label for="MIR-CLI-EMPL-YR-DUR">蜍､邯壼ｹｴ謨ｰ:</label>  
+                <span id="MIR-CLI-EMPL-YR-DUR" stype="Text" displayonly="yes">MIR-CLI-EMPL-YR-DUR</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-EMPLR-LOC-CD">驛ｽ驕灘ｺ懃恁/蟾・</label>  
+                <span id="MIR-CLI-EMPLR-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-EMPLR-LOC-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-INCM-EARN-CD">謇蠕励け繝ｩ繧ｹ:</label>  
+                <span id="MIR-CLI-INCM-EARN-CD" stype="Text" displayonly="yes">MIR-CLI-INCM-EARN-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-LANG-CD">騾夂衍險隱・</label>  
+                <span id="MIR-CLI-LANG-CD" stype="Text" displayonly="yes">MIR-CLI-LANG-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-LEGIT-DUP-IND">驕ｩ豁｣縺ｪ驥崎､・- 蜷榊ｯ・○荳榊庄:</label>  
+                <input type="checkbox" name="MIR-CLI-LEGIT-DUP-IND" id="MIR-CLI-LEGIT-DUP-IND" stype="Indicator" value="Y" disabled="yes" />  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-MAIL-TITL-TXT">謨ｬ遘ｰ:</label>  
+                <span id="MIR-CLI-MAIL-TITL-TXT" stype="Text" displayonly="yes">MIR-CLI-MAIL-TITL-TXT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-MARIT-STAT-CD">蟀壼ｧｻ繧ｹ繝・・繧ｿ繧ｹ:</label>  
+                <span id="MIR-CLI-MARIT-STAT-CD" stype="Text" displayonly="yes">MIR-CLI-MARIT-STAT-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-MIB-IND-CD">蛹ｻ逋よｩ滄未・・IB・臥・莨夂ｵ先棡:</label>  
+                <span id="MIR-CLI-MIB-IND-CD" stype="Text" displayonly="yes">MIR-CLI-MIB-IND-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-OCCP-CLAS-CD">閨ｷ讌ｭ蛹ｺ蛻・</label>  
+                <span id="MIR-CLI-OCCP-CLAS-CD" stype="Text" displayonly="yes">MIR-CLI-OCCP-CLAS-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-PIN-RESET-TXT">繝ｪ繧ｻ繝・ヨID:</label>  
+                <span id="MIR-CLI-PIN-RESET-TXT" stype="Text" displayonly="yes">MIR-CLI-PIN-RESET-TXT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-PREV-DCLN-DT">隰晉ｵｶ譌･:</label>  
+                <span id="MIR-CLI-PREV-DCLN-DT" stype="Date" displayonly="yes">MIR-CLI-PREV-DCLN-DT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-PREV-DCLN-IND">隰晉ｵｶ螻･豁ｴ縺ゅｊ:</label> 
+                <input type="checkbox" name="MIR-CLI-PREV-DCLN-IND" id="MIR-CLI-PREV-DCLN-IND" stype="Indicator" value="Y" disabled="yes" />  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-PRPS-RETIR-DT">騾閨ｷ莠亥ｮ壽律:</label>  
+                <span id="MIR-CLI-PRPS-RETIR-DT" stype="Date" displayonly="yes">MIR-CLI-PRPS-RETIR-DT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-PRST-RT">邯咏ｶ夂紫:</label>  
+                <span id="MIR-CLI-PRST-RT" stype="Percent" elength="3" decimals="0" displayonly="yes">MIR-CLI-PRST-RT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-RES-TYP-CD">螻・ｽ丞慍繧ｿ繧､繝・</label>  
+                <span id="MIR-CLI-RES-TYP-CD" stype="Text" displayonly="yes">MIR-CLI-RES-TYP-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-SELF-EMPL-IND">閾ｪ蝟ｶ讌ｭ:</label>  
+                <input type="checkbox" name="MIR-CLI-SELF-EMPL-IND" id="MIR-CLI-SELF-EMPL-IND" stype="Indicator" value="Y" disabled="yes" />  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-SEX-CD">諤ｧ蛻･:</label>  
+                <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-CORP-TAX-RPT-MO">菫晞匱譁吝・險ｳ譖ｸ譛・</label>
+                <span id="MIR-CLI-CORP-TAX-RPT-MO" stype="Text" displayonly="yes">MIR-CLI-CORP-TAX-RPT-MO</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-SFX-NM">閧ｩ譖ｸ遲・</label> 
+                <span id="MIR-CLI-SFX-NM" stype="Text" displayonly="yes">MIR-CLI-SFX-NM</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-SMKR-CD">蝟ｫ辣・髱槫稔辣・</label>  
+                <span id="MIR-CLI-SMKR-CD" stype="Text" displayonly="yes">MIR-CLI-SMKR-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-STMT-DT">騾夂衍譌･:</label>  
+                <span id="MIR-CLI-STMT-DT" stype="Date" displayonly="yes">MIR-CLI-STMT-DT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-TAX-ID">邏咲ｨ手・分蜿ｷ:</label>  
+                <span id="MIR-CLI-TAX-ID" stype="Text" displayonly="yes">MIR-CLI-TAX-ID</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-TXEMP-CD">髱櫁ｪｲ遞・</label>  
+                <span id="MIR-CLI-TXEMP-CD" stype="Text" displayonly="yes">MIR-CLI-TXEMP-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-UIC-QUALF-IND">UIC遞主宛驕ｩ譬ｼ:</label>  
+                <input type="checkbox" name="MIR-CLI-UIC-QUALF-IND" id="MIR-CLI-UIC-QUALF-IND" stype="Indicator" value="Y" disabled="yes" />  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-WRK-CD">蜍､蜍・譛滄俣:</label>  
+                <span id="MIR-CLI-WRK-CD" stype="Text" displayonly="yes">MIR-CLI-WRK-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-WRK-DUR-CD">蜍､蜍・譛滄俣:</label>  
+                <span id="MIR-CLI-WRK-DUR-CD" stype="Text" displayonly="yes">MIR-CLI-WRK-DUR-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-WRK-PT-IND">繝代・繝医ち繧､繝:</label>  
+                <input type="checkbox" name="MIR-CLI-WRK-PT-IND" id="MIR-CLI-WRK-PT-IND" stype="Indicator" value="Y" disabled="yes" />  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-WRK-QTY">蜉ｴ蜒肴凾髢・</label>  
+                <span id="MIR-CLI-WRK-QTY" stype="Text" displayonly="yes">MIR-CLI-WRK-QTY</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-WRK-RES-IND">蝨ｨ螳・共蜍・</label>  
+                <input type="checkbox" name="MIR-CLI-WRK-RES-IND" id="MIR-CLI-WRK-RES-IND" stype="Indicator" value="Y" disabled="yes" />  
+            </p>  
+            <p>  
+                <label for="MIR-HZRD-OCCP-CD">危険職種に順ずる行為番号:</label>
+                <span id="MIR-HZRD-OCCP-CD" stype="Text" displayonly="yes">MIR-HZRD-OCCP-CD</span>
+            </p>
+            <p>
+                <label for="MIR-DV-AGT-NM">蜷咲ｧｰ:</label>  
+                <span id="MIR-DV-AGT-NM" stype="Text" displayonly="yes">MIR-DV-AGT-NM</span>  
+            </p>  
+            <p>  
+                <label for="MIR-DV-BTH-JP-DT-DY-TXT">蜃ｺ逕滓律:</label>  
+                <span id="MIR-DV-BTH-JP-DT-DY-TXT" stype="Text" displayonly="yes">MIR-DV-BTH-JP-DT-DY-TXT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-DV-BTH-JP-DT-EMPRR-NM">蜃ｺ逕滓律・亥柱證ｦ・・</label>  
+                <span id="MIR-DV-BTH-JP-DT-EMPRR-NM" stype="Text" displayonly="yes">MIR-DV-BTH-JP-DT-EMPRR-NM</span>  
+            </p>  
+            <p>  
+                <label for="MIR-DV-BTH-JP-DT-MO-TXT">蜃ｺ逕滓怦:</label>  
+                <span id="MIR-DV-BTH-JP-DT-MO-TXT" stype="Text" displayonly="yes">MIR-DV-BTH-JP-DT-MO-TXT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-DV-BTH-JP-DT-YR-TXT">蜃ｺ逕溷ｹｴ・亥・蜿ｷ・・</label>  
+                <span id="MIR-DV-BTH-JP-DT-YR-TXT" stype="Text" displayonly="yes">MIR-DV-BTH-JP-DT-YR-TXT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-DV-DTH-JP-DT-DY-TXT">豁ｻ莠｡譌･:</label>  
+                <span id="MIR-DV-DTH-JP-DT-DY-TXT" stype="Text" displayonly="yes">MIR-DV-DTH-JP-DT-DY-TXT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-DV-DTH-JP-DT-EMPRR-NM">豁ｻ莠｡譌･・亥柱證ｦ・・</label>  
+                <span id="MIR-DV-DTH-JP-DT-EMPRR-NM" stype="Text" displayonly="yes">MIR-DV-DTH-JP-DT-EMPRR-NM</span>  
+            </p>  
+            <p>  
+                <label for="MIR-DV-DTH-JP-DT-MO-TXT">豁ｻ莠｡譛・</label>  
+                <span id="MIR-DV-DTH-JP-DT-MO-TXT" stype="Text" displayonly="yes">MIR-DV-DTH-JP-DT-MO-TXT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-DV-DTH-JP-DT-YR-TXT">豁ｻ莠｡蟷ｴ:</label>  
+                <span id="MIR-DV-DTH-JP-DT-YR-TXT" stype="Text" displayonly="yes">MIR-DV-DTH-JP-DT-YR-TXT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-DV-UPDT-ADDR-IND">譌ｧ菴乗園譖ｴ譁ｰ:</label>  
+                <input type="checkbox" name="MIR-DV-UPDT-ADDR-IND" id="MIR-DV-UPDT-ADDR-IND" stype="Indicator" value="Y" disabled="yes" />  
+            </p>  
+            <p>  
+                <label for="MIR-DV-UPDT-NM-IND">譌ｧ豌丞錐譖ｴ譁ｰ:</label>  
+                <input type="checkbox" name="MIR-DV-UPDT-NM-IND" id="MIR-DV-UPDT-NM-IND" stype="Indicator" value="Y" disabled="yes" />  
+            </p>  
+            <p>  
+                <label for="MIR-OCCP-ID">閨ｷ讌ｭ:</label>  
+                <span id="MIR-OCCP-ID" stype="Text" displayonly="yes">MIR-OCCP-ID</span>  
+            </p>  
+            <p>  
+                <label for="MIR-PREV-EMPL-YR-DUR">蜍､邯壼ｹｴ謨ｰ:</label>  
+                <span id="MIR-PREV-EMPL-YR-DUR" stype="Text" displayonly="yes">MIR-PREV-EMPL-YR-DUR</span>  
+            </p>  
+            <p>  
+                <label for="MIR-UNMTCH-MAIL-IND">莉ｮ逕ｳ霎ｼ譖ｸ:</label>  
+                <input type="checkbox" name="MIR-UNMTCH-MAIL-IND" id="MIR-UNMTCH-MAIL-IND" stype="Indicator" value="Y" disabled="yes" />  
+            </p>  
+            <p>  
+                <label for="MIR-AGT-STAT-CD">蜍滄寔莠ｺ繧ｹ繝・・繧ｿ繧ｹ:</label>  
+                <span id="MIR-AGT-STAT-CD" stype="Text" displayonly="yes">MIR-AGT-STAT-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-CLAS-CHNG-DT">蛻・｡槫､画峩譌･:</label>  
+                <span id="MIR-CLI-CLAS-CHNG-DT" stype="Date" displayonly="yes">MIR-CLI-CLAS-CHNG-DT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-CMPLT-CCAS-IND">譟ｻ螳壼・逅・ｸ・</label>  
+                <input type="checkbox" name="MIR-CLI-CMPLT-CCAS-IND" id="MIR-CLI-CMPLT-CCAS-IND" stype="Indicator" value="Y" disabled="yes" />  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-CNSLDT-DT">譛邨らｵｱ蜷域律:</label>  
+                <span id="MIR-CLI-CNSLDT-DT" stype="Date" displayonly="yes">MIR-CLI-CNSLDT-DT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-NM-CHNG-DT">繧ｯ繝ｩ繧､繧｢繝ｳ繝亥錐螟画峩譌･:</label>  
+                <span id="MIR-CLI-NM-CHNG-DT" stype="Date" displayonly="yes">MIR-CLI-NM-CHNG-DT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-SUSP-AMT">莉ｮ蜍伜ｮ夐｡・</label>  
+                <span id="MIR-CLI-SUSP-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-CLI-SUSP-AMT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-SUSP-CHNG-DT">莉ｮ蜍伜ｮ壼､画峩譌･:</label>  
+                <span id="MIR-CLI-SUSP-CHNG-DT" stype="Date" displayonly="yes">MIR-CLI-SUSP-CHNG-DT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-SUSP-CRCY-CD">莉ｮ蜍伜ｮ夐夊ｲｨ:</label>  
+                <span id="MIR-CLI-SUSP-CRCY-CD" stype="Text" displayonly="yes">MIR-CLI-SUSP-CRCY-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-UWGDECN-CD">譟ｻ螳夂ｵ先棡:</label>  
+                <span id="MIR-CLI-UWGDECN-CD" stype="Text" displayonly="yes">MIR-CLI-UWGDECN-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-UWGDECN-DT">譟ｻ螳夂ｵ先棡螟画峩譌･:</label>  
+                <span id="MIR-CLI-UWGDECN-DT" stype="Date" displayonly="yes">MIR-CLI-UWGDECN-DT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-CLI-UWGDECN-TYP-CD">譟ｻ螳夂ｵ先棡繧ｿ繧､繝・</label>  
+                <span id="MIR-CLI-UWGDECN-TYP-CD" stype="Text" displayonly="yes">MIR-CLI-UWGDECN-TYP-CD</span>  
+            </p>  
+            <p>  
+                <label for="MIR-DV-CLI-NM">繧ｯ繝ｩ繧､繧｢繝ｳ繝亥錐:</label>  
+                <span id="MIR-DV-CLI-NM" stype="Text" displayonly="yes">MIR-DV-CLI-NM</span>  
+            </p>  
+            <p>  
+                <label for="MIR-DV-CLI-PREV-NM-IND">繧ｯ繝ｩ繧､繧｢繝ｳ繝医↓縺ｯ譌ｧ豌丞錐縺ゅｊ:</label> 
+                <input type="checkbox" name="MIR-DV-CLI-PREV-NM-IND" id="MIR-DV-CLI-PREV-NM-IND" stype="Indicator" value="Y" disabled="yes" />  
+            </p>  
+            <p>  
+                <label for="MIR-DV-PREV-ADDR-IND">譌ｧ菴乗園:</label>  
+                <input type="checkbox" name="MIR-DV-PREV-ADDR-IND" id="MIR-DV-PREV-ADDR-IND" stype="Indicator" value="Y" disabled="yes" />  
+            </p>  
+            <p>  
+                <label for="MIR-PREV-CNSLDT-CLI-ID">譌ｧ邨ｱ蜷医け繝ｩ繧､繧｢繝ｳ繝・D:</label>  
+                <span id="MIR-PREV-CNSLDT-CLI-ID" stype="Text" displayonly="yes">MIR-PREV-CNSLDT-CLI-ID</span>  
+            </p>  
+            <p>  
+                <label for="MIR-PREV-UPDT-DT">繧ｯ繝ｩ繧､繧｢繝ｳ繝郁ｨ倬鹸:</label>  
+                <span id="MIR-PREV-UPDT-DT" stype="Date" displayonly="yes">MIR-PREV-UPDT-DT</span>  
+            </p>  
+            <p>  
+                <label for="MIR-SUSP-SBSDRY-CO-ID">蟄蝉ｼ夂､ｾ:</label>  
+                <span id="MIR-SUSP-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SUSP-SBSDRY-CO-ID</span>  
+            </p>  
+            <p>  
+                <label for="MIR-UW-USER-1-ID">隨ｬ1譟ｻ螳壻ｺｺID:</label>  
+                <span id="MIR-UW-USER-1-ID" stype="Text" displayonly="yes">MIR-UW-USER-1-ID</span>  
+            </p>  
+            <p>  
+                <label for="MIR-UW-USER-2-ID">隨ｬ2譟ｻ螳壻ｺｺID:</label> 
+                <span id="MIR-UW-USER-2-ID" stype="Text" displayonly="yes">MIR-UW-USER-2-ID</span>  
+            </p>  
+            <p>  
+                <label for="MIR-UWG-WRKSHT-NUM">繝ｯ繝ｼ繧ｯ繧ｷ繝ｼ繝育分蜿ｷ:</label>  
+                <span id="MIR-UWG-WRKSHT-NUM" stype="Text" displayonly="yes">MIR-UWG-WRKSHT-NUM</span>  
+            </p>  
+        </form>  
+    </body>  
+    <script src="../js/ActionHandlers.js"></script>  
+    <script src="../js/MessageFunctions.js"></script>  
+    <script src="../js/MessagesJapanese.js"></script>  
+    <script src="../js/ClientLevelEdits.js"></script>  
+    <script src="../js/GlobalUserMethods.js"></script>  
+</html>  

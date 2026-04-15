@@ -1,0 +1,627 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:50 PM EDT
+*
+*********************************************************************************
+*  Component:   BF6915-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  602J     Add onLoad() function to <body> tag for currency scaling   
+*  016411  602J     Relabel phone number to contact information                
+*  017150  612J     Remove Currency decimals="2"                               
+*  B00222  BMB      Fix label for Samakata-bu                                  
+*                   removed MIR-CLI-ADDR-ADDL-TXT-2,                           
+*                           MIR-CLI-ADDR-CHNG-DT-2,                            
+*                           MIR-CLI-ADDR-STAT-CD-2                             
+*  B00550  EKM      ADDED MIR-POL-LOW-AFV-LTR-DT                               
+*  02BL13  DPK      Last Billing Notice Date                                   
+*  02BL63  KRW      Add POL-BT-BILL-DLAY-IND and POL-BT-STRT-DT                
+*  FT7001 AKATO  FT7 Label Change 14JUN2004                       
+*  EN6306  CTS      NEW FIELD TO DISPLAY BILL DRAW DAY   	               
+*  M161CA  CTS      ADD INIT-PMT-TYP-CD FIELD
+*  TDMG24  CTS      INQUIRY SCREEN CHANGES 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.  
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM 
+*  UYS133  CTS      PD group size field addition                                  *                                *
+           
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF6915-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">契約状況:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                </tr>
+<!--TDMG24 Changes Begin-->
+                <tr>
+                 <td class="celldisplaykeylabel">
+                 </td>
+                 <td class="celldisplaykey">
+                 </td>
+                <td class="celldisplaykeylabel">
+		      <label for="MIR-PREM-PMT-CMPLT-IND">主契約払込満了:</label>
+		</td>
+		<td class="celldisplaykey">
+		      <input type="checkbox" name="MIR-PREM-PMT-CMPLT-IND" id="MIR-PREM-PMT-CMPLT-IND" stype="Indicator" value="Y" disabled="yes"/>
+		</td>
+                            
+                </tr>
+<!--TDMG24 Changes end-->
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CVG-REC-CTR">保障数:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">子会社レベル:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">処理日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading">住所</td>
+                    <td class="celldisplayheading">請求用住所</td>
+                    <td class="celldisplayheading" colspan="2">請求用住所（ｶﾀｶﾅ）</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-LBILL-CLI-NM">請求書宛名:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LBILL-CLI-NM" stype="Text" displayonly="yes">MIR-DV-LBILL-CLI-NM</span>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-DV-LBILL-CLI-NM-2" stype="Text" displayonly="yes">MIR-DV-LBILL-CLI-NM-2</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-CLI-ADDR-LN-TXT-T[1]">住所:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-ADDR-LN-TXT-T[1]" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-TXT-T[1]</span>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-DV-CLI-ADDR-LN-TXT-2-T[1]" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-TXT-2-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-ADDR-LN-TXT-T[2]" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-TXT-T[2]</span>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-DV-CLI-ADDR-LN-TXT-2-T[2]" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-TXT-2-T[2]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-ADDR-LN-TXT-T[3]" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-TXT-T[3]</span>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-DV-CLI-ADDR-LN-TXT-2-T[3]" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-TXT-2-T[3]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-ADDR-LN-TXT-T[4]" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-TXT-T[4]</span>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-DV-CLI-ADDR-LN-TXT-2-T[4]" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-TXT-2-T[4]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-ADDR-LN-TXT-T[5]" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-TXT-T[5]</span>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-DV-CLI-ADDR-LN-TXT-2-T[5]" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-TXT-2-T[5]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-ADDR-LN-TXT-T[6]" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-TXT-T[6]</span>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-DV-CLI-ADDR-LN-TXT-2-T[6]" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-TXT-2-T[6]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR--ADDL-TXT">住所カナ部:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-CLI-ADDR-ADDL-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-ADDL-TXT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-CNTCT-TXT">連絡先:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-CLI-ADDR-CNTCT-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-CNTCT-TXT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-STAT-CD">住所ステータス:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-STAT-CD" stype="Text" displayonly="yes">MIR-CLI-ADDR-STAT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-CHNG-DT">住所変更日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-CHNG-DT" stype="Date" displayonly="yes">MIR-CLI-ADDR-CHNG-DT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-TYP-CD">住所タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-TYP-CD" stype="Text" displayonly="yes">MIR-CLI-ADDR-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">現行請求情報</td>
+                </tr>
+                <!-- M161CA START -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INIT-PMT-TYP-CD">払込経路(一保):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INIT-PMT-TYP-CD" stype="Text" displayonly="yes">MIR-INIT-PMT-TYP-CD</span>
+                    </td>
+<!-- UYS133 CHANGE STARTS HERE -->
+                 <!--   <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>   -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PD-GR-TYP-CD">団体規模:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PD-GR-TYP-CD" stype="Text" displayonly="yes">MIR-PD-GR-TYP-CD</span>
+                    </td>
+<!-- UYS133 CHANGE ENDS HERE -->
+                </tr>
+                <!-- M161CA END -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <!-- M161CA START -->
+                        <!-- <label for="MIR-POL-BILL-TYP-CD">払込経路:</label> -->
+                        <label for="MIR-POL-BILL-TYP-CD">払込経路(二回後):</label>
+                        <!-- M161CA END -->
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TYP-CD" stype="Text" displayonly="yes">MIR-POL-BILL-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">保険料払込経路:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PD-TO-DT-NUM">次回特約保険料充当日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PD-TO-DT-NUM" stype="Text" displayonly="yes">MIR-POL-PD-TO-DT-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SNDRY-AMT">定期払込保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SNDRY-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-SNDRY-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CRNT-MODE-FCT">払方係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CRNT-MODE-FCT" stype="Number" elength="11" decimals="7" signed="yes" displayonly="yes">MIR-POL-CRNT-MODE-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PFEE-FCT">契約手数料係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PFEE-FCT" stype="Number" elength="11" decimals="7" signed="yes" displayonly="yes">MIR-POL-PFEE-FCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-GR-PICK-DY">請求日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-GR-PICK-DY" stype="Text" displayonly="yes">MIR-CLI-GR-PICK-DY</span>
+                    </td>
+<!-- Changes for EN6306 start here -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAC-DRW-DY">請求引落日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAC-DRW-DY" stype="Day" displayonly="yes">MIR-POL-PAC-DRW-DY</span>
+                    </td>
+<!--                    <td class="celldisplaylabel" />
+                        <td class="celldisplay" /> -->
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">請求総合情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MPREM-AMT">特約保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MPREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-MPREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-FE-PREM-AMT">一律割増保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-FE-PREM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-FE-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BILL-LEAD-TIME-DUR">請求所要期間:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BILL-LEAD-TIME-DUR" stype="Text" displayonly="yes">MIR-BILL-LEAD-TIME-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-PFEE-AMT">一律契約手数料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PFEE-AMT" stype="Currency" elength="11" signed="yes" displayonly="yes">MIR-CVG-PFEE-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-TO-DT-NUM">請求有効日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TO-DT-NUM" stype="Text" displayonly="yes">MIR-POL-BILL-TO-DT-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-LOAN-REPAY-AMT">貸付金返済額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-LOAN-REPAY-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-LOAN-REPAY-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREM-DSCNT-PCT">契約割引率:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREM-DSCNT-PCT" stype="Percent" elength="7" decimals="3" signed="yes" displayonly="yes">MIR-POL-PREM-DSCNT-PCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BILL-RMND-REASN-CD">不没収（継続）通知:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BILL-RMND-REASN-CD" stype="Text" displayonly="yes">MIR-BILL-RMND-REASN-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-LOW-AFV-LTR-DT">累積ﾌｧﾝﾄﾞﾊﾞﾘｭｰ低額通知日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-LOW-AFV-LTR-DT" stype="Date" displayonly="yes">MIR-POL-LOW-AFV-LTR-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREV-BILL-NOTI-DT">前回請求通知日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREV-BILL-NOTI-DT" stype="Date" displayonly="yes">MIR-PREV-BILL-NOTI-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BT-BILL-DLAY-IND">口振開始延期:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-BT-BILL-DLAY-IND" id="MIR-POL-BT-BILL-DLAY-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BT-STRT-DT">初回口振日付:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BT-STRT-DT" stype="Date" displayonly="yes">MIR-POL-BT-STRT-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">請求制限情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-RBILL-CD">請求制限:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-RBILL-CD" stype="Text" displayonly="yes">MIR-POL-RBILL-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RBILL-USER-ID">担当ユーザ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RBILL-USER-ID" stype="Text" displayonly="yes">MIR-RBILL-USER-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RBILL-DEPT-ID">担当部署:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RBILL-DEPT-ID" stype="Text" displayonly="yes">MIR-RBILL-DEPT-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RBILL-EFF-DT">開始日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RBILL-EFF-DT" stype="Date" displayonly="yes">MIR-RBILL-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RBILL-END-DT">終了日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RBILL-END-DT" stype="Date" displayonly="yes">MIR-RBILL-END-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RBILL-MISC-1-CD">請求制限コード1:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RBILL-MISC-1-CD" stype="Text" displayonly="yes">MIR-RBILL-MISC-1-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RBILL-MISC-2-CD">請求制限コード2:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RBILL-MISC-2-CD" stype="Text" displayonly="yes">MIR-RBILL-MISC-2-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">前回請求情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREV-BILL-TYP-CD"> 払込経路:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREV-BILL-TYP-CD" stype="Text" displayonly="yes">MIR-PREV-BILL-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREV-MODE-CD">保険料払込経路:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREV-MODE-CD" stype="Text" displayonly="yes">MIR-POL-PREV-MODE-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREV-MPREM-AMT">特約保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREV-MPREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-PREV-MPREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREV-PD-TO-DT-NUM">次回特約保険料充当日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREV-PD-TO-DT-NUM" stype="Text" displayonly="yes">MIR-PREV-PD-TO-DT-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREV-MODE-FCT">払方係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREV-MODE-FCT" stype="Number" elength="11" decimals="7" signed="yes" displayonly="yes">MIR-POL-PREV-MODE-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREV-PFEE-FCT">契約手数料係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREV-PFEE-FCT" stype="Number" elength="11" decimals="7" signed="yes" displayonly="yes">MIR-POL-PREV-PFEE-FCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREV-SNDRY-AMT">定期払込保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREV-SNDRY-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-PREV-SNDRY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">特別頻度請求情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SFB-CD">払込回数（頻度）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SFB-CD" stype="Text" displayonly="yes">MIR-POL-SFB-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-SEMI-MTHLY-DY">半月毎追加請求日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-SEMI-MTHLY-DY" stype="Day" displayonly="yes">MIR-SFB-SEMI-MTHLY-DY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-NXT-BILL-AMT">現請求金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-NXT-BILL-AMT" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-SFB-NXT-BILL-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-PREV-BILL-AMT">前請求金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-PREV-BILL-AMT" stype="Currency" elength="16" displayonly="yes">MIR-SFB-PREV-BILL-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-STRT-DT">開始日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-STRT-DT" stype="Date" displayonly="yes">MIR-SFB-STRT-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-END-DT">終了日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-END-DT" stype="Date" displayonly="yes">MIR-SFB-END-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-GP-STRT-DT-NUM">停止期間開始日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-GP-STRT-DT-NUM" stype="Text" displayonly="yes">MIR-SFB-GP-STRT-DT-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-GP-END-DT-NUM">停止期間終了日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-GP-END-DT-NUM" stype="Text" displayonly="yes">MIR-SFB-GP-END-DT-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-NEG-SUSP-IND">未収保険料扱い可:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-SFB-NEG-SUSP-IND" id="MIR-SFB-NEG-SUSP-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-NEG-SUSP-QTY">特別頻度請求（月数）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-NEG-SUSP-QTY" stype="Text" displayonly="yes">MIR-SFB-NEG-SUSP-QTY</span>
+                    </td>
+                </tr>
+            </table>
+<!--
+    <td class="celldisplaylabel"><label for="MIR-CLI-JP-ADDR-CD">都道府県:</label></td>
+    <td class="celldisplay"><span id="MIR-CLI-JP-ADDR-CD" stype="Text"
+    displayonly="yes">MIR-CLI-JP-ADDR-CD</span>
+    </td>
+ -->
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

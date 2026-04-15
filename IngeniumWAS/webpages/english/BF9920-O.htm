@@ -1,0 +1,272 @@
+<!--
+*********************************************************************************
+*  Component:   BF9920-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  MP0026  CTS      PROSPECT INQUIRY OUTPUT PAGE
+*  MP0054  CTS      CHANGES AS A PART OF CP INQUIRY
+*  EN9547  CTS      Style of the english page is changed
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9920-O</title>
+<link rel="stylesheet" type="text/css" href="../english/CustProspect.css" charset="ISO-8859-1" />
+<link rel="stylesheet" type="text/css" href="../Print.css" media="print" />
+</head>
+<body class="bodyws">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+<input type="hidden" name="MIR-ILST-GIV-NM-KA" id="MIR-ILST-GIV-NM-KA" stype="Hidden"/>
+<input type="hidden" name="MIR-ILST-SUR-NM-KA" id="MIR-ILST-SUR-NM-KA" stype="Hidden"/>
+<!-- MP0054 STARTS HERE -->
+<input type="hidden" name="MIR-PRPS-ID" id="MIR-PRPS-ID" stype="Hidden"/>
+<!-- MP0054 ENDS HERE -->
+<table width="100%" id="table1" class="celldisplaykeylabel">
+  <tr>
+    <td><label for="MIR-PRCES-DT">Date: </label><span id="MIR-PRCES-DT" stype="Date" displayonly="yes">MIR-PRCES-DT</span></td>
+  </tr>
+</table>
+<br/>
+<table cellspacing="10" >
+  <tr>
+    <td class="celldisplaykeylabel2"><label for="MIR-DV-RO-SO-CD">RO-SO Code:</label></td>
+    <td class="celldisplaykeylabel2" ><span id="MIR-DV-RO-SO-CD" stype="Text" displayonly="yes">MIR-DV-RO-SO-CD</span></td>
+    <td class="celldisplaykeylabel2"><label for="MIR-AGT-ID">PA Code:</label></td>
+    <td class="celldisplaykeylabel2"><span id="MIR-AGT-ID" stype="Text" displayonly="yes">MIR-AGT-ID</span></td>
+    <td class="celldisplaykeylabel2"><label for="MIR-AGT-NM">PA Name:</label></td>
+    <td class="celldisplaykeylabel2"><span id="MIR-AGT-NM" stype="Text" displayonly="yes">MIR-AGT-NM</span></td>
+  </tr>
+</table>
+<br/>
+<table cellpadding="0" cellspacing="0">
+<tr >
+    <td width="100" >
+    <img border="0" src="../english/images/prospect_details.gif" alt="prospect_details"  />
+    </td>
+</tr>
+</table>
+<hr color="#0D4A2B"/>
+<br/>
+<table>
+<td class="celltitle">Prospect Information</td>
+</table>
+<hr color="#0D4A2B"/>
+
+<table border="1" width="100%" class="tabledisplay1" cellpadding="1" bordercolordark="#DFEAE7">
+	<tr>
+		<td class="celltitle"><label for="MIR-DV-ILST-NM-KA">Name Kana:</label></td>
+		<td class="celldisplay3"><span id="MIR-DV-ILST-NM-KA" stype="Text" displayonly="yes">MIR-DV-ILST-NM-KA</span></td>
+		<td class="celltitle"><label for="MIR-DV-ILST-NM-KJ">Name Kanji:</label></td>
+		<td class="celldisplay3"><span id="MIR-DV-ILST-NM-KJ" stype="Text" displayonly="yes">MIR-DV-ILST-NM-KJ</span></td>
+	</tr>
+	<tr>
+		<td class="celltitle"><label for="MIR-ILST-BTH-DT">Date of Birth:</label></td>
+		<td class="celldisplay3"><span id="MIR-ILST-BTH-DT" stype="Date" displayonly="yes">MIR-ILST-BTH-DT</span></td>
+		<td class="celltitle"><label for="MIR-DV-ILST-AGE">Age:</label></td>
+		<td class="celldisplay3"><span id="MIR-DV-ILST-AGE" stype="Text" displayonly="yes">MIR-DV-ILST-AGE</span></td>
+	</tr>
+	<tr>
+		<td class="celltitle"><label for="MIR-ILST-SEX-CD">Sex:</label></td>
+		<td class="celldisplay3"><span id="MIR-ILST-SEX-CD" stype="Text" displayonly="yes">MIR-ILST-SEX-CD</span></td>
+		<td class="celltitle"></td>
+		<td class="celldisplay3"></td>
+	</tr>
+	<tr>
+		<td class="celltitle"><label for="MIR-ILST-PSTL-CD">Zip Code:</label></td>
+		<td class="celldisplay3"><span id="MIR-ILST-PSTL-CD" stype="Text" displayonly="yes">MIR-ILST-PSTL-CD</span></td>
+		<td class="celltitle"><label for="MIR-ILST-ADDR-CD">Address Code:</label></td>
+		<td class="celldisplay3"><span id="MIR-ILST-ADDR-CD" stype="Text" displayonly="yes">MIR-ILST-ADDR-CD</span></td>
+	</tr>
+	<tr>
+		<td class="celltitle"><label for="MIR-ILST-ADDR-TXT">Address:</label></td>
+		<td colspan="3" class="celldisplay3"><span id="MIR-ILST-ADDR-TXT" stype="Text" displayonly="yes">MIR-ILST-ADDR-TXT</span></td>
+	</tr>
+	<tr>
+		<td class="celltitle"><label for="MIR-ILST-ADDR-TXT-KA">Address Description(Kana):</label></td>
+		<td colspan="3" class="celldisplay3"><span id="MIR-ILST-ADDR-TXT-KA" stype="Text" displayonly="yes">MIR-ILST-ADDR-TXT-KA</span></td>
+	</tr>
+	<tr>
+		<td class="celltitle"><label for="MIR-ILST-ADDR-TXT-KJ">Address Description(Kanji):</label></td>
+		<td colspan="3" class="celldisplay3"><span id="MIR-ILST-ADDR-TXT-KJ" stype="Text" displayonly="yes">MIR-ILST-ADDR-TXT-KJ</span></td>
+	</tr>
+	<tr>
+		<td class="celltitle"><label for="MIR-ILST-PHON-NUM">TEL NO:</label></td>
+		<td class="celldisplay3"><span id="MIR-ILST-PHON-NUM" stype="Text" displayonly="yes">MIR-ILST-PHON-NUM</span></td>
+		<td class="celltitle"><label for="MIR-ILST-EMAIL-ID">E-Mail:</label></td>
+		<td class="celldisplay3"><span id="MIR-ILST-EMAIL-ID" stype="Text" displayonly="yes">MIR-ILST-EMAIL-ID</span></td>
+	</tr>
+	<tr>
+		<td class="celltitle"><label for="MIR-ILST-JOB-CD">Job Code:</label></td>
+		<td class="celldisplay3"><span id="MIR-ILST-JOB-CD" stype="Text" displayonly="yes">MIR-ILST-JOB-CD</span></td>
+		<td class="celltitle"><label for="MIR-ILST-ANUL-SLRY">Annual Salary:</label></td>
+		<td class="celldisplay3"><span id="MIR-ILST-ANUL-SLRY" stype="Text" displayonly="yes">MIR-ILST-ANUL-SLRY</span></td>
+	</tr>
+	<tr>
+		<td class="celltitle"><label for="MIR-ILST-SMKR-STAT-CD">Smoke status:</label></td>
+		<td class="celldisplay3"><span id="MIR-ILST-SMKR-STAT-CD" stype="Text" displayonly="yes">MIR-ILST-SMKR-STAT-CD</span></td>
+		<td class="celltitle"></td>
+		<td class="celldisplay3"></td>
+	</tr>
+	<tr>
+		<td class="celltitle"><label for="MIR-ILST-MARIT-STAT-CD">Marital Status:</label></td>
+		<td class="celldisplay3">
+		<select name="MIR-ILST-MARIT-STAT-CD" id="MIR-ILST-MARIT-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)" >
+        </select>
+		</td>
+		<td class="celltitle"><label for="MIR-ILST-MARIT-DT">Marriage Date:</label></td>
+		<td class="celldisplay3"><input type="text" value=" " name="MIR-ILST-MARIT-DT" id="MIR-ILST-MARIT-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/></td>
+	</tr>
+</table>
+
+
+<br/>
+<table id="table4">
+<td class="celltitle">Illustrator Information</td>
+</table>
+<hr color="#0D4A2B"/>
+
+<table border="1" class="tabledisplay" genrows="0" cellpadding="1" cellspacing="1" >
+
+<tr>
+
+<td class="celldisplayheading"><label for="MIR-ILST-ID-T[1]">Illustrator No.</label></td>
+<td class="celldisplayheading"><label for="MIR-APPL-ID-T[1]">Application No.</label></td>
+<td class="celldisplayheading"><label for="MIR-DV-PROD-NM-T[1]">Product Name</label></td>
+<td class="celldisplayheading"><label for="MIR-ILST-REL-TYP-CD-T[1]">Relation Type</label></td>
+<td class="celldisplayheading"><label for="MIR-ILST-POL-STAT-CD-T[1]">Status</label></td>
+<td class="celldisplayheading"><label for="MIR-PREV-UPDT-TS-T[1]">Last Update</label></td>
+
+</tr>
+
+<tr>
+
+<td class="celldisplay"><span id="MIR-ILST-ID-T[]" stype="Text" displayonly="yes">MIR-ILST-ID-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-APPL-ID-T[]" stype="Text" displayonly="yes">MIR-APPL-ID-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-DV-PROD-NM-T[]" stype="Text" displayonly="yes">MIR-DV-PROD-NM-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-ILST-REL-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-ILST-REL-TYP-CD-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-ILST-POL-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-ILST-POL-STAT-CD-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-PREV-UPDT-TS-T[]" stype="Text" displayonly="yes">MIR-PREV-UPDT-TS-T[]</span>
+</td>
+</tr>
+</table>
+<br/>
+<table id="table7">
+<td class="celltitle">Family Information</td>
+</table>
+<hr color="#0D4A2B"/>
+
+<table border="1" class="tabledisplay" genrows="10" cellpadding="1" cellspacing="1" >
+
+<tr>
+<td class="celldisplayheading"><label for="MIR-FMLY-SUR-NM-KA-T[1]">Last Name Kana</label></td>
+<td class="celldisplayheading"><label for="MIR-FMLY-GIV-NM-KA-T[1]">First Name Kana</label></td>
+<td class="celldisplayheading"><label for="MIR-FMLY-SUR-NM-KJ-T[1]">Last Name Kanji</label></td>
+<td class="celldisplayheading"><label for="MIR-FMLY-GIV-NM-KJ-T[1]">First Name Kanji</label></td>
+<td class="celldisplayheading"><label for="MIR-FMLY-BTH-DT-T[1]">Date of Birth</label></td>
+<td class="celldisplayheading"><label for="MIR-FMLY-SEX-CD-T[1]">Sex</label></td>
+<td class="celldisplayheading"><label for="MIR-FMLY-REL-TYP-CD-T[1]">Relation</label></td>
+</tr>
+
+<tr >
+<!-- MP2601 STARTS HERE -->
+<td class="celldisplay"><input type="text" value=" " name="MIR-FMLY-SUR-NM-KA-T[]" id="MIR-FMLY-SUR-NM-KA-T[]" stype="Text" maxlength="16"   onfocus="enterField(this)"/>
+</td>
+<td class="celldisplay"><input type="text" value=" " name="MIR-FMLY-GIV-NM-KA-T[]" id="MIR-FMLY-GIV-NM-KA-T[]" stype="Text" maxlength="16"   onfocus="enterField(this)"/>
+</td>
+<!-- MP2601 ENDS HERE -->
+<td class="celldisplay"><input type="text" value=" " name="MIR-FMLY-SUR-NM-KJ-T[]" id="MIR-FMLY-SUR-NM-KJ-T[]" stype="Text" maxlength="16"   onfocus="enterField(this)"/>
+</td>
+<td class="celldisplay"><input type="text" value=" " name="MIR-FMLY-GIV-NM-KJ-T[]" id="MIR-FMLY-GIV-NM-KJ-T[]" stype="Text" maxlength="16"   onfocus="enterField(this)"/>
+</td>
+<td class="celldisplay"><input type="text" value=" " name="MIR-FMLY-BTH-DT-T[]" id="MIR-FMLY-BTH-DT-T[]" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+</td>
+<td class="celldisplay"><select name="MIR-FMLY-SEX-CD-T[]" id="MIR-FMLY-SEX-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)" >
+</select>
+</td>
+<td class="celldisplay"><select name="MIR-FMLY-REL-TYP-CD-T[]" id="MIR-FMLY-REL-TYP-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)" >
+</select>
+</td>
+</tr>
+</table>
+<br/>
+
+<br/>
+<table id="table2">
+<td class="celltitle">Visit History</td>
+</table>
+<hr color="#0D4A2B"/>
+
+<table  width="100%"  border="1" class="tabledisplay" cellpadding="3" cellspacing="3">
+	<tr>
+		<td class="celltitle"><label for="MIR-ILST-VST-DT-1">Date of Visit:</label></td>
+		<td class="celltitle"><label for="MIR-COMNT-TXT-1">Comments:</label></td>
+	</tr>
+	<tr>
+		<td class="celldisplay3"><input type="text" value=" " name="MIR-ILST-VST-DT-1" id="MIR-ILST-VST-DT-1" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/></td>
+		<td class="celldisplay3"><input type="text" value=" " name="MIR-COMNT-TXT-1" id="MIR-COMNT-TXT-1" stype="Text" maxlength="80"  size="80" onfocus="enterField(this)"/></td>
+	</tr>
+	<tr>
+		<td class="celldisplay3"><input type="text" value=" " name="MIR-ILST-VST-DT-2" id="MIR-ILST-VST-DT-2" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/></td>
+		<td class="celldisplay3"><input type="text" value=" " name="MIR-COMNT-TXT-2" id="MIR-COMNT-TXT-2" stype="Text" maxlength="80"  size="80" onfocus="enterField(this)"/></td>
+	</tr>
+	<tr>
+		<td class="celldisplay3"><input type="text" value=" " name="MIR-ILST-VST-DT-3" id="MIR-ILST-VST-DT-3" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/></td>
+		<td class="celldisplay3"><input type="text" value=" " name="MIR-COMNT-TXT-3" id="MIR-COMNT-TXT-3" stype="Text" maxlength="80" size="80"  onfocus="enterField(this)"/></td>
+	</tr>
+	<tr>
+		<td class="celldisplay3"><input type="text" value=" " name="MIR-ILST-VST-DT-4" id="MIR-ILST-VST-DT-4" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/></td>
+		<td class="celldisplay3"><input type="text" value=" " name="MIR-COMNT-TXT-4" id="MIR-COMNT-TXT-4" stype="Text" maxlength="80" size="80"  onfocus="enterField(this)"/></td>
+	</tr>
+	<tr>
+		<td class="celldisplay3"><input type="text" value=" " name="MIR-ILST-VST-DT-5" id="MIR-ILST-VST-DT-5" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/></td>
+		<td class="celldisplay3"><input type="text" value=" " name="MIR-COMNT-TXT-5" id="MIR-COMNT-TXT-5" stype="Text" maxlength="80"  size="80" onfocus="enterField(this)"/></td>
+	</tr>
+</table>
+<br/>
+<table id="table3">
+<td class="celltitle"><label for="MIR-OTHR-COMNT-TXT">Others:</label></td>
+</table>
+<hr color="#0D4A2B"/>
+
+<table border="1" width="100%" class="tabledisplay" cellpadding="3" cellspacing="3">
+  <tr>
+    <td class="celldisplay3">
+    <textarea value=" " maxLength="1000" name="MIR-OTHR-COMNT-TXT" id="MIR-OTHR-COMNT-TXT" stype="TextArea"   onfocus="enterField(this)" onkeypress="TextAreaLengthCheck()" rows="4" cols="100"></textarea>
+    </td>
+	</tr>
+</table>
+
+</form>
+</body>
+<!--EN9547 CHANGES BEGIN -->
+<!--
+<script src="../../js/MessagesEnglish.js"></script>
+<script src="../../js/MessageFunctions.js"></script>
+<script src="../../js/ActionHandlers.js"></script>
+<script src="../../js/ClientLevelEdits.js"></script>
+<script src="../../js/GlobalUserMethods.js"></script>
+<script src="../../js/HandleTextArea.js"></script>
+-->
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<script src="../js/HandleTextArea.js"></script>
+<!--EN9547 CHANGES END -->
+</html>

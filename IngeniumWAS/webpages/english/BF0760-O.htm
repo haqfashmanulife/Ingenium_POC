@@ -1,0 +1,433 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:21 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0760-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling
+*  017150  612J     Remove Currency decimals="2"
+*  MFFACC  CLB      Change usage of Branch/Department to Fund.
+*  5-0308  CLB      Correct mislable back to Branch.
+*  NWLOP3  CTS      ADD NEW FIELD INTIAL CWA PROCESS DATE FOR
+*  NWLOP3           NWL POLICIES PROCESSED THRU PA,WMD AND MGA
+*  M271F3  CTS      JGAAP AJDUSTMENT INDICATOR IS ADDED
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0760-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <a name="top" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-TRXN-DT">Process Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-TRXN-DT" stype="Date" displayonly="yes">MIR-POL-TRXN-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-TRXN-EFF-DT">System Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-TRXN-EFF-DT" stype="Date" displayonly="yes">MIR-POL-TRXN-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-TRXN-TIME">Time:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-TRXN-TIME" stype="Text" displayonly="yes">MIR-POL-TRXN-TIME</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-TRXN-TASK-ID">Task Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-TRXN-TASK-ID" stype="Text" displayonly="yes">MIR-POL-TRXN-TASK-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-TRXN-SEQ-NUM">Sequence Number:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" name="MIR-POL-TRXN-SEQ-NUM" id="MIR-POL-TRXN-SEQ-NUM" stype="Text" maxlength="3" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelleftalign" colspan="2">To view another record in this group, enter a new sequence number</td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Accounting Entry">Accounting Entry</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Account Key">Account Key</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Transaction Data">Transaction Data</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Check Information">Cheque Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Accounting Entry">Accounting Entry</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-ACCT-DESC-TXT">Accounting Entry Description:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ACCT-DESC-TXT" stype="Text" displayonly="yes">MIR-DV-ACCT-DESC-TXT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-ACCT-TRXN-AMT">Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ACCT-TRXN-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-DV-ACCT-TRXN-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Account Key">Account Key</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ACCT-BASE-ID">Account to Credit / Debit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCT-BASE-ID" stype="Text" displayonly="yes">MIR-ACCT-BASE-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ACCT-YR">Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCT-YR" stype="Year" displayonly="yes">MIR-ACCT-YR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ACCT-CRCY-CD">Currency:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCT-CRCY-CD" stype="Text" displayonly="yes">MIR-ACCT-CRCY-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ID">Plan:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BR-OR-DEPT-ID">Fund:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BR-OR-DEPT-ID" stype="Text" displayonly="yes">MIR-BR-OR-DEPT-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ACCT-ISS-LOC-CD">Issue Location:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCT-ISS-LOC-CD" stype="Text" displayonly="yes">MIR-ACCT-ISS-LOC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ACCT-CRNT-LOC-CD">Current Location:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCT-CRNT-LOC-CD" stype="Text" displayonly="yes">MIR-ACCT-CRNT-LOC-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Transaction Data">Transaction Data</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TRNXT-TYP-CD">Record Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRNXT-TYP-CD" stype="Text" displayonly="yes">MIR-TRNXT-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-ENTR-BUS-FCN-ID">Transaction ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ENTR-BUS-FCN-ID" stype="Text" displayonly="yes">MIR-DV-ENTR-BUS-FCN-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USER-ID">User ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USER-ID" stype="Text" displayonly="yes">MIR-USER-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREV-ACCT-DT">Last Transaction Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREV-ACCT-DT" stype="Date" displayonly="yes">MIR-POL-PREV-ACCT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-TRXN-BTCH-NUM">Batch Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-TRXN-BTCH-NUM" stype="Number" elength="7" decimals="0" displayonly="yes">MIR-POL-TRXN-BTCH-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-CHQ-VCHR-NUM">Voucher Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CHQ-VCHR-NUM" stype="Text" displayonly="yes">MIR-DV-CHQ-VCHR-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ID-2">Type of Plan:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID-2" stype="Text" displayonly="yes">MIR-PLAN-ID-2</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ISS-EFF-DT">Policy Issue Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-MUN-CD">Municipality:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-MUN-CD" stype="Text" displayonly="yes">MIR-CLI-ADDR-MUN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-CNTY-CD">County/Parish:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-CNTY-CD" stype="Text" displayonly="yes">MIR-CLI-ADDR-CNTY-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ACCT-APP-RECV-DT">Sales Office Report Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCT-APP-RECV-DT" stype="Date" displayonly="yes">MIR-ACCT-APP-RECV-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-JRNL-DT">Journal Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JRNL-DT" stype="Date" displayonly="yes">MIR-JRNL-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BR-ID">Branch:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BR-ID" stype="Text" displayonly="yes">MIR-BR-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ACCT-SO-ID">Sales Office:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCT-SO-ID" stype="Text" displayonly="yes">MIR-ACCT-SO-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OPER-CAT-CD">Operation Category:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OPER-CAT-CD" stype="Text" displayonly="yes">MIR-OPER-CAT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAY-CD">Prem Ind:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAY-CD" stype="Text" displayonly="yes">MIR-PAY-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-GL-PROD-CD">G\L Product:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-GL-PROD-CD" stype="Text" displayonly="yes">MIR-GL-PROD-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MCL-BASE-ID">MLJ Account:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MCL-BASE-ID" stype="Text" displayonly="yes">MIR-MCL-BASE-ID</span>
+                    </td>
+                </tr>
+                <!-- NWLOP3 changes start -->
+                <tr>
+				    <td class="celldisplaylabel">
+				        <label for="MIR-CWA-PRCES-DT">Initial CWA Process Date:</label>
+				    </td>
+				    <td class="celldisplay">
+				        <span id="MIR-CWA-PRCES-DT" stype="Date" displayonly="yes">MIR-CWA-PRCES-DT</span>
+                    </td>
+                <!-- M271F3 changes start -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-JGAAP-ADJ-IND">JGAAP ADJUSTMENT IND:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-JGAAP-ADJ-IND" id="MIR-JGAAP-ADJ-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+
+                <!-- M271F3 changes ENDS-->
+                </tr>
+                <!-- NWLOP3 changes end -->
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Check Information">Cheque Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-SYS-CHQ-TYP-CD">Cheque Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-SYS-CHQ-TYP-CD" stype="Text" displayonly="yes">MIR-DV-SYS-CHQ-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CHQ-ID">Reference Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CHQ-ID" stype="Text" displayonly="yes">MIR-CHQ-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-CHQ-MANL-IND">Accounting entry was a manual cheque:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-DV-CHQ-MANL-IND" id="MIR-DV-CHQ-MANL-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Accounting Entry">Accounting Entry</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Account Key">Account Key</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Transaction Data">Transaction Data</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Check Information">Cheque Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

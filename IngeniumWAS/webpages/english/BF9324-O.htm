@@ -1,0 +1,178 @@
+<!--
+* Converted from PathFinder 1.2 to 1.3 on Jan 13, 2004 5:27:49 PM EST
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:50 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9324-O.htm                                                    *
+*  Description: Firm Banking Search                                             *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  HCA002  HIN/CL   FIRM BANKING ONLINE                                         *
+*  MP4FB1  SC       FIRM BANKING REMITTANCE                                     *
+*  P03007  H.L      Change 3 fields name                                        *
+*  EN4044  CTS      FIRM BANKING SCREEN - ADD 5 NEW FIELDS                      *
+*  EN4631  CTS      FIRM BANKING SCREEN - ACCOUNT NO ADDED                      *
+*  EN4995  CTS      CHANGES FOR NEW SEARCH CRITERIA WITH ACCT ID AND REMITTANCE *
+*  EN4995  CTS      DATE                                                        *
+*  EN5093  CTS      DISPLAY ORDER OF CHANGE FOR THE BANK NAME,BANK BRANCH NAME  *
+*                   DEPOSIT TYPE,ACCOUNT NUMBER,ACCOUNT HOLDER                  *
+*  M245K2  CTS      ADDING PAYOUT TYPE METHOD FIELDS IN TABLE                   *
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *             
+*  23774B  CTS      Changes done for ie retirement project to make it           *
+*                   compatible for microsoft edge. Changes in html include      *
+*                   adding "id" attribute for all input fields and changes in   *
+*                   java scripts to modify certain functions/commands which     *
+*                   are no longer compatilble with edge.                        *
+*********************************************************************************
+************************************************************************************************************
+* The following coding for policy_id hyperlink is commented out. This ready for MP4 phase 2
+*
+*  <td class="celldisplay"><a name="MIR-POL-ID-T[]" href="a" action="ViewFirmBankingCoverageDetails" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">Policy ID</a></td>
+*
+************************************************************************************************************
+ -->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9324-O</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" > -->
+<body class="bodyws" onLoad="onLoad();">
+<!--  UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<table class="tabledatakey">
+   <tr>
+      <td class="celldatakeylabel">
+          <label for="MIR-FBNK-REMIT-DT">Remittance Date:</label>
+      </td>
+      <td class="celldatakey">
+          <input type="text" value=" " name="MIR-FBNK-REMIT-DT" id="MIR-FBNK-REMIT-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+      </td>
+      <td class="celldatakeylabel">
+          <label for="MIR-FBNK-REF-ID">Master Claim ID:</label>
+      </td>
+      <td class="celldatakey">
+          <input type="text" value=" " name="MIR-FBNK-REF-ID" id="MIR-FBNK-REF-ID" stype="Text" maxlength="8"   onfocus="enterField(this)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="celldatakeylabel">
+          <label for="MIR-POL-ID">Policy ID:</label>
+      </td>
+      <td class="celldatakey">
+          <input type="text" value=" " name="MIR-POL-ID" id="MIR-POL-ID" stype="Text" maxlength="10"   onfocus="enterField(this)"/>
+      </td>
+      <td class="celldatakeylabel">
+          <label for="MIR-FB-CLI-ID">Insured Client ID:</label>
+      </td>
+      <td class="celldatakey">
+          <input type="text" value=" " name="MIR-FB-CLI-ID" id="MIR-FB-CLI-ID" stype="Text" maxlength="10"   onfocus="enterField(this)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="celldatakeylabel">
+          <label for="MIR-FBNK-CAT-CD">Transaction Type:</label>
+      </td>
+      <td class="celldatakey">
+          <select name="MIR-FBNK-CAT-CD" id="MIR-FBNK-CAT-CD" size="1" stype="Selection" onfocus="enterField(this)"/>
+      </td>
+      <td class="celldatakeylabel">
+	      <label for="MIR-BNK-ACCT-ID">Account Number:</label>
+	  </td>
+	  <td class="celldatakey">
+	      <input type="text" value=" " name="MIR-BNK-ACCT-ID" id="MIR-BNK-ACCT-ID" stype="Text" maxlength="17"   onfocus="enterField(this)"/>
+      </td>
+   </tr>
+</table>
+
+<br />
+<table class="tabledisplay" genrows="0" keyfield="1">
+
+   <tr>
+
+      <td class="celldisplayheading"></td>
+      <td class="celldisplayheading"><label for="MIR-FBNK-CAT-CD-T[1]">Transaction Type</label></td>
+      <td class="celldisplayheading"><label for="MIR-FBNK-REF-ID-T[1]">Master Claim ID</label></td>
+      <td class="celldisplayheading"><label for="MIR-POL-ID-T[1]">Policy ID</label></td>
+      <td class="celldisplayheading"><label for="MIR-SERV-BR-ID-T[1]">Servicing Agent's Branch</label></td>
+      <td class="celldisplayheading"><label for="MIR-FB-CLI-ID-T[1]">ID of Client Eligible For Payment</label></td>
+      <td class="celldisplayheading"><label for="MIR-DV-INS-CLI-NM-T[1]">Name (kana)</label></td>
+      <td class="celldisplayheading"><label for="MIR-KANJI-PAYE-NM-T[1]">Name (kanji)</label></td>
+      <td class="celldisplayheading"><label for="MIR-FBNK-REMIT-DT-T[1]">Remittance Date</label></td>
+      <td class="celldisplayheading"><label for="MIR-FBNK-SEQ-NUM-T[1]">Sequence Number</label></td>
+      <td class="celldisplayheading"><label for="MIR-REMI-AMT-T[1]">Remittance Amount</label></td>
+<!-- EN5093 -->
+      <td class="celldisplayheading"><label for="MIR-BNK-NM-T[1]">Bank Name</label></td>
+      <td class="celldisplayheading"><label for="MIR-BNK-BR-NM-T[1]">Bank Branch Name</label></td>
+      <td class="celldisplayheading"><label for="MIR-ACCT-TYP-CD-T[1]">Deposit Type</label></td>
+      <td class="celldisplayheading"><label for="MIR-BNK-ACCT-ID-T[1]">Account Number</label></td>
+      <td class="celldisplayheading"><label for="MIR-ACCT-HLDR-NM-T[1]">Account Holder</label></td>
+<!-- EN5093 -->
+      <td class="celldisplayheading"><label for="MIR-FBNK-STAT-CD-T[1]">Firm Banking Status</label></td>
+      <td class="celldisplayheading"><label for="MIR-FBNK-FAIL-RSN-TXT-T[1]">Fail Reason</label></td>
+      <td class="celldisplayheading"><label for="MIR-FBNK-RE-REMIT-DT-T[1]">Re-Remittance Date</label></td>
+<!--  M245K2 changes Starts here -->
+      <td class="celldisplayheading"><label for="MIR-FBNK-CREAT-TYP-CD-T[1]">Payout Method Type</label></td>
+<!--  M245K2 changes Ends here -->
+<!-- EN5093
+      <td class="celldisplayheading"><label for="MIR-BNK-NM-T[1]">Bank Name</label></td>
+      <td class="celldisplayheading"><label for="MIR-BNK-BR-NM-T[1]">Bank Branch Name</label></td>
+      <td class="celldisplayheading"><label for="MIR-ACCT-TYP-CD-T[1]">Deposit Type</label></td>
+      <td class="celldisplayheading"><label for="MIR-BNK-ACCT-ID-T[1]">Account Number</label></td>
+      <td class="celldisplayheading"><label for="MIR-ACCT-HLDR-NM-T[1]">Account Holder</label></td>
+     EN5093
+-->
+   </tr>
+   <tr>
+
+<td class="celldisplay"><input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()"/></td>
+<td class="celldisplay"><span id="MIR-FBNK-CAT-CD-T[]" stype="Text" displayonly="yes">MIR-FBNK-CAT-CD-T[]</span></td>
+<td class="celldisplay"><a name="MIR-FBNK-REF-ID-T[]" href="a" action="SelectItem" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">Master Claim ID</a></td>
+<td class="celldisplay"><span id="MIR-POL-ID-T[]" stype="Text" displayonly="yes">MIR-POL-ID-T[]</span></td>
+<td class="celldisplay"><span id="MIR-SERV-BR-ID-T[]" stype="Text" displayonly="yes">MIR-SERV-BR-ID-T[]</span></td>
+<td class="celldisplay"><span id="MIR-FB-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-FB-CLI-ID-T[]</span></td>
+<td class="celldisplay"><span id="MIR-DV-INS-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-INS-CLI-NM-T[]</span></td>
+<td class="celldisplay"><span id="MIR-KANJI-PAYE-NM-T[]" stype="Text" displayonly="yes">MIR-KANJI-PAYE-NM-T[]</span></td>
+<td class="celldisplay"><span id="MIR-FBNK-REMIT-DT-T[]" stype="Date" displayonly="yes">MIR-FBNK-REMIT-DT-T[]</span></td>
+<td class="celldisplay"><span id="MIR-FBNK-SEQ-NUM-T[]" stype="Text"  displayonly="yes">MIR-FBNK-SEQ-NUM-T[]</span></td>
+<td class="celldisplay"><span id="MIR-REMI-AMT-T[]" stype="Currency" elength="15"   displayonly="yes">MIR-REMI-AMT-T[]</span></td>
+<!-- EN5093 -->
+<td class="celldisplay"><span id="MIR-BNK-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-NM-T[]</span></td>
+<td class="celldisplay"><span id="MIR-BNK-BR-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-BR-NM-T[]</span></td>
+<td class="celldisplay"><span id="MIR-ACCT-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-ACCT-TYP-CD-T[]</span></td>
+<td class="celldisplay"><span id="MIR-BNK-ACCT-ID-T[]" stype="Text" displayonly="yes">MIR-BNK-ACCT-ID-T[]</span></td>
+<td class="celldisplay"><span id="MIR-ACCT-HLDR-NM-T[]" stype="Text" displayonly="yes">MIR-ACCT-HLDR-NM-T[]</span></td>
+<!-- EN5093 -->
+<td class="celldisplay"><span id="MIR-FBNK-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-FBNK-STAT-CD-T[]</span></td>
+<td class="celldisplay"><span id="MIR-FBNK-FAIL-RSN-TXT-T[]" stype="Text" displayonly="yes">MIR-FBNK-FAIL-RSN-TXT-T[]</span></td>
+<td class="celldisplay"><span id="MIR-FBNK-RE-REMIT-DT-T[]" stype="Date" displayonly="yes">MIR-FBNK-RE-REMIT-DT-T[]</span></td>
+<!--  M245K2 changes starts here -->
+<td class="celldisplay"><span id="MIR-FBNK-CREAT-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-FBNK-CREAT-TYP-CD-T[]</span></td>
+<!--  M245K2 changes ends here -->
+<!--EN5093
+<td class="celldisplay"><span id="MIR-BNK-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-NM-T[]</span></td>
+<td class="celldisplay"><span id="MIR-BNK-BR-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-BR-NM-T[]</span></td>
+<td class="celldisplay"><span id="MIR-ACCT-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-ACCT-TYP-CD-T[]</span></td>
+<td class="celldisplay"><span id="MIR-BNK-ACCT-ID-T[]" stype="Text" displayonly="yes">MIR-BNK-ACCT-ID-T[]</span></td>
+<td class="celldisplay"><span id="MIR-ACCT-HLDR-NM-T[]" stype="Text" displayonly="yes">MIR-ACCT-HLDR-NM-T[]</span></td>
+    EN5093
+-->
+   </tr>
+</table>
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+<input type="hidden" name="index" id="index" stype="Hidden"/>
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

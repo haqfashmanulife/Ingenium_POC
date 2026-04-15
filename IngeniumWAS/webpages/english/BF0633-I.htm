@@ -1,0 +1,118 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:17 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0633-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"  
+*  23774B  CTS       23774B-IE Retirement changes                            
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0633-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <p>
+                <label for="MIR-SUPRES-CNFRM-IND">Suppress confirmation statement:</label>
+                <input type="checkbox" value="Y" name="MIR-SUPRES-CNFRM-IND" id="MIR-SUPRES-CNFRM-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+            </p>
+            <p>
+                <label for="MIR-DV-CF-CLI-TRXN-AMT">Gross Amount:</label>
+                <input type="text" value=" " name="MIR-DV-CF-CLI-TRXN-AMT" id="MIR-DV-CF-CLI-TRXN-AMT" stype="Currency" elength="15" signed="yes" mandatory="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+            </p>
+            <p>
+                <label for="MIR-DV-CF-EFF-DT">Cashflow Effective Date:</label>
+                <input type="text" value=" " name="MIR-DV-CF-EFF-DT" id="MIR-DV-CF-EFF-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+            </p>
+            <p>
+                <label for="MIR-DV-CF-REASN-CD">Transaction Reason:</label>
+                <select name="MIR-DV-CF-REASN-CD" id="MIR-DV-CF-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+            </p>
+            <p>
+                <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)" />
+            </p>
+            <p>
+                <label for="MIR-POL-ID-SFX">Suffix:</label>
+                <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" />
+            </p>
+            <table class="tabledisplay" genrows="25" keyfield="2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-FED-TAXWH-AMT-T[1]">Federal Tax Withheld</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-SURR-CHRG-AMT-T[1]">Surrender Charge</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">Coverage Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-TAX-OVRID-IND-T[1]">Tax Override</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-TOT-SURR-AMT-T[1]">Surrender Total</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input type="text" value=" " name="MIR-CF-FED-TAXWH-AMT-T[]" id="MIR-CF-FED-TAXWH-AMT-T[]" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celldisplay">
+                        <input type="text" value=" " name="MIR-CF-SURR-CHRG-AMT-T[]" id="MIR-CF-SURR-CHRG-AMT-T[]" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celldisplay">
+                        <input type="text" value=" " name="MIR-CVG-NUM-T[]" id="MIR-CVG-NUM-T[]" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-DV-TAX-OVRID-IND-T[]" id="MIR-DV-TAX-OVRID-IND-T[]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplay">
+                        <input type="text" value=" " name="MIR-CF-TOT-SURR-AMT-T[]" id="MIR-CF-TOT-SURR-AMT-T[]" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <input type="hidden" name="action" id="action" stype="Hidden" />
+            </p>
+            <p>
+                <input type="hidden" name="index" id="index" stype="Hidden" />
+            </p>
+            <p>
+                <label for="MIR-CF-FED-TAXWH-AMT">Federal Tax Withheld:</label>
+                <input type="text" value=" " name="MIR-CF-FED-TAXWH-AMT" id="MIR-CF-FED-TAXWH-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+            </p>
+            <p>
+                <label for="MIR-CF-PROV-TAXWH-AMT">Provincial Tax Withheld:</label>
+                <input type="text" value=" " name="MIR-CF-PROV-TAXWH-AMT" id="MIR-CF-PROV-TAXWH-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+            </p>
+            <p>
+                <label for="MIR-DV-REDC-FACE-IND">Override automatic face reduction:</label>
+                <input type="checkbox" value="Y" name="MIR-DV-REDC-FACE-IND" id="MIR-DV-REDC-FACE-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+            </p>
+            <p>
+                <label for="MIR-DV-TAX-OVRID-IND">Tax Override:</label>
+                <input type="checkbox" value="Y" name="MIR-DV-TAX-OVRID-IND" id="MIR-DV-TAX-OVRID-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+            </p>
+            <p>
+                <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+            </p>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

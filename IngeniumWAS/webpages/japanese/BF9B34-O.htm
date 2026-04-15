@@ -1,0 +1,241 @@
+﻿<!-- 
+*********************************************************************************
+*  Component:   BF9B34-O.htm
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  MP1542  CTS      APL HISTORY LIST SCREEN
+*  M319B5  CTS      CHANGES AS PART FXWL APL
+*  100596  CTS      FIX TO CORRECT THE DECIMAL VALUE FOR JPY CONVERSION RATE
+*  UYS033  CTS      ADDED NEW FIELD OVERLOAN REPAYMENT DUE DATE
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9B34-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws" onLoad();> 
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">-->
+    <body class="bodyws" onLoad="onLoad(); inputlisttrimpolicy();InpTrimPolicy()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="returnlisttrimpolicy();return(onSubmit())">
+            <input type="hidden" name="Dispolval" stype="Hidden" />
+            <input type="hidden" name="Dissfxval" stype="Hidden" />
+<!-- UY3004 CHANGES ENDS HERE -->
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-CLI-NM">契約者名:</label>
+                    </td>
+                    <td class="celldatakey" colspan="3">
+                        <span id="MIR-DV-CLI-NM" stype="Text" displayonly="yes">MIR-DV-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-LOAN-SEQ-NUM">シーケンス番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-LOAN-SEQ-NUM" id="MIR-POL-LOAN-SEQ-NUM" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-LOAN-EFF-DT">有効日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-LOAN-EFF-DT" id="MIR-POL-LOAN-EFF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+               <!-- M319B5 CHANGES STARTS HERE -->
+               <!-- <td class="celldatakeylabel"> -->
+               <!-- </td> -->
+               <!-- <td class="celldatakey"> -->
+               <!-- </td>  -->
+               <!-- M319B5 CHANGES ENDS HERE -->
+
+                    <td class="celldatakeylabel">
+                        <label for="MIR-LOAN-AMT">自動振替金残高:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <span id="MIR-LOAN-AMT" stype="Currency" displayonly="yes">MIR-LOAN-AMT</span>
+                    </td>
+                   <!-- M319B5 CHANGES STARTS HERE -->
+                    <td class="celldatakeylabel">
+                        <label for="MIR-LOAN-AMT-JPY">自動振替貸付金残高（円建）:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <span id="MIR-LOAN-AMT-JPY" stype="Currency" displayonly="yes">MIR-LOAN-AMT-JPY</span>
+                    </td>
+                   <!-- M319B5 CHANGES ENDS HERE -->
+                </tr>
+                <!-- M319B5 CHANGES STARTS HERE -->
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-LOAN-JPY-XCHNG-DT">円換算為替基準日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <span id="MIR-LOAN-JPY-XCHNG-DT" stype="Date" displayonly="yes">MIR-LOAN-JPY-CNVR-DT</span>
+                    </td>
+
+
+                    <td class="celldatakeylabel">
+                        <label for="MIR-LOAN-JPY-XCHNG-RT">円換算為替レート:</label>
+                    </td>
+                    <td class="celldatakey">
+                    <!-- 100596 CHANGES STARTS HERE
+                        <span id="MIR-LOAN-JPY-XCHNG-RT" stype="Number" elength="11" decimals="4" signed="yes" displayonly="yes">MIR-LOAN-JPY-CNVR-RT</span>  -->
+                        <span id="MIR-LOAN-JPY-XCHNG-RT" stype="Number" elength="11" decimals="2" signed="yes" displayonly="yes">MIR-LOAN-JPY-XCHNG-RT</span>
+                    <!-- 100596 CHANGES ENDS HERE -->
+                    </td>
+                </tr>
+                <!-- M319B5 CHANGES ENDSS HERE -->
+                    <!-- UYS033 CHANGES START -->
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-LOAN-REPAY-DUE-DT">オーバーローン返済期限:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <span id="MIR-LOAN-REPAY-DUE-DT" stype="Date" displayonly="yes">MIR-LOAN-REPAY-DUE-DT</span>
+                    </td>
+                </tr>
+                    <!-- UYS033 CHANGES END -->				
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="SELECT-T[1]" />
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-LOAN-TRXN-CD-T[1]">区分</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-LOAN-EFF-DT-T[1]">自動振替貸付日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-LOAN-STAT-CD-T[1]">ステータス</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LOAN-PD-DUR-T[1]">経過年数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-APL-DPOS-QTY-T[1]">自動振替貸付回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LOAN-INCR-DECR-AMT-T[1]">自動振替貸付金額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LOAN-INT-AMT-T[1]">利息（元加）</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LOAN-BAL-AMT-T[1]">自動振替貸付金残高</label>
+                    </td>
+                    <!-- M319B5 CHANGES STARTS HERE -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-JPY-TRXN-AMT-T[1]">自動振替貸付金残高（円建）</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-JPY-XCHNG-EFF-DT-T[1]">円換算為替基準日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-JPY-XCHNG-RT-T[1]">円換算為替レート</label>
+                    </td>
+                    <!-- M319B5 CHANGES ENDS HERE -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-NXT-INT-CAP-YM-T[1]">次回元加年月</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LOAN-PRCES-DT-T[1]">処理日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-LOAN-SEQ-NUM-T[1]">シーケンス番号</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <a name="MIR-POL-LOAN-TRXN-CD-T[]" href="a" action="SelectItem" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">APL</a>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-LOAN-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-POL-LOAN-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-LOAN-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-POL-LOAN-STAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-PD-DUR-T[]" stype="Text" displayonly="yes">MIR-LOAN-PD-DUR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-APL-DPOS-QTY-T[]" stype="Text" displayonly="yes">MIR-APL-DPOS-QTY-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-INCR-DECR-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-LOAN-INCR-DECR-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-INT-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-LOAN-INT-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-BAL-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-LOAN-BAL-AMT-T[]</span>
+                    </td>
+                    <!-- M319B5 CHANGES STARTS HERE -->
+                    <td class="celldisplay">
+                        <span id="MIR-JPY-TRXN-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-JPY-TRXN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JPY-XCHNG-EFF-DT-T[]" stype="Text" displayonly="yes">MIR-JPY-XCHNG-EFF-DT[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JPY-XCHNG-RT-T[]" stype="Text" elength="7" decimals="2" signed="yes" displayonly="yes">MIR-JPY-XCHNG-RT[]</span>
+                    </td>
+                    <!-- M319B5 CHANGES ENDS HERE -->
+                    <td class="celldisplay">
+                        <span id="MIR-NXT-INT-CAP-YM-T[]" stype="Text" displayonly="yes">MIR-NXT-INT-CAP-YM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-PRCES-DT-T[]" stype="Date" displayonly="yes">MIR-LOAN-PRCES-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-LOAN-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-POL-LOAN-SEQ-NUM-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+ <!--  UY3004 CHANGES STARTS HERE -->
+     <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

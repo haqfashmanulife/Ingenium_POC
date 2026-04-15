@@ -1,0 +1,165 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:42 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1780Key-I.htm                                                
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  602J     Add onLoad() function to <body> tag for currency scaling   
+*  016107  602J     Automatic Face Reduction for Variable Products             
+*  017150  612J     Remove Currency decimals="2"                               
+*  MFPFU7  AC       Add Firm Banking                                     
+*  ISLADM  CTS      CHANGES FOR INSURANCE LAW PROJECT
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*
+*  27549A  CTS      CHANGES DONE AS PART OF CDAP
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1780Key-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CVG-NUM">保障番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CVG-NUM" id="MIR-CVG-NUM" stype="Text" maxlength="2" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CIA-EFF-DT">実行日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CIA-EFF-DT" id="MIR-CIA-EFF-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CIA-ALLOC-SURR-AMT">解約額:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CIA-ALLOC-SURR-AMT" id="MIR-CIA-ALLOC-SURR-AMT" stype="Currency" elength="15" mandatory="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CIA-REASN-CD">解約事由:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-CIA-REASN-CD" id="MIR-CIA-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CIA-SRC-DEST-CD">解約金の支払:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-CIA-SRC-DEST-CD" id="MIR-CIA-SRC-DEST-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CIA-LOAD-AMT">移転手数料:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CIA-LOAD-AMT" id="MIR-CIA-LOAD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CIA-LOAD-FORCE-IND">手数料要求:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="checkbox" value="Y" name="MIR-CIA-LOAD-FORCE-IND" id="MIR-CIA-LOAD-FORCE-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CIA-TAXWH-IND">源泉徴収不処理:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="checkbox" value="Y" name="MIR-CIA-TAXWH-IND" id="MIR-CIA-TAXWH-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-SUPRES-CNFRM-IND">確認通知発行停止:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="checkbox" value="Y" name="MIR-SUPRES-CNFRM-IND" id="MIR-SUPRES-CNFRM-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-REDC-FACE-IND">額面自動減額停止:</label>
+                    </td>
+                    <td class="celldatakey"><input type="checkbox" value="Y" name="MIR-DV-REDC-FACE-IND" id="MIR-DV-REDC-FACE-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                 </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-JRNL-DT">日報計上日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-JRNL-DT" id="MIR-JRNL-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+<!-- ISLADM Changes Start:  Comment HO-FORM-ACPT-DT field
+                <td class="celldatakeylabel">
+                        <label for="MIR-HO-FORM-ACPT-DT">本社請求書受理日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-HO-FORM-ACPT-DT" id="MIR-HO-FORM-ACPT-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+ISLADM Changes Ends -->
+<!-- ISLADM Changes Start:  Append CO-RECV-DT field -->
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CO-RECV-DT">会社受付日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CO-RECV-DT" id="MIR-CO-RECV-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+<!-- ISLADM Changes Ends -->
+                 </tr>
+<!-- 27549A  CHANGE STARTS HERE -->				
+				    <tr>
+					 <td class="celldatakeylabel">
+                     <label for="MIR-ATO-NOT-APPL-IND">ATO非該当:</label>
+	                  </td>
+	                 <td class="celldatakey">
+                      <input type="checkbox" value="Y" name="MIR-ATO-NOT-APPL-IND" id="MIR-ATO-NOT-APPL-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    </tr>
+<!-- 27549A  CHANGE ENDS HERE -->				 
+		    </table>
+            <br />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/JapaneseBranch.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

@@ -1,0 +1,456 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:35 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1720-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  602J     Add onLoad() function to <body> tag for currency scaling   
+*  016109  602J     Free Fund Transfer Provision                               
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                           
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1720-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <a name="top" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PLAN-ID">Plan:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#FundControlInformation">Fund Control Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#UnitPriceUsed">Unit Price Used</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PaymentsChargeInformation">Payments / Charge Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#NotificationTransferFeeInformation">Notification / Transfer Fee Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#FreeFundTransferInformation">Free Fund Transfer Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PartialSurrenderInformation">Partial Surrender Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#GuaranteedInformation">Guaranteed Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CommissionDetails">Commission Details</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="FundControlInformation">Fund Control Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-REQIR-FND-CD">Fund Required:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-REQIR-FND-CD" stype="Text" displayonly="yes">MIR-PLAN-REQIR-FND-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-MAX-FND-QTY">Maximum Number of Funds:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-MAX-FND-QTY" stype="Text" displayonly="yes">MIR-PLAN-MAX-FND-QTY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MIN-AUTO-TRMN-AMT">Automatic Termination Benchmark:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MIN-AUTO-TRMN-AMT" stype="Currency" elength="15" displayonly="yes">MIR-MIN-AUTO-TRMN-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AUTO-TRMN-MO-DUR">Automatic Termination Period (months):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AUTO-TRMN-MO-DUR" stype="Text" displayonly="yes">MIR-AUTO-TRMN-MO-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PEND-PMT-INT-RT-ID">Pending Payment Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PEND-PMT-INT-RT-ID" stype="Text" displayonly="yes">MIR-PEND-PMT-INT-RT-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-XFER-INT-RT-ID">Pending Transfer Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-XFER-INT-RT-ID" stype="Text" displayonly="yes">MIR-XFER-INT-RT-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MIN-INT-ELIG-AMT">Minimum Amount Needed to Credit Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MIN-INT-ELIG-AMT" stype="Currency" elength="15" displayonly="yes">MIR-MIN-INT-ELIG-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INT-CALC-TYP-CD">Interest Method:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INT-CALC-TYP-CD" stype="Text" displayonly="yes">MIR-INT-CALC-TYP-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="UnitPriceUsed">Unit Price Used</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-PURCH-DIR-CD">Purchase Transactions:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-PURCH-DIR-CD" stype="Text" displayonly="yes">MIR-PLAN-PURCH-DIR-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MTHV-CV-DIR-CD">Monthiversay Calculation:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MTHV-CV-DIR-CD" stype="Text" displayonly="yes">MIR-MTHV-CV-DIR-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-XFER-IN-DIR-CD">Transfer In Fund:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-XFER-IN-DIR-CD" stype="Text" displayonly="yes">MIR-XFER-IN-DIR-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-XFER-OUT-DIR-CD">Transfer Out Fund:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-XFER-OUT-DIR-CD" stype="Text" displayonly="yes">MIR-XFER-OUT-DIR-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-WTHDR-DIR-CD"> Withdrawal Transactions:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-WTHDR-DIR-CD" stype="Text" displayonly="yes">MIR-PLAN-WTHDR-DIR-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-OUT-ALLOC-CD">Allocation Withdrawals Method:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-OUT-ALLOC-CD" stype="Text" displayonly="yes">MIR-PLAN-OUT-ALLOC-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="PaymentsChargeInformation">Payments / Charge Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MIN-INIT-DPOS-AMT">Minimum Initial Payment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MIN-INIT-DPOS-AMT" stype="Currency" elength="15" displayonly="yes">MIR-MIN-INIT-DPOS-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SETUP-CHRG-AMT">Set-up Charge:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SETUP-CHRG-AMT" stype="Currency" elength="15" displayonly="yes">MIR-SETUP-CHRG-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MIN-ADDL-DPOS-AMT">Minimum Additional Payment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MIN-ADDL-DPOS-AMT" stype="Currency" elength="15" displayonly="yes">MIR-MIN-ADDL-DPOS-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="NotificationTransferFeeInformation">Notification / Transfer Fee Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-DPOS-NOTI-CD">Notification Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-DPOS-NOTI-CD" stype="Text" displayonly="yes">MIR-PLAN-DPOS-NOTI-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MIN-CNFRM-NOTI-AMT">Confirmation Notice Minimum:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MIN-CNFRM-NOTI-AMT" stype="Currency" elength="15" displayonly="yes">MIR-MIN-CNFRM-NOTI-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-XFER-FEE-TYP-CD">Transfer Fee Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-XFER-FEE-TYP-CD" stype="Text" displayonly="yes">MIR-XFER-FEE-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="FreeFundTransferInformation">Free Fund Transfer
+                        Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FREE-XFER-CD">Basis:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FREE-XFER-CD" stype="Text" displayonly="yes">MIR-FREE-XFER-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FREE-XFER-PERI-CD">Period:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FREE-XFER-PERI-CD" stype="Text" displayonly="yes">MIR-FREE-XFER-PERI-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FREE-XFER-QTY">Number Per Period:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FREE-XFER-QTY" stype="Text" displayonly="yes">MIR-FREE-XFER-QTY</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="PartialSurrenderInformation">Partial Surrender Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-MIN-PSUR-AMT">Minimum Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-MIN-PSUR-AMT" stype="Currency" elength="15" displayonly="yes">MIR-PLAN-MIN-PSUR-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-MAX-PSUR-CD">Maximum Limit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-MAX-PSUR-CD" stype="Text" displayonly="yes">MIR-PLAN-MAX-PSUR-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-MAX-PSUR-QTY">Maximum Per Period:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-MAX-PSUR-QTY" stype="Text" displayonly="yes">MIR-PLAN-MAX-PSUR-QTY</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAX-PSUR-MO-DUR">Maximum Period (months):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAX-PSUR-MO-DUR" stype="Text" displayonly="yes">MIR-MAX-PSUR-MO-DUR</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="GuaranteedInformation">Guaranteed Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-GUAR-VALU-CALC-CD">Value Method:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-GUAR-VALU-CALC-CD" stype="Text" displayonly="yes">MIR-GUAR-VALU-CALC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DB-GUAR-VALU-PCT"> Death Benefit Percent:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DB-GUAR-VALU-PCT" stype="Percent" elength="7" decimals="4" displayonly="yes">MIR-DB-GUAR-VALU-PCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAT-GUAR-VALU-PCT">Maturity Percent:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAT-GUAR-VALU-PCT" stype="Percent" elength="7" decimals="4" displayonly="yes">MIR-MAT-GUAR-VALU-PCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURR-GUAR-VALU-PCT">Surrender Percent:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURR-GUAR-VALU-PCT" stype="Percent" elength="7" decimals="4" displayonly="yes">MIR-SURR-GUAR-VALU-PCT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="CommissionDetails">Commission Details</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DPOS-COMM-RH-ID">Commission Pointer:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DPOS-COMM-RH-ID" stype="Text" displayonly="yes">MIR-DPOS-COMM-RH-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CV-COMM-RH-ID">Fund Value Commission Pointer:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CV-COMM-RH-ID" stype="Text" displayonly="yes">MIR-CV-COMM-RH-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CV-COMM-CALC-DUR">Fund Value Commission Offset (months):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CV-COMM-CALC-DUR" stype="Text" displayonly="yes">MIR-CV-COMM-CALC-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-CV-COMM-IND">Pay commissions on fund value:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-PLAN-CV-COMM-IND" id="MIR-PLAN-CV-COMM-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#FundControlInformation">Fund Control Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#UnitPriceUsed">Unit Price Used</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PaymentsChargeInformation">Payments / Charge Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#NotificationTransferFeeInformation">Notification / Transfer Fee Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#FreeFundTransferInformation">Free Fund Transfer Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PartialSurrenderInformation">Partial Surrender Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#GuaranteedInformation">Guaranteed Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CommissionDetails">Commission Details</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

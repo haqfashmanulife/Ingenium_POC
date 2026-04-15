@@ -1,0 +1,212 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:44 PM EDT
+*
+*********************************************************************************
+*  Component:   BF6937-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"       
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *                        
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                           
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF6937-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CVG-REC-CTR">Number of Coverages:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Policy Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-GDLN-SPREM-AMT">Total Guideline Single      Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-GDLN-SPREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-GDLN-SPREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ACUM-GDLN-PREM-AMT">Cumulative Guideline Annual Premiums:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACUM-GDLN-PREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-ACUM-GDLN-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-GDLN-APREM-AMT">Net Accumulated      Deposits (Less Withdrawals and Loans):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-GDLN-APREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-GDLN-APREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-REMN-GDLN-AMT">Remaining Guideline Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-REMN-GDLN-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-REMN-GDLN-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SE-GDLN-AMT">Total SEC Guideline      Annual Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SE-GDLN-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-SE-GDLN-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SE-SALE-LOAD-AMT">Total Policy Sales Load:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SE-SALE-LOAD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-SE-SALE-LOAD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SE-XSLD-RETRN-AMT">Policy Excess Sales Load Returned:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SE-XSLD-RETRN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-SE-XSLD-RETRN-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-7PAY-ANN-AMT">7-Pay Annual Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-7PAY-ANN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-7PAY-ANN-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-7PAY-CUM-AMT">7-Pay Cumulative Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-7PAY-CUM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-7PAY-CUM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="6">Coverage Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">Coverage Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-GDLN-SPREM-AMT-T[1]">Guideline Single Premium</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-GDLN-APREM-AMT-T[1]">Guideline Annual Premium</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-SE-GDLN-AMT-T[1]">SEC Guideline  Annual Premium</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CVG-LOAD-AMT-T[1]">Total Coverage Sales Load</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-GDLN-SPREM-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-GDLN-SPREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-GDLN-APREM-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-GDLN-APREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SE-GDLN-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-SE-GDLN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CVG-LOAD-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DV-CVG-LOAD-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

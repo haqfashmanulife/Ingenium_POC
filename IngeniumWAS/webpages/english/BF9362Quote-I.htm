@@ -1,0 +1,376 @@
+<!--
+*********************************************************************************
+*  Component:   BF9362Quote-I.htm                                               *
+*  Description: CSV CERTIFICATE/QUOTE CREATE - QUOTE POLICY SELECTION           *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  UYS304  01NOV23  Intial Version                                              *
+*  MOR343  19JUN24  FIX DONE FOR FIELD PLAN CODE                                *
+*  MOR432  25JUN24  FIX DONE FOR FIELD ADDRESS TITLE                            *
+*  MOR764  23SEP24  FIX DONE FOR FIELD ADDRESS TITLE LENGTH                     *
+*  MOR197  27JUN24  CHANGES DONE TO CREATE NEW SCREEN WHILE CLICKING HYPERLINK  *
+*  MOR247  21JUN24  CHANGES DONE FOR CHECKBOX ALIGNMENT                         *
+*  MOR233  17JUN24  CHANGES DONE FOR ADDRESS WIDTH                              *
+*  MOR430  26JUN24  CHANGES DONE AS PART OF MORG-430                            *
+*  MOR235  19JUN24  CHANGES DONE FOR ADDRESSEE KANJI                            *
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9362Quote-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());chkSamakatabu();chkKanaNames();chkKanjiNames();">
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label name="Delivery Information">Delivery Information</label>
+                    </td>
+                </tr>
+            </table>
+            <table class="tableanchors" colspan="15">
+                 <tr>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Addressee (Kanji) :</label>
+                    </td>
+                    <td class="celldatakey">
+<!--MOR235 STARTS HERE-->
+                        <input type="text" value=" " name="MIR-DV-OWN-CLI-NM" id="MIR-DV-OWN-CLI-NM" onchange="onlyKanji()" onkeypress="KanjiKeyCheck()" style="width: 680px;" stype="Text" mandatory="yes" onfocus="enterField(this)"  />
+<!--MOR235 STARTS HERE-->
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-ADDR-TITL">Address title:</label>
+                    </td>
+                    <td class="celldatakey">
+<!--MOR432 STARTS HERE-->
+<!--                    <input type="text" value=" " name="MIR-CLI-ADDR-TITL" id="MIR-CLI-ADDR-TITL" style="width: 150px;" stype="Text" maxlength="1" onfocus="enterField(this)"  /> -->
+<!--MOR764 STARTS HERE-->
+<!--                    <input type="text" value=" " name="MIR-CLI-ADDR-TITL" id="MIR-CLI-ADDR-TITL" onchange="onlyKanji()" onkeypress="KanjiKeyCheck()" style="width: 100px;" stype="Text" mandatory="yes" maxlength="1" onfocus="enterField(this)"  />-->
+                        <input type="text" value=" " name="MIR-CLI-ADDR-TITL" id="MIR-CLI-ADDR-TITL" onchange="onlyKanji()" onkeypress="KanjiKeyCheck()" style="width: 100px;" stype="Text" mandatory="yes" maxlength="5" onfocus="enterField(this)"  />
+<!--MOR764 ENDS HERE-->						
+<!--MOR432 ENDS HERE-->
+                    </td>
+                 </tr>
+            </table>
+            <table class="tableanchors" colspan="18">
+                 <tr>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-PSTL-CD">Postal code:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CLI-PSTL-CD" id="MIR-CLI-PSTL-CD" style="width: 85px;" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)"  />
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-PREFCT-TXT">Address :</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CLI-PREFCT-TXT" id="MIR-CLI-PREFCT-TXT" onchange="onlyKanji()" onkeypress="KanjiKeyCheck()" style="width: 78px;" stype="Text" mandatory="yes" onfocus="enterField(this)"  />
+                        <input type="text" value=" " name="MIR-CLI-CITY-NM-TXT" id="MIR-CLI-CITY-NM-TXT" onchange="onlyKanji()" onkeypress="KanjiKeyCheck()" style="width: 90px;" stype="Text" mandatory="yes" onfocus="enterField(this)"  />
+<!--MOR233 STARTS HERE-->
+                        <input type="text" value=" " name="MIR-CLI-ADDR-LN-1-TXT" id="MIR-CLI-ADDR-LN-1-TXT" onchange="onlyKanji()" onkeypress="KanjiKeyCheck()" style="width: 95px;" stype="Text" mandatory="yes" onfocus="enterField(this)"  />
+<!--MOR233 ENDS HERE-->
+                        <input type="text" value=" " name="MIR-CLI-ADDR-ADDL-TXT" id="MIR-CLI-ADDR-ADDL-TXT" onchange="onlyKatakana()" onkeypress="KanaKeyCheck()" style="width: 557px;" stype="Text" mandatory="yes" onfocus="enterField(this)"  />
+                    </td>
+                 </tr>
+            </table>
+            <table class="tableanchors" colspan="33">
+                 <tr>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-ID">Client ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <span id="MIR-CLI-ID" stype="text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CREAT-DT">Creation Date :</label>
+                    </td>
+                    <td class="celldatakey">
+                        <span id="MIR-CREAT-DT" stype="date" displayonly="yes">MIR-CREAT-DT</span>
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-NXT-POL-ID">Next Policy ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-NXT-POL-ID" id="MIR-NXT-POL-ID" stype="Text" maxlength="9" onfocus="enterField(this)"  />
+                    </td>
+                 </tr>
+            </table>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <label name="Creation condition information">Creation condition information</label>
+                    </td>
+                </tr>
+            </table>
+            <table class="tableanchors" colspan="19">
+                <tr>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="celldatakeylabel">
+                        <label for="MIR-CSV-TYP-CD">Certificate/Quote Type:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-CSV-TYP-CD" id="MIR-CSV-TYP-CD" size="1" stype="Selection" mandatory = "yes" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-PRCES-DT">Process date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-PRCES-DT" id="MIR-PRCES-DT" style="width: 90px;" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-VIR-SCREEN-IND">Virtual Quote:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="checkbox" value="Y" name="MIR-VIR-SCREEN-IND" id="MIR-VIR-SCREEN-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BULK-IND">Bulk :</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="checkbox" value="Y" name="MIR-BULK-IND" id="MIR-BULK-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="SELECT-T[1]">Quote</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SEQ-NUM-T[1]">No</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ISS-EFF-DT-T[1]">Policy issue date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PROD-APP-TYP-CD-T[1]">Prod Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+<!--MOR343 STARTS HERE-->
+<!--                        <label for="MIR-LRG-PROD-CD-T[1]">Type</label> -->
+                        <label for="MIR-LRG-PROD-CD-T[1]">Plan Code</label>
+<!--MOR343 ENDS HERE-->
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-T[1]">Policy ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-INSRD-CLI-NM-T[1]">Insured Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CSTAT-CD-T[1]">Policy status</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-QUOT-TS-T[1]">Quote date time</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CREAT-TS-T[1]">Create date time</label>
+                    </td>
+                </tr>
+                <tr>
+<!--MOR247 STARTS HERE-->
+                    <td class="celldisplay" align="center">
+<!--MOR247 ENDS HERE-->
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()"/>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-SEQ-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ISS-EFF-DT-T[]" stype="Text" displayonly="yes">MIR-POL-ISS-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PROD-APP-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-PROD-APP-TYP-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LRG-PROD-CD-T[]" stype="Text" displayonly="yes" >MIR-LRG-PROD-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-T[]" stype="Text" displayonly="yes">MIR-POL-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INSRD-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-QUOT-TS-T[]" stype="Text" displayonly="yes">MIR-QUOT-TS-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CREAT-TS-T[]" stype="Text" displayonly="yes">MIR-CREAT-TS-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="tableanchors">
+                 <tr>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                    <td class="cellanchors" style="border-right: none;">
+<!--MOR197 STARTS HERE-->
+                        <a href="pageserver?ProcessClassID=BF9830Retrieve&amp;PageReturn=Blank&amp;LocaleID=E" style="font-size: 11" target="_blank">Inquiry - Call Center Information</a>
+<!--MOR197 ENDS HERE-->
+                    </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="celldatakeylabel">
+                   </td>
+                   <td class="cellanchors" style="border-right: none;">
+                       <a href="pageserver?ProcessClassID=BF9360TabSurVal&amp;PageReturn=Blank&amp;LocaleID=E" style="font-size: 11" target="_blank">Inquiry - Surrender Value</a>
+                   </td>
+                 </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--MOR430 STARTS HERE-->
+    <script src="../js/OnlyKana.js"></script>
+    <script src="../js/OnlyKanji.js"></script>
+<!--MOR430 STARTS HERE-->
+</html>

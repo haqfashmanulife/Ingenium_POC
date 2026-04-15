@@ -1,0 +1,148 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:18 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0422-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016227  602J     Code Cleanup                                               
+*  017150  612J     Remove Currency decimals="2"  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                          
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0422-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-INSRD-CLI-NM">被保険者名:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="5">
+                        <span id="MIR-DV-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-ID">クライアントID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-FLD-ID">基本質問フィールド:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-FLD-ID" stype="Text" displayonly="yes">MIR-FLD-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-APP-FORM-TYP-ID">申込書タイプ:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-APP-FORM-TYP-ID" stype="Text" displayonly="yes">MIR-APP-FORM-TYP-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">子会社:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-LOC-GR-ID">所在地グループ:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-LOC-GR-ID" stype="Text" displayonly="yes">MIR-LOC-GR-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="QuestionText">質問事項:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="QuestionText" stype="Text" displayonly="yes">QuestionText</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading">質問</td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DV-QSTN-RESP-TXT-001">回答</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">掛かりつけの医師の名前</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-QSTN-RESP-TXT-001" id="MIR-DV-QSTN-RESP-TXT-001" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">症状が出たのはいつ？</td>
+                    <td class="celllabeldataentry">
+<!-- 
+
+The field below is not defined as a date field in the S-step but is in the HTML.  This is to prevent the user at the presentation level to
+put in a bad date instead of having the user enter a bad date, go to the server, come back with an error message.
+This may be removed when round tripping is introduced with the UIGEN (future consideration).
+
+-->
+                        <input type="text" value=" " name="MIR-DV-QSTN-RESP-TXT-002" id="MIR-DV-QSTN-RESP-TXT-002" stype="Date" onblur="validateField(this)" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">診察結果</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-QSTN-RESP-TXT-003" id="MIR-DV-QSTN-RESP-TXT-003" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">治療を受けましたか/受けていますか？</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-QSTN-RESP-TXT-004" id="MIR-DV-QSTN-RESP-TXT-004" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/BF1392-I.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

@@ -1,0 +1,110 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:21 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9D17-O.htm
+*  Description: Survival Benefit-Deduction Amount History Inquiry Screens
+*
+*********************************************************************************
+*  MP302U  CTS      INITIAL VERSION
+*  23774B  CTS      CHANGES DONE FOR IE RETIREMENT PROJECT TO MAKE IT
+*                   COMPATIBLE FOR MICROSOFT EDGE. CHANGES IN HTML INCLUDE
+*                   ADDING "ID" ATTRIBUTE FOR ALL INPUT FIELDS AND CHANGES IN
+*                   JAVA SCRIPTS TO MODIFY CERTAIN FUNCTIONS/COMMANDS WHICH
+*                   ARE NO LONGER COMPATILBLE WITH EDGE.             
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9D17-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+        <input type="hidden" name="index" id="index" stype="Hidden"/>
+	<input type="hidden" name="action" id="action" stype="Hidden"/>
+        <center>
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-POL-ID-BASE">Policy Id:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-POL-ID-SFX">Suffix:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span></td>
+
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-DV-OWN-CLI-NM">Owner Name:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-SBSDRY-CO-ID">Sub Company:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-SBSDRY-CO-ID" stype="Date" displayonly="yes">MIR-SBSDRY-CO-ID</span></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-SRVH-PRCES-DT">Process Date:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-SRVH-PRCES-DT" stype="Text" displayonly="yes">MIR-SRVH-PRCES-DT</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-SRVH-EFF-DT">Survival Benefit Payout Date:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-SRVH-EFF-DT" stype="Date" displayonly="yes">MIR-SRVH-EFF-DT</span></td>
+                </tr>
+            </table>
+        </center>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#ClaimBenefits">By Medical Claim Benefits</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#ClaimDeductions">By Survival Benefit Payout Date</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">By Medical Claim Benefits</td>
+                </tr>
+             </table>
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+                    <td class="celldisplayheading"><label for="MIR-CLM-ID-T[1]">Claim ID</label></td>
+                    <td class="celldisplayheading"><label for="MIR-CVG-NUM-T[1]">Coverage No</label></td>
+                    <td class="celldisplayheading"><label for="MIR-BNFT-NM-T[1]">Benefit Name</label></td>
+                    <td class="celldisplayheading"><label for="MIR-EVNT-STRT-DT-T[1]">Payment Event Start Date</label></td>
+                    <td class="celldisplayheading"><label for="MIR-EVNT-END-DT-T[1]">Payment Event End Date</label></td>
+                    <td class="celldisplayheading"><label for="MIR-EVNT-PAID-AMT-T[1]">Benefit Amount</label></td>
+                </tr>
+                <tr>
+                    <td class="celldisplay"><span id="MIR-CLM-ID-T[]" stype="Text" displayonly="yes">MIR-CLM-ID-T[]</span></td>
+                    <td class="celldisplay"><span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span></td>
+                    <td class="celldisplay"><span id="MIR-BNFT-NM-T[]" stype="Text" displayonly="yes">MIR-BNFT-NM-T[]</span></td>
+                    <td class="celldisplay"><span id="MIR-EVNT-STRT-DT-T[]" stype="Date" displayonly="yes">MIR-EVNT-STRT-DT-T[]</span></td>
+                    <td class="celldisplay"><span id="MIR-EVNT-END-DT-T[]" stype="Date" displayonly="yes">MIR-EVNT-END-DT-T[]</span></td>
+                    <td class="celldisplay"><span id="MIR-EVNT-PAID-AMT-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-EVNT-PAID-AMT-T[]</span></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">By Survival Benefit Payout Date</td>
+                </tr>
+             </table>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading"><label for="MIR-DV-TOT-SRVBEN-DED-AMT">Total Survival Benefit Amount (After Deduction)</label></td>
+                    <td class="celldisplayheading"><label for="MIR-DV-DED-AMT">Deduction Amount</label></td>
+                </tr>
+                <tr>
+                    <td class="celldisplay"><span id="MIR-DV-TOT-SRVBEN-DED-AMT" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-DV-TOT-SRVBEN-DED-AMT</span></td>
+                    <td class="celldisplay"><span id="MIR-DV-DED-AMT" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-DV-DED-AMT</span></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

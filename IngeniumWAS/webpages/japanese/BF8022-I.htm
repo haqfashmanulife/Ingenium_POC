@@ -1,0 +1,467 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:52 PM EDT
+*
+*********************************************************************************
+*  Component:   BF8022-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  01CP02  GW       Added 'Agent Type' & 'Plan benefit Type' - Agent info.     
+*  02PR55  RNL      Add MAT-XPRY-REASN-CD                                      
+*  M00025  MAW      ADD MIR-CVG-SUB-STAT-CD                                    
+*  PR006I  BMB      Change labels for connected coverages                      
+*  FT7001 AKATO  FT7 Label Change 14JUN2004   
+*  Pathfinder 3.0 release - BOBAKB   25JUN2004
+*  FT7001 AKATO FT7 Label Change (2nd version) 15JUL2004
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                     	               
+*  UCR244  CTS      CHANGES DONE AS PART OF STREAM 3                                                                                        
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF8022-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<p><label for="MIR-CVG-NUM">保障番号:</label><span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+</p>
+<p><label for="MIR-POL-ID-BASE">証券番号:</label><span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+</p>
+<p><label for="MIR-POL-ID-SFX">枝番:</label><span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+</p>
+
+<table class="tabledisplay" genrows="3" keyfield="0">
+  
+<tr>
+  
+<td class="celldisplayheading"><label for="MIR-CVG-UWG-EXCL-CD-T[1]">免責コード</label></td>
+</tr>
+  
+<tr>
+  
+<td class="celldisplay"><select name="MIR-CVG-UWG-EXCL-CD-T[]" id="MIR-CVG-UWG-EXCL-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+                    </td>  
+                </tr>  
+</table>
+
+<table class="tabledisplay" genrows="5" >
+  
+<tr>
+  
+<td class="celldisplayheading"><label for="MIR-INSRD-CLI-ID-T[1]">クライアントID</label></td>
+</tr>
+  
+<tr>
+  
+<td class="celldisplay"><input type="text" value=" " name="MIR-INSRD-CLI-ID-T[]" id="MIR-INSRD-CLI-ID-T[]" stype="Text" maxlength="10"   onfocus="enterField(this)"/>
+</td>
+</tr>
+</table>
+
+<table class="tabledisplay" genrows="2" >
+  
+<tr>
+  
+<td class="celldisplayheading"><label for="MIR-ADDL-FYR-COMM-RT-T[1]">初年度調整</label></td>
+<td class="celldisplayheading"><label for="MIR-AGT-ID-T[1]">募集者ID</label></td>
+<td class="celldisplayheading"><label for="MIR-COMM-CHNG-CD-T[1]">手数料変更事由</label></td>
+<td class="celldisplayheading"><label for="MIR-COMM-RT-TBAC-ID-T[1]">手数料パターン</label></td>
+<td class="celldisplayheading"><label for="MIR-CPREM-CALC-CD-T[1]">手数料計算対象</label></td>
+<td class="celldisplayheading"><label for="MIR-CVG-AGT-CPREM-AMT-T[1]">手数料対象保険料</label></td>
+<td class="celldisplayheading"><label for="MIR-CVG-AGT-SHR-PCT-T[1]">募集割合</label></td>
+<td class="celldisplayheading"><label for="MIR-CVG-AGT-TYP-CD-T[1]">募集者タイプ</label></td>
+<td class="celldisplayheading"><label for="MIR-FYR-COMM-CALC-CD-T[1]">初年度手数料支払方法</label></td>
+<td class="celldisplayheading"><label for="MIR-OVRID-BASE-AGT-ID-T[1]">上乗せ手数料</label></td>
+<td class="celldisplayheading"><label for="MIR-OVRID-ID-T[1]">上乗せ手数料</label></td>
+<td class="celldisplayheading"><label for="MIR-RENW-COMM-CALC-CD-T[1]">更新手数料支払方法</label></td>
+                </tr>  
+  
+<tr>
+  
+<td class="celldisplay"><input type="text" name="MIR-ADDL-FYR-COMM-RT-T[]" id="MIR-ADDL-FYR-COMM-RT-T[]" stype="Percent" elength="5" decimals="3"    value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="NumberKeyCheck()"/>
+</td>
+<td class="celldisplay"><input type="text" value=" " name="MIR-AGT-ID-T[]" id="MIR-AGT-ID-T[]" stype="Text" maxlength="6"   onfocus="enterField(this)"/>
+</td>
+<td class="celldisplay"><select name="MIR-COMM-CHNG-CD-T[]" id="MIR-COMM-CHNG-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</td>
+<td class="celldisplay"><input type="text" value=" " name="MIR-COMM-RT-TBAC-ID-T[]" id="MIR-COMM-RT-TBAC-ID-T[]" stype="Text" maxlength="5"   onfocus="enterField(this)"/>
+</td>
+<td class="celldisplay"><select name="MIR-CPREM-CALC-CD-T[]" id="MIR-CPREM-CALC-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</td>
+<td class="celldisplay"><input type="text" value=" " name="MIR-CVG-AGT-CPREM-AMT-T[]" id="MIR-CVG-AGT-CPREM-AMT-T[]" stype="Currency" elength="13"     onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+</td>
+<td class="celldisplay"><input type="text" name="MIR-CVG-AGT-SHR-PCT-T[]" id="MIR-CVG-AGT-SHR-PCT-T[]" stype="Percent" elength="5" decimals="2"    value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="NumberKeyCheck()"/>
+</td>
+<td class="celldisplay"><select name="MIR-CVG-AGT-TYP-CD-T[]" id="MIR-CVG-AGT-TYP-CD-T[]" size="1" stype="Selection"    onfocus="enterField(this)"/>
+</td>
+<td class="celldisplay"><select name="MIR-FYR-COMM-CALC-CD-T[]" id="MIR-FYR-COMM-CALC-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</td>
+<td class="celldisplay"><input type="text" value=" " name="MIR-OVRID-BASE-AGT-ID-T[]" id="MIR-OVRID-BASE-AGT-ID-T[]" stype="Text" maxlength="6"   onfocus="enterField(this)"/>
+</td>
+<td class="celldisplay"><input type="text" value=" " name="MIR-OVRID-ID-T[]" id="MIR-OVRID-ID-T[]" stype="Text" maxlength="2"   onfocus="enterField(this)"/>
+</td>
+<td class="celldisplay"><select name="MIR-RENW-COMM-CALC-CD-T[]" id="MIR-RENW-COMM-CALC-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+                    </td> 
+                </tr> 
+            </table> 
+<p><input type="hidden" name="action" id="action" stype="Hidden"/>
+</p>
+<p><input type="hidden" name="index" id="index" stype="Hidden"/>
+</p>
+<p><label for="MIR-AGE-RAT-REASN-CD">契約年齢調整事由:</label><select name="MIR-AGE-RAT-REASN-CD" id="MIR-AGE-RAT-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-COMIT-RT-EFF-DT">保証利率開始日:</label><input type="text" value=" " name="MIR-COMIT-RT-EFF-DT" id="MIR-COMIT-RT-EFF-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-COMIT-RT-END-DT">保証利率終了日:</label><input type="text" value=" " name="MIR-COMIT-RT-END-DT" id="MIR-COMIT-RT-END-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-COMM-TRG-CALC-CD">募集手数料目標額指定:</label><select name="MIR-COMM-TRG-CALC-CD" id="MIR-COMM-TRG-CALC-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CONN-CVG-NUM">関連保障番号:</label><input type="text" value=" " name="MIR-CONN-CVG-NUM" id="MIR-CONN-CVG-NUM" stype="Text" maxlength="2"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-CONN-POL-ID">関連契約証券番号:</label><input type="text" value=" " name="MIR-CONN-POL-ID" id="MIR-CONN-POL-ID" stype="Text" maxlength="10"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-CVG-AD-FACE-AMT">災害死亡給付額:</label><input type="text" value=" " name="MIR-CVG-AD-FACE-AMT" id="MIR-CVG-AD-FACE-AMT" stype="Currency" elength="15"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-AD-MULT-FCT">災害死亡給付乗数:</label><input type="text" value=" " name="MIR-CVG-AD-MULT-FCT" id="MIR-CVG-AD-MULT-FCT" stype="Number" elength="3" decimals="2" signed="yes"   onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="NumberKeyCheck
+()
+"/>
+</p>
+<p><label for="MIR-CVG-AD-PREM-AMT">災害死亡給付保険料:</label><input type="text" value=" " name="MIR-CVG-AD-PREM-AMT" id="MIR-CVG-AD-PREM-AMT" stype="Currency" elength="13"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-AD-XPRY-DT">災害死亡給付失効日:</label><input type="text" value=" " name="MIR-CVG-AD-XPRY-DT" id="MIR-CVG-AD-XPRY-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-APP-RECV-DT">営業所日報計上日:</label><input type="text" value=" " name="MIR-CVG-APP-RECV-DT" id="MIR-CVG-APP-RECV-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-APS-CD">診査医師報告書:</label><select name="MIR-CVG-APS-CD" id="MIR-CVG-APS-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-BASIC-PREM-AMT">年間保険料:</label><input type="text" value=" " name="MIR-CVG-BASIC-PREM-AMT" id="MIR-CVG-BASIC-PREM-AMT" stype="Currency" elength="13"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-CNVR-XPRY-DT">転換失効日:</label><input type="text" value=" " name="MIR-CVG-CNVR-XPRY-DT" id="MIR-CVG-CNVR-XPRY-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-COLA-PREM-AMT">転換失効日:</label><input type="text" value=" " name="MIR-CVG-COLA-PREM-AMT" id="MIR-CVG-COLA-PREM-AMT" stype="Currency" elength="11"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-COLA-SELCT-CD">生計費調整:</label><select name="MIR-CVG-COLA-SELCT-CD" id="MIR-CVG-COLA-SELCT-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-COMIT-PCT">通知保証利率:</label><input type="text" name="MIR-CVG-COMIT-PCT" id="MIR-CVG-COMIT-PCT" stype="Percent" elength="5" decimals="3"    value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="NumberKeyCheck()"/>
+</p>
+<p><label for="MIR-CVG-COMIT-RT-IND">利息保証通知を発行:</label><input type="checkbox" value="Y" name="MIR-CVG-COMIT-RT-IND" id="MIR-CVG-COMIT-RT-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-CVG-COMM-TRG-AMT">募集手数料年間目標額:</label><input type="text" value=" " name="MIR-CVG-COMM-TRG-AMT" id="MIR-CVG-COMM-TRG-AMT" stype="Currency" elength="11" decimals="0" signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="vali
+dateField(this)"/>
+</p>
+<p><label for="MIR-CVG-CONN-REASN-CD">関連契約/保障事由:</label><select name="MIR-CVG-CONN-REASN-CD" id="MIR-CVG-CONN-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<!-- UCR244 CHANGE STARTS HERE -->
+<p><label for="MIR-CONN-CORP-INSRD-ID">企保用被保険者番号:</label><input type="text" value=" " name="MIR-CONN-CORP-INSRD-ID" id="MIR-CONN-CORP-INSRD-ID" stype="Text" maxlength="10"   onfocus="enterField(this)"/>
+</p>
+<!-- UCR244 CHANGE ENDS HERE -->
+<p><label for="MIR-CVG-EKG-CD">心電図:</label><select name="MIR-CVG-EKG-CD" id="MIR-CVG-EKG-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-ENHC-TYP-CD">保障増額:</label><select name="MIR-CVG-ENHC-TYP-CD" id="MIR-CVG-ENHC-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-FACE-AMT">保険金額:</label><input type="text" value=" " name="MIR-CVG-FACE-AMT" id="MIR-CVG-FACE-AMT" stype="Currency" elength="15"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-FE-DUR">一律割増期間:</label><input type="text" value=" " name="MIR-CVG-FE-DUR" id="MIR-CVG-FE-DUR" stype="Text" maxlength="3"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-CVG-FE-PREM-AMT">一律割増額:</label><input type="text" value=" " name="MIR-CVG-FE-PREM-AMT" id="MIR-CVG-FE-PREM-AMT" stype="Currency" elength="13"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(thi
+s)"/>
+</p>
+<p><label for="MIR-CVG-FE-REASN-CD">一律割増事由:</label><select name="MIR-CVG-FE-REASN-CD" id="MIR-CVG-FE-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-FE-UPREM-AMT">一律割増率（額/ユニット）:</label><input type="text" value=" " name="MIR-CVG-FE-UPREM-AMT" id="MIR-CVG-FE-UPREM-AMT" stype="Currency" elength="9"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateFiel
+d(this)"/>
+</p>
+<p><label for="MIR-CVG-GUAR-INT-CD">保証利息タイプ:</label><select name="MIR-CVG-GUAR-INT-CD" id="MIR-CVG-GUAR-INT-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-GUAR-INT-PCT">保証利率:</label><input type="text" name="MIR-CVG-GUAR-INT-PCT" id="MIR-CVG-GUAR-INT-PCT" stype="Percent" elength="9" decimals="6" signed="yes"   value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="Numb
+erKeyCheck()"/>
+</p>
+<p><label for="MIR-CVG-HO-SPCMN-CD">尿検査:</label><select name="MIR-CVG-HO-SPCMN-CD" id="MIR-CVG-HO-SPCMN-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-INCM-BRCKT-CD">所得階層:</label><select name="MIR-CVG-INCM-BRCKT-CD" id="MIR-CVG-INCM-BRCKT-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-INSPC-RPT-CD">検査報告書:</label><select name="MIR-CVG-INSPC-RPT-CD" id="MIR-CVG-INSPC-RPT-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-INT-PAYO-CD">利息取扱方法:</label><select name="MIR-CVG-INT-PAYO-CD" id="MIR-CVG-INT-PAYO-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-INTRNL-EXAM-CD">内科検診:</label><select name="MIR-CVG-INTRNL-EXAM-CD" id="MIR-CVG-INTRNL-EXAM-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-JNT-LIFE-CD">連生保険タイプ:</label><select name="MIR-CVG-JNT-LIFE-CD" id="MIR-CVG-JNT-LIFE-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-LIVES-INSRD-CD">被保険者数:</label><input type="text" value=" " name="MIR-CVG-LIVES-INSRD-CD" id="MIR-CVG-LIVES-INSRD-CD" stype="Text" maxlength="1"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-CVG-LTA-PREM-AMT">終身傷害就業不能保険料:</label><input type="text" value=" " name="MIR-CVG-LTA-PREM-AMT" id="MIR-CVG-LTA-PREM-AMT" stype="Currency" elength="11"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this
+)"/>
+</p>
+<p><label for="MIR-CVG-LTA-SELCT-IND">終身傷害就業不能給付あり:</label><input type="checkbox" value="Y" name="MIR-CVG-LTA-SELCT-IND" id="MIR-CVG-LTA-SELCT-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-CVG-LTB-PREM-AMT">終身疾病/傷害就業不能保険料:</label><input type="text" value=" " name="MIR-CVG-LTB-PREM-AMT" id="MIR-CVG-LTB-PREM-AMT" stype="Currency" elength="11"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField
+(this)"/>
+</p>
+<p><label for="MIR-CVG-LTB-SELCT-IND">終身疾病/傷害就業不能給付あり:</label><input type="checkbox" value="Y" name="MIR-CVG-LTB-SELCT-IND" id="MIR-CVG-LTB-SELCT-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-CVG-MAT-XPRY-DT">満期/満了日:</label><input type="text" value=" " name="MIR-CVG-MAT-XPRY-DT" id="MIR-CVG-MAT-XPRY-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-MAT-XPRY-REASN-CD">満期/満了事由:</label><select name="MIR-MAT-XPRY-REASN-CD" id="MIR-MAT-XPRY-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-MAX-COMIT-AMT">保証利息対象額:</label><input type="text" value=" " name="MIR-CVG-MAX-COMIT-AMT" id="MIR-CVG-MAX-COMIT-AMT" stype="Currency" elength="13"     onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-ME-DUR">死亡率/罹患率割増期間:</label><input type="text" value=" " name="MIR-CVG-ME-DUR" id="MIR-CVG-ME-DUR" stype="Text" maxlength="3"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-CVG-ME-FCT">死亡率/罹患率割増料率:</label><input type="text" value=" " name="MIR-CVG-ME-FCT" id="MIR-CVG-ME-FCT" stype="Number" elength="3" decimals="2" signed="yes"   onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="
+NumberKeyCheck()"/>
+</p>
+<p><label for="MIR-CVG-ME-PREM-AMT">死亡率/罹患率割増額:</label><input type="text" value=" " name="MIR-CVG-ME-PREM-AMT" id="MIR-CVG-ME-PREM-AMT" stype="Currency" elength="13"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="va
+lidateField(this)"/>
+</p>
+<p><label for="MIR-CVG-ME-RAT-CD">特別条件料率適用:</label><select name="MIR-CVG-ME-RAT-CD" id="MIR-CVG-ME-RAT-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-ME-REASN-CD">死亡率/罹患率割増事由:</label><select name="MIR-CVG-ME-REASN-CD" id="MIR-CVG-ME-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-MISC-RAT-1-CD">その他の事由1:</label><input type="text" value=" " name="MIR-CVG-MISC-RAT-1-CD" id="MIR-CVG-MISC-RAT-1-CD" stype="Text" maxlength="3"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-CVG-MISC-RAT-2-CD">その他の事由2:</label><input type="text" value=" " name="MIR-CVG-MISC-RAT-2-CD" id="MIR-CVG-MISC-RAT-2-CD" stype="Text" maxlength="3"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-CVG-MPREM-AMT">特約保険料:</label><input type="text" value=" " name="MIR-CVG-MPREM-AMT" id="MIR-CVG-MPREM-AMT" stype="Currency" elength="13"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-NMED-CD">医的診査不要:</label><select name="MIR-CVG-NMED-CD" id="MIR-CVG-NMED-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-NMED-PRVLG-IND">無診査特典あり:</label><input type="checkbox" value="Y" name="MIR-CVG-NMED-PRVLG-IND" id="MIR-CVG-NMED-PRVLG-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-CVG-NOTI-DEPT-ID">通知部署:</label><select name="MIR-CVG-NOTI-DEPT-ID" id="MIR-CVG-NOTI-DEPT-ID" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-NOTI-DT">通知日:</label><input type="text" value=" " name="MIR-CVG-NOTI-DT" id="MIR-CVG-NOTI-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-NOTI-REASN-CD">通知事由:</label><select name="MIR-CVG-NOTI-REASN-CD" id="MIR-CVG-NOTI-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-NXT-CPI-FCT">更新後保険料率:</label><input type="text" value=" " name="MIR-CVG-NXT-CPI-FCT" id="MIR-CVG-NXT-CPI-FCT" stype="Number" elength="5" decimals="3"    onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="NumberKeyCheck()"/>
+</p>
+<p><label for="MIR-CVG-NXT-RENW-RT-CD">更新後料率タイプ:</label><select name="MIR-CVG-NXT-RENW-RT-CD" id="MIR-CVG-NXT-RENW-RT-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-OCCP-CLAS-CD">職業区分:</label><input type="text" value=" " name="MIR-CVG-OCCP-CLAS-CD" id="MIR-CVG-OCCP-CLAS-CD" stype="Text" maxlength="2"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-CVG-ORIG-CD">契約理由:</label><select name="MIR-CVG-ORIG-CD" id="MIR-CVG-ORIG-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-ORIG-FACE-AMT">当初保険金額:</label><input type="text" value=" " name="MIR-CVG-ORIG-FACE-AMT" id="MIR-CVG-ORIG-FACE-AMT" stype="Currency" elength="15"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this
+)"/>
+</p>
+<p><label for="MIR-CVG-OUT-ALLOC-CD">支払金の保障間割当法:</label><select name="MIR-CVG-OUT-ALLOC-CD" id="MIR-CVG-OUT-ALLOC-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-PAR-CD">配当の有無:</label><select name="MIR-CVG-PAR-CD" id="MIR-CVG-PAR-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-PFEE-AMT">一律契約手数料:</label><input type="text" value=" " name="MIR-CVG-PFEE-AMT" id="MIR-CVG-PFEE-AMT" stype="Currency" elength="9"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-PHYS-EXAM-CD">医的診査:</label><select name="MIR-CVG-PHYS-EXAM-CD" id="MIR-CVG-PHYS-EXAM-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-PMED-CD">パラメディカル検査:</label><select name="MIR-CVG-PMED-CD" id="MIR-CVG-PMED-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-PREM-CHNG-DT">保険料変更日:</label><input type="text" value=" " name="MIR-CVG-PREM-CHNG-DT" id="MIR-CVG-PREM-CHNG-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-PREV-CPI-FCT">更新前保険料率:</label><input type="text" value=" " name="MIR-CVG-PREV-CPI-FCT" id="MIR-CVG-PREV-CPI-FCT" stype="Number" elength="5" decimals="3"    onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="NumberKeyCheck()"/>
+</p>
+<p><label for="MIR-CVG-PREV-FACE-AMT">更新前保険金額:</label><input type="text" value=" " name="MIR-CVG-PREV-FACE-AMT" id="MIR-CVG-PREV-FACE-AMT" stype="Currency" elength="15"     onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-PRST-RAT-PCT">継続率:</label><input type="text" name="MIR-CVG-PRST-RAT-PCT" id="MIR-CVG-PRST-RAT-PCT" stype="Percent" elength="3" decimals="0"    value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="NumberKeyCheck()"/>
+</p>
+<p><label for="MIR-CVG-RESTR-PREM-IND">保険料自動計算不可:</label><input type="checkbox" value="Y" name="MIR-CVG-RESTR-PREM-IND" id="MIR-CVG-RESTR-PREM-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-CVG-ROLOVR-DT-IND">キャッシュフローロールオーバーの実行:</label><input type="checkbox" value="Y" name="MIR-CVG-ROLOVR-DT-IND" id="MIR-CVG-ROLOVR-DT-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-CVG-RT-AGE">年齢:</label><input type="text" value=" " name="MIR-CVG-RT-AGE" id="MIR-CVG-RT-AGE" stype="Number" elength="3" decimals="0"    onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="NumberKeyCheck()"/>
+</p>
+<p><label for="MIR-CVG-SALE-SRC-CD">契約事由:</label><input type="text" value=" " name="MIR-CVG-SALE-SRC-CD" id="MIR-CVG-SALE-SRC-CD" stype="Text" maxlength="1"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-CVG-SEX-CD">性別:</label><select name="MIR-CVG-SEX-CD" id="MIR-CVG-SEX-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-SMKR-CD">喫煙/非喫煙:</label><select name="MIR-CVG-SMKR-CD" id="MIR-CVG-SMKR-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-STBL-1-CD">期間:</label><select name="MIR-CVG-STBL-1-CD" id="MIR-CVG-STBL-1-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-STBL-2-CD">給付タイプ:</label><select name="MIR-CVG-STBL-2-CD" id="MIR-CVG-STBL-2-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-STBL-3-CD">サブテーブル3:</label><select name="MIR-CVG-STBL-3-CD" id="MIR-CVG-STBL-3-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-STBL-4-CD">サブテーブル4:</label><select name="MIR-CVG-STBL-4-CD" id="MIR-CVG-STBL-4-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-STRS-EKG-CD">運動負荷心電図:</label><select name="MIR-CVG-STRS-EKG-CD" id="MIR-CVG-STRS-EKG-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-SUM-INS-AMT">保険金額:</label><input type="text" value=" " name="MIR-CVG-SUM-INS-AMT" id="MIR-CVG-SUM-INS-AMT" stype="Currency" elength="15"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-UWG-AMT">査定金額:</label><input type="text" value=" " name="MIR-CVG-UWG-AMT" id="MIR-CVG-UWG-AMT" stype="Currency" elength="15"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-UWGDECN-CD">保障の決定:</label><select name="MIR-CVG-UWGDECN-CD" id="MIR-CVG-UWGDECN-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-UWGDECN-SUB-CD">保障決定タイプ:</label><select name="MIR-CVG-UWGDECN-SUB-CD" id="MIR-CVG-UWGDECN-SUB-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-WP-IND">保険料払込免除あり:</label><select name="MIR-CVG-WP-IND" id="MIR-CVG-WP-IND" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-WP-MULT-FCT">保険料払込免除乗数:</label><input type="text" value=" " name="MIR-CVG-WP-MULT-FCT" id="MIR-CVG-WP-MULT-FCT" stype="Number" elength="3" decimals="2" signed="yes"   onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="Nu
+mberKeyCheck()"/>
+</p>
+<p><label for="MIR-CVG-WP-PREM-AMT">保険料払込免除額:</label><input type="text" value=" " name="MIR-CVG-WP-PREM-AMT" id="MIR-CVG-WP-PREM-AMT" stype="Currency" elength="11"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this
+)"/>
+</p>
+<p><label for="MIR-CVG-WP-XPRY-DT">保険料払込免除失効日:</label><input type="text" value=" " name="MIR-CVG-WP-XPRY-DT" id="MIR-CVG-WP-XPRY-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-CVG-WTHDR-ORDR-CD">引出順序:</label><select name="MIR-CVG-WTHDR-ORDR-CD" id="MIR-CVG-WTHDR-ORDR-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-CVG-XRAY-CD">レントゲン:</label><select name="MIR-CVG-XRAY-CD" id="MIR-CVG-XRAY-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-DIA-SWP-THRSHD-AMT">スイープ最低額:</label><input type="text" value=" " name="MIR-DIA-SWP-THRSHD-AMT" id="MIR-DIA-SWP-THRSHD-AMT" stype="Currency" elength="15"     onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this
+)"/>
+</p>
+<p><label for="MIR-DIA-SWP-THRSHD-CD">スイープ限度額指定:</label><select name="MIR-DIA-SWP-THRSHD-CD" id="MIR-DIA-SWP-THRSHD-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-DPOS-TRM-DY-DUR">積立期間 - 日数:</label><input type="text" value=" " name="MIR-DPOS-TRM-DY-DUR" id="MIR-DPOS-TRM-DY-DUR" stype="Text" maxlength="3"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-DPOS-TRM-MO-DUR">積立期間 - 月数:</label><input type="text" value=" " name="MIR-DPOS-TRM-MO-DUR" id="MIR-DPOS-TRM-MO-DUR" stype="Text" maxlength="3"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-GIR-OPT-REMN-AMT">GIR(無診査増額特約)上限額:</label><input type="text" value=" " name="MIR-GIR-OPT-REMN-AMT" id="MIR-GIR-OPT-REMN-AMT" stype="Currency" elength="15"     onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-GIR-OPT-REMN-QTY">GIR(無診査増額特約)オプション残数:</label><input type="text" value=" " name="MIR-GIR-OPT-REMN-QTY" id="MIR-GIR-OPT-REMN-QTY" stype="Text" maxlength="2"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-GIR-SEND-LTR-IND">GIR(無診査増額特約)通知を発送:</label><input type="checkbox" value="Y" name="MIR-GIR-SEND-LTR-IND" id="MIR-GIR-SEND-LTR-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-GUAR-IMPRD-INT-PCT">減少利率:</label><input type="text" name="MIR-GUAR-IMPRD-INT-PCT" id="MIR-GUAR-IMPRD-INT-PCT" stype="Percent" elength="9" decimals="6" signed="yes"   value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="NumberKeyCh
+eck()"/>
+</p>
+<p><label for="MIR-GUAR-INT-END-DT">保証利息適用終了日:</label><input type="text" value=" " name="MIR-GUAR-INT-END-DT" id="MIR-GUAR-INT-END-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-GUAR-INT-PERI-DUR">保証利息適用期間:</label><input type="text" value=" " name="MIR-GUAR-INT-PERI-DUR" id="MIR-GUAR-INT-PERI-DUR" stype="Text" maxlength="3"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-GUAR-INT-STRT-DT">保証利息適用開始日:</label><input type="text" value=" " name="MIR-GUAR-INT-STRT-DT" id="MIR-GUAR-INT-STRT-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+</p>
+<p><label for="MIR-IA-QUOT-NUM">即時年金試算番号:</label><input type="text" value=" " name="MIR-IA-QUOT-NUM" id="MIR-IA-QUOT-NUM" stype="Text" maxlength="6"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-MAT-XPRY-DT-IND">満期/満了日再計算の実施:</label><input type="checkbox" value="Y" name="MIR-MAT-XPRY-DT-IND" id="MIR-MAT-XPRY-DT-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-MORT-ASSESS-PCT">死亡率査定特別料率:</label><input type="text" name="MIR-MORT-ASSESS-PCT" id="MIR-MORT-ASSESS-PCT" stype="Percent" elength="3" decimals="0"    value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="NumberKeyCh
+eck()"/>
+</p>
+<p><label for="MIR-OUT-ALLOC-AMT-PCT">割当率/金額:</label><input type="text" value=" " name="MIR-OUT-ALLOC-AMT-PCT" id="MIR-OUT-ALLOC-AMT-PCT" stype="Number" elength="15" decimals="3"    onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="NumberKeyCheck()"
+/>
+</p>
+<p><label for="MIR-OWN-OCCP-PREM-AMT">本来職業就業不能保険料:</label><input type="text" value=" " name="MIR-OWN-OCCP-PREM-AMT" id="MIR-OWN-OCCP-PREM-AMT" stype="Currency" elength="11"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(th
+is)"/>
+</p>
+<p><label for="MIR-OWN-OCCP-SELCT-IND">本来職業就業不能給付あり:</label><input type="checkbox" value="Y" name="MIR-OWN-OCCP-SELCT-IND" id="MIR-OWN-OCCP-SELCT-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-PDISAB-PREM-AMT">部分就業不能保険料:</label><input type="text" value=" " name="MIR-PDISAB-PREM-AMT" id="MIR-PDISAB-PREM-AMT" stype="Currency" elength="11"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validate
+Field(this)"/>
+</p>
+<p><label for="MIR-PDISAB-SELCT-IND">部分就業不能給付あり:</label><input type="checkbox" value="Y" name="MIR-PDISAB-SELCT-IND" id="MIR-PDISAB-SELCT-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-PLAN-ID">プラン:</label><select name="MIR-PLAN-ID" id="MIR-PLAN-ID" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-PMT-LOAD-TRG-AMT">付加保険料年間目標額:</label><input type="text" value=" " name="MIR-PMT-LOAD-TRG-AMT" id="MIR-PMT-LOAD-TRG-AMT" stype="Currency" elength="11" decimals="0" signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="va
+lidateField(this)"/>
+</p>
+<p><label for="MIR-PMT-LOAD-TRG-CD">付加保険料目標額指定:</label><select name="MIR-PMT-LOAD-TRG-CD" id="MIR-PMT-LOAD-TRG-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-POL-APP-NUM">申込/契約数:</label><input type="text" value=" " name="MIR-POL-APP-NUM" id="MIR-POL-APP-NUM" stype="Text" maxlength="1"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-PREV-RENW-RT-CD">更新前料率タイプ:</label><select name="MIR-PREV-RENW-RT-CD" id="MIR-PREV-RENW-RT-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-REDC-EP-PREM-AMT">入院時免責期間短縮保険料:</label><input type="text" value=" " name="MIR-REDC-EP-PREM-AMT" id="MIR-REDC-EP-PREM-AMT" stype="Currency" elength="11"  signed="yes"   onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(th
+is)"/>
+</p>
+<p><label for="MIR-REDC-EP-SELCT-IND">入院時免責期間短縮あり:</label><input type="checkbox" value="Y" name="MIR-REDC-EP-SELCT-IND" id="MIR-REDC-EP-SELCT-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-REL-CVG-NUM">関連保障番号:</label><input type="text" value=" " name="MIR-REL-CVG-NUM" id="MIR-REL-CVG-NUM" stype="Text" maxlength="2"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-SNGL-CASE-AGRE-IND">特殊事例合意:</label><input type="checkbox" value="Y" name="MIR-SNGL-CASE-AGRE-IND" id="MIR-SNGL-CASE-AGRE-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-UWG-AMT-REASN-CD">査定金額事由:</label><select name="MIR-UWG-AMT-REASN-CD" id="MIR-UWG-AMT-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-UWG-REQIR-ESTB-IND">査定要件確定済:</label><input type="checkbox" value="Y" name="MIR-UWG-REQIR-ESTB-IND" id="MIR-UWG-REQIR-ESTB-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-UWG-USER-DEFN-1-CD">その他の査定要件1:</label><select name="MIR-UWG-USER-DEFN-1-CD" id="MIR-UWG-USER-DEFN-1-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-UWG-USER-DEFN-2-CD">その他の査定要件2:</label><select name="MIR-UWG-USER-DEFN-2-CD" id="MIR-UWG-USER-DEFN-2-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-UWG-USER-DEFN-3-CD">その他の査定要件3:</label><select name="MIR-UWG-USER-DEFN-3-CD" id="MIR-UWG-USER-DEFN-3-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-UWG-USER-DEFN-4-CD">その他の査定要件4:</label><select name="MIR-UWG-USER-DEFN-4-CD" id="MIR-UWG-USER-DEFN-4-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-UWG-USER-DEFN-5-CD">その他の査定要件5:</label><select name="MIR-UWG-USER-DEFN-5-CD" id="MIR-UWG-USER-DEFN-5-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+<p><label for="MIR-UW-USER-ID">査定人ID:</label><input type="text" value=" " name="MIR-UW-USER-ID" id="MIR-UW-USER-ID" stype="Text" maxlength="8"   onfocus="enterField(this)"/>
+</p>
+<p><label for="MIR-PLAN-BNFT-TYP-CD">給付プランのタイプ:</label><span id="MIR-PLAN-BNFT-TYP-CD" stype="Text" displayonly="yes">MIR-PLAN-BNFT-TYP-CD</span>
+            </p>  
+<p><label for="MIR-CVG-SUB-STAT-CD">保障サブステータス:</label><select name="MIR-CVG-SUB-STAT-CD" id="MIR-CVG-SUB-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)" > 
+</select> 
+</p>
+        </form>  
+    </body>  
+    <script src="../js/ActionHandlers.js"></script>  
+    <script src="../js/MessageFunctions.js"></script>  
+    <script src="../js/MessagesJapanese.js"></script>  
+    <script src="../js/ClientLevelEdits.js"></script>  
+    <script src="../js/GlobalUserMethods.js"></script>  
+</html>  

@@ -1,0 +1,243 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:31 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1202-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                          
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1202-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-RH-ID">料率ヘッダーID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-RH-ID" stype="Text" displayonly="yes">MIR-RH-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-RH-EFF-DT">発効日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-RH-EFF-DT" stype="Date" displayonly="yes">MIR-RH-EFF-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">付加保険料率アクセスキー</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-RT-TYP-CD">料率タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-RH-RT-TYP-CD" id="MIR-RH-RT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-DT-TYP-CD">日付タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-RH-DT-TYP-CD" id="MIR-RH-DT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-AGE-TYP-CD">年齢タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-RH-AGE-TYP-CD" id="MIR-RH-AGE-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-DUR-TYP-CD">期間タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-RH-DUR-TYP-CD" id="MIR-RH-DUR-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-LOC-TYP-CD">所在地タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-RH-LOC-TYP-CD" id="MIR-RH-LOC-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-LOC-DT-TYP-CD">所在地日付タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-RH-LOC-DT-TYP-CD" id="MIR-RH-LOC-DT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-SELCT-PERI-DUR">選択期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-RH-SELCT-PERI-DUR" id="MIR-RH-SELCT-PERI-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-MAX-DUR">最長期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-RH-MAX-DUR" id="MIR-RH-MAX-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldisplayheading" colspan="6">Part of Key to Rate Load File</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-SEX-CD-IND">性別コード:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-RH-SEX-CD-IND" id="MIR-RH-SEX-CD-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-STBL-1-CD-IND">補助テーブル1:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-RH-STBL-1-CD-IND" id="MIR-RH-STBL-1-CD-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-PNSN-QUALF-IND">年金適格:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-RH-PNSN-QUALF-IND" id="MIR-RH-PNSN-QUALF-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-SMKR-CD-IND">喫煙ステータス:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-RH-SMKR-CD-IND" id="MIR-RH-SMKR-CD-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-STBL-2-CD-IND">補助テーブル2:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-RH-STBL-2-CD-IND" id="MIR-RH-STBL-2-CD-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-DPOS-TRM-IND">積立期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-RH-DPOS-TRM-IND" id="MIR-RH-DPOS-TRM-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-PAR-CD-IND">配当付:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-RH-PAR-CD-IND" id="MIR-RH-PAR-CD-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-STBL-3-CD-IND">補助テーブル3:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-RH-STBL-3-CD-IND" id="MIR-RH-STBL-3-CD-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-JNT-LIFE-CD-IND">連生保険年齢タイプコード:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-RH-JNT-LIFE-CD-IND" id="MIR-RH-JNT-LIFE-CD-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-DB-OPT-CD-IND">死亡給付オプション :</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-RH-DB-OPT-CD-IND" id="MIR-RH-DB-OPT-CD-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-STBL-4-CD-IND">補助テーブル4:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-RH-STBL-4-CD-IND" id="MIR-RH-STBL-4-CD-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Banding Specifications</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-BAND-TYP-CD">保険金額帯別料金区分タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-RH-BAND-TYP-CD" id="MIR-RH-BAND-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RH-BAND-USE-CD">保険金額帯別料金区分使用:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-RH-BAND-USE-CD" id="MIR-RH-BAND-USE-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" genrows="6">
+                <tr>
+                    <td class="celldataentryheading" colspan="2">
+                        <label for="MIR-RTBL-1-ID-T[1]">付加保険料ポインタ1</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-RH-BAND-1-AMT-T[1]">保険金額帯別料金区分金額1</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-RTBL-1-ID-T[1]">付加保険料ポインタ1</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-RH-BAND-1-AMT-T[]" id="MIR-RH-BAND-1-AMT-T[]" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-RTBL-1-ID-T[]" id="MIR-RTBL-1-ID-T[]" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

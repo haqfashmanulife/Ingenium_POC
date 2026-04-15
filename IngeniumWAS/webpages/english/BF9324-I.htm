@@ -1,0 +1,94 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:50 PM EDT
+* Converted from PathFinder 1.2 to 1.3 on Jan 13, 2004 5:27:48 PM EST
+*
+*********************************************************************************
+*  Component:   BF9324-I.htm                                                    *
+*  Description: Firm Banking Search                                             *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  HCA002  HIN/CL   FIRM BANKING ONLINE                                         *
+*  MP4FB1  SC       FIRM BANKING REMITTANCE                                     *
+*  EN4631  CTS      FIRM BANKING SCREEN - ACCOUNT NO ADDED                      *
+*  EN4995  CTS      CHANGES FOR NEW SEARCH CRITERIA WITH ACCT ID AND REMITTANCE *
+*  EN4995  CTS      DATE                                                        *
+*  UY3004  16JUL21  SUBSEQUENT HTML POLICY TRIM                                 *
+*  23774B  CTS      Changes done for ie retirement project to make it           *
+*                   compatible for microsoft edge. Changes in html include      *
+*                   adding "id" attribute for all input fields and changes in   *
+*                   java scripts to modify certain functions/commands which     *
+*                   are no longer compatilble with edge.                        *
+*                                                                               *
+*********************************************************************************
+ -->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9324-I</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws" > -->
+<body class="bodyws" onLoad="onLoad();InpTrimPolicy1()">
+<!-- UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<table class="tabledatakey">
+   <tr>
+      <td class="celldatakeylabel">
+          <label for="MIR-FBNK-REMIT-DT">Remittance Date:</label>
+      </td>
+      <td class="celldatakey">
+          <input type="text" value=" " name="MIR-FBNK-REMIT-DT" id="MIR-FBNK-REMIT-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+      </td>
+      <td class="celldatakeylabel">
+          <label for="MIR-FBNK-REF-ID">Master Claim ID:</label>
+      </td>
+      <td class="celldatakey">
+          <input type="text" value=" " name="MIR-FBNK-REF-ID" id="MIR-FBNK-REF-ID" stype="Text" maxlength="8"   onfocus="enterField(this)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="celldatakeylabel">
+          <label for="MIR-POL-ID">Policy ID:</label>
+      </td>
+      <td class="celldatakey">
+          <input type="text" value=" " name="MIR-POL-ID" id="MIR-POL-ID" stype="Text" maxlength="10"   onfocus="enterField(this)"/>
+      </td>
+      <td class="celldatakeylabel">
+          <label for="MIR-FB-CLI-ID">Insured Client ID:</label>
+      </td>
+      <td class="celldatakey">
+          <input type="text" value=" " name="MIR-FB-CLI-ID" id="MIR-FB-CLI-ID" stype="Text" maxlength="10"   onfocus="enterField(this)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="celldatakeylabel">
+          <label for="MIR-FBNK-CAT-CD">Transaction Type:</label>
+      </td>
+      <td class="celldatakey">
+          <select name="MIR-FBNK-CAT-CD" id="MIR-FBNK-CAT-CD" size="1" stype="Selection" onfocus="enterField(this)"/>
+      </td>
+      <td class="celldatakeylabel">
+	      <label for="MIR-BNK-ACCT-ID">Account Number:</label>
+	  </td>
+	  <td class="celldatakey">
+	      <input type="text" value=" " name="MIR-BNK-ACCT-ID" id="MIR-BNK-ACCT-ID" stype="Text" maxlength="17"   onfocus="enterField(this)"/>
+      </td>
+   </tr>
+</table>
+
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

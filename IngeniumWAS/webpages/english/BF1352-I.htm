@@ -1,0 +1,127 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:28 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1352-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  017150  612J     Remove Currency decimals="2"
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1352-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="splitBranch('MIR-BNK-BR-ID')">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="updateBranch('Branch'); return(onSubmit());">
+            <input type="hidden" value="" name="MIR-BNK-BR-ID" id="MIR-BNK-BR-ID" jpnbranch="Branch" jpnsubbranch="SubBranch" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-JRNL-DT">Journal Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value="" name="MIR-JRNL-DT" id="MIR-JRNL-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-REJ-REASN-CD">Rejection Reason:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-POL-REJ-REASN-CD" id="MIR-POL-REJ-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-TRNXT-PAYO-MTHD-CD">Pay Out Method:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-DV-TRNXT-PAYO-MTHD-CD" id="MIR-DV-TRNXT-PAYO-MTHD-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Bank Account Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-ACCT-HLDR-NM">Account Holder Name:</label>
+                    </td>
+                    <td colspan="3" class="celllabelleftalign">
+                        <input type="text" value=" " name="MIR-BNK-ACCT-HLDR-NM" id="MIR-BNK-ACCT-HLDR-NM" stype="Text" maxlength="50" onfocus="enterField(this)" size="50" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-ACCT-TYP-CD">Account Type:</label>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <select name="MIR-BNK-ACCT-TYP-CD" id="MIR-BNK-ACCT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-ID">Bank ID:</label>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <input type="text" value=" " name="MIR-BNK-ID" id="MIR-BNK-ID" stype="Text" maxlength="4" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="Branch">Branch ID:</label>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <input type="text" value=" " name="Branch" id="Branch" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" branch="MIR-BNK-BR-ID" jpnsubbranch="SubBranch" onblur="updateBranch('Branch')" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="SubBranch">Sub Branch:</label>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <input type="text" value=" " name="SubBranch" id="SubBranch" stype="text" maxlength="2" onfocus="enterField(this)" size="20" branch="MIR-BNK-BR-ID" jpnbranch="Branch" onblur="updateBranch('SubBranch')" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-ACCT-ID">Bank Account Number:</label>
+                    </td>
+                    <td class="celllabelleftalign" colspan="3">
+                        <input type="text" value=" " name="MIR-BNK-ACCT-ID" id="MIR-BNK-ACCT-ID" stype="Text" maxlength="17" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/JapaneseBranch.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

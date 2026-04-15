@@ -1,0 +1,194 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:13 PM EDT
+*
+*********************************************************************************
+*  Component:   AppNonmedFamilyHistory.htm                                     
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  016423  602J     New for release 602J                                       
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                              
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>AppNonmedFamilyHistory</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoadCustom()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <div align="right">
+                <table>
+                    <tr>
+                        <td class="celldisplaykeylabel">
+                            <label for="MIR-DV-INSRD-CLI-NM">申込者:</label>
+                        </td>
+                        <td class="celldisplaykey">
+                            <span id="MIR-DV-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <table class="tabledataentrynoborder">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-HIST-UNKNWN-IND">申込者は家族履歴を把握している</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="radio" name="MIR-HIST-UNKNWN-IND" value="N" stype="YesNoUnanswered" onclick="showHideFamilyHistory(this);onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-HIST-UNKNWN-IND" value="Y" stype="YesNoUnanswered" onclick="showHideFamilyHistory(this);onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-HIST-UNKNWN-IND" value=" " stype="YesNoUnanswered" onclick="showHideFamilyHistory(this);onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <span id="familyHistoryFields">
+                <table class="tabledataentry">
+                    <tr>
+                        <td class="celldataentryheading" colspan="8">家族履歴</td>
+                    </tr>
+                    <tr>
+                        <td class="celldataentryheading">
+                            <label for="MIR-CLI-REL-LVNG-AGE-T[1]">家族</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-CLI-REL-LVNG-QTY-T[1]">生存者数</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-CLI-REL-DTH-QTY-T[1]">死亡者数</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-CLI-REL-LVNG-AGE-T[1]">年齢（生存者）</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-CLI-REL-DTH-AGE-T[1]">享年（死亡者）</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-REL-HLTH-STATE-CD-T[1]">健康状態／死亡原因</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-HERED-DISORD-1-CD-T[1]">遺伝性疾患(1)</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-HERED-DISORD-2-CD-T[1]">遺伝性疾患(2)</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="celllabelrightalign">父親:</td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-LVNG-QTY-T[1]" id="MIR-CLI-REL-LVNG-QTY-T[1]" stype="Text" displayonly="yes" disabled="yes" maxlength="2" onfocus="enterField(this)" size="10" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-DTH-QTY-T[1]" id="MIR-CLI-REL-DTH-QTY-T[1]" stype="Text" displayonly="yes" disabled="yes" maxlength="2" onfocus="enterField(this)" size="10" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-LVNG-AGE-T[1]" id="MIR-CLI-REL-LVNG-AGE-T[1]" size="12" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-DTH-AGE-T[1]" id="MIR-CLI-REL-DTH-AGE-T[1]" size="12" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-REL-HLTH-STATE-CD-T[1]" id="MIR-REL-HLTH-STATE-CD-T[1]" size="1" stype="Selection" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-HERED-DISORD-1-CD-T[1]" id="MIR-HERED-DISORD-1-CD-T[1]" size="1" stype="Selection" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-HERED-DISORD-2-CD-T[1]" id="MIR-HERED-DISORD-2-CD-T[1]" size="1" stype="Selection" onfocus="enterField(this)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="celllabelrightalign">母親:</td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-LVNG-QTY-T[2]" id="MIR-CLI-REL-LVNG-QTY-T[2]" stype="Text" displayonly="yes" disabled="yes" maxlength="2" onfocus="enterField(this)" size="10" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-DTH-QTY-T[2]" id="MIR-CLI-REL-DTH-QTY-T[2]" stype="Text" displayonly="yes" disabled="yes" maxlength="2" onfocus="enterField(this)" size="10" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-LVNG-AGE-T[2]" id="MIR-CLI-REL-LVNG-AGE-T[2]" size="12" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-DTH-AGE-T[2]" id="MIR-CLI-REL-DTH-AGE-T[2]" size="12" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-REL-HLTH-STATE-CD-T[2]" id="MIR-REL-HLTH-STATE-CD-T[2]" size="1" stype="Selection" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-HERED-DISORD-1-CD-T[2]" id="MIR-HERED-DISORD-1-CD-T[2]" size="1" stype="Selection" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-HERED-DISORD-2-CD-T[2]" id="MIR-HERED-DISORD-2-CD-T[2]" size="1" stype="Selection" onfocus="enterField(this)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="celllabelrightalign">兄弟:</td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-LVNG-QTY-T[3]" id="MIR-CLI-REL-LVNG-QTY-T[3]" stype="Text" maxlength="2" onfocus="enterField(this)" size="10" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-DTH-QTY-T[3]" id="MIR-CLI-REL-DTH-QTY-T[3]" stype="Text" maxlength="2" onfocus="enterField(this)" size="10" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-LVNG-AGE-T[3]" id="MIR-CLI-REL-LVNG-AGE-T[3]" size="12" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-DTH-AGE-T[3]" id="MIR-CLI-REL-DTH-AGE-T[3]" size="12" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-REL-HLTH-STATE-CD-T[3]" id="MIR-REL-HLTH-STATE-CD-T[3]" size="1" stype="Selection" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-HERED-DISORD-1-CD-T[3]" id="MIR-HERED-DISORD-1-CD-T[3]" size="1" stype="Selection" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-HERED-DISORD-2-CD-T[3]" id="MIR-HERED-DISORD-2-CD-T[3]" size="1" stype="Selection" onfocus="enterField(this)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="celllabelrightalign">姉妹:</td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-LVNG-QTY-T[4]" id="MIR-CLI-REL-LVNG-QTY-T[4]" stype="Text" maxlength="2" onfocus="enterField(this)" size="10" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-DTH-QTY-T[4]" id="MIR-CLI-REL-DTH-QTY-T[4]" stype="Text" maxlength="2" onfocus="enterField(this)" size="10" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-LVNG-AGE-T[4]" id="MIR-CLI-REL-LVNG-AGE-T[4]" size="12" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-CLI-REL-DTH-AGE-T[4]" id="MIR-CLI-REL-DTH-AGE-T[4]" size="12" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-REL-HLTH-STATE-CD-T[4]" id="MIR-REL-HLTH-STATE-CD-T[4]" size="1" stype="Selection" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-HERED-DISORD-1-CD-T[4]" id="MIR-HERED-DISORD-1-CD-T[4]" size="1" stype="Selection" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-HERED-DISORD-2-CD-T[4]" id="MIR-HERED-DISORD-2-CD-T[4]" size="1" stype="Selection" onfocus="enterField(this)" />
+                        </td>
+                    </tr>
+                </table>
+            </span>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/AppNonmedFamilyHistory.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

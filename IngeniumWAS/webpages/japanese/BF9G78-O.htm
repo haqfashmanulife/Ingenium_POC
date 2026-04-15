@@ -1,0 +1,430 @@
+<!--
+* Converted to Pathfinder 3.0 on Dec 12, 2024 10:39:22 AM EDT
+*
+*********************************************************************************
+*  Component:   BF9G78-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  UYDM36     CTS      INITIAL VERSION OF UNISYS ANNUITY POLICY INQUIRY SCREEN
+********************************************************************************
+ -->
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9G78-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad(); dynamicHide();">
+        <br />
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+	    <table class="tabledisplaykey">
+             <tr><td class="celldisplaykeylabel"> <label for="MIR-ANTY-TYP-CD">年金種類コード:</label></td><td class="celldisplaykey"><span id="MIR-ANTY-TYP-CD" stype="Text" displayonly="yes">MIR-ANTY-TYP-CD</span></td>
+             <td class="celldisplaykeylabel"> <label for="MIR-ANTY-PMT-STRT-DT">年金支払開始年月日:</label></td><td class="celldisplaykey"><span id="MIR-ANTY-PMT-STRT-DT" stype="Text" displayonly="yes">MIR-ANTY-PMT-STRT-DT</span></td></tr>
+             <tr><td class="celldisplaykeylabel"> <label for="MIR-ANTY-POL-ID">年金証書番号:</label></td><td class="celldisplaykey"><span id="MIR-ANTY-POL-ID" stype="Text" displayonly="yes">MIR-ANTY-POL-ID</span></td>
+             <td class="celldisplaykeylabel"> <label for="MIR-ANTY-TYP">年金種類:</label></td><td class="celldisplaykey"><span id="MIR-ANTY-TYP" stype="Text" displayonly="yes">MIR-ANTY-TYP</span></td></tr>
+             <tr><td class="celldisplaykeylabel"> <label for="MIR-BNFY-NM-KANA">受取人氏名（カナ）:</label></td><td class="celldisplaykey"><span id="MIR-BNFY-NM-KANA" stype="Text" displayonly="yes">MIR-BNFY-NM-KANA</span></td>
+             <td class="celldisplaykeylabel"> <label for="MIR-ANTY-MODEL">年金型:</label></td><td class="celldisplaykey"><span id="MIR-ANTY-MODEL" stype="Text" displayonly="yes">MIR-ANTY-MODEL</span></td></tr>
+             <tr><td class="celldisplaykeylabel"> <label for="MIR-INSRD-NM-KANA">被保険者名（カナ）:</label></td><td class="celldisplaykey"><span id="MIR-INSRD-NM-KANA" stype="Text" displayonly="yes">MIR-INSRD-NM-KANA</span></td>
+             <td class="celldisplaykeylabel"> <label for="MIR-ANTY-PMT-DUR">年金支払期間:</label></td><td class="celldisplaykey"><span id="MIR-ANTY-PMT-DUR" stype="Text" displayonly="yes">MIR-ANTY-PMT-DUR</span></td></tr>
+             <tr><td class="celldisplaykeylabel"> <label for=""></label></td><td class="celldisplaykey"><span id="" stype="Text" displayonly="yes"></span></td>
+             <td class="celldisplaykeylabel"> <label for="MIR-GUAR-DUR">保証期間:</label></td><td class="celldisplaykey"><span id="MIR-GUAR-DUR" stype="Text" displayonly="yes">MIR-GUAR-DUR</span></td></tr>
+        </table>
+        <br/>
+        <center>
+        	<table class="tableanchors">
+		    	<tbody><tr>
+		        	<td class="cellanchors">
+		                 <a href="#Banking Payout Information"> 銀行口座 </a>
+		            </td>
+
+		            <td class="cellanchors">
+		                 <a href="#Annuity Payment Information"> 年金支払情報 </a>
+		            </td>
+		        </tr>
+		        </tbody>
+		  	</table>
+	    </center>
+	    <br/>
+	    <table class="tabledisplay">
+			<tbody>
+				<tr>
+				    <td class="celldisplayheading" colspan="10">
+				        <a name="Agent">基本G</a>
+		   		    </td>
+		   		</tr>
+		        <tr>
+		        	<td class="celldisplaylabel">
+	 	               <label for="MIR-BASIC-ANTY-ANN-PMT">基本年金年額:</label>
+	              	</td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-BASIC-ANTY-ANN-PMT" stype="Text">MIR-BASIC-ANTY-ANN-PMT</span>
+		            </td>
+		            <td class="celldisplaylabel">
+		                <label for="MIR-INCR-ANTY-AMT">増額年金額:</label>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-INCR-ANTY-AMT" stype="Text">MIR-INCR-ANTY-AMT</span>
+		            </td>
+
+		            <td class="celldisplaylabel">
+		                <label for="MIR-ANTY-FND-SETUP-DT">年金基金設定年月日（年金確定日）:</label>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-ANTY-FND-SETUP-DT" stype="Text">MIR-ANTY-FND-SETUP-DT</span>
+		            </td>
+
+		            <td class="celldisplaylabel">
+		                <label for="MIR-ANTY-RESRC">年金原資:</label>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-ANTY-RESRC" stype="Text">MIR-ANTY-RESRC</span>
+		            </td>
+
+		            <td class="celldisplaylabel">
+		                <label for="MIR-CUM-ANTY-PMT-VALU">累計年金支払額:</label>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-CUM-ANTY-PMT-VALU" stype="Text">MIR-CUM-ANTY-PMT-VALU</span>
+		            </td>
+		  		</tr>
+            </tbody>
+    	</table>
+    	<br/>
+    	<table class="tabledisplay">
+			<tbody>
+				<tr>
+				    <td class="celldisplayheading" colspan="10">
+				        <a name="Agent">受取人G</a>
+		   		    </td>
+		   		</tr>
+		        <tr>
+			        <td class="celldisplaylabel">
+		 	           <label for="MIR-BNFY-BTH-DT">受取人生年月日:</label>
+		            </td>
+			        <td class="celldisplay">
+			            <span displayonly="yes" id="MIR-BNFY-BTH-DT" stype="Text">MIR-BNFY-BTH-DT</span>
+			        </td>
+			        <td class="celldisplaylabel">
+			            <label for="MIR-BNFY-SEX-CD">受取人性別:</label>
+			        </td>
+			        <td class="celldisplay">
+			            <span displayonly="yes" id="MIR-BNFY-SEX-CD" stype="Text">MIR-BNFY-SEX-CD</span>
+			        </td>
+			  	</tr>
+	    	</tbody>
+    	</table>
+    	<br/>
+    	<table class="tabledisplay">
+			<tbody>
+				<tr>
+				    <td class="celldisplayheading" colspan="10">
+				        <a name="Agent">ビットＧ</a>
+		   		    </td>
+		   		</tr>
+		        <tr>
+		        	<td class="celldisplaylabel">
+	 	               <label for="MIR-BIT-G-TRMN-CD">消滅:</label>
+	              	</td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-BIT-G-TRMN-CD" stype="Text">MIR-BIT-G-TRMN-CD</span>
+		            </td>
+		            <td class="celldisplaylabel">
+		                <label for="MIR-OT-PMT-MD">一時支払済:</label>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-OT-PMT-MD" stype="Text">MIR-OT-PMT-MD</span>
+		            </td>
+
+		            <td class="celldisplaylabel">
+		                <label for="MIR-ANTY-MVT-NUM">年金移行なし:</label>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-ANTY-MVT-NUM" stype="Text">MIR-ANTY-MVT-NUM</span>
+		            </td>
+
+		            <td class="celldisplaylabel">
+		                <label for="MIR-PERM-DISAB-CD">高度障害:</label>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-PERM-DISAB-CD" stype="Text">MIR-PERM-DISAB-CD</span>
+		            </td>
+
+		            <td class="celldisplaylabel">
+		                <label for="MIR-COND-CHNG-POL-ID">条件変更契約:</label>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-COND-CHNG-POL-ID" stype="Text">MIR-COND-CHNG-POL-ID</span>
+		            </td>
+			  	</tr>
+	    	</tbody>
+    	</table>
+    	<br/>
+    	<table class="tabledisplay">
+			<tbody>
+				<tr>
+				    <td class="celldisplayheading" colspan="10">
+				        <a name="Agent">異動G</a>
+		   		    </td>
+		   		</tr>
+		        <tr>
+			        <td class="celldisplaylabel">
+		 	           <label for="MIR-MVT-G-XFER-CD">異動コード:</label>
+		            </td>
+			        <td class="celldisplay">
+			            <span displayonly="yes" id="MIR-MVT-G-XFER-CD" stype="Text">MIR-MVT-G-XFER-CD</span>
+			        </td>
+			        <td class="celldisplaylabel">
+			            <label for="MIR-MVT-G-XFER-DT">異動年月日:</label>
+			        </td>
+			        <td class="celldisplay">
+			            <span displayonly="yes" id="MIR-MVT-G-XFER-DT" stype="Text">MIR-MVT-G-XFER-DT</span>
+			        </td>
+			  	</tr>
+	    	</tbody>
+    	</table>
+    	<br/>
+    	<table class="tabledisplay">
+			<tbody>
+				<tr>
+				    <td class="celldisplayheading" colspan="10">
+				        <a name="Agent">源泉税関係Ｇ</a>
+		   		    </td>
+		   		</tr>
+		        <tr>
+		        	<td class="celldisplaylabel">
+	 	               <label for="MIR-REQD-XPNS-RT">必要経費率:</label>
+	              	</td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-REQD-XPNS-RT" stype="Text">MIR-REQD-XPNS-RT</span>
+		            </td>
+		            <td class="celldisplaylabel">
+		                <label for="MIR-NET-PREM-PD">正味既払込保険料:</label>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-NET-PREM-PD" stype="Text">MIR-NET-PREM-PD</span>
+		            </td>
+
+		            <td class="celldisplaylabel">
+		                <label for="MIR-TOT-PREM-PD">払込保険料合計:</label>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-TOT-PREM-PD" stype="Text">MIR-TOT-PREM-PD</span>
+		            </td>
+
+		            <td class="celldisplaylabel">
+		                <label for="MIR-WTHLD-TXEMP-IND">源泉徴収非適用フラグ:</label>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-WTHLD-TXEMP-IND" stype="Text">MIR-WTHLD-TXEMP-IND</span>
+		            </td>
+			  	</tr>
+	    	</tbody>
+    	</table>
+    	<br/>
+    	<table class="tabledisplay">
+			<tbody>
+				<tr>
+				    <td class="celldisplayheading" colspan="10">
+				        <a name="Agent">据置Ｇ</a>
+		   		    </td>
+		   		</tr>
+		        <tr>
+			        <td class="celldisplaylabel">
+		 	           <label for="MIR-DEFR-DUR">据置期間:</label>
+		            </td>
+			        <td class="celldisplay">
+			            <span displayonly="yes" id="MIR-DEFR-DUR" stype="Text">MIR-DEFR-DUR</span>
+			        </td>
+			        <td class="celldisplaylabel">
+			            <label for="MIR-DEFR-STRT-DT">据置開始年月日:</label>
+			        </td>
+			        <td class="celldisplay">
+			            <span displayonly="yes" id="MIR-DEFR-STRT-DT" stype="Text">MIR-DEFR-STRT-DT</span>
+			        </td>
+			  	</tr>
+	    	</tbody>
+    	</table>
+    	<br/>
+    	<table class="tabledisplay">
+			<tbody>
+				<tr>
+				    <td class="celldisplayheading" colspan="10">
+				        <a name="Agent">条件変更G基本３</a>
+		   		    </td>
+		   		</tr>
+		        <tr>
+			        <td class="celldisplaylabel">
+		 	           <label for="MIR-SURR-BASE-ANTY-AMT-3">解約用基本年金額:</label>
+		            </td>
+			        <td class="celldisplay">
+			            <span displayonly="yes" id="MIR-SURR-BASE-ANTY-AMT-3" stype="Text">MIR-SURR-BASE-ANTY-AMT-3</span>
+			        </td>
+			        <td class="celldisplaylabel">
+			            <label for="MIR-ENH-SURR-AMT-ON-DT">解約用増額年金額（基準日時点）:</label>
+			        </td>
+			        <td class="celldisplay">
+			            <span displayonly="yes" id="MIR-ENH-SURR-AMT-ON-DT" stype="Text">MIR-ENH-SURR-AMT-ON-DT</span>
+			        </td>
+			  	</tr>
+	    	</tbody>
+    	</table>
+    	<br/>
+    	<table class="tabledisplay" id="Banking Payout Information">
+			<tbody>
+				<tr>
+				    <td class="celldisplayheading" colspan="10">
+				        <a name="Agent">銀行口座G</a>
+		   		    </td>
+		   		</tr>
+		        <tr>
+		        	<td class="celldisplaylabel">
+	 	               <label for="MIR-BNK-CD">銀行コード:</label>
+	              	</td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-BNK-CD" stype="Text">MIR-BNK-CD</span>
+		            </td>
+		            <td class="celldisplaylabel">
+		                <label for="MIR-BRCH-CD">支店コード:</label>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-BRCH-CD" stype="Text">MIR-BRCH-CD</span>
+		            </td>
+
+		            <td class="celldisplaylabel">
+		                <label for="MIR-BNK-ACCT-TYP">口座種類:</label>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-BNK-ACCT-TYP" stype="Text">MIR-BNK-ACCT-TYP</span>
+		            </td>
+
+		            <td class="celldisplaylabel">
+		                <label for="MIR-BNK-ACCT-NUM">口座番号:</label>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-BNK-ACCT-NUM" stype="Text">MIR-BNK-ACCT-NUM</span>
+		            </td>
+
+		            <td class="celldisplaylabel">
+		                <label for="MIR-BNK-ACCT-HLDR-NM">口座名義人（カナ）:</label>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-BNK-ACCT-HLDR-NM" stype="Text">MIR-BNK-ACCT-HLDR-NM</span>
+		            </td>
+			  	</tr>
+	    	</tbody>
+    	</table>
+    	<br/>
+		<p align="right">
+			<a class="backtotop" href="#top">
+				<img alt="Back to top" border="0" height="14" src="../images/top.gif" width="14">Back to top </img>
+			</a>
+		</p>
+    	<table class="tabledisplay" genrows="0" keyfield="0" id="Annuity Payment Information">
+			<tbody>
+				<tr>
+ 	              <td class="celldisplayheading" colspan="13">年金支扎情報</td>
+		        </tr>
+		        <tr>
+		        	<td class="celldisplayheading" headingrow="yes">
+		                 <label for="MIR-ANTY-SR-NUM-T[]">連番</label>
+		             </td>
+		             <td class="celldisplayheading" headingrow="yes">
+		                 <label for="MIR-PYMT-DT-YMD-T[]">支払年月日</label>
+		             </td>
+		             <td class="celldisplayheading" headingrow="yes">
+		                 <label for="MIR-PYMT-CLAS-1-T[]">支払区分１</label>
+		             </td>
+		             <td class="celldisplayheading" headingrow="yes">
+		                 <label for="MIR-PYMT-CLAS-2-T[]">支払区分２</label>
+		             </td>
+		             <td class="celldisplayheading" headingrow="yes">
+		                 <label for="MIR-PYMT-FISC-YR-T[]">支払年度</label>
+		             </td>
+		             <td class="celldisplayheading" headingrow="yes">
+		                 <label for="MIR-PYMT-FREQ-T[]">支払回目</label>
+		             </td>
+		             <td class="celldisplayheading" headingrow="yes">
+		                 <label for="MIR-BASE-ANTY-YR-AMT-T[]">基本年金年（月）額</label>
+		             </td>
+		             <td class="celldisplayheading" headingrow="yes">
+		                 <label for="MIR-DIV-AMT-T[]">配当金額</label>
+		             </td>
+		             <td class="celldisplayheading" headingrow="yes">
+		                 <label for="MIR-INC-ANTY-AMT-T[]">増加年金額</label>
+		             </td>
+		             <td class="celldisplayheading" headingrow="yes">
+		                 <label for="MIR-INT-AMT-T[]">分割支払時利息額</label>
+		             </td>
+		             <td class="celldisplayheading" headingrow="yes">
+		                 <label for="MIR-TAX-AMT-T[]">源泉徴収税額</label>
+		             </td>
+		             <td class="celldisplayheading" headingrow="yes">
+		                 <label for="MIR-NET-AMT-T[]">差引支払金額</label>
+		             </td>
+		             <td class="celldisplayheading" headingrow="yes">
+		                 <label for="MIR-PYMT-MTHD-T[]">支払方法</label>
+		             </td>
+		     	</tr>
+		        <tr>
+		        	<td class="celldisplay">
+		                <span displayonly="yes" id="MIR-ANTY-SR-NUM-T[]" stype="Text">MIR-ANTY-SR-NUM-T[]</span>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-PYMT-DT-YMD-T[]" stype="Text">MIR-PYMT-DT-YMD-T[]</span>
+		            </td>
+		            <td class="celldisplay">
+						<span displayonly="yes" id="MIR-PYMT-CLAS-1-T[]" stype="Text">MIR-PYMT-CLAS-1-T[]</span>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-PYMT-CLAS-2-T[]" stype="Text">MIR-PYMT-CLAS-2-T[]</span>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-PYMT-FISC-YR-T[]" stype="Text">MIR-PYMT-FISC-YR-T[]</span>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-PYMT-FREQ-T[]" stype="Text">MIR-PYMT-FREQ-T[]</span>
+		            </td>
+		            <td class="celldisplay">
+						<span displayonly="yes" id="MIR-BASE-ANTY-YR-AMT-T[]" stype="Text">MIR-BASE-ANTY-YR-AMT-T[]</span>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-DIV-AMT-T[]" stype="Text">MIR-DIV-AMT-T[]</span>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-INC-ANTY-AMT-T[]" stype="Text">MIR-INC-ANTY-AMT-T[]</span>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-INT-AMT-T[]" stype="Text">MIR-INT-AMT-T[]</span>
+		            </td>
+		            <td class="celldisplay">
+						<span displayonly="yes" id="MIR-TAX-AMT-T[]" stype="Text">MIR-TAX-AMT-T[]</span>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-NET-AMT-T[]" stype="Text">MIR-NET-AMT-T[]</span>
+		            </td>
+		            <td class="celldisplay">
+		                <span displayonly="yes" id="MIR-PYMT-MTHD-T[]" stype="Text">MIR-PYMT-MTHD-T[]</span>
+		            </td>
+                </tr>
+    	</tbody>
+    </table>
+    <br/>
+	<p align="right">
+		<a class="backtotop" href="#top">
+			<img alt="Back to top" border="0" height="14" src="../images/top.gif" width="14">Back to top </img>
+		</a>
+	</p>
+    </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/BF9G78.js"></script>
+</html>

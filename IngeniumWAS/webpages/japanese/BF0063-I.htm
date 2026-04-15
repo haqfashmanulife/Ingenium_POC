@@ -1,0 +1,135 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:13 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0063-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                           
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0063-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(passwordCrossEdit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-USER-PSWD-TXT">パスワード:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="password" value=" " name="MIR-USER-PSWD-TXT" id="MIR-USER-PSWD-TXT" stype="Text" maxlength="8" mandatory="yes" onfocus="enterField(this)" size="20" tabindex="1" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-USER-PSWD-TXT-2">新パスワード:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="password" value=" " name="MIR-USER-PSWD-TXT-2" id="MIR-USER-PSWD-TXT-2" stype="Text" maxlength="8" mandatory="yes" onfocus="enterField(this)" size="20" tabindex="2" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-USER-PSWD-TXT-3">新パスワード再入力:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="password" value=" " name="MIR-USER-PSWD-TXT-3" id="MIR-USER-PSWD-TXT-3" stype="Text" maxlength="8" mandatory="yes" onfocus="enterField(this)" size="20" tabindex="3" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script>
+
+function passwordCrossEdit()
+
+// This script will enforce the following rules:
+
+//      1.      passwords 2 and 3 must be the same
+
+//      2.      passwords 1 and 2 must be different
+
+{
+
+//+----------------------------------------------------------------------------------------------
+
+//  If CANCEL button was pressed, return without doing the edits
+
+//+----------------------------------------------------------------------------------------------
+
+	if  (document.getElementById("action").value == "ACTION_BACK")
+
+        {
+
+                return(onSubmit());
+
+        };
+
+//+----------------------------------------------------------------------------------------------
+
+//  If nothing was entered by the user into the password fields, allow normal edits to take place
+
+//+----------------------------------------------------------------------------------------------
+
+        if  (cleanString(document.getElementById("MIR-USER-PSWD-TXT").value)   == "")
+
+                if   (cleanString(document.getElementById("MIR-USER-PSWD-TXT-2").value) == "")
+
+                        if   (cleanString(document.getElementById("MIR-USER-PSWD-TXT-3").value) == "")
+
+                        {
+
+                                return(onSubmit());
+
+                        }
+
+        if  (document.getElementById("MIR-USER-PSWD-TXT-2").value != document.getElementById("MIR-USER-PSWD-TXT-3").value)
+
+        {
+
+                alert("New password is different from Confirmed new password,  please re-enter");
+
+        }
+
+        else if (document.getElementById("MIR-USER-PSWD-TXT").value == document.getElementById("MIR-USER-PSWD-TXT-2").value)
+
+             {
+
+                        alert("New password is the same as the old password,  please change it");
+
+             }
+
+             else
+
+             {
+
+                        return(onSubmit());
+
+             }
+
+}
+
+</script>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

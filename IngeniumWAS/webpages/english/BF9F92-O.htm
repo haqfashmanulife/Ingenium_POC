@@ -1,0 +1,254 @@
+<!--
+# Converted from PathFinder 2.2 to 3.0 Jun 18, 2004 3:13:13 PM EDT
+
+#*******************************************************************************
+#*  Component:   BF9F92-O                                                      *
+#*  Description: CWA REFUND APPROVAL/REJECTION SCREEN                          *
+#*******************************************************************************
+#*  Chg#    Release  Description                                               
+#*                                                                             
+#*  CA0002  CTS      Intial version                                            
+#*  105528  CTS      FIX DONE FOR BANK ACCOUNT NUMBER AND COMMENT              
+#*  105622  CTS      FIX DONE FOR SERVING AGENT NAME                           
+#*  105658  CTS      FIX DONE TO DISPLAY YEN SYMBOL IN PREMIUM AMOUNT FIELD    
+#*  105703  CTS      FIX DONE FOR BANK ACC DETAILS                             
+#*  CA02CR  CTS      CHANGES DONE FOR COMMENT SECTION REMOVAL   
+#*  23774B  CTS      CHANGES DONE FOR IE RETIREMENT PROJECT TO MAKE IT
+#*                   COMPATIBLE FOR MICROSOFT EDGE. CHANGES IN HTML INCLUDE
+#*                   ADDING "ID" ATTRIBUTE FOR ALL INPUT FIELDS AND CHANGES IN
+#*                   JAVA SCRIPTS TO MODIFY CERTAIN FUNCTIONS/COMMANDS WHICH
+#*                   ARE NO LONGER COMPATILBLE WITH EDGE.               
+#*******************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9F92-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<!-- 105658 CHANGE STARTS HERE -->
+    <input type="hidden" name="MIR-PREM-CRCY-CD" id="MIR-PREM-CRCY-CD" stype="Hidden" />
+<!-- 105658 CHANGE ENDS HERE -->
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="8">Policy Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PROD-APP-TYP-CD">Product Application Type:</label>
+                    </td>
+                     <td class="celldisplay">
+                         <span displayonly="yes" id="MIR-PROD-APP-TYP-CD" stype="Text" maxlength="2" />
+                    </td>
+                </tr>
+                <tr>
+                   <td class="celldisplaylabel">
+                        <label for="MIR-POL-APP-FORM-ID">Application Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-POL-APP-FORM-ID" stype="Text" maxlength="15" />
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ID">Policy ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-POL-ID" stype="Text" maxlength="10" />
+                    </td>
+                </tr>
+                <tr>
+                <td class="celldisplaylabel">
+                        <label for="MIR-POL-MPREM-AMT">Total CWA Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+              <!-- CHANGES STARTS FOR 105658 -->                     
+                        <!-- <span displayonly="yes" id="MIR-POL-MPREM-AMT" stype="Text" maxlength="15" /> -->
+                        <span id="MIR-POL-MPREM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes" CurrencyCode="MIR-PREM-CRCY-CD">MIR-POL-MPREM-AMT</span>
+              <!-- CHANGES ENDS FOR 105658 -->          
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-TYP-CD">Billing Method:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-POL-BILL-TYP-CD" stype="Text" maxlength="1" />
+                    </td>
+                 </tr>
+                 <tr>
+                   <td class="celldisplaylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                         <span displayonly="yes" id="MIR-DV-OWN-CLI-NM" stype="Text" maxlength="75" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-INSRD-CLI-NM">Insured Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-DV-INSRD-CLI-NM" stype="Text" maxlength="75" />
+                    </td>
+                  </tr>
+                  <tr>
+                   <td class="celldisplaylabel">
+                        <label for="MIR-SERV-AGT-ID">Servicing Agent ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-SERV-AGT-ID" stype="Text" maxlength="6" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-SERV-AGT-NM">Servicing Agent Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-DV-SERV-AGT-NM" stype="Text" maxlength="75" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="celldisplayheading" colspan="8"> Bank Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" colspan="4">BT Account for the Policy</td>
+                </tr>
+
+                <tr>
+                   <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ID">Bank Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-ID" stype="Text" maxlength="4" />
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-NM">Bank Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-NM" stype="Text" maxlength="36" />
+                    </td>
+                </tr>
+                <tr>
+                <td class="celldisplaylabel">
+                        <label for="MIR-BNK-BR-ID">Branch Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-BR-ID" stype="Text" maxlength="5" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-BR-NM">Branch Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-BR-NM" stype="Text" maxlength="36" />
+                    </td>
+                 </tr>
+                 <tr>
+                   <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-TYP-CD">Account Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-ACCT-TYP-CD" stype="Text" maxlength="3" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-ID">Bank Account Number:</label>
+                    </td>
+                    <td class="celldisplay">
+            <!-- CHANGES STARTS FOR 105528 --> 
+                        <!-- <span displayonly="yes" id="MIR-BNK-ACCT-ID" stype="Text" maxlength="17" /> -->
+            <!-- 105703 CHANGES STARTS HERE --> 
+                        <!-- <span displayonly="yes" id="MIR-BNK-ACCT-ID" stype="Text" maxlength="7" /> -->
+                        <span displayonly="yes" id="MIR-BNK-ACCT-ID" stype="Text" maxlength="17" />
+            <!-- 105703 CHANGES ENDS HERE --> 
+              <!-- CHANGES ENDS FOR 105528 --> 
+                    </td>
+                  </tr>
+                  <tr>
+                   <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-HLDR-NM">Account Holder Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-ACCT-HLDR-NM" stype="Text" maxlength="50" />
+                    </td>
+                </tr>
+               <tr>
+                   <td class="celldisplayheading" colspan="4"> CWA Refund Bank Account</td>
+                </tr>
+                <tr>
+                   <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ID-1">Bank Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-ID-1" stype="Text" maxlength="4" />
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-NM-1">Bank Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-NM-1" stype="Text" maxlength="36" />
+                    </td>
+                </tr>
+                <tr>
+                <td class="celldisplaylabel">
+                        <label for="MIR-BNK-BR-ID-1">Branch Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-BR-ID-1" stype="Text" maxlength="5" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-BR-NM-1">Branch Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-BR-NM-1" stype="Text" maxlength="36" />
+                    </td>
+                 </tr>
+                 <tr>
+                   <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-TYP-CD-1">Account Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-ACCT-TYP-CD-1" stype="Text" maxlength="3" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-ID-1">Bank Account Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                 <!-- CHANGES STARTS FOR 105528 -->
+                      <!--  <span displayonly="yes" id="MIR-BNK-ACCT-ID-1" stype="Text" maxlength="17" /> -->
+                 <!-- 105703 CHANGES STARTS HERE --> 
+                       <!-- <span displayonly="yes" id="MIR-BNK-ACCT-ID-1" stype="Text" maxlength="7" /> -->
+                        <span displayonly="yes" id="MIR-BNK-ACCT-ID-1" stype="Text" maxlength="17" />
+                 <!-- 105703 CHANGES ENDS HERE --> 
+                 <!-- CHANGES ENDS FOR 105528 -->
+                    </td>
+                  </tr>
+                  <tr>
+                   <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-HLDR-NM-1">Account Holder Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-ACCT-HLDR-NM-1" stype="Text" maxlength="75" />
+                    </td>
+                </tr>
+
+                <!-- CA02CR CHANGE STARTS HERE -->
+             <!--  <tr>
+                    <td class="celldisplayheading" colspan="8">Comment</td>
+                </tr>
+                    <td class="celldisplay"> -->
+                  <!-- CHANGES STARTS FOR 105528 -->
+                        <!-- <span displayonly="yes" id="MIR-POL-COMNT-TXT" stype="Text" maxlength="237" /> -->
+                        <!-- <span displayonly="yes" id="MIR-POL-COMNT-TXT" stype="Text" maxlength="60" /> -->
+                 <!-- CHANGES ENDS FOR 105528 -->
+                 <!--   </td> -->
+<!-- CA02CR CHANGE ENDS HERE -->
+
+                </table>
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

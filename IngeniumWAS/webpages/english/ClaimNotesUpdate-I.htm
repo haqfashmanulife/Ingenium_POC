@@ -1,0 +1,110 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:53 PM EDT
+*
+*********************************************************************************
+*  Component:   ClaimNotesUpdate-I.htm                                       
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  HCL110  HIN/CL   CLAIM REQUIREMENTS                                         
+*  HCCL05  HIN/CL   Pick-up Facility (add Historical Claim Indicator)
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                       
+*  UYSDMC  CTS      USYS CLAIM IND ADDITION                                                                              
+*********************************************************************************
+ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ClaimNotesUpdate-I</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<body class="bodyws">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<p><input type="hidden" name="action" id="action" stype="Hidden"/>
+</p>
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-CLM-ID">Master Claim ID:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-CLM-ID" stype="Text" displayonly="yes">MIR-CLM-ID</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-FTXT-TEXT-SEQ-NBR">Sequence Number:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-FTXT-TEXT-SEQ-NBR" stype="Text" displayonly="yes">MIR-FTXT-TEXT-SEQ-NBR</span></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-CLMA-INSRD-CLI-ID">Insured Client ID:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-CLMA-INSRD-CLI-ID" stype="Text" displayonly="yes">MIR-CLMA-INSRD-CLI-ID</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-DV-CLI-NM">Insured Name:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-DV-CLI-NM" stype="Text" displayonly="yes">MIR-DV-CLI-NM</span></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-CLI-BTH-DT">Birth Date:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-CLI-BTH-DT" stype="Text" displayonly="yes">MIR-CLI-BTH-DT</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-CLI-SEX-CD">Sex:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-CLMA-HO-ACPT-DT">Head Office Claim Form Acceptance Date:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-CLMA-HO-ACPT-DT" stype="Text" displayonly="yes">MIR-CLMA-HO-ACPT-DT</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-CLMA-CLM-STAT-CD">Master Claim Status:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-CLMA-CLM-STAT-CD" stype="Text" displayonly="yes">MIR-CLMA-CLM-STAT-CD</span></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-PREV-UPDT-DT">Previous Update Date:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-PREV-UPDT-DT" stype="Text" displayonly="yes">MIR-PREV-UPDT-DT</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-PREV-UPDT-USER-ID">Previous Update User ID:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-PREV-UPDT-USER-ID" stype="Text" displayonly="yes">MIR-PREV-UPDT-USER-ID</span></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+<!-- UYSDMC CHANGES START -->					
+                        <label for="MIR-CLMA-USYS-CLM-IND">Unisys Claim:</label>
+<!-- UYSDMC CHANGES END -->                    
+					</td>
+<!-- UYSDMC CHANGES START -->					
+<!-- <td class="celldisplaykeylabel">
+                    </td> -->					
+                    <td class="celldisplaykey">
+                        <input type="checkbox" name="MIR-CLMA-USYS-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+<!-- UYSDMC CHANGES END -->
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLMA-HIST-CLM-IND">Historical Claim:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <input type="checkbox" name="MIR-CLMA-HIST-CLM-IND" id="MIR-CLMA-HIST-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                </tr>
+             </table>
+        <br />
+            <center>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="1">Claim Note</td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <textarea rows="6" name="MIR-FTXT-CMNT-INFO" id="MIR-FTXT-CMNT-INFO" cols="90"
+                         style="overflow:hidden" onfocus="enterField(this)"
+                         wrap="soft" stype="Text"
+                         onkeydown="return checkMaxLength(this, event, 250)"
+                         onselect="storeSelection(this)"></textarea>
+                    </td>
+                </tr>
+            </table>
+            </center>
+</form>
+</body>
+
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<script src="../js/checkMaxLength.js"></script>
+<script src="../js/storeSelection.js"></script>
+</html>

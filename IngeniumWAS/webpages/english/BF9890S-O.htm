@@ -1,0 +1,170 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:52 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9890S-I.htm
+*  Description: Disease/Surgery Retrieve - Output (Surgery)
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  HCL111  HIN/CL   DISEASE AND SURGERY TABLES
+*  MP143R CTS        ADDITION OF NEW FIELDS
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>BF9890S-O</title>
+    <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<body class="bodyws">
+    <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+        <input type="hidden" name="index" id="index" stype="Hidden"/>
+        <input type="hidden" name="action" id="action" stype="Hidden"/>
+
+        <table class="tabledisplaykey">
+            <tr>
+                <td class="celldisplaykeylabel">
+                    <label for="MIR-MEDIC-CD">Medical Type:</label>
+                </td>
+                <td class="celldisplaykey">
+                    <span id="MIR-MEDIC-CD" stype="Text" displayonly="yes">MIR-MEDIC-CD</span>
+                </td>
+                <td class="celldisplaykeylabel">
+                    <label for="MIR-MEDC-ID">Surgery Code:</label>
+                </td>
+                <td class="celldisplaykey">
+                    <span id="MIR-MEDC-ID" stype="Text" displayonly="yes">MIR-MEDC-ID</span>
+                </td>
+            </tr>
+        </table>
+
+        <p><h2>Surgery Name</h2></p>
+        <table class="tabledisplay">
+            <tr>
+                <td class="celldisplaylabel">
+                    <label for="MIR-LANG-DESC-1-TXT">Katakana Name:</label>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-LANG-DESC-1-TXT" stype="Text" displayonly="yes">MIR-LANG-DESC-1-TXT</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="celldisplaylabel">
+                    <label for="MIR-LANG-DESC-2-TXT">Kanji Name:</label>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-LANG-DESC-2-TXT" stype="Text" displayonly="yes">MIR-LANG-DESC-2-TXT</span>
+                </td>
+            </tr>
+        </table>
+
+        <p><h2>Surgery Subtype</h2></p>
+        <table class="tabledisplay">
+            <tr>
+                <td class="celldisplaylabel">
+                    <label for="MIR-MEDC-SUBTYP-CD">Surgery Subtype:</label>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-MEDC-SUBTYP-CD" stype="Text" displayonly="yes">MIR-MEDC-SUBTYP-CD</span>
+                </td>
+            </tr>
+        </table>
+
+        <p><h2>Benefit Category</h2></p>
+        <table class="tabledisplay" genrows="0" keyfield="0">
+            <tr>
+                <td class="celldisplayheading">
+                    <label for="MIR-T1-MEDIC-CAT-CD-T[1]">Category Name</label>
+                </td>
+                <td class="celldisplayheading">
+                    <label for="MIR-T1-SELECT-T[1]">Select</label>
+                </td>
+                <td class="celldisplayheading" colspan="2">
+                    <label for="MIR-T1-GRP-MEDC-ID-T[1]">Major Code</label>
+                </td>
+                <td class="celldisplayheading">
+                    <label for="MIR-T1-MCAD-REF-CD-T[1]">Eligibility</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="celldisplay">
+                    <span id="MIR-T1-MEDIC-CAT-CD-T[]" stype="Text" displayonly="yes">MIR-T1-MEDIC-CAT-CD-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <input type="checkbox" name="MIR-T1-SELECT-T[]" id="MIR-T1-SELECT-T[]" stype="Indicator" value="Y" disabled="yes"/>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-T1-GRP-MEDC-ID-T[]" stype="Text" displayonly="yes">MIR-T1-GRP-MEDC-ID-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-T1-GRP-LANG-DESC-1-TXT-T[]" stype="Text" displayonly="yes">MIR-T1-GRP-LANG-DESC-1-TXT-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-T1-MCAD-REF-CD-T[]" stype="Text" displayonly="yes">MIR-T1-MCAD-REF-CD-T[]</span>
+                </td>
+            </tr>
+        </table>
+
+        <p><h2>Business Rule</h2></p>
+        <table class="tabledisplay" genrows="0" keyfield="0">
+            <tr>
+                <td class="celldisplayheading">
+                    <label for="MIR-T2-MEDIC-CAT-CD-T[1]">Category Name</label>
+                </td>
+                <td class="celldisplayheading">
+                    <label for="MIR-T2-MCAT-TYP-CD-T[1]">Category Type</label>
+                </td>
+                <td class="celldisplayheading">
+                    <label for="MIR-T2-SELECT-T[1]">Select</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="celldisplay">
+                    <span id="MIR-T2-MEDIC-CAT-CD-T[]" stype="Text" displayonly="yes">MIR-T2-MEDIC-CAT-CD-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-T2-MCAT-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-T2-MCAT-TYP-CD-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <input type="checkbox" name="MIR-T2-SELECT-T[]" id="MIR-T2-SELECT-T[]" stype="Indicator" value="Y" disabled="yes"/>
+                </td>
+            </tr>
+        </table>
+
+   <!-- MP143R CHANGES STARTS HERE -->
+        <p><h2>Surgery Effective/Expiry Date</h2></p>
+        <table class="tabledisplay">
+            <tr>
+                <td class="celldisplaylabel">
+                    <label for="MIR-EFF-DT">Effective Date:</label>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-EFF-DT" stype="Text" displayonly="yes">MIR-EFF-DT</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="celldisplaylabel">
+                    <label for="MIR-XPRY-DT">Expiry Date:</label>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-XPRY-DT" stype="Text" displayonly="yes">MIR-XPRY-DT</span>
+                </td>
+            </tr>
+        </table>
+<!-- MP143R CHANGES STARTS HERE -->
+
+    </form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+</html>

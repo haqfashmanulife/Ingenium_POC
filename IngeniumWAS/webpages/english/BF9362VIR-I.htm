@@ -1,0 +1,178 @@
+<!--
+*********************************************************************************
+*  Component:   BF9362VIR-I.htm                                                 *
+*  Description: Virtual Quote Condition Input                                   *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  UYS043  CTS      INITIAL VERSION FOR VIRTUAL QUOTE                           *
+**********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9362VIR-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+	    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">	
+        <input type="hidden" name="action" id="action" stype="Hidden" />
+	
+            <table class="tabledisplaykey">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">SURRENDER quote- virtual quote conditions input</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">Process date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-VIR-TRAD-PD-TO-MO-NUM">Next Payment Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                       <input type="text" value=" " name="MIR-VIR-TRAD-PD-TO-MO-NUM"  id="MIR-VIR-TRAD-PD-TO-MO-NUM" stype="Text" maxlength="7" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-VIR-CI-FRST-ELAPS-YRS-DUR">Elapsed years:</label>
+                    </td>
+                    <td class="celldatakey">
+                         <input type="text" value=" " name="MIR-VIR-CI-FRST-ELAPS-YRS-DUR"  id="MIR-VIR-CI-FRST-ELAPS-YRS-DUR" stype="Text" maxlength="7" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-VIR-ACTV-IND">Active:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input name="MIR-VIR-ACTV-IND"  id="MIR-VIR-ACTV-IND" onclick="onCheckBox()" onfocus="enterField(this)" stype="Indicator" type="checkbox" value="Y">(Change to active policy)</input>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-VIR-BILL-MODE-CD">Payment frequency:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-VIR-BILL-MODE-CD"  id="MIR-VIR-BILL-MODE-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-VIR-INS-TYP-CD">Type:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input name="MIR-VIR-INS-TYP-CD"  id="MIR-VIR-INS-TYP-CD"  onfocus="enterField(this)" stype="Text" type="text" value=" " disabled="Yes" />
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-VIR-RPU-POL-CD">RPU Policy Type:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input name="MIR-VIR-RPU-POL-CD"  id="MIR-VIR-RPU-POL-CD"  onfocus="enterField(this)" stype="Text" type="text" value=" " disabled="Yes" />
+                    </td>
+                </tr>
+                <tr>
+                <td class="celldisplaykeylabel">
+                   <label for="MIR-VIR-RPU-NEW-OLD-RT">RPU new/old rate:</label>
+                </td>
+                <td class="celldatakey">
+                   <input name="MIR-VIR-RPU-NEW-OLD-RT"  id="MIR-VIR-RPU-NEW-OLD-RT"  onfocus="enterField(this)" stype="Text" type="text" value=" " disabled="Yes" />
+                </td>
+                <td class="celldisplaykeylabel">
+                   <label for="MIR-VIR-RPU-FACE-AMT">Regular death face amount after RPU:</label>
+                </td>
+                <td class="celldatakey">
+                   <input name="MIR-VIR-RPU-FACE-AMT"  id="MIR-VIR-RPU-FACE-AMT"  onfocus="enterField(this)" stype="Currency" elength="13" signed="yes" type="text" onblur="validateField(this)" value=" " disabled="Yes" />
+                </td>
+                </tr>
+
+                <tr>
+                <td class="celldisplaykeylabel">
+                   <label for="MIR-VIR-LOAN-AMT">Policy Loan Balance:</label>
+                </td>
+                <td class="celldatakey">
+                   <input type="text" value=" " name="MIR-VIR-LOAN-AMT"  id="MIR-VIR-LOAN-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20"  />
+                </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-VIR-INT-STR-DT">Interest start date:</label>
+                    </td>
+                    <td class="celldatakey">
+                       <input type="text" value=" " name="MIR-VIR-INT-STR-DT"  id="MIR-VIR-INT-STR-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+                </tr>
+                <tr>
+                <td class="celldisplaykeylabel">
+                   <label for="MIR-VIR-APL-LOAN-AMT">APL Balance:</label>
+                </td>
+                <td class="celldatakey">
+                   <input type="text" value=" " name="MIR-VIR-APL-LOAN-AMT"  id="MIR-VIR-APL-LOAN-AMT" stype="Currency" elength="13" signed="yes"  onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20"  />
+                </td>
+                <td class="celldisplaykeylabel">
+                   <label for="MIR-VIR-POL-LOAN-EFF-DT">APL Date:</label>
+                </td>
+                <td class="celldisplaykey">
+                   <input type="text" value=" " name="MIR-VIR-POL-LOAN-EFF-DT"  id="MIR-VIR-POL-LOAN-EFF-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-VIR-PREPAY-MNG-IND">Prepayment management:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input name="MIR-VIR-PREPAY-MNG-IND"  id="MIR-VIR-PREPAY-MNG-IND" onclick="onCheckBox()" onfocus="enterField(this)" stype="Indicator" type="checkbox" value="Y">(Blank when no prepayment)</input>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-VIR-SEI-ASS-IND">Seizure Assignment:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="checkbox" name="MIR-VIR-SEI-ASS-IND"  id="MIR-VIR-SEI-ASS-IND" stype="Indicator" value="Y" disabled="Yes" >(Blank has no seizure, assignment)</input>
+                    </td>
+                 </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keycolumn="1" id="CvgInfo">
+                <tr>
+               <td class="celldisplayheading" colspan="18">Face amount</td>
+
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-VIR-CVG-NUM-T[1]">Coverage no.</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-VIR-PLAN-ID-T[1]">Rider Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-VIR-CVG-FACE-AMT-T[1]">Face Amount</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-VIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-VIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-VIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-VIR-PLAN-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-VIR-CVG-FACE-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-VIR-CVG-FACE-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

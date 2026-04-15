@@ -1,0 +1,309 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:38 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1822-I.htm                                                    *
+*  Description:                                                                 *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  014590  6.0      New for release 6.0                                         *
+*  016736  611J     Code cleanup                                                *
+*  017150  612J     Remove Currency decimals="2"                                *
+*  MFPFU2  CLB      Add field for SegFund COI Withdrawal Order                  *
+*  PF30    AKATO    PF 3.0 Retrofit 2004AUG10                                   *
+*  23774B  CTS      Changes done for ie retirement project to make it           *
+*                   compatible for microsoft edge. Changes in html include      *
+*                   adding "id" attribute for all input fields and changes in   *
+*                   java scripts to modify certain functions/commands which     *
+*                   are no longer compatilble with edge.                        *
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1822-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-FND-ID">Fund:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-FND-ID" stype="Text" displayonly="yes">MIR-FND-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Fund Details</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-CRCY-CD">Currency:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FND-CRCY-CD" id="MIR-FND-CRCY-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-STAT-CD">Status:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-FND-STAT-CD" stype="Text" displayonly="yes">MIR-FND-STAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-TYP-CD">Fund Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FND-TYP-CD" id="MIR-FND-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-CREAT-DT">Date Created:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FND-CREAT-DT" id="MIR-FND-CREAT-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-CLOS-DT">Date Closed:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FND-CLOS-DT" id="MIR-FND-CLOS-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-NB-CLOS-DT">Date Closed for New Business:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FND-NB-CLOS-DT" id="MIR-FND-NB-CLOS-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-MGMT-CHRG-PCT">Annual Management Fee:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-FND-MGMT-CHRG-PCT" id="MIR-FND-MGMT-CHRG-PCT" stype="Percent" elength="5" decimals="4" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-XPCT-GRWTH-AMT">Expected Price Growth:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-FND-XPCT-GRWTH-AMT" id="MIR-FND-XPCT-GRWTH-AMT" stype="Percent" elength="3" decimals="0" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-COI-FND-ORDR-CD">COI Withdrawal Fund Level Order:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-COI-FND-ORDR-CD" id="MIR-COI-FND-ORDR-CD" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Unit Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-UNIT-TYP-CD">Unit Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FND-UNIT-TYP-CD" id="MIR-FND-UNIT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-GNRL-VALN-DIR-CD">General Valuation Direction of Fund:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-GNRL-VALN-DIR-CD" id="MIR-GNRL-VALN-DIR-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-PRIC-STRUCT-CD">Price Structure:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FND-PRIC-STRUCT-CD" id="MIR-FND-PRIC-STRUCT-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-PREV-SPLT-DT">Last Split Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-FND-PREV-SPLT-DT" stype="Date" displayonly="yes">MIR-FND-PREV-SPLT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INTG-UNIT-1-QTY">Accumulation Units:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-INTG-UNIT-1-QTY" stype="Number" elength="18" decimals="7" displayonly="yes">MIR-INTG-UNIT-1-QTY</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INTG-UNIT-2-QTY">Initial Units:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-INTG-UNIT-2-QTY" stype="Number" elength="18" decimals="9" displayonly="yes">MIR-INTG-UNIT-2-QTY</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Seed Money</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-PREV-SEED-DT">Last Transaction Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FND-PREV-SEED-DT" id="MIR-FND-PREV-SEED-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INTG-SEED-UNIT-QTY">Seed Money Units:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-INTG-SEED-UNIT-QTY" id="MIR-INTG-SEED-UNIT-QTY" stype="Number" elength="16" decimals="9" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Accuracy (Decimal Quantity) Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-UNIT-ACCUR-QTY">Number of Units:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FND-UNIT-ACCUR-QTY" id="MIR-FND-UNIT-ACCUR-QTY" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-UNIT-RND-CD">Rounding Method:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FND-UNIT-RND-CD" id="MIR-FND-UNIT-RND-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-PRIC-ACCUR-QTY">Unit Price:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FND-PRIC-ACCUR-QTY" id="MIR-FND-PRIC-ACCUR-QTY" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Valuation Period and Valuation
+      Dates</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MIN-VALN-MO-DUR">Minimum Interval (Months):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MIN-VALN-MO-DUR" id="MIR-MIN-VALN-MO-DUR" stype="Text" maxlength="2" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MIN-VALN-DY-DUR">Minimum Interval (Days):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MIN-VALN-DY-DUR" id="MIR-MIN-VALN-DY-DUR" stype="Text" maxlength="2" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-VALN-MO-DUR">Maximum Interval (Months):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-VALN-MO-DUR" id="MIR-MAX-VALN-MO-DUR" stype="Text" maxlength="2" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-VALN-DY-DUR">Maximum Interval (Days):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-VALN-DY-DUR" id="MIR-MAX-VALN-DY-DUR" stype="Text" maxlength="2" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-NXT-VALN-DT">Next Fund Valuation Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-FND-NXT-VALN-DT" stype="Date" displayonly="yes">MIR-FND-NXT-VALN-DT</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-PREV-VALN-DT">Last Fund Valuation Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-FND-PREV-VALN-DT" stype="Date" displayonly="yes">MIR-FND-PREV-VALN-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-UNIT-ALLOC-DT">Last Unit Allocation Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-PREV-UNIT-ALLOC-DT" stype="Date" displayonly="yes">MIR-PREV-UNIT-ALLOC-DT</span>
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Gain / Loss Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-GLA-CD">Allocation:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FND-GLA-CD" id="MIR-FND-GLA-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-GLA-DUR">Duration:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FND-GLA-DUR" id="MIR-FND-GLA-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-REVRS-GLA-CD">Reversal Allocation:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FND-REVRS-GLA-CD" id="MIR-FND-REVRS-GLA-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

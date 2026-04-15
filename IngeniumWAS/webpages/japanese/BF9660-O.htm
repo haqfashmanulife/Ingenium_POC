@@ -1,0 +1,159 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:59 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9660-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  HPR102  HIN/CL   BENEFIT SUPPORT TABLE                                      
+*  RP211d  RP2      ADDED SUBTABLE 4 CODE AND RIDER VERSION CODE
+*  MP143E  CTS      CHANGES TO DISPLAY ALTERNATE MAXIMUM CLAIM UNITS
+*  Q06528  CTS      RIDER MAX AND CLAIM MAX FIELDS ARE INCREASED TO
+*  Q06528           THEIR ACTUL LENGTH MENTIONED IN DB2
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+  <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <title>BF9660-O</title>
+     <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+  </head>
+  <body class="bodyws">
+    <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+        <input type="hidden" name="index" id="index" stype="Hidden" />
+        <input type="hidden" name="action" id="action" stype="Hidden" />
+     <table class="tabledisplaykey">
+        <tr>
+          <td class="celldisplaykeylabel"><label for="MIR-PLAN-ID">プラン:</label></td>
+          <td class="celldisplaykey"><span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span></td>
+          <td class="celldisplaykeylabel"><label for="MIR-BNFT-NM-ID">給付金名:</label></td>
+          <td class="celldisplaykey"><span id="MIR-BNFT-NM-ID" stype="Text" displayonly="yes">MIR-BNFT-NM-ID</span></td>
+        </tr>
+        <tr>
+          <td class="celldisplaykeylabel"><label for="MIR-STBL-2-CD">サブテーブル 2:</label></td>
+          <td class="celldisplaykey"><span id="MIR-STBL-2-CD" stype="Text" displayonly="yes">MIR-STBL-2-CD</span></td>
+          <td class="celldisplaykeylabel"><label for="MIR-STBL-4-CD">サブテーブル 4:</label></td>
+          <td class="celldisplaykey"><span id="MIR-STBL-4-CD" stype="Text" displayonly="yes">MIR-STBL-4-CD</span></td>
+        </tr>
+     </table>
+  <br />
+     <table class="tabledisplay">
+        <tr>
+          <td class="celldisplayheading" colspan="4">プラン給付金詳細</td>
+        </tr>
+        <tr>
+          <td class="celldisplaylabel"><label for="MIR-BENS-BNFT-FCT">給付金ファクター:</label></td>
+          <td class="celldisplay"><span id="MIR-BENS-BNFT-FCT" stype="Number" elength="6" decimals="2"  displayonly="yes">MIR-BENS-BNFT-FCT</span></td>
+          <td class="celldisplaylabel"><label for="MIR-BENS-DPND-FCT">家族ファクター:</label></td>
+          <td class="celldisplay"><span id="MIR-BENS-DPND-FCT" stype="Number" elength="3" decimals="2"  displayonly="yes">MIR-BENS-DPND-FCT</span></td>
+        </tr>
+        <tr>
+          <td class="celldisplaylabel"><label for="MIR-BNFT-AMT-CALC-CD">給付金額計算コード:</label></td>
+          <td class="celldisplay"><span id="MIR-BNFT-AMT-CALC-CD" stype="Text" displayonly="yes">MIR-BNFT-AMT-CALC-CD</span></td>
+          <td class="celldisplaylabel"><label for="MIR-BENS-PMT-TYP-CD">支払タイプ:</label></td>
+          <td class="celldisplay"><span id="MIR-BENS-PMT-TYP-CD" stype="Text" displayonly="yes">MIR-BENS-PMT-TYP-CD</span></td>
+        </tr>
+        <tr>
+          <td class="celldisplaylabel"><label for="MIR-INIT-DEDBL-UNITS">不担保ユニット:</label></td>
+          <td class="celldisplay"><span id="MIR-INIT-DEDBL-UNITS" stype="Number" elength="4" decimals="0" displayonly="yes">MIR-INIT-DEDBL-UNITS</span></td>
+          <td class="celldisplaylabel"><label for="MIR-MIN-HOSP-UNITS">最低ユニット:</label></td>
+   <!--Q06528 <td class="celldisplay"><span id="MIR-MIN-HOSP-UNITS" stype="Number" elength="4" decimals="0" displayonly="yes">MIR-MIN-HOSP-UNITS</span></td>-->
+        <!--Q06528 CHANGES START-->
+         <td class="celldisplay"><span id="MIR-MAX-CLM-UNITS" stype="Number" elength="5" decimals="0" displayonly="yes">MIR-MAX-CLM-UNITS</span></td>
+         <!--Q06528 CHANGES END-->
+        </tr>
+        <tr>
+          <td class="celldisplaylabel"><label for="MIR-MAX-CLM-UNITS">最高請求ユニット:</label></td>
+          <td class="celldisplay"><span id="MIR-MAX-CLM-UNITS" stype="Number" elength="4" decimals="0" displayonly="yes">MIR-MAX-CLM-UNITS</span></td>
+          <td class="celldisplaylabel"><label for="MIR-MAX-RIDER-UNITS">最高特約ユニット:</label></td>
+    <!--Q06528<td class="celldisplay"><span id="MIR-MAX-RIDER-UNITS" stype="Number" elength="4" decimals="0" displayonly="yes">MIR-MAX-RIDER-UNITS</span></td>-->
+          <!--Q06528 CHANGES START-->
+          <td class="celldisplay"><span id="MIR-MAX-RIDER-UNITS" stype="Number" elength="5" decimals="0" displayonly="yes">MIR-MAX-RIDER-UNITS</span></td>
+          <!--Q06528 CHANGES END-->
+        </tr>
+        <tr>
+          <td class="celldisplaylabel"><label for="MIR-INCID-TYP-CD">発生事由タイプ:</label></td>
+          <td class="celldisplay"><span id="MIR-INCID-TYP-CD" stype="Text" displayonly="yes">MIR-INCID-TYP-CD</span></td>
+          <td class="celldisplaylabel"><label for="MIR-BNFT-CAT-CD">給付金区分:</label></td>
+          <td class="celldisplay"><span id="MIR-BNFT-CAT-CD" stype="Text" displayonly="yes">MIR-BNFT-CAT-CD</span></td>
+        </tr>
+        <tr>
+          <td class="celldisplaylabel"><label for="MIR-MULTR-TYPE-CD">乗数タイプ:</label></td>
+          <td class="celldisplay"><span id="MIR-MULTR-TYPE-CD" stype="Text" displayonly="yes">MIR-MULTR-TYPE-CD</span></td>
+          <td class="celldisplaylabel"><label for="MIR-DSCHRG-ELIG-IND">退院給付該当性:</label></td>
+          <td class="celldisplay"><input type="checkbox" name="MIR-DSCHRG-ELIG-IND" id="MIR-DSCHRG-ELIG-IND" stype="Indicator" value="Y" disabled="yes" /></td>
+        </tr>
+        <tr>
+          <td class="celldisplaylabel"><label for="MIR-VALID-PERI-DPND-CD">有効給付金期間依存ファクター:</label></td>
+          <td class="celldisplay"><span id="MIR-VALID-PERI-DPND-CD" stype="Text" displayonly="yes">MIR-VALID-PERI-DPND-CD</span></td>
+          <td class="celldisplaylabel"><label for="MIR-VALID-PERI-TYP-CD">有効給付金期間タイプ:</label></td>
+          <td class="celldisplay"><span id="MIR-VALID-PERI-TYP-CD" stype="Text" displayonly="yes">MIR-VALID-PERI-TYP-CD</span></td>
+       </tr>
+        <tr>
+          <td class="celldisplaylabel"><label for="MIR-VALID-PERI-UNITS">給付金有効期限ユニット:</label></td>
+          <td class="celldisplay"><span id="MIR-VALID-PERI-UNITS" stype="Number" elength="4" decimals="0" displayonly="yes">MIR-VALID-PERI-UNITS</span></td>
+          <td class="celldisplaylabel"><label for="MIR-WAITING-PERI-UNITS">解除可能期間:</label></td>
+          <td class="celldisplay"><span id="MIR-WAITING-PERI-UNITS" stype="Number" elength="4" decimals="0" displayonly="yes">MIR-WAITING-PERI-UNITS</span></td>
+        </tr>
+        <tr>
+          <td class="celldisplaylabel"><label for="MIR-CANCER-BNFT-IND">ガン関連:</label></td>
+          <td class="celldisplay"><input type="checkbox" name="MIR-CANCER-BNFT-IND" id="MIR-CANCER-BNFT-IND" stype="Indicator" value="Y" disabled="yes" /></td>
+          <td class="celldisplaylabel"><label for="MIR-BNFT-ID-CD">給付金識別コード:</label></td>
+          <td class="celldisplay"><span id="MIR-BNFT-ID-CD" stype="Text" displayonly="yes">MIR-BNFT-ID-CD</span></td>
+        </tr>
+        <tr>
+          <td class="celldisplaylabel"><label for="MIR-BENS-CLM-TYP-CD">請求事由:</label></td>
+          <td class="celldisplay"><span id="MIR-BENS-CLM-TYP-CD" stype="Text" displayonly="yes">MIR-BENS-CLM-TYP-CD</span></td>
+          <td class="celldisplaylabel"><label for="MIR-EFF-DT">有効日:</label></td>
+          <td class="celldisplay"><span id="MIR-EFF-DT" stype="Text" displayonly="yes">MIR-EFF-DT</span></td>
+        </tr>
+        <tr>
+          <td class="celldisplaylabel"><label for="MIR-RDR-VERS-GR-CD">特約バージョングループ:</label></td>
+          <td class="celldisplay"><span id="MIR-RDR-VERS-GR-CD" stype="Text" displayonly="yes">MIR-RDR-VERS-GR-CD</span></td>
+	<!-- MP143E CHANGES BEGIN -->
+          <td class="celldisplaylabel"><label for="MIR-ALT-MAX-CLM-UNITS">最高限度延長請求ユニット:</label></td>
+          <td class="celldisplay"><span id="MIR-ALT-MAX-CLM-UNITS" stype="Number" elength="5" decimals="0" displayonly="yes">MIR-ALT-MAX-CLM-UNITS</span></td> 
+          <!-- MP143F CHANGES END -->
+          <td class="celldisplay"></td>
+          <td class="celldisplay"></td>
+        </tr>
+     </table>
+  <br />
+     <table class="tabledisplay">
+        <tr>
+          <td class="celldisplayheading" colspan="2">通算詳細</td>
+        </tr>
+        <tr>
+          <td class="celldisplaylabel"><label for="MIR-AGG-RULE-CD">通算タイプ:</label></td>
+          <td class="celldisplay"><span id="MIR-AGG-RULE-CD" stype="Text" displayonly="yes">MIR-AGG-RULE-CD</span></td>
+        </tr>
+        <tr>
+          <td class="celldisplaylabel"><label for="MIR-FORCE-NEW-AGG-DUR">災害で新たな通算とする期間:</label></td>
+          <td class="celldisplay"><span id="MIR-FORCE-NEW-AGG-DUR" stype="Number" elength="4" decimals="0" displayonly="yes">MIR-FORCE-NEW-AGG-DUR</span></td>
+        </tr>
+        <tr>
+          <td class="celldisplaylabel"><label for="MIR-SUBSEQ-HOSP-UNITS">次回入院ユニット:</label></td>
+          <td class="celldisplay"><span id="MIR-SUBSEQ-HOSP-UNITS" stype="Number" elength="4" decimals="0" displayonly="yes">MIR-SUBSEQ-HOSP-UNITS</span></td>
+        </tr>
+        <tr>
+          <td class="celldisplaylabel"><label for="MIR-CONTNU-HOSP-UNITS">継続入院ユニット:</label></td>
+          <td class="celldisplay"><span id="MIR-CONTNU-HOSP-UNITS" stype="Number" elength="4" decimals="0" displayonly="yes">MIR-CONTNU-HOSP-UNITS</span></td>
+        </tr>
+     </table>
+    </form>
+  </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

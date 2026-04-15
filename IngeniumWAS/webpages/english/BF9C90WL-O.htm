@@ -1,0 +1,233 @@
+<!--
+*********************************************************************************
+*  Component:   BF9C90WL-O.htm
+*  Description:Output Screen for Survivorship Benefit Request Inquiry Process
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*  UY3064  CTS      Whole Life Premium Payment Completion
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9C90WL-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PBRQ-EFF-DT">Effective Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PBRQ-EFF-DT" stype="Date" displayonly="yes">MIR-PBRQ-EFF-DT</span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-POL-FUT-ACTV-TYP-CD">Activity Type:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-POL-FUT-ACTV-TYP-CD" stype="Text" displayonly="yes">MIR-DV-POL-FUT-ACTV-TYP-CD</span>
+                    </td>
+               </tr>
+               <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-FUT-ACTV-STAT-CD">Activity Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-FUT-ACTV-STAT-CD" stype="Text" displayonly="yes">MIR-POL-FUT-ACTV-STAT-CD</span>
+                    </td>
+                </tr>
+            </table>
+		<!--UY3064 CHANGES START HERE -->
+                        <br />
+			            <table class="tabledisplay">
+                            <tr>
+                                <td class="celldisplayheading" colspan="4">Settlement Information</td>
+                            </tr>
+                            <tr>
+                                <td class="celldisplaylabel">
+                                    <label for="MIR-ACUM-DIV-AMT-IND">Accumulated dividend amount:</label>
+                                </td>
+                                <td class="celldisplaykey">
+				 	            <!-- <input type="checkbox" name="MIR-SETL-OPT-IND" id="MIR-SETL-OPT-IND" stype="Indicator" value="Y" onclick="onCheckBox()"/> -->
+                                    <input type="checkbox" id="MIR-ACUM-DIV-AMT-IND" name="MIR-ACUM-DIV-AMT-IND" stype="Indicator" value="Y" disabled="yes"/>
+				 	            </td>
+                                <td class="celldisplaylabel">
+                                    <label for="MIR-INCR-SURV-BNFT-IND">Increased purchase of survival benefit:</label>
+                                </td>
+                                <td class="celldisplaykey">
+				 	            <!-- <input type="checkbox" name="MIR-SETL-OPT-IND" id="MIR-SETL-OPT-IND" stype="Indicator" value="Y" onclick="onCheckBox()"/> -->
+                                    <input type="checkbox" id="MIR-INCR-SURV-BNFT-IND" name="MIR-INCR-SURV-BNFT-IND" stype="Indicator" value="Y" disabled="yes"/>
+				 	            </td>
+				            </tr>
+                            <tr>
+                                <td class="celldisplaylabel">
+                                    <label for="MIR-VEST-IND">Vesting/Special dividend deferred:</label>
+                                </td>
+                                <td class="celldisplaykey">
+				 	            <!-- <input type="checkbox" name="MIR-SETL-OPT-IND" id="MIR-SETL-OPT-IND" stype="Indicator" value="Y" onclick="onCheckBox()"/> -->
+                                    <input type="checkbox" id="MIR-VEST-IND" name="MIR-VEST-IND" stype="Indicator" value="Y" disabled="yes"/>
+				 	            </td>
+                                <td class="celldisplaylabel">
+                                    <label for="MIR-HLTH-BNFT-IND">Health congratulatory benefit:</label>
+                                </td>
+                                <td class="celldisplaykey">
+				 	            <!-- <input type="checkbox" name="MIR-SETL-OPT-IND" id="MIR-SETL-OPT-IND" stype="Indicator" value="Y" onclick="onCheckBox()"/> -->
+                                    <input type="checkbox" id="MIR-HLTH-BNFT-IND" name="MIR-HLTH-BNFT-IND" stype="Indicator" value="Y" disabled="yes"/>
+				 	            </td>
+				            </tr>
+						</table>
+						<br />
+	        <!--UY3064 CHANGES END HERE -->
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Kanji Name</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAYE-SUR-NM">Payee's Last Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAYE-SUR-NM" stype="Text" displayonly="yes">MIR-PAYE-SUR-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAYE-GIV-NM">Payee's First Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAYE-GIV-NM" stype="Text" displayonly="yes">MIR-PAYE-GIV-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAYE-CO-NM">Company Name:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-PAYE-CO-NM" stype="Text" displayonly="yes">MIR-PAYE-CO-NM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Address</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-LOC-CD">Address Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-ADDR-LOC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-PSTL-CD">Postal Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PSTL-CD" stype="Text" displayonly="yes">MIR-CLI-PSTL-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-CLI-ADDR">Kanji Address:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-ADDR" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-ADDL-TXT">Samakata-bu:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-ADDL-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-ADDL-TXT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Bank Account Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ID">Bank Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ID" stype="Text" displayonly="yes">MIR-BNK-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-NM">Bank Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-NM" stype="Text" displayonly="yes">MIR-BNK-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-BR-ID">Branch Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-BR-ID" stype="Text" displayonly="yes">MIR-BNK-BR-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-BR-NM">Branch Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-BR-NM" stype="Text" displayonly="yes">MIR-BNK-BR-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-TYP-CD">Account Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-TYP-CD" stype="Text" displayonly="yes">MIR-BNK-ACCT-TYP-CD</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                  </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-ID">Bank Account Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-ID" stype="Text" displayonly="yes">MIR-BNK-ACCT-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-HLDR-NM">Account Holder Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-HLDR-NM" stype="Text" displayonly="yes">MIR-BNK-ACCT-HLDR-NM</span>
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/Policytrim.js"></script>
+
+</html>

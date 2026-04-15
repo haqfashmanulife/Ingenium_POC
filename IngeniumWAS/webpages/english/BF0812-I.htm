@@ -1,0 +1,216 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:22 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0812-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  017150  612J     Remove Currency decimals="2"
+*  PR0001  ROC      MVA 20% Free Withdrawal
+*  NWLLPS  CTS      Add Minimum Loan Amount
+*  MP162A  CTS      COrrected the comment line 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0812-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PLAN-ID">Plan:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-LOC-GR-ID">Location Group:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-LOC-GR-ID" stype="Text" displayonly="yes">MIR-LOC-GR-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Free Withdrawal Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-WTHDR-CD">Basis:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FREE-WTHDR-CD" id="MIR-FREE-WTHDR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-WTHDR-PERI-CD">Period:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FREE-WTHDR-PERI-CD" id="MIR-FREE-WTHDR-PERI-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-WTHDR-QTY">Number Per Period:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FREE-WTHDR-QTY" id="MIR-FREE-WTHDR-QTY" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-WTHDR-DUR">Duration:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FREE-WTHDR-DUR" id="MIR-FREE-WTHDR-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Surrender Charge Indicators</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SURR-CHRG-IND">Location surrender charge restrictions apply:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-SURR-CHRG-IND" id="MIR-SURR-CHRG-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-NET-FREE-WTHDR-IND">Exclude free withdrawal amount from surrender charges:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-NET-FREE-WTHDR-IND" id="MIR-NET-FREE-WTHDR-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="7">Universal Life Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UL-NLAPS-GUAR-DUR">No Lapse Guarantee Period:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-UL-NLAPS-GUAR-DUR" id="MIR-UL-NLAPS-GUAR-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INIT-GRACE-MO-DUR">Initial Grace Period:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-INIT-GRACE-MO-DUR" id="MIR-INIT-GRACE-MO-DUR" stype="Text" maxlength="2" onfocus="enterField(this)" size="05" />
+                    </td>
+                    <td class="celllabeldataentry">  months  </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-INIT-GRACE-DY-DUR" id="MIR-INIT-GRACE-DY-DUR" stype="Text" maxlength="2" onfocus="enterField(this)" size="05" />
+                    </td>
+                    <td class="celllabeldataentry">days  </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UL-NLAPS-DED-QTY">Number of Months Minimum Payment Target Required for Reinstatement:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-UL-NLAPS-DED-QTY" id="MIR-UL-NLAPS-DED-QTY" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry" />
+                    <td class="celllabelrightalign" colspan="2" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Free Look Processing Options</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-LK-DT-CALC-CD"> End Date Calculation:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FREE-LK-DT-CALC-CD" id="MIR-FREE-LK-DT-CALC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-NTU-PRCES-CD">Not Taken Refund Guarantee:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-NTU-PRCES-CD" id="MIR-NTU-PRCES-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-LK-REQIR-CD">Fund Requirement:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FREE-LK-REQIR-CD" id="MIR-FREE-LK-REQIR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-LK-FND-CD">Fund Designation:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FREE-LK-FND-CD" id="MIR-FREE-LK-FND-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Loan Processing Options</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DSCNT-LOAN-CV-IND">Apply loan discount to maximum loan calculation:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DSCNT-LOAN-CV-IND" id="MIR-DSCNT-LOAN-CV-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-LOAN-CV-PCT">Maximum Loanable Cash Value Percent:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-MAX-LOAN-CV-PCT" id="MIR-MAX-LOAN-CV-PCT" stype="Percent" elength="7" decimals="4" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+   <!-- MP162A changes start here -->
+   <!-- <!- NWLLPS - Changes Starts Here -> -->
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MIN-LOAN-AMT">Minimum Loan Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MIN-LOAN-AMT" id="MIR-MIN-LOAN-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+    <!-- <!- NWLLPS - Changes Ends Here -> -->
+   <!-- MP162A changes end here -->
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

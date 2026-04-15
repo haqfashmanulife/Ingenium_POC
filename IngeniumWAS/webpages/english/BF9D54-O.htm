@@ -1,0 +1,93 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:10 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9D54-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  M271O2  CTS      NEW SCREEN FOR CURRENCY EXCHANGE RATE LIST SCREEN
+*  Q60714  CTS      FRA MORE BUTTON FIX
+*  23774B  CTS      CHANGES DONE FOR IE RETIREMENT PROJECT TO MAKE IT
+*                   COMPATIBLE FOR MICROSOFT EDGE. CHANGES IN HTML INCLUDE
+*                   ADDING "ID" ATTRIBUTE FOR ALL INPUT FIELDS AND CHANGES IN
+*                   JAVA SCRIPTS TO MODIFY CERTAIN FUNCTIONS/COMMANDS WHICH
+*                   ARE NO LONGER COMPATILBLE WITH EDGE.             
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9D54-O</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="ISO-8859-1" />
+</head>
+<body class="bodyws">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+    <table class="tabledisplaykey">
+        <tr>
+            <td class="celldisplaykeylabel">
+                <label for="MIR-XCHNG-FROM-CRCY-CD">From Currency:</label>
+            </td>
+            <td class="celldisplaykey" colspan="5">
+                <span id="MIR-XCHNG-FROM-CRCY-CD" stype="Text" displayonly="yes">MIR-XCHNG-FROM-CRCY-CD</span>
+            </td>
+            <td class="celldisplaykeylabel">
+                <label for="MIR-XCHNG-TO-CRCY-CD">To Currency:</label>
+            </td>
+            <td class="celldisplaykey" colspan="5">
+                <span id="MIR-XCHNG-TO-CRCY-CD" stype="Text" displayonly="yes">MIR-XCHNG-TO-CRCY-CD</span>
+            </td>
+<!-- Q60714 CHANGES STARTS HERE -->
+
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-XCHNG-EFF-DT">Exchange Effective Date</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-XCHNG-EFF-DT" id="MIR-XCHNG-EFF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+<!--Q60714 CHANGES ENDS HERE  -->
+
+
+            <td class="celldisplaykeylabel">
+            	<label for="MIR-XCHNG-RT-TYP-CD">Exchange Rate Type Code:</label>
+            </td>
+            <td class="celldisplaykey">
+            	<span id="MIR-XCHNG-RT-TYP-CD" stype="Text" displayonly="yes">MIR-XCHNG-RT-TYP-CD</span>
+            </td>
+        </tr>
+
+
+    </table>
+    <br />
+    <table class="tabledisplay" genrows="0" >
+        <tr>
+            <td class="celldisplayheading">
+                <label for="SELECT-T[1]" />
+             </td>
+            <td class="celldisplayheading"><label for="MIR-XCHNG-EFF-DT-T[1]">Exchange Effective Date</label></td>
+        </tr>
+        <tr>
+            <td class="celldisplay">
+                <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+            </td>
+            <td class="celldisplay"><span id="MIR-XCHNG-EFF-DT-T[]" stype="Text" displayonly="yes">MIR-XCHNG-EFF-DT-T[]</span>
+            </td>
+        </tr>
+    </table>
+            <p>
+                <input type="hidden" name="action" id="action" stype="Hidden" />
+            </p>
+            <p>
+                <input type="hidden" name="index" id="index" stype="Hidden" />
+            </p>
+</form>
+</body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

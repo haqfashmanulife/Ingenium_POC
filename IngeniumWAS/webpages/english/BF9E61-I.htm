@@ -1,0 +1,262 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:27 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9E61-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  15997A  CTS      CHANGES FOR FRA PREMIUM REDUCTION SIMULATION SCREEN
+*  106536  CTS      FIX FOR PREMIUM AFTER TRANSACTION
+*  106536  CTS      FIX FOR SCENARIO #3,SCENARIO #4
+*  106562  CTS      FIX FOR # OF EXTENTION YEARS
+*  15997D  CTS      CR03&CR05 CHANGES FOR FRA PREMIUM REDUCTION SIMULATION SCREEN
+*  23774B  CTS      CHANGES DONE FOR IE RETIREMENT PROJECT TO MAKE IT
+*                   COMPATIBLE FOR MICROSOFT EDGE. CHANGES IN HTML INCLUDE
+*                   ADDING "ID" ATTRIBUTE FOR ALL INPUT FIELDS AND CHANGES IN
+*                   JAVA SCRIPTS TO MODIFY CERTAIN FUNCTIONS/COMMANDS WHICH
+*                   ARE NO LONGER COMPATILBLE WITH EDGE.             
+*********************************************************************************
+ -->
+<html>
+    <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9E61-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" id="inputForm" method="post" onsubmit="return(onSubmit());" target="_parent">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+             <table class="tabledisplaykey">
+                <tr>                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-POL-ID-BASE" stype="Text">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-POL-ID-SFX" stype="Text">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SIMULTN-DT">Simulation Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-SIMULTN-DT" stype = "Date" >MIR-SIMULTN-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                         <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                         <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" genrows="7">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Premium Reduction/Payment Suspension/Payment Re-start Conditions</td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-SEQ-NO-T[1]">#</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-TRNXT-YR-MO-T[1]">Transaction Year &amp; Month</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-TRNXT-TYP-CD-T[1]">Transaction Type</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-PREM-TRNXT-AMT-T[1]">Premium After Transaction</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <span displayonly="yes" id="MIR-SEQ-NO-T[]" stype="Text"></span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRNXT-YR-MO-T[]" id="MIR-TRNXT-YR-MO-T[]" stype="Text" maxlength="7" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-TRNXT-TYP-CD-T[]" id="MIR-TRNXT-TYP-CD-T[]" onfocus="enterField(this)" size="1" stype="Selection"></select>
+                    </td>
+<!--  106536 changes starts here -->
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " style="text-align: right;" name="MIR-PREM-TRNXT-AMT-T[]" id="MIR-PREM-TRNXT-AMT-T[]" stype="Currency" elength="14"  onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+<!--  106536 changes ends here -->
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+               <tr>
+                     <td class="celldataentryheading" colspan="4">Interest Rate Conditions</td>
+               </tr>
+               <tr>
+                    <td class="celllabelrightalign">
+                         <label for="MIR-SC1-CRNT-RT">Scenario #1(Same as Current Rate):</label>
+
+                    </td>
+					<td class="celllabeldataentry" align="right">
+					   <span id="MIR-SC1-CRNT-RT" stype = "Percent" elength="5" decimals="2" displayonly="yes">MIR-SC1-CRNT-RT</span>
+                    </td>
+               </tr>
+               <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SC2-MIN-GUAR-RT">Scenario #2(Minimum Guaranteed Rate):</label>
+                    </td>
+ 					<td class="celllabeldataentry" align="right">
+ 					   <span id="MIR-SC2-MIN-GUAR-RT" stype = "Percent" elength="5" decimals="2" displayonly="yes">MIR-SC2-MIN-GUAR-RT</span>
+                    </td>
+               </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SC3-OPTL-ENTR-RT">Scenario #3(Optional Entry Rate):</label>
+                    </td>
+<!--  106536 changes starts here -->
+                    <td class="celllabeldataentry">
+                        <input decimals="2" style="text-align: right;" elength="4" name="MIR-SC3-OPTL-ENTR-RT" id="MIR-SC3-OPTL-ENTR-RT" onblur="validateField(this)" onfocus="enterField(this)" onkeypress="NumberKeyCheck()" maxlength="5" size="20" stype = "Percent" type="text" value="0.00%"/>
+                    </td>
+<!--  106536 changes ends here -->
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SC4-OPTL-ENTR-RT">Scenario #4(Optional Entry Rate):</label>
+                    </td>
+<!--  106536 changes starts here -->
+                    <td class="celllabeldataentry">
+                        <input decimals="2" style="text-align: right;" elength="4" name="MIR-SC4-OPTL-ENTR-RT" id="MIR-SC4-OPTL-ENTR-RT" onblur="validateField(this)" onfocus="enterField(this)" onkeypress="NumberKeyCheck()" maxlength="5" size="20" stype = "Percent" type="text" value="0.00%"/>
+                    </td>
+<!--  106536 changes ends here -->
+                </tr>
+             </table>
+           <br />
+           <table class="tabledataentry">
+                 <tr>
+                     <td class="celldataentryheading" colspan="4">Premium Payment Period Extension Conditions</td>
+                 </tr>
+                 <tr>
+                     <td class="celllabelrightalign">
+                          <label for="MIR-NO-OF-EXT-YR"># of Extension Years:</label>
+                     </td>
+                           <td class="celllabeldataentry">
+<!--                       <input type="text" value=" " maxlength="1" name="MIR-NO-OF-EXT-YR" id="MIR-NO-OF-EXT-YR" onfocus="enterField(this)" stype="Text" /> -->
+<!--  106562 changes starts here -->
+                           <input type="text" style="text-align: right;" value=" " maxlength="1" name="MIR-NO-OF-EXT-YR" id="MIR-NO-OF-EXT-YR" onfocus="enterField(this)" stype="Text" />
+<!--  106562 changes ends here -->
+                     </td>
+                </tr>
+           </table>
+           <br />
+           <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Simulation Result Report Creation Conditions</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SEND-MTHD-CD">Send Method:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-SEND-MTHD-CD" id="MIR-SEND-MTHD-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+               </tr>
+               <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SEND-TO-LAST-NM">Send to (Last Name):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " maxlength="24" name="MIR-SEND-TO-LAST-NM" id="MIR-SEND-TO-LAST-NM" onchange="onlyKanji()" onfocus="enterField(this)" onkeypress="KanjiKeyCheck()"  size="20" stype="Text" />
+                    </td>
+               </tr>
+               <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SEND-TO-FIRST-NM">Send to (First Name):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+					    <span id="MIR-SEND-TO-FIRST-NM" stype = "Text" maxlength="25" displayonly="yes">MIR-SEND-TO-FIRST-NM</span>
+
+                    </td>
+               </tr>
+<!-- 15997D CHANGES STARTS HERE -->
+               <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SEND-TO-CO-NM">Send to (Company Name):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-SEND-TO-CO-NM" stype = "Text" maxlength="50" displayonly="yes">MIR-SEND-TO-CO-NM</span>
+                    </td>
+               </tr>
+<!-- 15997D CHANGES ENDS HERE -->
+               <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SEND-TO-PSTL-CD">Send to (Postal Code):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " maxlength="8" name="MIR-SEND-TO-PSTL-CD" id="MIR-SEND-TO-PSTL-CD" onfocus="enterField(this)" size="20" stype="Text" />
+                    </td>
+               </tr>
+               <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SEND-TO-ADDR-TXT">Send to (Address):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+<!-- 15997D CHANGES STARTS HERE -->
+<!--                    <input type="text" value=" " maxlength="71" name="MIR-SEND-TO-ADDR-TXT" id="MIR-SEND-TO-ADDR-TXT" onchange="onlyKanji()" onfocus="enterField(this)" onkeypress="KanjiKeyCheck()" size="20" stype="Text" /> -->
+                        <input type="text" value=" " maxlength="60" name="MIR-SEND-TO-ADDR-TXT" id="MIR-SEND-TO-ADDR-TXT" onfocus="enterField(this)" size="70" stype="Text" />
+<!-- 15997D CHANGES ENDS HERE -->
+                    </td>
+              </tr>
+              <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SEND-TO-ADDR-ADDL-TXT">Send to (Samakata-bu):</label>
+                    </td>
+                    <td class="celllabeldataentry" >
+                        <input  type="text" value=" " name="MIR-SEND-TO-ADDR-ADDL-TXT" id="MIR-SEND-TO-ADDR-ADDL-TXT" stype="Text" maxlength="72" size="20"
+                               onkeypress="KanaKeyCheck()"
+                               onchange="onlyKatakana()"
+                               onfocus="enterField(this)" />
+                    </td>
+              </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+               <tr>
+                     <td class="celldataentryheading" colspan="4">Simulation Result Report by # of Elapsed Months Display Conditions</td>
+               </tr>
+               <tr>
+                     <td class="celllabelrightalign">
+                         <label for="MIR-STRT-YR-MO">Start Year &amp; Month:</label>
+                     </td>
+                     <td class="celllabeldataentry">
+                         <input type="text" value=" " maxlength="7" name="MIR-STRT-YR-MO" id="MIR-STRT-YR-MO"  onfocus="enterField(this)" onblur="validateField(this)"  size="20" stype="Text" />
+                     </td>
+                     <td class="celllabelrightalign">
+                         <label for="MIR-END-YR-MO">End Year &amp; Month:</label>
+                     </td>
+                     <td class="celllabeldataentry">
+                         <input type="text" value=" " maxlength="7" name="MIR-END-YR-MO" id="MIR-END-YR-MO" onfocus="enterField(this)" onblur="validateField(this)" size="20" stype="Text" />
+                     </td>
+                     <td class="celllabelrightalign"></td>
+                     <td class="celllabeldataentry"></td>
+              </tr>
+            </table>
+            <br />
+     </form>
+</body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/OnlyKana.js"></script>
+    <script src="../js/OnlyKanji.js"></script>
+    <script src="../js/CrcyLevelEdits.js"></script>
+</html>

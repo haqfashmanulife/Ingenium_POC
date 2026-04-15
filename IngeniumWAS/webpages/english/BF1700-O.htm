@@ -1,0 +1,241 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:35 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1700-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016218  602J	   Switch First Name and Last Name fields 						
+*  017150  612J     Remove Currency decimals="2"  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                          
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1700-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+        <script>
+
+function onLoad()
+
+{
+
+	setEmperorDate("MIR-CLI-MIB-BTH-DT");
+
+}
+
+</script>
+        <script>
+
+function onLoad2()
+
+{
+
+	setEmperorDate("MIR-CLI-BTH-DT");
+
+}
+
+</script>
+    </head>
+    <body class="bodyws" onload="onLoad(); onLoad2();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-ID">Client Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-MIB-SEQ-NUM">Sequence Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-MIB-SEQ-NUM" stype="Text" displayonly="yes">MIR-CLI-MIB-SEQ-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">MIB Search Criteria/Results</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-SUR-NM">Last Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-SUR-NM" stype="Text" displayonly="yes">MIR-CLI-SUR-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-MID-INIT-NM">Initial:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-MID-INIT-NM" stype="Text" displayonly="yes">MIR-CLI-MID-INIT-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-GIV-NM">First Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-GIV-NM" stype="Text" displayonly="yes">MIR-CLI-GIV-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-SEX-CD">Sex:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-BTH-DT">Birth Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-BTH-DT" stype="Date" displayonly="yes" emperorDate="myEmperorDate2">MIR-CLI-BTH-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="myEmperorDate2">Emperor Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="myEmperorDate2" displayonly="yes">myEmperorDate</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-BTH-LOC-CD">Birth Location:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-BTH-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-BTH-LOC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OCCP-ID">Occupation:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OCCP-ID" stype="Text" displayonly="yes">MIR-OCCP-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-MIB-RECV-DT">Date Result Received:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-MIB-RECV-DT" stype="Date" displayonly="yes">MIR-CLI-MIB-RECV-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-MIB-IND-CD">Result of MIB Searchs:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-MIB-IND-CD" stype="Text" displayonly="yes">MIR-CLI-MIB-IND-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-MIB-ALIAS-IND">Search conducted using a previous name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CLI-MIB-ALIAS-IND" id="MIR-CLI-MIB-ALIAS-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">MIB Primary Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-MIB-SUR-NM">Last Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-MIB-SUR-NM" stype="Text" displayonly="yes">MIR-CLI-MIB-SUR-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-MIB-MID-NM">Initial:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-MIB-MID-NM" stype="Text" displayonly="yes">MIR-CLI-MIB-MID-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-MIB-FRST-NM">First Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-MIB-FRST-NM" stype="Text" displayonly="yes">MIR-CLI-MIB-FRST-NM</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-MIB-BTH-DT">Birth Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-MIB-BTH-DT" stype="Date" displayonly="yes" emperorDate="myEmperorDate">MIR-CLI-MIB-BTH-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="myEmperorDate">Emperor Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="myEmperorDate" displayonly="yes">myEmperorDate</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-MIB-BTH-LOC-CD">Birth Country:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-MIB-BTH-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-MIB-BTH-LOC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">MIB Alternate Information</td>
+                    <td class="celldisplayheading" />
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CLI-MIB-LBL-CD-T[1]">Identifier</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CLI-MIB-TXT-T[1]">Information</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-MIB-LBL-CD-T[]" stype="Text" displayonly="yes">MIR-DV-CLI-MIB-LBL-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-MIB-TXT-T[]" stype="Text" displayonly="yes">MIR-DV-CLI-MIB-TXT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/EmperorDates.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

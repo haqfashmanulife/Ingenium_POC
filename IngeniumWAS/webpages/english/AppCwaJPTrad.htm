@@ -1,0 +1,96 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:08 PM EDT
+*
+*********************************************************************************
+*  Component:   AppCwaJPTrad.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  016423  602J     New for release 602J
+*  017150  612J     Remove Currency decimals="2"
+*  23774B  CTS      23774B-IE Retirement changes
+*
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>App Cash With Application</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad(); onLoadCustom()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="MIR-DV-PRCES-DT" id="MIR-DV-PRCES-DT" stype="Hidden" />
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-MPREM-AMT">Premium Required:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-MPREM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-MPREM-AMT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="tempCashAmount">Cash Paid:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="tempCashAmount" stype="Currency" elength="17" signed="yes" displayonly="yes">tempCashAmount</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-MPREM-DSCNT-AMT">Discount Amount:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-MPREM-DSCNT-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-MPREM-DSCNT-AMT</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentrynoborder">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="cashYesNo">Was Payment Submitted with this Application?</label>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <input type="radio" name="cashYesNo" value="Y" stype="YesNo" onclick="onClickCashWithApp(this)" onfocus="saveValue(); enterField(this)" />
+                        Yes
+                    </td>
+                    <td class="celllabelleftalign">
+                        <input type="radio" name="cashYesNo" value="N" stype="YesNo" onclick="onClickCashWithApp(this)" onfocus="saveValue(); enterField(this)" />
+                        No
+                    </td>
+                </tr>
+            </table>
+            <div id="cashWithAppFields" style="display: none">
+                <br />
+                <table class="tabledataentry">
+                    <tr>
+                        <td colspan="2" class="celldataentryheading">Source of Initial Premium:</td>
+                    </tr>
+                    <tr>
+                        <td class="celllabelrightalign">
+                            <label for="MIR-DV-ENTR-CSH-AMT">Cash Amount:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-DV-ENTR-CSH-AMT" id="MIR-DV-ENTR-CSH-AMT" stype="Currency" mandatory="yes" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+<!--  END DIV FOR HIDING CASH WITH APP FIELDS  -->
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/AppCwaJPTrad.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

@@ -1,0 +1,121 @@
+<!--
+*********************************************************************************
+*  Component:   BF9C94AR-O.htm
+*  Description:Output Screen for Annuity Request Reception List Process
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*  UY3049  CTS      Annuity Tranistion Processing stream 3
+*********************************************************************************
+ -->
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9C94AR-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <br />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" onfocus="enterField(this)" size="20" tabindex="1" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" size="20" tabindex="2" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-PBRQ-EFF-DT">Effective Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-PBRQ-EFF-DT" id="MIR-PBRQ-EFF-DT" stype="Date"  onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>	
+            </table>	
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="SELECT-T[1]" />
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-BASE-T[1]">Policy ID</label>
+                    </td>
+                     <td class="celldisplayheading">
+                        <label for="MIR-PBRQ-EFF-DT-T[1]">Activity Effective Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RQST-REC-PRCS-DT">Request reception Processing date:</label>
+                    </td>					
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNK-NM-T[1]">Bank Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNK-BR-NM-T[1]">Bank Branch Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNK-ACCT-TYP-CD-T[1]">Account Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNK-ACCT-ID-T[1]">Account Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNK-ACCT-HLDR-NM-T[1]">AccountHolder Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-FUT-ACTV-STAT-CD-T[1]">Status</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PBRQ-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-PBRQ-EFF-DT-T[]</span>
+                    </td>
+	           <td class="celldisplay">
+                        <span id="MIR-RQST-REC-PRCS-DT" stype="Date" displayonly="yes">MIR-RQST-REC-PRCS-DT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-BR-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-BR-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-BNK-ACCT-TYP-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-ID-T[]" stype="Text" displayonly="yes">MIR-BNK-ACCT-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-HLDR-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-ACCT-HLDR-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FUT-ACTV-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-POL-FUT-ACTV-STAT-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/Policytrim.js"></script>
+
+</html>

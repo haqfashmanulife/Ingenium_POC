@@ -1,0 +1,1659 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:42 PM EDT
+*
+************************************************************************************************
+*  Component:   BF9F52-I.htm
+*  Description:
+*
+************************************************************************************************
+*  Chg#    Release  Description
+*
+*  MP310A  CTS      INITIAL VERSION
+*  TV2003  CTS      SULV2 NEW BUSINESS CHANGES
+*  23774B  CTS      CHANGES DONE FOR IE RETIREMENT PROJECT TO MAKE IT
+*                   COMPATIBLE FOR MICROSOFT EDGE. CHANGES IN HTML INCLUDE
+*                   ADDING "ID" ATTRIBUTE FOR ALL INPUT FIELDS AND CHANGES IN
+*                   JAVA SCRIPTS TO MODIFY CERTAIN FUNCTIONS/COMMANDS WHICH
+*                   ARE NO LONGER COMPATILBLE WITH EDGE.
+*  TLB015  CTS      REINSURANCE TYPE
+*  TLB003  CTS      CHANGES DONE FOR NEW BUSINESS COLIPRODUCT
+*  TL1010  CTS      ADDED BULKBUNDLEAPP FIELD
+
+*  S23056  CTS      BUG FIX FOR REPRINT POPULATION AS PART OF UYS003
+*  CD200B  CTS     CERBERUS NEW BUSINESS XML UPLOAD DAY 2.0 CHANGES
+*  NVCN01  CTS      CHANGES DONE AS PART OF ONTARIO XML UPLOAD
+*************************************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9F52-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="../english/scroll.css" charset="UTF-8" />
+        <script>
+
+</script>
+    </head>
+    <body class="bodyws" onload="onLoad();onLoadCustom();ReinsuranceEligible1()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-ID">Client ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-KANA-FULL-NM">Insured Name Kana:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-KANA-FULL-NM" stype="Text" displayonly="yes">MIR-CLI-KANA-FULL-NM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Policy Details">Policy Details</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Coverage Details">Coverage Details</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Reinsurance Details">Reinsurance Details</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Selection Method">Selection Method</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Mortality / Hospitalization Ratio">Mortality / Hospitalization Ratio</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Body Part Exclusion">Body Part Exclusion</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Physical Condition Result">Physical Condition Result</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Comments">Comments</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Underwriting Reason/Defect Information">Underwriting Reason/Defect Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Existing Requirements ">Existing Requirements </a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#New Requirements">New Requirements</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <h2>
+                <a name="Policy Details">Policy Details</a>
+            </h2>
+            <table class="tabledisplay" genrows="0" keycolumn="1">
+				<!-- TLB003 changes starts here -->
+				<!--
+                <tr>
+                    <td class="celldisplayheading" colspan="6">Policy Details</td>
+                </tr>
+				-->
+                <tr>
+                    <td class="celldisplayheading" colspan="7">Policy Details</td>
+                </tr>
+                <!-- TLB003 changes ends here -->
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-APP-UPLD-DT-T[1]">Upload Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PDTL-POL-ID-T[1]">Policy ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PDTL-PLAN-ID-T[1]">Product Application Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PDTL-POL-CSTAT-CD-T[1]">Policy Status</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PDTL-POL-MPREM-AMT-T[1]">Modal Premium</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PDTL-POL-SNDRY-AMT-T[1]">Sundry Amount</label>
+                    </td>
+					<!-- TLB003 changes starts here -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-ASSIGN-BUNDLE-APP-IND-T[1]">Bundle Application Indicator</label>
+                    </td>
+                    <!-- TLB003 changes ends here -->
+
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-APP-UPLD-DT-T[]" stype="Date" displayonly="yes">MIR-POL-APP-UPLD-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PDTL-POL-ID-T[]" stype="Text" displayonly="yes">MIR-PDTL-POL-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PDTL-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PDTL-PLAN-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PDTL-POL-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-PDTL-POL-CSTAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PDTL-POL-MPREM-AMT-T[]" stype="Currency" displayonly="yes">MIR-PDTL-POL-MPREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PDTL-POL-SNDRY-AMT-T[]" stype="Currency" displayonly="yes">MIR-PDTL-POL-SNDRY-AMT-T[]</span>
+                    </td>
+					<!-- TLB003 changes to add Bundle application ID field starts here -->
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-ASSIGN-BUNDLE-APP-IND-T[]" id="MIR-ASSIGN-BUNDLE-APP-IND-T[]" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+            <!-- TLB003 changes to add Bundle application ID field ends here -->
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Coverage Details">Coverage Details</a>
+            </h2>
+            <table class="tabledisplay" genrows="0" keycolumn="1">
+                <tr>
+<!-- NVCN01 CHNAGES START -->
+                    <!-- <td class="celldisplayheading" colspan="10">Basic Coverage Information</td> -->
+                    <td class="celldisplayheading" colspan="11">Basic Coverage Information</td>
+<!-- NVCN01 CHNAGES START -->
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-POL-ID-T[1]">Policy ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">Coverage Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-PLAN-ID-T[1]">Rider Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-FACE-AMT-T[1]">Face Amount</label>
+                    </td>
+                    <td class="celldisplayheading" >
+                        <label for="MIR-CVG-RT-AGE-T[1]">Age</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-STBL-1-CD-T[1]">Sub-table1</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-STBL-3-CD-T[1]">Sub-table3</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-WP-IND-T[1]">3DD</label>
+                    </td>
+<!-- NVCN01 STARTS -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-WP-TYP-CD-T[1]">WoP Type</label>
+                    </td>
+<!-- NVCN01 ENDS -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-CSTAT-CD-T[1]">Coverage Status</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CVG-UWGDECN-CD-T[1]">Rider Underwriting Status</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-POL-ID-T[]" stype="Text" displayonly="yes">MIR-CVG-POL-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-CVG-PLAN-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-FACE-AMT-T[]" stype="Currency"  elength="15" signed="yes" displayonly="yes">MIR-CVG-FACE-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-RT-AGE-T[]" stype="Text" displayonly="yes">MIR-CVG-RT-AGE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-1-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-1-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-3-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-3-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-CVG-WP-IND-T[]" id="MIR-CVG-WP-IND-T[]" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+<!-- NVCN01 STARTS -->
+                    <td class="celldisplay">
+                        <select name="MIR-CVG-WP-TYP-CD-T[]" id="MIR-CVG-WP-TYP-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+                    </td>
+<!-- NVCN01 ENDS -->
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <select name="MIR-CVG-UWGDECN-CD-T[]" id="MIR-CVG-UWGDECN-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Reinsurance Details">Reinsurance Details</a>
+            </h2>
+            <table class="tabledisplay" genrows="0" keycolumn="1" id="CvgInfo">
+                <tr>
+                    <td class="celldisplayheading" colspan="9">Reinsurance Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-POL-ID-T[1]">Policy ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">Coverage Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PLAN-ID-T[1]">Rider Name</label>
+                    </td>
+                   <td class="celldisplayheading" >
+                        <label for="MIR-CVG-REINS-IND-T[1]">Reinsured</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-REINS-CO-ID-T[1]">Reinsurance Company</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-REINS-TRTY-NUM-T[1]">Treaty Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-REINS-CED-PCT-T[1]">Ceding Percentage</label>
+                    </td>
+<!-- TLB015 CHANGES STARTS HERE -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-REINS-TYP-CD-T[1]">Reinsurance Type</label>
+                    </td>
+<!-- TLB015 CHANGES ENDS HERE -->
+                   <td class="celldisplayheading" >
+                        <label for="MIR-CVG-REINS-ME-FCT-T[1]">MR</label>
+                    </td>
+                   <td class="celldisplayheading" >
+                        <label for="MIR-CVG-REINS-LIEN-T[1]">Lien</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-POL-ID-T[]" stype="Text" displayonly="yes">MIR-CVG-POL-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-CVG-REINS-IND-T[]" id="MIR-CVG-REINS-IND-T[]" stype="Indicator" index="1" onclick="onCheckBox();ReinsuranceCheck1()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplay">
+                        <select name="MIR-CVG-REINS-CO-ID-T[]" id="MIR-CVG-REINS-CO-ID-T[]" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+                    </td>
+                    <td class="celldisplay">
+                        <select name="MIR-CVG-REINS-TRTY-NUM-T[]" id="MIR-CVG-REINS-TRTY-NUM-T[]" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+                    </td>
+                    <td class="celldisplay">
+                        <select name="MIR-CVG-REINS-CED-PCT-T[]" id="MIR-CVG-REINS-CED-PCT-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+<!-- TLB015 CHANGES STARTS HERE -->
+                    <td class="celldisplay">
+                        <span id="MIR-REINS-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-REINS-TYP-CD-T[]</span>
+                    </td>
+<!-- TLB015 CHANGES ENDS HERE -->
+                    <td class="celldisplay">
+                        <input type="text" value=" " name="MIR-CVG-REINS-ME-FCT-T[]" id="MIR-CVG-REINS-ME-FCT-T[]" stype="Number" elength="3" decimals="2" signed="yes" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celldisplay">
+                        <select name="MIR-CVG-REINS-LIEN-T[]" id="MIR-CVG-REINS-LIEN-T[]" stype="Selection" maxlength="01" onfocus="enterField(this)" ></select>
+                    </td>
+           <td> <input type="hidden" name="MIR-CVG-REINS-CED-AMT-T[]" id="MIR-CVG-REINS-CED-AMT-T[]" stype="Hidden" /></td>
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Selection Method">Selection Method</a>
+            </h2>
+            <table class="tabledisplay" genrows="0" keycolumn="1">
+                <tr>
+                    <td class="celldisplayheading" colspan="5"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SLCTN-POL-ID-T[1]">Policy ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-STCKR-ID-T[1]">Sticker Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-UW-TYP-CD-T[1]">Selection Method</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-UW-UPLD-IND-T[1]">Underwriting Upload Indicator</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-UW-UPLD-DT-T[1]">Underwriting Upload Date</label>
+                    </td>
+              <!-- TL1010 changes starts here -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-BULK-BUNDLE-APP-T[1]">BulkBundleApp</label>
+                    </td>
+              <!-- TL1010 changes ends here -->
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-SLCTN-POL-ID-T[]" stype="Text" displayonly="yes">MIR-SLCTN-POL-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-STCKR-ID-T[]" stype="Text" displayonly="yes">MIR-STCKR-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                    <select name="MIR-UW-TYP-CD-T[]" id="MIR-UW-TYP-CD-T[]" stype="Selection" onfocus="enterField(this)" mandatory="yes"> </select>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-UW-UPLD-IND-T[]" id="MIR-UW-UPLD-IND-T[]" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UW-UPLD-DT-T[]" stype="Date" displayonly="yes">MIR-UW-UPLD-DT-T[]</span>
+                    </td>
+              <!-- TL1010 changes starts here -->
+                    <td class="celldisplay">
+                        <span id="MIR-BULK-BUNDLE-APP-T[]" stype="Text" displayonly="yes">MIR-BULK-BUNDLE-APP-T[]</span>
+                    </td>
+              <!-- TL1010 changes ends here -->
+                </tr>
+            </table>
+               <table class="tabledatakey">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MED-MAX-BLOOD-RT">Maximum BP</label>
+                    </td>
+                    <td class="celldisplay">
+                    <input elength="3" name="MIR-MED-MAX-BLOOD-RT" id="MIR-MED-MAX-BLOOD-RT" onblur="validateField(this)" onfocus="enterField(this)"  size="3" stype="Number" type="text" value="0"/>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MED-MIN-BLOOD-RT">Minimum BP</label>
+                    </td>
+                    <td class="celldisplay">
+                    <input elength="3" name="MIR-MED-MIN-BLOOD-RT" id="MIR-MED-MIN-BLOOD-RT" onblur="validateField(this)" onfocus="enterField(this)"  size="3" stype="Number" type="text" value="0"/>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+                 <h2>
+         <a name="Mortality / Hospitalization Ratio">Mortality / Hospitalization Ratio</a>
+                 </h2>
+            <br />
+               <table class="tabledatakey">
+                   <tr>
+                       <td class="celldisplayheading" colspan="1"></td>
+                       <td class="celldisplayheading" colspan="1">Previous Disease</td>
+                       <td class="celldisplayheading" colspan="1">Current Disease</td>
+                       <td class="celldisplayheading" colspan="1">Build</td>
+                        <td class="celldisplayheading" colspan="1">Pulse</td>
+                        <td class="celldisplayheading" colspan="1">BP</td>
+                        <td class="celldisplayheading" colspan="1">Urine</td>
+                        <td class="celldisplayheading" colspan="1">Blood Sugar</td>
+                        <td class="celldisplayheading" colspan="1">Liver</td>
+                        <td class="celldisplayheading" colspan="1">Lipid</td>
+                       <td class="celldisplayheading" colspan="1">Anemia</td>
+                        <td class="celldisplayheading" colspan="1">ECG</td>
+                       <td class="celldisplayheading" colspan="1">Others</td>
+                       <td class="celldisplayheading" colspan="1">Correction</td>
+                       <td class="celldisplayheading" colspan="1">Total</td>
+                       <td class="celldisplayheading" colspan="1">MR</td>
+                        <!-- TV2003 CHANGES STARTS
+                       <td class="celldisplayheading" colspan="1">Total(TVI)</td>
+                       <td class="celldisplayheading" colspan="1">MR(TVI)</td>
+                       <td class="celldisplayheading" colspan="1">MR Duration(TVI)</td>
+                       -->
+                       <!-- TV2003 CHANGES ENDS -->
+                    <!-- CD200B CHANGES STARTS -->
+                     <!-- <td class="celldisplayheading" colspan="1">Age Add Duration</td>-->
+                       <td class="celldisplayheading" colspan="1">Age Add Duration(Life)</td>
+                       <td class="celldisplayheading" colspan="1">Age Add Duration(3CI)</td>
+                    <!-- CD200B CHANGES STARTS -->
+                   </tr>
+                   <tr>
+                       <td class="celldisplaylabel" colspan="1">
+                          <label> Death</label>
+                       </td>
+                       <td class="celldisplay" colspan="1">
+                           <input type="text" value=" " name="MIR-DTH-PREV-DIS-CD" id="MIR-DTH-PREV-DIS-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-DTH-CRNT-DIS-CD" id="MIR-DTH-CRNT-DIS-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-DTH-BLD-CD" id="MIR-DTH-BLD-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-DTH-PULSE-CD" id="MIR-DTH-PULSE-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-DTH-BD-CD" id="MIR-DTH-BD-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-DTH-URINE-CD" id="MIR-DTH-URINE-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-DTH-BLOOD-SUGAR-CD" id="MIR-DTH-BLOOD-SUGAR-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-DTH-LIVER-CD" id="MIR-DTH-LIVER-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-DTH-LIPID-CD" id="MIR-DTH-LIPID-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-DTH-ANEM-CD" id="MIR-DTH-ANEM-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-DTH-ECG-CD" id="MIR-DTH-ECG-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-DTH-OTHR-CD" id="MIR-DTH-OTHR-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-DTH-CORR-CD" id="MIR-DTH-CORR-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-DTH-TOT-AMT" id="MIR-DTH-TOT-AMT" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-DTH-MR-CD" stype="Text" displayonly="yes">MIR-DTH-MR-CD</span>
+                       </td>
+                       <!-- TV2003 CHANGES STARTS
+                       <td class="celldisplay">
+                            <span id="MIR-DTH-TOT-TVI-AMT" stype="Text" displayonly="yes">MIR-DTH-TOT-TVI-AMT</span>
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-DTH-MR-TVI-CD" stype="Text" displayonly="yes">MIR-DTH-MR-TVI-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-DTH-MR-DUR" stype="Text" displayonly="yes">MIR-DTH-MR-DUR</span>
+                       </td>
+                       -->
+                       <!-- TV2003 CHANGES ENDS -->
+                       <td class="celldisplay">
+                            <span id="MIR-DTH-AGE-DUR" stype="Text" displayonly="yes">MIR-DTH-AGE-DUR</span>
+                       </td>
+                        <!-- CD200B CHANGES STARTS -->
+                        <td class="celldisplay">
+                            <span id="MIR-DTH-AGE-DUR-3CI" stype="Text" displayonly="yes">MIR-DTH-AGE-DUR-3CI</span>
+                        </td>
+                        <!-- CD200B CHANGES ENDS -->
+                    </tr>
+                    <tr>
+                       <td class="celldisplaylabel">
+                          <label> Reduction</label>
+                       </td>
+                       <td class="celldisplay" colspan="1">
+                           <select name="MIR-CON-PREV-DIS-CD" id="MIR-CON-PREV-DIS-CD" stype="Selection" maxlength="1" onfocus="enterField(this)" ></select>
+                       </td>
+                       <td class="celldisplay">
+                           <select name="MIR-CON-CRNT-DIS-CD" id="MIR-CON-CRNT-DIS-CD" stype="Selection" maxlength="1" onfocus="enterField(this)" ></select>
+                       </td>
+                       <td class="celldisplay">
+                           <select name="MIR-CON-BLD-CD" id="MIR-CON-BLD-CD" stype="Selection" maxlength="1" onfocus="enterField(this)" ></select>
+                       </td>
+                       <td class="celldisplay">
+                           <select name="MIR-CON-PULSE-CD" id="MIR-CON-PULSE-CD" stype="Selection" maxlength="1" onfocus="enterField(this)" ></select>
+                       </td>
+                       <td class="celldisplay">
+                           <select name="MIR-CON-BD-CD" id="MIR-CON-BD-CD" stype="Selection" maxlength="1" onfocus="enterField(this)" ></select>
+                       </td>
+                       <td class="celldisplay">
+                           <select name="MIR-CON-URINE-CD" id="MIR-CON-URINE-CD" stype="Selection" maxlength="1" onfocus="enterField(this)" ></select>
+                       </td>
+                       <td class="celldisplay">
+                           <select name="MIR-CON-BLOOD-SUGAR-CD" id="MIR-CON-BLOOD-SUGAR-CD" stype="Selection" maxlength="1" onfocus="enterField(this)" ></select>
+                       </td>
+                       <td class="celldisplay">
+                           <select name="MIR-CON-LIVER-CD" id="MIR-CON-LIVER-CD" stype="Selection" maxlength="1" onfocus="enterField(this)" ></select>
+                       </td>
+                       <td class="celldisplay">
+                           <select name="MIR-CON-LIPID-CD" id="MIR-CON-LIPID-CD" stype="Selection" maxlength="1" onfocus="enterField(this)" ></select>
+                       </td>
+                       <td class="celldisplay">
+                           <select name="MIR-CON-ANEM-CD" id="MIR-CON-ANEM-CD" stype="Selection" maxlength="1" onfocus="enterField(this)" ></select>
+                       </td>
+                       <td class="celldisplay">
+                           <select name="MIR-CON-ECG-CD" id="MIR-CON-ECG-CD" stype="Selection" maxlength="1" onfocus="enterField(this)" ></select>
+                       </td>
+                       <td class="celldisplay">
+                           <select name="MIR-CON-OTHR-CD" id="MIR-CON-OTHR-CD" stype="Selection" maxlength="1" onfocus="enterField(this)" ></select>
+                       </td>
+                       <td class="celldisplay">
+                           <select name="MIR-CON-CORR-CD" id="MIR-CON-CORR-CD" stype="Selection" maxlength="1" onfocus="enterField(this)" ></select>
+                       </td>
+                       <td class="celldisplay">
+                           <select name="MIR-CON-TOT-AMT" id="MIR-CON-TOT-AMT" stype="Selection" maxlength="1" onfocus="enterField(this)" ></select>
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-CON-MR-CD" id="MIR-CON-MR-CD" stype="Text" maxlength="1" disabled="yes" onfocus="enterField(this)" size="1" />
+                       </td>
+                       <!-- TV2003 CHANGES STARTS
+                       <td class="celldisplay">
+                            <span id="MIR-CON-TOT-TVI-AMT" stype="Text" displayonly="yes">MIR-CON-TOT-TVI-AMT</span>
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-CON-MR-TVI-CD" id="MIR-CON-MR-TVI-CD" stype="Text" maxlength="4" disabled="yes" onfocus="enterField(this)" size="4" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-CON-MR-DUR" id="MIR-CON-MR-DUR" stype="Text" maxlength="1" disabled="yes" onfocus="enterField(this)" size="1" />
+                       </td>
+                       -->
+                       <!-- TV2003 CHANGES ENDS -->
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-CON-AGE-DUR" id="MIR-CON-AGE-DUR" stype="Text" maxlength="1" disabled="yes" onfocus="enterField(this)" size="1" />
+                       </td>
+                       <!-- CD200B CHANGES START HERE -->
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-CON-AGE-DUR-3CI" id="MIR-CON-AGE-DUR-3CI" stype="Text" maxlength="2" disabled="yes" onfocus="enterField(this)" size="2" />
+                       </td>
+                       <!-- CD200B CHANGES START HERE -->
+                    </tr>
+                   <tr>
+                       <td class="celldisplaylabel">
+                          <label>Medical</label>
+                        </td>
+                       <td class="celldisplay" colspan="1">
+                           <input type="text" value=" " name="MIR-MEDIC-PREV-DIS-CD" id="MIR-MEDIC-PREV-DIS-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-CRNT-DIS-CD" id="MIR-MEDIC-CRNT-DIS-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-BLD-CD" id="MIR-MEDIC-BLD-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-PULSE-CD" id="MIR-MEDIC-PULSE-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-BD-CD" id="MIR-MEDIC-BD-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-URINE-CD" id="MIR-MEDIC-URINE-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-BLOOD-SUGAR-CD" id="MIR-MEDIC-BLOOD-SUGAR-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-LIVER-CD" id="MIR-MEDIC-LIVER-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-LIPID-CD" id="MIR-MEDIC-LIPID-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-ANEM-CD" id="MIR-MEDIC-ANEM-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-ECG-CD" id="MIR-MEDIC-ECG-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-OTHR-CD" id="MIR-MEDIC-OTHR-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-CORR-CD" id="MIR-MEDIC-CORR-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-TOT-AMT" id="MIR-MEDIC-TOT-AMT" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-MEDIC-MR-CD" stype="Text" displayonly="yes">MIR-MEDIC-MR-CD</span>
+                       </td>
+                       <!-- TV2003 CHANGES STARTS
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-TOT-TVI-AMT" id="MIR-MEDIC-TOT-TVI-AMT" stype="Text" maxlength="5" disabled="yes" onfocus="enterField(this)" size="5" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-MR-TVI-CD" id="MIR-MEDIC-MR-TVI-CD" stype="Text" maxlength="4" disabled="yes" onfocus="enterField(this)" size="4" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-MR-DUR" id="MIR-MEDIC-MR-DUR" stype="Text" maxlength="3" disabled="yes" onfocus="enterField(this)" size="3" />
+                       </td>
+                       -->
+                       <!-- TV2003 CHANGES ENDS -->
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-AGE-DUR" id="MIR-MEDIC-AGE-DUR" stype="Text" maxlength="2" disabled="yes" onfocus="enterField(this)" size="2" />
+                       </td>
+                       <!-- CD200B CHANGES START HERE -->
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-MEDIC-AGE-DUR-3CI" id="MIR-MEDIC-AGE-DUR-3CI" stype="Text" maxlength="2" disabled="yes" onfocus="enterField(this)" size="2" />
+                       </td>
+                       <!-- CD200B CHANGES ENDS HERE -->
+                    </tr>
+              </table>
+               <table class="tabledatakey">
+                   <tr>
+                       <td class="celldisplayheading" colspan="6">Exclusion</td>
+                   </tr>
+                     <tr>
+                       <td class="celldisplay" colspan="1">
+                           <input type="text" value=" " name="MIR-EXCL-FLD1" id="MIR-EXCL-FLD1" stype="Text" maxlength="8" onfocus="enterField(this)" size="8" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-EXCL-FLD2" id="MIR-EXCL-FLD2" stype="Text" maxlength="8" onfocus="enterField(this)" size="8" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-EXCL-FLD3" id="MIR-EXCL-FLD3" stype="Text" maxlength="8" onfocus="enterField(this)" size="8" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-EXCL-FLD4" id="MIR-EXCL-FLD4" stype="Text" maxlength="8" onfocus="enterField(this)" size="8" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-EXCL-FLD5" id="MIR-EXCL-FLD5" stype="Text" maxlength="8" onfocus="enterField(this)" size="8" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-EXCL-FLD6" id="MIR-EXCL-FLD6" stype="Text" maxlength="8" onfocus="enterField(this)" size="8" />
+                       </td>
+                     </tr>
+                     <tr>
+                       <td class="celldisplay" colspan="1">
+                           <input type="text" value=" " name="MIR-EXCL-FLD7" id="MIR-EXCL-FLD7" stype="Text" maxlength="16" onfocus="enterField(this)" size="16" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-EXCL-FLD8" id="MIR-EXCL-FLD8" stype="Text" maxlength="16" onfocus="enterField(this)" size="16" />
+                       </td>
+                       <td class="celldisplay">
+                           <input type="text" value=" " name="MIR-EXCL-FLD9" id="MIR-EXCL-FLD9" stype="Text" maxlength="16" onfocus="enterField(this)" size="16" />
+                       </td>
+                       <td class="celldisplay"></td>
+                       <td class="celldisplay"></td>
+                       <td class="celldisplay"></td>
+                     </tr>
+                     <tr>
+                       <td class="celldisplay" colspan="1">
+                           <input type="text" value=" " name="MIR-EXCL-FLD10" id="MIR-EXCL-FLD10" stype="Text" maxlength="16" onfocus="enterField(this)" size="16" />
+                       </td>
+                       <td class="celldisplay"></td>
+                       <td class="celldisplay"></td>
+                       <td class="celldisplay"></td>
+                       <td class="celldisplay"></td>
+                       <td class="celldisplay"></td>
+                     </tr>
+            </table>
+<!-- S23056 CHANGES START -->
+            <br />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldisplaylabel">
+                    <p align="Left">
+                        <label for="MIR-SCOND-DT-TIME-TXT">Print Date:</label>
+                    </p>
+                    </td>
+                    <td class="celldisplay">
+                    <p align="Left">
+                        <span id="MIR-SCOND-DT-TIME-TXT" stype="Text" displayonly="yes">MIR-SCOND-DT-TIME-TXT</span>
+                    </p>
+                    </td>
+                 </tr>
+            </table>
+<!-- S23056 CHANGES END -->
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Body Part Exclusion">Body Part Exclusion</a>
+            </h2>
+            <table class="tabledisplay" genrows="0" keycolumn="1">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-EXCL-POL-ID-T[1]">Policy ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PROD-APP-TYP-CD-T[]">Product Application Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AMEND-CRTE-EXCL-IND-T[]">Amendment Create(Exclusion)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AMEND-CRTE-IND-T[]">Amendment Create(Amendment)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <a name="MIR-EXCL-POL-ID-T[]" href="a" action="SelectItem" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">Policy ID</a>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PROD-APP-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-PROD-APP-TYP-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-AMEND-CRTE-EXCL-IND-T[]" id="MIR-AMEND-CRTE-EXCL-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-AMEND-CRTE-IND-T[]" id="MIR-AMEND-CRTE-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Physical Condition Result">Physical Condition Result</a>
+            </h2>
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Physical Condition Result</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                           <label for="MIR-CLI-UWGDECN-CD">Client Decision</label>
+                    </td>
+                    <td class="celldisplay">
+                           <select name="MIR-CLI-UWGDECN-CD" id="MIR-CLI-UWGDECN-CD" size="1"  stype="Selection" Mandatory ="Yes" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celldisplaylabel">
+                           <label for="MIR-MLJ-HLTH-ASSESS-CD">Physical Conditions(MLJ Results)</label>
+                    </td>
+                    <td class="celldisplay">
+                           <select name="MIR-MLJ-HLTH-ASSESS-CD" id="MIR-MLJ-HLTH-ASSESS-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel">
+                           <label for="MIR-REINS-HLTH-ASSESS-CD">Physical Conditions(Re-insurer Results)</label>
+                       </td>
+                    <td class="celldisplay">
+                           <select name="MIR-REINS-HLTH-ASSESS-CD" id="MIR-REINS-HLTH-ASSESS-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                </table>
+                <table class="tabledatakey">
+                <tr>
+                   <td class="celldisplayheading"></td>
+                   <td class="celldisplayheading" colspan="1">Blood Test Result</td>
+                   <td class="celldisplayheading"></td>
+                   <td class="celldisplayheading" colspan="1">ECG Result</td>
+                   <td class="celldisplayheading"></td>
+                   <td class="celldisplayheading" colspan="8">Additional Document</td>
+                </tr>
+                <tr>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplay">
+                        <TextArea name="MIR-BLOOD-TXT" id="MIR-BLOOD-TXT" rows="4" cols="20" maxLength="100" stype="TextArea" onfocus="enterField(this)"></TextArea>
+                    </td>
+                    <td class="celldisplay"></td>
+                    <td Class="celldisplaylabel">
+                        <TextArea name="MIR-ECG-TXT" id="MIR-ECG-TXT" rows="4" cols="20" maxLength="100" stype="TextArea" onfocus="enterField(this)"></TextArea>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-ADDL-SELF-DSCLSRE-IND" id="MIR-ADDL-SELF-DSCLSRE-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ADDL-SELF-DSCLSRE-IND">Additional Self Disclosure</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-DEDCT-SELF-DSCLSRE-IND" id="MIR-DEDCT-SELF-DSCLSRE-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DEDCT-SELF-DSCLSRE-IND">Dedicated Additional Self Disclosure</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-EXIST-SELF-DSCLSRE-IND" id="MIR-EXIST-SELF-DSCLSRE-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-EXIST-SELF-DSCLSRE-IND">Existing Policy Self Disclosure</label>
+                    </td>
+                    <td class="celldisplaylabel">
+                       <label for="MIR-OTHRS-DESC-TXT">Comment</label>
+                   </td>
+                   <td CLASS="celldisplay">
+                       <TextArea name="MIR-OTHRS-DESC-TXT" id="MIR-OTHRS-DESC-TXT" rows="4" cols="20" maxLength="100" stype="TextArea" onfocus="enterField(this)"></TextArea>
+                   </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-BLOOD-TEST-IND" id="MIR-BLOOD-TEST-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BLOOD-TEST-IND">Blood test</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-ECG-IND" id="MIR-ECG-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ECG-IND">ECG</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-HLTH-RPT-RESP-IND" id="MIR-HLTH-RPT-RESP-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-HLTH-RPT-RESP-IND">Doctor/Interviewer/Corporate Health Report</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-PRLM-UW-RSLT-IND" id="MIR-PRLM-UW-RSLT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PRLM-UW-RSLT-IND">Results of Preliminary Underwriting</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-MEDIC-BNFT-RPT-IND" id="MIR-MEDIC-BNFT-RPT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MEDIC-BNFT-RPT-IND">Medical Report for the benefit (Claim)</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-OTHRS-IND" id="MIR-OTHRS-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OTHRS-IND">Others</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-HLTH-CHK-RSLT-IND" id="MIR-HLTH-CHK-RSLT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-HLTH-CHK-RSLT-IND">Results of Health check up</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-MEDIC-RPT-IND" id="MIR-MEDIC-RPT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MEDIC-RPT-IND">Medical report</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-SCR-WRITN-PLDG-IND" id="MIR-SCR-WRITN-PLDG-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SCR-WRITN-PLDG-IND">Scrivener's Written Pledge</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-EXIST-POL-DOC-IND" id="MIR-EXIST-POL-DOC-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-EXIST-POL-DOC-IND">Documents of existing policy</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-INCMPLT-DOC-IND" id="MIR-INCMPLT-DOC-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INCMPLT-DOC-IND">Response to Incomplete documentation</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-PRE-ISS-RPT-IND" id="MIR-PRE-ISS-RPT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PRE-ISS-RPT-IND">Pre-issue Report</label>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Comments">Comments</a>
+            </h2>
+            <table class="tabledisplay" genrows="0" keycolumn="1">
+                <tr>
+                    <td class="celldisplayheading" colspan="3"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-UW-USER-NM-T[1]">USER</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-UW-CREAT-DT-T[1]">Creation Day</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-UW-NOTE-T[1]">UW NOTE</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-UW-USER-NM-T[]" stype="Text" displayonly="yes">MIR-UW-USER-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UW-CREAT-DT-T[]" stype="Date" displayonly="yes">MIR-UW-CREAT-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UW-NOTE-T[]" stype="Text" displayonly="yes">MIR-UW-NOTE-T[]</span>
+                    </td>
+                </tr>
+            </table>
+               <table class="tabledatakey">
+                <tr>
+                   <td class="celldisplayheading" colspan="1">Underwriter Comment column</td>
+                </tr>
+                <tr>
+                   <td class="celldisplaylabel" align="left">
+                      <p align="Left">
+                         <TextArea name="MIR-UW-COMNT-TXT" id="MIR-UW-COMNT-TXT" rows="6" cols="40" maxLength="300" stype="TextArea" onfocus="enterField(this)"></TextArea>
+                      </p>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Underwriting Reason/Defect Information">Underwriting Reason/Defect Information</a>
+            </h2>
+           <table class="tabledatakey">
+                <tr>
+                      <td class="celldisplayheading" colspan="1">Reason CD1</td>
+                      <td class="celldisplayheading" colspan="1">Reason CD2</td>
+                      <td class="celldisplayheading" colspan="1">Reason CD3</td>
+                      <td class="celldisplayheading" colspan="1">Reason CD4</td>
+                      <td class="celldisplayheading" colspan="1">Reason CD5</td>
+                </tr>
+                <tr>
+                   <td class="celldisplay">
+                      <input type="text" value=" " name="MIR-REASN-1-CD" id="MIR-REASN-1-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                  </td>
+
+                   <td class="celldisplay">
+                      <input type="text" value=" " name="MIR-REASN-2-CD" id="MIR-REASN-2-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                  </td>
+
+                   <td class="celldisplay">
+                      <input type="text" value=" " name="MIR-REASN-3-CD" id="MIR-REASN-3-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                  </td>
+
+                   <td class="celldisplay">
+                      <input type="text" value=" " name="MIR-REASN-4-CD" id="MIR-REASN-4-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                  </td>
+
+                   <td class="celldisplay">
+                      <input type="text" value=" " name="MIR-REASN-5-CD" id="MIR-REASN-5-CD" stype="Text" maxlength="3" onfocus="enterField(this)" size="3" />
+                  </td>
+                </tr>
+           </table>
+           <div id="tableContainer2" class="tableContainer2">
+           <table class="tabledatakey" keyfield="0">
+                     <tr>
+                         <td class="celldisplayheading" colspan="1">Defect CD1</td>
+                         <td class="celldisplayheading" colspan="1">Defect CD2</td>
+                         <td class="celldisplayheading" colspan="1">Elapsed years</td>
+                         <td class="celldisplayheading" colspan="1">Surgery 1</td>
+                         <td class="celldisplayheading" colspan="1">Surgery 2</td>
+                         <td class="celldisplayheading" colspan="1">Surgery 3</td>
+                         <td class="celldisplayheading" colspan="1">Additional information</td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FRST-DFCT-1-CD" id="MIR-FRST-DFCT-1-CD" stype="Text" maxlength="7"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="7" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FRST-DFCT-2-CD" id="MIR-FRST-DFCT-2-CD" stype="Text" maxlength="6"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="6" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FRST-ELAPS-YRS-DUR" id="MIR-FRST-ELAPS-YRS-DUR" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FRST-SURGY-1-CD" id="MIR-FRST-SURGY-1-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FRST-SURGY-2-CD" id="MIR-FRST-SURGY-2-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FRST-SURGY-3-CD" id="MIR-FRST-SURGY-3-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FRST-ADDL-INFO-TXT" id="MIR-FRST-ADDL-INFO-TXT" stype="Text" maxlength="20" onfocus="enterField(this)" size="20" />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay" colspan="1">
+                            <input type="text" value=" " name="MIR-SEC-DFCT-1-CD" id="MIR-SEC-DFCT-1-CD" stype="Text" maxlength="7"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="7" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SEC-DFCT-2-CD" id="MIR-SEC-DFCT-2-CD" stype="Text" maxlength="6"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="6" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SEC-ELAPS-YRS-DUR" id="MIR-SEC-ELAPS-YRS-DUR" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SEC-SURGY-1-CD" id="MIR-SEC-SURGY-1-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SEC-SURGY-2-CD" id="MIR-SEC-SURGY-2-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SEC-SURGY-3-CD" id="MIR-SEC-SURGY-3-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SEC-ADDL-INFO-TXT" id="MIR-SEC-ADDL-INFO-TXT" stype="Text" maxlength="20" onfocus="enterField(this)" size="20" />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-THRD-DFCT-1-CD" id="MIR-THRD-DFCT-1-CD" stype="Text" maxlength="7"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="7" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-THRD-DFCT-2-CD" id="MIR-THRD-DFCT-2-CD" stype="Text" maxlength="6"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="6" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-THRD-ELAPS-YRS-DUR" id="MIR-THRD-ELAPS-YRS-DUR" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-THRD-SURGY-1-CD" id="MIR-THRD-SURGY-1-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-THRD-SURGY-2-CD" id="MIR-THRD-SURGY-2-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-THRD-SURGY-3-CD" id="MIR-THRD-SURGY-3-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-THRD-ADDL-INFO-TXT" id="MIR-THRD-ADDL-INFO-TXT" stype="Text" maxlength="20" onfocus="enterField(this)" size="20" />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FRTH-DFCT-1-CD" id="MIR-FRTH-DFCT-1-CD" stype="Text" maxlength="7"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="7" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FRTH-DFCT-2-CD" id="MIR-FRTH-DFCT-2-CD" stype="Text" maxlength="6"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="6" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FRTH-ELAPS-YRS-DUR" id="MIR-FRTH-ELAPS-YRS-DUR" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FRTH-SURGY-1-CD" id="MIR-FRTH-SURGY-1-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FRTH-SURGY-2-CD" id="MIR-FRTH-SURGY-2-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FRTH-SURGY-3-CD" id="MIR-FRTH-SURGY-3-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FRTH-ADDL-INFO-TXT" id="MIR-FRTH-ADDL-INFO-TXT" stype="Text" maxlength="20" onfocus="enterField(this)" size="20" />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FIFTH-DFCT-1-CD" id="MIR-FIFTH-DFCT-1-CD" stype="Text" maxlength="7"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="7" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FIFTH-DFCT-2-CD" id="MIR-FIFTH-DFCT-2-CD" stype="Text" maxlength="6"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="6" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FIFTH-ELAPS-YRS-DUR" id="MIR-FIFTH-ELAPS-YRS-DUR" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FIFTH-SURGY-1-CD" id="MIR-FIFTH-SURGY-1-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FIFTH-SURGY-2-CD" id="MIR-FIFTH-SURGY-2-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FIFTH-SURGY-3-CD" id="MIR-FIFTH-SURGY-3-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-FIFTH-ADDL-INFO-TXT" id="MIR-FIFTH-ADDL-INFO-TXT" stype="Text" maxlength="20" onfocus="enterField(this)" size="20" />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SIXTH-DFCT-1-CD" id="MIR-SIXTH-DFCT-1-CD" stype="Text" maxlength="7"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="7" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SIXTH-DFCT-2-CD" id="MIR-SIXTH-DFCT-2-CD" stype="Text" maxlength="6"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="6" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SIXTH-ELAPS-YRS-DUR" id="MIR-SIXTH-ELAPS-YRS-DUR" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SIXTH-SURGY-1-CD" id="MIR-SIXTH-SURGY-1-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SIXTH-SURGY-2-CD" id="MIR-SIXTH-SURGY-2-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SIXTH-SURGY-3-CD" id="MIR-SIXTH-SURGY-3-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SIXTH-ADDL-INFO-TXT" id="MIR-SIXTH-ADDL-INFO-TXT" stype="Text" maxlength="20" onfocus="enterField(this)" size="20" />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SVNTH-DFCT-1-CD" id="MIR-SVNTH-DFCT-1-CD" stype="Text" maxlength="7"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="7" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SVNTH-DFCT-2-CD" id="MIR-SVNTH-DFCT-2-CD" stype="Text" maxlength="6"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="6" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SVNTH-ELAPS-YRS-DUR" id="MIR-SVNTH-ELAPS-YRS-DUR" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SVNTH-SURGY-1-CD" id="MIR-SVNTH-SURGY-1-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SVNTH-SURGY-2-CD" id="MIR-SVNTH-SURGY-2-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SVNTH-SURGY-3-CD" id="MIR-SVNTH-SURGY-3-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-SVNTH-ADDL-INFO-TXT" id="MIR-SVNTH-ADDL-INFO-TXT" stype="Text" maxlength="20" onfocus="enterField(this)" size="20" />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-EIGTH-DFCT-1-CD" id="MIR-EIGTH-DFCT-1-CD" stype="Text" maxlength="7"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="7" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-EIGTH-DFCT-2-CD" id="MIR-EIGTH-DFCT-2-CD" stype="Text" maxlength="6"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="6" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-EIGTH-ELAPS-YRS-DUR" id="MIR-EIGTH-ELAPS-YRS-DUR" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-EIGTH-SURGY-1-CD" id="MIR-EIGTH-SURGY-1-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-EIGTH-SURGY-2-CD" id="MIR-EIGTH-SURGY-2-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-EIGTH-SURGY-3-CD" id="MIR-EIGTH-SURGY-3-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-EIGTH-ADDL-INFO-TXT" id="MIR-EIGTH-ADDL-INFO-TXT" stype="Text" maxlength="20" onfocus="enterField(this)" size="20" />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-NINTH-DFCT-1-CD" id="MIR-NINTH-DFCT-1-CD" stype="Text" maxlength="7"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="7" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-NINTH-DFCT-2-CD" id="MIR-NINTH-DFCT-2-CD" stype="Text" maxlength="6"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="6" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-NINTH-ELAPS-YRS-DUR" id="MIR-NINTH-ELAPS-YRS-DUR" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-NINTH-SURGY-1-CD" id="MIR-NINTH-SURGY-1-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-NINTH-SURGY-2-CD" id="MIR-NINTH-SURGY-2-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-NINTH-SURGY-3-CD" id="MIR-NINTH-SURGY-3-CD" stype="Text" maxlength="2"
+                                                onchange="onlyKatakana()"
+                                                onfocus="enterField(this)"
+                                                onkeypress="KanaKeyCheck()" size="2" />
+                        </td>
+                        <td class="celldisplay">
+                            <input type="text" value=" " name="MIR-NINTH-ADDL-INFO-TXT" id="MIR-NINTH-ADDL-INFO-TXT" stype="Text" maxlength="20" onfocus="enterField(this)" size="20" />
+                        </td>
+                     </tr>
+                </table>
+                </div>
+                <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Existing Requirements">Existing Requirements</a>
+            </h2>
+            <table class="tabledisplay" genrows="0" keycolumn="1">
+                <tr>
+                    <td class="celldisplayheading" colspan="7">Issue Requirements</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ISS-POL-ID-T[1]">Policy ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ISS-REQIR-CAT-CD-T[1]">Requirement Category</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ISS-REQIR-ID-T[1]">Requirement</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ISS-CPREQ-SEQ-NUM-T[1]">Sequence Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ISS-CPREQ-STAT-CD-T[1]">Status</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ISS-USER-ID-T[1]">ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ISS-REQIR-COMNT-TXT-T[1]">Comments</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-ISS-POL-ID-T[]" stype="Text" displayonly="yes">MIR-ISS-POL-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ISS-REQIR-CAT-CD-T[]" stype="Text" displayonly="yes">MIR-ISS-REQIR-CAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ISS-REQIR-ID-T[]" stype="Text" displayonly="yes">MIR-ISS-REQIR-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ISS-CPREQ-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-ISS-CPREQ-SEQ-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <select name="MIR-ISS-CPREQ-STAT-CD-T[]" id="MIR-ISS-CPREQ-STAT-CD-T[]" stype="Selection" onfocus="enterField(this)" size="1" ></select>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ISS-USER-ID-T[]" stype="Text" displayonly="yes">MIR-ISS-USER-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ISS-REQIR-COMNT-TXT-T[]" stype="Text" displayonly="yes">MIR-ISS-REQIR-COMNT-TXT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keycolumn="1">
+                <tr>
+                    <td class="celldisplayheading" colspan="6">UnderWriting Requirements</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-REQIR-CAT-CD-T[1]">Requirement Category</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-REQIR-ID-T[1]">Requirement</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CPREQ-SEQ-NUM-T[1]">Sequence Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CPREQ-STAT-CD-T[1]">Status</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-USER-ID-T[1]">ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-REQIR-COMNT-INFO-TXT-T[1]">Comments</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-REQIR-CAT-CD-T[]" stype="Text" displayonly="yes">MIR-REQIR-CAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REQIR-ID-T[]" stype="Text" displayonly="yes">MIR-REQIR-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CPREQ-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-CPREQ-SEQ-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <select name="MIR-CPREQ-STAT-CD-T[]" id="MIR-CPREQ-STAT-CD-T[]" stype="Selection" onfocus="enterField(this)" size="1" ></select>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USER-ID-T[]" stype="Text" readonly="yes">MIR-USER-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REQIR-COMNT-INFO-TXT-T[]" stype="Text" displayonly="yes">MIR-REQIR-COMNT-INFO-TXT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="New Requirements">New Requirements</a>
+            </h2>
+            <table id="ReqtTable" class="tabledataentry"  genrows="5">
+                <tr>
+				    <td class="celldisplayheading" colspan="4">Issue Requirements</td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-NEW-ISS-POL-ID-T[1]">Policy ID</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-NEW-ISS-REQIR-CAT-CD-T[1]">Requirement Category</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-NEW-ISS-REQIR-ID-T[1]">Requirement</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-NEW-ISS-REQIR-COMNT-TXT-T[1]">Comments</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-NEW-ISS-POL-ID-T[]" id="MIR-NEW-ISS-POL-ID-T[]" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                       <select name="MIR-NEW-ISS-REQIR-CAT-CD-T[]" id="MIR-NEW-ISS-REQIR-CAT-CD-T[]" stype="Selection" onchange="doRefresh()" onfocus="enterField(this)" size="1" ></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-NEW-ISS-REQIR-ID-T[]" id="MIR-NEW-ISS-REQIR-ID-T[]" size="1" stype="Selection"  onfocus="enterField(this)" onchange="onChangeCustom();doRefresh()"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+    <!-- 109768 CHANGES STARTS -->
+    <!--                    <input type="text" value=" " name="MIR-NEW-ISS-REQIR-COMNT-TXT-T[]" id="MIR-NEW-ISS-REQIR-COMNT-TXT-T[]" stype="Text" onfocus="enterField(this)" />  -->
+    <!--                  <TextArea name="MIR-NEW-ISS-REQIR-COMNT-TXT-T[]" id="MIR-NEW-ISS-REQIR-COMNT-TXT-T[]" rows="6" cols="40" maxLength="400" stype="TextArea" onfocus="enterField(this)"></TextArea>  -->
+                      <TextArea name="MIR-NEW-ISS-REQIR-COMNT-TXT-T[]" id="MIR-NEW-ISS-REQIR-COMNT-TXT-T[]" rows="2" cols="100" maxLength="400" stype="TextArea" onfocus="enterField(this)"></TextArea>
+    <!-- 109768 CHANGES ENDS -->
+                   </td>
+                </tr>
+            </table>
+            <br/>
+            <input type="button" name="AddReqt" id="AddReqt" value="AddReqt" onclick="addRow('ReqtTable')" />
+            <br/>
+            <br/>
+            <table id="UWReqtTable" class="tabledataentry"  genrows="15">
+                <tr>
+                    <td class="celldisplayheading" colspan="3">UnderWriting Requirements</td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-NEW-UW-REQIR-CAT-CD-T[1]">Requirement Category</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-NEW-UW-REQIR-ID-T[1]">Requirement</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-NEW-UW-REQIR-COMNT-TXT-T[1]">Comments</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                       <select name="MIR-NEW-UW-REQIR-CAT-CD-T[]" id="MIR-NEW-UW-REQIR-CAT-CD-T[]" stype="Selection" onchange="doRefresh()" onfocus="enterField(this)" size="1" ></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-NEW-UW-REQIR-ID-T[]" id="MIR-NEW-UW-REQIR-ID-T[]" size="1" stype="Selection" onchange="onChangeCustom();doRefresh()" onfocus="enterField(this)" ></select>
+                    </td>
+                    <td class="celllabeldataentry">
+   <!-- 109768 CHANGES STARTS -->
+        <!--                  <input type="text" value=" " name="MIR-NEW-UW-REQIR-COMNT-TXT-T[]" id="MIR-NEW-UW-REQIR-COMNT-TXT-T[]" stype="Text" onfocus="enterField(this)" /> -->
+        <!--                 <TextArea name="MIR-NEW-UW-REQIR-COMNT-TXT-T[]" id="MIR-NEW-UW-REQIR-COMNT-TXT-T[]" rows="6" cols="40" maxLength="400" stype="TextArea" onfocus="enterField(this)"></TextArea>  -->
+                       <TextArea name="MIR-NEW-UW-REQIR-COMNT-TXT-T[]" id="MIR-NEW-UW-REQIR-COMNT-TXT-T[]" rows="2" cols="100" maxLength="400" stype="TextArea" onfocus="enterField(this)"></TextArea>
+    <!-- 109768 CHANGES ENDS -->
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <input type="button" name="AddUWReqt" id="AddUWReqt" value="AddUWReqt" onclick="addRow('UWReqtTable')" />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Policy Details">Policy Details</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Coverage Details">Coverage Details</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Reinsurance Details">Reinsurance Details</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Selection Method">Selection Method</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Mortality / Hospitalization Ratio">Mortality / Hospitalization Ratio</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Body Part Exclusion">Body Part Exclusion</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Physical Condition Result">Physical Condition Result</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Comments">Comments</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Underwriting Reason/Defect Information">Underwriting Reason/Defect Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Existing Requirements ">Existing Requirements </a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#New Requirements">New Requirements</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+       </form>
+           </body>
+           <script src="../js/ActionHandlers.js"></script>
+           <script src="../js/MessageFunctions.js"></script>
+           <script src="../js/checkMaxLength.js"></script>
+           <script src="../js/MessagesEnglish.js"></script>
+           <script src="../js/ClientLevelEdits.js"></script>
+           <script src="../js/GlobalUserMethods.js"></script>
+           <script src="../js/BF1252Reins.js"></script>
+           <script src="../js/BF9F52Reins.js"></script>
+           <script src="../js/OnlyKana.js"></script>
+           <script src="../js/BF9F52.js"></script>
+           <script src="../js/BF9F52UWComnt.js"></script>
+       </html>
+
+
+
+
+

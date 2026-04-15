@@ -1,0 +1,178 @@
+<!--  
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:29 PM EDT
+*
+********************************************************************************* 
+*  Component:   BF1003-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+********************************************************************************* 
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"   
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                         
+*                                                                              
+********************************************************************************* 
+ --> 
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1003-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());"> 
+            <input type="hidden" name="index" id="index" stype="Hidden" /> 
+            <input type="hidden" name="action" id="action" stype="Hidden" /> 
+            <table class="tabledisplaykey"> 
+                <tr> 
+                    <td class="celldisplaykeylabel"> 
+                        <label for="MIR-CLI-ID">クライアントID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">被保険者:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" />
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CLI-INSRD-INFC-AMT-T[1]">処理金額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CLI-INSRD-PEND-AMT-T[1]">未成立金額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CLI-INSRD-SPND-AMT-T[1]">一時停止金額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CLI-INSRD-TOT-AMT-T[1]">合計金額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">保険金額:</td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-INFC-AMT-T[1]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-INFC-AMT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-PEND-AMT-T[1]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-PEND-AMT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-SPND-AMT-T[1]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-SPND-AMT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-TOT-AMT-T[1]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-TOT-AMT-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">保険金額:</td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-INFC-AMT-T[2]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-INFC-AMT-T[2]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-PEND-AMT-T[2]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-PEND-AMT-T[2]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-SPND-AMT-T[2]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-SPND-AMT-T[2]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-TOT-AMT-T[2]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-TOT-AMT-T[2]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">再保険金額:</td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-INFC-AMT-T[3]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-INFC-AMT-T[3]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-PEND-AMT-T[3]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-PEND-AMT-T[3]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-SPND-AMT-T[3]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-SPND-AMT-T[3]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-TOT-AMT-T[3]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-TOT-AMT-T[3]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">自己保有額:</td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-INFC-AMT-T[4]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-INFC-AMT-T[4]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-PEND-AMT-T[4]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-PEND-AMT-T[4]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-SPND-AMT-T[4]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-SPND-AMT-T[4]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-TOT-AMT-T[4]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-TOT-AMT-T[4]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">月収入額:</td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-INFC-AMT-T[5]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-INFC-AMT-T[5]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-PEND-AMT-T[5]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-PEND-AMT-T[5]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-SPND-AMT-T[5]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-SPND-AMT-T[5]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-TOT-AMT-T[5]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-TOT-AMT-T[5]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">保険料払込免除額:</td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-INFC-AMT-T[6]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-INFC-AMT-T[6]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-PEND-AMT-T[6]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-PEND-AMT-T[6]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-SPND-AMT-T[6]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-SPND-AMT-T[6]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-TOT-AMT-T[6]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-TOT-AMT-T[6]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">保険金支払額:</td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-INFC-AMT-T[7]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-INFC-AMT-T[7]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-PEND-AMT-T[7]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-PEND-AMT-T[7]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-SPND-AMT-T[7]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-SPND-AMT-T[7]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-INSRD-TOT-AMT-T[7]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CLI-INSRD-TOT-AMT-T[7]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

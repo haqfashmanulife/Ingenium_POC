@@ -1,0 +1,191 @@
+<!--
+* Converted to Pathfinder 3.0 on Nov 15, 2006 3:22:14 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9940-O.htm
+*  Description: Question Rule Inquiry
+*
+*********************************************************************************
+*  Chg#    Release    Description
+*
+*  EN0395    CTS      INITIAL VERSION
+*  EN9547    CTS      Style of the english page is changed
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9940-O</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="ISO-8859-1" />
+</head>
+<body class="bodyws">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<input type="hidden" name="MIR-HID-USER-TYP-CD" id="MIR-HID-USER-TYP-CD" stype="Hidden"/>
+<input type="hidden" name="MIR-HID-LVL-NUM" id="MIR-HID-LVL-NUM" stype="Hidden"/>
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+<table class="tabledisplaykey">
+	<tr>
+		<td class="celldisplaykeylabel"><label for="MIR-MAJ-QSTN-ID">
+		Major Question ID:</label></td>
+		<td class="celldisplaykey">
+		<span id="MIR-MAJ-QSTN-ID" stype="Text" displayonly="yes">
+		MIR-MAJ-QSTN-ID</span>
+		</td>
+		<td class="celldisplaykeylabel"><label for="MIR-PRNT-QSTN-ID">
+		Parent Question ID:</label></td>
+		<td class="celldisplaykey">
+		<span id="MIR-PRNT-QSTN-ID" stype="Text" displayonly="yes">
+		MIR-PRNT-QSTN-ID</span></td>
+		<td class="celldisplaykeylabel"><label for="MIR-QSTN-ID">Question ID:</label></td>
+		<td class="celldisplaykey">
+		<span id="MIR-QSTN-ID" stype="Text" displayonly="yes">MIR-QSTN-ID</span></td>
+	</tr>
+</table>
+<p></p>
+<table width="100%" class="tabledisplay">
+	<tr>
+		<td class="celldisplayheading" width="15%"><label for="MIR-QSTN-ID">Question ID</label></td>
+		<td class="celldisplayheading" width="85%"><label for="MIR-QUES-DESC">
+		Question Description</label></td>
+	</tr>
+	<tr>
+		<td class="celldisplay" width="15%">
+		<span id="MIR-QSTN-ID" stype="Text" displayonly="yes">MIR-QSTN-ID</span></td>
+		<td class="celldisplay" width="85%">
+		<span id="MIR-QUES-DESC" stype="Text" displayonly="yes">MIR-QUES-DESC</span>
+		</td>
+	</tr>
+</table>
+<p></p>
+<table width="100%" class="tabledisplay">
+	<tr>
+		<td width="100%" class="celldisplayheading" colspan ="4">Yes Response</td>
+	</tr>
+	<tr>
+		<td class="celldisplaylabel" width="25%"><label for="MIR-YES-ACTV-TYP-CD">
+		Action:</label></td>
+		<td class="celldisplay" width="25%"><span id="MIR-YES-ACTV-TYP-CD" stype="Text" displayonly="yes">
+		MIR-YES-ACTV-TYP-CD</span>
+</td>
+		<td class="celldisplaylabel" width="25%"><label for="MIR-YES-ACTV-ID">
+		Resultant:</label></td>
+		<td class="celldisplay" width="25%"><span id="MIR-YES-ACTV-ID" stype="Text" displayonly="yes">
+		MIR-YES-ACTV-ID</span>
+</td>
+	</tr>
+	<tr>
+		<td class="celldisplaylabel"><label for="MIR-YES-ACTV-DESC">
+		Resultant Description:</label></td>
+		<td class="celldisplay" colspan = "3"><span id="MIR-YES-ACTV-DESC" stype="Text" displayonly="yes">
+		MIR-YES-ACTV-DESC</span>
+</td>
+	</tr>
+</table>
+<p />
+<table width="100%" class="tabledisplay">
+	<tr>
+		<td width="100%" class="celldisplayheading" colspan ="4">No Response</td>
+	</tr>
+	<tr>
+		<td class="celldisplaylabel" width="25%"><label for="MIR-NO-ACTV-TYP-CD">
+		Action:</label></td>
+		<td class="celldisplay" width="25%">
+		<span id="MIR-NO-ACTV-TYP-CD" stype="Text" displayonly="yes">
+		MIR-NO-ACTV-TYP-CD</span>
+</td>
+		<td class="celldisplaylabel" width="25%"><label for="MIR-NO-ACTV-ID">
+		Resultant:</label></td>
+		<td class="celldisplay" width="25%">
+		<span id="MIR-NO-ACTV-ID" stype="Text" displayonly="yes">
+		MIR-NO-ACTV-ID</span>
+</td>
+	</tr>
+	<tr>
+		<td class="celldisplaylabel"><label for="MIR-NO-ACTV-DESC">
+		Resultant Description:</label></td>
+		<td class="celldisplay" colspan = "3">
+		<span id="MIR-NO-ACTV-DESC" stype="Text" displayonly="yes">
+		MIR-NO-ACTV-DESC</span>
+</td>
+	</tr>
+</table>
+<p />
+<table width="100%" class="tabledisplay">
+	<tr>
+		<td class="celldisplayheading" width="100%" colspan ="4">Unknown
+		Response</td>
+	</tr>
+	<tr>
+		<td class="celldisplaylabel" width="25%"><label for="MIR-UNKNWN-ACTV-TYP-CD">
+		Action:</label></td>
+		<td class="celldisplay" width="25%">
+		<span id="MIR-UNKNWN-ACTV-TYP-CD" stype="Text" displayonly="yes">
+		MIR-UNKNWN-ACTV-TYP-CD</span>
+</td>
+		<td class="celldisplaylabel" width="25%"><label for="MIR-UNKNWN-ACTV-ID">
+		Resultant:</label></td>
+		<td class="celldisplay" width="25%">
+		<span id="MIR-UNKNWN-ACTV-ID" stype="Text" displayonly="yes">
+		MIR-UNKNWN-ACTV-ID</span>
+</td>
+	</tr>
+	<tr>
+		<td class="celldisplaylabel" ><label for="MIR-UNKNWN-ACTV-DESC">
+		Resultant Description:</label></td>
+		<td class="celldisplay" colspan = "3">
+		<span id="MIR-UNKNWN-ACTV-DESC" stype="Text" displayonly="yes">
+		MIR-UNKNWN-ACTV-DESC</span>
+</td>
+	</tr>
+</table>
+<p />
+<table width="100%" class="tabledisplay">
+	<tr>
+		<td class="celldisplayheading" colspan ="4">Blank Response</td>
+	</tr>
+	<tr>
+		<td class="celldisplaylabel" width="25%"><label for="MIR-BLNK-ACTV-TYP-CD">
+		Action:</label></td>
+		<td class="celldisplay" width="25%">
+		<span id="MIR-BLNK-ACTV-TYP-CD" stype="Text" displayonly="yes">
+		MIR-BLNK-ACTV-TYP-CD</span>
+</td>
+		<td class="celldisplaylabel" width="25%"><label for="MIR-BLNK-ACTV-ID">
+		Resultant:</label></td>
+		<td class="celldisplay" width="25%">
+		<span id="MIR-BLNK-ACTV-ID" stype="Text" displayonly="yes">
+		MIR-BLNK-ACTV-ID</span>
+</td>
+	</tr>
+	<tr>
+		<td class="celldisplaylabel"><label for="MIR-BLNK-ACTV-DESC">
+		Resultant Description:</label></td>
+		<td class="celldisplay" colspan = "3">
+		<span id="MIR-BLNK-ACTV-DESC" stype="Text" displayonly="yes">
+		MIR-BLNK-ACTV-DESC</span>
+</td>
+	</tr>
+</table>
+</form>
+</body>
+<!--EN9547 CHANGES BEGIN -->
+<!--
+<script src="../../js/MessagesEnglish.js"></script>
+<script src="../../js/MessageFunctions.js"></script>
+<script src="../../js/ActionHandlers.js"></script>
+<script src="../../js/ClientLevelEdits.js"></script>
+<script src="../../js/GlobalUserMethods.js"></script>
+-->
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<!--EN9547 CHANGES END -->
+</html>

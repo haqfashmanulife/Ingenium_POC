@@ -1,0 +1,84 @@
+<!--
+*********************************************************************************
+*  Component:   ManuTouchFieldTechTitleBar.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  MP0026  CTS      NEW TITLEBAR FOR MANUTOUCH
+*  PF_333  BMB      PathFinder 3.0 to 3.3.3 upgrade
+*  EN9512  PF4.0.2  PathFinder Upgrade
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <!-- <body class="bodytitle" onload="onLoad('english', 'Show Menu')"> //-->
+    <body class="bodytitle">
+        <!-- 23108 - Added class attribute, removed width -->
+        <table class="titlebanner" border="0" cellpadding="0" width="1024"  height="70">
+            <tr>
+                <td width="105">
+                <img border="0" src="../english/images/manulife_logo.gif" alt="Manulife"  />
+                </td>
+                <td width="478" align="left" class="celltitle1" valign="top">
+                    <div id="Title"></div>
+                </td>
+<!--
+                <td width="75" valign="top" class="cellbutton2">
+                    <img id="menuimg" border="0" src="../english/images/hidemenu.gif" align="top" alt="Hide Menu" width="75" height="39" onclick="onMenu(this, 'english', 'Show Menu', 'Hide Menu');" />
+                </td>
+                <td width="56" valign="top" class="cellbutton2">
+                        <img border="0" src="../english/images/print.gif" align="top" alt="Print" width="56" height="39" onclick="printPreview();" />
+                </td>
+                <td width="57" valign="top" class="cellbutton2">
+                    <a href="../english/index.htm" target="_blank">
+                        <img border="0" src="../english/images/new.gif" align="top" alt="New Window" width="57" height="39" />
+                    </a>
+                </td>
+-->
+                <!-- 23108 - Added class attribute, changed width to '57' -->
+                <td width="57" valign="center" class="cellbutton2">
+                    <!--
+                    <a href="pageserver?ProcessClassID=BF0062Signoff&amp;PageReturn=Blank&amp;LocaleID=E" title="Sign-Off" target="pageserverFrame">
+                        <img border="0" src="../english/images/signoff.gif" alt="Sign Off" width="57" height="39" />
+                    </a>
+-->
+
+            <a href="pageserver?ProcessClassID=BF0062Signoff&amp;PageReturn=Blank&amp;LocaleID=E" title="Sign-Off" target="pageserverFrame">        
+      <!-- <img alt="Sign Off " border="0" height="39" src="../english/images/signoff.gif" width="57" /> //-->
+      <img alt="Logoff" border="0"  src="../english/images/head_logout.gif"  onclick="SetIgnoreWindow();" />
+                    </a>
+
+<!--
+                    <a href="pageserver?ProcessClassID=BF0062Signoff&amp;PageReturn=Blank&amp;LocaleID=E" title="Sign-Off" target="pageserverFrame">
+                        <img border="0" src="../english/images/signoff.gif" alt="Sign Off " width="57" height="39" onclick="EndWindow();" />
+                    </a>
+//-->
+                </td>
+<!--
+                <td width="57" valign="top" class="cellbutton2">
+                    <a href="../english/help/user_guide.htm" target="_blank">
+                        <img border="0" src="../english/images/but_hlp.gif" alt="Help" width="57" height="39" />
+                    </a>
+                </td>
+// -->
+                <td width="57" align="left" valign="center" class="cellbutton2">
+                    <select onclick="onClick()" onchange="onChange(this)">
+                        <option value="E" selected="selected">English</option>
+                        <option value="J">Japanese</option>
+                    </select>
+                </td>
+                <td width="222"  class="cellbutton2"/>
+
+            </tr>
+        </table>
+    </body>
+    <script src="../js/TitleBar.js"></script>
+    <script src="../js/PrintPreview.js"></script>
+    <script src="../js/SignOutCheckAlertE.js"></script>
+    <script src="../js/SignOutCheck2.js"></script>
+</html>

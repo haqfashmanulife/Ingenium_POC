@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*********************************************************************************
+*  Component:   BF9B84-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  NWLCAR  29OCT09  NEW DEPOSIT HISTORY SCREEN FOR NWL POLICIES
+*  23774B  CTS      CHANGES DONE FOR IE RETIREMENT PROJECT TO MAKE IT
+*                   COMPATIBLE FOR MICROSOFT EDGE. CHANGES IN HTML INCLUDE
+*                   ADDING "ID" ATTRIBUTE FOR ALL INPUT FIELDS AND CHANGES IN
+*                   JAVA SCRIPTS TO MODIFY CERTAIN FUNCTIONS/COMMANDS WHICH
+*                   ARE NO LONGER COMPATILBLE WITH EDGE.
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9B84-I</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="ISO-8859-1" />
+</head>
+<!-- UY3004 CHANGES START HERE
+	    <body class="bodyws" onLoad="onLoad();"> -->
+	    <body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+<!-- UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+	<table class="tabledatakey">
+		<tr>
+			<td class="celldatakeylabel">
+				<label for="MIR-POL-ID-BASE" class="clsmandatory">Policy Id:</label>
+			</td>
+			<td class="celldatakey">
+				<input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes"  onfocus="enterField(this)"/>
+			</td>
+			<td class="celldatakeylabel">
+				<label for="MIR-POL-ID-SFX">Suffix:</label>
+			</td>
+			<td class="celldatakey">
+				<input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1"   onfocus="enterField(this)"/>
+			</td>
+			<td class="celldatakeylabel">
+				<label for="MIR-APPL-CTL-PRCES-DT">Process Date:</label>
+			</td>
+			<td class="celldatakey">
+				<input type="text" value=" " name="MIR-APPL-CTL-PRCES-DT" id="MIR-APPL-CTL-PRCES-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+			</td>
+		</tr>
+	</table>
+
+	<input type="hidden" name="action" id="action" stype="Hidden"/>
+	<input type="hidden" name="MIR-HID-TRAD-SO-JRNL-DT" id="MIR-HID-TRAD-SO-JRNL-DT" stype="Hidden"/>
+	<input type="hidden" name="MIR-HID-SEQ-NUM" id="MIR-HID-SEQ-NUM" stype="Hidden"/>
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<!-- UY3004 CHANGES START HERE -->
+	    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

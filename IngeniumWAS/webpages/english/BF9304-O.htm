@@ -1,0 +1,131 @@
+<!--
+*********************************************************************************
+*  Component:   BF9304-O.htm
+*  Description: Advance Payment Deferral Management Screen
+*
+*********************************************************************************
+*  Chg#    AUTH     Description
+*
+*  M271B8  CTS      INITIAL VERSION
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+<title>BF9304-O</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" id="inputForm" method="post" onsubmit="return(onSubmit());" target="_parent">
+<input type="hidden" name="index" id="index" stype="Hidden" />
+<input type="hidden" name="action" id="action" stype="Hidden" />
+<table class="tabledisplaykey">
+          <tr>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-POL-ID-BASE">Policy ID:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-POL-ID-BASE" stype="Text">MIR-POL-ID-BASE</span>
+               </td>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-POL-ID-SFX">Suffix:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-POL-ID-SFX" stype="Text">MIR-POL-ID-SFX</span>
+               </td>
+          </tr>
+          <tr>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-PLAN-ID">Plan ID:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-PLAN-ID" stype="Text">MIR-PLAN-ID</span>
+               </td>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-PRCES-DT">Processing Date:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-PRCES-DT" stype="Date">MIR-PRCES-DT</span>
+               </td>
+          </tr>
+</table>
+     <table class="tabledisplay" genrows="0">
+     <tr>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-ADV-PMT-CAT-CD-T[1]">Category</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+		       <label for="MIR-PRCES-YY-MO-DT-T[1]">Processing Year, Month and Date</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+              <label for="MIR-EFF-DT-T[1]">Effective Date</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+              <label for="MIR-GEN-AMT-T[1]">Generation Amount</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-DEFR-INT-AMT-T[1]">Interest Amount</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-RSDUE-AMT-T[1]">Residuals of Advance Payment</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-NUM-MO-INT-CAP-T[1]">Number of Months of Interest Capitalization</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-INT-RT-T[1]">Interest Rate</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-ADV-PMT-STAT-CD-T[1]">Status</label>
+          </td>
+     </tr>
+     <tr>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-ADV-PMT-CAT-CD-T[]" stype="Text">MIR-ADV-PMT-CAT-CD-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-PRCES-YY-MO-DT-T[]" stype="Date">MIR-PRCES-YY-MO-DT-T[]</span>
+          </td>
+          <td class="celldisplay">
+	       <span displayonly="yes" id="MIR-EFF-DT-T[]" stype="Date">MIR-EFF-DT-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" elength="15" id="MIR-GEN-AMT-T[]" signed="yes" stype="Currency">MIR-GEN-AMT-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" elength="15" id="MIR-DEFR-INT-AMT-T[]" signed="yes" stype="Currency">MIR-DEFR-INT-AMT-T[]</span>
+          </td>
+          <td class="celldisplay">
+	       <span displayonly="yes" elength="15" id="MIR-RSDUE-AMT-T[]" signed="yes" stype="Currency">MIR-RSDUE-AMT-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-NUM-MO-INT-CAP-T[]" stype="Text">MIR-NUM-MO-INT-CAP-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span decimals="4" displayonly="yes" elength="7" id="MIR-INT-RT-T[]" stype="Percent">MIR-INT-RT-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-ADV-PMT-STAT-CD-T[]" stype="Text">MIR-ADV-PMT-STAT-CD-T[]</span>
+          </td>
+     </tr>
+     </table>
+</form>
+</body>
+<script src="../js/MessagesEnglish.js" ></script>
+<script src="../js/MessageFunctions.js" ></script>
+<script src="../js/ActionHandlers.js" ></script>
+<script src="../js/ClientLevelEdits.js" ></script>
+<script src="../js/GlobalUserMethods.js" ></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

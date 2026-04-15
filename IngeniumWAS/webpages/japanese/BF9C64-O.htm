@@ -1,0 +1,166 @@
+﻿<!--
+**********************************************************************************
+*  Component:   BF9C64-I.htm
+#* Description: CSOM9C60
+#*
+#*********************************************************************************
+#*  Chg#       Release  Description
+#*
+#*  M161CA  CTS      Implementing the Screen changes for the Credit card processing
+#*  Q10193  CTS      M161CA CREATE / UPDATE CRC SCREEN ISSUE
+#*  Q13078  CTS      M161CA - AUTHORIZATION NUMBER FIELD NAME CORRECTION
+#*  M3199A  CTS      M3199A ENHANCEMENT OF CREDIT CARD CHANGES
+#*  FFF0B1  CTS      CHANGES DONE AS PART OF FFF PRODUCT
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+
+#**********************************************************************************
+
+
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9C64-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws" onLoad();> 
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">-->
+    <body class="bodyws" onLoad="onLoad(); inputlisttrimpolicy();InpTrimPolicy()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="returnlisttrimpolicy();return(onSubmit())">
+            <input type="hidden" name="Dispolval" stype="Hidden" />
+            <input type="hidden" name="Dissfxval" stype="Hidden" />
+<!-- UY3004 CHANGES ENDS HERE -->
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" onfocus="enterField(this)" size="20" tabindex="1" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" size="20" tabindex="2" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-APP-FORM-ID">申込書番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-APP-FORM-ID" id="MIR-POL-APP-FORM-ID" stype="Text" maxlength="15" onfocus="enterField(this)" size="20" tabindex="3" />
+                    </td>
+                </tr>
+            </table>
+
+           <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+					    <label for="SELECT-T[1]" />
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CRC-SEQ-NUM-T[1]">シーケンス番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CRC-CO-NM-T[1]">カード会社</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CRC-NUM-T[1]">クレジットカード番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CRC-AUTH-AMT-T[1]">承認金額</label>
+                    </td>
+                    <!-- M161CA START -->
+                    <td class="celldisplayheading">
+                    <!-- Q13078 START -->
+	                <!-- <label for="MIR-CRC-AUTH-NUM-T[1]">A承認番号</label> -->
+	                <label for="MIR-CRC-AUTH-NUM-T[1]">承認番号</label>
+                    <!-- Q13078 END -->
+                    </td>
+                    <!-- M161CA END -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CRC-AUTH-DT-T[1]">承認番号取得日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CRC-STAT-CD-T[1]">ステータス</label>
+                    </td>
+                    <!-- FFF0B1 CHANGES STARTS -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CRC-REASN-CD-T[1]">事由</label>
+                    </td>
+                    <!-- FFF0B1 CHANGES ENDS -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-BILL-SUSP-IND-T[1]">請求停止</label>
+                    </td>
+                    <!-- M3199A CHANGES START -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-PPNCC-RPT-IND-T[1]">案内作成</label>
+                    </td>
+                    <!-- M3199A CHANGES ENDS -->
+                    </tr>
+                <tr>
+                    <td class="celldisplay">
+					 <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CRC-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-CRC-SEQ-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CRC-CO-NM-T[]" stype="Text" displayonly="yes">MIR-CRC-CO-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CRC-NUM-T[]" stype="Text" displayonly="yes">MIR-CRC-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <!-- Q10193 START -->
+                        <!-- <span id="MIR-CRC-AUTH-AMT-T[]" stype="Currency" displayonly="yes">MIR-CRC-AUTH-AMT-T[]</span> -->
+                        <span id="MIR-CRC-AUTH-AMT-T[]" stype="Currency" displayonly="yes">MIR-CRC-AUTH-AMT-T[]</span>
+                        <!-- Q10193 END -->
+                    </td>
+                    <!-- M161CA START -->
+                    <td class="celldisplay">
+		                <span id="MIR-CRC-AUTH-NUM-T[1]" displayonly="yes">MIR-CRC-AUTH-NUM-T[1]</span>
+                    </td>
+                    <!-- M161CA END -->
+                    <td class="celldisplay">
+                        <span id="MIR-CRC-AUTH-DT-T[]" stype="Date" signed="yes" displayonly="yes">MIR-CRC-AUTH-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CRC-STAT-CD-T[]" stype="Text" signed="yes" displayonly="yes">MIR-CRC-STAT-CD-T[]</span>
+                    </td>
+                    <!-- FFF0B1 CHANGES STARTS -->
+                    <td class="celldisplay">
+                        <span id="MIR-CRC-REASN-CD-T[]" stype="Text"  displayonly="yes">MIR-CRC-REASN-CD-T[]</span>
+                    </td>
+                    <!-- FFF0B1 CHANGES ENDS -->
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-BILL-SUSP-IND-T[]" id="MIR-BILL-SUSP-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                    <!-- M3199A CHANGES START -->
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-PPNCC-RPT-IND-T[]" id="MIR-PPNCC-RPT-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                    <!-- M3199A CHANGES ENDS -->
+                    </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

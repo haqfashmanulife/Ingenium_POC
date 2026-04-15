@@ -1,0 +1,189 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:12 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0260-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling
+*  016736  611J     Code cleanup
+*  017150  612J     Remove Currency decimals="2"
+*  23774B  CTS       23774B-IE Retirement changes
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0260-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-ISWL-ANNV-DT">Anniversary Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-ISWL-ANNV-DT" stype="Date" displayonly="yes">MIR-ISWL-ANNV-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-ISWL-ANNV-UPDT-DT">Last Change Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-ISWL-ANNV-UPDT-DT" stype="Date" displayonly="yes">MIR-ISWL-ANNV-UPDT-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BEG-YR-ACUM-AMT">Begin Year Fund:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BEG-YR-ACUM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-BEG-YR-ACUM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-YR-END-ACUM-AMT">Year End Fund:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-YR-END-ACUM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-YR-END-ACUM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NET-CV-AMT">Net Cash Value:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NET-CV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-NET-CV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DCLR-INT-RT">Declared Interest Rate:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DCLR-INT-RT" stype="Percent" elength="5" decimals="5" signed="yes" displayonly="yes">MIR-DCLR-INT-RT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-GUAR-INT-AMT">Guaranteed Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-GUAR-INT-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-GUAR-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-XCES-INT-AMT">Excess Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-XCES-INT-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-XCES-INT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-GRS-APREM-AMT">Gross Annual Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-GRS-APREM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-GRS-APREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NET-APREM-AMT">Net Annual Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NET-APREM-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-NET-APREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ISWL-ANNV-COI-AMT">Cost of Insurance:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ISWL-ANNV-COI-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-ISWL-ANNV-COI-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DCLR-COI-RT">Declared Cost of Insurance Rate:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DCLR-COI-RT" stype="Percent" elength="9" decimals="5" signed="yes" displayonly="yes">MIR-DCLR-COI-RT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ISWL-ANNV-DB-AMT">Death Benefit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ISWL-ANNV-DB-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-ISWL-ANNV-DB-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AVG-LOAN-BAL-AMT">Average Loan Balance:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AVG-LOAN-BAL-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-AVG-LOAN-BAL-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ISWL-ANNV-STAT-CD">Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ISWL-ANNV-STAT-CD" stype="Text" displayonly="yes">MIR-ISWL-ANNV-STAT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ISWL-ANNV-MANL-IND">Record updated
+                        manually:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-ISWL-ANNV-MANL-IND" id="MIR-ISWL-ANNV-MANL-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

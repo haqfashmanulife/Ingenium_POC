@@ -1,0 +1,319 @@
+<!--
+*********************************************************************************
+*  Component:   BF9562-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*  NWLLRP  CTS      Initial Version
+*  M319AC  CTS      CHANGES DONE FOR FXWL POLICY LOAN PROCESSING
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.  
+*  UYS32C  CTS      POLICY LOAN REPAYMENT
+*********************************************************************************
+ -->
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <title>BF9562-O</title>
+     <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+  </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+    <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+        <input type="hidden" name="action" id="action" stype="Hidden" />
+        <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledisplaykey">
+
+                <tr>
+                  <td class="celldisplaykeylabel"><label for="MIR-OWN-NM">Owner Name:</label></td>
+                  <td class="celldisplaykey"><span id="MIR-OWN-NM" stype="Text" displayonly="yes">MIR-OWN-NM</span></td>
+                <td class="celldisplaykeylabel"><label for="MIR-SBSDRY-CO-ID">Sub Company:</label></td>
+                  <td class="celldisplaykey"><span id="MIR-SBSDRY-CO-ID" stype="Text" elength="15"   displayonly="yes">MIR-SBSDRY-CO-ID</span></td>
+                </tr>
+
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-POL-ID-BASE">Policy ID:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-POL-ID-SFX">Suffix:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span></td>
+                </tr>
+
+                <tr>
+                     <td class="celldisplaykeylabel"><label for="MIR-EFF-DT">Effective Date:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-EFF-DT" stype="Date" displayonly="yes">MIR-EFF-DT</span></td>
+                <td class="celldisplaykeylabel"><label for="MIR-TRXN-TYP-CD">Transaction Reason:</label>
+                </td>
+                <td class="celldisplaykey"><span id="MIR-TRXN-TYP-CD" stype="Text" displayonly="yes">MIR-TRXN-TYP-CD</span>
+                    </td>
+                </tr>
+             </table>
+         <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Loan Repayment Quote">Loan Repayment Quote</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-GRS-AMT">Gross Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-GRS-AMT" stype="Currency" displayonly="yes">MIR-GRS-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LPAY-AMT">Loan Repayment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LPAY-AMT" stype="Currency" displayonly="yes">MIR-LPAY-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-SHRT-AMT">Short Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-SHRT-AMT" stype="Currency" displayonly="yes">MIR-LOAN-SHRT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-INT-AMT">Loan Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-INT-AMT" stype="Currency" displayonly="yes">MIR-LOAN-INT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-XCES-AMT">Excess Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-XCES-AMT" stype="Currency" displayonly="yes">MIR-LOAN-XCES-AMT</span>
+                    </td>
+                </tr>
+            </table>
+         <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Loan Balance Quote">Loan Balance Quote</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BEFORE-REPAY-LBAL-AMT">Loan Balance Before Repayment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BEFORE-REPAY-LBAL-AMT" stype="Currency" displayonly="yes">MIR-BEFORE-REPAY-LBAL-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AFTR-REPAY-LBAL-AMT">Loan Balance After Repayment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AFTR-REPAY-LBAL-AMT" stype="Currency" displayonly="yes">MIR-AFTR-REPAY-LBAL-AMT</span>
+                    </td>
+                </tr>
+           </table>
+    <br />
+<!-- M319AC CHANGES STARTS HERE -->
+ <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="7">
+                        <a name="Loan Repayment Quote Details">Loan Repayment Quote Details</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INPUT-AMT">Input Amount Before Quote:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INPUT-AMT" stype="Currency" displayonly="yes">MIR-INPUT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AFTR-GRS-AMT">Gross Amount After Quote:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AFTR-GRS-AMT" stype="Currency" displayonly="yes">MIR-AFTR-GRS-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AFTR-LPAY-AMT">Loan Repayment After Quote:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AFTR-LPAY-AMT" stype="Currency" displayonly="yes">MIR-AFTR-LPAY-AMT</span>
+                    </td>
+                     <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-UNPAY-INT-AMT">Loan Unpaid Interest After Quote:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-UNPAY-INT-AMT" stype="Currency" displayonly="yes">MIR-LOAN-UNPAY-INT-AMT</span>
+                    </td>
+                     <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-UNEARN-INT-AMT">Loan Unearned Interest After Quote:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-UNEARN-INT-AMT" stype="Currency" displayonly="yes">MIR-LOAN-UNEARN-INT-AMT</span>
+                    </td>
+                     <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-SHRT-INT-AMT">Short Interest Before Quote:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-SHRT-INT-AMT" stype="Currency" displayonly="yes">MIR-LOAN-SHRT-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-ADJ-SHRT-INT-AMT">Adjusted Short Interest After Quote:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-ADJ-SHRT-INT-AMT" stype="Currency" displayonly="yes">MIR-LOAN-ADJ-SHRT-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-XCES-INT-AMT">Excess Interest Before Quote:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-XCES-INT-AMT" stype="Currency" displayonly="yes">MIR-LOAN-XCES-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-ADJ-XCES-INT-AMT">Adjusted Excess Interest After Quote:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-ADJ-XCES-INT-AMT" stype="Currency" displayonly="yes">MIR-LOAN-ADJ-XCES-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AFTR-LOAN-SHRT-INT-AMT">Short Interest After Quote:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AFTR-LOAN-SHRT-INT-AMT" stype="Currency" displayonly="yes">MIR-AFTR-LOAN-SHRT-INT-AMT</span>
+                    </td>
+                     <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AFTR-LOAN-XCES-INT-AMT">Excess Interest After Quote:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AFTR-LOAN-XCES-INT-AMT" stype="Currency" displayonly="yes">MIR-AFTR-LOAN-XCES-INT-AMT</span>
+                    </td>
+                      <td class="celldisplaylabel">
+                        <label for="MIR-CRNT-PERI-INT-AMT">Interest for the current period in "interest deposit":</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CRNT-PERI-INT-AMT" stype="Currency" displayonly="yes">MIR-CRNT-PERI-INT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-INCM-AMT">Total Income After Quote:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-INCM-AMT" stype="Currency" displayonly="yes">MIR-TOT-INCM-AMT</span>
+                    </td>
+                     <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-XPNS-AMT">Total Expense After Quote:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-XPNS-AMT" stype="Currency" displayonly="yes">MIR-TOT-XPNS-AMT</span>
+                    </td>
+                     <td class="celldisplaylabel"/>
+                    <td class="celldisplay"/>
+                </tr>
+            </table>
+    <br />
+<!-- UYS32C CHANGES ENDS HERE -->
+<!-- M319AC CHANGES STARTS HERE -->
+	            <table class="tabledisplay">
+	                <tr>
+	                    <td class="celldisplayheading" colspan="4">
+	                        <a name="Options">Foreign Currency Information</a>
+	                    </td>
+	                </tr>
+	                <tr>
+	                    <td class="celldisplayheading">
+	                        <label for="MIR-DV-GRS-YEN-AMT">Gross Amount(Yen)</label>
+	                    </td>
+	                    <td class="celldisplayheading">
+	                        <label for="MIR-JPY-XCHNG-EFF-DT">JPY Conversion Effective Date</label>
+	                    </td>
+	                    <td class="celldisplayheading">
+	                        <label for="MIR-JPY-XCHNG-RT">JPY Conversion Rate</label>
+	                    </td>
+	                    <td class="celldisplayheading">
+	                        <label for="MIR-DV-GRS-AMT-POL-CRCY">Gross Amount (Policy Currency)</label>
+	                    </td>
+	                </tr>
+	                <tr>
+	                    <td class="celldisplay">
+                        <span id="MIR-DV-GRS-YEN-AMT" stype="Currency" displayonly="yes">MIR-DV-GRS-YEN-AMT</span>
+	                    </td>
+	                    <td class="celldisplay">
+	                        <span id="MIR-JPY-XCHNG-EFF-DT" stype="Text" displayonly="yes">MIR-JPY-XCHNG-EFF-DT</span>
+	                    </td>
+	                    <td class="celldisplay">
+	                        <span id="MIR-JPY-XCHNG-RT" stype="Text" elength="7" decimals="2" signed="yes" displayonly="yes">MIR-JPY-XCHNG-RT</span>
+	                    </td>
+	                    <td class="celldisplay">
+                        <span id="MIR-DV-GRS-AMT-POL-CRCY" stype="Currency" displayonly="yes">MIR-DV-GRS-AMT-POL-CRCY</span>
+	                    </td>
+	                </tr>
+	            </table>
+<!-- M319AC CHANGES ENDS HERE -->
+    </form>
+  </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

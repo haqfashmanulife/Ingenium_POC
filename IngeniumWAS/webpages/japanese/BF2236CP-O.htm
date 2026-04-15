@@ -1,0 +1,82 @@
+<!-- 
+*********************************************************************************
+*  Component:   BF2236CP-O.htm                                                   
+*  Description: CLIENT INQUIRY BY COMPANY NAME SCREEN FOR COLI SIMULATION                                                               
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  UYS304  CTS      CHANGES DONE CSV CERTIFICATE/ QUOTE SCREEN                                                                             
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF2236CP-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="celldatakey">
+                <tr>
+                    <td class="celldatakey" width="4%">
+                        <input type="radio" name="MIR-DV-SRCH-GR-CD" value="KJ" stype="YesNo" onfocus="saveValue(); enterField(this)" />
+                    </td>
+                    <td class="celldatakey" ><b>通常表記の会社（団体）名を検索する</b></td>
+                </tr>
+                <tr>
+                    <td class="celldatakey" width="4%">
+                        <input type="radio" name="MIR-DV-SRCH-GR-CD" value="KA" stype="YesNo" onfocus="saveValue(); enterField(this)" />
+                    </td>
+                    <td class="celldatakey" ><b>カタカナ表記の会社（団体）名を検索する</b></td>
+				  </tr>
+            </table>
+            <br />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-CO-NM">会社（団体）名:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CLI-CO-NM" id="MIR-CLI-CO-NM" stype="Text" maxlength="50" mandatory="yes" onfocus="enterField(this)" size="40" />
+                    </td>
+                    <td class="celldatakeylabel" />
+                    <td class="celldatakey"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="SELECT-T[1]" />
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-T[1]">クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-CO-NM-T[1]">会社（団体）名</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-CO-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-CO-NM-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

@@ -1,0 +1,215 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:11 PM EDT
+*
+*********************************************************************************
+*  Component:   AppAllocationsVUL.htm                                          
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  016423  602J     New for release 602J                                       
+*  016051  6.1      Changed to allow for the value of the initial allocation   
+*                   percentage to be copied in the subsequent allocation       
+*                   percentage as the user types and not only when the user    
+*                   tabs off the field.                                        
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>AppAllocationsVUL</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad(); onLoadAppAllocationsVUL()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmitCustom());">
+            <input type="hidden" name="actionDCA" id="actionDCA" stype="Hidden" />
+            <input type="hidden" name="actionAssetRebalance" id="actionAssetRebalance" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledataentrynoborder">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="InitialSubsequent">初回資産配分とその後の配分は同じ条件</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="radio" name="InitialSubsequent" value="Y" stype="YesNo" onclick="disableAllocationColumn2(this);onYesNoUa('Yes')" onfocus="saveValue();enterField(this)" />
+                        はい    
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="radio" name="InitialSubsequent" value="N" stype="YesNo" onclick="disableAllocationColumn2(this);onYesNoUa('No')" onfocus="saveValue();enterField(this)" />
+                        いいえ    
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledataentry" genrows="0" id="allocationTable">
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DV-FND-DESC-TXT-T[1]">有効ファンド</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CDI-ALLOC-PCT-T[1]">初回の資産配分</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CDI-ALLOC-PCT-S-T[1]">2回目以降の配分</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="SELECT-T[1]" id="LBL-SELECT-T[1]">資産移転実施</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CDI-ALLOC-AMT-T[1]">移転先</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-DV-FND-DESC-TXT-T[]" stype="Text" displayonly="yes">MIR-DV-FND-DESC-TXT-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-CDI-ALLOC-PCT-T[]" id="MIR-CDI-ALLOC-PCT-T[]" stype="Percent" elength="7" value="" onfocus="enterField(this)" onblur="validateField(this);copyOver(this)" onchange="TotalPercentages('allocationTable', 1, 'Total_Initial_Pct');copyOver(this);" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-CDI-ALLOC-PCT-S-T[]" id="MIR-CDI-ALLOC-PCT-S-T[]" stype="Percent" elength="7" value="" tabIndex="0" onfocus="enterField(this)" onblur="validateField(this)" onchange="TotalPercentages('allocationTable', 2, 'Total_Subseq_Pct')" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value=" " name="SELECT-T[]" id="SELECT-T[]" stype="Indicator" index="1" onclick="selectSourceFund()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-CDI-ALLOC-AMT-T[]" id="MIR-CDI-ALLOC-AMT-T[]" stype="Percent" elength="7" value="" tabIndex="0" onfocus="enterField(this)" onblur="validateField(this)" onchange="TotalPercentages('allocationTable', 4, 'Total_SourceFund_Pct')" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledataentry" id="totalPercentagesTable">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="Total_Initial_Pct">初回配分合計％:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input stype="Percent" type="text" name="Total_Initial_Pct" id="Total_Initial_Pct" elength="3" decimals="0" readonly="yes" value=" " onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="10" tabIndex="-1" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="Total_Subseq_Pct">2回目以降の合計％:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input stype="Percent" type="text" name="Total_Subseq_Pct" id="Total_Subseq_Pct" elength="3" decimals="0" readonly="yes" value=" " onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="10" tabIndex="-1" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="Total_SourceFund_Pct">移転合計％:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input stype="Percent" type="text" name="Total_SourceFund_Pct" id="Total_SourceFund_Pct" elength="3" decimals="0" readonly="yes" value=" " onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="10" tabIndex="-1" />
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledataentrynoborder">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="DollarCostAvg">ドルコスト平均法による資産調整を実施する</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="radio" name="DollarCostAvg" value="Y" stype="YesNo" onclick="processDCA('Y');hideSourceFundColumns(this);onYesNoUa('Yes');toggleDCASection()" onfocus="saveValue();enterField(this)" />
+                        はい    
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="radio" name="DollarCostAvg" value="N" stype="YesNo" onclick="processDCA('N');hideSourceFundColumns(this);onYesNoUa('No');toggleDCASection()" onfocus="saveValue();enterField(this)" />
+                        いいえ    
+                    </td>
+                </tr>
+            </table>
+            <div id="DCASection" style="display: none">
+                <table class="tabledataentry">
+                    <tr>
+                        <td class="celllabelrightalign">
+                            <label for="MIR-POL-PAYO-AMT">支払額:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-POL-PAYO-AMT" id="MIR-POL-PAYO-AMT" stype="Currency" mandatory="yes" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                        </td>
+                        <td class="celllabelrightalign">
+                            <label for="MIR-POL-PAYO-EFF-DT">開始日:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-POL-PAYO-EFF-DT" id="MIR-POL-PAYO-EFF-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+                        </td>
+                        <td class="celllabelrightalign">
+                            <label for="MIR-POL-PAYO-END-DT">終了日:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-POL-PAYO-END-DT" id="MIR-POL-PAYO-END-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="celllabelrightalign">
+                            <label for="MIR-POL-PAYO-MODE-CD">支払頻度:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-POL-PAYO-MODE-CD" id="MIR-POL-PAYO-MODE-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes">
+                        </select>
+                        </td>
+                        <td class="celllabelrightalign">
+                        </td>
+                        <td class="celllabeldataentry">
+                        </td>
+                        <td class="celllabelrightalign"></td>
+                        <td class="celllabeldataentry"></td>
+                    </tr>
+                </table>
+            </div>
+            <table class="tabledataentrynoborder">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="AssetRebalance">資産配分再調整（Asset Rebalancing）を実施する:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="radio" name="AssetRebalance" value="Y" stype="YesNo" onclick="processAssetRebalance('Y');onYesNoUa('Yes');toggleRebalSection()" onfocus="saveValue();enterField(this)" />
+                        はい     
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="radio" name="AssetRebalance" value="N" stype="YesNo" onclick="processAssetRebalance('N');onYesNoUa('No');toggleRebalSection()" onfocus="saveValue();enterField(this)" /> 
+                        いいえ     
+                    </td> 
+                </tr> 
+            </table> 
+            <div id="ARSection" style="display: none"> 
+                <table class="tabledataentry"> 
+                    <tr> 
+                        <td class="celllabelrightalign"> 
+                            <label for="AssetRebalanceFromSubsequent">同ファンドを同割合で2回目以降の資産配分に適用</label> 
+                        </td> 
+                        <td colspan="3" class="celllabeldataentry"> 
+                            <input type="radio" name="AssetRebalanceFromSubsequent" value="Y" stype="YesNo" onclick="onYesNoUa('Yes')" onfocus="saveValue();enterField(this)" /> 
+                            はい     
+                            <input type="radio" name="AssetRebalanceFromSubsequent" value="N" stype="YesNo" onclick="onYesNoUa('No')" onfocus="saveValue();enterField(this)" /> 
+                            いいえ     
+                        </td> 
+                    </tr> 
+                    <tr> 
+                        <td class="celllabelrightalign"> 
+                            <label for="MIR-AR-START-DT">開始日:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-AR-START-DT" id="MIR-AR-START-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+                        </td>
+                        <td class="celllabelrightalign">
+                            <label for="MIR-POL-PAYO-MODE-CD-2">資産調整実施頻度:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-POL-PAYO-MODE-CD-2" id="MIR-POL-PAYO-MODE-CD-2" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/AppAllocationsVUL.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

@@ -1,0 +1,250 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:45 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9B10-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  M142S2  Split Policy-Tax Payment Record Information Update
+*
+*  M245B2  CTS      Foreign currency formatting
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+
+*********************************************************************************
+ -->
+<html>
+   <head>
+   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+      <title>BF9B10-O</title>
+         <link charset="UTF-8" href="../english/Ingenium.css" rel="stylesheet" type="text/css"/>
+   </head>
+    <!-- M245B2 CHANGE STARTS HERE -->
+    <!-- <body class="bodyws"> -->
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="validateCrcyDcml();"> -->
+    <body class="bodyws" onLoad="validateCrcyDcml();onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+    <!-- M245B2 CHANGE ENDS HERE -->
+      <form action="pageserver" id="inputForm" method="post" onsubmit="return(onSubmit());" target="_parent">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+  <!-- M245B2 CHANGE STARTS HERE -->
+		    <input type="hidden" name="MIR-POL-CRCY-CD" id="MIR-POL-CRCY-CD" stype="Hidden" />
+<!-- M245B2 CHANGE ENDS HERE -->
+             <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span displayonly="yes" id="MIR-DV-OWN-CLI-NM" stype="Text">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-POL-ID-BASE" stype="Text">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-POL-ID-SFX" stype="Text">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">契約状況:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-POL-CSTAT-CD" stype="Text">MIR-POL-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CVG-REC-CTR">保障数:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-POL-CVG-REC-CTR" stype="Text">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-MPREM-AMT">特約保険料:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" elength="15" id="MIR-POL-MPREM-AMT" signed="yes" stype="Currency">MIR-POL-MPREM-AMT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-GRS-APREM-AMT">年間保険料:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" elength="15" id="MIR-POL-GRS-APREM-AMT" signed="yes" stype="Currency">MIR-POL-GRS-APREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-PD-TO-DT-NUM">次回特約保険料充当日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                         <span displayonly="yes" id="MIR-POL-PD-TO-DT-NUM" stype="Text">MIR-POL-PD-TO-DT-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-MPREM-DSCNT-AMT">特約保険料割引額:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" elength="13" id="MIR-MPREM-DSCNT-AMT" signed="yes" stype="Currency">MIR-MPREM-DSCNT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CNVR-TYP-CD">契約区分:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                         <span displayonly="yes" id="MIR-POL-CNVR-TYP-CD" stype="Text">MIR-POL-CNVR-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                         <label for="MIR-SBSDRY-CO-ID">子会社:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                         <span displayonly="yes" id="MIR-SBSDRY-CO-ID" stype="Text">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CVG-NUM">保障番号:</label>
+                     </td>
+                     <td class="celldatakey">
+                         <input type="text" value="01" name="MIR-CVG-NUM" id="MIR-CVG-NUM" stype="Number" size="2" elength="2" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                     </td>
+                </tr>
+            </table>
+             <br />
+
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Policy Level">契約レベル</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ORIG-LTD-PREM-PD">転換前契約既払込保険料:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                       <span displayonly="yes" elength="16" id="MIR-ORIG-LTD-PREM-PD" stype="Currency">MIR-ORIG-LTD-PREM-PD</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-CSV-PAYO-AMT">特約減額・特約解約支払金額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span displayonly="yes" elength="16" id="MIR-DV-CSV-PAYO-AMT" stype="Currency">MIR-DV-CSV-PAYO-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-PAYO-PSUR-AMT">主契約の一部解約支払金額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span displayonly="yes" elength="16" id="MIR-DV-PAYO-PSUR-AMT" stype="Currency">MIR-DV-PAYO-PSUR-AMT</span>
+                    </td>
+	             <td class="celllabelrightalign">
+                        <label for="MIR-DV-ELIG-SRVBEN-LTD-AMT">生存給付金支払金額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span displayonly="yes" elength="17" id="MIR-DV-ELIG-SRVBEN-LTD-AMT" stype="Currency">MIR-DV-ELIG-SRVBEN-LTD-AMT</span>
+  		    </td>
+     		  </tr>
+		  <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-PAYO-DTH-CLM-AMT">死亡保険金・給付金支払金額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-DV-PAYO-DTH-CLM-AMT" stype="Currency" displayonly="yes">MIR-DV-PAYO-DTH-CLM-AMT</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-CONN-COI-AMT">分割前/連生契約の累積特約保険料:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                    <!--    <input type="text" value=" " name="MIR-POL-CONN-COI-AMT" id="MIR-POL-CONN-COI-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-CONN-COI-AMT" id="MIR-POL-CONN-COI-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+		 </tr>
+		 <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-CONN-CLI-NM">分割前/連生契約の契約者名:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span displayonly="yes" id="MIR-DV-CONN-CLI-NM" stype="Text">MIR-DV-CONN-CLI-NM</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-CONN-REL-CD">分割前/連生契約の契約者続柄:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-CONN-REL-CD" id="MIR-POL-CONN-REL-CD" size="1" stype="Selection" onfocus="enterField(this)"/>
+                    </td>
+                </tr>
+             </table>
+              <br />
+             <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Coverage Level">保障レベル</a>
+                    </td>
+                </tr>
+	        <tr>
+	            <td class="celldataentryheading" headingrow="yes">
+                       <label for="MIR-CVG-NUM-T[1]">保障番号</label>
+                    </td>
+                    <td class="celldataentryheading" headingrow="yes">
+                       <label for="MIR-PLAN-ID-T[1]">プラン名</label>
+                    </td>
+                    <td class="celldataentryheading" headingrow="yes">
+                       <label for="MIR-INSRD-CLI-ID-T[1]">被保険者</label>
+                    </td>
+                    <td class="celldataentryheading" headingrow="yes">
+                         <label for="MIR-DV-CVG-TOT-DED-AMT-T[1]">累積特約保険料</label>
+                    </td>
+                </tr>
+	        <tr>
+	            <td class="celllabeldataentry">
+                        <span displayonly="yes" id="MIR-CVG-NUM-T[]" stype="Text">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span displayonly="yes" id="MIR-PLAN-ID-T[]" stype="Text">MIR-PLAN-ID-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span displayonly="yes" id="MIR-INSRD-CLI-ID-T[]" stype="Text">MIR-INSRD-CLI-ID-T[]</span>
+                    </td>
+                   <td class="celllabeldataentry">
+                        <span displayonly="yes" id="MIR-DV-CVG-TOT-DED-AMT-T[]" stype="Currency">MIR-DV-CVG-TOT-DED-AMT-T[]</span>
+                   </td>
+                </tr>
+             </table>
+              <br />
+           </form>
+       </body>
+       <script src="../js/MessagesEnglish.js" ></script>
+       <script src="../js/MessageFunctions.js" ></script>
+       <script src="../js/ActionHandlers.js" ></script>
+       <script src="../js/ClientLevelEdits.js" ></script>
+       <script src="../js/GlobalUserMethods.js" ></script>
+       <script src="../js/UpdateAllowedValues.js" ></script>
+<!-- M245B2 CHANGE STARTS HERE -->
+	   <script src="../js/CrcyLevelEdits.js"></script>
+<!-- M245B2 CHANGE ENDS HERE -->
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

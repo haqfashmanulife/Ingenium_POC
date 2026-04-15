@@ -1,0 +1,336 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:36 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1733-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.  
+*  UY3004  CTS      INPUT HTML POLICY TRIM - 10 BYTES -> 7 BYTES
+                                          
+*  NVCA05  CTS      CHANGES ARE DONE AS PART OF ONTATIO INSURANCE FEE CAL
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1733-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CIA-EFF-DT">Activity Effective Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CIA-EFF-DT" stype="Date" displayonly="yes">MIR-CIA-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CIA-TYP-CD">Activity Type:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CIA-TYP-CD" stype="Text" displayonly="yes">MIR-CIA-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CIA-SEQ-NUM">Sequence Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CIA-SEQ-NUM" stype="Text" displayonly="yes">MIR-CIA-SEQ-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CFN-STAT-CD">Status:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="5">
+                        <span id="MIR-CFN-STAT-CD" stype="Text" displayonly="yes">MIR-CFN-STAT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">General Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-PRCES-DT">Transaction Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-PRCES-DT" stype="Date" displayonly="yes">MIR-CIA-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-UNIT-STAT-CD">Unit Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-UNIT-STAT-CD" stype="Text" displayonly="yes">MIR-CIA-UNIT-STAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-REASN-CD">Activity Reason:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-REASN-CD" stype="Text" displayonly="yes">MIR-CIA-REASN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-SRC-DEST-CD">Destination of Surrender Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-SRC-DEST-CD" stype="Text" displayonly="yes">MIR-CIA-SRC-DEST-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-REG-FND-SRC-CD">Registered Fund Source:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-REG-FND-SRC-CD" stype="Text" displayonly="yes">MIR-CIA-REG-FND-SRC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-ALLOC-CD">Allocation Method:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-ALLOC-CD" stype="Text" displayonly="yes">MIR-CIA-ALLOC-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Activity Amount / Rate Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-CLI-TRXN-AMT">Total Premium Received:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-CLI-TRXN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CIA-CLI-TRXN-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-FND-TRXN-AMT">Net Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-FND-TRXN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CIA-FND-TRXN-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PEND-DPOS-INT-PCT">Pending Interest Rate:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PEND-DPOS-INT-PCT" stype="Percent" elength="9" decimals="6" displayonly="yes">MIR-PEND-DPOS-INT-PCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-PMT-LTD-AMT">Cumulative Gross Premiums Paid to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PMT-LTD-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CVG-PMT-LTD-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Process Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-REVRS-PRCES-DT">Effective Date of Reversal:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-REVRS-PRCES-DT" stype="Date" displayonly="yes">MIR-CIA-REVRS-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-REVRS-REASN-CD">Reversal Reason:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-REVRS-REASN-CD" stype="Text" displayonly="yes">MIR-CIA-REVRS-REASN-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-SURR-LTD-AMT">Cumulative Surrenders:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SURR-LTD-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CVG-SURR-LTD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-LOAD-AMT">Transfer Charges:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-LOAD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CIA-LOAD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-LOAD-FORCE-IND">Loads have been forced:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CIA-LOAD-FORCE-IND" id="MIR-CIA-LOAD-FORCE-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-GUAR-VALU-AMT">Guaranteed Value:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-GUAR-VALU-AMT" stype="Currency" elength="15" displayonly="yes">MIR-CVG-GUAR-VALU-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-GUAR-VALU-ESTB-IND">Calculation is outstanding:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-GUAR-VALU-ESTB-IND" id="MIR-GUAR-VALU-ESTB-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Universal Life</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-SHRT-AMT">UL - Cost of Insurance (COI) Shortage:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-SHRT-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-CIA-SHRT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-SHRT-LTD-AMT">UL - Cumulative COI Shortage:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SHRT-LTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-SHRT-LTD-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Insurance Fee Components</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-MAINT-COST-AMT">Maintenance Cost:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-MAINT-COST-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-MAINT-COST-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-ACQ-COST-AMT">Acquisition Cost:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-ACQ-COST-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-ACQ-COST-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-WP-COST-AMT">Waiver of Premium Cost:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-WP-COST-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-WP-COST-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-RSK-PREM-AMT">Risk Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-RSK-PREM-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-RSK-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-SSTD-RSK-PREM-AMT">Substandard Risk Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-SSTD-RSK-PREM-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-SSTD-RSK-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-OS-INS-FEE-AMT">Outstanding Insurance Fee:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-OS-INS-FEE-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-OS-INS-FEE-AMT</span>
+                    </td>
+                </tr>
+<!-- NVCA05 CHANGES START -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-WP-INS-FEE-AMT">The cost of WoP by the rider:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-WP-INS-FEE-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-WP-INS-FEE-AMT</span>
+                    </td>
+                     <td class="celldisplaylabel">
+                         <label for="MIR-CIA-FND-MGMT-COST-AMT">Cost for managing separate accounts:</label>
+                     </td>
+                     <td class="celldisplay">
+                         <span id="MIR-CIA-FND-MGMT-COST-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-FND-MGMT-COST-AMT</span>
+                     </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-GUAR-BFA-COST-AMT">Cost related to Guaranteed Basic Face Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-GUAR-BFA-COST-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-GUAR-BFA-COST-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-HIGH-FA-DSCNT-AMT">Discount for High Amounts:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-HIGH-FA-DSCNT-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-HIGH-FA-DSCNT-AMT</span>
+                    </td>
+                </tr>
+<!-- NVCA05 CHANGES END -->
+            </table>
+            <br />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

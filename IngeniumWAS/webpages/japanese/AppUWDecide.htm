@@ -1,0 +1,79 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:13 PM EDT
+*
+*********************************************************************************
+*  Component:   AppUWDecide.htm                                                
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  01NB10  GW       New screen for App. Entry flow 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                            
+*********************************************************************************
+ -->
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>AppUDecide</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="QuestionText" id="QuestionText" value="" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel" width="100">
+                        <label for="MIR-DV-INSRD-CLI-NM">被保険者名:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="5">
+                        <span id="MIR-DV-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel" width="100">
+                        <label for="MIR-CLI-ID">クライアントID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel" width="100">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" width="706">
+                <tr>
+                    <td class="celldataentryheading" colspan="3" width="698">検診書または健康管理証明書を選択してください。</td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry" width="349">
+                        <input type="radio" name="MIR-UW-QSTN-RESP-TXT-001" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">検診書</input>
+                    </td>
+                    <td class="celllabeldataentry" width="349">
+                        <input type="radio" name="MIR-UW-QSTN-RESP-TXT-001" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">健康管理証明書</input>
+                    </td>
+                </tr>
+            </table>
+            <br />
+
+            <br />
+
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/BF1392-I.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

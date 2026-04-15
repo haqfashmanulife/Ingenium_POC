@@ -1,0 +1,131 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:51 PM EDT
+********************************************************************
+*  Change#  Release  Description                                   *           
+*  MP4FB1   H.L      FIRM BANKING                         12AUG2004*           
+*  ISLADM  CTS      CHANGES FOR INSURANCE LAW PROJECT     15DEC09
+*  M271AA  CTS      CHANGES FOR FRA PLS CHANGES     15DEC15
+*  MP334A  CTS      CHANGES FOR THE ADDITION OF NEW FIELDS 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.  
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  27549A  CTS      CHANGES DONE AS PART OF CDAP                                           
+********************************************************************
+ -->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9440Cli-I</title>
+<link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+</head>
+<!-- UY3004 CHANGES START HERE
+<body class="bodyws">-->
+<body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+<!-- UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+<input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden"/>
+<table class="tabledatakey">
+                <tr>
+<td class="celldatakeylabel">
+<label for="MIR-POL-ID-BASE">証券番号:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes"  onfocus="enterField(this)"/></td>
+<td class="celldatakeylabel">
+<label for="MIR-POL-ID-SFX">枝番:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1"   onfocus="enterField(this)"/></td>
+<td class="celldatakeylabel">
+<label for="MIR-APPL-CTL-PRCES-DT">処理日:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-APPL-CTL-PRCES-DT" id="MIR-APPL-CTL-PRCES-DT" stype="Date" mandatory="yes"  onfocus="enterField(this)" onblur="validateField(this)"/></td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-JRNL-DT">日報計上日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-JRNL-DT" id="MIR-JRNL-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-TRNXT-PAYO-MTHD-CD">支払方法:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-DV-TRNXT-PAYO-MTHD-CD" id="MIR-DV-TRNXT-PAYO-MTHD-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+  <!-- M271AA Changes Starts -->
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-PAYO-JPY-BNFT-CD">円支払特約:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-DV-PAYO-JPY-BNFT-CD" id="MIR-DV-PAYO-JPY-BNFT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+    <!-- M271AA Changes Endss -->
+                </tr>
+                <tr>
+<!-- ISLADM Changes Start:  Comment HO-FORM-ACPT-DT field
+                <td class="celldatakeylabel">
+                        <label for="MIR-HO-FORM-ACPT-DT">本社請求書受理日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-HO-FORM-ACPT-DT" id="MIR-HO-FORM-ACPT-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+ISLADM Changes Ends -->
+<!-- ISLADM Changes Start:  Append CO-RECV-DT field -->
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CO-RECV-DT">会社受付日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CO-RECV-DT" id="MIR-CO-RECV-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+  <!-- M271AA Changes Starts -->
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-HO-RECV-DT">本社受付日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-DV-HO-RECV-DT" id="MIR-DV-HO-RECV-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+ <!-- M271AA Changes Endss -->
+<!-- ISLADM Changes Ends -->
+                </tr>
+<!--MP334A CHANGES STARTS -->
+                <tr> 
+                 <td class="celldatakeylabel">
+                        <label for="MIR-CLMT-CAT-CD">請求者区分:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-CLMT-CAT-CD" id="MIR-CLMT-CAT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td> 
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DT-OF-DTH">契約者死亡日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-DT-OF-DTH" id="MIR-DT-OF-DTH" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLMT-CLI-ID">請求者クライアントID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CLMT-CLI-ID" id="MIR-CLMT-CLI-ID" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                    </td>  
+                </tr>
+<!-- MP334A CHANGES ENDS --> 
+<!-- 27549A  CHANGE STARTS HERE -->
+                   <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-ATO-NOT-APPL-IND">ATO非該当:</label>
+                    </td>
+                     <td class="celldatakey">
+	                 <input type="checkbox" value="Y" name="MIR-ATO-NOT-APPL-IND" id="MIR-ATO-NOT-APPL-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr> 
+<!-- 27549A  CHANGE ENDS HERE -->    
+</table>
+</form>
+</body>
+<script src="../js/MessagesJapanese.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

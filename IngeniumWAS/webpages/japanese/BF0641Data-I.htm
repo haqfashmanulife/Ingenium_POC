@@ -1,0 +1,561 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:23 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0641Data-I.htm                                               
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  FT7001 AKATO  FT7 Label Change 14JUN2004                          	               
+*  MFFFU4(appendix) 03OCT05 Saori  Japanese wording change 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                                                                        
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0641Data-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">保障番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-CF-EFF-DT">発効日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-CF-EFF-DT" stype="Date" displayonly="yes">MIR-DV-CF-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CF-SEQ-NUM">シーケンス番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CF-SEQ-NUM" stype="Text" displayonly="yes">MIR-CF-SEQ-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SUPRES-CNFRM-IND">確認通知発行停止:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <input type="checkbox" name="MIR-SUPRES-CNFRM-IND" id="MIR-SUPRES-CNFRM-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#PolicyInformation">契約情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#InterestInformation">利息情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#EquityProductsInformation">変額商品情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#DateInformation">日付情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CashFlowInformation">キャッシュフロー情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#SurrenderInformation">解約情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AgentInformation">募集人情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="PolicyInformation">契約情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-STAT-CD">キャッシュフローステータス:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CF-STAT-CD" id="MIR-CF-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-TRXN-CD">処理内容:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CF-TRXN-CD" id="MIR-CF-TRXN-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-REASN-CD">処理事由:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CF-REASN-CD" id="MIR-CF-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-REG-FND-SRC-CD">預託源:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CF-REG-FND-SRC-CD" id="MIR-CF-REG-FND-SRC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-CLI-TRXN-AMT">トランザクション額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CF-CLI-TRXN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-CLI-TRXN-AMT</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-FND-TRXN-AMT">累計保険料（引出し後）:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CF-FND-TRXN-AMT" id="MIR-CF-FND-TRXN-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-FND-BAL-AMT">フレックスファンド積立額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CF-FND-BAL-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-FND-BAL-AMT</span>
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="InterestInformation">利息情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-INT-PCT">利率/ユニットコスト:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-CF-INT-PCT" id="MIR-CF-INT-PCT" stype="Percent" elength="7" decimals="4" signed="yes" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INT-TO-NXT-CF-AMT">現在の受取利息:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-INT-TO-NXT-CF-AMT" id="MIR-INT-TO-NXT-CF-AMT" stype="Currency" elength="14" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-ACUM-INT-AMT">前回受取利息:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CF-ACUM-INT-AMT" id="MIR-CF-ACUM-INT-AMT" stype="Currency" elength="14" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-LOAN-IMPRD-AMT">DIA減額金額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CF-LOAN-IMPRD-AMT" id="MIR-CF-LOAN-IMPRD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-LOAN-IMPRD-INT-RT">DIA減額料率:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-LOAN-IMPRD-INT-RT" id="MIR-LOAN-IMPRD-INT-RT" stype="Percent" elength="7" decimals="4" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-INT-PAYO-DT">GIA次回利息支払日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CF-INT-PAYO-DT" id="MIR-CF-INT-PAYO-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ROLOVR-CF-DT">GIAロールオーバー日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ROLOVR-CF-DT" id="MIR-ROLOVR-CF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-DPOS-TRM-MO-DUR">預託期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CF-DPOS-TRM-MO-DUR" id="MIR-CF-DPOS-TRM-MO-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                               ヶ月 
+                        <input type="text" value=" " name="MIR-CF-DPOS-TRM-DY-DUR" id="MIR-CF-DPOS-TRM-DY-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                                日
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                        トップへ戻る
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="EquityProductsInformation">変額商品情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-UNIT-QTY">購入済ユニット:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CF-UNIT-QTY" id="MIR-CF-UNIT-QTY" stype="Text" maxlength="13" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-EQTY-GLA-IND">損益会計処理済:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CF-EQTY-GLA-IND" id="MIR-CF-EQTY-GLA-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UNIT-PRIC-ESTB-IND">トランザクション日付けユニットコスト確定済:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-UNIT-PRIC-ESTB-IND" id="MIR-UNIT-PRIC-ESTB-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="DateInformation">日付情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-PRCES-DT">トランザクション日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CF-PRCES-DT" id="MIR-CF-PRCES-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-ORIG-LF-DT">基本積立日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CF-ORIG-LF-DT" id="MIR-CF-ORIG-LF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-REVRS-PRCES-DT">レコードリバース日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CF-REVRS-PRCES-DT" id="MIR-CF-REVRS-PRCES-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-7702-DECR-DT">米国契約キャッシュフロー7702減額日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CF-7702-DECR-DT" stype="Date" displayonly="yes">MIR-CF-7702-DECR-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-TAX-YR">会計年:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CF-TAX-YR" id="MIR-CF-TAX-YR" stype="Year" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="CashFlowInformation">キャッシュフロー情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SRC-CVG-NUM">支払先アクティビティレコード        - 振替元保障番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-SRC-CVG-NUM" id="MIR-SRC-CVG-NUM" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SRC-CDA-SEQ-NUM">支払先アクティビティレコード       - 振替元シーケンス番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-SRC-CDA-SEQ-NUM" id="MIR-SRC-CDA-SEQ-NUM" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DEST-CDA-SEQ-NUM">支払先アクティビティレコード        - 支払先シーケンス番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DEST-CDA-SEQ-NUM" id="MIR-DEST-CDA-SEQ-NUM" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-CF-DT">前回キャッシュフロー       - 日付:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PREV-CF-DT" id="MIR-PREV-CF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-CF-SEQ-NUM">前回キャッシュフロー       - シーケンス番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PREV-CF-SEQ-NUM" id="MIR-PREV-CF-SEQ-NUM" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-NXT-CF-DT">次回キャッシュフロー       - 日付:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-NXT-CF-DT" id="MIR-NXT-CF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-NXT-CF-SEQ-NUM">次回キャッシュフロー       - シーケンス番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-NXT-CF-SEQ-NUM" id="MIR-NXT-CF-SEQ-NUM" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-XFER-CF-SEQ-NUM">利息支払シーケンス番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-XFER-CF-SEQ-NUM" id="MIR-XFER-CF-SEQ-NUM" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-XFER-CVG-NUM">利息支払保障番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-XFER-CVG-NUM" id="MIR-XFER-CVG-NUM" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PAYO-CLUST-CF-DT">関連積立日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PAYO-CLUST-CF-DT" id="MIR-PAYO-CLUST-CF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLUST-CF-SEQ-NUM">関連シーケンス番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLUST-CF-SEQ-NUM" id="MIR-CLUST-CF-SEQ-NUM" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-NXT-LF-CF-DT">後入先出 -       先入先出日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-NXT-LF-CF-DT" id="MIR-NXT-LF-CF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-NXT-LF-CF-SEQ-NUM">後入先出       - 先入先出シーケンス番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-NXT-LF-CF-SEQ-NUM" id="MIR-NXT-LF-CF-SEQ-NUM" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                        トップへ戻る
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="SurrenderInformation">解約情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-TAX-GAIN-AMT">収益額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CF-TAX-GAIN-AMT" id="MIR-CF-TAX-GAIN-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-MKTVAL-ADJ-AMT">解約手数料:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CF-MKTVAL-ADJ-AMT" id="MIR-CF-MKTVAL-ADJ-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-SURR-CHRG-AMT">早期解約控除額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CF-SURR-CHRG-AMT" id="MIR-CF-SURR-CHRG-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CF-TOT-SURR-AMT">解約合計額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CF-TOT-SURR-AMT" id="MIR-CF-TOT-SURR-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CONN-CF-SEQ-NUM">関連シーケンス番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CONN-CF-SEQ-NUM" id="MIR-CONN-CF-SEQ-NUM" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" genrows="3">
+                <tr>
+                    <td class="celldataentryheading" colspan="5">
+                        <a name="AgentInformation">募集人情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-AGT-1-ID-T[1]">募集人ID</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CFAGT-SHR-1-PCT-T[1]">手数料割当</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CF-CPREM-1-AMT-T[1]">手数料支払対象保険料額</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-COMM-RT-TBAC-1-ID-T[1]">支払手数料率</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-OVRID-1-ID-T[1]">上乗せ手数料状況</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-AGT-1-ID-T[]" id="MIR-AGT-1-ID-T[]" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-CFAGT-SHR-1-PCT-T[]" id="MIR-CFAGT-SHR-1-PCT-T[]" stype="Percent" elength="5" decimals="2" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CF-CPREM-1-AMT-T[]" id="MIR-CF-CPREM-1-AMT-T[]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-COMM-RT-TBAC-1-ID-T[]" id="MIR-COMM-RT-TBAC-1-ID-T[]" stype="Text" maxlength="5" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OVRID-1-ID-T[]" id="MIR-OVRID-1-ID-T[]" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                       トップへ戻る
+                </a>
+            </p>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#PolicyInformation">契約情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#InterestInformation">利息情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#EquityProductsInformation">変額商品情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#DateInformation">日付情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CashFlowInformation">キャッシュフロー情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#SurrenderInformation">解約情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AgentInformation">募集人情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

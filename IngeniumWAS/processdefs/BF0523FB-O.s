@@ -1,0 +1,201 @@
+#*******************************************************************************
+#*  Component:   BF0523FB-O.s                                                  *
+#*  Description: Free Withdrawal  Payout Process-Bank Details                  *
+#*                                                                             *
+#*******************************************************************************
+#*                                                                             *
+#*  UY3060  CTS      Dividend Payout Process for stream3 product               *
+#*******************************************************************************
+
+S-STEP BF0523FB-O
+{
+    ATTRIBUTES
+    {
+        BusinessFunctionType = "TDSrvb";
+        DelEmptyRows;
+        FocusField = "confirmButton";
+        FocusFrame = "ButtonFrame";
+        Type = "Output";
+    }
+
+    IN Title;
+
+    IN TitleBar;
+    IN TitleBarSize;
+
+    IN ButtonBar;
+    IN ButtonBarSize;
+
+    IN MessageFrame;
+    IN MessageFrameSize;
+
+    OUT action
+    {
+        SType="Hidden";
+    }
+
+   IN MIR-POL-ID-BASE
+   {
+       DisplayOnly;
+       Length = "9";
+       SType = "Text";
+       Label = "Policy Id";
+   }
+   
+    IN MIR-POL-ID-SFX
+    {
+        DisplayOnly;
+        Length = "1";      
+        SType = "Text";   
+        Label = "Suffix";   
+     }   
+     
+    IN MIR-DV-OWN-CLI-NM
+    {
+        Length = "50";
+        DisplayOnly;
+        SType = "Text";
+        Label = "Owner name"; 
+    }   
+
+    IN MIR-POL-TRXN-EFF-DT
+    {
+        DisplayOnly;
+        Label = "Effective Date";
+        Length = "10";
+        Mandatory;
+        SType = "Date";
+    }
+    
+    IN MIR-DV-TRNXT-PAYO-MTHD-CD
+    {
+        CodeSource = "DataModel";
+        CodeType = "DV-TRNXT-PAYO-MTHD-CD";
+        DisplayOnly;
+        Label = "Pay Out Method";
+        Length = "1";
+        SType = "Selection";
+    }
+    
+    IN MIR-PAYE-CLI-LAST-NM
+    {
+        DisplayOnly;
+        Label = "Payee's Last Name";
+        Length = "25";
+        SType = "Text";
+    }
+        
+    IN MIR-PAYE-CLI-FRST-NM
+    {
+        DisplayOnly;
+        Label = "Payee's First Name";
+        Length = "25";
+        SType = "Text";
+    }
+
+    IN MIR-PAYE-CO-NM
+    {
+        DisplayOnly;
+        Label = "Company Name";
+        Length = "50";
+        SType = "Text";
+    }
+        
+    IN MIR-CLI-ADDR-LOC-CD
+    {
+        DisplayOnly;
+        Label = "Address Code";
+        Length = "8";
+        SType = "Text";
+    }
+        
+    IN MIR-CLI-PSTL-CD
+    {
+        DisplayOnly;
+        Label = "Postal Code";
+        Length = "8";
+        SType = "Text";
+    }
+        
+    IN MIR-DV-CLI-ADDR
+    {
+        DisplayOnly; 
+        Label = "Kanji Address";
+        Length = "75";
+        SType = "Text";
+    }
+        
+    IN MIR-CLI-ADDR-ADDL-TXT
+    {
+        DisplayOnly;
+        Label = "Samakata-bu";
+        Length = "60";
+        SType = "Text";
+    }        
+
+    IN MIR-MRF-IND
+    {
+        DisplayOnly;
+        Length = "1";
+        SType = "Indicator";
+        Label = "MRF Indicator";
+    }
+    
+    IN MIR-BNK-ID
+    {       
+        DisplayOnly;
+        Label = "Bank Number";
+        Length = "4";
+        SType = "Text";
+    }
+            
+    IN MIR-BNK-NM
+    {        
+        Label = "Bank Name";
+        DisplayOnly;
+        Length = "50";
+        SType = "Text";
+    } 
+            
+    IN MIR-BNK-BR-ID
+    {       
+        Label = "Branch Number";
+        DisplayOnly;
+        Length = "3";
+        SType = "Text";
+    }
+            
+    IN MIR-BNK-BR-NM
+    {
+        Label = "Branch Name";
+        Length = "50";
+        DisplayOnly;
+        SType = "Text";
+    }
+            
+    IN MIR-BNK-ACCT-TYP-CD
+    {
+        DisplayOnly;
+        Length = "3";
+        CodeSource = "EDIT";
+        CodeType = "FBACC";
+        SType = "Selection";
+        Label = "Account Type";
+    }
+
+    IN MIR-BNK-ACCT-ID
+    {
+        Label = "Bank Account Number";
+        Length = "17";
+        DisplayOnly;
+        SType = "Text";
+    }
+
+    IN MIR-BNK-ACCT-HLDR-NM
+    {
+        Label = "Account Holder Name"; 
+        Length = "50";
+        DisplayOnly;
+        SType = "Text";
+    }
+}

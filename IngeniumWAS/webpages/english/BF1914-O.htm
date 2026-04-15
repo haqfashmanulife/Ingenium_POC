@@ -1,0 +1,140 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:39 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1914-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2"                               
+*  01MI06  PHASE1   Remove the password field                                  
+*  02MI01a YUC      Add KANA Name   10SEP2002                                  
+*  MP310B  CTS      ADDED UW CLASS CODE
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge. 
+*  UYS100  CTS      ADDED POLICY ADMINISTRATION CALSS CODE            
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1914-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-USER-ID">User ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-USER-ID" id="MIR-USER-ID" stype="Text" maxlength="8" onfocus="enterField(this)" size="20" tabindex="1" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="SELECT-T[1]" />
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-USER-ID-T[1]">User ID</label>
+                    </td>
+<!--  02MI01a YUC   10SEP2002  Add 6 lines for Add KANA Name  -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-KA-SUR-NM-T[1]">Last Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-KA-GIV-NM-T[1]">First Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SECUR-CLAS-ID-T[1]">Security Class</label>
+                    </td>
+<!--  MP310B Changes Starts Here  -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-UW-CLAS-CD-T[1]">UW Class Code</label>
+                    </td>
+<!--  MP310B Changes Ends Here  -->
+<!--  UYS100 Changes Starts Here  -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ADMIN-CLAS-CD-T[1]">Policy Administration Class Code</label>
+                    </td>
+<!--  UYS100 Changes Ends Here  -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-USER-PSWD-XPRY-DUR-T[1]">Password Expiry</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BR-ID-T[1]">Branch ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DEPT-ID-T[1]">Department ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PRTR-ID-T[1]">Printer ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-USER-LANG-CD-T[1]">Language</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <a name="MIR-USER-ID-T[]" href="a" action="SelectItem" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">User ID</a>
+                    </td>
+<!--  02MI01a YUC   10SEP2002  Add 6 lines for Add KANA Name  -->
+                    <td class="celldisplay">
+                        <span id="MIR-KA-SUR-NM-T[]" stype="Text" displayonly="yes">MIR-KA-SUR-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-KA-GIV-NM-T[]" stype="Text" displayonly="yes">MIR-KA-GIV-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SECUR-CLAS-ID-T[]" stype="Text" displayonly="yes">MIR-SECUR-CLAS-ID-T[]</span>
+                    </td>
+<!--  MP310B Changes Starts Here  -->
+                    <td class="celldisplay">
+                        <span id="MIR-UW-CLAS-CD-T[]" stype="Text" displayonly="yes">MIR-UW-CLAS-CD-T[]</span>
+                    </td>
+<!--  MP310B Changes Ends Here  -->
+<!--  UYS100 Changes Starts Here  -->
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ADMIN-CLAS-CD-T[]" stype="Text" displayonly="yes">MIR-POL-ADMIN-CLAS-CD-T[]</span>
+                    </td>
+<!--  UYS100 Changes Ends Here  -->
+                    <td class="celldisplay">
+                        <span id="MIR-USER-PSWD-XPRY-DUR-T[]" stype="Text" displayonly="yes">MIR-USER-PSWD-XPRY-DUR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BR-ID-T[]" stype="Text" displayonly="yes">MIR-BR-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEPT-ID-T[]" stype="Text" displayonly="yes">MIR-DEPT-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PRTR-ID-T[]" stype="Text" displayonly="yes">MIR-PRTR-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USER-LANG-CD-T[]" stype="Text" displayonly="yes">MIR-USER-LANG-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

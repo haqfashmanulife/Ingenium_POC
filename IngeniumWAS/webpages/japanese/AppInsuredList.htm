@@ -1,0 +1,75 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:12 PM EDT
+*
+*********************************************************************************
+*  Component:   AppInsuredList.htm                                             
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  016423  602J     New for release 602J                                       
+*  017150  612J     Remove Currency decimals="2"       
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                        
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>AppInsuredList</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <b>
+                指定された被保険者について、
+他の加入保険、職業、身長・体重、主治医、生活情況2に関する質問の回答を得るには、
+被保険者<u>氏名</u>をクリックしてください
+            </b>
+            <p>指定された被保険者の査定に必要なすべてのデータが得られた場合は
+「次へ」ボタンをクリックしてください</p>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-INSRD-CLI-NM-T[1]">クライアント名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-BTH-DT-T[1]">生年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PLAN-UWG-IND-T[1]">査定の必要</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="DataCollected-T[1]">データ</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <a name="MIR-DV-INSRD-CLI-NM-T[]" href="a" action="GoToInsuredQuestions" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">クライアント名</a>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-BTH-DT-T[]" stype="Date" displayonly="yes">MIR-CLI-BTH-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-UWG-IND-T[]" stype="Text" displayonly="yes">MIR-PLAN-UWG-IND-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="DataCollected-T[]" stype="Text" displayonly="yes">DataCollected-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

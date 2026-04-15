@@ -1,0 +1,655 @@
+﻿<!--
+********************************************************************************
+*  Component:   BF9H45-O.htm                                                   *
+*  Description: UNISYS JIKOU SETTLEMENT SCREEN CHANGES                         *
+*                                                                              *
+********************************************************************************
+*  Chg#    Release  Description                                                *
+*                                                                              *
+*  UYDM28  CTS      INITIAL VERSION OF UNISYS JIKOU SETTLEMENT SCREEN CHANGES  *
+*  S50400  CTS      NEW FIELD ADDITION                                         *
+********************************************************************************
+ -->
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9H45-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <br />
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" stype="Hidden" id="index" />
+            <input type="hidden" name="action" stype="Hidden" id="action" />
+
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel"> 
+                        <label for="MIR-POL-ID">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                         <span id="MIR-POL-ID" stype="Text" displayonly="yes">MIR-POL-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel"> 
+                         <label for="MIR-CVG-NUM">保障番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                         <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel"> 
+                         <label for="MIR-LARG-TYP">大種:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                         <span id="MIR-LARG-TYP" stype="Text" displayonly="yes">MIR-LARG-TYP</span>
+                    </td>
+                    <td class="celldisplaykeylabel"> 
+                         <label for="MIR-SMAL-TYP">小種:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                         <span id="MIR-SMAL-TYP" stype="Text" displayonly="yes">MIR-SMAL-TYP</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel"> 
+                         <label for="MIR-CVG-SML-PROD-TYP-CD">特約小種(特約コード):</label>
+                    </td>
+                    <td class="celldisplaykey">
+                         <span id="MIR-CVG-SML-PROD-TYP-CD" stype="Text" displayonly="yes">MIR-CVG-SML-PROD-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel"> 
+                         <label for="MIR-POL-ISSU-DT">契約日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                         <span id="MIR-POL-ISSU-DT" stype="Date" displayonly="yes">MIR-POL-ISSU-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel"> 
+                         <label for="MIR-CVG-MAT-XPRY-DT">保障満期日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                         <span id="MIR-CVG-MAT-XPRY-DT" stype="Date" displayonly="yes">MIR-CVG-MAT-XPRY-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel"> 
+                         <label for="MIR-CALC-EFF-DT">計算基準日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                         <span id="MIR-CALC-EFF-DT" stype="Date" displayonly="yes">MIR-CALC-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel"> 
+                         <label for="MIR-CSV-ELPS-DUR">計算用経過年月:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                         <span id="MIR-CSV-ELPS-DUR" stype="Text" displayonly="yes">MIR-CSV-ELPS-DUR</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                 <tr>
+                    <td class="celldisplayheading" colspan="4">Jikou Settlement Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" colspan="2">精算内訳（収入)</td>
+                    <td class="celldisplayheading" colspan="2">精算内訳（支出）</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-LOAN-BAL-AMT">貸付現在高:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-BAL-AMT" stype="Currency" elength="15" displayonly="yes">MIR-LOAN-BAL-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-POL-CSV-AMT">合計解約返戻金:</label>
+                    </td>
+                    <td class="celldisplay">
+                         <span id="MIR-POL-CSV-AMT" stype="Currency" elength="15" displayonly="yes">MIR-POL-CSV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-LOAN-INT-AMT">貸付未収利息:</label>
+                    </td>
+                    <td class="celldisplay">
+                         <span id="MIR-LOAN-INT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-LOAN-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-BASE-CVG-CSV-AMT">主契約解約返戻金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BASE-CVG-CSV-AMT" stype="Currency" elength="15" displayonly="yes">MIR-BASE-CVG-CSV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                       <label for="MIR-LOAN-SHRT-AMT">貸付利息不足金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-SHRT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-LOAN-SHRT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CVG-CSV-AMT">特約解約返戻金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CSV-AMT" stype="Currency" elength="15" displayonly="yes">MIR-CVG-CSV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-UNPAID-PREM-AMT">未収保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UNPAID-PREM-AMT" stype="Currency" elength="15" displayonly="yes">MIR-UNPAID-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-LOAN-UNEARN-INT-AMT">貸付未経過利息:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-UNEARN-INT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-LOAN-UNEARN-INT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-SHRT-PREM-AMT">不足保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-PREM-AMT" stype="Currency" elength="15" displayonly="yes">MIR-SHRT-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-LOAN-XCES-INT-AMT">貸付過収利息:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-XCES-INT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-LOAN-XCES-INT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-APL-BAL-AMT">立替金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-APL-BAL-AMT" stype="Currency" elength="15" displayonly="yes">MIR-APL-BAL-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-UNEARN-PREM-AMT">未経過保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UNEARN-PREM-AMT" stype="Currency" elength="15" displayonly="yes">MIR-UNEARN-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-APL-INT-AMT">立替利息:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-APL-INT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-APL-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-XCES-PREM-AMT">過収保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-XCES-PREM-AMT" stype="Currency" elength="15" displayonly="yes">MIR-XCES-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-TAXWH-FED-AMT">源泉分離課税国税:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAXWH-FED-AMT" stype="Currency" elength="15" displayonly="yes">MIR-TAXWH-FED-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+<!-- UDS3-48920 START HERE  -->
+<!--                        <label for="MIR-EDUC-CNGRT-AMT">過収保険料:</label>    -->
+                        <label for="MIR-EDUC-CNGRT-AMT">入学祝金:</label>
+<!-- UDS3-48920 ENDS HERE -->
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-EDUC-CNGRT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-EDUC-CNGRT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-TAXWH-LOC-AMT">源泉分離課税地方税:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAXWH-LOC-AMT" stype="Currency" elength="15" displayonly="yes">MIR-TAXWH-LOC-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-HLTH-CNGRT-INT-AMT">健康祝金(+健康祝金利息):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HLTH-CNGRT-INT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-HLTH-CNGRT-INT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-SAV-CVG-DEFR-AMT">保険金据置受入:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SAV-CVG-DEFR-AMT" stype="Currency" elength="15" displayonly="yes">MIR-SAV-CVG-DEFR-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-SURV-BEN-DEFR-AMT">生存給付金(+据置金):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURV-BEN-DEFR-AMT" stype="Currency" elength="15" displayonly="yes">MIR-SURV-BEN-DEFR-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-OVRDU-INT-AMT">その他利息(延滞利息)(満期追加):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OVRDU-INT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-OVRDU-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-SPCL-DIV-AMT">特別配当金据置金(累積)（＋特別配当金据置累積利息）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SPCL-DIV-AMT" stype="Currency" elength="15" displayonly="yes">MIR-SPCL-DIV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-DEP-AMT">積立配当金累積(＋積立利息累積）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEP-AMT" stype="Currency" elength="15" displayonly="yes">MIR-DEP-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-NEW-CNVR-BAL-AMT">新転換残高:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-CNVR-BAL-AMT" stype="Currency" elength="15" displayonly="yes">MIR-NEW-CNVR-BAL-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CVG-PMT-DEP-AMT">適格特約支払積立金累計（＋適格特約支払利息累計）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PMT-DEP-AMT" stype="Currency" elength="15" displayonly="yes">MIR-CVG-PMT-DEP-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-DEFR-BNFT-AMT">保険金据置支払金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEFR-BNFT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-DEFR-BNFT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-SAV-CVG-BNFT-AMT">貯蓄特約生存保険金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SAV-CVG-BNFT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-SAV-CVG-BNFT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-SAV-CVG-ADD-BNFT-AMT">貯蓄特約増加生存保険金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SAV-CVG-ADD-BNFT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-SAV-CVG-ADD-BNFT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-MAT-BNFT-AMT">満期保険金(満期追加):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAT-BNFT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-MAT-BNFT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-OTHR-RFND-AMT">その他返戻金(満期追加):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OTHR-RFND-AMT" stype="Currency" elength="15" displayonly="yes">MIR-OTHR-RFND-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-INCR-SURV-BNFT-AMT">増加保険金(満期追加):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INCR-SURV-BNFT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-INCR-SURV-BNFT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-EDUC-MAT-AMT">奨学金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-EDUC-MAT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-EDUC-MAT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-ACRU-DIV-AMT">未払配当金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACRU-DIV-AMT" stype="Currency" elength="15" displayonly="yes">MIR-ACRU-DIV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-TOT-INCM-AMT">収入合計:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-INCM-AMT" stype="Currency" elength="15" displayonly="yes">MIR-TOT-INCM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-TOT-XPNS-AMT">支出合計:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-XPNS-AMT" stype="Currency" elength="15" displayonly="yes">MIR-TOT-XPNS-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-REMIT-AMT">差引収支金額(-は送金額):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REMIT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-REMIT-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="5">その他情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-SURR-REMIT-AMT">CutOff時点の解約返戻金送金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURR-REMIT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-SURR-REMIT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CUSTOD-DIV-AMT">預り配当金累積（＋預り利息累積）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CUSTOD-DIV-AMT" stype="Currency" elength="15" displayonly="yes">MIR-CUSTOD-DIV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CNVR-ADJ-DIV-AMT">転換調整配当金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNVR-ADJ-DIV-AMT" stype="Currency" elength="15" displayonly="yes">MIR-CNVR-ADJ-DIV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-VEST-CSV-AMT">ベスティング 解約返戻金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-VEST-CSV-AMT" stype="Currency" elength="15" displayonly="yes">MIR-VEST-CSV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-NEW-CNVR-CSV-AMT">新転換残高 解約返戻金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-CNVR-CSV-AMT" stype="Currency" elength="15" displayonly="yes">MIR-NEW-CNVR-CSV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-WL-PREM-PUA-CSV-AMT">終身保険金買増 解約返戻金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-WL-PREM-PUA-CSV-AMT" stype="Currency" elength="15" displayonly="yes">MIR-WL-PREM-PUA-CSV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-ENDOW-PUA-CSV-AMT">生存保険金買増 解約返戻金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ENDOW-PUA-CSV-AMT" stype="Currency" elength="15" displayonly="yes">MIR-ENDOW-PUA-CSV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-JV-CNGRT-DEFR-AMT">こども保険祝金の据置金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JV-CNGRT-DEFR-AMT" stype="Currency" elength="15" displayonly="yes">MIR-JV-CNGRT-DEFR-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-JV-CNGRT-DEFR-INT-AMT">こども保険祝金の据置金利息:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JV-CNGRT-DEFR-INT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-JV-CNGRT-DEFR-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-INCR-ENDOW-DEFR-AMT">増加生存保険金据置金累積:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INCR-ENDOW-DEFR-AMT" stype="Currency" elength="15" displayonly="yes">MIR-INCR-ENDOW-DEFR-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-ENDOW-PUA-AMT">生存保険金買増:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ENDOW-PUA-AMT" stype="Currency" elength="15" displayonly="yes">MIR-ENDOW-PUA-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-WL-PREM-PUA-AMT">終身保険金買増:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-WL-PREM-PUA-AMT" stype="Currency" elength="15" displayonly="yes">MIR-WL-PREM-PUA-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-VEST-AMT">ベスティング:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-VEST-AMT" stype="Currency" elength="15" displayonly="yes">MIR-VEST-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-VEST-DEFR-AMT">ベスティング据置金（＋ベスティング据置累積利息）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-VEST-DEFR-AMT" stype="Currency" elength="15" displayonly="yes">MIR-VEST-DEFR-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-NO-ACCDNT-BNFT-AMT">無事故給付金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-ACCDNT-BNFT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-NO-ACCDNT-BNFT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-DTH-BNFT-AMT">経過換算死亡保険金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DTH-BNFT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-DTH-BNFT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-VAR-LIFE-BNFT-AMT">変額保険の変動保険金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-VAR-LIFE-BNFT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-VAR-LIFE-BNFT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-RSRV-OTHR">予備フィールド:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RSRV-OTHR" stype="Text" displayonly="yes">MIR-RSRV-OTHR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CVG-RPU-FACE-AMT">CutOff時点の払済普通死亡保険金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-RPU-FACE-AMT" stype="Currency" elength="15" displayonly="yes">MIR-CVG-RPU-FACE-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-POL-GRS-APREM-AMT">年間保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-GRS-APREM-AMT" stype="Currency" elength="15" displayonly="yes">MIR-POL-GRS-APREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CVG-PMT-XPRY-DT">払込満了日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PMT-XPRY-DT" stype="Date" displayonly="yes">MIR-CVG-PMT-XPRY-DT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-LOAN-INT-VALID-DT">貸付利息最終有効末日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-INT-VALID-DT" stype="Date" displayonly="yes">MIR-LOAN-INT-VALID-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-TOT-POL-PREM-PD-AMT">既払込保険料（契約レベル）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-POL-PREM-PD-AMT" stype="Currency" elength="15" displayonly="yes">MIR-TOT-POL-PREM-PD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-TAX-PMT-PD-PREM-AMT">支払調書上の既払込保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAX-PMT-PD-PREM-AMT" stype="Currency" elength="15" displayonly="yes">MIR-TAX-PMT-PD-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-LAPS-POL-IND">失効Bit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LAPS-POL-IND" stype="Text" displayonly="yes">MIR-LAPS-POL-IND</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CVG-RPU-FND-AMT">CutOff時点の払済原資:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-RPU-FND-AMT" stype="Currency" elength="15" displayonly="yes">MIR-CVG-RPU-FND-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-BIKIN-POL-IND">備金Bit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BIKIN-POL-IND" stype="Text" displayonly="yes">MIR-BIKIN-POL-IND</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-NOTI-DIV-IND">案内区分:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NOTI-DIV-IND" stype="Text" displayonly="yes">MIR-NOTI-DIV-IND</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-ANTY-PMT-POL-IND">年金移行Bit</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-PMT-POL-IND" stype="Text" displayonly="yes">MIR-ANTY-PMT-POL-IND</span>
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-JIKOU-POL-IND">時効Bit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JIKOU-POL-IND" stype="Text" displayonly="yes">MIR-JIKOU-POL-IND</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+<!-- UDS3-50400 START HERE  -->
+<!--                    <label for="MIR-RECALC-ERROR-CD">再計算ERR-CD:</label>   -->
+                        <label for="MIR-ERROR-CD">エラーコード:</label>
+<!-- UDS3-50400 ENDS HERE  -->
+                    </td>
+                    <td class="celldisplay">
+<!-- UDS3-50400 START HERE  -->
+<!--                    <span id="MIR-RECALC-ERROR-CD" stype="Text" displayonly="yes">MIR-RECALC-ERROR-CD</span>   -->
+                        <span id="MIR-ERROR-CD" stype="Text" displayonly="yes">MIR-ERROR-CD</span>
+<!-- UDS3-50400 ENDS HERE  -->
+                    </td>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-RPU-POL-IND">払済Bit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RPU-POL-IND" stype="Text" displayonly="yes">MIR-RPU-POL-IND</span>
+                    </td>
+                </tr>
+<!-- UDS3-50400 START HERE -->
+                <tr>
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-RECALC-ERROR-CD">再計算エラーコード:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RECALC-ERROR-CD" stype="Text" displayonly="yes">MIR-RECALC-ERROR-CD</span>
+                    </td>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+<!-- UDS3-50400 ENDS HERE -->
+                </tr>
+            </table>
+            <br />             
+            <p align="right">
+               <a href="#top" class="backtotop">
+                   <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                    Back to top
+               </a>
+            </p>
+
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

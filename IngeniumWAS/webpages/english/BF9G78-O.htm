@@ -1,0 +1,434 @@
+<!--
+* Converted to Pathfinder 3.0 on Dec 12, 2024 10:39:22 AM EDT
+*
+*********************************************************************************
+*  Component:   BF9G78-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  UYDM36     CTS      INITIAL VERSION OF UNISYS ANNUITY POLICY INQUIRY SCREEN
+*  S47021     CTS      JIRA FIX FOR S47174
+********************************************************************************
+ -->
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9G78-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad();">
+        <br />
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+        <table class="tabledisplaykey">
+             <tr><td class="celldisplaykeylabel"> <label for="MIR-ANTY-TYP-CD">Annuity Type Code:</label></td><td class="celldisplaykey"><span id="MIR-ANTY-TYP-CD" stype="Text" displayonly="yes">MIR-ANTY-TYP-CD</span></td>
+             <td class="celldisplaykeylabel"> <label for="MIR-ANTY-PMT-STRT-DT">Annuity Payment Start Date:</label></td><td class="celldisplaykey"><span id="MIR-ANTY-PMT-STRT-DT" stype="Text" displayonly="yes">MIR-ANTY-PMT-STRT-DT</span></td></tr>
+             <tr><td class="celldisplaykeylabel"> <label for="MIR-ANTY-POL-ID">Annuity Policy Id:</label></td><td class="celldisplaykey"><span id="MIR-ANTY-POL-ID" stype="Text" displayonly="yes">MIR-ANTY-POL-ID</span></td>
+             <td class="celldisplaykeylabel"> <label for="MIR-ANTY-TYP">Annuity Type:</label></td><td class="celldisplaykey"><span id="MIR-ANTY-TYP" stype="Text" displayonly="yes">MIR-ANTY-TYP</span></td></tr>
+             <tr><td class="celldisplaykeylabel"> <label for="MIR-BNFY-NM-KANA">Beneficiary Name:</label></td><td class="celldisplaykey"><span id="MIR-BNFY-NM-KANA" stype="Text" displayonly="yes">MIR-BNFY-NM-KANA</span></td>
+             <td class="celldisplaykeylabel"> <label for="MIR-ANTY-MODEL">Annuity Model:</label></td><td class="celldisplaykey"><span id="MIR-ANTY-MODEL" stype="Text" displayonly="yes">MIR-ANTY-MODEL</span></td></tr>
+             <tr><td class="celldisplaykeylabel"> <label for="MIR-INSRD-NM-KANA">Insured Name:</label></td><td class="celldisplaykey"><span id="MIR-INSRD-NM-KANA" stype="Text" displayonly="yes">MIR-INSRD-NM-KANA</span></td>
+             <td class="celldisplaykeylabel"> <label for="MIR-ANTY-PMT-DUR">Annuity Payment Period:</label></td><td class="celldisplaykey"><span id="MIR-ANTY-PMT-DUR" stype="Text" displayonly="yes">MIR-ANTY-PMT-DUR</span></td></tr>
+             <tr><td class="celldisplaykeylabel"> <label for=""></label></td><td class="celldisplaykey"><span id="" stype="Text" displayonly="yes"></span></td>
+             <td class="celldisplaykeylabel"> <label for="MIR-GUAR-DUR">Guaranteed Period:</label></td><td class="celldisplaykey"><span id="MIR-GUAR-DUR" stype="Text" displayonly="yes">MIR-GUAR-DUR</span></td></tr>
+        </table>
+        <br/>
+        <center>
+            <table class="tableanchors">
+                <tbody><tr>
+                    <td class="cellanchors">
+                         <a href="#Banking Payout Information"> Banking Payout Information </a>
+                    </td>
+
+                    <td class="cellanchors">
+                         <a href="#Annuity Payment Information"> Annuity Payment Information </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </center>
+        <br/>
+        <table class="tabledisplay">
+            <tbody>
+                <tr>
+                    <td class="celldisplayheading" colspan="10">
+                        <a name="Agent">Basic G</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                       <label for="MIR-BASIC-ANTY-ANN-PMT">Basic Annuity Annual Payment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BASIC-ANTY-ANN-PMT" stype="Text">MIR-BASIC-ANTY-ANN-PMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INCR-ANTY-AMT">Increased Annuity Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-INCR-ANTY-AMT" stype="Text">MIR-INCR-ANTY-AMT</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-FND-SETUP-DT">Annuity fund setup date (year, month, day) ( Annuity settlement date):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-ANTY-FND-SETUP-DT" stype="Text">MIR-ANTY-FND-SETUP-DT</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-RESRC">Annuity Resources:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-ANTY-RESRC" stype="Text">MIR-ANTY-RESRC</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CUM-ANTY-PMT-VALU">Cumulative Annuity Payment Value:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-CUM-ANTY-PMT-VALU" stype="Text">MIR-CUM-ANTY-PMT-VALU</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <table class="tabledisplay">
+            <tbody>
+                <tr>
+                    <td class="celldisplayheading" colspan="10">
+                        <a name="Agent">Payee Name G</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                       <label for="MIR-BNFY-BTH-DT">Beneficiary Birthdate:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNFY-BTH-DT" stype="Text">MIR-BNFY-BTH-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNFY-SEX-CD">Beneficiary Gender:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNFY-SEX-CD" stype="Text">MIR-BNFY-SEX-CD</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <table class="tabledisplay">
+            <tbody>
+                <tr>
+                    <td class="celldisplayheading" colspan="10">
+                        <a name="Agent">Bit G</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                       <label for="MIR-BIT-G-TRMN-CD">Terminated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BIT-G-TRMN-CD" stype="Text">MIR-BIT-G-TRMN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OT-PMT-MD">One Time Payment Made:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-OT-PMT-MD" stype="Text">MIR-OT-PMT-MD</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-MVT-NUM">No Annutity Movement:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-ANTY-MVT-NUM" stype="Text">MIR-ANTY-MVT-NUM</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PERM-DISAB-CD">Permanent Disability:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-PERM-DISAB-CD" stype="Text">MIR-PERM-DISAB-CD</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-COND-CHNG-POL-ID">Conditions Change Policy:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-COND-CHNG-POL-ID" stype="Text">MIR-COND-CHNG-POL-ID</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <table class="tabledisplay">
+            <tbody>
+                <tr>
+                    <td class="celldisplayheading" colspan="10">
+                        <a name="Agent">Movement G</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                       <label for="MIR-MVT-G-XFER-CD">Transfer Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-MVT-G-XFER-CD" stype="Text">MIR-MVT-G-XFER-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+<!--            <label for="MIR-MVT-G-XFER-DT">Transfer Date:</label> -->
+<!-- S47021 START HERE -->
+                <label for="MIR-MVT-G-XFER-DT">Transfer Date (year, month, day):</label>
+<!-- S47021 END HERE -->
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-MVT-G-XFER-DT" stype="Text">MIR-MVT-G-XFER-DT</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <table class="tabledisplay">
+            <tbody>
+                <tr>
+                    <td class="celldisplayheading" colspan="10">
+                        <a name="Agent">Withholding Tax G</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                       <label for="MIR-REQD-XPNS-RT">Rate of necessary expenses:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-REQD-XPNS-RT" stype="Text">MIR-REQD-XPNS-RT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NET-PREM-PD">Net premium paid:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-NET-PREM-PD" stype="Text">MIR-NET-PREM-PD</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PREM-PD">Premium Paid Total:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-TOT-PREM-PD" stype="Text">MIR-TOT-PREM-PD</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-WTHLD-TXEMP-IND">Non-withholding flag:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-WTHLD-TXEMP-IND" stype="Text">MIR-WTHLD-TXEMP-IND</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <table class="tabledisplay">
+            <tbody>
+                <tr>
+                    <td class="celldisplayheading" colspan="10">
+                        <a name="Agent">Stationary G</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                       <label for="MIR-DEFR-DUR">Period Deferred:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-DEFR-DUR" stype="Text">MIR-DEFR-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DEFR-STRT-DT">Deferrance Start Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-DEFR-STRT-DT" stype="Text">MIR-DEFR-STRT-DT</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <table class="tabledisplay">
+            <tbody>
+                <tr>
+                    <td class="celldisplayheading" colspan="10">
+                        <a name="Agent">Condition Change G Basic 3</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                       <label for="MIR-SURR-BASE-ANTY-AMT-3">Base annuity amount for surrender:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-SURR-BASE-ANTY-AMT-3" stype="Text">MIR-SURR-BASE-ANTY-AMT-3</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ENH-SURR-AMT-ON-DT">Enhanced annuity amount for surrender (As of the reference date):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-ENH-SURR-AMT-ON-DT" stype="Text">MIR-ENH-SURR-AMT-ON-DT</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <table class="tabledisplay" id="Banking Payout Information">
+            <tbody>
+                <tr>
+                    <td class="celldisplayheading" colspan="10">
+                        <a name="Agent">Bank Account G</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                       <label for="MIR-BNK-CD">Bank Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-CD" stype="Text">MIR-BNK-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BRCH-CD">Branch code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BRCH-CD" stype="Text">MIR-BRCH-CD</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-TYP">Account type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-ACCT-TYP" stype="Text">MIR-BNK-ACCT-TYP</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-NUM">Bank account number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-ACCT-NUM" stype="Text">MIR-BNK-ACCT-NUM</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-HLDR-NM">Account Holder Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BNK-ACCT-HLDR-NM" stype="Text">MIR-BNK-ACCT-HLDR-NM</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <p align="right">
+            <a class="backtotop" href="#top">
+                <img alt="Back to top" border="0" height="14" src="../images/top.gif" width="14">Back to top
+                                </img>
+            </a>
+        </p>
+        <table class="tabledisplay" genrows="0" keyfield="0" id="Annuity Payment Information">
+            <tbody>
+                <tr>
+                  <td class="celldisplayheading" colspan="50">Annuity Payout Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" headingrow="yes">
+                         <label for="MIR-ANTY-SR-NUM-T[]">Sequence Number</label>
+                     </td>
+                     <td class="celldisplayheading" headingrow="yes">
+                         <label for="MIR-PYMT-DT-YMD-T[]">Effective Date</label>
+                     </td>
+                     <td class="celldisplayheading" headingrow="yes">
+                         <label for="MIR-PYMT-CLAS-1-T[]">Payout Type</label>
+                     </td>
+                     <td class="celldisplayheading" headingrow="yes">
+                         <label for="MIR-PYMT-CLAS-2-T[]">Insurance Claims Paid category 2</label>
+                     </td>
+                     <td class="celldisplayheading" headingrow="yes">
+                         <label for="MIR-PYMT-FISC-YR-T[]">Fiscal Year</label>
+                     </td>
+                     <td class="celldisplayheading" headingrow="yes">
+                         <label for="MIR-PYMT-FREQ-T[]">Duration</label>
+                     </td>
+                     <td class="celldisplayheading" headingrow="yes">
+                         <label for="MIR-BASE-ANTY-YR-AMT-T[]">Modal Payout Amount</label>
+                     </td>
+                     <td class="celldisplayheading" headingrow="yes">
+                         <label for="MIR-DIV-AMT-T[]">Dividend amount</label>
+                     </td>
+                     <td class="celldisplayheading" headingrow="yes">
+                         <label for="MIR-INC-ANTY-AMT-T[]">Increased Annuity Amount</label>
+                     </td>
+                     <td class="celldisplayheading" headingrow="yes">
+                         <label for="MIR-INT-AMT-T[]">Split Payment Interest </label>
+                     </td>
+                     <td class="celldisplayheading" headingrow="yes">
+                         <label for="MIR-TAX-AMT-T[]">Total Amount of Tax Withheld</label>
+                     </td>
+                     <td class="celldisplayheading" headingrow="yes">
+                         <label for="MIR-NET-AMT-T[]">Net Payout Amount</label>
+                     </td>
+                     <td class="celldisplayheading" headingrow="yes">
+                         <label for="MIR-PYMT-MTHD-T[]">Payout Method</label>
+                     </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-ANTY-SR-NUM-T[]" stype="Text">MIR-ANTY-SR-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-PYMT-DT-YMD-T[]" stype="Text">MIR-PYMT-DT-YMD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-PYMT-CLAS-1-T[]" stype="Text">MIR-PYMT-CLAS-1-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-PYMT-CLAS-2-T[]" stype="Text">MIR-PYMT-CLAS-2-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-PYMT-FISC-YR-T[]" stype="Text">MIR-PYMT-FISC-YR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-PYMT-FREQ-T[]" stype="Text">MIR-PYMT-FREQ-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-BASE-ANTY-YR-AMT-T[]" stype="Text">MIR-BASE-ANTY-YR-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-DIV-AMT-T[]" stype="Text">MIR-DIV-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-INC-ANTY-AMT-T[]" stype="Text">MIR-INC-ANTY-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-INT-AMT-T[]" stype="Text">MIR-INT-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-TAX-AMT-T[]" stype="Text">MIR-TAX-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-NET-AMT-T[]" stype="Text">MIR-NET-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span displayonly="yes" id="MIR-PYMT-MTHD-T[]" stype="Text">MIR-PYMT-MTHD-T[]</span>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+    <br/>
+    <p align="right">
+        <a class="backtotop" href="#top">
+            <img alt="Back to top" border="0" height="14" src="../images/top.gif" width="14">Back to top</img>
+        </a>
+    </p>
+    </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

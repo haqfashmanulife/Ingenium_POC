@@ -1,0 +1,1104 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:35 PM EDT
+*
+**********************************************************************************************
+*  Component:   BF1682-I.htm
+*  Description:
+*
+**********************************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling
+*  017150  612J     Remove Currency decimals="2"
+*  HNB203  HIN/AI   COMPLEX TEST PHASE 1
+*  HNB303  HIN/AI   COMPLEX TEST REQUIRING UNISYS DATA
+*  HCL105  HIN/CL   RULES EXECUTION TESTS            (HCL105B)
+*  HCL109  HIN/CL   CLAIM PAYMENT
+*  FEID01  CTS      ADD POL-ISS-DY for for LCD Issue Date Calculation - Online Screen Changes
+*  NWLGLR  CTS      ADD MTHLY-LAPS-DY for Setting Monthly Lapse Day - Online Screen Changes
+*  M161CA   CTS      INTRODUCED NEW FIELDS TO THE SCOM TABLE
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+**********************************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1682-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <a name="top" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Calculations">Calculations</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Commitments">Commitments</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Miscellaneous">Miscellaneous</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PAC Processing">PAC Processing</a>
+                        </td>
+                        <!-- M161CA START -->
+                        <td class="cellanchors">
+                            <a href="#Credit Card Payment Processing">Credit Card Payment Processing</a>
+                        </td>
+                        <!-- M161CA END -->
+                        <td class="cellanchors">
+                            <a href="#Rollovers">Rollovers</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Table Access">Table Access</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#UW Limits">Underwriting Limits</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#UW Standards">Underwriting Standards</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Claims">Claims</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <h2>
+                <a name="Calculations">Calculations</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Premium Inforce Tolerance</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INFC-PREM-TOL-CD">Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-INFC-PREM-TOL-CD" id="MIR-INFC-PREM-TOL-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INFC-PREM-TOL-PCT">Percentage:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-INFC-PREM-TOL-PCT" id="MIR-INFC-PREM-TOL-PCT" stype="Percent" elength="3" decimals="0" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INFC-PREM-TOL-AMT">Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-INFC-PREM-TOL-AMT" id="MIR-INFC-PREM-TOL-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Premium Pending Tolerance</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PEND-PREM-TOL-CD">Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PEND-PREM-TOL-CD" id="MIR-PEND-PREM-TOL-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PEND-PREM-TOL-PCT">Percentage:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-PEND-PREM-TOL-PCT" id="MIR-PEND-PREM-TOL-PCT" stype="Percent" elength="3" decimals="0" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PEND-PREM-TOL-AMT">Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PEND-PREM-TOL-AMT" id="MIR-PEND-PREM-TOL-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Loan Tolerance</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-LOAN-REPAY-TOL-CD">Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-LOAN-REPAY-TOL-CD" id="MIR-LOAN-REPAY-TOL-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-LOAN-REPAY-TOL-PCT">Percentage:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-LOAN-REPAY-TOL-PCT" id="MIR-LOAN-REPAY-TOL-PCT" stype="Percent" elength="3" decimals="0" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-LOAN-REPAY-TOL-AMT">Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-LOAN-REPAY-TOL-AMT" id="MIR-LOAN-REPAY-TOL-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Commitments">Commitments</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Commitment Period</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-COMIT-PERI-DY-DUR">Number of Days:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-COMIT-PERI-DY-DUR" id="MIR-COMIT-PERI-DY-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-COMIT-INT-RT-CD">Interest Rate:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-COMIT-INT-RT-CD" id="MIR-COMIT-INT-RT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-COMIT-STRT-CD">Effective Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-COMIT-STRT-CD" id="MIR-COMIT-STRT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Commitment Tolerance</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-COMIT-TOL-AMT">Flat Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-COMIT-TOL-AMT" id="MIR-COMIT-TOL-AMT" stype="Currency" elength="11" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-COMIT-TOL-CALC-CD">Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-COMIT-TOL-CALC-CD" id="MIR-COMIT-TOL-CALC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-COMIT-TOL-CD">Order:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-COMIT-TOL-CD" id="MIR-COMIT-TOL-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-COMIT-TOL-PCT">Percentage:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-COMIT-TOL-PCT" id="MIR-COMIT-TOL-PCT" stype="Percent" elength="2" decimals="0" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Miscellaneous">Miscellaneous</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Valid Issue Days</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FRST-ISS-DY">Earliest:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FRST-ISS-DY" id="MIR-FRST-ISS-DY" stype="Day" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FINAL-ISS-DY">Latest:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FINAL-ISS-DY" id="MIR-FINAL-ISS-DY" stype="Day" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+	<!-- FEID01 Changes Begin -->
+		<tr>
+		    <td class="celllabelrightalign">
+			<label for="MIR-POL-ISS-DY">Policy Issue day of month:</label>
+		    </td>
+		    <td class="celllabeldataentry">
+			<input type="text" value=" " name="MIR-POL-ISS-DY" id="MIR-POL-ISS-DY" stype="Day" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+		    </td>
+	<!-- NWLGLR Changes Begin -->
+		    <td class="celllabelrightalign">
+			<label for="MIR-MTHLY-LAPS-DY">Month Lapse Day:</label>
+		    </td>
+		    <td class="celllabeldataentry">
+			<input type="text" value=" " name="MIR-MTHLY-LAPS-DY" id="MIR-MTHLY-LAPS-DY" stype="Day" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+		    </td>
+	<!-- NWLGLR Changes end -->
+		</tr>
+	<!-- FEID01 Changes end -->
+
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Final Disposition Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FINAL-DISP-DY-DUR">Final Disposition Days:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FINAL-DISP-DY-DUR" id="MIR-FINAL-DISP-DY-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DISP-WARN-DY-DUR">Final Disposition Warning:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DISP-WARN-DY-DUR" id="MIR-DISP-WARN-DY-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Policy Effective Date (Months)</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-BCKDT-MO-DUR">Maximum Back-Dating:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-BCKDT-MO-DUR" id="MIR-MAX-BCKDT-MO-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-PSTDT-MO-DUR">Maximum Post-Dating:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-PSTDT-MO-DUR" id="MIR-MAX-PSTDT-MO-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Miscellaneous Policy Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DFLT-LANG-CD">Default Language:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DFLT-LANG-CD" id="MIR-DFLT-LANG-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-UNDO-MO-DUR">Maximum Number of Months for Auto Undo:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-UNDO-MO-DUR" id="MIR-MAX-UNDO-MO-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RPU-DR-CD">Account to Debit - RPU:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-RPU-DR-CD" id="MIR-RPU-DR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SBSDRY-CO-DFLT-IND">Default Sub Company on New Policy:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-SBSDRY-CO-DFLT-IND" id="MIR-SBSDRY-CO-DFLT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BILL-ZERO-AMT-IND">Generate Direct Bill if Total Amount Due Is Zero:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-BILL-ZERO-AMT-IND" id="MIR-BILL-ZERO-AMT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-XTRNL-PMT-IND">Sub Company Uses External Payment Process:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-XTRNL-PMT-IND" id="MIR-XTRNL-PMT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="PAC Processing">PAC Processing</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Deposit Days</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FRST-DPOS-DY">Earliest:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FRST-DPOS-DY" id="MIR-FRST-DPOS-DY" stype="Day" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FINAL-DPOS-DY">Latest:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FINAL-DPOS-DY" id="MIR-FINAL-DPOS-DY" stype="Day" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Redraw</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PAC-REDRW-DUR">Number of Months/Days:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PAC-REDRW-DUR" id="MIR-PAC-REDRW-DUR" stype="Text" maxlength="4" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PAC-REDRW-OPT-CD">PAC Option:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PAC-REDRW-OPT-CD" id="MIR-PAC-REDRW-OPT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Indicators</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INIT-PAC-DRW-IND">Draw the Initial Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-INIT-PAC-DRW-IND" id="MIR-INIT-PAC-DRW-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INIT-PAC-REDRW-IND">Redraw the Initial Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-INIT-PAC-REDRW-IND" id="MIR-INIT-PAC-REDRW-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <!-- M161CA START -->
+            <h2>
+                <a name="Credit Card Payment Processing">Credit Card Payment Processing</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Billing Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CRC-SHOP-ID">Shop ID:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CRC-SHOP-ID" id="MIR-CRC-SHOP-ID" stype="Text" maxlength="15" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CRC-FLOOR-LMT-AMT">Floor Limit:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CRC-FLOOR-LMT-AMT" id="MIR-CRC-FLOOR-LMT-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CRC-AUTH-EFF-DUR">Authorization Effective Duration:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CRC-AUTH-EFF-DUR" id="MIR-CRC-AUTH-EFF-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <!-- M161CA END -->
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Rollovers">Rollovers</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Deposit Rollover</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ROLOVR-DY-DUR">Number of Days:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ROLOVR-DY-DUR" id="MIR-ROLOVR-DY-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ROLOVR-INT-RT-CD">Interest Rate:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ROLOVR-INT-RT-CD" id="MIR-ROLOVR-INT-RT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Rollover Tolerance</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ROLOVR-TOL-AMT">Flat Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ROLOVR-TOL-AMT" id="MIR-ROLOVR-TOL-AMT" stype="Currency" elength="11" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ROLOVR-TOL-CALC-CD">Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ROLOVR-TOL-CALC-CD" id="MIR-ROLOVR-TOL-CALC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ROLOVR-TOL-CD">Order:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ROLOVR-TOL-CD" id="MIR-ROLOVR-TOL-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ROLOVR-TOL-PCT">Percentage:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-ROLOVR-TOL-PCT" id="MIR-ROLOVR-TOL-PCT" stype="Percent" elength="3" decimals="0" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <h2>
+                <a name="Table Access">Table Access</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Age and Amount Sum Insured</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TCR-BASE-DT-CD">Period Base Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-TCR-BASE-DT-CD" id="MIR-TCR-BASE-DT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TCR-INFC-MO-DUR">Include Period:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TCR-INFC-MO-DUR" id="MIR-TCR-INFC-MO-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TCR-CALC-MTHD-CD">Policies Included:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-TCR-CALC-MTHD-CD" id="MIR-TCR-CALC-MTHD-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="5" class="celldataentryheading">Height / Weight Lookup</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-HWTB-MIN-RAT-QTY">Allowable Rating Range - Minimum:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-HWTB-MIN-RAT-QTY" id="MIR-HWTB-MIN-RAT-QTY" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-HWTB-MAX-RAT-QTY">Allowable Rating Range - Maximum:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-HWTB-MAX-RAT-QTY" id="MIR-HWTB-MAX-RAT-QTY" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <h2>
+                <a name="UW Limits">Underwriting Limits</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="3" class="celldataentryheading">Overhead Expense Maximum</td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-OOE-3-OCCP-CLAS-CD-T[1]">Class</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-OOE-3-MAX-AMT-T[1]">Issue Limit</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-OOE-3-MAX-CCAS-AMT-T[1]">Clear Case Maximum</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-OOE-3-OCCP-CLAS-CD-T[1]" id="MIR-OOE-3-OCCP-CLAS-CD-T[1]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OOE-3-MAX-AMT-T[1]" id="MIR-OOE-3-MAX-AMT-T[1]" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OOE-3-MAX-CCAS-AMT-T[1]" id="MIR-OOE-3-MAX-CCAS-AMT-T[1]" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-OOE-3-OCCP-CLAS-CD-T[2]" id="MIR-OOE-3-OCCP-CLAS-CD-T[2]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OOE-3-MAX-AMT-T[2]" id="MIR-OOE-3-MAX-AMT-T[2]" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OOE-3-MAX-CCAS-AMT-T[2]" id="MIR-OOE-3-MAX-CCAS-AMT-T[2]" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-OOE-3-OCCP-CLAS-CD-T[3]" id="MIR-OOE-3-OCCP-CLAS-CD-T[3]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OOE-3-MAX-AMT-T[3]" id="MIR-OOE-3-MAX-AMT-T[3]" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OOE-3-MAX-CCAS-AMT-T[3]" id="MIR-OOE-3-MAX-CCAS-AMT-T[3]" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="2" class="celldataentryheading">Health Clear Case Tests (Overhead Expenses)</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DI-CCAS-INCL-CD">Include Company:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DI-CCAS-INCL-CD" id="MIR-DI-CCAS-INCL-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="5">
+                        <label for="MIR-MAX-WRK-3-QTY-T[1]">Working Hour Ranges</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-MIN-WRK-3-QTY-T[1]">Minimum</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-MAX-WRK-3-QTY-T[1]">Maximum</label>
+                    </td>
+                    <td class="celldataentryheading" colspan="3">
+                        <label for="MIR-SBSDRY-CO-WRK-3-CD-T[1]">Time Period</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MIN-WRK-3-QTY-T[1]" id="MIR-MIN-WRK-3-QTY-T[1]" stype="Text" maxlength="5" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-WRK-3-QTY-T[1]" id="MIR-MAX-WRK-3-QTY-T[1]" stype="Text" maxlength="5" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-SBSDRY-CO-WRK-3-CD-T[1]" id="MIR-SBSDRY-CO-WRK-3-CD-T[1]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">/</td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-WRK-DUR-3-CD-T[1]" id="MIR-WRK-DUR-3-CD-T[1]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MIN-WRK-3-QTY-T[2]" id="MIR-MIN-WRK-3-QTY-T[2]" stype="Text" maxlength="5" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-WRK-3-QTY-T[2]" id="MIR-MAX-WRK-3-QTY-T[2]" stype="Text" maxlength="5" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-SBSDRY-CO-WRK-3-CD-T[2]" id="MIR-SBSDRY-CO-WRK-3-CD-T[2]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">/</td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-WRK-DUR-3-CD-T[2]" id="MIR-WRK-DUR-3-CD-T[2]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MIN-WRK-3-QTY-T[3]" id="MIR-MIN-WRK-3-QTY-T[3]" stype="Text" maxlength="5" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-WRK-3-QTY-T[3]" id="MIR-MAX-WRK-3-QTY-T[3]" stype="Text" maxlength="5" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-SBSDRY-CO-WRK-3-CD-T[3]" id="MIR-SBSDRY-CO-WRK-3-CD-T[3]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">/</td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-WRK-DUR-3-CD-T[3]" id="MIR-WRK-DUR-3-CD-T[3]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Disability Income</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-ADND-AMT">
+                            Maximum AD
+&amp;                            D Coverage:
+                        </label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-ADND-AMT" id="MIR-MAX-ADND-AMT" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SUM-INS-DSCREP-AMT">Maximum Underwriting Discrepancy:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-SUM-INS-DSCREP-AMT" id="MIR-SUM-INS-DSCREP-AMT" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-INCM-RATIO-PCT">Unearned/Earned Income Ratio:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-MAX-INCM-RATIO-PCT" id="MIR-MAX-INCM-RATIO-PCT" stype="Percent" elength="3" decimals="0" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabeldataentry" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="UW Standards">Underwriting Standards</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Sub Company Underwriting Standards</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-MAX-AD-AMT">Maximum ADB Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-MAX-AD-AMT" id="MIR-CLI-MAX-AD-AMT" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-MAXWP-AMT">Maximum WP Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-MAXWP-AMT" id="MIR-CLI-MAXWP-AMT" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-MAXWP-PREM-AMT">Maximum WP Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-MAXWP-PREM-AMT" id="MIR-CLI-MAXWP-PREM-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-UWG-AMT">Maximum Underwriting Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-UWG-AMT" id="MIR-MAX-UWG-AMT" stype="Currency" elength="15" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TOT-INS-DSCREP-AMT">Maximum Underwriting Discrepancy:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TOT-INS-DSCREP-AMT" id="MIR-TOT-INS-DSCREP-AMT" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-ALCHL-QTY">Maximum Alcohol Consumption:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-ALCHL-QTY" id="MIR-MAX-ALCHL-QTY" stype="Text" maxlength="5" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-CHILD-AGE">Maximum Child Age:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-CHILD-AGE" id="MIR-MAX-CHILD-AGE" stype="Number" elength="2" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CRNT-ADDR-YR-DUR">Current Address Year Limit:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CRNT-ADDR-YR-DUR" id="MIR-CRNT-ADDR-YR-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UWG-CHNG-MO-DUR">Maximum Months for Change:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-UWG-CHNG-MO-DUR" id="MIR-UWG-CHNG-MO-DUR" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UWG-CHNG-DY-DUR">Maximum Days for Change:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-UWG-CHNG-DY-DUR" id="MIR-UWG-CHNG-DY-DUR" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-INCM-MO-DUR">Maximum Months for Valid Income:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-INCM-MO-DUR" id="MIR-CLI-INCM-MO-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INSRD-CNSNT-DB-AMT">Insured Consent Form Death Benefit Limit:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-INSRD-CNSNT-DB-AMT" id="MIR-INSRD-CNSNT-DB-AMT" stype="Currency" elength="15" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-LINC-DLY-HOSP-AMT">LINC Daily Hospitalization Limit:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-LINC-DLY-HOSP-AMT" id="MIR-LINC-DLY-HOSP-AMT" stype="Currency" elength="5" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-LINC-APP-DB-AMT">LINC Application Death Benefit Limit:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-LINC-APP-DB-AMT" id="MIR-LINC-APP-DB-AMT" stype="Currency" elength="9" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-LINC-LT-DB-AMT">LINC Lifetime Death Benefit Limit:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-LINC-LT-DB-AMT" id="MIR-LINC-LT-DB-AMT" stype="Currency" elength="9" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-YR-FACE-AMT">High Face Value Total Death Benefit Recent:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-YR-FACE-AMT" id="MIR-MAX-YR-FACE-AMT" stype="Currency" elength="9" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-LT-FACE-AMT">High Face Value Total Death Benefit Lifetime:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-LT-FACE-AMT" id="MIR-MAX-LT-FACE-AMT" stype="Currency" elength="9" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-APP-FACE-AMT">High Face Value Auto Issue Application Maximum:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-APP-FACE-AMT" id="MIR-MAX-APP-FACE-AMT" stype="Currency" elength="9" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-YR-DB-UWG-AMT">Pre-Issue Confirmation Total Death Benefit Recent:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-YR-DB-UWG-AMT" id="MIR-MAX-YR-DB-UWG-AMT" stype="Currency" elength="9" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PC-HOSP-RCNT-AMT">Pre-Issue Confirmation Hospitalization Recent:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PC-HOSP-RCNT-AMT" id="MIR-PC-HOSP-RCNT-AMT" stype="Currency" elength="9" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INCM-RATIO-RT">Income Ratio:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-INCM-RATIO-RT" id="MIR-INCM-RATIO-RT" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Medical Information Bureau</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MIB-CO-DEST-CD">Destination Code:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MIB-CO-DEST-CD" id="MIR-MIB-CO-DEST-CD" stype="Text" maxlength="5" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MIB-CO-SYMBL-CD">Company Symbol:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MIB-CO-SYMBL-CD" id="MIR-MIB-CO-SYMBL-CD" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="2" class="celldataentryheading">Clear Case Indicator</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TCR-INCL-AD-IND">Include ADB in Computation of Current Risk:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-TCR-INCL-AD-IND" id="MIR-TCR-INCL-AD-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <h2>
+                <a name="Claims">Claims</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLM-DLAY-INT-RT">Delay Interest Rate:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLM-DLAY-INT-RT" id="MIR-CLM-DLAY-INT-RT" stype="Percent" elength="7" decimals="4" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Claim Test Tolerance
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-EARLY-CLM-DUR">Early Claim Period (Days):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-EARLY-CLM-DUR" id="MIR-EARLY-CLM-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLM-XPRY-DUR">Claim Expiry Period (Years):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLM-XPRY-DUR" id="MIR-CLM-XPRY-DUR" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-PAYBL-BNFT-AMT">High Payable Accident Benefit Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-PAYBL-BNFT-AMT" id="MIR-MAX-PAYBL-BNFT-AMT" stype="Currency" elength="7" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-PAYBL-WAIT-DUR">High Payable Days within Waiting Period:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-PAYBL-WAIT-DUR" id="MIR-MAX-PAYBL-WAIT-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-PAYBL-MR-DUR">High Payable Days (Moral Risk Diseases):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-PAYBL-MR-DUR" id="MIR-MAX-PAYBL-MR-DUR" stype="Text" maxlength="7" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-APROV-LMT-AMT">Approval Limit Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-APROV-LMT-AMT" id="MIR-APROV-LMT-AMT" stype="Currency" elength="8" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-MINR-AGE">Maximum Age of Minor:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-MINR-AGE" id="MIR-MAX-MINR-AGE" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                    </td>
+                    <td class="celllabeldataentry">
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Calculations">Calculations</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Commitments">Commitments</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Miscellaneous">Miscellaneous</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PAC Processing">PAC Processing</a>
+                        </td>
+                        <!-- M161CA START -->
+                        <td class="cellanchors">
+                            <a href="#Credit Card Payment Processing">Credit Card Payment Processing</a>
+                        </td>
+                        <!-- M161CA END -->
+                        <td class="cellanchors">
+                            <a href="#Rollovers">Rollovers</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Table Access">Table Access</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#UW Limits">Underwriting Limits</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#UW Standards">Underwriting Standards</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Claims">Claims</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

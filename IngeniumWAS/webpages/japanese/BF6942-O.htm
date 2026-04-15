@@ -1,0 +1,229 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:51 PM EDT
+*
+*********************************************************************************
+*  Component:   BF6942-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2"                               
+*  01AD25  BMB      Change MIR-CVG-NUM to control display of more than 20 cvgs 
+*  MP245J  22MAR14  ADD NEW FIELD FOR SUBSTANDARD AGE DURATION AS PART OF SPWL  *
+*  TDMG24  CTS      INQUIRY SCREEN CHANGES 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge. 
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *                                *
+            
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF6942-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="5">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-UW-USER-1-ID">査定担当者ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-UW-USER-1-ID" stype="Text" displayonly="yes">MIR-UW-USER-1-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">契約ｽﾃｰﾀｽ:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">子会社:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+<!--TDMG24 Changes Begin-->
+                <tr>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                    <td class="celldisplaykeylabel">
+		           <label for="MIR-PREM-PMT-CMPLT-IND">主契約払込満了:</label>
+		    </td>
+		    <td class="celldisplaykey">
+			  <input type="checkbox" name="MIR-PREM-PMT-CMPLT-IND" id="MIR-PREM-PMT-CMPLT-IND" stype="Indicator" value="Y" disabled="yes"/>
+	            </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                </tr>
+<!--TDMG24 Changes end-->
+
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CVG-NUM">保障番号 :</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value="01" name="MIR-CVG-NUM" id="MIR-CVG-NUM" stype="Number" size="2" elength="2" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CVG-REC-CTR">保障数:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" />
+                    <td class="celldisplayheading" colspan="3">保障情報</td>
+                    <td class="celldisplayheading" colspan="6">被保険者情報</td>
+<!--   MP245J CHANGES STARTS HERE -->
+<!--                <td class="celldisplayheading" colspan="3">保障情報</td> -->
+                    <td class="celldisplayheading" colspan="4">保障情報</td>
+<!--   MP245J CHANGES ENDS   HERE -->
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">保障番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-CSTAT-CD-T[1]">保障ｽﾃｰﾀｽ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-SPND-CSTAT-CD-T[1]">一時停止保障ｽﾃｰﾀｽ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-UWGDECN-CD-T[1]">保障決定</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-T[1]">クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-INSRD-CLI-NM-T[1]">被保険者</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-SEX-CD-T[1]">性別</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-BTH-DT-T[1]">生年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-CLI-ADJ-AGE-T[1]">調整年齢</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-CLI-ISS-AGE-T[1]">契約年齢</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-UW-USER-ID-T[1]">査定人ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-UWGDECN-CD-T[1]">査定結果</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-UWGDECN-TYP-CD-T[1]">査定結果ﾀｲﾌﾟ</label>
+                    </td>
+<!--   MP245J CHANGES STARTS HERE -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-SSTD-AGE-ADD-DUR-T[1]">年増年数</label>
+                    </td>
+<!--   MP245J CHANGES ENDS   HERE -->
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SPND-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-SPND-CSTAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-UWGDECN-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-UWGDECN-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INSRD-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SEX-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-SEX-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-BTH-DT-T[]" stype="Date" displayonly="yes">MIR-CLI-BTH-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CLI-ADJ-AGE-T[]" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-CVG-CLI-ADJ-AGE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CLI-ISS-AGE-T[]" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-CVG-CLI-ISS-AGE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UW-USER-ID-T[]" stype="Text" displayonly="yes">MIR-UW-USER-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-UWGDECN-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-UWGDECN-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-UWGDECN-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-UWGDECN-TYP-CD-T[]</span>
+                    </td>
+<!--   MP245J CHANGES STARTS HERE -->
+                    <td class="celldisplay">
+                        <span id="MIR-SSTD-AGE-ADD-DUR-T[]" stype="Number" elength="2" decimals="0" displayonly="yes">MIR-SSTD-AGE-ADD-DUR-T[]</span>
+                    </td>
+<!--   MP245J CHANGES ENDS   HERE -->
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

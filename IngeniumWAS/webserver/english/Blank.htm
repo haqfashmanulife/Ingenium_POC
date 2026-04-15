@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<!--
+*********************************************************************************
+*  All right, title and interest in and to the software                         *
+*  (the "Software") and the accompanying documentation or                       *
+*  materials (the "Documentation"), including all proprietary                   *
+*  rights, therein including all patent rights, trade secrets,                  *
+*  trademarks and copyrights, shall remain the exclusive                        *
+*  property of Electronic Data Systems LLC.                                     *
+*  No interest, licence or any right respecting the Software                    *
+*  and the Documentation, other than expressly granted in                       *
+*  the Software Licence Agreement, is granted by implication                    *
+*  or otherwise.                                                                *
+*                                                                               *
+*  (C) Copyright 2000-2007 Electronic Data Systems LLC.                         *
+*  All rights reserved.                                                         *
+*                                                                               *
+*  Each Party agrees to (a) comply with all applicable laws                     *
+*  regarding export or re-export of the Confidential                            *
+*  Information, technical data, or derivatives of such items;                   *
+*  and (b) not to export or re-export any such items to a                       *
+*  destination or end user for which applicable law, including                  *
+*  Canadian or U.S. law, requires an export license or other                    *
+*  approval without first having obtained such license or                       *
+*  approval.                                                                    *
+*********************************************************************************
+*  Component:   blank.htm                                                       *
+*  Description:                                                                 *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*          1.2      PathFinder 1.2                                              *
+*  023108  PF3.0    Changed to accommodate print functionality                  *
+*  023123  PF3.0    Changed resource references to be relative                  *
+*  023809  PF3.0    Changed encoding to UTF-8                                   *
+*  EN9512  PF4.0.2  PathFinder Upgrade                                          *                                                                               *
+*********************************************************************************
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- 23123 added .. to href path -->
+<link rel="stylesheet" type="text/css" href="../english/PathFinder.css"
+	charset="UTF-8" />
+</head>
+<body class="bodytitle" onload="onLoad();">
+<!-- 23123 added .. to background path -->
+<table border="0" cellpadding="0" width="1024"
+	background="../images/banner1.gif" height="70">
+	<tr>
+		<td width="105"></td>
+		<!-- 23108 - Changed width from '380' to '394' -->
+		<td width="394" align="left" class="celltitle1" valign="top">
+		<div id="Title">SOLCORP / INGENIUM</div>
+		</td>
+		<!-- 23108 - Added class attribute -->
+		<td width="75" valign="top" class="cellbutton2"><!-- 23123 added .. to src path -->
+		<img id="menuimg" border="0" src="../english/images/hidemenu.gif"
+			align="top" alt="Hide Menu" width="75" height="39"
+			onclick="onMenu(this);" /></td>
+		<!-- 23108 - Added class attribute -->
+		<td width="57" valign="top" class="cellbutton2"><!-- 23123 added .. to href path -->
+		<a href="../english/index.htm" target="_blank"> <!-- 23123 added .. to href path -->
+		<img border="0" src="../english/images/new.gif" align="top"
+			alt="New Window" width="57" height="39" /> </a></td>
+		<!-- 23108 - Added class attribute, changed width from '71' to '57' -->
+		<td width="57" valign="top" class="cellbutton2"><a
+			href="../servlet/pageserver?ProcessClassID=BF0062Signoff&amp;PageReturn=Blank&amp;LocaleID=E"
+			title="Sign-Off" target="pageserverFrame"> <!-- 23123 added .. to src path -->
+		<img border="0" src="../english/images/signoff.gif" alt="Sign Off"
+			width="57" height="39" /> </a></td>
+		<!-- 23108 - Added class attribute -->
+		<td width="57" valign="top" class="cellbutton2"><!-- 23123 added .. to href path -->
+		<a href="../english/help/user_guide.htm" target="_blank"> <!-- 23123 added .. to src path -->
+		<img border="0" src="../english/images/but_hlp.gif" alt="Help"
+			width="57" height="39" /> </a></td>
+		<!-- 23108 - Added class attribute -->
+		<td width="57" align="left" valign="baseline" class="cellbutton2"></td>
+		<!-- 23108 - Added class attribute -->
+		<td width="222" class="cellbutton2"></td>
+	</tr>
+</table>
+<!-- 23123 added .. to src path -->
+<img border="0" src="../images/centbak.gif" width="1023" height="435"
+	alt="" />
+</body>
+<!-- 23123 added .. to src path -->
+<script src="../js/TitleBar.js" type="text/javascript"></script>
+<script type="text/javascript">
+function onLoad() {
+	// in the normal situation, the topmostFrameSet is in the parent of our parent
+	var myFrameset = parent.parent.document.all["topmostFrameSet"];
+
+	// if we weren't in index.htm already, then the topmostFrameSet is in our parent
+	if (myFrameset == null)	{
+		myFrameset = parent.document.all["topmostFrameSet"];
+	}
+
+	if (myFrameset != null)	{
+		// if menu is not displayed, toggle menu on
+		if (myFrameset.cols == "0,*") {
+			myFrameset.cols = "20%,*";
+		}
+	} 
+	else {
+		// navigate back to index.htm so we can see the menu
+        // 23123 - added .. to path
+		window.navigate("../english/index.htm");
+	}
+}
+function onMenu(ctl) {
+	// toggle menuserver frame off and on and show correct image
+	myFrameset = parent.parent.window.document.all["topmostFrameSet"];
+	if (myFrameset == null) {
+	        myFrameset = parent.window.document.all["topmostFrameSet"];
+    }
+
+	if (myFrameset != null) {
+		if (myFrameset.cols == "0,*") {
+			myFrameset.cols = "20%,*";
+			// 23123 - added .. to srcpath
+			ctl.src = "../english/images/hidemenu.gif";
+			ctl.alt = "Hide Menu";
+        }
+        else {
+			myFrameset.cols = "0,*";
+			// 23123 - added .. to src path
+			ctl.src = "../english/images/showmenu.gif";
+			ctl.alt = "Show Menu";
+		}
+	}
+}
+</script>
+</html>

@@ -1,0 +1,605 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:27 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0860-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"   
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                         
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0860-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <a name="top" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-COMM-AGT-NM">募集人名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-COMM-AGT-NM" stype="Text" displayonly="yes">MIR-DV-COMM-AGT-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-AGT-ID">募集人ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-AGT-ID" stype="Text" displayonly="yes">MIR-AGT-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">子会社:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-BR-ID">支店:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-BR-ID" stype="Text" displayonly="yes">MIR-BR-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#ProgressInformation">経過情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#ProductionStatus">販売ステータス情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CurrentCommissionInformation">現行手数料情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#HistoricalCommissionInformation">手数料履歴情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="3" class="celldisplayheading">
+                        <a name="ProgressInformation">経過情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplaylabel">
+                        <p align="left">当月</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">当年の期日まで</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FYR-CPREM-CMO-AMT">手数料支払対象保険料 - 初年度:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-CPREM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-CPREM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-CPREM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-FYR-CPREM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FYR-LCOMM-CMO-AMT">終身保険手数料 - 初年度:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-LCOMM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-LCOMM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-LCOMM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-FYR-LCOMM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RENW-CPREM-CMO-AMT">手数料支払対象保険料 - 更新:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-CPREM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-CPREM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-CPREM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-RENW-CPREM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RENW-LCOMM-CMO-AMT">終身保険手数料 - 更新:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-LCOMM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-LCOMM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-LCOMM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-RENW-LCOMM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-QLTY-BON-CMO-AMT">良質契約報奨金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-QLTY-BON-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-QLTY-BON-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-QLTY-BON-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-QLTY-BON-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MKT-BON-CMO-AMT">販売活動報奨金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MKT-BON-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-MKT-BON-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MKT-BON-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-MKT-BON-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NHS-ALLOW-CMO-AMT">外部委託募集人引当金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NHS-ALLOW-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-NHS-ALLOW-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NHS-ALLOW-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-NHS-ALLOW-YTD-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="3" class="celldisplayheading">新契約情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplaylabel">
+                        <p align="left">最終月</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">当年当月まで</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LIFE-PWRIT-PMO-AMT">新契約保険料計上合計       - 終身保険:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LIFE-PWRIT-PMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-LIFE-PWRIT-PMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LIFE-PWRIT-YTM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-LIFE-PWRIT-YTM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AGT-PWRIT-PMO-AMT">新契約保険料計上合計       - 全て:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PWRIT-PMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-AGT-PWRIT-PMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PWRIT-YTM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-AGT-PWRIT-YTM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AGT-APP-PMO-QTY">申込数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-APP-PMO-QTY" stype="Text" displayonly="yes">MIR-AGT-APP-PMO-QTY</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-APP-YTM-QTY" stype="Text" displayonly="yes">MIR-AGT-APP-YTM-QTY</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      トップに戻る
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="ProductionStatus">販売ステータス情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" />
+                    <td class="celldisplayheading">
+                        <label for="MIR-APTVTY-AWD-4-IND-T[1]">契約獲得数表彰</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CNVTN-ATND-4-IND-T[1]">年次総会出席</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NQA-4-IND-T[1]">全米継続率優秀賞</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">1年目</td>
+                    <td class="celldisplay">
+                        <span id="MIR-APTVTY-AWD-4-IND-T[1]" displayonly="yes">MIR-APTVTY-AWD-4-IND-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNVTN-ATND-4-IND-T[1]" displayonly="yes">MIR-CNVTN-ATND-4-IND-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NQA-4-IND-T[1]" displayonly="yes">MIR-NQA-4-IND-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">2年目</td>
+                    <td class="celldisplay">
+                        <span id="MIR-APTVTY-AWD-4-IND-T[2]" displayonly="yes">MIR-APTVTY-AWD-4-IND-T[2]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNVTN-ATND-4-IND-T[2]" displayonly="yes">MIR-CNVTN-ATND-4-IND-T[2]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NQA-4-IND-T[2]" displayonly="yes">MIR-NQA-4-IND-T[2]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">3年目</td>
+                    <td class="celldisplay">
+                        <span id="MIR-APTVTY-AWD-4-IND-T[3]" displayonly="yes">MIR-APTVTY-AWD-4-IND-T[3]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNVTN-ATND-4-IND-T[3]" displayonly="yes">MIR-CNVTN-ATND-4-IND-T[3]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NQA-4-IND-T[3]" displayonly="yes">MIR-NQA-4-IND-T[3]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">4年目</td>
+                    <td class="celldisplay">
+                        <span id="MIR-APTVTY-AWD-4-IND-T[4]" displayonly="yes">MIR-APTVTY-AWD-4-IND-T[4]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNVTN-ATND-4-IND-T[4]" displayonly="yes">MIR-CNVTN-ATND-4-IND-T[4]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NQA-4-IND-T[4]" displayonly="yes">MIR-NQA-4-IND-T[4]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">販売ステータス情報 (続き)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" />
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-MDRT-4-AMT-T[1]">MDRT額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-PROD-4-AMT-T[1]">販売額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-PRST-4-PCT-T[1]">継続率</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">1年目</td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-MDRT-4-AMT-T[1]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-MDRT-4-AMT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PROD-4-AMT-T[1]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-PROD-4-AMT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PRST-4-PCT-T[1]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-AGT-PRST-4-PCT-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">2年目</td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-MDRT-4-AMT-T[2]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-MDRT-4-AMT-T[2]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PROD-4-AMT-T[2]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-PROD-4-AMT-T[2]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PRST-4-PCT-T[2]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-AGT-PRST-4-PCT-T[2]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">3年目</td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-MDRT-4-AMT-T[3]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-MDRT-4-AMT-T[3]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PROD-4-AMT-T[3]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-PROD-4-AMT-T[3]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PRST-4-PCT-T[3]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-AGT-PRST-4-PCT-T[3]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">4年目</td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-MDRT-4-AMT-T[4]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-MDRT-4-AMT-T[4]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PROD-4-AMT-T[4]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-PROD-4-AMT-T[4]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PRST-4-PCT-T[4]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-AGT-PRST-4-PCT-T[4]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      トップに戻る
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="3" class="celldisplayheading">
+                        <a name="CurrentCommissionInformation">現行手数料情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplaylabel">
+                        <p align="left">当月</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">当年の期日まで</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FYR-COMM-CMO-AMT">正味手数料       - 初年度:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-FYR-COMM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RENW-COMM-CMO-AMT">正味手数料       - 更新:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-RENW-COMM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TRAIL-COMM-CMO-AMT">実績基準手数料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRAIL-COMM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-TRAIL-COMM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRAIL-COMM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TRAIL-COMM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OVRID-COMM-CMO-AMT">正味上乗せ手数料/報奨金合計:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OVRID-COMM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-OVRID-COMM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OVRID-COMM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-OVRID-COMM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AGT-PAYO-CMO-AMT">支払合計額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PAYO-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-AGT-PAYO-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PAYO-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-AGT-PAYO-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AGT-PAYBL-BAL-AMT">現在残高:</label>
+                    </td>
+                    <td class="celldisplay" />
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PAYBL-BAL-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-AGT-PAYBL-BAL-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      トップに戻る
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="3">
+                        <a name="HistoricalCommissionInformation">手数料履歴情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" />
+                    <td class="celldisplayheading">
+                        <label for="MIR-FYR-COMM-12-AMT-T[1]">正味初年度手数料</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RENW-COMM-12-AMT-T[1]">正味更新手数料</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">最終月</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[1]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[1]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">2ヶ月経過</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[2]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[2]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[2]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[2]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">3ヶ月経過</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[3]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[3]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[3]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[3]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">4ヶ月経過</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[4]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[4]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[4]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[4]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">5ヶ月経過</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[5]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[5]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[5]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[5]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">6ヶ月経過</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[6]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[6]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[6]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[6]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">7ヶ月経過</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[7]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[7]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[7]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[7]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">8ヶ月経過</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[8]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[8]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[8]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[8]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">9ヶ月経過</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[9]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[9]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[9]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[9]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">10ヶ月経過</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[10]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[10]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[10]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[10]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">11ヶ月経過</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[11]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[11]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[11]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[11]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">12ヶ月経過</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[12]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[12]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[12]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[12]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#ProgressInformation">経過情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#ProductionStatus">販売ステータス情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CurrentCommissionInformation">現行手数料情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#HistoricalCommissionInformation">手数料履歴情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

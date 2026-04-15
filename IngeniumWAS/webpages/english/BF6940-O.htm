@@ -1,0 +1,276 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:44 PM EDT
+*
+*********************************************************************************
+*  Component:   BF6940-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016411  602J     Relabel phone number to contact information
+*  016736  611J    Code cleanup
+*  017150  612J     Remove Currency decimals="2"
+*  B00189  DPK      Removed Owner's Relationship to Insured
+*  B00222  BMB      Fix label for Samakata-bu
+*                   removed MIR-CLI-ADDR-ADDL-TXT-2,
+*                           MIR-CLI-ADDR-CHNG-DT-2,
+*                           MIR-CLI-ADDR-STAT-CD-2
+*  TDMG24  CTS      Screen Changes
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF6940-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+                <!--TDMG24 Screen Changes Start-->
+				                <tr>
+
+						           <td class="celldisplaykeylabel">
+
+						                 <label for="MIR-PREM-PMT-CMPLT-IND">Base Policy Premium Payment Completion:</label>
+
+						           </td>
+						           <td class="celldisplaykey">
+						                 <input type="checkbox" name="MIR-PREM-PMT-CMPLT-IND" id="MIR-PREM-PMT-CMPLT-IND" stype="Indicator" value="Y" disabled="yes"/>
+						           </td>
+				                </tr>
+
+                <!--TDMG24 Screen Changes  end-->
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading"> Address</td>
+                    <td class="celldisplayheading" colspan="2">Kanji Mailing Address</td>
+                    <td class="celldisplayheading" colspan="2">Katakana Address</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-CLI-NM">Mailing Name:</label>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-DV-CLI-NM-2" stype="Text" displayonly="yes">MIR-DV-CLI-NM-2</span>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-DV-CLI-NM" stype="Text" displayonly="yes">MIR-DV-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-LN-1-TXT">Address:</label>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-CLI-ADDR-LN-1-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-1-TXT</span>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-CLI-ADDR-LN-1-TXT-2" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-1-TXT-2</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-CLI-ADDR-LN-2-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-2-TXT</span>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-CLI-ADDR-LN-2-TXT-2" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-2-TXT-2</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-CLI-ADDR-LN-3-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-3-TXT</span>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-CLI-ADDR-LN-3-TXT-2" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-3-TXT-2</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-DV-CLI-ADDR-LN-4-TXT" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-4-TXT</span>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-DV-CLI-ADDR-LN-4-TXT-2" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-4-TXT-2</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-DV-CLI-ADDR-LN-5-TXT" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-5-TXT</span>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-DV-CLI-ADDR-LN-5-TXT-2" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-5-TXT-2</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-DV-CLI-ADDR-LN-6-TXT" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-6-TXT</span>
+                    </td>
+                    <td class="celldisplay" colspan="2">
+                        <span id="MIR-DV-CLI-ADDR-LN-6-TXT-2" stype="Text" displayonly="yes">MIR-DV-CLI-ADDR-LN-6-TXT-2</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-ADDL-TXT">Samakata-bu:</label>
+                    </td>
+                    <td class="celldisplay" colspan="4">
+                        <span id="MIR-CLI-ADDR-ADDL-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-ADDL-TXT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-CNTCT-TXT">Contact
+  Information:</label>
+                    </td>
+                    <td class="celldisplay" colspan="4">
+                        <span id="MIR-CLI-ADDR-CNTCT-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-CNTCT-TXT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-STAT-CD">Address Status:</label>
+                    </td>
+                    <td class="celldisplay" colspan="4">
+                        <span id="MIR-CLI-ADDR-STAT-CD" stype="Text" displayonly="yes">MIR-CLI-ADDR-STAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-CHNG-DT">Address Changed Date:</label>
+                    </td>
+                    <td class="celldisplay" colspan="4">
+                        <span id="MIR-CLI-ADDR-CHNG-DT" stype="Date" displayonly="yes">MIR-CLI-ADDR-CHNG-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-TYP-CD">Address Type:</label>
+                    </td>
+                    <td class="celldisplay" colspan="4">
+                        <span id="MIR-CLI-ADDR-TYP-CD" stype="Text" displayonly="yes">MIR-CLI-ADDR-TYP-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-INS-PURP-CD">Purpose of Insurance:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-INS-PURP-CD" stype="Text" displayonly="yes">MIR-POL-INS-PURP-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CLI-REL-SUB-CD-T[1]">Relationship
+to Policy</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CLI-REL-TYP-CD-T[1]">Relationship Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-T[1]">Client Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CLI-NM-T[1]">Katakana Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CLI-NM-2-T[1]">Kanji Name</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CLI-REL-SUB-CD-T[]" stype="Text" displayonly="yes">MIR-POL-CLI-REL-SUB-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CLI-REL-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-POL-CLI-REL-TYP-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-NM-2-T[]" stype="Text" displayonly="yes">MIR-DV-CLI-NM-2-T[]</span>
+                    </td>
+                </tr>
+            </table>
+<!--
+<td class="celldisplaylabel" colspan="2"><label for="MIR-CLI-JP-ADDR-CD">Prefecture:</label></td>
+<td class="celldisplay">
+<span id="MIR-CLI-JP-ADDR-CD" stype="Text"
+displayonly="yes">MIR-CLI-JP-ADDR-CD</span>
+ -->
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

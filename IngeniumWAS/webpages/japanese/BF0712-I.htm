@@ -1,0 +1,885 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:25 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0712-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  FT7001 AKATO  FT7 Label Change 14JUN2004 
+*  015550  CTS      Changes as part of New Era Name 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                     	               
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0712-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+        <script>
+
+function onLoad1()
+
+{
+
+	setEmperorDate("MIR-ANUTNT-1-BTH-DT");
+
+}
+
+</script>
+        <script>
+
+function onLoad2()
+
+{
+
+	setEmperorDate("MIR-ANUTNT-2-BTH-DT");
+
+}
+
+</script>
+    </head>
+    <body class="bodyws" onload="onLoad1(); onLoad2(); onLoad();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <a name="top" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">保障番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-ORIG-CD">ファンド源:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="4">
+                        <span id="MIR-CVG-ORIG-CD" stype="Text" displayonly="yes">MIR-CVG-ORIG-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-IA-QUOT-NUM">見積番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-IA-QUOT-NUM" stype="Text" displayonly="yes">MIR-IA-QUOT-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#RequestInformation">要求情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#QuoteInformation">見積情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Miscellaneous">その他</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AnnuitantInformation">年金受給者情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#IncomeGuaranteedtobePaid">支払保証収入情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#IncomeInformation">所得情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#IncomeAdjustment">所得調整情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AnnualInterestandScaleInformation">年間利率およびスケール情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#InterestRateInformation">利率情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CommissionInformation">手数料情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#MortalityInformation">死亡率情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#OtherInformation">その他情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#StatusInformation">ステータス情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#DeathInformation">死亡情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="RequestInformation">要求情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-AGT-NM-TXT">募集人名:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-AGT-NM-TXT" id="MIR-IA-QUOT-AGT-NM-TXT" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-CO-NM-TXT">見積対象の会社:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-CO-NM-TXT" id="MIR-IA-QUOT-CO-NM-TXT" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-REF-TXT">クライアント参照番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-REF-TXT" id="MIR-IA-QUOT-REF-TXT" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="QuoteInformation">見積情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-USER-ID">ユーザID:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-USER-ID" id="MIR-USER-ID" stype="Text" maxlength="8" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-XPRY-DT">見積終了日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-XPRY-DT" id="MIR-IA-QUOT-XPRY-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-EFF-DT">見積発効日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-EFF-DT" id="MIR-IA-QUOT-EFF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-EFF-TIME">見積有効期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-EFF-TIME" id="MIR-IA-QUOT-EFF-TIME" stype="Time" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                      トップへ戻る
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="Miscellaneous">その他</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-TYP-CD">年金タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-QUOT-TYP-CD" id="MIR-IA-QUOT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PLAN-ID">プラン:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PLAN-ID" id="MIR-PLAN-ID" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-BTH-DT-USE-CD">年金受給者生年月日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-BTH-DT-USE-CD" id="MIR-IA-BTH-DT-USE-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-FND-SRC-CD">ファンド源:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-QUOT-FND-SRC-CD" id="MIR-IA-QUOT-FND-SRC-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-CTRY-CD">国:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-IA-QUOT-CTRY-CD" stype="Text" displayonly="yes">MIR-IA-QUOT-CTRY-CD</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-PNSN-QUALF-CD">年金適格:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-PNSN-QUALF-CD" id="MIR-IA-PNSN-QUALF-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-JNT-PMT-CD">連生保険支払タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-QUOT-JNT-PMT-CD" id="MIR-IA-QUOT-JNT-PMT-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="AnnuitantInformation">年金受給者情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign" />
+                    <td class="celllabelleftalign">生年月日</td>
+                    <td class="celllabelleftalign">生年月日（和暦）</td>
+                    <td class="celllabelleftalign">性別</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">第一年金受給者:</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ANUTNT-1-BTH-DT" id="MIR-ANUTNT-1-BTH-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" emperorDate="myEmperorDate1" />
+                    </td>
+                    <td>
+                        <select name="myEmperorDate1" id="myEmperorDate1" stype="EmperorDate" onblur="validateField(this)" onfocus="enterField(this)" serverDate="MIR-ANUTNT-1-BTH-DT">
+                            <option value="" />
+                            <option value="M">明治</option>
+                            <option value="T">大正</option>
+                            <option value="S">昭和</option>
+                            <option value="H">平成</option>
+<!-- 015550 CHANGES START HERE -->
+                            <option value="R">令和</option>
+<!-- 015550 CHANGES ENDS HERE -->
+                        </select>
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate1" id="myEmperorDate1" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-ANUTNT-1-BTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate1" id="myEmperorDate1" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-ANUTNT-1-BTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate1" id="myEmperorDate1" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-ANUTNT-1-BTH-DT" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ANUTNT-1-SEX-CD" id="MIR-ANUTNT-1-SEX-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">第二年金受給者:</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ANUTNT-2-BTH-DT" id="MIR-ANUTNT-2-BTH-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" emperorDate="myEmperorDate2" />
+                    </td>
+                    <td>
+                        <select name="myEmperorDate2" id="myEmperorDate2" stype="EmperorDate" onblur="validateField(this)" onfocus="enterField(this)" serverDate="MIR-ANUTNT-2-BTH-DT">
+                            <option value="" />
+                            <option value="M">明治</option>
+                            <option value="T">大正</option>
+                            <option value="S">昭和</option>
+                            <option value="H">平成</option>
+<!-- 015550 CHANGES START HERE -->
+                            <option value="R">令和</option>
+<!-- 015550 CHANGES ENDS HERE -->
+                        </select>
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate2" id="myEmperorDate2" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-ANUTNT-2-BTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate2" id="myEmperorDate2" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-ANUTNT-2-BTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate2" id="myEmperorDate2" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-ANUTNT-2-BTH-DT" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ANUTNT-2-SEX-CD" id="MIR-ANUTNT-2-SEX-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                       トップへ戻る
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="6">
+                        <a name="IncomeGuaranteedtobePaid">支払保証収入情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-GUAR-YR-DUR">年数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-GUAR-YR-DUR" id="MIR-IA-GUAR-YR-DUR" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-GUAR-MO-DUR">月数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-GUAR-MO-DUR" id="MIR-IA-GUAR-MO-DUR" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-GUAR-AGE">年齢:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-GUAR-AGE" id="MIR-IA-QUOT-GUAR-AGE" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="IncomeInformation">所得情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INCM-MODE-CD">所得モード:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-INCM-MODE-CD" id="MIR-IA-INCM-MODE-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-CALC-TYP-CD">計算基準:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-CALC-TYP-CD" id="MIR-IA-CALC-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-GRS-SPREM-AMT">一時払保険料総出入額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-GRS-SPREM-AMT" id="MIR-IA-GRS-SPREM-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-INCM-AMT">最終定期収入:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-INCM-AMT" id="MIR-IA-QUOT-INCM-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-PREM-PMT-DT">保険料支払日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-PREM-PMT-DT" id="MIR-IA-PREM-PMT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INCM-STRT-DT">所得日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INCM-STRT-DT" id="MIR-IA-INCM-STRT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-TAX-EXCL-PCT">課税控除率:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-IA-TAX-EXCL-PCT" id="MIR-IA-TAX-EXCL-PCT" stype="Percent" elength="4" decimals="1" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-TAXBL-INCM-AMT">課税所得:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-TAXBL-INCM-AMT" id="MIR-IA-TAXBL-INCM-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-FED-TAXWH-AMT">源泉課税額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-FED-TAXWH-AMT" id="MIR-IA-FED-TAXWH-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="IncomeAdjustment">所得調整情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INCM-1-ADJ-FCT">係数1            - 第一年金受給者死亡:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INCM-1-ADJ-FCT" id="MIR-IA-INCM-1-ADJ-FCT" stype="Number" elength="5" decimals="4" signed="yes" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INCM-2-ADJ-FCT">係数2            - 第二年金受給者死亡:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INCM-2-ADJ-FCT" id="MIR-IA-INCM-2-ADJ-FCT" stype="Number" elength="5" decimals="4" signed="yes" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INCM-ADJ-DT">日付:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INCM-ADJ-DT" id="MIR-IA-INCM-ADJ-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INCM-ADJ-AMT">金額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INCM-ADJ-AMT" id="MIR-IA-INCM-ADJ-AMT" stype="Currency" elength="12" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                       トップへ戻る
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="AnnualInterestandScaleInformation">年間利率およびスケール情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INT-RT-ID">年間利率:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-INT-RT-ID" id="MIR-IA-INT-RT-ID" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INT-PREM-ID">利息保険料スケール:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INT-PREM-ID" id="MIR-IA-INT-PREM-ID" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INT-LEGAL-ID">利息法定スケール:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INT-LEGAL-ID" id="MIR-IA-INT-LEGAL-ID" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INT-TAX-ID">利息租税スケール:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INT-TAX-ID" id="MIR-IA-INT-TAX-ID" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="5">
+                        <a name="InterestRateInformation">利率情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-INT-1-PCT">利率            (1):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-IA-QUOT-INT-1-PCT" id="MIR-IA-QUOT-INT-1-PCT" stype="Percent" elength="7" decimals="4" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-INT-2-PCT">利率            (2):</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="2">
+                        <input type="text" name="MIR-IA-QUOT-INT-2-PCT" id="MIR-IA-QUOT-INT-2-PCT" stype="Percent" elength="7" decimals="4" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-INT-1-RT-MO-DUR">利率適用期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INT-1-RT-MO-DUR" id="MIR-IA-INT-1-RT-MO-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">ヶ月</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-INT-1-RT-DY-DUR" id="MIR-IA-INT-1-RT-DY-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">日</td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="CommissionInformation">手数料情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign" />
+                    <td class="celllabelleftalign">(1)</td>
+                    <td class="celllabelleftalign">(2)</td>
+                    <td class="celllabelleftalign">(3)</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">率:</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-IA-COMM-BAND-1-PCT" id="MIR-IA-COMM-BAND-1-PCT" stype="Percent" elength="5" decimals="2" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-IA-COMM-BAND-2-PCT" id="MIR-IA-COMM-BAND-2-PCT" stype="Percent" elength="5" decimals="2" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-IA-COMM-BAND-3-PCT" id="MIR-IA-COMM-BAND-3-PCT" stype="Percent" elength="5" decimals="2" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">金額:</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-COMM-BAND-1-AMT" id="MIR-IA-COMM-BAND-1-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-COMM-BAND-2-AMT" id="MIR-IA-COMM-BAND-2-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-COMM-BAND-3-AMT" id="MIR-IA-COMM-BAND-3-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-COMM-MAX-AMT">支払手数料上限額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-COMM-MAX-AMT" id="MIR-IA-COMM-MAX-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-TOT-COMM-AMT">支払手数料合計:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-IA-TOT-COMM-AMT" stype="Currency" elength="13" displayonly="yes">MIR-IA-TOT-COMM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-PFEE-AMT">証券発行手数料:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-PFEE-AMT" id="MIR-IA-QUOT-PFEE-AMT" stype="Currency" elength="11" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                       トップへ戻る
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="MortalityInformation">死亡情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-MORT-UVAL-ID">年金死亡者数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-MORT-UVAL-ID" id="MIR-IA-MORT-UVAL-ID" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-MORT-PREM-ID">死亡率保険料スケール:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-MORT-PREM-ID" id="MIR-IA-MORT-PREM-ID" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-MORT-LEGAL-ID">死亡率法定スケール:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-MORT-LEGAL-ID" id="MIR-IA-MORT-LEGAL-ID" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-MORT-TAX-ID">死亡率税金スケール:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-MORT-TAX-ID" id="MIR-IA-MORT-TAX-ID" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="OtherInformation">その他情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-BNFT-CD">評価給付インジケータ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-QUOT-BNFT-CD" id="MIR-IA-QUOT-BNFT-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-NPREM-AMT">純保険料額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-NPREM-AMT" id="MIR-IA-QUOT-NPREM-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-GUAR-TRM-FCT">確定期間係数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-GUAR-TRM-FCT" id="MIR-IA-GUAR-TRM-FCT" stype="Number" elength="9" decimals="5" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-LIFE-FCT">終身保険係数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-LIFE-FCT" id="MIR-IA-QUOT-LIFE-FCT" stype="Number" elength="9" decimals="5" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-DEFR-FCT">支払猶予係数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-DEFR-FCT" id="MIR-IA-QUOT-DEFR-FCT" stype="Number" elength="9" decimals="5" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-TOT-FCT">合計年金係数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-TOT-FCT" id="MIR-IA-QUOT-TOT-FCT" stype="Number" elength="9" decimals="5" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                       トップへ戻る
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="StatusInformation">ステータス情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-STAT-CD">見積ステータス:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <select name="MIR-IA-QUOT-STAT-CD" id="MIR-IA-QUOT-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-QUOT-STAT-CD">旧見積ステータス:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <select name="MIR-PREV-QUOT-STAT-CD" id="MIR-PREV-QUOT-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-QUOT-STAT-CHNG-DT">ステータス変更日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-QUOT-STAT-CHNG-DT" id="MIR-QUOT-STAT-CHNG-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-STAT-CHNG-USER-ID">ステータス変更ユーザーイニシャル:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-STAT-CHNG-USER-ID" stype="Text" displayonly="yes">MIR-STAT-CHNG-USER-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-REPL-IA-QUOT-NUM">交替元/交替先見積番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-REPL-IA-QUOT-NUM" id="MIR-REPL-IA-QUOT-NUM" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-PRT-RQST-CD">プリントアウトタイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DV-PRT-RQST-CD" id="MIR-DV-PRT-RQST-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="DeathInformation">死亡情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-JNT-DTH-CD">連生保険死亡ステータス:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-IA-QUOT-JNT-DTH-CD" id="MIR-IA-QUOT-JNT-DTH-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-ANUTNT-DTH-DT">死亡有効日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-ANUTNT-DTH-DT" id="MIR-IA-ANUTNT-DTH-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-DTH-INCM-AMT">死亡給付金:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-DTH-INCM-AMT" id="MIR-IA-DTH-INCM-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#RequestInformation">要求情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#QuoteInformation">見積情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Miscellaneous">その他</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AnnuitantInformation">年金受給者情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#IncomeGuaranteedtobePaid">支払保証収入情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#IncomeInformation">所得情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#IncomeAdjustment">所得調整情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AnnualInterestandScaleInformation">年間利率およびスケール情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#InterestRateInformation">利率情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CommissionInformation">手数料情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#MortalityInformation">死亡情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#OtherInformation">その他情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#StatusInformation">ステータス情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#DeathInformation">死亡情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/EmperorDates.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

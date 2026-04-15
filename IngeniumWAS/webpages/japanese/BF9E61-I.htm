@@ -1,0 +1,261 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:27 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9E61-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*  15997A  CTS      CHANGES FOR FRA PREMIUM REDUCTION SIMULATION SCREEN
+*  106536  CTS      FIX FOR PREMIUM AFTER TRANSACTION
+*  106536  CTS      FIX FOR SCENARIO #3,SCENARIO #4
+*  106562  CTS      FIX FOR # OF EXTENTION YEARS
+*  15997D  CTS      CR03&CR05 CHANGES FOR FRA PREMIUM REDUCTION SIMULATION SCREEN
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+<html>
+    <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9E61-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" id="inputForm" method="post" onsubmit="return(onSubmit());" target="_parent">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+             <table class="tabledisplaykey">
+                <tr>                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-POL-ID-BASE" stype="Text">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-POL-ID-SFX" stype="Text">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SIMULTN-DT">試算日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-SIMULTN-DT" stype = "Date" >MIR-SIMULTN-DT</span>
+                    </td>
+                  <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">契約状況:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" genrows="7">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">保険料減額・払込停止・払込再開 　条件</td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-SEQ-NO-T[1]">#</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-TRNXT-YR-MO-T[1]">異動年月</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-TRNXT-TYP-CD-T[1]">異動内容</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-PREM-TRNXT-AMT-T[1]">異動後の保険料円払込額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <span displayonly="yes" id="MIR-SEQ-NO-T[]" stype="Text"></span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRNXT-YR-MO-T[]" id="MIR-TRNXT-YR-MO-T[]" stype="Text" maxlength="7" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-TRNXT-TYP-CD-T[]" id="MIR-TRNXT-TYP-CD-T[]" onfocus="enterField(this)" size="1" stype="Selection"></select>
+                    </td>
+<!--  106536 changes starts here -->
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " style="text-align: right;" name="MIR-PREM-TRNXT-AMT-T[]" id="MIR-PREM-TRNXT-AMT-T[]" stype="Currency" elength="14"  onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+<!--  106536 changes ends here -->                    
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+               <tr>
+                     <td class="celldataentryheading" colspan="4">積立利率　条件</td>
+               </tr>
+               <tr>
+                    <td class="celllabelrightalign">
+                         <label for="MIR-SC1-CRNT-RT">シナリオ1（試算日の積立利率）:</label>
+
+                    </td>
+					<td class="celllabeldataentry" align="right">
+					   <span id="MIR-SC1-CRNT-RT" stype = "Percent" elength="5" decimals="2" displayonly="yes">MIR-SC1-CRNT-RT</span>
+                    </td>
+               </tr>
+               <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SC2-MIN-GUAR-RT">シナリオ2（最低保証の積立利率）：</label>
+                    </td>
+ 					<td class="celllabeldataentry" align="right">
+ 					   <span id="MIR-SC2-MIN-GUAR-RT" stype = "Percent" elength="5" decimals="2" displayonly="yes">MIR-SC2-MIN-GUAR-RT</span>
+                    </td>
+               </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SC3-OPTL-ENTR-RT">シナリオ3（任意の積立利率）：</label>
+                    </td>
+<!--  106536 changes starts here -->                    
+                    <td class="celllabeldataentry">
+                        <input decimals="2" style="text-align: right;" elength="4" name="MIR-SC3-OPTL-ENTR-RT" id="MIR-SC3-OPTL-ENTR-RT" onblur="validateField(this)" onfocus="enterField(this)" onkeypress="NumberKeyCheck()" maxlength="5" size="20" stype = "Percent" type="text" value="0.00%"/>
+                    </td>
+<!--  106536 changes ends here -->                    
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SC4-OPTL-ENTR-RT">シナリオ4（任意の積立利率）：</label>
+                    </td>
+<!--  106536 changes starts here -->                    
+                    <td class="celllabeldataentry">
+                        <input decimals="2" style="text-align: right;" elength="4" name="MIR-SC4-OPTL-ENTR-RT" id="MIR-SC4-OPTL-ENTR-RT" onblur="validateField(this)" onfocus="enterField(this)" onkeypress="NumberKeyCheck()" maxlength="5" size="20" stype = "Percent" type="text" value="0.00%"/>
+                    </td>
+<!--  106536 changes ends here -->                      
+                </tr>
+             </table>
+           <br />
+           <table class="tabledataentry">
+                 <tr>
+                     <td class="celldataentryheading" colspan="4">保険料払込期間の延長　条件</td>
+                 </tr>
+                 <tr>
+                     <td class="celllabelrightalign">
+                          <label for="MIR-NO-OF-EXT-YR">延長年数：</label>
+                     </td>
+                           <td class="celllabeldataentry">
+<!--                       <input type="text" value=" " maxlength="1" name="MIR-NO-OF-EXT-YR" id="MIR-NO-OF-EXT-YR" onfocus="enterField(this)" stype="Text" /> -->
+<!--  106562 changes starts here -->  
+                           <input type="text" style="text-align: right;" value=" " maxlength="1" name="MIR-NO-OF-EXT-YR" id="MIR-NO-OF-EXT-YR" onfocus="enterField(this)" stype="Text" />
+<!--  106562 changes ends here -->                           
+                     </td>
+                </tr>
+           </table>
+           <br />
+           <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">シミュレーション結果レポート作成　条件</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SEND-MTHD-CD">発送方法:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-SEND-MTHD-CD" id="MIR-SEND-MTHD-CD" onfocus="enterField(this)" size="1" stype="Selection"></select>
+                    </td>
+               </tr>
+               <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SEND-TO-LAST-NM">宛名（姓）：</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " maxlength="24" name="MIR-SEND-TO-LAST-NM" id="MIR-SEND-TO-LAST-NM" onchange="onlyKanji()" onfocus="enterField(this)" onkeypress="KanjiKeyCheck()"  size="20" stype="Text" />
+                    </td>
+               </tr>
+               <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SEND-TO-FIRST-NM">宛名（名）：</label>
+                    </td>
+                    <td class="celllabeldataentry">
+					    <span id="MIR-SEND-TO-FIRST-NM" stype = "Text" maxlength="25" displayonly="yes">MIR-SEND-TO-FIRST-NM</span>
+
+                    </td>
+               </tr>
+<!-- 15997D CHANGES STARTS HERE -->
+               <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SEND-TO-CO-NM">宛名（会社名）：</label>
+                    </td>
+                    <td class="celllabeldataentry">
+			<span id="MIR-SEND-TO-CO-NM" stype = "Text" maxlength="50" displayonly="yes">MIR-SEND-TO-CO-NM</span>
+                    </td>
+               </tr>
+<!-- 15997D CHANGES ENDS HERE -->
+               <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SEND-TO-PSTL-CD">宛先（郵便番号）：</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " maxlength="8" name="MIR-SEND-TO-PSTL-CD" id="MIR-SEND-TO-PSTL-CD" onfocus="enterField(this)" size="20" stype="Text" />
+                    </td>
+               </tr>
+               <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SEND-TO-ADDR-TXT">宛先（住所）：</label>
+                    </td>
+                    <td class="celllabeldataentry">
+<!-- 15997D CHANGES STARTS HERE -->
+<!--                    <input type="text" value=" " maxlength="71" name="MIR-SEND-TO-ADDR-TXT" id="MIR-SEND-TO-ADDR-TXT" onchange="onlyKanji()" onfocus="enterField(this)" onkeypress="KanjiKeyCheck()" size="20" stype="Text" /> -->
+                        <input type="text" value=" " maxlength="60" name="MIR-SEND-TO-ADDR-TXT" id="MIR-SEND-TO-ADDR-TXT" onfocus="enterField(this)" size="70" stype="Text" />
+<!-- 15997D CHANGES ENDS HERE -->
+                    </td>
+              </tr>
+              <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SEND-TO-ADDR-ADDL-TXT">宛先（様方部）:</label>
+                    </td>
+                    <td class="celllabeldataentry" >
+                        <input  type="text" value=" " name="MIR-SEND-TO-ADDR-ADDL-TXT" id="MIR-SEND-TO-ADDR-ADDL-TXT" stype="Text" maxlength="72" size="20"
+                               onkeypress="KanaKeyCheck()"
+                               onchange="onlyKatakana()"
+                               onfocus="enterField(this)" />
+                    </td>
+              </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+               <tr>
+                     <td class="celldataentryheading" colspan="4">シミュレーション結果レポート　経過月数別表示　条件</td>
+               </tr>
+               <tr>
+                     <td class="celllabelrightalign">
+                         <label for="MIR-STRT-YR-MO">開始年月：</label>
+                     </td>
+                     <td class="celllabeldataentry">
+                         <input type="text" value=" " maxlength="7" name="MIR-STRT-YR-MO" id="MIR-STRT-YR-MO"  onfocus="enterField(this)" onblur="validateField(this)"  size="20" stype="Text" />
+                     </td>
+                     <td class="celllabelrightalign">
+                         <label for="MIR-END-YR-MO">終了年月：</label>
+                     </td>
+                     <td class="celllabeldataentry">
+                         <input type="text" value=" " maxlength="7" name="MIR-END-YR-MO" id="MIR-END-YR-MO" onfocus="enterField(this)" onblur="validateField(this)" size="20" stype="Text" />
+                     </td>
+                     <td class="celllabelrightalign"></td>
+                     <td class="celllabeldataentry"></td>
+              </tr>
+            </table>
+            <br />
+     </form>
+</body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/OnlyKana.js"></script>
+    <script src="../js/OnlyKanji.js"></script>
+    <script src="../js/CrcyLevelEdits.js"></script>
+</html>

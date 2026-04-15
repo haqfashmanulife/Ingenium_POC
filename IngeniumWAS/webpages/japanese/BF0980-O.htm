@@ -1,0 +1,155 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:29 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0980-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2"                               
+*  01BL11  TMC      Remove Address fields and added 3 indicators and xfer day  
+*  MP0016  01NOV05  2nd Bank Transfer - Added Transfer Day 2  
+*  M245K3  08APR14  Foreign currency indicator is added
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0980-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="splitBranch('MIR-BNK-BR-ID')">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID" id="MIR-BNK-BR-ID" jpnbranch="Branch" jpnsubbranch="SubBranch" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-BNK-ID">銀行番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-BNK-ID" stype="Text" displayonly="yes">MIR-BNK-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="Branch">支店番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="Branch" stype="Text" displayonly="yes">Branch</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="SubBranch">出張所番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="SubBranch" stype="Text" displayonly="yes">SubBranch</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">銀行（金融機関）情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-NM">銀行（金融機関）名:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-NM" stype="Text" displayonly="yes">MIR-BNK-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-BR-NM">支店名:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-BR-NM" stype="Text" displayonly="yes">MIR-BNK-BR-NM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">その他の支店情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-BR-STAT-CD">ステータス:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-BR-STAT-CD" stype="Text" displayonly="yes">MIR-BNK-BR-STAT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-BR-LANG-CD">言語:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-BR-LANG-CD" stype="Text" displayonly="yes">MIR-BNK-BR-LANG-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="6">その他の銀行情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-XFER-IND">振替指示:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-BNK-XFER-IND" id="MIR-BNK-XFER-IND" stype="Indicator" value='Y' disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-XFER-DY">振替日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-XFER-DY" stype="Text" displayonly="yes">MIR-BNK-XFER-DY</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-XFER-2-DY">振替日２:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-XFER-2-DY" stype="Text" displayonly="yes">MIR-BNK-XFER-2-DY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-FIRM-IND">ファームバンキング指示:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-BNK-FIRM-IND" id="MIR-BNK-FIRM-IND" stype="Indicator" value='Y' disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-AGRE-IND">VIPグループ指示:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-BNK-AGRE-IND" id="MIR-BNK-AGRE-IND" stype="Indicator" value='Y' disabled="yes" />
+                    </td>
+                 <!-- M245K3 Changes start here-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FRGN-CRCY-REMIT-IND">外貨送金インジケータ（SWIFTコード有無）</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-FRGN-CRCY-REMIT-IND" id="MIR-FRGN-CRCY-REMIT-IND" stype="Indicator" value='Y' disabled="yes" />
+                    </td>
+                 <!--   <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>-->
+                 <!-- M245K3 Changes ends here-->
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/JapaneseBranch.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

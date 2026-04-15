@@ -1,0 +1,287 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:51 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9344-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  01BL20  01AUG01  New for release
+*  01BL20  01AUG01  Policy Base field is mandatory
+*  01BL20  01AUG01  Seq Number should appear beside date in list area
+*  B00382  01AUG01  Add new fields on display; modified labels
+*  NWLBCA  27AUG09  Add new fields on display;modified length of fields
+*  ATF056  03NOV09  Added new fields in the header section
+*  ATF114  25NOV09  Changes the labels to Trad Actual paid to month, Trad paid to
+*                   month, Trad Actual paid duration, Trad paid duration
+*  ATU035  22DEC09  Fix to change the order of the header items.
+*  MP155A  28JUN11  Added a new field 'Receipt type' in Billing Activity Screen
+*  M319B1  01MAR17  CHANGES FOR FXWL PROJECT
+*  130974  06JAN21  QC FIX FOR FFF NOMURA BILLING
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*  UYS133  CTS      PD group size field addition
+*********************************************************************************
+ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9344-O</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws" onLoad();>
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">-->
+    <body class="bodyws" onLoad="onLoad(); inputlisttrimpolicy();InpTrimPolicy()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="returnlisttrimpolicy();return(onSubmit())">
+            <input type="hidden" name="Dispolval" stype="Hidden" />
+            <input type="hidden" name="Dissfxval" stype="Hidden" />
+<!-- UY3004 CHANGES ENDS HERE -->
+  <table class="tabledatakey">
+      <tr>
+         <td class="celldatakeylabel">
+             <label for="MIR-POL-ID-BASE">Policy ID:</label>
+         </td>
+         <td class="celldatakey">
+             <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)"/>
+         </td>
+         <td class="celldatakeylabel">
+             <label for="MIR-POL-ID-SFX">Suffix:</label>
+         </td>
+         <td class="celldatakey">
+             <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" size="4" onfocus="enterField(this)"/>
+         </td>
+         <td class="celldatakeylabel">
+             <label for="MIR-APPL-CTL-PRCES-DT">Create Date:</label>
+         </td>
+         <td class="celldatakey">
+             <input type="text" value=" " name="MIR-APPL-CTL-PRCES-DT" id="MIR-APPL-CTL-PRCES-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+         </td>
+         <td class="celldatakeylabel">
+             <label for="MIR-SEQ-NUM">Seq. Number:</label>
+         </td>
+         <td class="celldatakey">
+             <input type="text" value=" " name="MIR-SEQ-NUM" id="MIR-SEQ-NUM" stype="Text" maxlength="03" size="4"  onfocus="enterField(this)"/>
+         </td>
+      </tr>
+<!-- ATF056 changes start -->
+      <tr>
+         <td class="celldatakeylabel">
+             <label for="MIR-PLAN-ID">Plan:</label>
+         </td>
+         <td class="celldatakey">
+             <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+         </td>
+         <td class="celldatakeylabel">
+             <label for="MIR-POL-ISS-EFF-DT">Policy Issue Date:</label>
+         </td>
+         <td class="celldatakey">
+             <span id="MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT</span>
+         </td>
+         <td class="celldatakeylabel">
+             <label for="MIR-POL-PD-TO-DT-NUM">Paid to Date:</label>
+         </td>
+         <td class="celldatakey">
+             <span id="MIR-POL-PD-TO-DT-NUM" stype="Text" displayonly="yes">MIR-POL-PD-TO-DT-NUM</span>
+         </td>
+         <td class="celldatakeylabel">
+             <label for="MIR-TRAD-PD-TO-DT-NUM">Trad Paid to Date:</label>
+         </td>
+         <td class="celldatakey">
+             <span id="MIR-TRAD-PD-TO-DT-NUM" stype="Text" displayonly="yes">MIR-TRAD-PD-TO-DT-NUM</span>
+         </td>
+      </tr>
+<!-- ATU035 CHANGES BEGIN       <tr>
+         <td class="celldatakeylabel">
+             <label for="MIR-ACT-PD-TO-MON">Trad Actual Paid to Month:</label>
+         </td>
+         <td class="celldatakey">
+             <span id="MIR-ACT-PD-TO-MON" stype="Text" displayonly="yes">MIR-ACT-PD-TO-MON</span>
+         </td>
+         <td class="celldatakeylabel">
+             <label for="MIR-PD-TO-MON">Trad Paid to Month:</label>
+         </td>
+         <td class="celldatakey">
+             <span id="MIR-PD-TO-MON" stype="Text" displayonly="yes">MIR-PD-TO-MON</span>
+         </td>
+         <td class="celldatakeylabel">
+             <label for="MIR-ACT-PD-DUR">Trad Actual Paid Duration:</label>
+         </td>
+         <td class="celldatakey">
+             <span id="MIR-ACT-PD-DUR" stype="Text" displayonly="yes">MIR-ACT-PD-DUR</span>
+         </td>
+         <td class="celldatakeylabel">
+             <label for="MIR-PD-DUR">Trad Paid Duration:</label>
+         </td>
+         <td class="celldatakey">
+             <span id="MIR-PD-DUR" stype="Text" displayonly="yes">MIR-PD-DUR</span>
+         </td>
+      </tr> -->
+      <tr>
+          <td class="celldatakeylabel">
+             <label for="MIR-PD-DUR">Trad Paid Duration:</label>
+         </td>
+         <td class="celldatakey">
+             <span id="MIR-PD-DUR" stype="Text" displayonly="yes">MIR-PD-DUR</span>
+         </td>
+         <td class="celldatakeylabel">
+             <label for="MIR-PD-TO-MON">Trad Paid to Month:</label>
+         </td>
+         <td class="celldatakey">
+             <span id="MIR-PD-TO-MON" stype="Text" displayonly="yes">MIR-PD-TO-MON</span>
+         </td>
+       </tr>
+       <tr>
+         <td class="celldatakeylabel">
+             <label for="MIR-ACT-PD-DUR">Trad Actual Paid Duration:</label>
+         </td>
+         <td class="celldatakey">
+             <span id="MIR-ACT-PD-DUR" stype="Text" displayonly="yes">MIR-ACT-PD-DUR</span>
+         </td>
+         <td class="celldatakeylabel">
+             <label for="MIR-ACT-PD-TO-MON">Trad Actual Paid to Month:</label>
+         </td>
+         <td class="celldatakey">
+             <span id="MIR-ACT-PD-TO-MON" stype="Text" displayonly="yes">MIR-ACT-PD-TO-MON</span>
+         </td>
+         </tr>
+<!-- ATU035 CHANGES END -->
+<!-- ATF056 changes end -->
+  </table>
+<br />
+<table class="tabledisplay" genrows="0" keyfield="1">
+<tr>
+<td class="celldisplayheading"><label for="MIR-APPL-CTL-PRCES-DT-T[1]">Create Date</label></td>
+<td class="celldisplayheading"><label for="MIR-SEQ-NUM-T[1]">Seq. Number</label></td>
+<td class="celldisplayheading"><label for="MIR-CLI-ID-T[1]">Client ID</label></td>
+<td class="celldisplayheading"><label for="MIR-DV-SRCH-CLI-NM-T[1]">Client Name</label></td>
+<td class="celldisplayheading"><label for="MIR-PREV-UPDT-DT-T[1]">Last Update Date</label></td>
+<td class="celldisplayheading"><label for="MIR-DRW-STAT-CD-T[1]">Billing Status</label></td>
+<td class="celldisplayheading"><label for="MIR-FND-SRC-CD-T[1]">Source of Funds</label></td>
+<td class="celldisplayheading"><label for="MIR-A-RECPT-XPRY-DT-T[1]">A Receipt Expiry Date</label></td>
+<td class="celldisplayheading"><label for="MIR-BNK-ID-T[1]">Bank</label></td>
+<td class="celldisplayheading"><label for="MIR-BNK-BR-ID-T[1]">Branch</label></td>
+<td class="celldisplayheading"><label for="MIR-BNK-ACCT-ID-T[1]">Account</label></td>
+<td class="celldisplayheading"><label for="MIR-DRW-DT-T[1]">Draw Date</label></td>
+<!-- M319B1 CHANGES STARTS -->
+<td class="celldisplayheading"><label for="MIR-PRE-XCHNG-PREM-AMT-T[1]">Premium (Policy Currency)</label></td>
+<td class="celldisplayheading"><label for="MIR-CRCY-XCHNG-RT-T[1]">JPY Conversion Rate</label></td>
+<td class="celldisplayheading"><label for="MIR-PRE-XCHNG-RECV-AMT-T[1]">Premium (JPY Conversion)</label></td>
+<td class="celldisplayheading"><label for="MIR-CRCY-XCHNG-EFF-DT-T[1]">Conversion Rate Effective Date</label></td>
+<!-- M319B1 CHANGES END -->
+<td class="celldisplayheading"><label for="MIR-PREM-AMT-T[1]">Amount Billed</label></td>
+<td class="celldisplayheading"><label for="MIR-RECV-AMT-T[1]">Amount Received</label></td>
+<td class="celldisplayheading"><label for="MIR-RECV-DT-T[1]">Payment Received Date</label></td>
+<!-- MP155A CHANGES STARTS HERE-->
+<td class="celldisplayheading"><label for="MIR-RECPT-TYP-CD-T[1]">Receipt Type</label></td>
+<!-- MP155A CHANGES ENDS HERE-->
+<td class="celldisplayheading"><label for="MIR-UNSUCS-REASN-CD-T[1]">Unsuccessful Reason Code</label></td>
+<td class="celldisplayheading"><label for="MIR-PREM-RQST-QTY-T[1]"># of Payments Requested</label></td>
+<td class="celldisplayheading"><label for="MIR-PREM-COLCT-QTY-T[1]"># of Payments Collected</label></td>
+<td class="celldisplayheading"><label for="MIR-BILL-TYP-CD-T[1]">Billing Method</label></td>
+<td class="celldisplayheading"><label for="MIR-BILL-MODE-CD-T[1]">Billing Mode</label></td>
+<!-- UYS133 CHANGE STARTS HERE -->
+<!-- <td class="celldisplayheading"><label for="MIR-PAYRL-SIZ-CD-T[1]">Payroll Size</label></td> -->
+<td class="celldisplayheading"><label for="MIR-PAYRL-SIZ-CD-T[1]">PD group size</label></td>
+<!-- UYS133 CHANGE ENDS HERE -->
+<!-- NWLBCA CHANGES STARTS HERE -->
+<td class="celldisplayheading"><label for="MIR-PREM-DUE-MO-NUM-T[1]">Trad Premium Due Month</label></td>
+<td class="celldisplayheading"><label for="MIR-TRAD-JRNL-DT-T[1]">Trad Journal Date</label></td>
+<td class="celldisplayheading"><label for="MIR-TRAD-SO-JRNL-DT-T[1]">Trad SO Journal Date</label></td>
+<td class="celldisplayheading"><label for="MIR-TRAD-RECV-DT-T[1]">Trad Received Date</label></td>
+<!-- NWLBCA CHANGES ENDS HERE -->
+</tr>
+<tr>
+<td class="celldisplay"><span id="MIR-APPL-CTL-PRCES-DT-T[]" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-SEQ-NUM-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-ID-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-DV-SRCH-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-SRCH-CLI-NM-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-PREV-UPDT-DT-T[]" stype="Date" displayonly="yes">MIR-PREV-UPDT-DT-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-DRW-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-DRW-STAT-CD-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-FND-SRC-CD-T[]" stype="Text" displayonly="yes">MIR-FND-SRC-CD-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-A-RECPT-XPRY-DT-T[]" stype="Date" displayonly="yes">MIR-A-RECPT-XPRY-DT-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-BNK-ID-T[]" stype="Text" displayonly="yes">MIR-BNK-ID-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-BNK-BR-ID-T[]" stype="Text" displayonly="yes">MIR-BNK-BR-ID-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-BNK-ACCT-ID-T[]" stype="Text" displayonly="yes">MIR-BNK-ACCT-ID-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-DRW-DT-T[]" stype="Date" displayonly="yes">MIR-DRW-DT-T[]</span>
+</td>
+<!-- M319B1 CHANGES STARTS -->
+<td class="celldisplay"><span id="MIR-PRE-XCHNG-PREM-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-PRE-XCHNG-PREM-AMT-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-CRCY-XCHNG-RT-T[]" stype="Number" elength="18" displayonly="yes">MIR-CRCY-XCHNG-RT-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-PRE-XCHNG-RECV-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-PRE-XCHNG-RECV-AMT-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-CRCY-XCHNG-EFF-DT-T[]" stype="Date" elength="10" displayonly="yes">MIR-CRCY-XCHNG-EFF-DT-T[]</span>
+</td>
+<!-- M319B1 CHANGES END -->
+<!-- 130974 CHANGES STARTS -->
+<!-- <td class="celldisplay"><span id="MIR-PREM-AMT-T[]" stype="Currency" elength="13"   displayonly="yes">MIR-PREM-AMT-T[]</span>
+</td> -->
+<td class="celldisplay"><span id="MIR-PREM-AMT-T[]" stype="Currency" elength="15"   displayonly="yes">MIR-PREM-AMT-T[]</span>
+</td>
+<!-- 130974 CHANGES END-->
+<td class="celldisplay"><span id="MIR-RECV-AMT-T[]" stype="Currency" elength="13"   displayonly="yes">MIR-RECV-AMT-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-RECV-DT-T[]" stype="Date" displayonly="yes">MIR-RECV-DT-T[]</span>
+</td>
+<!-- MP155A CHANGES STARTS HERE-->
+<td class="celldisplay"><span id="MIR-RECPT-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-RECPT-TYP-CD-T[]</span>
+</td>
+<!-- MP155A CHANGES ENDS HERE-->
+<td class="celldisplay"><span id="MIR-UNSUCS-REASN-CD-T[]" stype="Text" displayonly="yes">MIR-UNSUCS-REASN-CD-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-PREM-RQST-QTY-T[]" stype="Text" displayonly="yes">MIR-PREM-RQST-QTY-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-PREM-COLCT-QTY-T[]" stype="Text" displayonly="yes">MIR-PREM-COLCT-QTY-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-BILL-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-BILL-TYP-CD-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-BILL-MODE-CD-T[]" stype="Text" displayonly="yes">MIR-BILL-MODE-CD-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-PAYRL-SIZ-CD-T[]" stype="Text" displayonly="yes">MIR-PAYRL-SIZ-CD-T[]</span>
+</td>
+<!--NWLBCA CHANGES STARTS HERE -->
+<td class="celldisplay"><span id="MIR-PREM-DUE-MO-NUM-T[]" stype="Text" displayonly="yes">MIR-PREM-DUE-MO-NUM-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-TRAD-JRNL-DT-T[]" stype="Date" displayonly="yes">MIR-TD-JRNL-DT-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-TRAD-SO-JRNL-DT-T[]" stype="Date" displayonly="yes">MIR-TD-SO-JRNL-DT-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-TRAD-RECV-DT-T[]" stype="Date" displayonly="yes">MIR-TD-RECV-DT-T[]</span>
+</td>
+<!--NWLBCA CHANGES ENDS HERE -->
+</tr>
+</table>
+<p><input type="hidden" name="action" id="action" stype="Hidden"/>
+</p>
+<p><input type="hidden" name="index" id="index" stype="Hidden"/>
+</p>
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

@@ -1,0 +1,239 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:27 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0900-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  FT7001 AKATO  FT7 Label Change 14JUN2004 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                      	               
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0900-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">受給者クライアントID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-USTX-EFF-DT">処理日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-USTX-EFF-DT" stype="Date" displayonly="yes">MIR-USTX-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-USTX-SEQ-NUM">シーケンス番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-USTX-SEQ-NUM" stype="Text" displayonly="yes">MIR-USTX-SEQ-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">クライアント情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ID">受給者クライアントID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-TAX-ID">納税者番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-TAX-ID" stype="Text" displayonly="yes">MIR-CLI-TAX-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USTX-TAXBL-EVNT-CD">課税通知イベント:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USTX-TAXBL-EVNT-CD" stype="Text" displayonly="yes">MIR-USTX-TAXBL-EVNT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USTX-FORM-TYP-CD">課税書式タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USTX-FORM-TYP-CD" stype="Text" displayonly="yes">MIR-USTX-FORM-TYP-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">金額情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USTX-GRS-DSTRB-AMT">移動総出入額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USTX-GRS-DSTRB-AMT" stype="Currency" elength="15" displayonly="yes">MIR-USTX-GRS-DSTRB-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USTX-INT-AMT">利息額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USTX-INT-AMT" stype="Currency" elength="13" displayonly="yes">MIR-USTX-INT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USTX-TAXBL-AMT">課税移動総出入額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USTX-TAXBL-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-USTX-TAXBL-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USTX-FED-TAXWH-AMT">連邦源泉課税:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USTX-FED-TAXWH-AMT" stype="Currency" elength="13" displayonly="yes">MIR-USTX-FED-TAXWH-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USTX-ACB-AMT">調整コストベース:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USTX-ACB-AMT" stype="Currency" elength="15" displayonly="yes">MIR-USTX-ACB-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">通知情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-ADDR-TYP-CD">住所タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-TYP-CD" stype="Text" displayonly="yes">MIR-CLI-ADDR-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USTX-IRS-DSTRB-CD">配布タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USTX-IRS-DSTRB-CD" stype="Text" displayonly="yes">MIR-USTX-IRS-DSTRB-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USTX-ORIG-FORM-CD">課税レコードタイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USTX-ORIG-FORM-CD" stype="Text" displayonly="yes">MIR-USTX-ORIG-FORM-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USTX-STAT-CD">ステータス:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USTX-STAT-CD" stype="Text" displayonly="yes">MIR-USTX-STAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USTX-GRS-DSTRB-PCT">配布合計割合:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USTX-GRS-DSTRB-PCT" stype="Percent" elength="3" decimals="0" displayonly="yes">MIR-USTX-GRS-DSTRB-PCT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">インジケータ</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USTX-TOT-DSTRB-CD">アメリカ租税レコードが契約配布合計に反映:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USTX-TOT-DSTRB-CD" stype="Text" displayonly="yes">MIR-USTX-TOT-DSTRB-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USTX-IRA-SEP-IND">契約は個人退職積立年金または自営業者退職年金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-USTX-IRA-SEP-IND" id="MIR-USTX-IRA-SEP-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USTX-TAX-DTRMN-IND">決定済課税金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-USTX-TAX-DTRMN-IND" id="MIR-USTX-TAX-DTRMN-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

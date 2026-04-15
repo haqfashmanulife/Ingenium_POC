@@ -1,0 +1,358 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:16 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0222-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  B00499  VAN      Move Account Information Section undernear the Policy numbe
+*  B00464  VAN      REMOVE SBSDRY-CO                                           
+*  BU3283  CTS      COMMENTED THE FIELD MIR-CLI-JP-ADDR-CD 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                                                                                                                                                    
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*********************************************************************************
+ -->
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0222-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad=""splitBranch('MIR-BNK-BR-ID');onLoad()"> -->
+    <body class="bodyws" onLoad="splitBranch('MIR-BNK-BR-ID');onLoad();SubInpTrimPolicy3()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID" id="MIR-BNK-BR-ID" jpnbranch="Branch" jpnsubbranch="SubBranch" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CHQ-REF-ID">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CHQ-REF-ID" stype="Text" displayonly="yes">MIR-CHQ-REF-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-TRNXT-PAYO-MTHD-CD">支払方法:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-TRNXT-PAYO-MTHD-CD" stype="Text" displayonly="yes">MIR-DV-TRNXT-PAYO-MTHD-CD</span>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-OPER-CAT-CD">業務区分:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                    <span id="MIR-OPER-CAT-CD" stype="Text" displayonly="yes">MIR-OPER-CAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-JRNL-DT">日報計上日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-JRNL-DT" stype="Text" displayonly="yes">MIR-JRNL-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="8">会計情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCT-BASE-ID-T[1]">仕訳科目コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ACCT-DR-AMT-T[1]">借方金額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ACCT-CR-AMT-T[1]">貸方金額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ACCT-DESC-TXT-T[1]">会計エントリ詳細</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BR-OR-DEPT-ID-T[1]">支社/部署</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCT-ISS-LOC-CD-T[1]">発行地</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCT-CRNT-LOC-CD-T[1]">現所在地</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCT-BASE-ID-T[]" stype="Text" displayonly="yes">MIR-ACCT-BASE-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ACCT-DR-AMT-T[]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-DV-ACCT-DR-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ACCT-CR-AMT-T[]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-DV-ACCT-CR-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ACCT-DESC-TXT-T[]" stype="Text" displayonly="yes">MIR-DV-ACCT-DESC-TXT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BR-OR-DEPT-ID-T[]" stype="Text" displayonly="yes">MIR-BR-OR-DEPT-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCT-ISS-LOC-CD-T[]" stype="Text" displayonly="yes">MIR-ACCT-ISS-LOC-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCT-CRNT-LOC-CD-T[]" stype="Text" displayonly="yes">MIR-ACCT-CRNT-LOC-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>            
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">電子資金振替(EFT)のための銀行口座情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-HLDR-NM">口座名義人名:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-BNK-ACCT-HLDR-NM" stype="Text" displayonly="yes">MIR-BNK-ACCT-HLDR-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-TYP-CD">口座種類:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-TYP-CD" stype="Text" displayonly="yes">MIR-BNK-ACCT-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ID">銀行番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ID" stype="Text" displayonly="yes">MIR-BNK-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="Branch">支店番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="Branch" stype="Text" displayonly="yes">Branch</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="SubBranch">出張所番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="SubBranch" stype="Text" displayonly="yes">SubBranch</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-ID">口座番号:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-BNK-ACCT-ID" stype="Text" displayonly="yes">MIR-BNK-ACCT-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">小切手情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-CHQ-VCHR-NUM">証憑番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CHQ-VCHR-NUM" stype="Text" displayonly="yes">MIR-DV-CHQ-VCHR-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CHQ-PAYE-NM-T[1]">受取人名</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CHQ-PAYE-NM-T[1]" stype="Text" displayonly="yes">MIR-CHQ-PAYE-NM-T[1]</span>
+                    </td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay">
+                        <span id="MIR-CHQ-PAYE-NM-T[2]" stype="Text" displayonly="yes">MIR-CHQ-PAYE-NM-T[2]</span>
+                    </td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-CHQ-DESC-TXT-T[1]">小切手詳細</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CHQ-DESC-TXT-T[1]" stype="Text" displayonly="yes">MIR-DV-CHQ-DESC-TXT-T[1]</span>
+                    </td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CHQ-DESC-TXT-T[2]" stype="Text" displayonly="yes">MIR-DV-CHQ-DESC-TXT-T[2]</span>
+                    </td>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CHQ-DESC-TXT-T[3]" stype="Text" displayonly="yes">MIR-DV-CHQ-DESC-TXT-T[3]</span>
+                    </td>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CHQ-DESC-TXT-T[4]" stype="Text" displayonly="yes">MIR-DV-CHQ-DESC-TXT-T[4]</span>
+                    </td>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-CHQ-MANL-IND">会計エントリ - 個別入力小切手:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <input type="checkbox" name="MIR-DV-CHQ-MANL-IND" id="MIR-DV-CHQ-MANL-IND" stype="Indicator" value="Y" disabled="yes" /> 
+                    </td> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-ACCT-CRCY-CD">通貨:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-ACCT-CRCY-CD" stype="Text" displayonly="yes">MIR-ACCT-CRCY-CD</span> 
+                    </td> 
+                </tr> 
+            </table> 
+            <br /> 
+            <table class="tabledisplay"> 
+                <tr> 
+                    <td class="celldisplayheading" colspan="4">受取人住所</td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CLI-RES-TYP-CD">居住地タイプ:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-RES-TYP-CD" stype="Text" displayonly="yes">MIR-CLI-RES-TYP-CD</span> 
+                    </td> 
+                    <td class="celldisplaylabel"></td> 
+                    <td class="celldisplay"></td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CLI-ADDR-LN-1-TXT">住所:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-ADDR-LN-1-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-1-TXT</span> 
+                    </td> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CLI-RES-NUM">アパート/部屋番号:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-RES-NUM" stype="Text" displayonly="yes">MIR-CLI-RES-NUM</span> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaylabel"></td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-ADDR-LN-2-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-2-TXT</span> 
+                    </td> 
+                    <td class="celldisplaylabel"></td> 
+                    <td class="celldisplay"></td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaylabel"></td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-ADDR-LN-3-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-3-TXT</span> 
+                    </td> 
+                    <td class="celldisplaylabel"></td> 
+                    <td class="celldisplay"></td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CLI-CITY-NM-TXT">市/区/郡:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-CITY-NM-TXT" stype="Text" displayonly="yes">MIR-CLI-CITY-NM-TXT</span> 
+                    </td> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CLI-CRNT-LOC-CD">州/都道府県:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-CRNT-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-CRNT-LOC-CD</span> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CLI-PSTL-CD">郵便番号:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-PSTL-CD" stype="Text" displayonly="yes">MIR-CLI-PSTL-CD</span> 
+                    </td> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CLI-CTRY-CD">国:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-CTRY-CD" stype="Text" displayonly="yes">MIR-CLI-CTRY-CD</span> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CLI-ADDR-ADDL-TXT">追加情報:</label> 
+                    </td> 
+                    <td class="celldisplay" colspan="3"> 
+                        <span id="MIR-CLI-ADDR-ADDL-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-ADDL-TXT</span> 
+                    </td> 
+                </tr> 
+                <!--BU3283 CHANGES BEGIN-->
+            <!--<tr> 
+                     <td class="celldisplaylabel"> 
+                        <label for="MIR-CLI-JP-ADDR-CD">都道府県:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CLI-JP-ADDR-CD" stype="Text" displayonly="yes">MIR-CLI-JP-ADDR-CD</span> 
+                    </td> 
+                    <td class="celldisplaylabel"></td> 
+                    <td class="celldisplay"></td> 
+                </tr> -->
+                <!--BU3283 CHANGES END-->
+            </table> 
+        </form> 
+    </body> 
+    <script src="../js/ActionHandlers.js"></script> 
+    <script src="../js/MessageFunctions.js"></script> 
+    <script src="../js/MessagesJapanese.js"></script> 
+    <script src="../js/ClientLevelEdits.js"></script> 
+    <script src="../js/JapaneseBranch.js"></script> 
+    <script src="../js/GlobalUserMethods.js"></script> 
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

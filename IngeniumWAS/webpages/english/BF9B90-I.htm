@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*********************************************************************************
+*  Component:   BF9B90-I.htm
+*  Description: Rider Surrender/Rider FA Reduction Quote - Input
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  MP1172  CTS      INITIAL VERSION
+*  EN9547  CTS      STYLE OF THE ENGLISH PAGE IS CHNAGED
+*  MP245K  CTS      CHANGES DONE FOR FA-REDUCTION AND SURRENDER
+*  23774B  CTS      CHANGES DONE FOR IE RETIREMENT PROJECT TO MAKE IT
+*                   COMPATIBLE FOR MICROSOFT EDGE. CHANGES IN HTML INCLUDE
+*                   ADDING "ID" ATTRIBUTE FOR ALL INPUT FIELDS AND CHANGES IN
+*                   JAVA SCRIPTS TO MODIFY CERTAIN FUNCTIONS/COMMANDS WHICH
+*                   ARE NO LONGER COMPATILBLE WITH EDGE.
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  27549A  CTS      CHANGES DONE AS PART OF CDAP                                *
+
+*********************************************************************************
+ -->
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <title>BF9B90-I</title>
+<!-- EN9547 Change Begin -->
+<!--       <link rel="stylesheet" type="text/css" href="../../english/Ingenium.css" charset="ISO-8859-1" /> -->
+       <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="ISO-8859-1" />
+    </head>
+<!-- EN9547 Change End -->
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+<!-- UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+        <input type="hidden" name="index" id="index" stype="Hidden" />
+        <input type="hidden" name="action" id="action" stype="Hidden" />
+              <table class="tabledatakey">
+                 <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes"  onfocus="enterField(this)"/>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1"   onfocus="enterField(this)"/>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">Processing Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-APPL-CTL-PRCES-DT" id="MIR-APPL-CTL-PRCES-DT" stype="Date" mandatory="yes"  onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-MLJ-ACPT-DT">Company Received Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-MLJ-ACPT-DT" id="MIR-MLJ-ACPT-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+<!-- MP245K Change Begins Here -->
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-HO-RECV-DT">Head Office Received Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-DV-HO-RECV-DT" id="MIR-DV-HO-RECV-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-PAYO-JPY-BNFT-CD">JPY Benefit Rider:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-DV-PAYO-JPY-BNFT-CD" id="MIR-DV-PAYO-JPY-BNFT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+ <!-- MP245K Change Ends Here -->
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-TRNXT-PAYO-MTHD-CD">Pay Out Method:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-DV-TRNXT-PAYO-MTHD-CD" id="MIR-DV-TRNXT-PAYO-MTHD-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-JRNL-DT">Journal Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-JRNL-DT" id="MIR-JRNL-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+<!-- 27549A Change Starts Here -->
+                     <td class="celldatakeylabel">
+			         <label for="MIR-ATO-NOT-APPL-IND">ATO not applicable:</label>
+			         </td>
+			         <td class="celldatakey">
+			           <input type="checkbox" value="Y" name="MIR-ATO-NOT-APPL-IND" id="MIR-ATO-NOT-APPL-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+<!-- 27549A Change Ends Here -->
+                 </tr>
+              </table>
+        </form>
+    </body>
+    <!--EN9547 CHANGES BEGIN -->
+    <!--
+    <script src="../../js/MessagesEnglish.js"></script>
+    <script src="../../js/MessageFunctions.js"></script>
+    <script src="../../js/ActionHandlers.js"></script>
+    <script src="../../js/ClientLevelEdits.js"></script>
+    <script src="../../js/GlobalUserMethods.js"></script>
+     -->
+    <script src="../js/MessagesEnglish.js"></script>
+	<script src="../js/MessageFunctions.js"></script>
+	<script src="../js/ActionHandlers.js"></script>
+	<script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <!--EN9547 CHANGES END -->
+ <!-- UY3004 CHANGES START HERE -->
+     <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

@@ -1,0 +1,220 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:53 PM EDT
+*
+*********************************************************************************
+*  Component:   ReqtMainUWUpdt.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  016423  602J     New for release 602J
+*  017150  612J     Remove Currency decimals="2"
+*
+*  Chg#    Date     Auth.  Description
+*
+*  EN1327  27Feb07  CLB    Add new field for requirement category
+*  BU1581  02NOV07  CTS    MIR-CPREQ-EFF-DT is replaced by MIR-PREV-UPDT-DT
+*  23774B  10APR22  CTS    Changes done for ie retirement project to make it
+*                          compatible for microsoft edge. Changes in html include
+*                          adding "id" attribute for all input fields and changes in
+*                          java scripts to modify certain functions/commands which
+*                          are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Update UW Requirements</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="BannerClientID">Client Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="BannerClientID" stype="Text" displayonly="yes">BannerClientID</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-INSRD-CLI-NM">Insured Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SERV-BR-ID">Servicing Branch:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SERV-BR-ID" stype="Text" displayonly="yes">MIR-SERV-BR-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="1" width="900">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-REQIR-CAT-CD-T[1]">Category</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-REQIR-ID-T[1]">Requirement</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CPREQ-SEQ-NUM-T[1]">Seq Number</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="2">
+                        <label for="MIR-CPREQ-STAT-CD-T[1]">Status
+  and Last Date Update</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="2">
+                        <label for="MIR-CPREQ-FOLWUP-NUM-T[1]"> Follow-up Number and Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CPREQ-DESGNT-ID-T[1]">Lab Designation</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="2">
+                        <label for="MIR-CPREQ-TST-DT-T[1]">Results and Date of Test</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-REVW-REQIR-IND-T[1]">Resolve Indicator</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CPREQ-NEW-RSLT-IND-T[1]">New Test Result Resolution</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CPREQ-PD-IND-T[1]">Fee paid</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CPREQ-VALID-DT-T[1]">Validity Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-USER-ID-T[1]">Updated By</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CPREQ-CREAT-DT-T[1]">Creation Date</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-REQIR-CAT-CD-T[]" stype="Text" displayonly="yes">MIR-REQIR-CAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REQIR-ID-T[]" stype="Text" displayonly="yes">MIR-REQIR-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CPREQ-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-CPREQ-SEQ-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <select name="MIR-CPREQ-STAT-CD-T[]" id="MIR-CPREQ-STAT-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+<!-- BU1581 Changes start here -->
+                    <td class="celldisplay">
+                        <input type="text" value=" " name="MIR-PREV-UPDT-DT-T[]" id="MIR-PREV-UPDT-DT-T[]" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="10" />
+                    </td>
+<!-- BU1581 Changes end here -->
+                    <td class="celldisplay">
+                        <input type="text" value=" " name="MIR-CPREQ-FOLWUP-NUM-T[]" id="MIR-CPREQ-FOLWUP-NUM-T[]" stype="Text" maxlength="1" onfocus="enterField(this)" size="2" />
+                    </td>
+                    <td class="celldisplay">
+                        <input type="text" value=" " name="MIR-CPREQ-FOLWUP-DT-T[]" id="MIR-CPREQ-FOLWUP-DT-T[]" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="10" />
+                    </td>
+                    <td class="celldisplay">
+                        <select name="MIR-CPREQ-DESGNT-ID-T[]" id="MIR-CPREQ-DESGNT-ID-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celldisplay">
+                        <select name="MIR-CPREQ-TST-RSLT-CD-T[]" id="MIR-CPREQ-TST-RSLT-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="text" value=" " name="MIR-CPREQ-TST-DT-T[]" id="MIR-CPREQ-TST-DT-T[]" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="12" />
+                    </td>
+                    <td class="celldisplay" align="center">
+                        <input type="checkbox" value="Y" name="MIR-DV-REVW-REQIR-IND-T[]" id="MIR-DV-REVW-REQIR-IND-T[]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplay" align="center">
+                        <input type="checkbox" value="Y" name="MIR-CPREQ-NEW-RSLT-IND-T[]" id="MIR-CPREQ-NEW-RSLT-IND-T[]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplay" align="center">
+                        <input type="checkbox" value="Y" name="MIR-CPREQ-PD-IND-T[]" id="MIR-CPREQ-PD-IND-T[]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplay">
+                        <input type="text" value=" " name="MIR-CPREQ-VALID-DT-T[]" id="MIR-CPREQ-VALID-DT-T[]" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="10" />
+                    </td>
+                    <td class="celldisplay">
+                        <input type="text" value=" " name="MIR-USER-ID-T[]" id="MIR-USER-ID-T[]" stype="Text" maxlength="8" onfocus="enterField(this)" size="10" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CPREQ-CREAT-DT-T[]" stype="Date" displayonly="yes">MIR-CPREQ-CREAT-DT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ID-BASE">Enter new Policy ID for
+      Policy Requirements:</label>
+                    </td>
+                    <td>
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" onfocus="enterField(this)" size="12" />
+                    </td>
+                    <td>
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" size="2" />
+                    </td>
+                    <td>
+                        <input type="button" name="submitPolicyIDButton" id="submitPolicyIDButton" value="Submit" onclick="submitPolicyID()" />
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ID">Enter new Client ID
+      for U/W Requirements:</label>
+                    </td>
+                    <td>
+                        <input type="text" value=" " name="MIR-CLI-ID" id="MIR-CLI-ID" stype="Text" maxlength="10" onfocus="enterField(this)" size="17" />
+                    </td>
+                    <td>
+                        <input type="button" name="submitClientIDButton" id="submitClientIDButton" value="Submit" onclick="submitClientID()" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" genrows="0" width="500">
+                <tr>
+                    <td class="celldisplayheading" colspan="2" width="100">
+                        <label for="MIR-POL-ID-BASE-T[1]">Insured Related Policies</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CSTAT-CD-T[1]">Current Policy Status</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry" width="75">
+                        <a name="MIR-POL-ID-BASE-T[]" href="a" action="SelectItem" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">MIR-POL-ID-BASE-T[]</a>
+                    </td>
+                    <td class="celllabeldataentry" width="25">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes" style="color: blue">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-POL-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/ReqtMain.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

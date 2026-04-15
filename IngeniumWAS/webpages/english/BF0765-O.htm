@@ -1,0 +1,483 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:21 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0765-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling
+*  017150  612J     Remove Currency decimals="2"
+*  02CP63  DPK      Add Preservation Allowance heading to Conv P
+*  MP0020  SW       EXTRA PREMIUM COMMISSION (ADD 5 FIELDS)
+*  NWLCOM  CTS      Added two new fields for Commission
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0765-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <a name="top" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-TRXN-DT">Process Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-TRXN-DT" stype="Date" displayonly="yes">MIR-POL-TRXN-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-TRXN-EFF-DT">System Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-TRXN-EFF-DT" stype="Date" displayonly="yes">MIR-POL-TRXN-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-TRXN-TIME">Time:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-TRXN-TIME" stype="Text" displayonly="yes">MIR-POL-TRXN-TIME</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-TRXN-TASK-ID">Task Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-TRXN-TASK-ID" stype="Text" displayonly="yes">MIR-POL-TRXN-TASK-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-TRXN-SEQ-NUM">Sequence Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-TRXN-SEQ-NUM" stype="Text" displayonly="yes">MIR-POL-TRXN-SEQ-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Commission">Commission</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Premium Information">Premium Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Miscellaneous Information">Miscellaneous Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Processing Information">Processing Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Commission">Commission</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AGT-ID">Agent ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-ID" stype="Text" displayonly="yes">MIR-AGT-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-COMM-AMT">Commission/Conv P/Preservation Allowance:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-COMM-AMT" stype="Currency" elength="13" displayonly="yes">MIR-DV-COMM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-COMM-SRC-CD">Commissionable      Event:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-COMM-SRC-CD" stype="Text" displayonly="yes">MIR-DV-COMM-SRC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-AGT-REASN-CD">Reason:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-AGT-REASN-CD" stype="Text" displayonly="yes">MIR-DV-AGT-REASN-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-ANNV-PYR-QTY">Coverage Duration:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ANNV-PYR-QTY" stype="Text" displayonly="yes">MIR-DV-ANNV-PYR-QTY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-AGT-CPREM-AMT">Premium/COI/Fund Bal:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-AGT-CPREM-AMT" stype="Currency" elength="13" displayonly="yes">MIR-CVG-AGT-CPREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-AGT-SHR-PCT">Share:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-AGT-SHR-PCT" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-CVG-AGT-SHR-PCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RTBL2-1-RT">Percentage Rate:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL2-1-RT" stype="Percent" elength="7" decimals="4" signed="yes" displayonly="yes">MIR-RTBL2-1-RT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-COMM-CHRG-FCT">Charge Factor:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-COMM-CHRG-FCT" stype="Number" elength="4" decimals="3" displayonly="yes">MIR-DV-COMM-CHRG-FCT</span>
+                    </td>
+                </tr>
+<!-- MP0020  ADD 5 FIELDS HERE  -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-STD-PREM-AMT">Standard Premium COI:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-STD-PREM-AMT" stype="Currency" elength="13" displayonly="yes">MIR-STD-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-STD-COMM-AMT">Standard Premium Conv P:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-STD-COMM-AMT" stype="Currency" elength="13" displayonly="yes">MIR-DV-STD-COMM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-EXTR-PREM-AMT">Extra Premium COI:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-EXTR-PREM-AMT" stype="Currency" elength="15" displayonly="yes">MIR-EXTR-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-EXTR-PREM-COMM-RT">Extra Premium Com. Rate:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-EXTR-PREM-COMM-RT" stype="Percent" elength="7" decimals="4" signed="yes" displayonly="yes">MIR-EXTR-PREM-COMM-RT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AFYC-SSTD-CNVR-P-AMT">Extra Premium Conv P:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AFYC-SSTD-CNVR-P-AMT" stype="Currency" elength="15" displayonly="yes">MIR-AFYC-SSTD-CNVR-P-AMT</span>
+                    </td>
+                </tr>
+<!-- END OF MP0020  -->
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Premium Information">Premium Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-PREM-DUE-MO-QTY">Premium Due Month:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PREM-DUE-MO-QTY" stype="Text" displayonly="yes">MIR-DV-PREM-DUE-MO-QTY</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-PD-TO-MO-QTY">Month of Paid      to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PD-TO-MO-QTY" stype="Text" displayonly="yes">MIR-DV-PD-TO-MO-QTY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-PREM-PD-YR-QTY">Years Paid:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PREM-PD-YR-QTY" stype="Text" displayonly="yes">MIR-DV-PREM-PD-YR-QTY</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CRCY-CD">Currency:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CRCY-CD" stype="Text" displayonly="yes">MIR-POL-CRCY-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Miscellaneous Information">Miscellaneous Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Insured Name:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ID">Plan Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-INS-TYP-CD">Policy Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-INS-TYP-CD" stype="Text" displayonly="yes">MIR-POL-INS-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-COMM-PMT-TYP-CD">Commission Payment Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-COMM-PMT-TYP-CD" stype="Text" displayonly="yes">MIR-DV-COMM-PMT-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SERV-BR-ID">Branch:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SERV-BR-ID" stype="Text" displayonly="yes">MIR-SERV-BR-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SO-ID">Sales Office:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SO-ID" stype="Text" displayonly="yes">MIR-SO-ID</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OVRID-ID">Agent Situation:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OVRID-ID" stype="Text" displayonly="yes">MIR-OVRID-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AGT-ID-2">Referral Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-ID-2" stype="Text" displayonly="yes">MIR-AGT-ID-2</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-AGT-TYP-CD">Coverage Agent Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-AGT-TYP-CD" stype="Text" displayonly="yes">MIR-CVG-AGT-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-COMM-TYP-CD">Commission Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COMM-TYP-CD" stype="Text" displayonly="yes">MIR-COMM-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TRANS-DT">Transaction Effective Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRANS-DT" stype="Date" displayonly="yes">MIR-TRANS-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-APP-RECV-DT">Sales Office Report Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-APP-RECV-DT" stype="Date" displayonly="yes">MIR-APP-RECV-DT</span>
+                    </td>
+                </tr>
+                 <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-ISS-DT">Coverage Issue Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-ISS-DT" stype="Date" displayonly="yes">MIR-CVG-ISS-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSRD-BTH-DT">Insured Date of Birth:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-BTH-DT" stype="Date" displayonly="yes">MIR-INSRD-BTH-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-FACE-AMT">Coverage Face Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-FACE-AMT" stype="Currency" displayonly="yes">MIR-CVG-FACE-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAY-NUM">Payment Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAY-NUM" stype="Number" displayonly="yes">MIR-PAY-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                   <td class="celldisplaylabel">
+                       <label for="MIR-PREM-PD-DT">Premium Paid Date:</label>
+                   </td>
+                   <td class="celldisplay">
+                       <span id="MIR-PREM-PD-DT" stype="Date" displayonly="yes">MIR-PREM-PD-DT</span>
+                   </td>
+                   <td class="celldisplaylabel">
+                       <label for="MIR-CWA-PRCES-DT">CWA Process Date:</label>
+                   </td>
+                   <td class="celldisplay">
+                       <span id="MIR-CWA-PRCES-DT" stype="Date" displayonly="yes">MIR-CWA-PRCES-DT</span>
+                   </td>
+                </tr>
+
+
+
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Processing Information">Processing Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USER-ID">User ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USER-ID" stype="Text" displayonly="yes">MIR-USER-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-ENTR-BUS-FCN-ID">Transaction ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ENTR-BUS-FCN-ID" stype="Text" displayonly="yes">MIR-DV-ENTR-BUS-FCN-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-TRXN-BTCH-NUM">Batch Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-TRXN-BTCH-NUM" stype="Number" elength="7" decimals="0" displayonly="yes">MIR-POL-TRXN-BTCH-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Commission">Commission</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Premium Information">Premium Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Miscellaneous Information">Miscellaneous Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Processing Information">Processing Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

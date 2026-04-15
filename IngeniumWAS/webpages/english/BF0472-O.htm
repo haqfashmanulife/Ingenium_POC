@@ -1,0 +1,374 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:14 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0472-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling
+*  017150  612J     Remove Currency decimals="2"
+*  02CP63  DPK      Add Servicing Agent
+*  NWLPSC  CTS      Changes done to increase the length of the policy fee
+*  NWLPSC           and modal factors
+*  M271B2  CTS      ADDED NEW FIELD FOR FRA-SCHEDULED ADVANCED PREMIUM PAYMENT*
+*  M271B2  CTS      FREQUENCY                                                 
+*  M271A1 CTS       ADDED NEW FIELD PREMIUM YEN PAYMENT AMOUNT AS PART OF     
+*  M271A1 CTS       FRA                                                       
+*  TV2009 CTS       SULV2 ADMIN OTHER CHANGES      
+*  23774B  CTS       23774B-IE Retirement changes						                           
+*  UYS133  CTS      PD group size field addition                              *
+*  M2025F  CTS      ADDITION OF JUDGEMENT RATE FIELD FOR FRA
+*  M2025D  CTS      ADDITION OF PREMIUM SUSPENSION TYPE CD FIELD FOR FRA      *
+*  S50650  CTS      UDS3-50650 JIRA FIX (10/7 DIGIT POLICY)                   *
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0472-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  S50650 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy();SubInpPayoPolicy()">
+<!-- S50650 CHANGES end HERE-->	
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+			<!-- UY3004 CHANGES START HERE
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" /> -->
+<!--  S50650 CHANGES STARTS HERE-->
+            <input type="hidden" name="MIR-STR3-PAYO-IND" id="MIR-STR3-PAYO-IND" stype="Hidden" />
+            <input type="hidden" name="MIR-10-POL-ID" id="MIR-10-POL-ID" stype="Hidden" />
+<!--  S50650 CHANGES ENDS HERE-->	   
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PCHST-EFF-IDT-NUM">Effective Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PCHST-EFF-IDT-NUM" stype="Date" displayonly="yes">MIR-PCHST-EFF-IDT-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">General Policy Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ISS-EFF-DT">Policy Issue Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-TYP-CD">Billing Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TYP-CD" stype="Text" displayonly="yes">MIR-POL-BILL-TYP-CD</span>
+                    </td>
+                </tr>
+<!-- UYS133 CHANGE STARTS HERE -->
+                <tr>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PD-GR-TYP-CD">PD group size:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PD-GR-TYP-CD" stype="Text" displayonly="yes">MIR-PD-GR-TYP-CD</span>
+                    </td>
+                </tr>
+<!-- UYS133 CHANGE ENDS HERE -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">Premium Mode:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SNDRY-AMT">Sundry Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SNDRY-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-POL-SNDRY-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SNDRY-REASN-CD">Sundry Reason:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SNDRY-REASN-CD" stype="Text" displayonly="yes">MIR-POL-SNDRY-REASN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAC-DRW-DY">Deposit Day:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAC-DRW-DY" stype="Day" displayonly="yes">MIR-POL-PAC-DRW-DY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CRNT-MODE-FCT">Policy Mode Factor:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CRNT-MODE-FCT" stype="Number" elength="9" decimals="7" signed="yes" displayonly="yes">MIR-POL-CRNT-MODE-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MODE-FCT-RESTR-IND">Restrict mode factor from defaulting:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-MODE-FCT-RESTR-IND" id="MIR-MODE-FCT-RESTR-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PFEE-FCT">Policy Fee Factor:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PFEE-FCT" stype="Number" elength="9" decimals="7" signed="yes" displayonly="yes">MIR-POL-PFEE-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PFEE-RESTR-IND">Restrict policy fee factor from defaulting:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-PFEE-RESTR-IND" id="MIR-POL-PFEE-RESTR-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DB-OPT-CD">Death Benefit Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DB-OPT-CD" stype="Text" displayonly="yes">MIR-POL-DB-OPT-CD</span>
+                    </td>
+               <!--M271A1 CHANGES BEGIN-->
+                    <!--<td class="celldisplaylabel"/>
+                    <td class="celldisplay" /> -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CHNG-PREM-AMT">Premium Yen Payment Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CHNG-PREM-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-CHNG-PREM-AMT</span>
+                    </td>
+               <!--M271A1 CHANGES END-->
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Special Frequency Billing Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SFB-CD">Billing Mode:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SFB-CD" stype="Text" displayonly="yes">MIR-POL-SFB-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-SEMI-MTHLY-DY">Semi-Monthly Billing Day:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-SEMI-MTHLY-DY" stype="Day" displayonly="yes">MIR-SFB-SEMI-MTHLY-DY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-STRT-DT">Start Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-STRT-DT" stype="Date" displayonly="yes">MIR-SFB-STRT-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-END-DT">End Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-END-DT" stype="Date" displayonly="yes">MIR-SFB-END-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-GP-STRT-DT-NUM">Gap Start Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-GP-STRT-DT-NUM" stype="Text" displayonly="yes">MIR-SFB-GP-STRT-DT-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-GP-END-DT-NUM">Gap End Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-GP-END-DT-NUM" stype="Text" displayonly="yes">MIR-SFB-GP-END-DT-NUM</span>
+                    </td>
+                </tr>
+
+                <!--M271B2 CHANGES BEGIN-->
+                <tr>
+                   <td class="celldisplaylabel">
+                     <label for="MIR-SCHD-ADV-PMT-DUR">Scheduled Advanced Premium Payment Frequency:</label>
+                   </td>
+                   <td class="celldisplay">
+                       <span id="MIR-SCHD-ADV-PMT-DUR" stype="Text" displayonly="yes">MIR-SCHD-ADV-PMT-DUR</span>
+                   </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <!--M271B2 CHANGES END-->
+                
+            </table>
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="Agent">Servicing Agent Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SERV-AGT-ID">Servicing Agent ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SERV-AGT-ID" stype="Text" displayonly="yes">MIR-SERV-AGT-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SERV-BR-ID">Servicing Agent Branch:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SERV-BR-ID" stype="Text" displayonly="yes">MIR-SERV-BR-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-SERV-AGT-NM">Servicing Agent Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-SERV-AGT-NM" stype="Text" displayonly="yes">MIR-DV-SERV-AGT-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SERV-SO-ID">Servicing Agent's Sales Office:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SERV-SO-ID" stype="Text" displayonly="yes">MIR-SERV-SO-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SERV-AGT-ASIGN-DT">Servicing Agent Assignment Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SERV-AGT-ASIGN-DT" stype="Date" displayonly="yes">MIR-SERV-AGT-ASIGN-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREV-SERV-AGT-ID">Previous Servicing Agent:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREV-SERV-AGT-ID" stype="Text" displayonly="yes">MIR-PREV-SERV-AGT-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REFRL-ID">Referral Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-REFRL-ID" stype="Text" displayonly="yes">MIR-POL-REFRL-ID</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+               <!--TV2009 CHANGES BEGIN-->
+	        <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Target-Hit Transfer Related</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TRG-HIT-CNVR-RT">Target Value (%)</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRG-HIT-CNVR-RT" stype="Text" displayonly="yes">MIR-TRG-HIT-CNVR-RT</span>
+                    </td>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+               <!--TV2009 CHANGES ENDS-->
+               <!--M2025F CHANGES BEGIN-->
+	        <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Yen-Denominated Annuitization Automatic Decision Rider Judgment Rate Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-JUDG-PCT">Judgment Rate (%)</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JUDG-PCT" stype="Percent" elength="3" displayonly="yes">MIR-JUDG-PCT</span>
+                    </td>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+               <!--M2025F CHANGES ENDS-->
+			   <!--M2025D CHANGES BEGIN-->
+	        <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Premium Suspension of FRA</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREM-SUSP-TYP-CD">Premium Suspension</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREM-SUSP-TYP-CD" stype="Text" displayonly="yes">MIR-PREM-SUSP-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+               <!--M2025D CHANGES ENDS-->
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+	<!--  S50650 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+    <script src="../js/Policypayo.js"></script>
+<!-- S50650 CHANGES ENDS HERE -->
+</html>

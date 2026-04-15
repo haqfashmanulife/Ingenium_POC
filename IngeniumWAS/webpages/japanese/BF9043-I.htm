@@ -1,0 +1,93 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:55 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9043-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  02NB33  GW       New for release                                            
+*  P00929  ROC     CHANGE RECEIPT NUMBER FROM 10 TO 8 BIT                      
+*  MP162A  CTS     CHANGE MIR-RECPT-NBR FROM MAXLENGTH TO ELENGTH FOR OWL SERVER 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.   
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+                         
+*********************************************F************************************
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9043-I</title>
+<link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+</head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden"/>
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-OLD-RECPT-DT">既存領収日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-OLD-RECPT-DT" stype="Date" displayonly="yes">MIR-OLD-RECPT-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-OLD-RECPT-NBR">既存領収番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-OLD-RECPT-NBR" stype="Text" displayonly="yes">MIR-OLD-RECPT-NBR</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledatakey">
+                <tr>
+                   <td class="celldatakeylabel">
+                       <label for="MIR-RECPT-DT">領収日:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-RECPT-DT" id="MIR-RECPT-DT" stype="Date"  onfocus="enterField(this)" onblur="validateField(this)"/>   
+                   </td>
+                   <td class="celldatakeylabel"><label for="MIR-RECPT-NBR">領収番号:</label></td>
+                   <td class="celldatakey"><input type="text" value=" " name="MIR-RECPT-NBR" id="MIR-RECPT-NBR" stype="text" elength="8" maxlength="8" onfocus="enterField(this)" onblur="validateField(this)"/></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

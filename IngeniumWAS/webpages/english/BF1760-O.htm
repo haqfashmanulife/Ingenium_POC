@@ -1,0 +1,156 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:36 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1760-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge. 
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+                                         
+* UY3060   CTS      DIVIDEND PROCESSING.                                         
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1760-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="5">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-BON-DIV-TYP-CD">Record Type:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-BON-DIV-TYP-CD" stype="Text" displayonly="yes">MIR-BON-DIV-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-BON-DIV-IDT-NUM">Declaration Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-BON-DIV-IDT-NUM" stype="Date" displayonly="yes">MIR-BON-DIV-IDT-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-BON-DIV-SEQ-NUM">Sequence Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-BON-DIV-SEQ-NUM" stype="Text" displayonly="yes">MIR-BON-DIV-SEQ-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BON-DIV-STAT-CD">Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BON-DIV-STAT-CD" stype="Text" displayonly="yes">MIR-BON-DIV-STAT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BON-DIV-TRXN-AMT">Cash Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BON-DIV-TRXN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-BON-DIV-TRXN-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BON-DIV-TRXN-CD">Sub Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BON-DIV-TRXN-CD" stype="Text" displayonly="yes">MIR-BON-DIV-TRXN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BON-DIV-PUA-AMT">Bonus Paid Up Additions Face Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BON-DIV-PUA-AMT" stype="Currency" elength="15" displayonly="yes">MIR-BON-DIV-PUA-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-EFF-IDT-NUM">Bonus / Dividend Effective Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-EFF-IDT-NUM" stype="Date" displayonly="yes">MIR-EFF-IDT-NUM</span>
+                    </td>
+<!--UY3060 STARTS HERE -->
+<!--                   <td class="celldisplaylabel" /> -->
+<!--                   <td class="celldisplay" /> -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BON-DIV-ACUM-AMT">Accumulated Dividend Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BON-DIV-ACUM-AMT" stype="Currency" elength="15" displayonly="yes">MIR-BON-DIV-ACUM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BON-DIV-ACUM-INT-AMT">Accumulated Interest Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BON-DIV-ACUM-INT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-BON-DIV-ACUM-INT-AMT</span>
+                    </td>
+					<td class="celldisplaylabel" /> 
+                    <td class="celldisplay" /> 
+                </tr>
+<!--UY3060 ENDS HERE -->
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

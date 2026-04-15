@@ -1,0 +1,161 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:24 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1011-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                              
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1011-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="splitBranch('MIR-BNK-BR-ID');onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID" id="MIR-BNK-BR-ID" jpnbranch="Branch" jpnsubbranch="SubBranch" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-ID">Client ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Payor Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-BNK-ACCT-NUM">Bank Account Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-BNK-ACCT-NUM" stype="Text" displayonly="yes">MIR-CLI-BNK-ACCT-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="6">Bank Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ID">Bank Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ID" stype="Text" displayonly="yes">MIR-BNK-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="Branch">Branch Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="Branch" stype="Text" displayonly="yes">Branch</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="SubBranch">Sub Branch Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="SubBranch" stype="Text" displayonly="yes">SubBranch</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-ID">Account Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-ID" stype="Text" displayonly="yes">MIR-BNK-ACCT-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-TYP-CD">Account Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-TYP-CD" stype="Text" displayonly="yes">MIR-BNK-ACCT-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-MICR-IND">Cheque from account is MICR-encoded:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-BNK-ACCT-MICR-IND" id="MIR-BNK-ACCT-MICR-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="5">Billing Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-PAC-DRW-DY-T[1]">Draw Day</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PAC-PREM-AMT-T[1]">Total Premium Paying Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PAC-PEND-AMT-T[1]">Total Pending Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PAC-SPND-AMT-T[1]">Total Suspended Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-TOT-PAC-AMT-T[1]">Total PAC Draw Amount</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAC-DRW-DY-T[]" stype="Day" displayonly="yes">MIR-POL-PAC-DRW-DY-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAC-PREM-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-PAC-PREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAC-PEND-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-PAC-PEND-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAC-SPND-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-PAC-SPND-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TOT-PAC-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-TOT-PAC-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/JapaneseBranch.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

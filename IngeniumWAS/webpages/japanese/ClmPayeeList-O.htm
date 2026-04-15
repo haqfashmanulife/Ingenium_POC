@@ -1,0 +1,123 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:26:01 PM EDT
+*
+*********************************************************************************
+*  Component:   ClmPayeeList.htm                                               
+*  Description:     List  Payees for a Claim                                   
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  HCL103  HIN/CL   ADD A PAYEE                                  (HCL103C)     
+*  HCCL05  HIN/CL   Pick-up Facility (add Historical Claim Indicator) 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UYSDMC  CTS      USYS CLAIM IND ADDITION                         
+*********************************************************************************
+-->
+ <html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ClmPayeeList</title>
+<link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+</head>
+<body class="bodyws">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+
+ <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLM-ID">マスタークレームID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLM-ID" stype="Text" displayonly="yes">MIR-CLM-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                       <label for="MIR-CLMA-CLM-STAT-CD">マスタークレーム ステータス:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLMA-CLM-STAT-CD" stype="Text" displayonly="yes">MIR-CLMA-CLM-STAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLMA-HIST-CLM-IND">クレーム履歴:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <input type="checkbox" name="MIR-CLMA-HIST-CLM-IND" id="MIR-CLMA-HIST-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                </tr>
+<!-- UYSDMC CHANGES START -->
+     <tr>
+          <td class="celldisplaykeylabel">
+		  </td>
+          <td class="celldisplaykey">
+		  </td>
+          <td class="celldisplaykeylabel">
+		  </td>
+          <td class="celldisplaykey">
+		  </td>
+		  <td class="celldisplaykeylabel"><label for="MIR-CLMA-USYS-CLM-IND">ユニシス請求:</label>
+		  </td>
+          <td class="celldisplaykey"><input type="checkbox" name="MIR-CLMA-USYS-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+		  </td>
+     </tr>
+<!-- UYSDMC CHANGES END -->	
+            </table>
+
+<br/>
+<table class="tabledisplay" genrows="0" >
+
+<tr>
+
+<td class="celldisplayheading"><label for="SELECT-T[1]"></label></td>
+<td class="celldisplayheading"><label for="MIR-PAYEE-NM-TXT-T[1]">受取人名</label></td>
+<td class="celldisplayheading"><label for="MIR-BNK-NM-T[1]">銀行名</label></td>
+<td class="celldisplayheading"><label for="MIR-BNK-BR-NM-T[1]">支店名</label></td>
+<td class="celldisplayheading"><label for="MIR-CLRL-BNK-ACCT-ID-T[1]">口座番号</label></td>
+<td class="celldisplayheading"><label for="MIR-CLRL-ACCT-HLDR-NM-T[1]"> 口座名義人名</label></td>
+<td class="celldisplayheading"><label for="MIR-CLRL-ADDR-LOC-CD-T[1]">住所コード</label></td>
+<td class="celldisplayheading"><label for="MIR-CLRL-SEND-PMT-NOTI-IND-T[1]">支払計算書の送付</label></td>
+<td class="celldisplayheading"><label for="MIR-CLRL-INSRD-REL-CD-T[1]">被保険者との続柄</label></td>
+<td class="celldisplayheading"><label for="MIR-PREV-UPDT-DT-T[1]">受取人前回更新日</label></td>
+<td class="celldisplayheading"><label for="MIR-PREV-UPDT-USER-ID-T[1]">受取人前回更新者ユーザID</label></td>
+<td class="celldisplayheading"><label for="MIR-CLRL-PAYE-STAT-CD-T[1]">受取人ステータス</label></td>
+
+</tr>
+
+<tr>
+
+<td class="celldisplay"><input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()"/></td>
+<td class="celldisplay"><span id="MIR-PAYEE-NM-TXT-T[]" stype="Text" displayonly="yes">MIR-PAYEE-NM-TXT-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-BNK-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-NM-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-BNK-BR-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-BR-NM-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-CLRL-BNK-ACCT-ID-T[]" stype="Text" displayonly="yes">MIR-CLRL-BNK-ACCT-ID-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-CLRL-ACCT-HLDR-NM-T[]" stype="Text" displayonly="yes">MIR-CLRL-ACCT-HLDR-NM-T[]</span>
+</td><td class="celldisplay"><span id="MIR-CLRL-ADDR-LOC-CD-T[]" stype="Text" displayonly="yes">MIR-CLRL-ADDR-LOC-CD-T[]</span>
+</td><td class="celldisplay"><span id="MIR-CLRL-SEND-PMT-NOTI-IND-T[]" stype="Text" displayonly="yes">MIR-CLRL-SEND-PMT-NOTI-IND-T[]</span>
+</td><td class="celldisplay"><span id="MIR-CLRL-INSRD-REL-CD-T[]" stype="Text" displayonly="yes">MIR-CLRL-INSRD-REL-CD-T[]</span>
+</td><td class="celldisplay"><span id="MIR-PREV-UPDT-DT-T[]" stype="Text" displayonly="yes">MIR-PREV-UPDT-DT-T[]</span>
+</td><td class="celldisplay"><span id="MIR-PREV-UPDT-USER-ID-T[]" stype="Text" displayonly="yes">MIR-PREV-UPDT-USER-ID-T[]</span>
+</td><td class="celldisplay"><span id="MIR-CLRL-PAYE-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-CLRL-PAYE-STAT-CD-T[]</span>
+</td>
+</tr>
+</table>
+
+
+<p><input type="hidden" name="action" id="action" stype="Hidden"/>
+</p>
+<p><input type="hidden" name="index" id="index" stype="Hidden"/>
+</p>
+</form>
+</body>
+<script src="../js/MessagesJapanese.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+</html>

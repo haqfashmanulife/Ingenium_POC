@@ -1,0 +1,63 @@
+<!--
+*********************************************************************************
+*  Component:   BF9304-I.htm
+*  Description: Advance Payment Deferral Management Screen
+*
+*********************************************************************************
+*  Chg#    AUTH     Description
+*
+*  M271B8  CTS      INITIAL VERSION
+*  UY3004  CTS      INPUT HTML POLICY TRIM - 10 BYTES -> 7 BYTES
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+<title>BF9304-I</title>
+<link charset="UTF-8" href="../english/Ingenium.css" rel="stylesheet" type="text/css"/>
+</head>
+<!-- UY3004 CHANGES START HERE
+	    <body class="bodyws" onLoad="onLoad();"> -->
+	    <body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+<!-- UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" id="inputForm" method="post" onsubmit="return(onSubmit());" target="_parent">
+<input type="hidden" name="index" id="index" stype="Hidden" />
+<input name="action" id="action" stype="Hidden" type="hidden"/>
+<table class="tabledatakey">
+          <tr>
+               <td class="celldatakeylabel">
+                    <label for="MIR-POL-ID-BASE">Policy ID:</label>
+               </td>
+               <td class="celldatakey">
+                    <input mandatory="yes" maxlength="9" name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" onfocus="enterField(this)" stype="Text" type="text" value=" "/>
+               </td>
+               <td class="celldatakeylabel">
+                    <label for="MIR-POL-ID-SFX">Suffix:</label>
+               </td>
+               <td class="celldatakey">
+                    <input maxlength="1" name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" onfocus="enterField(this)" stype="Text" type="text" value=" "/>
+               </td>
+               <td class="celldatakeylabel">
+                    <label for="MIR-PRCES-DT">Processing Date:</label>
+               </td>
+               <td class="celldatakey">
+                    <input name="MIR-PRCES-DT" id="MIR-PRCES-DT" onblur="validateField(this)" onfocus="enterField(this)" stype="Date" type="text" value=" "/>
+               </td>
+          </tr>
+     </table>
+</form>
+</body>
+<script src="../js/MessagesEnglish.js" ></script>
+<script src="../js/MessageFunctions.js" ></script>
+<script src="../js/ActionHandlers.js" ></script>
+<script src="../js/ClientLevelEdits.js" ></script>
+<script src="../js/GlobalUserMethods.js" ></script>
+<!-- UY3004 CHANGES START HERE -->
+	    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

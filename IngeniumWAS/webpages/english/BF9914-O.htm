@@ -1,0 +1,185 @@
+<!--
+*********************************************************************************
+*  Component:   BF9914-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  MP0026  CTS      SEARCH RESULTS FOR CUSTOMER
+*  EN9547  CTS      Style of the english page is changed
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9914-O</title>
+<link rel="stylesheet" type="text/css" href="../english/CustProspectnew.css" charset="ISO-8859-1" />
+<link rel="stylesheet" type="text/css" href="../Print.css" media="print" />
+</head>
+<body class="bodyws" >
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+<input type="hidden" name="index" id="index" stype="Hidden"/>
+<input type="hidden" name="MIR-HID-GIV-NM-KA" id="MIR-HID-GIV-NM-KA" stype="Hidden"/>
+<input type="hidden" name="MIR-HID-SUR-NM-KA" id="MIR-HID-SUR-NM-KA" stype="Hidden"/>
+<input type="hidden" name="MIR-CLI-BTH-DT" id="MIR-CLI-BTH-DT" stype="Hidden"/>
+<input type="hidden" name="MIR-SEQ-NUM" id="MIR-SEQ-NUM" stype="Hidden"/>
+
+<table width="100%" id="table1" class="celldisplaykeylabel">
+  <tr>
+    <td><label for="MIR-PRCES-DT">Date: </label><span id="MIR-PRCES-DT" stype="Date" displayonly="yes">MIR-PRCES-DT</span></td>
+  </tr>
+</table>
+<table cellspacing="10" >
+  <tr>
+    <td class="celldisplaykeylabel2"><label for="MIR-DV-RO-SO-CD">RO-SO Code:</label></td>
+    <td class="celldisplaykeylabel2" ><span id="MIR-DV-RO-SO-CD" stype="Text" displayonly="yes">MIR-DV-RO-SO-CD</span></td>
+    <td class="celldisplaykeylabel2"><label for="MIR-AGT-ID">PA Code:</label></td>
+    <td class="celldisplaykeylabel2"><span id="MIR-AGT-ID" stype="Text" displayonly="yes">MIR-AGT-ID</span></td>
+    <td class="celldisplaykeylabel2"><label for="MIR-AGT-NM">PA Name:</label></td>
+    <td class="celldisplaykeylabel2"><span id="MIR-AGT-NM" stype="Text" displayonly="yes">MIR-AGT-NM</span></td>
+  </tr>
+</table>
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td width="100" >
+    <img border="0" src="../english/images/searchresults.gif" alt="Search"  />
+    </td>
+</tr>
+</table>
+<hr color="#0D4A2B"/>
+<br/>
+<table border="0" width="100%" class="tabledisplay" id="TableHide2">
+  <tr>
+      <td width="25%" class="celltitle">
+    <input type="radio" name="MIR-SRCH-TYP-CD" value="C" stype="YesNo"  onclick="onYesNoUa('Yes')" onfocus="saveValue();enterField(this)" >Customer</input>
+        </td>
+      <td width="25%" class="celltitle">
+    <input type="radio" name="MIR-SRCH-CD" value="NKADOB" stype="YesNoUnanswered"  onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)" >Name KANA + Date Of Birth </input>
+        </td>
+      <td width="25%" class="celltitle"></td>
+      <td width="25%" class="celltitle"></td>
+    </tr>
+    <tr>
+
+      <td width="25%" class="celltitle">
+        <input type="radio" name="MIR-SRCH-TYP-CD" value="P" stype="YesNo" onclick="onYesNoUa('No')" onfocus="saveValue();enterField(this)" >Prospect</input>
+        </td>
+      <td width="25%" class="celltitle">
+      <input type="radio" name="MIR-SRCH-CD" value="NKJDOB" stype="YesNoUnanswered"  onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)" >Name Kanji + Date Of Birth</input>
+        </td>
+      <td width="25%" class="celltitle"></td>
+      <td width="25%" class="celltitle"></td>
+    </tr>
+    <tr>
+      <td width="25%" class="celltitle">
+      </td>
+      <td width="25%" class="celltitle">
+    <input type="radio" name="MIR-SRCH-CD" value="PSTLCD" stype="YesNoUnanswered"  onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)" >Postal Code </input>
+      </td>
+      <td width="25%" class="celltitle"></td>
+      <td width="25%" class="celltitle"></td>
+    </tr>
+    <tr>
+      <td width="25%" class="celltitle">
+      </td>
+      <td width="50%" class="celltitle">
+    <input type="radio" name="MIR-SRCH-CD" value="POL" stype="YesNoUnanswered"  onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)" >Product code + Policy Id </input>
+      </td>
+      <td width="25%" class="celltitle"></td>
+    </tr>
+
+</table>
+
+<table border="0" width="100%" id="TableHide1">
+  <tr>
+    <td><label for="MIR-GIV-NM-KA">First Name Kana:</label></td>
+    <td><span id="MIR-GIV-NM-KA" stype="Text" displayonly="yes">MIR-GIV-NM-KA</span></td>
+    <td><label for="MIR-SUR-NM-KA">Last Name Kana:</label></td>
+    <td><span id="MIR-SUR-NM-KA" stype="Text" displayonly="yes">MIR-SUR-NM-KA</span></td>
+  </tr>
+  <tr>
+    <td><label for="MIR-GIV-NM-KJ">First Name Kaji:</label></td>
+    <td><span id="MIR-GIV-NM-KJ" stype="Text" displayonly="yes">MIR-GIV-NM-KJ</span></td>
+    <td><label for="MIR-SUR-NM-KJ">Last Name Kanji:</label></td>
+    <td><span id="MIR-SUR-NM-KJ" stype="Text" displayonly="yes">MIR-SUR-NM-KJ</span></td>
+  </tr>
+  <tr>
+    <td><label for="MIR-DV-CLI-BTH-DT-1">Date of Birth From:</label></td>
+    <td><span id="MIR-DV-CLI-BTH-DT-1" stype="Text" displayonly="yes">MIR-DV-CLI-BTH-DT-1</span></td>
+    <td><label for="MIR-DV-CLI-BTH-DT-2">Date of Birth To:</label></td>
+    <td><span id="MIR-DV-CLI-BTH-DT-2" stype="Text" displayonly="yes">MIR-DV-CLI-BTH-DT-2</span></td>
+  </tr>
+  <tr>
+    <td><label for="MIR-PRT1-CLI-PSTL-CD">Postal Code:</label></td>
+    <td><span id="MIR-PRT1-CLI-PSTL-CD" stype="Text" displayonly="yes">MIR-PRT1-CLI-PSTL-CD</span></td>
+    <td><label for="MIR-PRT2-CLI-PSTL-CD">Postal Code:</label></td>
+    <td><span id="MIR-PRT2-CLI-PSTL-CD" stype="Text" displayonly="yes">MIR-PRT2-CLI-PSTL-CD</span></td>
+  </tr>
+  <tr>
+    <td><label for="MIR-PROD-CD">Product Code:</label></td>
+    <td><span id="MIR-PROD-CD" stype="Text" displayonly="yes">MIR-PROD-CD</span></td>
+    <td><label for="MIR-POL-ID">Policy Id:</label></td>
+    <td><span id="MIR-POL-ID" stype="Text" displayonly="yes">MIR-POL-ID</span></td>
+  </tr>
+</table>
+
+<br/>
+<table width="100%" class="tabledisplay" genrows="0" border="1" cellpadding="1" cellspacing="1">
+
+<tr>
+
+<td class="celldisplayheading"><label for="MIR-DV-CLI-NUM-T[1]">No.</label></td>
+<td class="celldisplayheading"><label for="MIR-DV-CLI-NM-KA-T[1]">Name Kana</label></td>
+<td class="celldisplayheading"><label for="MIR-DV-CLI-NM-KJ-T[1]">Name Kanji</label></td>
+<td class="celldisplayheading"><label for="MIR-CLI-BTH-DT-T[1]">Date of Birth</label></td>
+<td class="celldisplayheading"><label for="MIR-PSTL-CD-T[1]">Postal Code</label></td>
+<td class="celldisplayheading"><label for="MIR-CLI-CRT-ADD-T[1]">Address</label></td>
+</tr>
+
+<tr>
+
+<td class="celldisplay"><span id="MIR-DV-CLI-NUM-T[]" stype="Number" elength="3"   displayonly="yes">MIR-DV-CLI-NUM-T[]</span>
+</td>
+<td class="celldisplay">
+<a name="MIR-DV-CLI-NM-KA-T[]" class="anchorblack" href="a" Action="SelectItem" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">MIR-DV-CLI-NM-KA-T[]</a>
+</td>
+<td class="celldisplay"><span id="MIR-DV-CLI-NM-KJ-T[]" stype="Text" displayonly="yes">MIR-DV-CLI-NM-KJ-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-CLI-BTH-DT-T[]" stype="Date" displayonly="yes">MIR-CLI-BTH-DT-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-PSTL-CD-T[]" stype="Text" displayonly="yes">MIR-PSTL-CD-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-CLI-CRT-ADD-T[]" stype="Text" displayonly="yes">MIR-CLI-CRT-ADD-T[]</span>
+</td>
+</tr>
+</table>
+<hr color="#0D4A2B"/>
+
+</form>
+<!--EN9547 CHANGES BEGIN -->
+<!--
+<script src="../../js/MessagesEnglish.js"></script>
+<script src="../../js/MessageFunctions.js"></script>
+<script src="../../js/ActionHandlers.js"></script>
+<script src="../../js/ClientLevelEdits.js"></script>
+<script src="../../js/GlobalUserMethods.js"></script>
+<script src="../../js/BF9914-O.js"></script>
+<script>onLoadCustom()</script>
+-->
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<script src="../js/BF9914-O.js"></script>
+<script>onLoadCustom()</script>
+<!--EN9547 CHANGES END -->
+</body>
+</html>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*********************************************************************************
+*  Component:   BF9D44-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*  MP251B  CTS      NEW SCREEN FOR TRAD DEPOSIT HISTORY MODIFICATION LIST SCREEN
+*  23774B  CTS      CHANGES DONE FOR IE RETIREMENT PROJECT TO MAKE IT
+*                   COMPATIBLE FOR MICROSOFT EDGE. CHANGES IN HTML INCLUDE
+*                   ADDING "ID" ATTRIBUTE FOR ALL INPUT FIELDS AND CHANGES IN
+*                   JAVA SCRIPTS TO MODIFY CERTAIN FUNCTIONS/COMMANDS WHICH
+*                   ARE NO LONGER COMPATILBLE WITH EDGE.
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9D44-O</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="ISO-8859-1" />
+</head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+    <table class="tabledisplaykey">
+        <tr>
+            <td class="celldisplaykeylabel">
+                <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+            </td>
+            <td class="celldisplaykey" colspan="5">
+                <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+            </td>
+        </tr>
+         <tr>
+            <td class="celldisplaykeylabel">
+                <label for="MIR-POL-ID-BASE">Policy Id:</label>
+            </td>
+            <td class="celldisplaykey">
+                 <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes" width="17%">MIR-POL-ID-BASE</span>
+            </td>
+            <td class="celldisplaykeylabel">
+                <label for="MIR-POL-ID-SFX">Suffix:</label>
+            </td>
+            <td class="celldisplaykey">
+                <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+            </td>
+            <td class="celldisplaykeylabel">
+                 <label for="MIR-APPL-CTL-PRCES-DT">Process Date:</label>
+            </td>
+            <td class="celldisplaykey">
+                <span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="celldisplaykeylabel">
+                <label for="MIR-PLAN-ID">Plan ID:</label>
+            </td>
+            <td class="celldisplaykey">
+               <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+            </td>
+            <td class="celldisplaykeylabel">
+              <label for="MIR-POL-ISS-EFF-DT">Issue Date of the Policy:</label>
+            </td>
+            <td class="celldisplaykey">
+               <span id="MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT</span>
+            </td>
+            <td class="celldisplaykeylabel">
+            </td>
+            <td class="celldisplaykey">
+            </td>
+        </tr>
+        <tr>
+            <td class="celldisplaykeylabel">
+                <label for="MIR-TRAD-PD-DURATION-NUM">Trad Paid Duration:</label>
+            </td>
+            <td class="celldisplaykey">
+               <span id="MIR-TRAD-PD-DURATION-NUM" stype="Text" displayonly="yes">MIR-TRAD-PD-DURATION-NUM</span>
+            </td>
+            <td class="celldisplaykeylabel">
+               <label for="MIR-TRAD-PD-TO-MO-NUM">Trad Paid to Month:</label>
+            </td>
+            <td class="celldisplaykey">
+               <span id="MIR-TRAD-PD-TO-MO-NUM" stype="Text" displayonly="yes">MIR-TRAD-PD-TO-MO-NUM</span>
+            </td>
+            <td class="celldisplaykeylabel">
+               <label for="MIR-POL-PD-TO-DT-NUM">Paid to Date:</label>
+            </td>
+            <td class="celldisplaykey">
+               <span id="MIR-POL-PD-TO-DT-NUM" stype="Text" displayonly="yes">MIR-POL-PD-TO-DT-NUM</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="celldisplaykeylabel">
+                <label for="MIR-POL-PD-DURATION-NUM">Trad Actual Paid Duration:</label>
+            </td>
+            <td class="celldisplaykey">
+                <span id="MIR-POL-PD-DURATION-NUM" stype="Text" displayonly="yes">MIR-POL-PD-DURATION-NUM</span>
+            </td>
+            <td class="celldisplaykeylabel">
+               <label for="MIR-POL-PD-TO-MO-NUM">Trad Actual Paid to Month:</label>
+            </td>
+            <td class="celldisplaykey">
+                <span id="MIR-POL-PD-TO-MO-NUM" stype="Text" displayonly="yes">MIR-POL-PD-TO-MO-NUM</span>
+            </td>
+            <td class="celldisplaykeylabel">
+               <label for="MIR-TRAD-PD-TO-DT-NUM">Trad Paid to Date:</label>
+            </td>
+            <td class="celldisplaykey">
+               <span id="MIR-TRAD-PD-TO-DT-NUM" stype="Text" displayonly="yes">MIR-TRAD-PD-TO-DT-NUM</span>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <table class="tabledisplay" genrows="0" >
+        <tr>
+            <td class="celldisplayheading">
+                <label for="SELECT-T[1]" />
+             </td>
+            <td class="celldisplayheading"><label for="MIR-COLCT-MTHD-CD-T[1]">Collection Method</label></td>
+            <td class="celldisplayheading"><label for="MIR-COLCT-CATG-CD-T[1]">Collection Category</label></td>
+            <td class="celldisplayheading"><label for="MIR-TRAD-JRNL-DT-T[1]">Trad Journal Date</label></td>
+            <td class="celldisplayheading"><label for="MIR-TRAD-SO-JRNL-DT-T[1]">Trad SO Journal Date</label></td>
+            <td class="celldisplayheading"><label for="MIR-TRAD-RECV-DT-T[1]">Trad Received Date</label></td>
+            <td class="celldisplayheading"><label for="MIR-PREM-DUE-MO-NUM-T[1]">Premium Due Month</label></td>
+            <td class="celldisplayheading"><label for="MIR-DPOS-RFND-QTY-T[1]">Number of Deposits/ Refunds</label></td>
+            <td class="celldisplayheading"><label for="MIR-TRXN-AMT-T[1]">Transaction Amount</label></td>
+            <td class="celldisplayheading"><label for="MIR-TRXN-PRCES-DT-T[1]">Transaction Process Date</label></td>
+            <td class="celldisplayheading"><label for="MIR-SEQ-NUM-T[1]">Sequence Number</label></td>
+        </tr>
+        <tr>
+            <td class="celldisplay">
+                <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+            </td>
+            <td class="celldisplay"><span id="MIR-COLCT-MTHD-CD-T[]" stype="Text" displayonly="yes">MIR-COLCT-MTHD-CD-T[]</span>
+            </td>
+            <td class="celldisplay"><span id="MIR-COLCT-CATG-CD-T[]" stype="Text" displayonly="yes">MIR-COLCT-CATG-CD-T[]</span>
+            </td>
+            <td class="celldisplay"><span id="MIR-TRAD-JRNL-DT-T[]" stype="Text" displayonly="yes">MIR-TRAD-JRNL-DT-T[]</span>
+            </td>
+            <td class="celldisplay"><span id="MIR-TRAD-SO-JRNL-DT-T[]" stype="Text" displayonly="yes">MIR-TRAD-SO-JRNL-DT-T[]</span>
+            </td>
+            <td class="celldisplay"><span id="MIR-TRAD-RECV-DT-T[]" stype="Text" displayonly="yes">MIR-TRAD-RECV-DT-T[]</span>
+            </td>
+            <td class="celldisplay"><span id="MIR-PREM-DUE-MO-NUM-T[]" stype="Text" displayonly="yes">MIR-PREM-DUE-MO-NUM-T[]</span>
+            </td>
+            <td class="celldisplay"><span id="MIR-DPOS-RFND-QTY-T[]" stype="Text" displayonly="yes">MIR-DPOS-RFND-QTY-T[]</span>
+            </td>
+            <td class="celldisplay"><span id="MIR-TRXN-AMT-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-TRXN-AMT-T[]</span>
+            </td>
+            <td class="celldisplay"><span id="MIR-TRXN-PRCES-DT-T[]" stype="Text" displayonly="yes">MIR-TRXN-PRCES-DT-T[]</span>
+            </td>
+            <td class="celldisplay"><span id="MIR-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-SEQ-NUM-T[]</span>
+            </td>
+        </tr>
+    </table>
+            <p>
+                <input type="hidden" name="action" id="action" stype="Hidden" />
+            </p>
+            <p>
+                <input type="hidden" name="index" id="index" stype="Hidden" />
+            </p>
+</form>
+</body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

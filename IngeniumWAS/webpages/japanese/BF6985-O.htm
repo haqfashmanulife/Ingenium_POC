@@ -1,0 +1,257 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:51 PM EDT
+*
+*********************************************************************************
+*  Component:   BF6985-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  FT7001 AKATO  FT7 Label Change 		14JUN2004 
+*  Pathfinder 3.0 release - 	BOBAKB   	25JUN2004                         	               
+*  FT7001 AKATO U4-00050,51,52,53 		23JUL2004
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *                                                                            
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF6985-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <p>
+                <label for="MIR-APPL-CTL-PRCES-DT">処理日:</label>
+                <span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+            </p>
+            <p>
+                <label for="MIR-CVG-NUM">保障番号:</label>
+                <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+            </p>
+            <p>
+                <label for="MIR-POL-ID-BASE">証券番号:</label>
+                <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+            </p>
+            <p>
+                <label for="MIR-POL-ID-SFX">枝番:</label>
+                <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+            </p>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACUM-INT-LTD-AMT-T[1]">累積利息支払額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-CLI-TRXN-AMT-T[1]">総出入額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-EFF-DT-T[1]">異動日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-FND-BAL-AMT-T[1]">フレックスファンド積立額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-FND-TRXN-AMT-T[1]">正味積立額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-INT-PCT-T[1]">利率</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-MCV-FND-AMT-T[1]">MCV現ﾌｧﾝﾄﾞ額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-MCV-INT-AMT-T[1]">次回ｷｬｯｼｭﾌﾛｰ額のMCV利息</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-MCV-INT-LTD-AMT-T[1]">累積MCV利息額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-MCV-TRXN-AMT-T[1]">MCV正味額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-REASN-CD-T[1]">処理事由</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-SEQ-NUM-T[1]">ｷｬｯｼｭﾌﾛｰｼｰｹﾝｽ番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-STAT-CD-T[1]">ｷｬｯｼｭﾌﾛｰｽﾃｰﾀｽ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-TRXN-CD-T[1]">処理内容</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-UNIT-QTY-T[1]">変額商品ﾕﾆｯﾄ購入済</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-UVAL-RT-T[1]">現ﾕﾆｯﾄﾊﾞﾘｭｰ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-MCV-ACUM-INT-AMT-T[1]">MCV累積利息額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-MCV-GUAR-INT-PCT-T[1]">MCV保証利率</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NXT-CF-DT-T[1]">次回ｷｬｯｼｭﾌﾛｰ日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ROLOVR-CF-DT-T[1]">GIAﾛｰﾙｵｰﾊﾞｰ日</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-ACUM-INT-LTD-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-ACUM-INT-LTD-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-CLI-TRXN-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-CLI-TRXN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-CF-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-FND-BAL-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-FND-BAL-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-FND-TRXN-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-FND-TRXN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-INT-PCT-T[]" stype="Percent" elength="7" decimals="4" signed="yes" displayonly="yes">MIR-CF-INT-PCT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-MCV-FND-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-MCV-FND-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-MCV-INT-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-MCV-INT-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-MCV-INT-LTD-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-MCV-INT-LTD-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-MCV-TRXN-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-MCV-TRXN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-REASN-CD-T[]" stype="Text" displayonly="yes">MIR-CF-REASN-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-CF-SEQ-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-CF-STAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-TRXN-CD-T[]" stype="Text" displayonly="yes">MIR-CF-TRXN-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-UNIT-QTY-T[]" stype="Text" displayonly="yes">MIR-CF-UNIT-QTY-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-UVAL-RT-T[]" stype="Currency" elength="7" decimals="4" signed="yes" displayonly="yes">MIR-DV-UVAL-RT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MCV-ACUM-INT-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-MCV-ACUM-INT-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MCV-GUAR-INT-PCT-T[]" stype="Percent" elength="7" decimals="5" signed="yes" displayonly="yes">MIR-MCV-GUAR-INT-PCT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NXT-CF-DT-T[]" stype="Date" displayonly="yes">MIR-NXT-CF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ROLOVR-CF-DT-T[]" stype="Date" displayonly="yes">MIR-ROLOVR-CF-DT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <input type="hidden" name="action" id="action" stype="Hidden" />
+            </p>
+            <p>
+                <input type="hidden" name="index" id="index" stype="Hidden" />
+            </p>
+            <p>
+                <label for="MIR-CF-MKTVAL-ADJ-AMT">解約手数料:</label>
+                <span id="MIR-CF-MKTVAL-ADJ-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-MKTVAL-ADJ-AMT</span>
+            </p>
+            <p>
+                <input type="hidden" name="MIR-CVG-CF-TYP-CD" id="MIR-CVG-CF-TYP-CD" stype="Hidden" />
+            </p>
+            <p>
+                <label for="MIR-CVG-WTHDR-ORDR-CD">引出順序:</label>
+                <span id="MIR-CVG-WTHDR-ORDR-CD" stype="Text" displayonly="yes">MIR-CVG-WTHDR-ORDR-CD</span>
+            </p>
+            <p>
+                <label for="MIR-DV-CVG-UNIT-QTY">ユニット合計:</label>
+                <span id="MIR-DV-CVG-UNIT-QTY" stype="Number" elength="11" decimals="5" signed="yes" displayonly="yes">MIR-DV-CVG-UNIT-QTY</span>
+            </p>
+            <p>
+                <label for="MIR-DV-MCV-ACUM-AMT">最低契約額累計:</label>
+                <span id="MIR-DV-MCV-ACUM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-MCV-ACUM-AMT</span>
+            </p>
+            <p>
+                <label for="MIR-DV-MTHV-ADJ-AMT">月応当日付加保険料:</label>
+                <span id="MIR-DV-MTHV-ADJ-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DV-MTHV-ADJ-AMT</span>
+            </p>
+            <p>
+                <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+            </p>
+            <p>
+                <label for="MIR-DV-POL-BASE-CV-AMT">フレックスファンド積立額:</label>
+                <span id="MIR-DV-POL-BASE-CV-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-POL-BASE-CV-AMT</span>
+            </p>
+            <p>
+                <label for="MIR-DV-POL-CSV-AMT">解約返戻金:</label>
+                <span id="MIR-DV-POL-CSV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DV-POL-CSV-AMT</span>
+            </p>
+            <p>
+                <label for="MIR-DV-SURR-CHRG-AMT">早期解約控除額:</label>
+                <span id="MIR-DV-SURR-CHRG-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DV-SURR-CHRG-AMT</span>
+            </p>
+            <p>
+                <label for="MIR-DV-UVAL-RT">現ユニットバリュー:</label>
+                <span id="MIR-DV-UVAL-RT" stype="Currency" elength="7" decimals="4" signed="yes" displayonly="yes">MIR-DV-UVAL-RT</span>
+            </p>
+            <p>
+                <label for="MIR-LOAN-AMT">契約者貸付合計額:</label>
+                <span id="MIR-LOAN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-LOAN-AMT</span>
+            </p>
+            <p>
+                <label for="MIR-PLAN-ID">プラン:</label>
+                <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+            </p>
+            <p>
+                <label for="MIR-POL-CSTAT-CD">契約状況:</label>
+                <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+            </p>
+            <p>
+                <label for="MIR-POL-CVG-REC-CTR">保障数:</label>
+                <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+            </p>
+            <p>
+                <label for="MIR-SBSDRY-CO-ID">子会社:</label>
+                <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+            </p>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

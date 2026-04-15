@@ -1,0 +1,231 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:50 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9E90-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+* MP1668 CTS          Initial Version
+* M271B4 CTS          CHANGES AS PART OF FRA DELINQUENT PREMIUM
+* M319B4 CTS          CHANGES AS PART OF FXWL DELINQUENT PREMIUM
+* Q91735 CTS          DESCRIPTION CHANGES FOR DELINQUENT PREMIUM FIELDS
+* R15533 CTS          CHANGED LABEL FOR DELINQUENT INTEREST
+* UYS033 CTS          ADDED NEW FIELD OVERLOAN REPAYMENT DUE DATE
+* 23774B CTS          Changes done for ie retirement project to make it
+*                     compatible for microsoft edge. Changes in html include
+*                     adding "id" attribute for all input fields and changes in
+*                     java scripts to modify certain functions/commands which
+*                     are no longer compatilble with edge.             
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9E90-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <a name="top" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-MPREM-AMT">翌月保険料:</label>
+                    </td>
+                    <td class="celldisplaykey">
+					    <span id="MIR-POL-MPREM-AMT" stype="Currency" displayonly="yes">MIR-PREM-MTH</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+					    <label for="MIR-REINST-DT">復活日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+		                <span id="MIR-REINST-DT" stype="Date" displayonly="yes">MIR-REINST-DT</span>
+                    </td>
+                </tr>
+     <!-- UYS033 CHANGES START -->
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-LOAN-REPAY-DUE-DT">オーバーローン返済期限:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-LOAN-REPAY-DUE-DT" stype="Date" displayonly="yes">MIR-LOAN-REPAY-DUE-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel"> 
+                    </td>
+                    <td class="celldisplaykey">
+                    </td>
+                </tr>
+     <!-- UYS033 CHANGES END -->
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ID">プラン:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+      <!-- CHANGES FOR M319B4 STARTS FROM HERE -->
+                    <td class="celldisplaylabel" colspan="4">
+                    </td>
+      <!--
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-DELINQ-PREM">延滞保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-DELINQ-PREM" stype="Currency" displayonly="yes">MIR-DELINQ-PREM</span>
+                    </td> -->
+        <!-- CHANGES FOR M319B4 ENDS HERE -->
+                </tr>
+                <tr>
+      <!-- CHANGES FOR M319B4 STARTS FROM HERE -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-DELINQ-PREM">延滞保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-DELINQ-PREM" stype="Currency" displayonly="yes">MIR-DELINQ-PREM</span>
+                    </td>
+        <!-- CHANGES FOR M319B4 ENDS HERE -->
+                    <td class="celldisplaylabel">
+      <!-- CHANGES FOR R15533 STARTS FROM HERE -->
+                        <!-- <label for="MIR-DV-DELINQ-INT">延滞利息:</label> -->
+                        <label for="MIR-DV-DELINQ-INT">FRA両替の端数金額:</label>
+      <!-- CHANGES FOR R15533 STARTS FROM HERE -->
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-DELINQ-INT" stype="Currency" signed="yes" displayonly="yes">MIR-DELINQ-INT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-TOT-AMT">復活保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TOT-AMT" stype="Currency" displayonly="yes">MIR-TOT-AMT</span>
+                    </td>
+                </tr>
+      <!-- CHANGES FOR M319B4 STARTS FROM HERE -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-DELINQ-FRCY-PREM">延滞保険料（契約通貨）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-DELINQ-FRCY-PREM" stype="Currency" displayonly="yes">MIR-DELINQ-FRCY-PREM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-DELINQ-FRCY-INT">延滞利息（契約通貨）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-DELINQ-FRCY-INT" stype="Currency"  signed="yes" displayonly="yes">MIR-DELINQ-FRCY-INT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-TOT-FRCY-AMT">復活保険料（契約通貨）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TOT-FRCY-AMT" stype="Currency" displayonly="yes">MIR-TOT-FRCY-AMT</span>
+                    </td>
+                </tr>
+        <!-- CHANGES FOR M319B4 ENDS HERE -->
+            </table>
+     <!-- M271B4 CHANGES START -->
+            <br />
+                <tr>
+                    <td class="celllabeldataentry" width="450">
+      <!--
+                        <b>延滞利息保険料内訳（外貨建個人年金保険（積立利率変動型））</b> -->
+     <!-- CHANGES FOR M319B4 STARTS FROM HERE -->
+                        <b>延滞利息保険料内訳（外貨建商品）</b>
+        <!-- CHANGES FOR M319B4 ENDS HERE -->
+                    </td>
+                    <td class="celllabeldataentry" width="30%" />
+                    <td class="celllabeldataentry" width="10%" />
+                </tr>
+            <br />
+             <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-POL-PREM-MO-T[1]">月分</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-YEN-PREM-AMT-T[1]">保険料円払込額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                         <label for="MIR-DV-PREM-CRCY-XCHNG-DT-T[1]">契約通貨換算基準日</label>
+                         </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PREM-CRCY-XCHNG-RT-T[1]">契約通貨換算レート</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-POL-CRCY-PREM-AMT-T[1]">保険料（外貨建）</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-POL-CRCY-XCHNG-DT-T[1]">円換算基準日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-POL-CRCY-XCHNG-RT-T[1]">円換算レート</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-OVERDUE-PREM-AMT-T[1]">延滞保険料</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-POL-PREM-MO-T[]" stype="Text" displayonly="yes">MIR-DV-POL-PREM-MO-T[]</span>
+                    </td>
+		    <td class="celldisplay">
+		     <span id="MIR-POL-YEN-PREM-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-YEN-PREM-AMT-T[]</span>
+		    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PREM-CRCY-XCHNG-DT-T[]" stype="Date" displayonly="yes">MIR-DV-PREM-CRCY-XCHNG-DT-T[]</span>
+                    </td>
+		     <td class="celldisplay">
+		        <span id="MIR-DV-PREM-CRCY-XCHNG-RT-T[]" stype="Number" elength="6" decimals="2" displayonly="yes">MIR-DV-PREM-CRCY-XCHNG-RT-T[]</span>
+		     </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-POL-CRCY-PREM-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DV-POL-CRCY-PREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-POL-CRCY-XCHNG-DT-T[]" stype="Date" displayonly="yes">MIR-DV-POL-CRCY-XCHNG-DT-T[]</span>
+                    </td>
+		     <td class="celldisplay">
+		        <span id="MIR-DV-POL-CRCY-XCHNG-RT-T[]" stype="Number" elength="6" decimals="2" displayonly="yes">MIR-DV-POL-CRCY-XCHNG-RT-T[]</span>
+		     </td>
+		    <td class="celldisplay">
+		     <span id="MIR-DV-OVERDUE-PREM-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-OVERDUE-PREM-AMT-T[]</span>
+		    </td>
+                </tr>
+            </table>
+     <!-- M271B4 CHANGES ENDS-->
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

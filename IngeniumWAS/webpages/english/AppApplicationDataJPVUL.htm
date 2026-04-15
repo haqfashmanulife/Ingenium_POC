@@ -1,0 +1,295 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:07 PM EDT
+*
+*********************************************************************************
+*  Component:   AppApplicationDataJPVUL.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  016423  602J     New for release 602J
+*  017150  612J     Remove Currency decimals="2"
+*  23774B  CTS      23774B-IE Retirement changes
+*
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>AppApplicationDataJPVUL</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoadCustom()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="onSubmitCustom();return(onSubmit());">
+            <input type="hidden" name="ReplacementCode" id="ReplacementCode" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredOwnerClientID" id="PrimaryInsuredOwnerClientID" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredADDR-TYP-CD-T[1]" id="PrimaryInsuredADDR-TYP-CD-T[1]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredName" id="PrimaryInsuredName" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredTAX-ID-T[1]" id="PrimaryInsuredTAX-ID-T[1]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredMailAddressLine-T[7]" id="PrimaryInsuredMailAddressLine-T[7]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredMailAddressLine-T[6]" id="PrimaryInsuredMailAddressLine-T[6]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredMailAddressLine-T[5]" id="PrimaryInsuredMailAddressLine-T[5]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredMailAddressLine-T[4]" id="PrimaryInsuredMailAddressLine-T[4]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredMailAddressLine-T[3]" id="PrimaryInsuredMailAddressLine-T[3]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredMailAddressLine-T[2]" id="PrimaryInsuredMailAddressLine-T[2]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredMailAddressLine-T[1]" id="PrimaryInsuredMailAddressLine-T[1]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-ID-T[1]" id="MIR-CLI-ID-T[1]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-ADDR-TYP-CD-T[1]" id="MIR-CLI-ADDR-TYP-CD-T[1]" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <h2 style="margin-top: 3; margin-bottom: 3">
+                <a name="Application Data">
+                    <u>Application Data</u>
+                </a>
+            </h2>
+            <table id="applicationDataTable" class="tabledataentrynoborder">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-APP-FORM-TYP-ID">Application Form Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-APP-FORM-TYP-ID" id="MIR-APP-FORM-TYP-ID" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" onchange="refreshButtonspan.style.display='';" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SBSDRY-CO-ID">Company:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="2">
+                        <select name="MIR-SBSDRY-CO-ID" id="MIR-SBSDRY-CO-ID" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" onchange="refreshButtonspan.style.display='';" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ISS-LOC-CD">Issue Location:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-ISS-LOC-CD" id="MIR-POL-ISS-LOC-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" onchange="refreshButtonspan.style.display='';" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-CTRY-CD">Issue Country:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-CTRY-CD" id="MIR-POL-CTRY-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" onchange="refreshButtonspan.style.display='';">
+                        </select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="refreshButtonspan" style="display: none">
+                            <input type="image" name="I1" id="I1" border="0" src="../english/images/refresh.gif" align="bottom" width="70" height="26" onclick="doRefresh()" />
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-APP-RECV-DT">Received Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-APP-RECV-DT" id="MIR-POL-APP-RECV-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" onchange="refreshButtonspan.style.display='';" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ISS-EFF-DT">Proposed Effective Date:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="2">
+                        <input type="text" value=" " name="MIR-POL-ISS-EFF-DT" id="MIR-POL-ISS-EFF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ISS-DT-TYP-CD">Policy Dating Rules:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-ISS-DT-TYP-CD" id="MIR-POL-ISS-DT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)">
+                        </select>
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" colspan="2" />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PLAN-ID">Product:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PLAN-ID" id="MIR-PLAN-ID" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" colspan="2" />
+                </tr>
+            </table>
+            <table class="tabledataentrynoborder">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="PolicyIDAssignmentOverride">To override a system-defined Policy ID, check here:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="PolicyIDAssignmentOverride" id="PolicyIDAssignmentOverride" stype="Indicator" onclick="showHidePolicyID(this);onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                <span id="PolicyIDFields">
+                <table>
+                    <tr>
+                        <td class="celllabelrightalign">
+                            <label for="UserDefinedPolicyIDBase">User-defined Policy ID:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="UserDefinedPolicyIDBase" id="UserDefinedPolicyIDBase" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)" size="12" />
+                        </td>
+                        <td class="celllabeldataentry" width="1">
+                            <input type="text" value=" " name="UserDefinedPolicyIDSuffix" id="UserDefinedPolicyIDSuffix" stype="Text" maxlength="1" onfocus="enterField(this)" size="2" />
+                        </td>
+                    </tr>
+                </table>
+            </span>
+
+                    </td>
+                </tr>
+            </table>
+            <hr />
+            <table width="100%">
+                <tr>
+                    <td valign="top">
+                        <h2>
+                            <a name="Owner Data">
+                                <u>Owner Data</u>
+                            </a>
+                        </h2>
+                    </td>
+                    <td valign="top">
+                        <div align="right">
+                            <table border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td class="celldisplaykeylabel">
+                                        <label for="MIR-DV-OWN-CLI-NM-T[1]">Name:</label>
+                                    </td>
+                                    <td class="celldisplaykey" align="left">
+                                        <span id="MIR-DV-OWN-CLI-NM-T[1]" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM-T[1]</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="celldisplaykeylabel">
+                                        <label for="MIR-CLI-TAX-ID-T[1]">Tax ID:</label>
+                                    </td>
+                                    <td class="celldisplaykey" align="left">
+                                        <span id="MIR-CLI-TAX-ID-T[1]" stype="Text" displayonly="yes" align="right">MIR-CLI-TAX-ID-T[1]</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table id="ownerTable" class="tabledataentrynoborder">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-CLI-INSRD-CD-T[1]">Owner's Relationship to Insured:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-CLI-INSRD-CD-T[1]" id="MIR-POL-CLI-INSRD-CD-T[1]" size="1" stype="Selection" mandatory="yes" onfocus="enterField(this)" onchange="onChangeRelationship()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <a name="OwnerIndividualAddLink" href="a" action="GoToIndividualSearch" onclick="onAction();return(false);" onfocus="enterField(this)">Change Owner to another Individual</a>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <a name="OwnerCompanyAddLink" href="a" action="GoToCompanySearch" onclick="onAction();return(false);" onfocus="enterField(this)">Change Owner to a Company</a>
+                    </td>
+                </tr>
+            </table>
+            <table id="mailingaddressTable" class="tabledataentrynoborder">
+                <tr>
+                    <td>
+                        <label for="MailName">
+                            <font size="2">
+                                <b>Mailing Address to be used:</b>
+                            </font>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykey">
+                        <span id="MailName" stype="Text" displayonly="yes">MailName</span>
+                    </td>
+                </tr>
+            </table>
+            <table id="addressTable" class="tabledataentrynoborder" genrows="7">
+                <tr>
+                    <td class="celldisplaykey">
+                        <span id="MailAddressLine-T[]" stype="Text" displayonly="yes">MailAddressLine-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <a name="MailAddressChangeLink" href="a" action="ChangeMailingAddress" onclick="onAction();return(false);" onfocus="enterField(this)">Change Mailing Address for this Owner</a>
+            <hr />
+            <h2 style="margin-top: 3; margin-bottom: 3">
+                <a name="Replacement Data">
+                    <u>Replacement Data</u>
+                </a>
+            </h2>
+            <table class="tabledataentrynoborder">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="ReplacementQuestion">Is this application replacing another
+                        policy?</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="radio" name="ReplacementQuestion" value="Y" stype="YesNo" onclick="showHideRepl(this);onYesNoUa('Yes')" onfocus="saveValue();enterField(this)" />
+                        Yes
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="radio" name="ReplacementQuestion" value="N" stype="YesNo" onclick="showHideRepl(this);onYesNoUa('No')" onfocus="saveValue();enterField(this)" />
+                        No
+
+                    </td>
+                </tr>
+            </table>
+            <span id="replacementFields">
+                <table class="tabledataentrynoborder">
+                    <tr>
+                        <td class="celllabelrightalign">
+                            <label for="MIR-REPL-POL-ID">Replaced Policy ID:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-REPL-POL-ID" id="MIR-REPL-POL-ID" stype="Text" maxlength="20" mandatory="yes" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabelrightalign">
+                            <label for="ReplacementCodeQuestion">Is This Policy With?</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="radio" name="ReplacementCodeQuestion" value="N" stype="YesNo" onclick="showHideReplCpSearch(this)" onfocus="saveValue();enterField(this)" />
+                            Other Company
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="radio" name="ReplacementCodeQuestion" value="Y" stype="YesNo" onclick="showHideReplCpSearch(this)" onfocus="saveValue();enterField(this)" />
+                            This Company
+                        </td>
+                    </tr>
+                    <tr id="ReplacementCompanySearch">
+                        <td class="celllabelrightalign" />
+                        <td class="celllabeldataentry" />
+                        <td class="celllabelrightalign">
+                            <label for="MIR-DV-REPL-CO-CLI-NM">Other Company Name:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-DV-REPL-CO-CLI-NM" id="MIR-DV-REPL-CO-CLI-NM" stype="Text" maxlength="20" mandatory="yes" readonly="yes" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <a name="ReplacementCompanySearchLink" href="a" action="ACTION_SEARCH" onclick="onAction();return(false);" onfocus="enterField(this)">Search for Other Company</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="celllabelrightalign" />
+                        <td class="celllabeldataentry" />
+                        <td class="celllabelrightalign" />
+                        <td class="celllabelrightalign" />
+                        <td class="celllabeldataentry" />
+                    </tr>
+                </table>
+            </span>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/AppApplicationDataJPVUL.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

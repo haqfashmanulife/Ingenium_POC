@@ -1,0 +1,153 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:22 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0850-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*                                                                               *
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  014590  6.0      New for release 6.0                                         *
+*  016737  611J     Code cleanup                                                *
+*  017150  612J     Remove Currency decimals="2"                                *
+*  MFPF10  CLB      Remove Currency Decimals = "4" for allocation %.            *
+*  PF30    AKATO    PF 3.0 Retrofit 2004AUG05                                   *
+*  MFFALL  CLB      Modify to support allocation by amount for 2-tier,          *
+*  MFFALL           Cvg-Fund level system.                                      *
+*  23774B  CTS      Changes done for ie retirement project to make it           *
+*                   compatible for microsoft edge. Changes in html include      *
+*                   adding "id" attribute for all input fields and changes in   *
+*                   java scripts to modify certain functions/commands which     *
+*                   are no longer compatilble with edge.   
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                     
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0850-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="CvgAllocLoad();onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-POL-PAYO-TYP-CD">Allocation Type:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-POL-PAYO-TYP-CD" stype="Text" displayonly="yes">MIR-DV-POL-PAYO-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CDI-EFF-DT">Effective Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CDI-EFF-DT" stype="Date" displayonly="yes">MIR-CDI-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CDI-STAT-CD">Allocation Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CDI-STAT-CD" stype="Text" displayonly="yes">MIR-CDI-STAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CDI-TOT-ALLOC-AMT">Total Allocation Amount:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CDI-TOT-ALLOC-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CDI-TOT-ALLOC-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table id="allocTable" class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">Coverage Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PLAN-ID-T[1]">Plan</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-CSTAT-CD-T[1]">Coverage Status</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDI-CVG-ALLOC-AMT-T[1]">Allocation Amount to Coverage</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-FND-DESC-TXT-T[1]">Fund Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDI-ALLOC-PCT-T[1]">Allocation Percentage to Fund</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDI-ALLOC-AMT-T[1]">Amount Allocated to Fund</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CFN-STAT-CD-T[1]">Status</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDI-CVG-ALLOC-AMT-T[]" stype="Currency" elength="15" displayonly="yes">MIR-CDI-CVG-ALLOC-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FND-DESC-TXT-T[]" stype="Text" displayonly="yes">MIR-DV-FND-DESC-TXT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDI-ALLOC-PCT-T[]" stype="Percent" elength="7" decimals="0" displayonly="yes">MIR-CDI-ALLOC-PCT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDI-ALLOC-AMT-T[]" stype="Currency" elength="15" displayonly="yes">MIR-CDI-ALLOC-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CFN-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-CFN-STAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="hidden" name="MIR-DV-JS-LOAD-CD-T[]" id="MIR-DV-JS-LOAD-CD-T[]" stype="Hidden"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/CoverageAllocations.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

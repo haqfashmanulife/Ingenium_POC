@@ -1,0 +1,359 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:59 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9324-I.htm                                                   
+*  Description: Firm Banking Details (Retrieve)                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  HCA002  HIN/CL   FIRM BANKING ONLINE                                        
+*  FT7001 AKATO  FT7 Label Change 14JUN2004                          	               
+*  ISLADM  CTS      CHANGES FOR INSURANCE LAW PROJECT
+*                                                                              
+*  Q50690  CTS      ADDING PAYOUT TYPE METHOD FIELD
+*  MP302M  CTS      ADDING SURVIVAL BENEFIT CHARGEBACK DEDUCTED FIELD
+*  UYS70A  CTS      CHANGES FOR UNISYS
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.    
+*  UY323A  CTS      MEDICAL CLAIM PAYMENT        
+*  UY3049   CTS     ANNUITY PAYOUT STREAM 3                                   *
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9320-O</title>
+<link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+</head>
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws" onLoad="onLoad()> -->
+<!-- UY3049 CHANGES START HERE
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy1()"-->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy1();SubInpPayoPolicy1()">
+<!-- UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+<!-- UY3049 CHANGES START HERE-->
+           <input type="hidden" name="MIR-STR3-PAYO-IND" id="MIR-STR3-PAYO-IND" stype="Hidden" />
+           <input type="hidden" name="MIR-10-POL-ID" id="MIR-10-POL-ID" stype="Hidden" />
+<!--  UY3049 CHANGES ENDS HERE -->
+<table class="tabledisplaykey">
+  <tr>
+    <td class="celldisplaykeylabel"><label for="MIR-FBNK-REMIT-DT">送金日:</label></td>
+    <td class="celldisplaykey"><span id="MIR-FBNK-REMIT-DT" stype="Date" displayonly="yes">MIR-FBNK-REMIT-DT</span>
+    </td>
+    <td class="celldisplaykeylabel"><label for="MIR-FBNK-REF-ID">マスタークレームID:</label></td>
+    <td class="celldisplaykey"><span id="MIR-FBNK-REF-ID" stype="Text" displayonly="yes">MIR-FBNK-REF-ID</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="celldisplaykeylabel"><label for="MIR-POL-ID">証券番号:</label></td>
+    <td class="celldisplaykey"><span id="MIR-POL-ID" stype="Text" displayonly="yes">MIR-POL-ID</span>
+    </td>
+    <td class="celldisplaykeylabel"><label for="MIR-FB-CLI-ID">被保険者クライアントID:</label></td>
+    <td class="celldisplaykey"><span id="MIR-FB-CLI-ID" stype="Text" displayonly="yes">MIR-FB-CLI-ID</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="celldisplaykeylabel"><label for="MIR-DV-INS-CLI-NM">被保険者名:</label></td>
+    <td class="celldisplaykey"><span id="MIR-DV-INS-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INS-CLI-NM</span>
+    </td>
+    <td class="celldisplaykeylabel"><label for="MIR-FBNK-CAT-CD">業務区分:</label></td>
+    <td class="celldisplaykey"><span id="MIR-FBNK-CAT-CD" stype="Text" displayonly="yes">MIR-FBNK-CAT-CD</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="celldisplaykeylabel"></td>
+    <td class="celldisplaykey"></td>
+    <td class="celldisplaykeylabel"><label for="MIR-FBNK-SEQ-NUM">ｼｰｹﾝｽ番号:</label></td>
+    <td class="celldisplaykey"><span id="MIR-FBNK-SEQ-NUM" stype="Text" displayonly="yes">MIR-FBNK-SEQ-NUM</span>
+    </td>
+  </tr>
+</table>
+<h2>契約情報
+</h2>
+
+<table class="tabledisplay">
+  <tr>
+
+<td class="celldisplayheading" colspan="4">基本契約情報</td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-POL-PD-TO-DT-NUM">払込期間:</label></td>
+    <td class="celldisplay"><span id="MIR-POL-PD-TO-DT-NUM" stype="Text" displayonly="yes">MIR-POL-PD-TO-DT-NUM</span>
+    </td>
+    <td class="celldisplaylabel"></td>
+    <td class="celldisplay"></td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-SERV-AGT-ID">扱者ID:</label></td>
+    <td class="celldisplay"><span id="MIR-SERV-AGT-ID" stype="Text" displayonly="yes">MIR-SERV-AGT-ID</span>
+    </td>
+    <td class="celldisplaylabel"><label for="MIR-DV-SERV-AGT-NM">扱者名:</label></td>
+    <td class="celldisplay"><span id="MIR-DV-SERV-AGT-NM" stype="Text" displayonly="yes">MIR-DV-SERV-AGT-NM</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-SERV-BR-ID">扱RO:</label></td>
+    <td class="celldisplay"><span id="MIR-SERV-BR-ID" stype="Text" displayonly="yes">MIR-SERV-BR-ID</span>
+    </td>
+    <td class="celldisplaylabel"><label for="MIR-SERV-SO-ID">扱SO:</label></td>
+    <td class="celldisplay"><span id="MIR-SERV-SO-ID" stype="Text" displayonly="yes">MIR-SERV-SO-ID</span>
+    </td>
+  </tr>
+</table>
+<br />
+<table class="tabledisplay" genrows="0" keyfield="0">
+
+<tr>
+
+<td class="celldisplayheading" colspan="2"><label>契約者詳細</label></td>
+</tr>
+
+<tr>
+
+<td class="celldisplayheading"><label for="MIR-CLI-ID-T[1]">契約者クライアントID </label></td>
+<td class="celldisplayheading"><label for="MIR-DV-OWN-CLI-NM-T[1]">契約者名</label></td>
+</tr>
+
+<tr>
+
+<td class="celldisplay"><span id="MIR-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-ID-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-DV-OWN-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM-T[]</span>
+</td>
+</tr>
+</table>
+<h2>受取人情報
+</h2>
+
+<table class="tabledisplay">
+  <tr>
+    <td class="celldisplayheading" colspan="4"><label>氏名および住所</label></td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-KANJI-PAYE-NM">受取人名（漢字）:</label></td>
+    <td class="celldisplay"><span id="MIR-KANJI-PAYE-NM" stype="Text" displayonly="yes">MIR-KANJI-PAYE-NM</span>
+    </td>
+    <td class="celldisplaylabel"><label for="MIR-SEND-PMT-NOTI-IND">支払計算書の送付:</label></td>
+    <td class="celldisplay"><input type="checkbox" name="MIR-SEND-PMT-NOTI-IND" id="MIR-SEND-PMT-NOTI-IND" stype="Indicator" value="Y" disabled="yes"/>
+    </td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-INSRD-REL-CD">被保険者との続柄:</label></td>
+    <td class="celldisplay"><span id="MIR-INSRD-REL-CD" stype="Text" displayonly="yes">MIR-INSRD-REL-CD</span>
+    </td>
+    <td class="celldisplaylabel"></td>
+    <td class="celldisplay"></td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-FBNK-PSTL-CD">郵便番号:</label></td>
+    <td class="celldisplay" colspan="3"><span id="MIR-FBNK-PSTL-CD" stype="Text" displayonly="yes">MIR-FBNK-PSTL-CD</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-FBNK-KJ-PREFCT-TXT">住所（漢字）:</label></td>
+    <td class="celldisplay" colspan="3"><span id="MIR-FBNK-KJ-PREFCT-TXT" stype="Text" displayonly="yes">MIR-FBNK-KJ-PREFCT-TXT</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"></td>
+    <td class="celldisplay" colspan="3"><span id="MIR-FBNK-KJ-CITY-TXT" stype="Text" displayonly="yes">MIR-FBNK-KJ-CITY-TXT</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"></td>
+    <td class="celldisplay" colspan="3"><span id="MIR-FBNK-KJ-NGHBRHD-TXT" stype="Text" displayonly="yes">MIR-FBNK-KJ-NGHBRHD-TXT</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-FBNK-SAMAKATA-BU-TXT">住所カナ部:</label></td>
+    <td class="celldisplay" colspan="3"><span id="MIR-FBNK-SAMAKATA-BU-TXT" stype="Text" displayonly="yes">MIR-FBNK-SAMAKATA-BU-TXT</span>
+    </td>
+  </tr>
+</table>
+<br />
+<table class="tabledisplay">
+  <tr>
+    <td class="celldisplayheading" colspan="4"><label>銀行情報</label></td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-BNK-ID">銀行番号:</label></td>
+    <td class="celldisplay"><span id="MIR-BNK-ID" stype="Text" displayonly="yes">MIR-BNK-ID</span>
+    </td>
+    <td class="celldisplaylabel"><label for="MIR-BNK-NM">銀行名:</label></td>
+    <td class="celldisplay"><span id="MIR-BNK-NM" stype="Text" displayonly="yes">MIR-BNK-NM</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-BNK-BR-ID">支店番号:</label></td>
+    <td class="celldisplay"><span id="MIR-BNK-BR-ID" stype="Text" displayonly="yes">MIR-BNK-BR-ID</span>
+    </td>
+    <td class="celldisplaylabel"><label for="MIR-BNK-BR-NM">支店名:</label></td>
+    <td class="celldisplay"><span id="MIR-BNK-BR-NM" stype="Text" displayonly="yes">MIR-BNK-BR-NM</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-ACCT-TYP-CD">口座種類:</label></td>
+    <td class="celldisplay"><span id="MIR-ACCT-TYP-CD" stype="Text" displayonly="yes">MIR-ACCT-TYP-CD</span>
+    </td>
+    <td class="celldisplaylabel"></td>
+    <td class="celldisplay"></td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-BNK-ACCT-ID">口座番号:</label></td>
+    <td class="celldisplay"><span id="MIR-BNK-ACCT-ID" stype="Text" displayonly="yes">MIR-BNK-ACCT-ID</span>
+    </td>
+    <td class="celldisplaylabel"><label for="MIR-ACCT-HLDR-NM">口座名義人名:</label></td>
+    <td class="celldisplay"><span id="MIR-ACCT-HLDR-NM" stype="Text" displayonly="yes">MIR-ACCT-HLDR-NM</span>
+    </td>
+  </tr>
+</table>
+<h2>支払情報
+</h2>
+
+<table class="tabledisplay">
+  <tr>
+    <td class="celldisplayheading" colspan="4"><label>基本支払情報</label></td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-FBNK-REMIT-DT">送金日:</label></td>
+    <td class="celldisplay"><span id="MIR-FBNK-REMIT-DT" stype="Date" displayonly="yes">MIR-FBNK-REMIT-DT</span>
+    </td>
+    <td class="celldisplaylabel"><label for="MIR-DV-ADJ-PMT-AMT">差引支払額:</label></td>
+    <td class="celldisplay"><span id="MIR-DV-ADJ-PMT-AMT" stype="Currency" elength="15"   displayonly="yes">MIR-DV-ADJ-PMT-AMT</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-FINAL-APROV-DT">最終承認日:</label></td>
+    <td class="celldisplay"><span id="MIR-FINAL-APROV-DT" stype="Text" displayonly="yes">MIR-FINAL-APROV-DT</span>
+    </td>
+<!-- ISLADM Changes Start:  Comment Blank field
+    <td class="celldisplaylabel"></td>
+    <td class="celldisplay"></td>
+ISLADM Changes Ends -->
+<!-- ISLADM Changes Start:  Append CO-RECV-DT field -->
+    <td class="celldisplaylabel"><label for="MIR-CO-RECV-DT">会社受付日:</label></td>
+    <td class="celldisplay"><span id="MIR-CO-RECV-DT" stype="Text" displayonly="yes">MIR-CO-RECV-DT</span>
+    </td>
+<!-- ISLADM Changes Ends -->
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-FBNK-STAT-CD">ファームバンキング・ステータス:</label></td>
+    <td class="celldisplay"><span id="MIR-FBNK-STAT-CD" stype="Text" displayonly="yes">MIR-FBNK-STAT-CD</span>
+    </td>
+    <td class="celldisplaylabel"><label for="MIR-FBNK-RE-REMIT-DT">再送金日:</label></td>
+    <td class="celldisplay"><span id="MIR-FBNK-RE-REMIT-DT" stype="Text" displayonly="yes">MIR-FBNK-RE-REMIT-DT</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-FBNK-FAIL-RSN-TXT">不能理由:</label></td>
+    <td class="celldisplay" colspan="3"><span id="MIR-FBNK-FAIL-RSN-TXT" stype="Text" displayonly="yes">MIR-FBNK-FAIL-RSN-TXT</span>
+    </td>
+  </tr>
+<!--Q50690 CHANGES START HERE -->
+  <tr>
+   <td class="celldisplaylabel"><label for="MIR-FBNK-CREAT-TYP-CD">支払方法:</label></td>
+   <td class="celldisplay"><span id="MIR-FBNK-CREAT-TYP-CD" stype="Text" displayonly="yes">MIR-FBNK-CREAT-TYP-CD</span></td>
+   <td class="celldisplaylabel"></td>
+    <td class="celldisplay"></td>
+  </tr> 
+<!--Q50690 CHANGES END HERE -->
+</table>
+<br />
+<table class="tabledisplay">
+  <tr>
+    <td class="celldisplayheading"><label>貸方項目</label></td>
+    <td class="celldisplayheading"><label>金額</label></td>
+    <td class="celldisplayheading"><label>借方項目</label></td>
+    <td class="celldisplayheading"><label>金額</label></td>
+  </tr>
+  <tr>
+    <td class="celldisplaylabel"><label for="MIR-PREM-DED-AMT">保険料回収額:</label></td>
+    <td class="celldisplay"><span id="MIR-PREM-DED-AMT" stype="Currency" elength="15"   displayonly="yes">MIR-PREM-DED-AMT</span>
+    </td>
+    <td class="celldisplaylabel"><label for="MIR-BNFT-PMT-AMT">支払額:</label></td>
+    <td class="celldisplay"><span id="MIR-BNFT-PMT-AMT" stype="Currency" elength="15"   displayonly="yes">MIR-BNFT-PMT-AMT</span>
+    </td>
+  </tr>
+  <tr>
+    <!--MP302M CHANGES START HERE -->
+	    <!--UY323A CHANGES START HERE 
+    <td class="celldisplaylabel"><label for="MIR-SRVBEN-CHRGBCK-AMT">生存給付金戻入額:</label></td> -->
+    <td class="celldisplaylabel"><label for="MIR-SRVBEN-CHRGBCK-AMT">給付金戻入額:</label></td>
+	    <!--UY323A CHANGES ENDS HERE -->
+    <td class="celldisplay"><span id="MIR-SRVBEN-CHRGBCK-AMT" stype="Currency" elength="15"   displayonly="yes">MIR-SRVBEN-CHRGBCK-AMT
+    </span></td>
+    <!--MP302M CHANGES ENDS HERE -->
+    <td class="celldisplaylabel"><label for="MIR-DLAY-INT-AMT">支払遅延利息:</label></td>
+    <td class="celldisplay"><span id="MIR-DLAY-INT-AMT" stype="Currency" elength="15"   displayonly="yes">MIR-DLAY-INT-AMT</span>
+    </td>
+  </tr>
+</table>
+<!--UYS70A CHANGES START HERE-->
+<h2>支出情報
+</h2>
+<table class="tabledisplay" genrows="0">
+  <tr>
+    <td class="celldisplayheading" colspan="2"><label>控除</label></td>
+    <td class="celldisplayheading" colspan="2"><label>支払</label></td>
+  </tr>
+  <tr>
+    <td class="celldisplay">
+         <span id="MIR-POL-DED-TYP-CD-T[]" stype="Text" elength="2" displayonly="yes">MIR-POL-DED-TYP-CD-T</span>
+    </td>
+    <td class="celldisplay">
+        <span id="MIR-POL-DED-AMT-T[]" stype="Currency" elength="15" displayonly="yes">MIR-POL-DED-AMT-T[]</span>
+    </td>
+    <td class="celldisplay">
+        <span id="MIR-POL-PMT-TYP-CD-T[]" stype="Text" elength="5" displayonly="yes">MIR-POL-PMT-TYP-CD-T[]</span>
+    </td>
+    <td class="celldisplay">
+        <span id="MIR-POL-PMT-AMT-T[]" stype="Currency" elength="15" displayonly="yes">MIR-POL-PMT-AMT-T[]</span>
+    </td>
+  </tr>
+</table>
+<h2>為替情報
+</h2>
+<table class="tabledisplay" >
+  <tr>
+    <td class="celldisplayheading" colspan="1"><label>ソース通貨</label></td>
+    <td class="celldisplayheading" colspan="1"><label>送金通貨</label></td>
+    <td class="celldisplayheading" colspan="1"><label>換算有効日</label></td>
+    <td class="celldisplayheading" colspan="1"><label>換算レート</label></td>
+  </tr>
+  <tr>
+    <td class="celldisplay">
+        <span id="MIR-ORIG-PMT-CRCY-CD" stype="Currency" elength="15" displayonly="yes">MIR-ORIG-PMT-CRCY-CD</span>
+    </td>
+    <td class="celldisplay">
+        <span id="MIR-REMIT-CRCY-CD" stype="Currency" elength="15" displayonly="yes">MIR-REMIT-CRCY-CD</span>
+    </td>
+    <td class="celldisplay">
+        <span id="MIR-ACTL-XCHG-EFF-DT" stype="Date" elength="10" displayonly="yes">MIR-ACTL-XCHG-EFF-DT</span>
+    </td>
+    <td class="celldisplay">
+        <span id="MIR-DV-JP-XCHNG-RT" stype="Text" elength="7" decimals="2" signed="yes" displayonly="yes">MIR-DV-JP-XCHNG-RT</span>
+    </td>
+  </tr>
+</table>
+<!--UYS70A CHANGES END HERE-->
+</form>
+</body>
+<script src="../js/MessagesJapanese.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+<!--  UY3049 CHANGES STARTS HERE -->
+    <script src="../js/Policypayo.js"></script>
+<!--  UY3049 CHANGES ENDS HERE -->
+</html>

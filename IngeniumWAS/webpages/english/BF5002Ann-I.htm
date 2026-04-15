@@ -1,0 +1,995 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:43 PM EDT
+*
+*********************************************************************************
+*  Component:   BF5002Ann-I.htm                                                
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  602J     Add support for currency scaling                           
+*  016905  611J     Change case on button file names to work on Sun platform   
+*  017150  612J     Remove Currency decimals="2"                               
+*  01CP02  EKM      Limit display of Agent information to 2 Agents             
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                         
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF5002Ann-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoadCustom();onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CVG-REC-CTR">Number of
+      Coverages:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-APP-RECV-DT">Sales Office Report Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-APP-RECV-DT" id="MIR-POL-APP-RECV-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ISS-EFF-DT">Policy Issue Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-ISS-EFF-DT" id="MIR-POL-ISS-EFF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ISS-LOC-CD">Issue Location:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-ISS-LOC-CD" id="MIR-POL-ISS-LOC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                        <img border="0" src="../english/images/refresh.gif" align="bottom" width="70" height="26" onclick="doRefresh()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-CTRY-CD">Country of Issue:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-CTRY-CD" id="MIR-POL-CTRY-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DIR-BILL-CSH-AMT">Cash Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DIR-BILL-CSH-AMT" id="MIR-DIR-BILL-CSH-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-SBSDRY-CO-ID" id="MIR-SBSDRY-CO-ID" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-NUM">Quote Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-QUOT-NUM" id="MIR-IA-QUOT-NUM" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-MISC-SUSP-AMT">Miscellaneous Suspense:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-POL-MISC-SUSP-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-MISC-SUSP-AMT</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CRNT-LOC-CD">Current Location:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-CRNT-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-CRNT-LOC-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Coverage Details">Coverage</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Policy Relationships">Relationships</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Billing Information">Billing</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Agent Information">Agent</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Tax Information">Tax</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <h2>
+                <a name="Coverage Details">Coverage Details</a>
+            </h2>
+            <table id="Coverages">
+                <tr>
+		   <td>
+                    <table id="Coverage1" class="tabledataentry">
+                        <tr>
+                            <td class="celldataentryheading" colspan="4">Base Product</td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-CSTAT-CD-T[1]">Coverage Status:</label>
+                            </td>
+                            <td class="celllabeldataentry" colspan="3">
+                                <span id="MIR-CVG-CSTAT-CD-T[1]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[1]</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-PLAN-ID-T[1]">Plan:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-PLAN-ID-T[1]" id="MIR-PLAN-ID-T[1]" size="1" stype="Selection" onfocus="enterField(this)" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-INSRD-CLI-ID-T[1]">Annuitant's Client ID:</label>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <input type="text" value=" " name="MIR-INSRD-CLI-ID-T[1]" id="MIR-INSRD-CLI-ID-T[1]" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-DY-DUR-T[1]">Deposit Term (Days):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-DY-DUR-T[1]" id="MIR-DPOS-TRM-DY-DUR-T[1]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-MO-DUR-T[1]">Deposit Term (Months):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-MO-DUR-T[1]" id="MIR-DPOS-TRM-MO-DUR-T[1]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-INT-PAYO-CD-T[1]">Interest Handling Indicator:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-INT-PAYO-CD-T[1]" id="MIR-CVG-INT-PAYO-CD-T[1]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-WTHDR-ORDR-CD-T[1]">Withdrawal Order:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-WTHDR-ORDR-CD-T[1]" id="MIR-CVG-WTHDR-ORDR-CD-T[1]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-OUT-ALLOC-CD-T[1]">Coverage Payout Level Split:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-OUT-ALLOC-CD-T[1]" id="MIR-CVG-OUT-ALLOC-CD-T[1]" size="1" stype="Selection" onfocus="enterField(this)" onchange="onChangeScaling(this, 'MIR-OUT-ALLOC-AMT-PCT-T[1]')"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-OUT-ALLOC-AMT-PCT-T[1]">Share Amount/Percent:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" name="MIR-OUT-ALLOC-AMT-PCT-T[1]" id="MIR-OUT-ALLOC-AMT-PCT-T[1]" stype="Number" elength="15" decimals="3" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-RT-AGE-T[1]">Age:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-CVG-RT-AGE-T[1]" id="MIR-CVG-RT-AGE-T[1]" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                            </td>
+                        </tr>
+                    </table>
+		   </td>
+                </tr>
+                <tr>
+		   <td>
+                    <table id="Coverage2" class="tabledataentry">
+                        <tr>
+                            <td class="celldataentryheading" colspan="4">Additional Coverage</td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-CSTAT-CD-T[1]">Coverage Status:</label>
+                            </td>
+                            <td class="celllabeldataentry" colspan="3">
+                                <span id="MIR-CVG-CSTAT-CD-T[2]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[2]</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-PLAN-ID-T[1]">Plan:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-PLAN-ID-T[2]" id="MIR-PLAN-ID-T[2]" size="1" stype="Selection" onfocus="enterField(this)" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-INSRD-CLI-ID-T[1]">Annuitant's Client ID:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-INSRD-CLI-ID-T[2]" id="MIR-INSRD-CLI-ID-T[2]" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-DY-DUR-T[1]">Deposit Term (Days):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-DY-DUR-T[2]" id="MIR-DPOS-TRM-DY-DUR-T[2]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-MO-DUR-T[1]">Deposit Term (Months):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-MO-DUR-T[2]" id="MIR-DPOS-TRM-MO-DUR-T[2]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-INT-PAYO-CD-T[1]">Interest Handling Indicator:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-INT-PAYO-CD-T[2]" id="MIR-CVG-INT-PAYO-CD-T[2]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-WTHDR-ORDR-CD-T[1]">Withdrawal Order:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-WTHDR-ORDR-CD-T[2]" id="MIR-CVG-WTHDR-ORDR-CD-T[2]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-OUT-ALLOC-CD-T[1]">Coverage Level Payout Split:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-OUT-ALLOC-CD-T[2]" id="MIR-CVG-OUT-ALLOC-CD-T[2]" size="1" stype="Selection" onfocus="enterField(this)" onchange="onChangeScaling(this, 'MIR-OUT-ALLOC-AMT-PCT-T[2]')"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-OUT-ALLOC-AMT-PCT-T[1]">Share Amount/Percent:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" name="MIR-OUT-ALLOC-AMT-PCT-T[2]" id="MIR-OUT-ALLOC-AMT-PCT-T[2]" stype="Number" elength="15" decimals="3" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-RT-AGE-T[1]">Age:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-CVG-RT-AGE-T[2]" id="MIR-CVG-RT-AGE-T[2]" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                            </td>
+                        </tr>
+                    </table>
+		   </td>
+                </tr>
+                <tr>
+		   <td>
+                    <table id="Coverage3" class="tabledataentry">
+                        <tr>
+                            <td class="celldataentryheading" colspan="4">Additional Coverage</td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-CSTAT-CD-T[1]">Coverage Status:</label>
+                            </td>
+                            <td class="celllabeldataentry" colspan="3">
+                                <span id="MIR-CVG-CSTAT-CD-T[3]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[3]</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-PLAN-ID-T[1]">Plan:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-PLAN-ID-T[3]" id="MIR-PLAN-ID-T[3]" size="1" stype="Selection" onfocus="enterField(this)" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-INSRD-CLI-ID-T[1]">Annuitant's Client ID:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-INSRD-CLI-ID-T[3]" id="MIR-INSRD-CLI-ID-T[3]" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-DY-DUR-T[1]">Deposit Term (Days):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-DY-DUR-T[3]" id="MIR-DPOS-TRM-DY-DUR-T[3]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-MO-DUR-T[1]">Deposit Term (Months):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-MO-DUR-T[3]" id="MIR-DPOS-TRM-MO-DUR-T[3]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-INT-PAYO-CD-T[1]">Interest Handling Indicator:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-INT-PAYO-CD-T[3]" id="MIR-CVG-INT-PAYO-CD-T[3]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-WTHDR-ORDR-CD-T[1]">Withdrawal Order:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-WTHDR-ORDR-CD-T[3]" id="MIR-CVG-WTHDR-ORDR-CD-T[3]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-OUT-ALLOC-CD-T[1]">Coverage Level Payout Split:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-OUT-ALLOC-CD-T[3]" id="MIR-CVG-OUT-ALLOC-CD-T[3]" size="1" stype="Selection" onfocus="enterField(this)" onchange="onChangeScaling(this, 'MIR-OUT-ALLOC-AMT-PCT-T[3]')"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-OUT-ALLOC-AMT-PCT-T[1]">Share Amount/Percent:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" name="MIR-OUT-ALLOC-AMT-PCT-T[3]" id="MIR-OUT-ALLOC-AMT-PCT-T[3]" stype="Number" elength="15" decimals="3" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-RT-AGE-T[1]">Age:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-CVG-RT-AGE-T[3]" id="MIR-CVG-RT-AGE-T[3]" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                            </td>
+                        </tr>
+                    </table>
+		   </td>
+                </tr>
+                <tr>
+		   <td>
+                    <table id="Coverage4" class="tabledataentry">
+                        <tr>
+                            <td class="celldataentryheading" colspan="4">Additional Coverage</td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-CSTAT-CD-T[1]">Coverage Status:</label>
+                            </td>
+                            <td class="celllabeldataentry" colspan="3">
+                                <span id="MIR-CVG-CSTAT-CD-T[4]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[4]</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-PLAN-ID-T[1]">Plan:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-PLAN-ID-T[4]" id="MIR-PLAN-ID-T[4]" size="1" stype="Selection" onfocus="enterField(this)" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-INSRD-CLI-ID-T[1]">Annuitant's Client ID:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-INSRD-CLI-ID-T[4]" id="MIR-INSRD-CLI-ID-T[4]" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-DY-DUR-T[1]">Deposit Term (Days):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-DY-DUR-T[4]" id="MIR-DPOS-TRM-DY-DUR-T[4]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-MO-DUR-T[1]">Deposit Term (Months):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-MO-DUR-T[4]" id="MIR-DPOS-TRM-MO-DUR-T[4]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-INT-PAYO-CD-T[1]">Interest Handling Indicator:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-INT-PAYO-CD-T[4]" id="MIR-CVG-INT-PAYO-CD-T[4]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-WTHDR-ORDR-CD-T[1]">Withdrawal Order:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-WTHDR-ORDR-CD-T[4]" id="MIR-CVG-WTHDR-ORDR-CD-T[4]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-OUT-ALLOC-CD-T[1]">Coverage Level Payout Split:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-OUT-ALLOC-CD-T[4]" id="MIR-CVG-OUT-ALLOC-CD-T[4]" size="1" stype="Selection" onfocus="enterField(this)" onchange="onChangeScaling(this, 'MIR-OUT-ALLOC-AMT-PCT-T[4]')"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-OUT-ALLOC-AMT-PCT-T[1]">Share Amount/Percent:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" name="MIR-OUT-ALLOC-AMT-PCT-T[4]" id="MIR-OUT-ALLOC-AMT-PCT-T[4]" stype="Number" elength="15" decimals="3" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-RT-AGE-T[1]">Age:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-CVG-RT-AGE-T[4]" id="MIR-CVG-RT-AGE-T[4]" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                            </td>
+                        </tr>
+                    </table>
+		   </td>
+                </tr>
+                <tr>
+		   <td>
+                    <table id="Coverage5" class="tabledataentry">
+                        <tr>
+                            <td class="celldataentryheading" colspan="4">Additional Coverage</td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-CSTAT-CD-T[1]">Coverage Status:</label>
+                            </td>
+                            <td class="celllabeldataentry" colspan="3">
+                                <span id="MIR-CVG-CSTAT-CD-T[5]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[5]</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-PLAN-ID-T[1]">Plan:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-PLAN-ID-T[5]" id="MIR-PLAN-ID-T[5]" size="1" stype="Selection" onfocus="enterField(this)" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-INSRD-CLI-ID-T[1]">Annuitant's Client ID:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-INSRD-CLI-ID-T[5]" id="MIR-INSRD-CLI-ID-T[5]" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-DY-DUR-T[1]">Deposit Term (Days):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-DY-DUR-T[5]" id="MIR-DPOS-TRM-DY-DUR-T[5]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-MO-DUR-T[1]">Deposit Term (Months):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-MO-DUR-T[5]" id="MIR-DPOS-TRM-MO-DUR-T[5]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-INT-PAYO-CD-T[1]">Interest Handling Indicator:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-INT-PAYO-CD-T[5]" id="MIR-CVG-INT-PAYO-CD-T[5]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-WTHDR-ORDR-CD-T[1]">Withdrawal Order:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-WTHDR-ORDR-CD-T[5]" id="MIR-CVG-WTHDR-ORDR-CD-T[5]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-OUT-ALLOC-CD-T[1]">Coverage Level Payout Split:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-OUT-ALLOC-CD-T[5]" id="MIR-CVG-OUT-ALLOC-CD-T[5]" size="1" stype="Selection" onfocus="enterField(this)" onchange="onChangeScaling(this, 'MIR-OUT-ALLOC-AMT-PCT-T[5]')"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-OUT-ALLOC-AMT-PCT-T[1]">Share Amount/Percent:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" name="MIR-OUT-ALLOC-AMT-PCT-T[5]" id="MIR-OUT-ALLOC-AMT-PCT-T[5]" stype="Number" elength="15" decimals="3" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-RT-AGE-T[1]">Age:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-CVG-RT-AGE-T[5]" id="MIR-CVG-RT-AGE-T[5]" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                            </td>
+                        </tr>
+                    </table>
+		   </td>
+                </tr>
+                <tr>
+		   <td>
+                    <table id="Coverage6" class="tabledataentry">
+                        <tr>
+                            <td class="celldataentryheading" colspan="4">Additional Coverage</td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-CSTAT-CD-T[1]">Coverage Status:</label>
+                            </td>
+                            <td class="celllabeldataentry" colspan="3">
+                                <span id="MIR-CVG-CSTAT-CD-T[6]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[6]</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-PLAN-ID-T[1]">Plan:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-PLAN-ID-T[6]" id="MIR-PLAN-ID-T[6]" size="1" stype="Selection" onfocus="enterField(this)" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-INSRD-CLI-ID-T[1]">Annuitant's Client ID:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-INSRD-CLI-ID-T[6]" id="MIR-INSRD-CLI-ID-T[6]" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-DY-DUR-T[1]">Deposit Term (Days):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-DY-DUR-T[6]" id="MIR-DPOS-TRM-DY-DUR-T[6]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-MO-DUR-T[1]">Deposit Term (Months):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-MO-DUR-T[6]" id="MIR-DPOS-TRM-MO-DUR-T[6]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-INT-PAYO-CD-T[1]">Interest Handling Indicator:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-INT-PAYO-CD-T[6]" id="MIR-CVG-INT-PAYO-CD-T[6]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-WTHDR-ORDR-CD-T[1]">Withdrawal Order:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-WTHDR-ORDR-CD-T[6]" id="MIR-CVG-WTHDR-ORDR-CD-T[6]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-OUT-ALLOC-CD-T[1]">Coverage Level Payout Split:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-OUT-ALLOC-CD-T[6]" id="MIR-CVG-OUT-ALLOC-CD-T[6]" size="1" stype="Selection" onfocus="enterField(this)" onchange="onChangeScaling(this, 'MIR-OUT-ALLOC-AMT-PCT-T[6]')"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-OUT-ALLOC-AMT-PCT-T[1]">Share Amount/Percent:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" name="MIR-OUT-ALLOC-AMT-PCT-T[6]" id="MIR-OUT-ALLOC-AMT-PCT-T[6]" stype="Number" elength="15" decimals="3" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-RT-AGE-T[1]">Age:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-CVG-RT-AGE-T[6]" id="MIR-CVG-RT-AGE-T[6]" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                            </td>
+                        </tr>
+                    </table>
+		   </td>
+                </tr>
+                <tr>
+		   <td>
+                    <table id="Coverage7" class="tabledataentry">
+                        <tr>
+                            <td class="celldataentryheading" colspan="4">Additional Coverage</td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-CSTAT-CD-T[1]">Coverage Status:</label>
+                            </td>
+                            <td class="celllabeldataentry" colspan="3">
+                                <span id="MIR-CVG-CSTAT-CD-T[7]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[7]</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-PLAN-ID-T[1]">Plan:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-PLAN-ID-T[7]" id="MIR-PLAN-ID-T[7]" size="1" stype="Selection" onfocus="enterField(this)" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-INSRD-CLI-ID-T[1]">Annuitant's Client ID:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-INSRD-CLI-ID-T[7]" id="MIR-INSRD-CLI-ID-T[7]" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-DY-DUR-T[1]">Deposit Term (Days):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-DY-DUR-T[7]" id="MIR-DPOS-TRM-DY-DUR-T[7]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-MO-DUR-T[1]">Deposit Term (Months):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-MO-DUR-T[7]" id="MIR-DPOS-TRM-MO-DUR-T[7]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-INT-PAYO-CD-T[1]">Interest Handling Indicator:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-INT-PAYO-CD-T[7]" id="MIR-CVG-INT-PAYO-CD-T[7]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-WTHDR-ORDR-CD-T[1]">Withdrawal Order:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-WTHDR-ORDR-CD-T[7]" id="MIR-CVG-WTHDR-ORDR-CD-T[7]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-OUT-ALLOC-CD-T[1]">Coverage Level Payout Split:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-OUT-ALLOC-CD-T[7]" id="MIR-CVG-OUT-ALLOC-CD-T[7]" size="1" stype="Selection" onfocus="enterField(this)" onchange="onChangeScaling(this, 'MIR-OUT-ALLOC-AMT-PCT-T[7]')"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-OUT-ALLOC-AMT-PCT-T[1]">Share Amount/Percent:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" name="MIR-OUT-ALLOC-AMT-PCT-T[7]" id="MIR-OUT-ALLOC-AMT-PCT-T[7]" stype="Number" elength="15" decimals="3" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-RT-AGE-T[1]">Age:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-CVG-RT-AGE-T[7]" id="MIR-CVG-RT-AGE-T[7]" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                            </td>
+                        </tr>
+                    </table>
+		   </td>
+                </tr>
+                <tr>
+		   <td>
+                    <table id="Coverage8" class="tabledataentry">
+                        <tr>
+                            <td class="celldataentryheading" colspan="4">Additional Coverage</td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-CSTAT-CD-T[1]">Coverage Status:</label>
+                            </td>
+                            <td class="celllabeldataentry" colspan="3">
+                                <span id="MIR-CVG-CSTAT-CD-T[8]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[8]</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-PLAN-ID-T[1]">Plan:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-PLAN-ID-T[8]" id="MIR-PLAN-ID-T[8]" size="1" stype="Selection" onfocus="enterField(this)" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-INSRD-CLI-ID-T[1]">Annuitant's Client ID:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-INSRD-CLI-ID-T[8]" id="MIR-INSRD-CLI-ID-T[8]" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-DY-DUR-T[1]">Deposit Term (Days):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-DY-DUR-T[8]" id="MIR-DPOS-TRM-DY-DUR-T[8]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-DPOS-TRM-MO-DUR-T[1]">Deposit Term (Months):</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-DPOS-TRM-MO-DUR-T[8]" id="MIR-DPOS-TRM-MO-DUR-T[8]" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-INT-PAYO-CD-T[1]">Interest Handling Indicator:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-INT-PAYO-CD-T[8]" id="MIR-CVG-INT-PAYO-CD-T[8]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-WTHDR-ORDR-CD-T[1]">Withdrawal Order:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-WTHDR-ORDR-CD-T[8]" id="MIR-CVG-WTHDR-ORDR-CD-T[8]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-OUT-ALLOC-CD-T[1]">Coverage Level Payout Split:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <select name="MIR-CVG-OUT-ALLOC-CD-T[8]" id="MIR-CVG-OUT-ALLOC-CD-T[8]" size="1" stype="Selection" onfocus="enterField(this)" onchange="onChangeScaling(this, 'MIR-OUT-ALLOC-AMT-PCT-T[8]')"></select>
+                            </td>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-OUT-ALLOC-AMT-PCT-T[1]">Share Amount/Percent:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" name="MIR-OUT-ALLOC-AMT-PCT-T[8]" id="MIR-OUT-ALLOC-AMT-PCT-T[8]" stype="Number" elength="15" decimals="3" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="celllabelrightalign">
+                                <label for="MIR-CVG-RT-AGE-T[1]">Age:</label>
+                            </td>
+                            <td class="celllabeldataentry">
+                                <input type="text" value=" " name="MIR-CVG-RT-AGE-T[8]" id="MIR-CVG-RT-AGE-T[8]" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                            </td>
+                        </tr>
+                    </table>
+		   </td>
+                </tr>
+            </table>
+            <input type="button" onclick="addRow('Coverages')" value="Add Coverage" name="addRowButton" id="addRowButton" />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Policy Relationships">Policy Relationships</a>
+            </h2>
+            <table class="tabledataentry" genrows="3">
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-ID-T[1]">Client Number</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-POL-CLI-REL-TYP-CD-T[1]">Relationship Type</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-POL-CLI-REL-SUB-CD-T[1]">Relationship Sub Type</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ID-T[]" id="MIR-CLI-ID-T[]" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-CLI-REL-TYP-CD-T[]" id="MIR-POL-CLI-REL-TYP-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-CLI-REL-SUB-CD-T[]" id="MIR-POL-CLI-REL-SUB-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <h2>
+                <a name="Billing Information">Billing Information</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-BILL-TYP-CD">Billing Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-BILL-TYP-CD" id="MIR-POL-BILL-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-BILL-MODE-CD">Premium Mode:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-BILL-MODE-CD" id="MIR-POL-BILL-MODE-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-PAC-DRW-DY">Deposit Day:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-PAC-DRW-DY" id="MIR-POL-PAC-DRW-DY" stype="Day" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BILL-LEAD-TIME-DUR">Billing Lead Time:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-BILL-LEAD-TIME-DUR" id="MIR-BILL-LEAD-TIME-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-SNDRY-AMT">Sundry Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-SNDRY-AMT" id="MIR-POL-SNDRY-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-SNDRY-REASN-CD">Sundry Reason:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-SNDRY-REASN-CD" id="MIR-POL-SNDRY-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Agent Information">Agent Information</a>
+            </h2>
+            <table class="tabledataentry" genrows="2">
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-AGT-ID-T[1]">Agent ID</label>
+                    </td>
+                    <td class="celldataentryheading" />
+                    <td class="celldataentryheading">
+                        <label for="MIR-POL-AGT-SHR-PCT-T[1]">Agent Share</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-AGT-ID-T[]" id="MIR-AGT-ID-T[]" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry"></td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-POL-AGT-SHR-PCT-T[]" id="MIR-POL-AGT-SHR-PCT-T[]" stype="Percent" elength="5" decimals="2" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <h2>
+                <a name="Tax Information">Tax Information</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-REG-CD">Jurisdiction Policy Registered:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-REG-CD" id="MIR-POL-REG-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-REG-FND-SRC-CD">Fund Source:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-REG-FND-SRC-CD" id="MIR-POL-REG-FND-SRC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-PNSN-SRC-CD">Pension Source:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-PNSN-SRC-CD" id="MIR-POL-PNSN-SRC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-PNSN-QUALF-CD">Pension Qualified Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-PNSN-QUALF-CD" id="MIR-POL-PNSN-QUALF-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Coverage Details">Coverage</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Policy Relationships">Relationships</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Billing Information">Billing</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Agent Information">Agent</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Tax Information">Tax</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/BF5001.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

@@ -1,0 +1,699 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:12 PM EDT
+*
+*********************************************************************************
+*  Component:   AppIndivCreateJP.htm                                          
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  016423  602J     New for release 602J                                       
+*  017150  612J     Remove Currency decimals="2"                               
+*  PF 2.2  PF22     make refresh.gif Japanese 
+*  109872  CTS      Changes as part of New Era Changes 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>AppIndivCreateJP</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+        <script>
+
+function onLoad1()
+
+{
+
+        setEmperorDate("MIR-CLI-BTH-DT");
+
+}
+</script>
+    </head>
+    <body class="bodyws" onload="onLoadCustom(); onLoad1()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Name">氏名</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Personal">個人情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Address">住所</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Contact">連絡先</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PreviousInformation">旧情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="6">
+                        <a name="Name">氏名（ｶﾀｶﾅ）</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-MAIL-TITL-TXT">敬称:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-MAIL-TITL-TXT" id="MIR-CLI-MAIL-TITL-TXT" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ENTR-SUR-NM-T[1]">姓:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ENTR-SUR-NM-T[1]" id="MIR-CLI-ENTR-SUR-NM-T[1]" stype="Text" maxlength="25" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ENTR-GIV-NM-T[1]">名:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ENTR-GIV-NM-T[1]" id="MIR-CLI-ENTR-GIV-NM-T[1]" stype="Text" maxlength="25" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading" colspan="6">
+                        氏名（通常表記）
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                    </td>
+                    <td class="celllabeldataentry">
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ENTR-SUR-NM-T[1]">姓:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ENTR-SUR-NM-T[2]" id="MIR-CLI-ENTR-SUR-NM-T[2]" stype="Text" maxlength="25" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ENTR-GIV-NM-T[1]">名:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ENTR-GIV-NM-T[2]" id="MIR-CLI-ENTR-GIV-NM-T[2]" stype="Text" maxlength="25" onfocus="enterField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign" colspan="6">
+                        <a href="#PreviousInformation">旧氏名の入力:</a>
+                    </td>
+                </tr>
+            </table>
+           <table class="tabledataentry">
+           <tr>
+                    <td class="celllabelrightalign">
+                        <label for="ClientIDAssignmentOverride">クライアントID自動設定を不可にする:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="ClientIDAssignmentOverride" id="ClientIDAssignmentOverride" stype="Indicator" onclick="showHideClientID(this);onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+               <td>
+              <span id="ClientIDFields" style="display: none">
+
+                <table>
+                          <tr>
+                            <td class="celllabelrightalign">
+                                    <label for="UserDefinedClientID">ユーザ設定クライアントID:</label>
+                            </td>
+                           <td class="celllabeldataentry">
+                                <input type="text" value=" " name="UserDefinedClientID" id="UserDefinedClientID" stype="Text" maxlength="10" mandatory="yes" onfocus="enterField(this)" />
+                           </td>
+                          </tr>
+                      </table>
+                </span>
+                </td>
+            </tr>
+            </table>
+           <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="Personal">個人情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-BTH-DT">生年月日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-BTH-DT" id="MIR-CLI-BTH-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" emperorDate="myEmperorDate" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="myEmperorDate">生年月日（和暦）:</label>
+                    </td>
+                    <td>
+                        <select name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" onblur="validateField(this)" onfocus="enterField(this)" serverDate="MIR-CLI-BTH-DT">
+                            <option value="" />
+                            <option value="M">明治</option>
+                            <option value="T">大正</option>
+                            <option value="S">昭和</option>
+                            <option value="H">平成</option>
+<!-- 109872 CHANGES START HERE -->
+                            <option value="R">令和</option>
+<!-- 109872 CHANGES ENDS HERE -->
+                        </select>
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-CLI-BTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-CLI-BTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-CLI-BTH-DT" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-BTH-LOC-CD">出生地:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-BTH-LOC-CD" id="MIR-CLI-BTH-LOC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-SEX-CD">性別:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-SEX-CD" id="MIR-CLI-SEX-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-SMKR-CD">喫煙/非喫煙:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-SMKR-CD" id="MIR-CLI-SMKR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-TAX-ID">納税者番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-TAX-ID" id="MIR-CLI-TAX-ID" stype="Text" maxlength="9" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                    <label for="MIR-CLI-MARIT-STAT-CD">婚姻ステータス:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-MARIT-STAT-CD" id="MIR-CLI-MARIT-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                    </td>
+                    <td class="celllabeldataentry">
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                    トップへ戻る
+                </a>
+            </p>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <a name="Address">住所</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-RES-TYP-CD">居住タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-RES-TYP-CD" id="MIR-CLI-RES-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-RES-NUM-T[1]">ｱﾊﾟｰﾄ/ﾏﾝｼｮﾝ部屋番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-RES-NUM-T[1]" id="MIR-CLI-RES-NUM-T[1]" stype="Text" maxlength="5" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-LN-1-TXT-T[1]">住所:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-LN-1-TXT-T[1]" id="MIR-CLI-ADDR-LN-1-TXT-T[1]" stype="Text" maxlength="25" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PSTL-ADDR-LN-1-TXT">住所選択1:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PSTL-ADDR-LN-1-TXT" id="MIR-PSTL-ADDR-LN-1-TXT" size="1" stype="Selection" onfocus="enterField(this)" onchange="AddrKJLine1()"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-LN-2-TXT-T[1]" id="MIR-CLI-ADDR-LN-2-TXT-T[1]" stype="Text" maxlength="25" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PSTL-ADDR-LN-2-TXT">住所選択2:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PSTL-ADDR-LN-2-TXT" id="MIR-PSTL-ADDR-LN-2-TXT" size="1" stype="Selection" onfocus="enterField(this)" onchange="AddrKJLine2()"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign" />  
+                    <td class="celllabeldataentry">  
+                        <input type="text" value=" " name="MIR-CLI-ADDR-LN-3-TXT-T[1]" id="MIR-CLI-ADDR-LN-3-TXT-T[1]" stype="Text" maxlength="25" onfocus="enterField(this)" />  
+                    </td>  
+                    <td class="celllabelrightalign">  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-CLI-CITY-NM-TXT-T[1]">市/区/郡:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <input type="text" value=" " name="MIR-CLI-CITY-NM-TXT-T[1]" id="MIR-CLI-CITY-NM-TXT-T[1]" stype="Text" maxlength="25" onfocus="enterField(this)" />  
+                    </td>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-CLI-CRNT-LOC-CD">州/国:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <select name="MIR-CLI-CRNT-LOC-CD" id="MIR-CLI-CRNT-LOC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>  
+                        <span id="refreshButtonspan" style="display: none">  
+                            <input type="image" name="refreshButton" id="refreshButton" border="0" src="../japanese/images/refresh.gif" align="bottom" width="70" height="26" onclick="doRefresh()" />
+                        </span>  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-CLI-CTRY-CD">国:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <select name="MIR-CLI-CTRY-CD" id="MIR-CLI-CTRY-CD" size="1" stype="Selection" onfocus="enterField(this)" onchange="refreshButtonspan.style.display='';"></select>  
+                    </td>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-CLI-PSTL-CD">郵便番号:</label>  
+                    </td>  
+                    <td class="celllabeldataentry">  
+                        <input type="text" value=" " name="MIR-CLI-PSTL-CD" id="MIR-CLI-PSTL-CD" stype="Text" maxlength="9" onfocus="enterField(this)" />  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-CLI-JP-ADDR-CD-T[1]">都道府県:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-JP-ADDR-CD-T[1]" id="MIR-CLI-JP-ADDR-CD-T[1]" stype="Text" maxlength="11" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-ADDL-TXT-T[1]">補足情報:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-ADDL-TXT-T[1]" id="MIR-CLI-ADDR-ADDL-TXT-T[1]" stype="Text" maxlength="60" onfocus="enterField(this)" size="60" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-YR-DUR">居住年数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-YR-DUR" id="MIR-CLI-ADDR-YR-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                    </td>
+                    <td class="celllabeldataentry">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <a href="#PreviousInformation">
+                            <label for="MIR-DV-PREV-ADDR-IND">クライアントには旧住所あり:</label>
+                        </a>
+                    </td>
+                    <td class="celllabeldataentry">
+                    </td>
+                    <td class="celllabelrightalign">
+                    </td>
+                    <td class="celllabeldataentry">
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                    トップへ戻る
+                </a>
+            </p>
+            <table class="tabledataentry" genrows="5">
+                <tr>
+                    <td class="celldataentryheading">
+                        <a name="Contact">連絡手段</a>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-CNTCT-ID-TXT-T[1]">番号/ｱﾄﾞﾚｽ等</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-CNTCT-ID-CD-T[]" id="MIR-CLI-CNTCT-ID-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-CNTCT-ID-TXT-T[]" id="MIR-CLI-CNTCT-ID-TXT-T[]" stype="Text" maxlength="30" onfocus="enterField(this)" size="30" />
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-LANG-CD">通知言語:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-LANG-CD" id="MIR-CLI-LANG-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                    トップへ戻る
+                </a>
+            </p>
+            <b><a name="PreviousInformation">旧情報</a></b>
+            <table class="tabledataentry" genrows="0" id="prevNameTable">
+                <tr>
+                    <td class="celldataentryheading" colspan="3">旧氏名</td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-PREV-TITL-TXT-T[1]">敬称</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-ENTR-PREV-SUR-NM-T[1]">姓</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-ENTR-PREV-GIV-NM-T[1]">名</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-PREV-TITL-TXT-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-TITL-TXT-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-ENTR-PREV-SUR-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-ENTR-PREV-SUR-NM-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-ENTR-PREV-GIV-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-ENTR-PREV-GIV-NM-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <b>
+                    旧氏名を入力する:
+
+                    <input type="checkbox" name="prevNameEntry" id="prevNameEntry" onclick="showHidePrevName('Entries for Previous Name Info will not be saved')" onfocus="enterField(this)" value="Y" />
+                </b>
+            </p>
+            <table id="prevNameEntryTable" class="tabledataentry" style="display: none">
+                <tr>
+                    <td class="celldataentryheading" colspan="6">
+                        旧氏名（ｶﾀｶﾅ）
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-INDV-TITL-TXT-T[1]">敬称:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-INDV-TITL-TXT-T[1]" id="MIR-CLI-INDV-TITL-TXT-T[1]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ENTR-SUR-NM-T[1]">姓:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ENTR-SUR-NM-T[1]" id="MIR-ENTR-SUR-NM-T[1]" stype="Text" maxlength="25" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ENTR-GIV-NM-T[1]">名:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ENTR-GIV-NM-T[1]" id="MIR-ENTR-GIV-NM-T[1]" stype="Text" maxlength="25" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading" colspan="6">
+                        旧氏名（通常表記）
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                    </td>
+                    <td class="celllabeldataentry">
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ENTR-SUR-NM-T[1]">姓:</label>
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-ENTR-SUR-NM-T[2]" id="MIR-ENTR-SUR-NM-T[2]" stype="Text" maxlength="25" onfocus="enterField(this)" size="20" /> 
+                    </td> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-ENTR-GIV-NM-T[1]">名:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-ENTR-GIV-NM-T[2]" id="MIR-ENTR-GIV-NM-T[2]" stype="Text" maxlength="25" onfocus="enterField(this)" size="20" /> 
+                    </td> 
+                </tr> 
+            </table> 
+            <table class="tabledataentry" genrows="0" id="prevAddrTable"> 
+                <tr> 
+                    <td class="celldataentryheading" colspan="9">旧住所</td> 
+                </tr> 
+                <tr> 
+                    <td class="celldataentryheading"> 
+                        <label for="MIR-CLI-PREV-RES-NUM-T[1]">ｱﾊﾟｰﾄ/ﾏﾝｼｮﾝ部屋番号</label> 
+                    </td> 
+                    <td class="celldataentryheading"> 
+                        <label for="MIR-CLI-PREV-ADDR-LN-1-TXT-T[1]">住所</label> 
+                    </td> 
+                    <td class="celldataentryheading" /> 
+                    <td class="celldataentryheading"> 
+                        <label for="MIR-CLI-PREV-CITY-NM-TXT-T[1]">市/区/郡</label> 
+                    </td> 
+                    <td class="celldataentryheading"> 
+                        <label for="MIR-CLI-PREV-CRNT-LOC-CD-T[1]">州/国</label> 
+                    </td> 
+                    <td class="celldataentryheading"> 
+                        <label for="MIR-CLI-PREV-CTRY-CD-T[1]">国</label> 
+                    </td> 
+                    <td class="celldataentryheading"> 
+                        <label for="MIR-CLI-PREV-PSTL-CD-T[1]">郵便番号</label> 
+                    </td> 
+                    <td class="celldataentryheading"> 
+                        <label for="MIR-CLI-PREV-JP-ADDR-CD-T[1]">都道府県:</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-PREV-ADDR-YR-DUR-T[1]">居住年数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-PREV-RES-NUM-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-RES-NUM-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-PREV-ADDR-LN-1-TXT-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-ADDR-LN-1-TXT-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-PREV-ADDR-LN-2-TXT-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-ADDR-LN-2-TXT-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-PREV-CITY-NM-TXT-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-CITY-NM-TXT-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-PREV-CRNT-LOC-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-CRNT-LOC-CD-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-PREV-CTRY-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-CTRY-CD-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-PREV-PSTL-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-PSTL-CD-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-PREV-JP-ADDR-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-JP-ADDR-CD-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-PREV-ADDR-YR-DUR-T[]" stype="Text" displayonly="yes">MIR-CLI-PREV-ADDR-YR-DUR-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <b>
+                    旧住所を入力する:
+
+                    <input type="checkbox" name="prevAddrEntry" id="prevAddrEntry" onclick="showHidePrevAddr('Entries for Previous Address Info will not be saved')" onfocus="enterField(this)" value="Y" />
+                </b>
+            </p>
+            <table id="prevAddrEntryTable" class="tabledataentry" style="display: none">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-RES-TYP-CD-ADDITIONAL">居住タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-RES-TYP-CD-ADDITIONAL" id="MIR-CLI-RES-TYP-CD-ADDITIONAL" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-RES-NUM-T[1]-ADDITIONAL">ｱﾊﾟｰﾄ/ﾏﾝｼｮﾝ部屋番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-RES-NUM-T[1]-ADDITIONAL" id="MIR-CLI-RES-NUM-T[1]-ADDITIONAL" stype="Text" maxlength="5" onfocus="enterField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-LN-1-TXT-T[1]-ADDITIONAL">住所:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-LN-1-TXT-T[1]-ADDITIONAL" id="MIR-CLI-ADDR-LN-1-TXT-T[1]-ADDITIONAL" stype="Text" maxlength="25" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PSTL-ADDR-LN-1-TXT-ADDITIONAL">住所選択1:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PSTL-ADDR-LN-1-TXT-ADDITIONAL" id="MIR-PSTL-ADDR-LN-1-TXT-ADDITIONAL" size="1" stype="Selection" onfocus="enterField(this)" onchange="AddrPrevLine1()"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-LN-2-TXT-T[1]-ADDITIONAL" id="MIR-CLI-ADDR-LN-2-TXT-T[1]-ADDITIONAL" stype="Text" maxlength="25" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PSTL-ADDR-LN-2-TXT-ADDITIONAL">住所選択2:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PSTL-ADDR-LN-2-TXT-ADDITIONAL" id="MIR-PSTL-ADDR-LN-2-TXT-ADDITIONAL" size="1" stype="Selection" onfocus="enterField(this)" onchange="AddrPrevLine2()"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-LN-3-TXT-T[1]-ADDITIONAL" id="MIR-CLI-ADDR-LN-3-TXT-T[1]-ADDITIONAL" stype="Text" maxlength="25" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                    </td>
+                    <td class="celllabeldataentry">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CITY-NM-TXT-T[1]-ADDITIONAL">市/区/郡:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-CITY-NM-TXT-T[1]-ADDITIONAL" id="MIR-CLI-CITY-NM-TXT-T[1]-ADDITIONAL" stype="Text" maxlength="25" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CRNT-LOC-CD-ADDITIONAL">都道府県/州:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-CRNT-LOC-CD-ADDITIONAL" id="MIR-CLI-CRNT-LOC-CD-ADDITIONAL" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                        <span id="refreshButtonspan2" style="display: none"><input type="image" border="0" src="../japanese/images/refresh.gif" align="bottom" width="70" height="26" onclick="doRefresh()" /></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CTRY-CD-ADDITIONAL">地方行政区:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-CTRY-CD-ADDITIONAL" id="MIR-CLI-CTRY-CD-ADDITIONAL" size="1" stype="Selection" onfocus="enterField(this)" onchange="refreshButtonspan2.style.display='';"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-PSTL-CD-ADDITIONAL">郵便番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-PSTL-CD-ADDITIONAL" id="MIR-CLI-PSTL-CD-ADDITIONAL" stype="Text" maxlength="9" onfocus="enterField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-JP-ADDR-CD-T[1]-ADDITIONAL">都道府県:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-JP-ADDR-CD-T[1]-ADDITIONAL" id="MIR-CLI-JP-ADDR-CD-T[1]-ADDITIONAL" stype="Text" maxlength="11" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-ADDL-TXT-T[1]-ADDITIONAL">補足情報:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-ADDL-TXT-T[1]-ADDITIONAL" id="MIR-CLI-ADDR-ADDL-TXT-T[1]-ADDITIONAL" stype="Text" maxlength="60" onfocus="enterField(this)" size="60" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-YR-DUR-ADDITIONAL">居住年数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-YR-DUR-ADDITIONAL" id="MIR-CLI-ADDR-YR-DUR-ADDITIONAL" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                    </td>
+                    <td class="celllabeldataentry">
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                     
+                    トップへ戻る
+                </a>
+            </p>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Name">氏名</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Personal">個人情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Address">住所</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Contact">連絡先</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PreviousInformation">旧情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/AppIndivUpdateJP.js"></script>
+    <script src="../js/EmperorDates.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/AppAddrLine.js"></script>
+    <script src="../js/AppAddrLinePrev.js"></script>
+</html>

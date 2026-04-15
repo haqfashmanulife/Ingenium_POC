@@ -1,0 +1,232 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:36 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1730-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"   
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.  
+*  UY3004  CTS      INPUT HTML POLICY TRIM - 10 BYTES -> 7 BYTES
+                                       
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1730-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CFN-STAT-CD">Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CFN-STAT-CD" stype="Text" displayonly="yes">MIR-CFN-STAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Activity Dates</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LATST-CIA-DT">Effective Date of Last Activity:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LATST-CIA-DT" stype="Date" displayonly="yes">MIR-LATST-CIA-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FRST-PRCES-CIA-DT">Effective Date of First Activity:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FRST-PRCES-CIA-DT" stype="Date" displayonly="yes">MIR-FRST-PRCES-CIA-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-EARLST-CIA-DT">Effective Date of Earliest Activity:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-EARLST-CIA-DT" stype="Date" displayonly="yes">MIR-EARLST-CIA-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LATST-DPOS-CIA-DT">Effective Date of Last Deposit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LATST-DPOS-CIA-DT" stype="Date" displayonly="yes">MIR-LATST-DPOS-CIA-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LATST-PSUR-CIA-DT">Effective Date of Last Partial Surrender:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LATST-PSUR-CIA-DT" stype="Date" displayonly="yes">MIR-LATST-PSUR-CIA-DT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="2">Tax Dates</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREV-T3-PRCES-DT">Last T3 Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREV-T3-PRCES-DT" stype="Date" displayonly="yes">MIR-PREV-T3-PRCES-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Allocation Dates</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RPT-PEND-CIA-DT">Report Pending Activity Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RPT-PEND-CIA-DT" stype="Date" displayonly="yes">MIR-RPT-PEND-CIA-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-VALU-PEND-CIA-DT">Fund Units Pending Activity Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-VALU-PEND-CIA-DT" stype="Date" displayonly="yes">MIR-VALU-PEND-CIA-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Tax Totals</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-T5-INT-AMT">Pending Interest Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-T5-INT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-T5-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-CDN-TAX-ACB-AMT">Total Adjusted Cost Basis Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CDN-TAX-ACB-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CDN-TAX-ACB-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-OTHR-INCM-AMT">Other Income:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-OTHR-INCM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-OTHR-INCM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-CDN-GAIN-AMT">Net Realized Capital Gains (Canadian):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CDN-GAIN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-CDN-GAIN-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-FRGN-GAIN-AMT">Net Realized Capital Gains (Foreign):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-FRGN-GAIN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-FRGN-GAIN-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-ELIG-DIV-AMT">Investment Income Deduction - Eligible Dividend Income:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-ELIG-DIV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-ELIG-DIV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-ELIG-INT-AMT">Investment Income Deduction - Eligible Interest Income:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-ELIG-INT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-ELIG-INT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-INELG-DIV-AMT">Investment Income Deduction - Ineligible Dividend Income:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-INELG-DIV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-INELG-DIV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-INELG-INT-AMT">Investment Income Deduction - Ineligible Interest Income:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-INELG-INT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-INELG-INT-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

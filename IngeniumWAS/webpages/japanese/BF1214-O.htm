@@ -1,0 +1,289 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:32 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1214-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                           
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1214-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RTBL-ID">付加保険料率テーブルID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-RTBL-ID" id="MIR-RTBL-ID" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RTBL-RT-TYP-CD">料率タイプ:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-RTBL-RT-TYP-CD" id="MIR-RTBL-RT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RTBL-IDT-NUM">発効日</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-RTBL-IDT-NUM" id="MIR-RTBL-IDT-NUM" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RTBL-SMKR-CD">喫煙者ステータス:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-RTBL-SMKR-CD" id="MIR-RTBL-SMKR-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RTBL-PAR-CD">配当オプション:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-RTBL-PAR-CD" id="MIR-RTBL-PAR-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RTBL-SEX-CD">性別:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-RTBL-SEX-CD" id="MIR-RTBL-SEX-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RTBL-STBL-1-CD">補助テーブル1</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-RTBL-STBL-1-CD" id="MIR-RTBL-STBL-1-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RTBL-STBL-2-CD">補助テーブル2:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-RTBL-STBL-2-CD" id="MIR-RTBL-STBL-2-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RTBL-STBL-3-CD">補助テーブル3:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-RTBL-STBL-3-CD" id="MIR-RTBL-STBL-3-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RTBL-STBL-4-CD">補助テーブル4:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-RTBL-STBL-4-CD" id="MIR-RTBL-STBL-4-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-LOC-GR-ID">所在地グループ</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-LOC-GR-ID" id="MIR-LOC-GR-ID" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RTBL-DB-OPT-CD">死亡給付オプション</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-RTBL-DB-OPT-CD" id="MIR-RTBL-DB-OPT-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RTBL-PNSN-QUALF-CD">年金適格コード</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-RTBL-PNSN-QUALF-CD" id="MIR-RTBL-PNSN-QUALF-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RTBL-JNT-LIFE-CD">連生保険タイプ</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-RTBL-JNT-LIFE-CD" id="MIR-RTBL-JNT-LIFE-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DPOS-TRM-MO-DUR">積立期間 -        月数</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-DPOS-TRM-MO-DUR" id="MIR-DPOS-TRM-MO-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DPOS-TRM-DY-DUR">積立期間 -        日数</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-DPOS-TRM-DY-DUR" id="MIR-DPOS-TRM-DY-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RTBL-AGE">発行時/満年齢</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-RTBL-AGE" id="MIR-RTBL-AGE" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel" />
+                    <td class="celldatakey" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="SELECT-T[1]" />
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RTBL-ID-T[1]">R付加保険料率ーブルID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RTBL-IDT-NUM-T[1]">発効日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RTBL-SMKR-CD-T[1]">喫煙者ステータス</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RTBL-PAR-CD-T[1]">配当オプション</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RTBL-SEX-CD-T[1]">性別</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RTBL-STBL-1-CD-T[1]">補助テーブル1</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RTBL-STBL-2-CD-T[1]">補助テーブル2</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RTBL-STBL-3-CD-T[1]">補助テーブル3</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RTBL-STBL-4-CD-T[1]">補助テーブル4</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LOC-GR-ID-T[1]">所在地グループ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RTBL-DB-OPT-CD-T[1]">死亡給付オプション</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RTBL-PNSN-QUALF-CD-T[1]">年金適格コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RTBL-JNT-LIFE-CD-T[1]">連生保険タイプ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DPOS-TRM-MO-DUR-T[1]">積立期間   - 月数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DPOS-TRM-DY-DUR-T[1]">積立期間   - 日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RTBL-AGE-T[1]">発行時/満年齢</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RTBL-AGE-DUR-T[1]">開始年齢/期間</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-END-RTBL-AGE-DUR-T[1]">終了年齢/期間</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RTBL-RT-TYP-CD-T[1]">料率タイプ</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <a name="MIR-RTBL-ID-T[]" href="a" action="SelectItem" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">Rate Load Table ID</a>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-IDT-NUM-T[]" stype="Date" displayonly="yes">MIR-RTBL-IDT-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-SMKR-CD-T[]" stype="Text" displayonly="yes">MIR-RTBL-SMKR-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-PAR-CD-T[]" stype="Text" displayonly="yes">MIR-RTBL-PAR-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-SEX-CD-T[]" stype="Text" displayonly="yes">MIR-RTBL-SEX-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-STBL-1-CD-T[]" stype="Text" displayonly="yes">MIR-RTBL-STBL-1-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-STBL-2-CD-T[]" stype="Text" displayonly="yes">MIR-RTBL-STBL-2-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-STBL-3-CD-T[]" stype="Text" displayonly="yes">MIR-RTBL-STBL-3-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-STBL-4-CD-T[]" stype="Text" displayonly="yes">MIR-RTBL-STBL-4-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOC-GR-ID-T[]" stype="Text" displayonly="yes">MIR-LOC-GR-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-DB-OPT-CD-T[]" stype="Text" displayonly="yes">MIR-RTBL-DB-OPT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-PNSN-QUALF-CD-T[]" stype="Text" displayonly="yes">MIR-RTBL-PNSN-QUALF-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-JNT-LIFE-CD-T[]" stype="Text" displayonly="yes">MIR-RTBL-JNT-LIFE-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DPOS-TRM-MO-DUR-T[]" stype="Text" displayonly="yes">MIR-DPOS-TRM-MO-DUR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DPOS-TRM-DY-DUR-T[]" stype="Text" displayonly="yes">MIR-DPOS-TRM-DY-DUR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-AGE-T[]" stype="Text" displayonly="yes">MIR-RTBL-AGE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-AGE-DUR-T[]" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-RTBL-AGE-DUR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-END-RTBL-AGE-DUR-T[]" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-DV-END-RTBL-AGE-DUR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RTBL-RT-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-RTBL-RT-TYP-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

@@ -1,0 +1,683 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:28 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0940-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  602J     Add support for currency scaling                           
+*  017150  612J     Remove Currency decimals="2"                               
+*  5-0035  AC       Added MIR-POL-REQD-AMT    
+*  IPMPFA  CTS      Added MIR-POL-LS-PAYO-AMT 
+*  IPMPPU  CTS      Added new fields for IPMP                           
+*  IPMPPA  CTS      Added MIR-TOT-MODE-PAYO-QTY and MIR-PAYO-ACUM-AMT
+*  MPCR01  CTS      Added 'One-Time Deduction' amount                                    
+*  IPMTX1  CTS      Added two new fields MIR-LMPSM-BNFT-AMT and
+*                   MIR-WHTAX-DTRMN-AMT
+*  ABU108  CTS      Fix to display MIR-POL-PAYO-TAXWH-IND correctly
+*  ISLIMP  CTS      REPLACED HO CLAIM ACCEPT DATE AND DOC COMPLETION DATE WITH
+*                   COMPANY RECEIVED DATE AND COMPANY RECEIVED DATE(FINAL).
+*                   ALSO ADDED 1 NEW FIELD.
+*  MP113A  CTS      Changes for New Payout Plan Setup and New field Addition
+*  Q05003  CTS      MP113A-Added new field Annuity Fund Amount
+*  MP202A  CTS      ADDDED NEW FIELDS ANNUITY LUMPSUM PAYOUT
+*                   AMOUNT AND APRAISAL VALUE PAYO AMOUNT
+*  M280Z1  CTS      ADDED RESERVE PAYO EFFECTIVE DATE FIELD
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.    
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  UY3049  CTS      ANNUITY PAYOUT PROCESS STREAM3       
+*  UCR244  CTS     CHANGES AS PART OF STREAM3          
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0940-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();onLoadCustom()"> -->
+<!--  UY3049 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="SubInpTrimPolicy();onLoadCustom();onLoad()"-->
+    <body class="bodyws" onLoad="SubInpTrimPolicy();onLoadCustom();onLoad();SubInpPayoPolicy()">
+<!--  UY3049 CHANGES ENDS HERE-->	
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+<!--  UY3049 CHANGES STARTS HERE-->
+            <input type="hidden" name="MIR-STR3-PAYO-IND" id="MIR-STR3-PAYO-IND" stype="Hidden" />
+            <input type="hidden" name="MIR-10-POL-ID" id="MIR-10-POL-ID" stype="Hidden" />
+<!--  UY3049 CHANGES ENDS HERE-->
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-PAYO-NUM">支払番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-PAYO-NUM" stype="Text" displayonly="yes">MIR-POL-PAYO-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-PAYO-TYP-CD">支払タイプ:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-PAYO-TYP-CD" stype="Text" displayonly="yes">MIR-POL-PAYO-TYP-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-NUM">保障番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAYO-EFF-DT">処理日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAYO-EFF-DT" stype="Date" displayonly="yes">MIR-POL-PAYO-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAYO-END-DT">終了日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAYO-END-DT" stype="Date" displayonly="yes">MIR-POL-PAYO-END-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAYO-STAT-CD">ステータス:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAYO-STAT-CD" stype="Text" displayonly="yes">MIR-POL-PAYO-STAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CDA-EFF-DT">最終支払日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDA-EFF-DT" stype="Date" displayonly="yes">MIR-CDA-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAYO-NXT-DT">次回支払日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAYO-NXT-DT" stype="Date" displayonly="yes">MIR-POL-PAYO-NXT-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAYO-MODE-CD">支払方法（ﾓｰﾄﾞ）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAYO-MODE-CD" stype="Text" displayonly="yes">MIR-POL-PAYO-MODE-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAYO-AMT">支払合計額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAYO-AMT" stype="Currency" elength="15" displayonly="yes">MIR-POL-PAYO-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAYO-UNIT-QTY">支払ユニット合計:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAYO-UNIT-QTY" stype="Text" displayonly="yes">MIR-POL-PAYO-UNIT-QTY</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAYO-LEAD-TIME-DUR">所要期間:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAYO-LEAD-TIME-DUR" stype="Text" displayonly="yes">MIR-PAYO-LEAD-TIME-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FND-DESC-TXT">ファンド詳細:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FND-DESC-TXT" stype="Text" displayonly="yes">MIR-DV-FND-DESC-TXT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FND-ID">ファンド:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FND-ID" stype="Text" displayonly="yes">MIR-FND-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAYO-TAXWH-IND">源泉徴収不処理:</label>
+                    </td>
+                    <td class="celldisplay">
+ <!-- IPMPTX1 change -->
+ <!--                       <input type="checkbox" name="MIR-POL-PAYO-TAXWH-IND" id="MIR-POL-PAYO-TAXWH-IND" stype="Indicator" value="Y" disabled="yes" /> -->
+<!--                      <input type="checkbox" name="MIR-POL-PAYO-TAXWH-IND" id="MIR-POL-PAYO-TAXWH-IND" stype="Indicator" disabled="no" /> -->
+<!-- ABU108 change starts here -->
+                    <input type="checkbox" name="MIR-POL-PAYO-TAXWH-IND" id="MIR-POL-PAYO-TAXWH-IND" stype="Indicator" value="Y" disabled="yes" />
+<!-- ABU108 change ends here -->
+<!-- IPMPTX1 Change ends -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REQD-AMT">リクエスト金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-REQD-AMT" stype="Currency" elength="15" displayonly="yes">MIR-POL-REQD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                <label for="MIR-POL-LS-PAYO-AMT">合計一括支払</label>
+            </td>
+            <td class="celldisplay">
+            <span id="MIR-POL-LS-PAYO-AMT" stype="Currency" elength="15" displayonly="yes">MIR-POL-LS-PAYO-AMT</span>
+                    </td>
+<!---IPMPPU STARTS HERE-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAYO-TAXWH-AMT">税金控除額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAYO-TAXWH-AMT" stype="Currency" elength="15" displayonly="yes">MIR-POL-PAYO-TAXWH-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+<!--ISLIMP STARTS HERE
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLM-DOC-CMPLT-DT">請求書類完了日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLM-DOC-CMPLT-DT" stype="Date" displayonly="yes">MIR-CLM-DOC-CMPLT-DT</span>
+                    </td>
+-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLM-FNL-CO-RECV-DT">会社受付日 （最終）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLM-FNL-CO-RECV-DT" stype="Date" displayonly="yes">MIR-CLM-FNL-CO-RECV-DT</span>
+                    </td>
+<!--ISLIMP ENDS HERE-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PMT-REASN-CD">支払理由:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PMT-REASN-CD" stype="Text" displayonly="yes">MIR-PMT-REASN-CD</span>
+                    </td>
+<!--ISLIMP STARTS HERE
+                    <td class="celldisplaylabel">
+                        <label for="MIR-HO-CLM-ACPT-DT">請求書本社受理日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HO-CLM-ACPT-DT" stype="Date" displayonly="yes">MIR-HO-CLM-ACPT-DT</span>
+                    </td>
+-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLM-CO-RECV-DT">会社受付日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLM-CO-RECV-DT" stype="Date" displayonly="yes">MIR-CLM-CO-RECV-DT</span>
+                    </td>
+<!--ISLIMP ENDS HERE-->
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PREM-PREV-POL-AMT">前契約に充当される合計保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PREM-PREV-POL-AMT" stype="Currency" elength="15" displayonly="yes">MIR-TOT-PREM-PREV-POL-AMT</span>
+                    </td>
+<!--IPMTX1 STARTS HERE-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREM-APPR-IP-AMT">保障に充当される原資/保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREM-APPR-IP-AMT" stype="Currency" elength="15" displayonly="yes">MIR-PREM-APPR-IP-AMT</span>
+                    </td>
+<!--IPMTX1 ENDS HERE-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-XPNS-RATIO-PCT">支出率:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-XPNS-RATIO-PCT" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-POL-XPNS-RATIO-PCT</span>
+                    </td>
+                </tr>
+<!---IPMPPA STARTS HERE-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-MODE-PAYO-QTY">合計支払モード回数:</label>
+                    </td>
+                    <td class="celldisplay">
+            <span id="MIR-TOT-MODE-PAYO-QTY" stype="Text" displayonly="yes">MIR-TOT-MODE-PAYO-QTY</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAYO-ACUM-AMT">累計総支払金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                     <span id="MIR-PAYO-ACUM-AMT" stype="Currency" elength="15" displayonly="yes">MIR-PAYO-ACUM-AMT</span>
+                    </td>
+<!-- MPCR01 STARTS HERE    -->
+                    <td class="celldisplaylabel">
+                       <label for="MIR-ONE-TIME-DED-AMT">一時控除:</label>
+            </td>
+                <td class="celldisplay">
+             <span id="MIR-ONE-TIME-DED-AMT" stype="Currency" elength="15" displayonly="yes">MIR-ONE-TIME-DED-AMT</span>
+                    </td>
+<!-- MPCR01 ENDS HERE -->
+                </tr>
+
+<!--IPMTX1 STARTS HERE-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LMPSM-BNFT-AMT">一時金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LMPSM-BNFT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-LMPSM-BNFT-AMT</span>
+                    </td>
+                     <td class="celldisplaylabel">
+                        <label for="MIR-WHTAX-DTRMN-AMT">源泉徴収判定額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-WHTAX-DTRMN-AMT" stype="Currency" elength="15" displayonly="yes">MIR-WHTAX-DTRMN-AMT</span>
+                    </td>
+<!--ISLIMP STARTS HERE
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLM-DYS-BFR-PMT-DUE">履行期限日数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLM-DYS-BFR-PMT-DUE" stype="Text" displayonly="yes">MIR-CLM-DYS-BFR-PMT-DUE</span>
+                    </td>
+<!--ISLIMP ENDS HERE-->
+                </tr>
+<!--IPMTX1 ENDS HERE-->
+<!--MP113A STARTS HERE-->
+                <tr>
+                    <td class="celldisplaylabel">
+               <label for="MIR-ASSUM-INT-RT">予定利率:</label>
+           </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ASSUM-INT-RT" stype="Number" elength="5" decimals="3" signed="yes" displayonly="yes">MIR-ASSUM-INT-RT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+        <label for="MIR-ANTY-FND-AMT">年金基金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-FND-AMT" stype="Currency" elength="15" displayonly="yes">MIR-ASSUM-INT-RT</span>
+                    </td>
+<!--MP202A CHANGES STARTS HERE-->
+                    <td class="celldisplaylabel">
+                    <label for="MIR-ANTY-LMPSM-PAYO-AMT">年金開始時一括支払金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                    <span id="MIR-ANTY-LMPSM-PAYO-AMT" stype="Currency" elength="15" displayonly="yes">MIR-ANTY-LMPSM-PAYO-AMT</span>
+                    </td>
+<!--MP202A CHANGES STARTS HERE-->
+                </tr>
+<!--MP113A ENDS HERE-->
+<!--MP202A CHANGES STARTS HERE-->
+                <tr>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-APRS-VALU-PAYO-AMT">相続税法第24条評価額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-APRS-VALU-PAYO-AMT" stype="Currency" elength="15" displayonly="yes">MIR-APRS-VALU-PAYO-AMT</span>
+                    </td>
+<!--M280Z1 CHANGES STARTS HERE-->
+                    <td class="celldisplaylabel">
+                    <label for="MIR-RSRV-PAYO-EFF-DT">支払応当日（予約）</label>
+                </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RSRV-PAYO-EFF-DT" stype="Date" displayonly="yes">MIR-RSRV-PAYO-EFF-DT</span>
+                    </td>
+<!--                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td> -->
+<!--M280Z1 CHANGES ENDS HERE-->
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+<!--UY3049 CHANGES START HERE -->
+                <tr>
+                   <td class="celldisplaylabel">
+                        <label for="MIR-XIST-CHK-CMPLT-IND">存在確認</label>
+                   </td>
+                   <td class="celldisplay">
+                       <input type="checkbox" name="MIR-XIST-CHK-CMPLT-IND" id="MIR-XIST-CHK-CMPLT-IND" stype="Indicator" value="Y" disabled="yes" />
+                   </td>
+                   <td class="celldisplaylabel">
+                        <label for="MIR-AUTO-REMIT-IND">自動送金</label>
+                   </td>
+                   <td class="celldisplay">
+                       <input type="checkbox" name="MIR-AUTO-REMIT-IND" id="MIR-AUTO-REMIT-IND" stype="Indicator" value="Y" disabled="yes" />
+                   </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DIV-OPT-CD">配当金コード</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIV-OPT-CD" stype="Text" displayonly="yes">MIR-DIV-OPT-CD</span>
+                    </td>
+                </tr>
+<!--UY3049 CHANGES END HERE -->    
+                       
+<!--MP202A CHANGES ENDS HERE-->
+            </table>
+            <br />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                         <a name="契約情報">契約情報</a>
+                    </td>
+                </tr>
+               <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSRD-NM">被保険者 氏名:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-NM" stype="Text" displayonly="yes">MIR-INSRD-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-GUAR-PERI">保証期間:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-GUAR-PERI" stype="Text" displayonly="yes">MIR-GUAR-PERI</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANUTNT-NM">年金受給者:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANUTNT-NM" stype="Text" displayonly="yes">MIR-ANUTNT-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-PMT-PERI">年金支払期間:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-PMT-PERI" stype="Text" displayonly="yes">MIR-ANTY-PMT-PERI</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ANTY-STAT-CD">年金ステータス:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ANTY-STAT-CD" stype="Text" displayonly="yes">MIR-POL-ANTY-STAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-TYP-CD">年金の種類:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-TYP-CD" stype="Text" displayonly="yes">MIR-ANTY-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-STYLE-CD">年金型:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-STYLE-CD" stype="Text" displayonly="yes">MIR-ANTY-STYLE-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                         <a name="年金額情報">年金額情報</a>
+                    </td>
+                </tr>
+               <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BASIC-ANTY-AMT">基本年金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BASIC-ANTY-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-BASIC-ANTY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                       <label for="MIR-ADDL-ANTY-AMT">増額年金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ADDL-ANTY-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-ADDL-ANTY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ADDL-CAP-AMT">追加年金原資額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ADDL-CAP-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-ADDL-CAP-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+                    <td class="celldisplayheading" colspan="6">将来年金額</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PAYO-YEAR-T[1]">年</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ANNV-DT-T[1]">年応当日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BASIC-ANTY-AMT-T[1]">基本年金額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ADDL-ANTY-AMT-T[1]">増額年金額</label>
+                    </td>
+					<!-- UCR244 CHANGE STARTS HERE -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-TOT-INCR-ANTY-AMT-T[1]">增加年金額</label>
+                    </td>
+					<!-- UCR244 CHANGE ENDS HERE -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-TOT-ANTY-AMT-T[1]">支払額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-PAYO-YEAR-T[]" stype="Text" displayonly="yes">MIR-PAYO-YEAR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANNV-DT-T[]" stype="Date" displayonly="yes">MIR-ANNV-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BASIC-ANTY-AMT-T[]" stype="Currency" elength="13"  signed="yes" displayonly="yes">MIR-BASIC-ANTY-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ADDL-ANTY-AMT-T[]" stype="Currency" elength="13"  signed="yes" displayonly="yes">MIR-ADDL-ANTY-AMT-T[]</span>
+                    </td>
+					<!-- UCR244 CHANGE STARTS HERE -->
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-INCR-ANTY-AMT-T[]" stype="Currency" elength="13"  signed="yes" displayonly="yes">MIR-TOT-INCR-ANTY-AMT-T[]</span>
+                    </td>
+					<!-- UCR244 CHANGE ENDS HERE -->
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-ANTY-AMT-T[]" stype="Currency" elength="13"  signed="yes" displayonly="yes">MIR-TOT-ANTY-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                         <a name="口座情報">口座情報</a>
+                    </td>
+                </tr> 
+                <tr>
+                    <td width="30%" class="celldisplaylabel">
+                        <label for="MIR-BNK-ID">銀行コード:</label>
+                    </td>
+                    <td width="20%" class="celldisplay">
+                        <span id="MIR-BNK-ID" stype="Text" displayonly="yes">MIR-BNK-ID</span>
+                    </td>
+                    <td width="30%" class="celldisplaylabel">
+                        <label for="MIR-BNK-NM">銀行名:</label>
+                    </td>
+                    <td width="20%" class="celldisplay">
+                        <span id="MIR-BNK-NM" stype="Text" displayonly="yes">MIR-BNK-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-BR-ID">支店コード:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-BR-ID" stype="Text" displayonly="yes">MIR-BNK-BR-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-BR-NM">支店名:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-BR-NM" stype="Text" displayonly="yes">MIR-BNK-BR-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-TYP-CD">口座種類:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-TYP-CD" stype="Text" displayonly="yes">MIR-BNK-ACCT-TYP-CD</span>
+                    </td> 
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td> 
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-ID">口座番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-ID" stype="Text" displayonly="yes">MIR-BNK-ACCT-ID</span>
+                    </td> 
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-HLDR-NM">口座名義人:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-HLDR-NM" stype="Text" displayonly="yes">MIR-BNK-ACCT-HLDR-NM</span>
+                    </td>
+                </tr>
+<!--IPMPPU ENDS HERE-->
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDI-ALLOC-CD-T[1]">配分ベース</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDI-ALLOC-AMT-T[1]">金額/％/ユニット数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDI-PAYO-MTHD-CD-T[1]">支払方法</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DEST-POL-ID-BASE-T[1]">受取先証券番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DEST-POL-ID-SFX-T[1]">枝番</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-FND-DESC-TXT-T[1]">ファンド詳細</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DEST-CVG-NUM-T[1]">支払先保障番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DEST-FND-ID-T[1]">受取ファンド</label>
+                    </td>
+<!---IPMPPU STARTS HERE-->
+                    <td class="celldisplayheading">
+                        <label for="MIR-PAYO-PLAN-LEAD-DUR-T[1]">リードタイム</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PAYO-PLAN-LEAD-MTHD-CD-T[1]">リードタイム方法、方式</label>
+                    </td>
+<!---IPMPPU ENDS HERE-->
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CDI-ALLOC-CD-T[]" stype="Text" displayonly="yes">MIR-CDI-ALLOC-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDI-ALLOC-AMT-T[]" stype="Number" elength="16" decimals="9" displayonly="yes">MIR-CDI-ALLOC-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDI-PAYO-MTHD-CD-T[]" stype="Text" displayonly="yes">MIR-CDI-PAYO-MTHD-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEST-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-DEST-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEST-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-DEST-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FND-DESC-TXT-T[]" stype="Text" displayonly="yes">MIR-DV-FND-DESC-TXT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEST-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-DEST-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEST-FND-ID-T[]" stype="Text" displayonly="yes">MIR-DEST-FND-ID-T[]</span>
+                    </td>
+<!---IPMPPU STARTS HERE-->
+                    <td class="celldisplay">
+                        <span id="MIR-PAYO-PLAN-LEAD-DUR-T[]" stype="Text" displayonly="yes">MIR-PAYO-PLAN-LEAD-DUR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAYO-PLAN-LEAD-MTHD-CD-T[]" stype="Text" displayonly="yes">MIR-PAYO-PLAN-LEAD-MTHD-CD-T[]</span>
+                    </td>
+<!---IPMPPU ENDS HERE-->
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/payo.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+<!--  UY3049 CHANGES STARTS HERE-->
+    <script src="../js/Policypayo.js"></script>	
+<!--  UY3049 CHANGES ENDS HERE-->
+</html>

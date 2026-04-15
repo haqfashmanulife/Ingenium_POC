@@ -1,0 +1,159 @@
+#*******************************************************************************
+#*  Component:   BF9B60-O.s                                                    *
+#*  Description: COVERAGE LIST BY INSURED SCREEN                               *
+#*                                                                             *
+#*******************************************************************************
+#*  Chg#    Release  Description                                               *
+#*                                                                             *
+#*  EN5231  27MAR09  COVERAGE LIST BY INSURED SCREEN                           *
+#*  EN6161  24APR09  LAYOUT CHANGE TO INCLUDE FOOTER                           *
+#*  EN6928  03SEP09  COMMENTED THE CODE FOR DISPLAY OF BENEFIT TYPE CODE AND   *
+#*                   ADDED THE CODE FOR DISPLAY OF A NEW FIELD RIDER PREMIUM   *
+#*******************************************************************************
+
+S-STEP BF9B60-O
+{
+        ATTRIBUTES
+        {
+                BusinessFunctionType = "List";
+                DelEmptyRows;
+                FocusField = "OKButton";
+                FocusFrame = "ButtonFrame";
+                Type = "Output";
+        }
+
+        IN Title;
+
+        IN TitleBar;
+        IN TitleBarSize;
+
+        IN ButtonBar;
+        IN ButtonBarSize;
+
+        IN MessageFrame;
+        IN MessageFrameSize;
+
+        OUT action
+        {
+                SType="Hidden";
+        }
+
+        OUT index
+        {
+                SType = "Hidden";
+        }
+
+        IN MIR-POL-ID-BASE 
+        {
+                DefaultSession = "MIR-POL-ID-BASE";
+                DisplayOnly;
+                FieldGroup = "Table99";
+                Key;
+                Label = "Policy ID";
+                Length = "9";
+                SType = "Text";
+        }
+
+#EN6161 - Changes Begin
+#        IN MIR-DV-POL-ID
+#        {
+#                DisplayOnly;
+#                Label = "Type-Policy Number";
+#                Length = "13";
+#                SType = "Text";
+#        }
+#
+#        IN MIR-DV-CLI-NM
+#        {
+#                DisplayOnly;
+#                Label = "Insured Name";
+#                Length = "60";
+#                SType = "Text";
+#        }
+#EN6161 - Changes End
+
+        IN MIR-CVG-NUM-T[99]
+        {
+                DisplayOnly;
+                FieldGroup = "Table99";
+                Index = "1";
+                Label = "Coverage Number";
+                Length = "2";
+                SType = "Text";
+        }
+
+        IN MIR-PLAN-ID-T[99]
+        {
+                Length = "60";
+                FieldGroup = "Table99";
+                DBTableName = "TCVG";
+                SType = "Text";
+                Label = "Rider Name";
+        }
+
+        IN MIR-CVG-FACE-AMT-T[99]
+        {
+                Length = "17";
+                FieldGroup = "Table99";
+                DBTableName = "TCVG";
+                SType = "Number";
+                Signed;
+                Label = "Face Amount/Daily Benefit Amount";
+        }
+
+        IN MIR-CVG-ISS-EFF-DT-T[99]
+        {
+                DisplayOnly;
+                FieldGroup = "Table99";
+                Label = "Rider Addition Date";
+                Length = "10";
+                SType = "Date";
+        }
+
+        IN MIR-CVG-STBL-1-CD-T[99]
+        {
+                DisplayOnly;
+                FieldGroup = "Table99";
+                CodeSource = "EDIT";
+                CodeType = "STB1";
+                Label = "Insurance Period";
+                Length = "02";
+                SType = "Text";
+        }
+#EN6928 - Changes Begin        
+#        IN MIR-CVG-STBL-2-CD-T[99]
+#        {
+#                DisplayOnly;
+#                FieldGroup = "Table99";
+#                CodeSource = "EDIT";
+#                CodeType = "STB2";
+#                Label = "Benefit Day Type";
+#                Length = "03";
+#                SType = "Text";
+#        }
+
+        IN MIR-CVG-MPREM-AMT-T[99]
+        {
+                DisplayOnly;
+                Length = "13";
+                FieldGroup = "Table99";
+                DBTableName = "TCVG";
+                SType = "Number";
+                Signed;
+                Label = "Rider Premium";
+                Index = "1";
+        }
+#EN6928 - Changes End        
+
+#EN6161 - Changes Begin
+        IN MIR-DV-FOOTER-TXT
+        {
+                DisplayOnly;
+                Label = "Date Time";
+                Length = "35";
+                SType = "Text";
+        }
+#EN6161 - Changes End
+
+
+}

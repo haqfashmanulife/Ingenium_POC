@@ -1,0 +1,131 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:28 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0912-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                          
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0912-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-AGT-ID">募集人ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-AGT-ID" stype="Text" displayonly="yes">MIR-AGT-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-USTM-EFF-YR">会計年度:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-USTM-EFF-YR" stype="Year" displayonly="yes">MIR-USTM-EFF-YR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-USTM-EFF-DT">発効日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-USTM-EFF-DT" stype="Date" displayonly="yes">MIR-USTM-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-USTM-SEQ-NUM">シーケンスナンバー:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-USTM-SEQ-NUM" stype="Text" displayonly="yes">MIR-USTM-SEQ-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">募集人名:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-TAX-ID">納税者番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-TAX-ID" stype="Text" displayonly="yes">MIR-CLI-TAX-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-ID">クライアント番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-USTM-TAXBL-EVNT-CD">課税通知イベント:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-USTM-TAXBL-EVNT-CD" id="MIR-USTM-TAXBL-EVNT-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-USTM-TAXBL-AMT">所得補償:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-USTM-TAXBL-AMT" id="MIR-USTM-TAXBL-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-USTM-STAT-CD">ステータス:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-USTM-STAT-CD" id="MIR-USTM-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-USTM-FED-TAXWH-AMT">連邦源泉課税:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-USTM-FED-TAXWH-AMT" id="MIR-USTM-FED-TAXWH-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SBSDRY-CO-ID">子会社:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-SBSDRY-CO-ID" id="MIR-SBSDRY-CO-ID" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

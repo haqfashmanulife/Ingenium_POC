@@ -1,0 +1,156 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:51 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9662-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  HPR102  HIN/CL   CLAIM REQUIREMENTS
+*  RP211d  RP2      ADDED SUBTABLE 4 CODE AND RIDER VERSION CODE
+*  MP143E  CTS      CHANGES TO DISPLAY ALTERNATE MAXIMUM CLAIM UNITS
+*  Q06528  CTS      RIDER MAX AND CLAIM MAX FIELDS ARE INCREASED TO
+*  Q06528           THEIR ACTUL LENGTH MENTIONED IN DB2
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9662-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-PLAN-ID">Plan:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-BNFT-NM-ID">Benefit Name:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-BNFT-NM-ID" stype="Text" displayonly="yes">MIR-BNFT-NM-ID</span></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-STBL-2-CD">Sub-table 2:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-STBL-2-CD" stype="Text" displayonly="yes">MIR-STBL-2-CD</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-STBL-4-CD">Sub-table 4:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-STBL-4-CD" stype="Text" displayonly="yes">MIR-STBL-4-CD</span></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" CLASS="celldataentryheading">Plan Benefit Details</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign"><label for="MIR-BENS-BNFT-FCT">Benefit Factor:</label></td>
+                    <td class="celllabeldataentry"><input type="text" value=" " name="MIR-BENS-BNFT-FCT" id="MIR-BENS-BNFT-FCT" stype="Number" elength="6" decimals="2" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" /></td>
+                    <td class="celllabelrightalign"><label for="MIR-BENS-DPND-FCT">Dependent Factor:</label></td>
+                    <td class="celllabeldataentry"><input type="text" value=" " name="MIR-BENS-DPND-FCT" id="MIR-BENS-DPND-FCT" stype="Number" elength="3" decimals="2" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" /></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign"><label for="MIR-BNFT-AMT-CALC-CD">Benefit Amount Calculation Code:</label></td>
+                    <td class="celllabeldataentry"><select name="MIR-BNFT-AMT-CALC-CD" id="MIR-BNFT-AMT-CALC-CD" stype="Selection" size="1" onfocus="enterField(this)" /></td>
+                    <td class="celllabelrightalign"><label for="MIR-BENS-PMT-TYP-CD">Payment Type:</label></td>
+                    <td class="celllabeldataentry"><select name="MIR-BENS-PMT-TYP-CD" id="MIR-BENS-PMT-TYP-CD" stype="Selection" size="1" onfocus="enterField(this)" /></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign"><label for="MIR-INIT-DEDBL-UNITS">Initial Deductible Units:</label></td>
+                    <td class="celllabeldataentry"><input type="text" value=" " name="MIR-INIT-DEDBL-UNITS" id="MIR-INIT-DEDBL-UNITS" stype="Number" elength="4" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" /></td>
+                    <td class="celllabelrightalign"><label for="MIR-MIN-HOSP-UNITS">Minimum Hospitalisation Units:</label></td>
+                    <td class="celllabeldataentry"><input type="text" value=" " name="MIR-MIN-HOSP-UNITS" id="MIR-MIN-HOSP-UNITS" stype="Number" elength="4" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" /></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign"><label for="MIR-MAX-CLM-UNITS">Maximum Claim Units:</label></td>
+    <!--Q06528 <td class="celllabeldataentry"><input type="text" value=" " name="MIR-MAX-CLM-UNITS" id="MIR-MAX-CLM-UNITS" stype="Number" elength="4" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" /></td>-->
+                    <!--Q06528 CHANGES START-->
+                    <td class="celllabeldataentry"><input type="text" value=" " name="MIR-MAX-CLM-UNITS" id="MIR-MAX-CLM-UNITS" stype="Number" elength="5" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" /></td>
+                    <!--Q06528 CHANGES END -->
+                    <td class="celllabelrightalign"><label for="MIR-MAX-RIDER-UNITS">Maximum Rider Units:</label></td>
+    <!--Q6528  <td class="celllabeldataentry"><input type="text" value=" " name="MIR-MAX-RIDER-UNITS" id="MIR-MAX-RIDER-UNITS" stype="Number" elength="4" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" /></td>-->
+                    <!--Q06528 CHANGES START-->
+                    <td class="celllabeldataentry"><input type="text" value=" " name="MIR-MAX-RIDER-UNITS" id="MIR-MAX-RIDER-UNITS" stype="Number" elength="5" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" /></td>
+                    <!--Q06528 CHANGES END-->
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign"><label for="MIR-INCID-TYP-CD">Benefit Incident Type:</label></td>
+                    <td class="celllabeldataentry"><select name="MIR-INCID-TYP-CD" id="MIR-INCID-TYP-CD" stype="Selection" size="1" onfocus="enterField(this)" /></td>
+                    <td class="celllabelrightalign"><label for="MIR-BNFT-CAT-CD">Benefit Category:</label></td>
+                    <td class="celllabeldataentry"><select name="MIR-BNFT-CAT-CD" id="MIR-BNFT-CAT-CD" stype="Selection" size="1" onfocus="enterField(this)" /></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign"><label for="MIR-MULTR-TYPE-CD">Multiplier Type:</label></td>
+                    <td class="celllabeldataentry"><select name="MIR-MULTR-TYPE-CD" id="MIR-MULTR-TYPE-CD" stype="Selection" size="1" onfocus="enterField(this)" /></td>
+                    <td class="celllabelrightalign"><label for="MIR-DSCHRG-ELIG-IND">Discharge Benefit Eligibility:</label></td>
+                    <td class="celllabeldataentry"><input type="checkbox" value="Y" name="MIR-DSCHRG-ELIG-IND" id="MIR-DSCHRG-ELIG-IND" stype="Indicator" size="1" onfocus="enterField(this)" /></td>
+                </tr>
+                 <tr>
+                    <td class="celllabelrightalign"><label for="MIR-VALID-PERI-DPND-CD">Valid Benefit Period Dependency:</label></td>
+                    <td class="celllabeldataentry"><select name="MIR-VALID-PERI-DPND-CD" id="MIR-VALID-PERI-DPND-CD" stype="Selection" size="1" onfocus="enterField(this)" /></td>
+                    <td class="celllabelrightalign"><label for="MIR-VALID-PERI-TYP-CD">Valid Benefit Period Type:</label></td>
+                    <td class="celllabeldataentry"><select name="MIR-VALID-PERI-TYP-CD" id="MIR-VALID-PERI-TYP-CD" stype="Selection" size="1" onfocus="enterField(this)" /></td>
+               </tr>
+                <tr>
+                    <td class="celllabelrightalign"><label for="MIR-VALID-PERI-UNITS">Valid Benefit Period Units:</label></td>
+                    <td class="celllabeldataentry"><input type="text" value=" " name="MIR-VALID-PERI-UNITS" id="MIR-VALID-PERI-UNITS" stype="Number" elength="4" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" /></td>
+                    <td class="celllabelrightalign"><label for="MIR-WAITING-PERI-UNITS">Waiting Period (Years):</label></td>
+                    <td class="celllabeldataentry"><input type="text" value=" " name="MIR-WAITING-PERI-UNITS" id="MIR-WAITING-PERI-UNITS" stype="Number" elength="4" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" /></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign"><label for="MIR-CANCER-BNFT-IND">Cancer Benefit:</label></td>
+                    <td class="celllabeldataentry"><input type="checkbox" value="Y" name="MIR-CANCER-BNFT-IND" id="MIR-CANCER-BNFT-IND" stype="Indicator" size="1" onfocus="enterField(this)" /></td>
+                    <td class="celllabelrightalign"><label for="MIR-BNFT-ID-CD">Benefit Identifier Code:</label></td>
+                    <td class="celllabeldataentry"><select name="MIR-BNFT-ID-CD" id="MIR-BNFT-ID-CD" stype="Selection" size="1" onfocus="enterField(this)" /></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign"><label for="MIR-BENS-CLM-TYP-CD">Claim Event:</label></td>
+                    <td class="celllabeldataentry"><select name="MIR-BENS-CLM-TYP-CD" id="MIR-BENS-CLM-TYP-CD" stype="Selection" size="1" onfocus="enterField(this)" /></td>
+                    <td class="celllabelrightalign"><label for="MIR-EFF-DT">Effective Date:</label></td>
+                    <td class="celllabeldataentry"><input type="text" value="" name="MIR-EFF-DT" id="MIR-EFF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" /></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign"><label for="MIR-RDR-VERS-GR-CD">Rider Version Group Code:</label></td>
+                    <td class="celllabeldataentry"><select name="MIR-RDR-VERS-GR-CD" id="MIR-RDR-VERS-GR-CD" stype="Selection" size="1" onfocus="enterField(this)" /></td>
+   <!--MP143E CHANGES START-->
+                    <td class="celllabelrightalign"><label for="MIR-ALT-MAX-CLM-UNITS">Alternate Maximum Claim Units:</label></td>
+                    <td class="celllabeldataentry"><input type="text" value=" " name="MIR-ALT-MAX-CLM-UNITS" id="MIR-ALT-MAX-CLM-UNITS" stype="Number" elength="5" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" /></td>
+   <!--MP143E CHANGES END-->
+                </tr>
+              </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="2" CLASS="celldataentryheading">Aggregation Details</td>
+                </tr>
+                 <tr>
+                    <td class="celllabelrightalign"><label for="MIR-AGG-RULE-CD">Aggregation Type:</label></td>
+                    <td class="celllabeldataentry"><select name="MIR-AGG-RULE-CD" id="MIR-AGG-RULE-CD" stype="Selection" size="1" onfocus="enterField(this)" /></td>
+                </tr>
+                 <tr>
+                    <td class="celllabelrightalign"><label for="MIR-FORCE-NEW-AGG-DUR">Force New Aggregation For Accident:</label></td>
+                    <td class="celllabeldataentry"><input type="text" value=" " name="MIR-FORCE-NEW-AGG-DUR" id="MIR-FORCE-NEW-AGG-DUR" stype="Number" elength="4" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" /></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign"><label for="MIR-SUBSEQ-HOSP-UNITS">Subsequent Hospitalisation Units:</label></td>
+                    <td class="celllabeldataentry"><input type="text" value=" " name="MIR-SUBSEQ-HOSP-UNITS" id="MIR-SUBSEQ-HOSP-UNITS" stype="Number" elength="4" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" /></td>
+                </tr>
+                 <tr>
+                    <td class="celllabelrightalign"><label for="MIR-CONTNU-HOSP-UNITS">Continuous Hospitalisation Units:</label></td>
+                    <td class="celllabeldataentry"><input type="text" value=" " name="MIR-CONTNU-HOSP-UNITS" id="MIR-CONTNU-HOSP-UNITS" stype="Number" elength="4" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" /></td>
+                </tr>
+              </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

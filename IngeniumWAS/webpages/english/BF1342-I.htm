@@ -1,0 +1,269 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:28 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1342-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling
+*  017150  612J     Remove Currency decimals="2"
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1342-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PLAN-ID">Plan:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-TRTY-SMKR-CD">Smoker:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-TRTY-SMKR-CD" stype="Text" displayonly="yes">MIR-TRTY-SMKR-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-TRTY-ASSUM-CO-ID">Reinsurance Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-TRTY-ASSUM-CO-ID" stype="Text" displayonly="yes">MIR-TRTY-ASSUM-CO-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Treaty Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-CSN-PLAN-ID">Reinsurance Plan:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <select name="MIR-TRTY-CSN-PLAN-ID" id="MIR-TRTY-CSN-PLAN-ID" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-REINS-TYP-CD">Reinsurance Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-TRTY-REINS-TYP-CD" id="MIR-TRTY-REINS-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-TYP-CD">Treaty Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-TRTY-TYP-CD" id="MIR-TRTY-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-EFF-DT">Effective Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRTY-EFF-DT" id="MIR-TRTY-EFF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-TRMN-DT">Termination Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRTY-TRMN-DT" id="MIR-TRTY-TRMN-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-RSK-MIN-AMT">Minimum Cession Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRTY-RSK-MIN-AMT" id="MIR-TRTY-RSK-MIN-AMT" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-RSK-MAX-AMT">Maximum Cession Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRTY-RSK-MAX-AMT" id="MIR-TRTY-RSK-MAX-AMT" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-RECAP-AGE-DUR">Recapture Years:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRTY-RECAP-AGE-DUR" id="MIR-TRTY-RECAP-AGE-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-RECAP-TYP-CD">Recapture Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-TRTY-RECAP-TYP-CD" id="MIR-TRTY-RECAP-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Split Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ALPHA-SPLT-1-TXT">First Letter Split:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ALPHA-SPLT-1-TXT" id="MIR-ALPHA-SPLT-1-TXT" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ALPHA-SPLT-2-TXT">Second Letter Split:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ALPHA-SPLT-2-TXT" id="MIR-ALPHA-SPLT-2-TXT" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ALPHA-SPLT-1-CO-ID">First Company:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ALPHA-SPLT-1-CO-ID" id="MIR-ALPHA-SPLT-1-CO-ID" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ALPHA-SPLT-2-CO-ID">Second Company:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ALPHA-SPLT-2-CO-ID" id="MIR-ALPHA-SPLT-2-CO-ID" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ALPHA-SPLT-3-CO-ID">Third Company:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ALPHA-SPLT-3-CO-ID" id="MIR-ALPHA-SPLT-3-CO-ID" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Default Value on Reinsurance Coverage Record</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-LIFE-ALLOW-ID">Base Premium Allowance Treaty:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRTY-LIFE-ALLOW-ID" id="MIR-TRTY-LIFE-ALLOW-ID" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-WP-ALLOW-ID">Waiver of Premium Allowance Treaty:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRTY-WP-ALLOW-ID" id="MIR-TRTY-WP-ALLOW-ID" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-AD-ALLOW-ID">Accidental Death Allowance Treaty:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRTY-AD-ALLOW-ID" id="MIR-TRTY-AD-ALLOW-ID" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-FE-ALLOW-ID">Flat Extra Allowance Treaty:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRTY-FE-ALLOW-ID" id="MIR-TRTY-FE-ALLOW-ID" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-ME-ALLOW-ID">Multiple Rating Allowance Treaty:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRTY-ME-ALLOW-ID" id="MIR-TRTY-ME-ALLOW-ID" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-OWN-OCCP-ALLOW-ID">Own Occupation Benefit Treaty:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OWN-OCCP-ALLOW-ID" id="MIR-OWN-OCCP-ALLOW-ID" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-REDC-EP-ALLOW-ID">Reduced Elimination Period / Hospital Confinement Treaty:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-REDC-EP-ALLOW-ID" id="MIR-REDC-EP-ALLOW-ID" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-LTA-ALLOW-ID">Life Time Benefits (LTA):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRTY-LTA-ALLOW-ID" id="MIR-TRTY-LTA-ALLOW-ID" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-LTB-ALLOW-ID">Life Time Benefits (LTB):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRTY-LTB-ALLOW-ID" id="MIR-TRTY-LTB-ALLOW-ID" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PDISAB-ALLOW-ID">Partial Disability Benefit Treaty:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PDISAB-ALLOW-ID" id="MIR-PDISAB-ALLOW-ID" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTY-COLA-ALLOW-ID">Cost of Living Adjustment Allowance Treaty:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRTY-COLA-ALLOW-ID" id="MIR-TRTY-COLA-ALLOW-ID" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

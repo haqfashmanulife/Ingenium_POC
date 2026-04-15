@@ -1,0 +1,165 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:28 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0942-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                           
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0942-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <p>
+                <label for="MIR-POL-ID-BASE">証券番号:</label>
+                <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+            </p>
+            <p>
+                <label for="MIR-POL-ID-SFX">枝番:</label>
+                <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+            </p>
+            <p>
+                <label for="MIR-POL-PAYO-NUM">支払番号:</label>
+                <span id="MIR-POL-PAYO-NUM" stype="Text" displayonly="yes">MIR-POL-PAYO-NUM</span>
+            </p>
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDI-ALLOC-AMT-T[1]">金額/％/ユニット数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDI-ALLOC-CD-T[1]">配分ベース</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDI-PAYO-MTHD-CD-T[1]">支払方法</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DEST-CVG-NUM-T[1]">支払先保障番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DEST-FND-ID-T[1]">受取ファンド</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DEST-POL-ID-BASE-T[1]">受取先証券番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DEST-POL-ID-SFX-T[1]">受取先枝番</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-FND-DESC-TXT-T[1]">ファンド詳細</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CDI-ALLOC-AMT-T[]" stype="Currency" elength="15" displayonly="yes">MIR-CDI-ALLOC-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDI-ALLOC-CD-T[]" stype="Text" displayonly="yes">MIR-CDI-ALLOC-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDI-PAYO-MTHD-CD-T[]" stype="Text" displayonly="yes">MIR-CDI-PAYO-MTHD-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEST-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-DEST-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEST-FND-ID-T[]" stype="Text" displayonly="yes">MIR-DEST-FND-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEST-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-DEST-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEST-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-DEST-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FND-DESC-TXT-T[]" stype="Text" displayonly="yes">MIR-DV-FND-DESC-TXT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <input type="hidden" name="action" id="action" stype="Hidden" />
+            </p>
+            <p>
+                <input type="hidden" name="index" id="index" stype="Hidden" />
+            </p>
+            <p>
+                <label for="MIR-CVG-NUM">保障番号:</label>
+                <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+            </p>
+            <p>
+                <label for="MIR-FND-ID">ファンド:</label>
+                <span id="MIR-FND-ID" stype="Text" displayonly="yes">MIR-FND-ID</span>
+            </p>
+            <p>
+                <label for="MIR-PAYO-LEAD-TIME-DUR">所要期間:</label>
+                <span id="MIR-PAYO-LEAD-TIME-DUR" stype="Text" displayonly="yes">MIR-PAYO-LEAD-TIME-DUR</span>
+            </p>
+            <p>
+                <label for="MIR-POL-PAYO-AMT">支払合計額:</label>
+                <span id="MIR-POL-PAYO-AMT" stype="Currency" elength="15" displayonly="yes">MIR-POL-PAYO-AMT</span>
+            </p>
+            <p>
+                <label for="MIR-POL-PAYO-EFF-DT">処理日:</label>
+                <span id="MIR-POL-PAYO-EFF-DT" stype="Date" displayonly="yes">MIR-POL-PAYO-EFF-DT</span>
+            </p>
+            <p>
+                <label for="MIR-POL-PAYO-END-DT">終了日:</label>
+                <span id="MIR-POL-PAYO-END-DT" stype="Date" displayonly="yes">MIR-POL-PAYO-END-DT</span>
+            </p>
+            <p>
+                <label for="MIR-POL-PAYO-MODE-CD">支払方法（ﾓｰﾄﾞ）:</label>
+                <span id="MIR-POL-PAYO-MODE-CD" stype="Text" displayonly="yes">MIR-POL-PAYO-MODE-CD</span>
+            </p>
+            <p>
+                <label for="MIR-POL-PAYO-STAT-CD">ステータス:</label>
+                <span id="MIR-POL-PAYO-STAT-CD" stype="Text" displayonly="yes">MIR-POL-PAYO-STAT-CD</span>
+            </p>
+            <p>
+                <label for="MIR-POL-PAYO-TAXWH-IND">源泉徴収不処理:</label>
+                <input type="checkbox" name="MIR-POL-PAYO-TAXWH-IND" id="MIR-POL-PAYO-TAXWH-IND" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-POL-PAYO-UNIT-QTY">支払ユニット合計:</label>
+                <span id="MIR-POL-PAYO-UNIT-QTY" stype="Text" displayonly="yes">MIR-POL-PAYO-UNIT-QTY</span>
+            </p>
+            <p>
+                <label for="MIR-CDA-EFF-DT">最終支払日:</label>
+                <span id="MIR-CDA-EFF-DT" stype="Date" displayonly="yes">MIR-CDA-EFF-DT</span>
+            </p>
+            <p>
+                <label for="MIR-DV-FND-DESC-TXT">ファンド詳細:</label>
+                <span id="MIR-DV-FND-DESC-TXT" stype="Text" displayonly="yes">MIR-DV-FND-DESC-TXT</span>
+            </p>
+            <p>
+                <label for="MIR-POL-PAYO-NXT-DT">次回支払日:</label>
+                <span id="MIR-POL-PAYO-NXT-DT" stype="Date" displayonly="yes">MIR-POL-PAYO-NXT-DT</span>
+            </p>
+            <p>
+                <label for="MIR-POL-PAYO-TYP-CD">支払タイプ:</label>
+                <span id="MIR-POL-PAYO-TYP-CD" stype="Text" displayonly="yes">MIR-POL-PAYO-TYP-CD</span>
+            </p>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

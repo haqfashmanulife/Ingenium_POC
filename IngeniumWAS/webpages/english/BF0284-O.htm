@@ -1,0 +1,225 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:12 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0284-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling
+*  017150  612J     Remove Currency decimals="2"
+*  23774B  CTS       23774B-IE Retirement changes
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0284-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpArTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-LBILL-CLI-ID">Group:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-LBILL-CLI-ID" id="MIR-LBILL-CLI-ID" stype="Text" maxlength="10" mandatory="yes" onfocus="enterField(this)" size="20" tabindex="1" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-SBSDRY-CO-ID" id="MIR-SBSDRY-CO-ID" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" tabindex="2"></select>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-LBILL-EFF-DT">Billing Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-LBILL-EFF-DT" id="MIR-LBILL-EFF-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="3" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" onfocus="enterField(this)" size="20" tabindex="4" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" size="20" tabindex="5" />
+                    </td>
+                    <td class="celldatakeylabel" />
+                    <td class="celldatakey" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-LBILL-CLI-NM">Group Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LBILL-CLI-NM" stype="Text" displayonly="yes">MIR-DV-LBILL-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LBILL-STAT-CD">Group Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LBILL-STAT-CD" stype="Text" displayonly="yes">MIR-LBILL-STAT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Total Billed</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-TOT-BILL-AMT">Billed Total:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TOT-BILL-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-TOT-BILL-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-BILL-PREM-AMT">Total Billable Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-BILL-PREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-TOT-BILL-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-BILL-LPAY-AMT">Total Loan Payment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-BILL-LPAY-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-TOT-BILL-LPAY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-BILL-SNDRY-AMT">Total Sundry Payment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-BILL-SNDRY-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-TOT-BILL-SNDRY-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Current Billing</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-TOT-CRNT-AMT">Current Total:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TOT-CRNT-AMT" stype="Currency" elength="17" displayonly="yes">MIR-DV-TOT-CRNT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-CRNT-PREM-AMT">Current Premium Due:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-CRNT-PREM-AMT" stype="Currency" elength="17" displayonly="yes">MIR-TOT-CRNT-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-CRNT-LPAY-AMT">Current Loan Payment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-CRNT-LPAY-AMT" stype="Currency" elength="17" displayonly="yes">MIR-TOT-CRNT-LPAY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-CRNT-SNDRY-AMT">Current Sundry Payment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-CRNT-SNDRY-AMT" stype="Currency" elength="17" displayonly="yes">MIR-TOT-CRNT-SNDRY-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="SELECT-T[1]" />
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-BASE-T[1]">Policy Id</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-SFX-T[1]">Suffix</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-OWN-CLI-NM-T[1]">Owner Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LBILL-POL-STAT-CD-T[1]">Status</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-LBILL-PREM-DUE-AMT-T[1]">Premium Due</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LBILL-POL-LPAY-AMT-T[1]">Loan Payment</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-SNDRY-AMT-T[1]">Sundry Payment</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LBILL-POL-SFB-IND-T[1]">Special Frequency Indicator</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <a name="MIR-POL-ID-BASE-T[]" href="a" action="SelectItem" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">Policy Id</a>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-OWN-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LBILL-POL-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-LBILL-POL-STAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LBILL-PREM-DUE-AMT-T[]" stype="Currency" elength="15" displayonly="yes">MIR-DV-LBILL-PREM-DUE-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LBILL-POL-LPAY-AMT-T[]" stype="Currency" elength="15" displayonly="yes">MIR-LBILL-POL-LPAY-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SNDRY-AMT-T[]" stype="Currency" elength="13" displayonly="yes">MIR-POL-SNDRY-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-LBILL-POL-SFB-IND-T[]" id="MIR-LBILL-POL-SFB-IND-T[]" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

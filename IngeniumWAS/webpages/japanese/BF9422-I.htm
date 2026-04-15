@@ -1,0 +1,94 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:59 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9422-I.htm                                                   
+*  Description: Input HTML for Monthly MCL GL Account Balance Update           
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  M00026  12DEC03  New for this release  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                                  
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9422-I</title>
+<link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+</head>
+<body class="bodyws">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+    <input type="hidden" name="action" id="action" stype="Hidden"/>
+    <input type="hidden" name="index" id="index" stype="Hidden"/>
+    <table>
+        <tr>
+            <td class="celldisplaykeylabel">
+                <label for="MIR-DV-MCL-GL-NUM-TXT">GL勘定番号:</label>
+            </td>
+            <td class="celldisplaykey">
+                <span id="MIR-DV-MCL-GL-NUM-TXT" stype="Text" displayonly="yes">MIR-DV-MCL-GL-NUM-TXT</span>
+            </td>
+            <td class="celldisplaykeylabel">
+                <label for="MIR-DV-DT-FROM-TXT">から:</label>
+            </td>
+            <td class="celldisplaykey">
+                <span id="MIR-DV-DT-FROM-TXT" stype="Text" displayonly="yes">MIR-DV-DT-FROM-TXT</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="celldisplaykeylabel">
+                <label for="MIR-OPER-CAT-CD">業務区分:</label>
+            </td>
+            <td class="celldisplaykey">
+                <span id="MIR-DV-OPER-CAT-CD-TXT" stype="Text" displayonly="yes">MIR-DV-OPER-CAT-CD-TXT</span>
+            </td>
+            <td class="celldisplaykeylabel">
+                <label for="MIR-DV-DT-TO-TXT">まで:</label>
+            </td>
+            <td class="celldisplaykey">
+                <span id="MIR-DV-DT-TO-TXT" stype="Text" displayonly="yes">MIR-DV-DT-TO-TXT</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="celldisplaykeylabel">
+                <label for="MIR-DV-MCL-GL-NM-TXT">GL勘定名:</label>
+            </td>
+            <td class="celldisplaykey">
+                <span id="MIR-DV-MCL-GL-NM-TXT" stype="Text" displayonly="yes">MIR-DV-MCL-GL-NM-TXT</span>
+            </td>
+        </tr>
+                 
+    </table>
+
+    <table class="tabledisplay" genrows="0" >
+        <tr>
+            <td class="celldisplayheading"><label for="MIR-ACCT-YR-T[1]">年</label></td>
+            <td class="celldisplayheading"><label for="MIR-DV-MO-NM-TXT-T[1]">月</label></td>
+            <td class="celldisplayheading"><label for="MIR-ACCT-BAL-DR-AMT-T[1]">借方</label></td>
+            <td class="celldisplayheading"><label for="MIR-ACCT-BAL-CR-AMT-T[1]">貸方</label></td>
+        </tr>
+        <tr>
+            <td class="celldisplay"><span id="MIR-ACCT-YR-T[]" stype="Text" displayonly="yes">MIR-ACCT-YR-T[]</span>
+            </td>
+            <td class="celldisplay"><span id="MIR-DV-MO-NM-TXT-T[]" stype="Text" displayonly="yes">MIR-DV-MO-NM-TXT-T[]</span>
+            </td>
+            <td class="celldisplay"><input type="text" value=" " name="MIR-ACCT-BAL-DR-AMT-T[]" id="MIR-ACCT-BAL-DR-AMT-T[]" stype="Currency" elength="17" onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+            </td>
+            <td class="celldisplay"><input type="text" value=" " name="MIR-ACCT-BAL-CR-AMT-T[]" id="MIR-ACCT-BAL-CR-AMT-T[]" stype="Currency" elength="17" onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/MessagesJapanese.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+</html>

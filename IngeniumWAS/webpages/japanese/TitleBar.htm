@@ -1,0 +1,80 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:11 PM EDT
+*
+*********************************************************************************
+*  (C) COPYRIGHT 2001 INSURANCE SOFTWARE SOLUTIONS CORP.  ALL RIGHTS RESERVED   *
+*********************************************************************************
+*  Component:   TitleBar.htm                                                    *
+*  Description:                                                                 *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  014590  6.0      New for release 6.0                                         *
+*  022680  6.4      Correct ISO date formatting error when switching language   *
+*  023108  PF3.0    Changed to accommodate print functionality and button       *
+*  023123  PF3.0    Changed resource references to be relative                  *
+*  023809  PF3.0    Changed to UTF-8                                            *  
+*  023809  PF3.0    Print Preview button temporarily removed                    *  
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- 23123 added .. to href  paths-->
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodytitle" onload="onLoad('japanese', 'メニューを表示する')">
+        <!-- 23108 - Added class attribute, removed width -->                
+        <table class="titlebanner" border="0" cellpadding="0"  width="1024" background="../images/banner1.gif" height="70">
+            <tr>
+                <td width="86" />
+                <!-- 23108 - Changed width to '325' -->                
+                <td width="379" align="left" class="celltitle1" valign="top">
+                    <div id="Title"></div>
+                </td>
+                <!-- 23108 - Added class attribute -->                
+                <td width="75" valign="top" class="cellbutton2">
+                    <img id="menuimg" border="0" src="../japanese/images/hidemenu.gif" align="top" alt="ﾒﾆｭｰを隠す" width="75" height="39" onclick="onMenu(this, 'japanese', 'メニュー表示', 'メニュー非表示');" />
+                </td>
+                <!-- 23108 - Added new cell with print button -->                
+                <!-- temporarily removed                 
+                <td width="52" valign="top" class="cellbutton2">
+                        <img border="0" src="../japanese/images/print.gif" align="top" alt="印刷" width="52" height="39" onclick="printPreview();" />
+                </td>
+                 -->                
+                <!-- 23108 - Added class attribute -->                
+                <td width="52" valign="top" class="cellbutton2">
+                    <a href="../japanese/index.htm" target="_blank">
+                        <img border="0" src="../japanese/images/new.gif" align="top" alt="新ｳｨﾝﾄﾞｳを開く" width="52" height="39" />
+                    </a>
+                </td>
+                <!-- 23108 - Added class attribute -->                
+                <td width="54" valign="top" class="cellbutton2">
+                    <a href="pageserver?ProcessClassID=BF0062Signoff&amp;PageReturn=Blank&amp;LocaleID=J" title="Sign-Off" target="pageserverFrame">
+                        <img border="0" src="../japanese/images/signoff.gif" alt="サインオフ" width="54" height="39" />
+                    </a>
+                </td>
+                <!-- 23108 - Added class attribute -->                
+                <td width="52" valign="top" class="cellbutton2">
+                   <a href="../japanese/help/user_guide.htm" target="_blank">
+                    <img border="0" src="../japanese/images/but_hlp.gif" alt="ﾕｰｻﾞｶﾞｲﾄﾞを開く" width="52" height="39" />
+                    </a>
+                </td>
+                <!-- 23108 - Added class attribute -->                
+                <!-- *  022680 - Correct ISO date formatting error when switching language -->
+                <td width="57" align="left" valign="baseline" class="cellbutton2">
+                    <select onclick="onClick()" onchange="onChange(this)">
+                        <option value="E">英語</option>
+                        <option value="J" selected="selected">日本語</option>
+                    </select>
+                </td>
+                <!-- 23108 - Added class attribute -->                
+                <td width="222"  class="cellbutton2"/>
+            </tr>
+        </table>
+    </body>
+    <!-- 23123 added .. to path -->
+    <script src="../js/TitleBar.js"></script>
+    <script src="../js/PrintPreview.js"></script>
+</html>

@@ -1,0 +1,276 @@
+﻿<!--
+# Converted from PathFinder 2.2 to 3.0 Jun 18, 2004 3:13:13 PM EDT
+
+#*******************************************************************************
+#*  Component:   BF9F92FB-I                                                    *
+#*  Description: CWA REFUND APPROVAL/REJECTION SCREEN                          *
+#*******************************************************************************
+#*  Chg#    Release  Description                                               *
+#*                                                                             *
+#*  CA0002  CTS      Intial version                                            *
+#*  105524  CTS      changes has been done to correct text in japanese screen  * 
+#*  105528  CTS      FIX DONE FOR BANK ACCOUNT NUMBER AND COMMENT              *
+#*  105670  CTS      FIX DONE FOR BANK DETAILS                                 *
+#*  105658  CTS      FIX DONE TO DISPLAY YEN SYMBOL IN PREMIUM AMOUNT FIELD    *                                         
+#*  105703  CTS      FIX DONE FOR BANK ACC DETAILS                             *
+#*  CA02CR  CTS      CHANGES DONE FOR COMMENT SECTION REMOVAL                  *
+#*  23774B  CTS      Changes done for ie retirement project to make it         *
+#*                   compatible for microsoft edge. Changes in html include    *
+#*                   adding "id" attribute for all input fields and changes in *
+#*                   java scripts to modify certain functions/commands which   *
+#*                   are no longer compatilble with edge.                      *
+#*******************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9F92FB-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!-- CA02CR CHANGE STARTS HERE -->
+    <body class="bodyws" onLoad="onLoad();BankdetailsCheck()">
+<!-- CA02CR CHANGE ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<!-- 105658 CHANGE STARTS HERE -->
+    <input type="hidden" name="MIR-PREM-CRCY-CD" id="MIR-PREM-CRCY-CD" stype="Hidden" />
+<!-- 105658 CHANGE ENDS HERE -->
+            <table class="tabledisplaykey">
+               <tr>
+                    <td class="celldataentryheading" colspan="8">契約情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PROD-APP-TYP-CD">商品名:</label>
+                    </td>
+                     <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-PROD-APP-TYP-CD" stype="Text" maxlength="2" />
+                    </td>
+                </tr>
+                <tr>
+                   <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-APP-FORM-ID">申込書番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-POL-APP-FORM-ID" stype="Text" maxlength="15" />
+                    </td>
+
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-POL-ID" stype="Text" maxlength="9" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-MPREM-AMT">合計入金額:</label>
+                    </td>
+                    <td class="celldisplaykey">
+              <!-- CHANGES STARTS FOR 105658 -->                     
+                        <!-- <span displayonly="yes" id="MIR-POL-MPREM-AMT" stype="Text" maxlength="15" /> -->
+                        <span id="MIR-POL-MPREM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes" CurrencyCode="MIR-PREM-CRCY-CD">MIR-POL-MPREM-AMT</span>
+              <!-- CHANGES ENDS FOR 105658 -->          
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-BILL-TYP-CD">払込方法:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-POL-BILL-TYP-CD" stype="Text" maxlength="1"/>
+                    </td>
+                 </tr>
+                 <tr>
+                   <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-DV-OWN-CLI-NM" stype="Text" maxlength="75" />
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-INSRD-CLI-NM">被保険者名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-DV-INSRD-CLI-NM" stype="Text" maxlength="75" />
+                    </td>
+                  </tr>
+                  <tr>
+                   <td class="celldisplaykeylabel">
+                        <label for="MIR-SERV-AGT-ID">扱者コード:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-SERV-AGT-ID" stype="Text" maxlength="6" />
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-SERV-AGT-NM">扱者名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-DV-SERV-AGT-NM" stype="Text" maxlength="75" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading" colspan="8"> 金融機関情報</td>
+                </tr>
+                <tr>
+                   <td class="celldisplaykeylabel">
+                        <label for="MIR-BNK-ID">銀行コード:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-BNK-ID" stype="Text" maxlength="4" />
+                    </td>
+
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-BNK-NM">銀行名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-BNK-NM" stype="Text" maxlength="36" />
+                    </td>
+                </tr>
+                <tr>
+                <td class="celldisplaykeylabel">
+                        <label for="MIR-BNK-BR-ID">支店コード:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-BNK-BR-ID" stype="Text" maxlength="5" />
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-BNK-BR-NM">支店名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-BNK-BR-NM" stype="Text" maxlength="36" />
+                    </td>
+                 </tr>
+                 <tr>
+                   <td class="celldisplaykeylabel">
+                        <label for="MIR-BNK-ACCT-TYP-CD">口座種目:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-BNK-ACCT-TYP-CD" stype="Text" maxlength="3" />
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-BNK-ACCT-ID">口座番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                 <!-- CHANGES STARTS FOR 105528 --> 
+                        <!-- <span displayonly="yes" id="MIR-BNK-ACCT-ID" stype="Text" maxlength="17" /> -->
+              <!-- 105703 CHANGES STARTS HERE --> 
+                        <!-- <span displayonly="yes" id="MIR-BNK-ACCT-ID" stype="Text" maxlength="7" /> -->
+                        <span displayonly="yes" id="MIR-BNK-ACCT-ID" stype="Text" maxlength="17" />
+             <!-- 105703 CHANGES ENDS HERE --> 
+                 <!-- CHANGES ENDS FOR 105528 --> 
+                    </td>
+                  </tr>
+                  <tr>
+                   <td class="celldisplaykeylabel">
+                        <label for="MIR-BNK-ACCT-HLDR-NM">口座名義人:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span displayonly="yes" id="MIR-BNK-ACCT-HLDR-NM" stype="Text" maxlength="50" />
+                    </td>
+                </tr>
+                </table>
+                   <p align="Left">
+                    ※上記記載の口座に払出する場合は、下記項目へ入力の必要はありません.<br></br>
+                    上記口座が空欄、または上記記載口座以外に払出する場合は、以下の手順に従って下記項目へ金融機関情報を入力してください。<br></br>
+
+                    １．「金融機関検索」のリンクより、金融機関名称と支店名称を選択　<a name="BankSearch" href="a" action="ACTION_BNK_SRCH" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">金融機関検索</a><br></br>
+                    ２．口座種目を選択し、口座番号を入力<br></br>
+             <!-- Changes fo 105524 changes begins -->
+			      <!--  ３．口座名義人には契約者名カナが自動セットされています。修正の場合は上書きしてください。<br></br> -->
+                    ３．口座名義人には契約者名カナが自動セットされています。<br></br>
+             <!-- Changes fo 105524 changes ends -->
+                    </p>
+            <table class="tabledatakey">
+                <tr>
+                   <td class="celldatakeylabel">
+                        <label for="MIR-BNK-ID-1">銀行コード:</label>
+                    </td>
+                    <td class="celldatakey">
+<!-- 105670 CHANGES STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-BNK-ID-1" id="MIR-BNK-ID-1" stype="Text" maxlength="4" onfocus="enterField(this)" />  -->
+                        <input type="text" value=" " name="MIR-BNK-ID-1" id="MIR-BNK-ID-1" stype="Text" maxlength="4" readonly="yes" onfocus="enterField(this)" disabled="yes" />
+<!-- 105670 CHANGES ENDS HERE -->
+                    </td>
+
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BNK-NM-1">銀行名:</label>
+                    </td>
+                    <td class="celldatakey">
+<!-- 105670 CHANGES STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-BNK-NM-1" id="MIR-BNK-NM-1" stype="Text" maxlength="36" onfocus="enterField(this)" /> -->
+                        <input type="text" value=" " name="MIR-BNK-NM-1" id="MIR-BNK-NM-1" stype="Text" maxlength="36" readonly="yes" onfocus="enterField(this)" disabled="yes" />
+<!-- 105670 CHANGES ENDS HERE -->
+                    </td>
+                </tr>
+                <tr>
+                <td class="celldatakeylabel">
+                        <label for="MIR-BNK-BR-ID-1">支店コード:</label>
+                    </td>
+                    <td class="celldatakey">
+<!-- 105670 CHANGES STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-BNK-BR-ID-1" id="MIR-BNK-BR-ID-1" stype="Text" maxlength="5" onfocus="enterField(this)" /> -->
+                         <input type="text" value=" " name="MIR-BNK-BR-ID-1" id="MIR-BNK-BR-ID-1" stype="Text" maxlength="5" readonly="yes" onfocus="enterField(this)" disabled="yes" />
+<!-- 105670 CHANGES ENDS HERE -->
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BNK-BR-NM-1">支店名:</label>
+                    </td>
+                    <td class="celldatakey">
+<!-- 105670 CHANGES STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-BNK-BR-NM-1" id="MIR-BNK-BR-NM-1" stype="Text" maxlength="36" onfocus="enterField(this)" /> -->
+                        <input type="text" value=" " name="MIR-BNK-BR-NM-1" id="MIR-BNK-BR-NM-1" stype="Text" maxlength="36" readonly="yes" onfocus="enterField(this)" disabled="yes" />
+<!-- 105670 CHANGES ENDS HERE -->
+                    </td>
+                 </tr>
+                 <tr>
+                   <td class="celldatakeylabel">
+                        <label for="MIR-BNK-ACCT-TYP-CD-1">口座種目:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-BNK-ACCT-TYP-CD-1" id="MIR-BNK-ACCT-TYP-CD-1" stype="Selection" maxlength="3"   onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BNK-ACCT-ID-1">口座番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                 <!-- CHANGES STARTS FOR 105528 --> 
+                        <!-- <input type="text" value=" " name="MIR-BNK-ACCT-ID-1" id="MIR-BNK-ACCT-ID-1" stype="Text" maxlength="17" onfocus="enterField(this)" /> -->
+                 <!-- 105703 CHANGES STARTS HERE --> 
+                        <!-- <input type="text" value=" " name="MIR-BNK-ACCT-ID-1" id="MIR-BNK-ACCT-ID-1" stype="Text" maxlength="7" onfocus="enterField(this)" /> -->
+                        <input type="text" value=" " name="MIR-BNK-ACCT-ID-1" id="MIR-BNK-ACCT-ID-1" stype="Text" maxlength="17" onfocus="enterField(this)" />
+                 <!-- 105703 CHANGES ENDS HERE --> 
+                 <!-- CHANGES ENDS FOR 105528 -->
+                    </td>
+                  </tr>
+                  <tr>
+                   <td class="celldatakeylabel">
+                        <label for="MIR-BNK-ACCT-HLDR-NM-1">口座名義人:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <span displayonly="yes" id="MIR-BNK-ACCT-HLDR-NM-1" stype="Text" maxlength="75" />
+                    </td>
+                </tr>
+                <!-- CA02CR CHANGE STARTS HERE -->
+             <!--  <tr>
+                    <td class="celldataentryheading" colspan="8">本社申し送りコメント</td>
+                </tr>
+                    <td class="celldatakey"> -->
+                 <!-- CHANGES STARTS FOR 105528 -->                    
+                        <!-- <input type="text" value=" " name="MIR-POL-COMNT-TXT" id="MIR-POL-COMNT-TXT" stype="Text" maxlength="237" onfocus="enterField(this)" /> -->
+                      <!--  <input type="text" value=" " name="MIR-POL-COMNT-TXT" id="MIR-POL-COMNT-TXT" stype="Text" maxlength="60" onfocus="enterField(this)" /> -->
+                 <!-- CHANGES ENDS FOR 105528 -->  
+                    <!-- </td> -->
+<!-- CA02CR CHANGE ENDS HERE -->
+
+                </table>
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!-- CA02CR CHANGE STARTS HERE -->
+    <script src="../js/BF9F92.js"></script>
+<!-- CA02CR CHANGE ENDS HERE -->
+</html>

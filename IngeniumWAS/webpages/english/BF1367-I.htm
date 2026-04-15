@@ -1,0 +1,115 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:29 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1367-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  017150  612J     Remove Currency decimals="2"
+*  RPU001           New Screen and Field has been added
+*  RPUV2A           ADDED NEW FIELD FOR SULV2-RPU
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UYS043  CTS      CHANGES MADE AS PART OF VIRTUAL QUOTE SCREEN
+*  S23997  CTS      TEMP CHANGE TO HIDE VIRTUAL QUOTE INDICATOR FOR DAY 1.0
+*  S25335  CTS      FIX FOR UYS043 TAG CHANGED FROM S25333 TO S25335
+*  UY3004  CTS      INPUT HTML POLICY TRIM - 10 BYTES -> 7 BYTES
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1367-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws"> -->
+    <body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+<!-- UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)" size="20" tabindex="1" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" size="20" tabindex="2" />
+                    </td>
+                    </tr>
+ <!-- RPU001 Changes Starts -->
+                    <!-- <td class="celldatakeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CVG-NUM" id="MIR-CVG-NUM" stype="Text" maxlength="2" onfocus="enterField(this)" size="20" tabindex="3" />
+                    </td> -->
+<!-- RPU001 Changes Ends -->
+                   <tr>
+                    <td class="celldatakeylabel">
+ <!-- RPU001 Changes Starts
+                        <label for="MIR-APPL-CTL-PRCES-DT">Process Date:</label> -->
+                        <label for="MIR-APPL-CTL-PRCES-DT">Company Received Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-APPL-CTL-PRCES-DT" id="MIR-APPL-CTL-PRCES-DT" stype="Date" mandatory = "yes" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="4" />
+                    </td>
+                   <td class="celldatakeylabel">
+                        <label for="MIR-DV-PAYO-JPY-BNFT-CD">JPY Benefit Rider:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-DV-PAYO-JPY-BNFT-CD" id="MIR-DV-PAYO-JPY-BNFT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    </tr>
+<!-- RPUV2A Changes Starts -->
+                   <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RPU-POL-TYP-CD">RPU Policy Type:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-RPU-POL-TYP-CD" id="MIR-RPU-POL-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+<!-- RPUV2A Changes Ends -->
+ <!-- RPU001 Changes Ends -->
+
+             </table>
+<!-- UYS043 CHANGE STARTS HERE -->
+<!--  S23397 changes start here -->
+             <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakey">
+<!--  S25335 changes starts here -->
+                        <!-- <input name="MIR-VIR-SCREEN-IND"  id="MIR-VIR-SCREEN-IND" onclick="onCheckBox()" onfocus="enterField(this)" stype="Indicator" type="checkbox" value="Y" disabled="Yes">(Check when doing virtual quote)</input> -->
+                        <input name="MIR-VIR-SCREEN-IND"  id="MIR-VIR-SCREEN-IND" onclick="onCheckBox()" onfocus="enterField(this)" stype="Indicator" type="checkbox" value="Y" >(Check when doing virtual quote)</input>
+<!--  S25335 changes ends here -->
+                    </td>
+                </tr>
+              </table>
+<!-- UYS043 CHANGE ENDS HERE -->
+<!--  S23397 changes end here -->
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+ <!-- UY3004 CHANGES START HERE -->
+     <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

@@ -1,0 +1,120 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:21 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9D20-O.htm
+*  Description: Health Congratulatory benefit History Screen
+*
+*********************************************************************************
+*  UY3071  CTS      INGENIUM HEALTH CONGRATULATORY BENEFIT 
+*  S47335  CTS      NEW FIELD ADDITION                                           
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9D20-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" > -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy();SubInpArTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+           <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id ="MIR-POL-ID-BASE" stype="Text" displayonly="yes"> MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id= "MIR-POL-ID-SFX" stype="Text" displayonly="yes"> MIR-POL-ID-SFX </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-EFF-DT">有効日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id ="MIR-EFF-DT" stype="Date" displayonly="yes" > MIR-EFF-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" >
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-TRXN-EFF-DT-T[1]">有効日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-TRXN-CAT-CD-T[1]">異動区分</label>
+                    </td>
+<!-- S47335 CHANGES BEGIN HERE -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-TRXN-STAT-CD-T[1]">ステータス</label>
+                    </td>
+<!-- S47335 CHANGES ENDS HERE -->					
+                    <td class="celldisplayheading">
+                        <label for="MIR-TRXN-AMT-T[1]">今回異動金額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DEFR-BAL-AMT-T[1]">健康祝金据置金累計</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCUM-INT-AMT-T[1]">健康祝金据置利息累計</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PRCES-DT-T[1]">処理日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-TRXN-SEQ-NUM-T[1]">シーケンス番号</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-TRXN-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-TRXN-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRXN-CAT-CD-T[]" stype="Text" displayonly="yes">MIR-TRXN-CAT-CD-T[]</span>
+                    </td>
+<!-- S47335 CHANGES BEGIN HERE -->					
+                    <td class="celldisplay">
+                        <span id="MIR-TRXN-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-TRXN-STAT-CD-T[]</span>
+                    </td>
+<!-- S47335 CHANGES ENDS HERE -->
+                    <td class="celldisplay">
+                        <span id="MIR-TRXN-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TRXN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEFR-HLBEN-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DEFR-HLBEN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEFR-HLBEN-INT-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DEFR-HLBEN-INT-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PRCES-DT-T[]" stype="Date" displayonly="yes">MIR-PRCES-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRXN-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-TRXN-SEQ-NUM-T[]</span>
+                    </td>
+                </tr>
+            </table>
+         <br />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

@@ -1,0 +1,165 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:47 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9010-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  01BL18  01AUG01  New for release
+*          24AUG09  NEW FIELD ADDED FOR TRAD POLICIES PROCESSING:FWD-BILL-GR-IND
+*
+*  MP308L  10FEB17  ADDING NEW FIELD FOR TRAD POLICIES PROCESSING:CLI-GR-CLOS-DT
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*  UY3C35  14OCT24  ADDING NEW FIELD  CLI-DEGRA-DT
+*
+*********************************************************************************
+ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9010-O</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<body class="bodyws">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<p><input type="hidden" name="action" id="action" stype="Hidden"/>
+</p>
+<table class="tabledisplaykey">
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLI-ID">Group ID:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+        </td>
+        <td class="celldisplaykeylabel" />
+        <td class="celldisplaykey" />
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLI-GR-CO-NM">Group Name:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLI-GR-CO-NM" stype="Text" displayonly="yes">MIR-CLI-GR-CO-NM</span>
+        </td>
+        <td class="celldisplaykeylabel" />
+        <td class="celldisplaykey" />
+    </tr>
+</table>
+<br />
+<table class="tabledisplay">
+    <tr>
+        <td class="celldisplayheading" colspan="4">Group Client Details</td>
+    </tr>
+    <tr>
+        <td class="celldisplaylabel" width="40%">
+            <label for="MIR-CLI-GR-PICK-DY">Pick Day:</label>
+        </td>
+        <td class="celldisplay">
+            <span id="MIR-CLI-GR-PICK-DY" stype="Text" displayonly="yes">MIR-CLI-GR-PICK-DY</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaylabel" width="40%">
+            <label for="MIR-CLI-GR-DRW-DY">Draw Day:</label>
+        </td>
+        <td class="celldisplay">
+            <span id="MIR-CLI-GR-DRW-DY" stype="Text" displayonly="yes">MIR-CLI-GR-DRW-DY</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaylabel" width="40%">
+            <label for="MIR-GR-BILL-MODE-CD">Billing Mode:</label>
+        </td>
+        <td class="celldisplay">
+            <span id="MIR-GR-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-GR-BILL-MODE-CD</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaylabel" width="40%">
+            <label for="MIR-CLI-GR-RPT-DT-MO">Report Date Month:</label>
+        </td>
+        <td class="celldisplay">
+            <span id="MIR-CLI-GR-RPT-DT-MO" stype="Text" displayonly="yes">MIR-CLI-GR-RPT-DT-MO</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaylabel" width="40%">
+            <label for="MIR-CLI-GR-RPT-DT-DY">Report Date Day:</label>
+        </td>
+        <td class="celldisplay">
+            <span id="MIR-CLI-GR-RPT-DT-DY" stype="Text" displayonly="yes">MIR-CLI-GR-RPT-DT-DY</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaylabel" width="40%">
+            <label for="MIR-CLI-DBL-AMT-IND">Catch-Up Billing:</label>
+        </td>
+        <td class="celldisplay">
+            <span id="MIR-CLI-DBL-AMT-IND" stype="Text" displayonly="yes">MIR-CLI-DBL-AMT-IND</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaylabel" width="40%">
+            <label for="MIR-GR-ADDL-MPREM-QTY">Additional Premiums:</label>
+        </td>
+        <td class="celldisplay">
+             <span id="MIR-GR-ADDL-MPREM-QTY" stype="Text" displayonly="yes">MIR-GR-ADDL-MPREM-QTY</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaylabel" width="40%">
+            <label for="MIR-CLI-GR-TYP-CD">Group Size:</label>
+        </td>
+        <td class="celldisplay">
+            <span id="MIR-CLI-GR-TYP-CD" stype="Text" displayonly="yes">MIR-CLI-GR-TYP-CD</span>
+        </td>
+     </tr>
+     <tr>
+	    <td class="celldisplaylabel" width="40%">
+	    <!-- NWLBCA CHANGES STARTS HERE -->
+	        <label for="MIR-FWD-BILL-GR-IND">Forward-billing Group:</label>
+	    <!-- NWLBCA CHANGES ENDS HERE -->
+	    </td>
+	    <td class="celldisplay">
+	    <!-- NWLBCA CHANGES STARTS HERE -->
+	        <span id="MIR-FWD-BILL-GR-IND" stype="Text" displayonly="yes">MIR-FWD-BILL-GR-IND</span>
+	    <!-- NWLBCA CHANGES ENDS HERE -->
+	    </td>
+	 </tr>
+	 <!-- MP308L CHANGES STARTS HERE -->
+	  <tr>
+	 	    <td class="celldisplaylabel" width="40%">
+	 	        <label for="MIR-CLI-GR-CLOS-DT">Group Close Date:</label>
+	 	    </td>
+	 	    <td class="celldisplay">
+	 	        <span id="MIR-CLI-GR-CLOS-DT" stype="Date" displayonly="yes" value=" ">MIR-CLI-GR-CLOS-DT</span>
+	 	    </td>
+	 </tr>
+	 <!-- MP308L CHANGES ENDS HERE -->
+	 <!-- UY3C35 CHANGES STARTS HERE -->
+	  <tr>
+	 	    <td class="celldisplaylabel" width="40%">
+	 	        <label for="MIR-CLI-DEGRA-DT">Degradation Date:</label>
+	 	    </td>
+	 	    <td class="celldisplay">
+	 	        <span id="MIR-CLI-DEGRA-DT" stype="Date" displayonly="yes" value=" ">MIR-CLI-DEGRA-DT</span>
+	 	    </td>
+	 </tr>
+	 <!-- UY3C35 CHANGES ENDS HERE -->
+</table>
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+</html>

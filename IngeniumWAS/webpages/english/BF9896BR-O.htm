@@ -1,0 +1,163 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:52 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9896BR-O.htm
+*  Description: Insured Claim Inquiry - Output (Branch Office)
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  HAC002  HIN/CL   HEAD AND BRANCH OFFICE CLAIM INQ (HAC002C)
+*  CCL016  HIN/CL   RENAME 'DEPOSIT DATE' TO 'JOURNAL DATE'
+*                   REMOVE THE 'PAID CLAIM END DATE' FIELD'
+*  EN0193  RAJU     INCLUDE NEW STYLE SHEET FOR PRINTING PURPOSES
+*  EN0225  RAJU     CHANGES FOR DISPLAYING SPACES WHEN CLM-ID IS REPEATED
+*  EN0212  RAJU     ADD A NEW FIELD ASSOCIATED MASTER CLAIM ID
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*
+*********************************************************************************
+ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>BF9896BR-O</title>
+    <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../english/IngeniumBlkLnPrint.css" charset="UTF-8" />
+</head>
+<body class="bodyws" onload="InqClmInsured();">
+    <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+        <input type="hidden" name="action" id="action" stype="Hidden"/>
+        <table class="tabledisplaykey">
+            <tr>
+                <td class="celldisplaykeylabel">
+                    <label for="MIR-CLI-ID">Insured Client ID:</label>
+                </td>
+                <td class="celldisplaykey">
+                    <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                </td>
+                <td class="celldisplaykeylabel">
+                    <label for="MIR-CLI-NM">Insured Name:</label>
+                </td>
+                <td class="celldisplaykey">
+                    <span id="MIR-CLI-NM" stype="Text" displayonly="yes">MIR-CLI-NM</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="celldisplaykeylabel">
+                    <label for="MIR-CLI-BTH-DT">Birth Date:</label>
+                </td>
+                <td class="celldisplaykey">
+                    <span id="MIR-CLI-BTH-DT" stype="Text" displayonly="yes">MIR-CLI-BTH-DT</span>
+                </td>
+                <td class="celldisplaykeylabel">
+                    <label for="MIR-CLI-SEX-CD">Sex:</label>
+                </td>
+                <td class="celldisplaykey">
+                    <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="celldisplaykeylabel">
+                    <label for="MIR-POL-ID">Policy ID:</label>
+                </td>
+                <td class="celldisplaykey">
+                    <span id="MIR-POL-ID" stype="Text" displayonly="yes">MIR-POL-ID</span>
+                </td>
+                <td class="celldisplaykeylabel">
+                    <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                </td>
+                <td class="celldisplaykey">
+                    <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <table class="tabledisplay" genrows="0" keyfield="0">
+            <tr>
+                <td class="celldisplayheading"><label for="MIR-T1-CVG-NUM-T[1]">Coverage Number</label></td>
+                <td class="celldisplayheading"><label for="MIR-T1-BNFT-NM-ID-T[1]">Benefit Name</label></td>
+                <td class="celldisplayheading"><label for="MIR-MAX-RIDER-UNITS-T[1]">Max Rider Units</label></td>
+                <td class="celldisplayheading"><label for="MIR-MAX-CLM-UNITS-T[1]">Max Claim Units</label></td>
+                <td class="celldisplayheading"><label for="MIR-T1-MULT-AMT-T[1]">Multiplier</label></td>
+            </tr>
+            <tr>
+                <td class="celldisplay">
+                    <span id="MIR-T1-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-T1-CVG-NUM-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-T1-BNFT-NM-ID-T[]" stype="Text" displayonly="yes">MIR-T1-BNFT-NM-ID-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-MAX-RIDER-UNITS-T[]" stype="Number" elength="5" displayonly="yes">MIR-MAX-RIDER-UNITS-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-MAX-CLM-UNITS-T[]" stype="Number" elength="5" displayonly="yes">MIR-MAX-CLM-UNITS-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-T1-MULT-AMT-T[]" stype="Number" elength="5" displayonly="yes">MIR-T1-MULT-AMT-T[]</span>
+                </td>
+            </tr>
+        </table>
+        <table id="ClaimList" class="tabledisplay" genrows="0" keyfield="0">
+            <tr>
+                <td class="celldisplayheading"><label for="MIR-CLM-ID-T[1]">Master Claim ID</label></td>
+                <td class="celldisplayheading"><label for="MIR-ASSOC-CLM-ID-T[1]">Associated Master Claim ID</label></td>
+                <td class="celldisplayheading"><label for="MIR-T2-CVG-NUM-T[1]">Coverage Number</label></td>
+                <td class="celldisplayheading"><label for="MIR-T2-BNFT-NM-ID-T[1]">Benefit Name</label></td>
+                <td class="celldisplayheading"><label for="MIR-FBNK-REMIT-DT-T[1]">Journal Date</label></td>
+                <td class="celldisplayheading"><label for="MIR-CLMA-INCID-DT-T[1]">Incident Date</label></td>
+                <td class="celldisplayheading"><label for="MIR-EVNT-STRT-DT-T[1]">Start Date</label></td>
+                <td class="celldisplayheading"><label for="MIR-EVNT-END-DT-T[1]">End Date</label></td>
+                <td class="celldisplayheading"><label for="MIR-T2-MULT-AMT-T[1]">Multiplier</label></td>
+                <td class="celldisplayheading"><label for="MIR-PAY-AMT-T[1]">Payable/ Paid Amount</label></td>
+            </tr>
+            <tr>
+                <td class="celldisplay">
+                    <span id="MIR-CLM-ID-T[]" stype="Text" displayonly="yes">MIR-CLM-ID-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-ASSOC-CLM-ID-T[]" stype="Text" displayonly="yes">MIR-ASSOC-CLM-ID-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-T2-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-T2-CVG-NUM-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-T2-BNFT-NM-ID-T[]" stype="Text" displayonly="yes">MIR-T2-BNFT-NM-ID-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-FBNK-REMIT-DT-T[]" stype="Date" displayonly="yes">MIR-FBNK-REMIT-DT-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-CLMA-INCID-DT-T[]" stype="Date" displayonly="yes">MIR-CLMA-INCID-DT-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-EVNT-STRT-DT-T[]" stype="Date" displayonly="yes">MIR-EVNT-STRT-DT-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-EVNT-END-DT-T[]" stype="Date" displayonly="yes">MIR-EVNT-END-DT-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-T2-MULT-AMT-T[]" stype="Number" elength="5" displayonly="yes">MIR-T2-MULT-AMT-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-PAY-AMT-T[]" stype="Number" elength="15" displayonly="yes">MIR-PAY-AMT-T[]</span>
+                </td>
+                <td class="celldisplay">
+                    <input type="hidden" name="MIR-DV-JS-LOAD-CD-T[]" id="MIR-DV-JS-LOAD-CD-T[]" stype="Hidden"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<script src="../js/InquiryClaimInsured.js"></script>
+</html>

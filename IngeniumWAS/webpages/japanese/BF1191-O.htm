@@ -1,0 +1,123 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:31 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1191-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2"                               
+*   
+*  Chg#    Date     Auth.  Description
+*
+*  BU1581  02NOV07  CTS    MIR-CPREQ-EFF-DT is replaced by MIR-PREV-UPDT-DT 
+*  23774B  10APR22  CTS    Changes done for ie retirement project to make it
+*                          compatible for microsoft edge. Changes in html include
+*                          adding "id" attribute for all input fields and changes in
+*                          java scripts to modify certain functions/commands which
+*                          are no longer compatilble with edge.                                                                                       
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1191-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <p>
+                <label for="MIR-CLI-ID">クライアントID:</label>
+                <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span> 
+            </p> 
+            <p> 
+                <label for="MIR-POL-ID-BASE">証券番号:</label> 
+                <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span> 
+            </p> 
+            <p> 
+                <label for="MIR-POL-ID-SFX">枝番:</label> 
+                <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span> 
+            </p> 
+            <p> 
+                <label for="MIR-REQIR-ID">要件:</label> 
+                <span id="MIR-REQIR-ID" stype="Text" displayonly="yes">MIR-REQIR-ID</span> 
+            </p> 
+            <p> 
+                <input type="hidden" name="action" id="action" stype="Hidden" /> 
+            </p> 
+            <p> 
+                <input type="hidden" name="index" id="index" stype="Hidden" /> 
+            </p> 
+            <p> 
+                <label for="MIR-CPREQ-CREAT-DT">作成日:</label> 
+                <span id="MIR-CPREQ-CREAT-DT" stype="Date" displayonly="yes">MIR-CPREQ-CREAT-DT</span> 
+            </p> 
+            <p> 
+                <label for="MIR-CPREQ-DESGNT-ID">要件要求元:</label>
+                <span id="MIR-CPREQ-DESGNT-ID" stype="Text" displayonly="yes">MIR-CPREQ-DESGNT-ID</span> 
+            </p> 
+            <p> 
+<!-- BU1581 Changes start here -->
+                <label for="MIR-PREV-UPDT-DT">ステータス日:</label> 
+                <span id="MIR-PREV-UPDT-DT" stype="Date" displayonly="yes">MIR-PREV-UPDT-DT</span> 
+            </p> 
+<!-- BU1581 Changes end here -->
+            <p> 
+                <label for="MIR-CPREQ-FOLWUP-DT">フォローアップ日:</label> 
+                <span id="MIR-CPREQ-FOLWUP-DT" stype="Date" displayonly="yes">MIR-CPREQ-FOLWUP-DT</span> 
+            </p> 
+            <p> 
+                <label for="MIR-CPREQ-FOLWUP-NUM">次回ﾌｫﾛｰｱｯﾌﾟ通知番号:</label> 
+                <span id="MIR-CPREQ-FOLWUP-NUM" stype="Text" displayonly="yes">MIR-CPREQ-FOLWUP-NUM</span> 
+            </p> 
+            <p> 
+                <label for="MIR-CPREQ-NEW-RSLT-IND">最新の結果を適用:</label>
+                <input type="checkbox" name="MIR-CPREQ-NEW-RSLT-IND" id="MIR-CPREQ-NEW-RSLT-IND" stype="Indicator" value="Y" disabled="yes" /> 
+            </p> 
+            <p> 
+                <label for="MIR-CPREQ-PD-IND">特定査定料支払済:</label> 
+                <input type="checkbox" name="MIR-CPREQ-PD-IND" id="MIR-CPREQ-PD-IND" stype="Indicator" value="Y" disabled="yes" /> 
+            </p> 
+            <p> 
+                <label for="MIR-CPREQ-STAT-CD">要件ステータス:</label> 
+                <span id="MIR-CPREQ-STAT-CD" stype="Text" displayonly="yes">MIR-CPREQ-STAT-CD</span> 
+            </p> 
+            <p> 
+                <label for="MIR-CPREQ-TST-DT">検査日:</label> 
+                <span id="MIR-CPREQ-TST-DT" stype="Date" displayonly="yes">MIR-CPREQ-TST-DT</span> 
+            </p> 
+            <p> 
+                <label for="MIR-CPREQ-TST-RSLT-CD">検査結果:</label> 
+                <span id="MIR-CPREQ-TST-RSLT-CD" stype="Text" displayonly="yes">MIR-CPREQ-TST-RSLT-CD</span> 
+            </p> 
+            <p> 
+                <label for="MIR-CPREQ-VALID-DT">検査結果有効期限日:</label> 
+                <span id="MIR-CPREQ-VALID-DT" stype="Date" displayonly="yes">MIR-CPREQ-VALID-DT</span> 
+            </p> 
+            <p> 
+                <label for="MIR-DV-INSRD-CLI-NM">クライアント名:</label> 
+                <span id="MIR-DV-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM</span> 
+            </p> 
+            <p> 
+                <label for="MIR-REQIR-TYP-CD">査定/成立:</label> 
+                <span id="MIR-REQIR-TYP-CD" stype="Text" displayonly="yes">MIR-REQIR-TYP-CD</span> 
+            </p> 
+            <p> 
+                <label for="MIR-SERV-BR-ID">支店:</label> 
+                <span id="MIR-SERV-BR-ID" stype="Text" displayonly="yes">MIR-SERV-BR-ID</span> 
+            </p> 
+            <p> 
+                <label for="MIR-USER-ID">更新者:</label> 
+                <span id="MIR-USER-ID" stype="Text" displayonly="yes">MIR-USER-ID</span> 
+            </p> 
+        </form> 
+    </body> 
+    <script src="../js/ActionHandlers.js"></script> 
+    <script src="../js/MessageFunctions.js"></script> 
+    <script src="../js/MessagesJapanese.js"></script> 
+    <script src="../js/ClientLevelEdits.js"></script> 
+    <script src="../js/GlobalUserMethods.js"></script> 
+</html> 

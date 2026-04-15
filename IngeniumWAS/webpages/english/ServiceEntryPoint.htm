@@ -1,0 +1,308 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:07 PM EDT
+*
+*********************************************************************************
+*  Component:   ServiceEntryPoint.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  016059  6.1      New for release 6.1
+*  016103  6.1.1J   Added radio buttons for Search Group Code and new fields
+*  017150  612J     Remove Currency decimals="2"
+*  PF 3.0  PF30     Corrected "-T-" to "-T[" for some fields
+*  015550  CTS      Changes as part of New Emperor Era Name
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>F16053-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+        <script>
+
+function onLoad()
+
+{
+
+  setEmperorDate("MIR-CLI-BTH-DT");
+
+}
+
+</script>
+
+    </head>
+    <body class="bodyws" onLoad="onLoad(); setEmperorDateLoop('MIR-CLI-BTH-DT-T[',50); onLoadCustom()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledataentry" align="center">
+                <tr>
+                    <td>
+                        <p class="celllabelrightalign">
+                            <label for="MIR-CLI-ID">Client ID:</label>
+                        </p>
+                    </td>
+                    <td>
+                        <input type="text" value=" " name="MIR-CLI-ID" id="MIR-CLI-ID" stype="Text" maxlength="10" onfocus="enterField(this)" size="20" tabindex="11" />
+                    </td>
+                    <td>
+                        <input type="button" name="submitClientIDButton" id="submitClientIDButton" value="Submit" onclick="submitClientID()" tabindex="12" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" align="center">
+                <tr>
+                    <td>
+                        <p class="celllabelrightalign">
+                            <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                        </p>
+                    </td>
+                    <td>
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" onfocus="enterField(this)" size="15" tabindex="21" />
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" size="3" tabindex="22" />
+                    </td>
+                    <td>
+                        <input type="button" name="submitPolicyIDButton" id="submitPolicyIDButton" value="Submit" onclick="submitPolicyID()" tabindex="23" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" align="center">
+                <tr>
+                    <td colspan="3">
+                        <h2>
+                            <label for="MIR-CLI-ENTR-SUR-NM">Basic Client Search</label>
+                        </h2>
+                    </td>
+                    <td />
+                    <td />
+                </tr>
+                <tr>
+                    <td class="celldatakey" >
+                        <input type="radio" name="MIR-DV-SRCH-GR-CD" value="KJ" stype="YesNo" onfocus="saveValue(); enterField(this)" tabindex="30" />
+            </td>
+            <td class="celldatakey" >
+                          <b>Search for Kanji names</b>
+            </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ENTR-SUR-NM">Last Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" value=" " name="MIR-CLI-ENTR-SUR-NM" id="MIR-CLI-ENTR-SUR-NM" stype="Text" maxlength="25" onfocus="enterField(this)" size="20" tabindex="32" />
+                    </td>
+                    <td>
+                        <input type="button" name="SearchClientButton" id="SearchClientButton" value="Search" onclick="SearchClient()" tabindex="60" />
+                    </td>
+                </tr>
+                <tr>
+            <td class="celldatakey" >
+                        <input type="radio" name="MIR-DV-SRCH-GR-CD" value="KA" stype="YesNo" onfocus="saveValue(); enterField(this)" tabindex="31" />
+                    </td>
+            <td class="celldatakey" >
+                          <b>Search for Katakana names</b>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ENTR-GIV-NM">First Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" value=" " name="MIR-CLI-ENTR-GIV-NM" id="MIR-CLI-ENTR-GIV-NM" stype="Text" maxlength="25" onfocus="enterField(this)" size="20" tabindex="33" />
+                    </td>
+                    <td />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                    </td>
+                    <td class="celllabelrightalign">
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="EnhancedSearchIndicator">Enhanced Client Search:</label>
+                    </td>
+                    <td class="celldataentry">
+                        <p>
+                            <input type="checkbox" value="Y" name="EnhancedSearchIndicator" id="EnhancedSearchIndicator" stype="Indicator" onclick="showHideEnhancedSearch(this);onCheckBox()" onfocus="enterField(this)" tabindex="34" />
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledatakey" id="EnhancedSearchTable">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-SEX-CD">Sex:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-CLI-SEX-CD" id="MIR-CLI-SEX-CD" size="1" stype="Selection" onfocus="enterField(this)" tabindex="41" ></select>
+                    </td>
+
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-TAX-ID">Tax ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CLI-TAX-ID" id="MIR-CLI-TAX-ID" stype="Text" maxlength="9" onfocus="enterField(this)" tabindex="42" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-BTH-DT">Birth Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CLI-BTH-DT" id="MIR-CLI-BTH-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" emperorDate="myEmperorDate" tabindex="43"/>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="myEmperorDate">Emperor Date:</label>
+                    </td>
+                    <td>
+                        <select name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" onblur="validateField(this)" onfocus="enterField(this)" serverDate="MIR-CLI-BTH-DT" tabindex="44" >
+                            <option value="" />
+                            <option value="M">Meiji</option>
+                            <option value="T">Taisho</option>
+                            <option value="S">Showa</option>
+                            <option value="H">Heisei</option>
+<!-- 015550 CHANGES START HERE -->
+                            <option value="R">Reiwa</option>
+<!-- 015550 CHANGES ENDS HERE -->
+                        </select>
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-CLI-BTH-DT" tabindex="45"
+ />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-CLI-BTH-DT" tabindex="46"
+ />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-CLI-BTH-DT" tabindex="47"
+ />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-CITY-NM-TXT">City Name:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CLI-CITY-NM-TXT" id="MIR-CLI-CITY-NM-TXT" stype="Text" maxlength="30" onfocus="enterField(this)" tabindex="48" size="20" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-JP-ADDR-CD">Prefecture:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CLI-JP-ADDR-CD" id="MIR-CLI-JP-ADDR-CD" stype="Text" maxlength="11" onfocus="enterField(this)" tabindex="49" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-PSTL-CD">Postal Code:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CLI-PSTL-CD" id="MIR-CLI-PSTL-CD" stype="Text" maxlength="9" onfocus="enterField(this)" tabindex="50" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-CRNT-LOC-CD">Province:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-CLI-CRNT-LOC-CD" id="MIR-CLI-CRNT-LOC-CD" size="1" stype="Selection" onfocus="enterField(this)" tabindex="51" ></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" id="ResultsTable">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="SELECT-T[1]">Select</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-SRCH-CLI-NM-T[1]">Full Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-T[1]">Client ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-TAX-ID-T[1]">Tax ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-BTH-DT-T[1]">Birthdate</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="myEmperorDate-T[1]">Emperor Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-SEX-CD-T[1]">Sex</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ADDR-LN-1-TXT-T[1]">Primary Address</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-CITY-NM-TXT-T[1]">City Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-PSTL-CD-T[1]">Postal Code</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-CRNT-LOC-CD-T[1]">Province</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-JP-ADDR-CD-T[1]">Prefecture</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CLI-PREV-NM-IND-T[1]">AKA</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-SRCH-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-SRCH-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-TAX-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-TAX-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-BTH-DT-T[]" stype="Date" displayonly="yes">MIR-CLI-BTH-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="myEmperorDate-T[]" displayonly="yes">myEmperorDate</span>
+                    </td>
+
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-SEX-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-SEX-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ADDR-LN-1-TXT-T[]" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-1-TXT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                       <span id="MIR-CLI-CITY-NM-TXT-T[]" stype="Text" displayonly="yes">MIR-CLI-CITY-NM-TXT-T[]</span>
+                   </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-PSTL-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-PSTL-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-CRNT-LOC-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-CRNT-LOC-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-JP-ADDR-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-JP-ADDR-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-DV-CLI-PREV-NM-IND-T[]" id="MIR-DV-CLI-PREV-NM-IND-T[]" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/ServiceEntryPoint.js"></script>
+    <script src="../js/ServiceEntryPoint.js"></script>
+    <script src="../js/EmperorDates.js"></script>
+    <script src="../js/EmperorDateLoop.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

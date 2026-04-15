@@ -1,0 +1,91 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:29 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9E94-I.htm                                                    *
+*  Description: Term Insurance Final Adjustment Processing-Input                *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  UY3094  07DEC23  Intial Version                                              *
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9E94-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                 <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE"  id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)"  />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)"  />
+                    </td>
+                 </tr>
+		 <tr>
+                   <td class="celldatakeylabel">
+                       <label for="MIR-DV-TRNXT-PAYO-MTHD-CD">Payout Method:</label>
+                   </td>
+                   <td class="celldatakey">
+		       <select name="MIR-DV-TRNXT-PAYO-MTHD-CD" id="MIR-DV-TRNXT-PAYO-MTHD-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                   </td>
+                   <td class="celldatakeylabel">
+                        <label for="MIR-JRNL-DT">Journal Date:</label>
+                   </td>
+                   <td class="celldatakey">
+                        <input type="text" value="" name="MIR-JRNL-DT" id="MIR-JRNL-DT"  stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)"/>
+                   </td>
+                 </tr>
+                 <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-PRCES-DT">Process Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-PRCES-DT" id="MIR-PRCES-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                   <td class="celldatakeylabel">
+						<label for="MIR-DV-HO-RECV-DT">Head Office Received Date:</label>
+                   </td>
+                   <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-DV-HO-RECV-DT" id="MIR-DV-HO-RECV-DT"  stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                   </td>
+
+                 </tr>
+
+                 <tr>
+                   <td> </td>
+				   <td> </td>
+                   <td class="celldatakeylabel">
+						<label for="MIR-APPL-CTL-PRCES-DT">Company Received Date:</label>
+                   </td>
+                   <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-APPL-CTL-PRCES-DT" id="MIR-APPL-CTL-PRCES-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="4" />
+                   </td>
+                 </tr>
+             </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

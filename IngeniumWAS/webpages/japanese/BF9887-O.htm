@@ -1,0 +1,203 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:26:00 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9887-O.htm                                                   
+*  Description: Protected Claim Summary                                        
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  HCL104B HIN/IH   Initial version                                            
+*  FT7001 AKATO  FT7 Label Change 14JUN2004 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                      	               
+*  UYSDMC  CTS      USYS CLAIM IND ADDITION                                                                               
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9887-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+        <input type="hidden" name="index" id="index" stype="Hidden"/>
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLM-ID">マスタークレームID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLM-ID" stype="Text" displayonly="yes">MIR-CLM-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-INS-CLI-NM">被保険者名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-INS-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INS-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLMA-CLM-STAT-CD">マスタークレーム ステータス:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLMA-CLM-STAT-CD" stype="Text" displayonly="yes">MIR-CLMA-CLM-STAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLMA-INSRD-CLI-ID">被保険者クライアントID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLMA-INSRD-CLI-ID" stype="Text" displayonly="yes">MIR-CLMA-INSRD-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-BTH-DT">生年月日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-BTH-DT" stype="Date" displayonly="yes">MIR-CLI-BTH-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-SEX-CD">性別:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-INS-MORAL-RISK-IND">被保険者モラルリスク:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <input type="checkbox" name="MIR-INS-MORAL-RISK-IND" id="MIR-INS-MORAL-RISK-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLAIM-NOTE-IND">クレーム備考:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <input type="checkbox" name="MIR-CLAIM-NOTE-IND" id="MIR-CLAIM-NOTE-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-LIFE-INS-CLM-IND">保険金同時手続:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <input type="checkbox" name="MIR-LIFE-INS-CLM-IND" id="MIR-LIFE-INS-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLMA-ASSOC-CLM-ID">関連するマスタークレームID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLMA-ASSOC-CLM-ID" stype="Text" displayonly="yes">MIR-CLMA-ASSOC-CLM-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+<!-- UYSDMC CHANGES START -->			    
+						<label for="MIR-CLMA-USYS-CLM-IND">ユニシス請求:</label>
+<!-- UYSDMC CHANGES END -->						
+					</td>
+                    <td class="celldisplaykey">
+<!-- UYSDMC CHANGES START -->					    
+						<input type="checkbox" name="MIR-CLMA-USYS-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+<!-- UYSDMC CHANGES END -->					
+					</td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLMA-HIST-CLM-IND">クレーム履歴:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <input type="checkbox" name="MIR-CLMA-HIST-CLM-IND" id="MIR-CLMA-HIST-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                </tr>
+            </table>
+            <h2>
+                <a name="BenefitDetails">給付金詳細</a>
+            </h2>
+            <table class="tabledisplay" genrows="0" keyfield="9">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="SELECT-T[1]" />
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-T[1]">証券番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">保障番号</label></td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PLAN-ID-T[1]">特約名</label></td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-ISS-EFF-DT-T[1]">契約日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-CSTAT-CD-T[1]">保障状況</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LAPS-STRT-DT-T[1]">失効開始日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-REINST-DT-T[1]">復活日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-FACE-AMT-T[1]">額面</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFT-NM-ID-T[1]">給付金名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFT-PAYBL-AMT-T[1]">支払可能額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFT-STAT-CD-T[1]">給付金クレームステータス</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-T[]" stype="Text" displayonly="yes">MIR-POL-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-ISS-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-CVG-ISS-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LAPS-STRT-DT-T[]" stype="Date" displayonly="yes">MIR-LAPS-STRT-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-REINST-DT-T[]" stype="Date" displayonly="yes">MIR-CVG-REINST-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-FACE-AMT-T[]" stype="Currency" elength="16"  signed="yes" displayonly="yes">MIR-CVG-FACE-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <a name="MIR-BNFT-NM-ID-T[]" href="a" action="SelectItem" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">Benefit Name</a>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFT-PAYBL-AMT-T[]" stype="Currency" elength="16"  signed="yes" displayonly="yes">MIR-BNFT-PAYBL-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFT-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-BNFT-STAT-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

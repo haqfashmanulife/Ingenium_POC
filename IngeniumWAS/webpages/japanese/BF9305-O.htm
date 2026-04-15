@@ -1,0 +1,260 @@
+﻿<!--
+*********************************************************************************
+*  Component:   BF9305-O.htm
+*  Description: Advance Payment Management Output Screen
+*
+*********************************************************************************
+*  Chg#    AUTH     Description
+*
+*  NWLPP6  CTS      INITIAL VERSION
+*  Q01412  CTS      NWLPP6 - Japanese text for nxt premium appropriation changed
+*  Q01526  CTS      NWLPP6 - LABEL NAME CHANGES REQUESTED BY USERS
+*  M277B2  CTS      PREPAYMENT RATE CHANGE
+*  UYS025  CTS      ADDITION OF ADVANCE PAYMENT RESERVE AMOUNT FIELD
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge. 
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                            
+*  UY3153  CTS      CR148 DHY ANNUITY CSV
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+<title>BF9305-O</title>
+<link charset="UTF-8" href="../japanese/Ingenium.css" rel="stylesheet" type="text/css"/>
+</head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" id="inputForm" method="post" onsubmit="return(onSubmit());" target="_parent">
+<input name="action" id="action" stype="Hidden" type="hidden"/>
+<input name="MIR-PCHST-EFF-DT" id="MIR-PCHST-EFF-DT" stype="Hidden" type="hidden"/>
+<input name="MIR-PCHST-SEQ-NUM" id="MIR-PCHST-SEQ-NUM" stype="Hidden" type="hidden"/>
+<input name="MIR-TH-PREM-PD-DT-NUM" id="MIR-TH-PREM-PD-DT-NUM" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-ADV-PMT-STRT-DT" id="MIR-HID-ADV-PMT-STRT-DT" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-ADV-PMT-DUR" id="MIR-HID-ADV-PMT-DUR" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-ADV-PMT-END-DT" id="MIR-HID-ADV-PMT-END-DT" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-ADV-PMT-TYP-CD" id="MIR-HID-ADV-PMT-TYP-CD" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-RSDUE-AMT" id="MIR-HID-RSDUE-AMT" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-SURR-AMT" id="MIR-HID-SURR-AMT" stype="Hidden" type="hidden"/>
+     <table class="tabledisplaykey">
+          <tr>
+               <td class="celldisplaykeylabel">
+<!-- Q01526 changes begin
+                    <label for="MIR-POL-ID-BASE">契約ID:</label> -->
+                    <label for="MIR-POL-ID-BASE">証券番号:</label>
+<!-- Q01526 changes end -->
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-POL-ID-BASE" stype="Text">MIR-POL-ID-BASE</span>
+               </td>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-POL-ID-SFX">枝番:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-POL-ID-SFX" stype="Text">MIR-POL-ID-SFX</span>
+               </td>
+          </tr>
+          <tr>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-PLAN-ID">プラン:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-PLAN-ID" stype="Text">MIR-PLAN-ID</span>
+               </td>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-DV-OWN-CLI-NM" stype="Text">MIR-DV-OWN-CLI-NM</span>
+               </td>
+          </tr>
+          <tr>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-PRCES-DT">処理日:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-PRCES-DT" stype="Date">MIR-PRCES-DT</span>
+               </td>
+          </tr>
+          <tr>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-TRAD-PD-DUR-NUM">経過年数:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-TRAD-PD-DUR-NUM" stype="Text">MIR-TRAD-PD-DUR-NUM</span>
+               </td>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-TRAD-PD-TO-MO-NUM">払込月分:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-TRAD-PD-TO-MO-NUM" stype="Text">MIR-TRAD-PD-TO-MO-NUM</span>
+               </td>
+          </tr>
+          <tr>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-POL-PD-DUR-NUM">実経過年数:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-POL-PD-DUR-NUM" stype="Text">MIR-POL-PD-DUR-NUM</span>
+               </td>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-POL-PD-TO-MO-NUM">実払込月分:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-POL-PD-TO-MO-NUM" stype="Text">MIR-POL-PD-TO-MO-NUM</span>
+               </td>
+          </tr>
+          <tr>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-SURR-AMT">未経過保険料:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" elength="15" id="MIR-SURR-AMT" signed="yes" stype="Currency">MIR-SURR-AMT</span>
+               </td>
+<!-- UYS025 changes starts here -->		   
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-ADV-PMT-RSRV-AMT">前払予約金:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                   <span displayonly="yes"  elength="15" id="MIR-ADV-PMT-RSRV-AMT" signed="yes" stype="Currency">MIR-ADV-PMT-RSRV-AMT</span>
+               </td>
+<!-- UYS025 changes ends here -->	
+          </tr>
+<!-- UY3153 changes starts here -->
+          <tr>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-ANN-PRE-BAL-AMT">年金前納残高額:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" elength="15" id="MIR-ANN-PRE-BAL-AMT" signed="yes" stype="Currency">MIR-ANN-PRE-BAL-AMT</span>
+               </td>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-ANN-ADV-PAY-AMT">個人年金分前納残高:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                   <span displayonly="yes"  elength="15" id="MIR-ANN-ADV-PAY-AMT" signed="yes" stype="Currency">MIR-ANN-ADV-PAY-AMT</span>
+               </td>
+          </tr>
+<!-- UY3153 changes ends here -->
+     </table>
+
+     <table class="tabledisplay" genrows="0">
+     <tr>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-ADV-PMT-CAT-CD-T[1]">区分</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-PRCES-DT-T[1]">処理年月日</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-APROP-YR-MO-T[1]">充当年月</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-COLCT-AMT-T[1]">入金額</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-APROP-AMT-T[1]">充当額</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+<!-- Q01526 changes begin
+               <label for="MIR-RSDUE-AMT-T[1]">前納残高</label> -->
+               <label for="MIR-RSDUE-AMT-T[1]">前払残高</label>
+<!-- Q01526 changes end -->
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-NUM-MO-INT-CAP-T[1]">元加月数</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+<!-- Q01526 changes begin
+               <label for="MIR-ADV-PMT-DUR-YYMM-T[1]">前納回数</label> -->
+               <label for="MIR-ADV-PMT-DUR-YYMM-T[1]">前払回数</label>
+<!-- Q01526 changes end -->
+          </td>
+<!-- Q01412 changes begin -->
+          <td class="celldisplayheading" headingrow="yes">
+          <!--
+               <label for="MIR-NXT-APROP-YR-MO-T[1]">時期充当年月</label>
+          -->
+<!-- Q01526 changes begin
+               <label for="MIR-NXT-APROP-YR-MO-T[1]">次期充当年月</label> -->
+               <label for="MIR-NXT-APROP-YR-MO-T[1]">次回充当年月</label>
+<!-- Q01526 changes end -->
+          </td>
+<!-- Q01412 changes end -->
+          <td class="celldisplayheading" headingrow="yes">
+<!-- M277B2 CHANGES STARTS HERE 
+               <label for="MIR-INT-RT-T[1]">積立利率</label> -->
+               <label for="MIR-INT-RT-T[1]">前納割引率</label>
+<!-- M277B2 CHANGES ENDS HERE -->               
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+<!-- Q01526 changes begin
+               <label for="MIR-ADV-PMT-END-YR-MO-T[1]">前納終了年月</label> -->
+               <label for="MIR-ADV-PMT-END-YR-MO-T[1]">前払終了年月</label>
+<!-- Q01526 changes end -->
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-ADV-PMT-TYP-CD-T[1]">前納/一括払</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-ADV-PMT-STAT-CD-T[1]">ステータス</label>
+          </td>
+     </tr>
+     <tr>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-ADV-PMT-CAT-CD-T[]" stype="Text">MIR-ADV-PMT-CAT-CD-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-PRCES-DT-T[]" stype="Date">MIR-PRCES-DT-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-APROP-YR-MO-T[]" stype="Text">MIR-APROP-YR-MO-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" elength="15" id="MIR-COLCT-AMT-T[]" signed="yes" stype="Currency">MIR-COLCT-AMT-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" elength="15" id="MIR-APROP-AMT-T[]" signed="yes" stype="Currency">MIR-APROP-AMT-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" elength="15" id="MIR-RSDUE-AMT-T[]" signed="yes" stype="Currency">MIR-RSDUE-AMT-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-NUM-MO-INT-CAP-T[]" stype="Text">MIR-NUM-MO-INT-CAP-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-ADV-PMT-DUR-YYMM-T[]" stype="Text">MIR-ADV-PMT-DUR-YYMM-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-NXT-APROP-YR-MO-T[]" stype="Text">MIR-NXT-APROP-YR-MO-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span decimals="4" displayonly="yes" elength="7" id="MIR-INT-RT-T[]" stype="Percent">MIR-INT-RT-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-ADV-PMT-END-YR-MO-T[]" stype="Text">MIR-ADV-PMT-END-YR-MO-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-ADV-PMT-TYP-CD-T[]" stype="Text">MIR-ADV-PMT-TYP-CD-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-ADV-PMT-STAT-CD-T[]" stype="Text">MIR-ADV-PMT-STAT-CD-T[]</span>
+          </td>
+     </tr>
+     </table>
+</form>
+</body>
+<script src="../js/MessagesJapanese.js" ></script>
+<script src="../js/MessageFunctions.js" ></script>
+<script src="../js/ActionHandlers.js" ></script>
+<script src="../js/ClientLevelEdits.js" ></script>
+<script src="../js/GlobalUserMethods.js" ></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

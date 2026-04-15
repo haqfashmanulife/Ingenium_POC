@@ -1,0 +1,156 @@
+﻿<!--
+# Converted from PathFinder 2.2 to 3.0 Jun 18, 2004 3:13:13 PM EDT
+
+#*******************************************************************************
+#*  Component:   BF9F99POL-I                                                   *
+#*  Description: CWA REFUND APPROVAL/REJECTION SCREEN                          *
+#*******************************************************************************
+#*  Chg#    Release  Description                                               *
+#*                                                                             *
+#*  CA0002  CTS      Intial version                                            *
+#*  105706  CTS      FIX DONE FOR CHANNEL AND OPERATION CATEGORY FIELD         *
+#*  CA02CR  CTS      CHANGES DONE FOR COMMENT SECTION REMOVAL                  *
+#*  23774B  CTS      Changes done for ie retirement project to make it         *
+#*                   compatible for microsoft edge. Changes in html include    *
+#*                   adding "id" attribute for all input fields and changes in *
+#*                   java scripts to modify certain functions/commands which   *
+#*                   are no longer compatilble with edge.                      *
+#*******************************************************************************
+ -->
+<html>
+    <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9F99Pol-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="MIR-RECORD-CTR" id="MIR-RECORD-CTR" stype="Hidden" /> 
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldataentryheading" colspan="8">キー情報</td>
+                </tr>
+
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-REJ-RQST-DT">不成立依頼日：</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-REJ-RQST-DT" id="MIR-REJ-RQST-DT" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-CHNL-CD">チャネル：</label>
+                    </td>
+                    <td class="celldatakey">
+           <!-- CHANGES STARTS FOR 105706 --> 
+                        <!-- <input type="text" value=" " name="MIR-POL-CHNL-CD" id="MIR-POL-CHNL-CD" stype="Selection" maxlength="01" onfocus="enterField(this)" /> -->
+                        <select name="MIR-POL-CHNL-CD" id="MIR-POL-CHNL-CD" onfocus="enterField(this)" size="1" stype="Selection"></select>
+           <!-- CHANGES ENDS FOR 105706 --> 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-OPER-CAT-CD">処理区分：</label>
+                    </td>
+                    <td class="celldatakey">
+           <!-- CHANGES STARTS FOR 105706 --> 
+                        <!-- <input type="text" value=" " name="MIR-OPER-CAT-CD" id="MIR-OPER-CAT-CD" stype="Selection" maxlength="01" onfocus="enterField(this)" /> -->
+                        <select name="MIR-OPER-CAT-CD" id="MIR-OPER-CAT-CD" onfocus="enterField(this)" size="1" stype="Selection"></select>
+           <!-- CHANGES ENDS FOR 105706 --> 
+                    </td>
+                </tr>
+            </table>
+             <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                         <label for="MIR-SRCH-RSLT-CNT">検索件数:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SRCH-RSLT-CNT" stype="Text" displayonly="yes">MIR-SRCH-RSLT-CNT</span>
+                    </td>
+                </tr>
+            </table>
+           <br />
+            <table class="tabledisplay" genrows="0" keycolumn="1">
+               <!-- changes for CA02CR starts here -->
+                    <!--
+                <tr>
+                   <td class="celldataentryheading" colspan="8">　契約リスト</td>
+                </tr>
+                    -->
+                 <tr>
+                   <td class="celldataentryheading" colspan="7">　契約リスト</td>
+                </tr>
+                  <!-- changes for CA02CR ends here -->
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="SELECT-T[1]" />
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-APPL-ID-T[1]">申込書番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-T[1]">証券番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-OWN-GIV-NM-T[1]">契約者名（カナ）</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CWA-SUSP-AMT-T[1]">保険料返還仮受金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CRCY-CD-T[1]">通貨</label>
+                    </td>
+                      <!-- changes for CA02CR starts here -->
+                    <!--
+                    <td class="celldisplayheading">
+                        <label for="MIR-RFND-COMNT-IND-T[1]">コメント</label>
+                    </td>
+                      -->
+                    <!-- changes for CA02CR ends here -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-RFND-STAT-CD-T[1]">払出ステータス</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-APPL-ID-T[]" stype="Text" displayonly="yes">MIR-APPL-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-T[]" stype="Text" displayonly="yes">MIR-POL-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-OWN-GIV-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-OWN-GIV-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CWA-SUSP-AMT-T[]" stype="Text" displayonly="yes">MIR-POL-CWA-SUSP-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CRCY-CD-T[]" stype="Text" displayonly="yes">MIR-POL-CRCY-CD-T[]</span>
+                    </td>
+                    <!-- changes for CA02CR starts here -->
+                    <!--
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-RFND-COMNT-IND-T[]" id="MIR-RFND-COMNT-IND-T[]" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                      -->
+                    <!-- changes for CA02CR ends here -->
+                    <td class="celldisplay">
+                        <span id="MIR-RFND-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-RFND-STAT-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

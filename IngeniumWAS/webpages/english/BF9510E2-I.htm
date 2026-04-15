@@ -1,0 +1,354 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:49 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9510E2-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  IPMPFA           MONTHLY BENEFIT REDUCTION                                  *
+*  ABU120           MODIFIED MIR-DOC-COMPLT-DT                                 *
+*  IPMTX2  CTS      Added new field MIR-POL-PAYO-TAXWH-IND                     *
+*  ABF281  CTS      Added new field MIR-PAYO-TAXWH-OVRID-IND                   *
+*  ISLIMP  CTS      ADDED 2 NEW FIELDS AND COMMENTED OUT 2 EXISTING FIELDS AS  *
+*                   PART OF INSURANCE LAW                                      *
+*  EN9547  CTS      STYLE OF THE ENGLISH PAGE IS CHNAGED  
+*  UY3004  16JUL21  SUBSEQUENT HTML POLICY TRIM                                *
+*  23774B  CTS      Changes done for ie retirement project to make it          *
+*                   compatible for microsoft edge. Changes in html include     *
+*                   adding "id" attribute for all input fields and changes in  *
+*                   java scripts to modify certain functions/commands which    *
+*                   are no longer compatilble with edge.                       *
+*  UY3049  CTS      ANNUITY PAYMENT SCREEN                                     *
+********************************************************************************
+ -->
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9510E2-I</title>
+<!-- EN9547 Change Begin -->
+<!-- <link rel="stylesheet" type="text/css" href="../../english/Ingenium.css" charset="ISO-8859-1" /> -->
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="ISO-8859-1" />
+</head>
+<!-- EN9547 Change End -->
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws"> -->
+<!-- UY3049 CHANGES START HERE
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()"-->
+    <body class="bodyws" onLoad="onLoad();InpTrimPolicy();InpPayoPolicy()">
+<!-- UY3049 CHANGES ENDS HERE -->
+<!--  UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<p><input type="hidden" name="action" id="action" stype="Hidden"/>
+<!-- UY3049 CHANGES START HERE-->
+   <input type="hidden" name="MIR-STR3-PAYO-IND" id="MIR-STR3-PAYO-IND" stype="Hidden" />
+   <input type="hidden" name="MIR-10-POL-ID" id="MIR-10-POL-ID" stype="Hidden" />
+<!-- UY3049 CHANGES ENDS HERE -->
+</p>
+<table class="tabledisplaykey">
+<tr>
+<td class="celldisplaykeylabel">
+<label for="MIR-POL-ID-BASE">Policy Id:</label>
+</td>
+
+<td class="celldisplaykey">
+<span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+</td>
+
+<td class="celldisplaykeylabel">
+<label for="MIR-POL-ID-SFX">Suffix:</label>
+</td>
+
+<td class="celldisplaykey">
+<span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+</td>
+</tr>
+
+<tr>
+<td class="celldisplaykeylabel">
+<label for="MIR-POL-PAYO-NUM">Payout Number:</label>
+</td>
+
+<td class="celldisplaykey">
+<span id="MIR-POL-PAYO-NUM" stype="Text" elength="5"  displayonly="yes">MIR-POL-PAYO-NUM</span>
+</td>
+
+<td class="celldisplaykeylabel">
+<label for="MIR-POL-PAYO-TYP-CD">Payout Type:</label>
+</td>
+
+<td class="celldisplaykey">
+<span id="MIR-POL-PAYO-TYP-CD" stype="Text" displayonly="yes">MIR-POL-PAYO-TYP-CD</span>
+</td>
+</tr>
+</table>
+<br />
+<table class="tabledisplay">
+<tr>
+<td class="celldisplayheading" colspan="4"><a name="Benefit Information">Benefit Information</a>
+</td></tr>
+</table>
+<table class="tabledatakey">
+
+<tr>
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-NEW-MTHLY-BNFT-AMT">New Monthly Benefit Amount:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<input type="text" value=" " name="MIR-NEW-MTHLY-BNFT-AMT" id="MIR-NEW-MTHLY-BNFT-AMT" SType = "Currency" elength="15" onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="NumberKeyCheck()"/>
+</td>
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-EFF-DT">Effective Date:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<input type="text" value=" " name="MIR-EFF-DT" id="MIR-EFF-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+</td>
+</tr>
+
+<tr>
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-BNFT-REDC-REASN-CD">Reason For Reduction:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<select name="MIR-BNFT-REDC-REASN-CD" id="MIR-BNFT-REDC-REASN-CD" size="1" stype="Selection" mandatory="yes" onfocus="enterField(this)" >
+</select>
+</td>
+
+<!--ISLIMP STARTS HERE
+
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-HO-CLM-FRM-ACPT-DT">Head Office Claim Form Acceptance Date:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<input type="text" value=" " name="MIR-HO-CLM-FRM-ACPT-DT" id="MIR-HO-CLM-FRM-ACPT-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)"/>
+</td>
+-->
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-CLM-CO-RECV-DT">Company Received Date:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<input type="text" value=" " name="MIR-CLM-CO-RECV-DT" id="MIR-CLM-CO-RECV-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)"/>
+</td>
+
+<!--ISLIMP ENDS HERE-->
+</tr>
+
+<tr>
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-TAX-TYP-CD">Tax Type:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<select name="MIR-TAX-TYP-CD" id="MIR-TAX-TYP-CD" size="1" stype="Selection" mandatory="yes" onfocus="enterField(this)" >
+</select>
+</td>
+
+<!--ISLIMP STARTS HERE
+
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-DOC-COMPLT-DT">Date of Document Completion:</label>
+</td>
+-->
+<!--ABU120 STARTS HERE
+<td class="celllabeldataentry" colspan="4">
+<input type="text" value=" " name="MIR-DOC-COMPLT-DT" id="MIR-DOC-COMPLT-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)"/>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<input type="text" value=" " name="MIR-DOC-COMPLT-DT" id="MIR-DOC-COMPLT-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+</td>
+-->
+<!--ABU120 ENDS HERE-->
+
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-FINAL-DOC-COMPLT-DT">Company Received Date(Final):</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<input type="text" value=" " name="MIR-FINAL-DOC-COMPLT-DT" id="MIR-FINAL-DOC-COMPLT-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+</td>
+<!--ISLIMP ENDS HERE-->
+</tr>
+<tr>
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-WTHLD-TAX-AMT">Withholding Tax Amount:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<input type="text" value=" " name="MIR-WTHLD-TAX-AMT" id="MIR-WTHLD-TAX-AMT" SType = "Currency" elength="15" onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="NumberKeyCheck()"/>
+</td>
+<!-- IPMTX2 changes starts -->
+<td class="celllabelrightalign">
+    <label for="MIR-POL-PAYO-TAXWH-IND">Bypass Tax Withholding Calculations:</label>
+</td>
+<!-- ABF281 changes starts -->
+<td class="celllabeldataentry">
+    <input type="checkbox" name="MIR-POL-PAYO-TAXWH-IND" id="MIR-POL-PAYO-TAXWH-IND" stype="Indicator" value="Y" disabled="yes" />
+</td>
+<!-- ABF281 Ends here -->
+
+<!-- IPMTX2 Ends here -->
+</tr>
+
+<!-- ABF281 changes starts -->
+<tr>
+<td class="celllabelrightalign" colspan="4">
+    <label for="MIR-PAYO-TAXWH-OVRID-IND">Override Withholding Tax Amount:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+    <input type="checkbox" name="MIR-PAYO-TAXWH-OVRID-IND" id="MIR-PAYO-TAXWH-OVRID-IND" stype="Indicator" value="Y"  onclick="onCheckBox()"  onfocus="enterField(this)"/>
+</td>
+
+<!-- ABF281 Ends here -->
+
+<!-- MP113B Starts here -->
+
+<td class="celllabelrightalign" colspan="4">
+    <label for="MIR-LMPSM-PMT-AMT">Lumpsum Payment Amount:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<input type="text" value=" " name="MIR-LMPSM-PMT-AMT" id="MIR-LMPSM-PMT-AMT" SType = "Currency" elength="15" onfocus="enterField(this)" onblur="validateField(this)" onkeypress ="NumberKeyCheck()"/>
+</td>
+</tr>
+
+<tr>
+<td class="celllabelrightalign" colspan="4">
+    <label for="MIR-MKTVAL-ADJ-RT">Market Value Adjustment Rate:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<input type="text" value=" " name="MIR-MKTVAL-ADJ-RT" id="MIR-MKTVAL-ADJ-RT" stype="Percent" elength="9" decimals="6" signed="yes" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+</td>
+</tr>
+
+<!-- MP113B Ends here -->
+
+<tr>
+<td class="celllabeldataentry" colspan="4">
+<input type="hidden" name="MIR-REMITTANCE-AMT" id="MIR-REMITTANCE-AMT" stype="Hidden"/>
+</td>
+<td class="celllabeldataentry" colspan="4">
+<input type="hidden" name="MIR-LMPSM-WTHDR-AMT" id="MIR-LMPSM-WTHDR-AMT" stype="Hidden"/>
+</td>
+<td class="celllabeldataentry" colspan="4">
+<input type="hidden" name="MIR-DLAY-INT-AMT" id="MIR-DLAY-INT-AMT" stype="Hidden"/>
+</td>
+</tr>
+</table>
+<br />
+
+<tr>
+<td class="celllabeldataentry" colspan="4">
+<input type="hidden" name="MIR-FIRM-BNK-TRXN-TYP-CD" id="MIR-FIRM-BNK-TRXN-TYP-CD" stype="Hidden"/>
+</td>
+</tr>
+<br />
+
+<table class="tabledisplay">
+<tr>
+<td class="celldisplayheading" colspan="4">
+<a name="Bank Account Information">Bank Account Information</a>
+</td>
+</tr>
+</table>
+<br/>
+<table class="tabledisplay">
+<tr>
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-BNK-ID">Bank Number:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<input type="text" value=" " name="MIR-BNK-ID" id="MIR-BNK-ID" stype="Text" maxlength="4" mandatory="yes" onfocus="enterField(this)"/>
+</td>
+
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-BNK-NM">Bank Name:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<span id="MIR-BNK-NM" stype="Text" displayonly="yes">MIR-BNK-NM</span>
+</td>
+</tr>
+
+<tr>
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-BNK-BR-ID">Branch Number:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<input type="text" value=" " name="MIR-BNK-BR-ID" id="MIR-BNK-BR-ID" stype="Text" maxlength="5" mandatory="yes" onfocus="enterField(this)"/>
+</td>
+
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-BNK-BR-NM">Branch Name:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<span id="MIR-BNK-BR-NM" stype="Text" displayonly="yes">MIR-BNK-BR-NM</span>
+</td>
+
+</tr>
+
+<tr>
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-BNK-ACC-TYP-CD">Account Type:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<select name="MIR-BNK-ACC-TYP-CD" id="MIR-BNK-ACC-TYP-CD" size="1" stype="Selection" mandatory="yes"  onfocus="enterField(this)" >
+</select>
+</td>
+</tr>
+
+<tr>
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-CLI-BNK-ACCT-NUM">Bank Account Number:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<input type="text" value=" " name="MIR-CLI-BNK-ACCT-NUM" id="MIR-CLI-BNK-ACCT-NUM" stype="Text" maxlength="17"  mandatory="yes" onfocus="enterField(this)"/>
+</td>
+
+<td class="celllabelrightalign" colspan="4">
+<label for="MIR-BNK-ACCT-HLDR-NM">Account Holder Name:</label>
+</td>
+
+<td class="celllabeldataentry" colspan="4">
+<input type="text" value=" " name="MIR-BNK-ACCT-HLDR-NM" id="MIR-BNK-ACCT-HLDR-NM" stype="Text" maxlength="50"   onfocus="enterField(this)"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+<!--EN9547 CHANGES BEGIN -->
+<!--
+<script src="../../js/MessagesEnglish.js"></script>
+<script src="../../js/MessageFunctions.js"></script>
+<script src="../../js/ActionHandlers.js"></script>
+<script src="../../js/ClientLevelEdits.js"></script>
+<script src="../../js/GlobalUserMethods.js"></script>
+-->
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<!--EN9547 CHANGES END -->
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+<!-- UY3049 CHANGES START HERE-->
+       <script src="../js/Policypayo.js"></script>
+<!-- UY3049 CHANGES ENDS HERE -->
+</html>

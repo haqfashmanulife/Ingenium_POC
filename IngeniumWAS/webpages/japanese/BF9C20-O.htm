@@ -1,0 +1,142 @@
+﻿<!--
+*********************************************************************************
+*  Component:   BF9C20-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*  NWLGLR  CTS      Initial Version
+*  NWLLR3  CTS      ADDITION OF EXPIRY DATE FIELD IN TREIN
+*  C13892  CTS      ADDITION OF LAPS DATE FIELD IN SCREEN
+*  R15533  CTS      MODIFIED THE LABEL FOR DELINQUENT INTEREST
+*  UYS033  CTS      ADDED NEW FIELD OVERLOAN REPAYMENT DUE DATE
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*********************************************************************************
+ -->
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <title>BF9C20-O</title>
+     <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+  </head>
+  <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+    <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+        <input type="hidden" name="index" id="index" stype="Hidden" />
+        <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-POL-ID-BASE">証券番号:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-POL-ID-SFX">枝番:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span></td>
+                </tr>
+
+                <tr>
+                <td class="celldisplaykeylabel"><label for="MIR-INFO-STAT-CD">情報ステータス:</label></td>
+                <td class="celldisplaykey"><span id="MIR-INFO-STAT-CD" stype="Text" displayonly="yes">MIR-INFO-STAT-CD</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-PRCES-DT">処理日:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-PRCES-DT" stype="Date" displayonly="yes">MIR-PRCES-DT</span></td>
+                </tr>
+     <!-- UYS033 CHANGES START -->
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-LOAN-REPAY-DUE-DT">オーバーローン返済期限:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-LOAN-REPAY-DUE-DT" stype="Date" displayonly="yes">MIR-LOAN-REPAY-DUE-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel"> 
+                    </td>
+                    <td class="celldisplaykey">
+                    </td>
+                </tr>
+     <!-- UYS033 CHANGES END -->
+            </table>
+
+        <br />
+            <table class="tabledisplay">
+                <tr>
+                <td class="celldisplaylabel"><label for="MIR-INSRD-CLI-ID">被保険者クライアントID:</label></td>
+                <td class="celldisplay"><span id="MIR-INSRD-CLI-ID" stype="Text" elength="10"   displayonly="yes">MIR-INSRD-CLI-ID</span></td>
+                <td class="celldisplaylabel"><label for="MIR-OVRDU-PREM-AMT">延滞保険料:</label></td>
+                <td class="celldisplay"><span id="MIR-OVRDU-PREM-AMT" stype="Currency" elength="15"   displayonly="yes">MIR-OVRDU-PREM-AMT</span></td>
+                </tr>
+
+
+                <tr>
+                  <td class="celldisplaylabel"><label for="MIR-DV-INSRD-NM">被保険者名:</label></td>
+                  <td class="celldisplay"><span id="MIR-DV-INSRD-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-NM</span></td>
+<!-- CHANGES FOR R15533 STARTS FROM HERE -->
+                <!-- <td class="celldisplaylabel"><label for="MIR-OVRDU-INT-AMT">延滞利息:</label></td> -->
+                <td class="celldisplaylabel"><label for="MIR-OVRDU-INT-AMT">延滞利息/FRA両替の端数金額:</label></td>
+<!-- CHANGES FOR R15533 END FROM HERE -->
+                  <td class="celldisplay"><span id="MIR-OVRDU-INT-AMT" stype="Currency" elength="15"   displayonly="yes">MIR-OVRDU-INT-AMT</span></td>
+                </tr>
+
+                <tr>
+                <td class="celldisplaylabel"><label for="MIR-SELF-DSCLSRE-DT">告知日:</label></td>
+                <td class="celldisplay"><span id="MIR-SELF-DSCLSRE-DT" stype="Date" displayonly="yes">MIR-SELF-DSCLSRE-DT</span></td>
+                <td class="celldisplaylabel"><label for="MIR-TOT-REQIR-AMT">復活保険料合計額:</label></td>
+                <td class="celldisplay"><span id="MIR-TOT-REQIR-AMT" stype="Currency" elength="15"   displayonly="yes">MIR-TOT-REQIR-AMT</span></td>
+                </tr>
+
+                <tr>
+                <td class="celldisplaylabel"><label for="MIR-APCHD-LOC-CD">復活経路:</label></td>
+                <td class="celldisplay"><span id="MIR-APCHD-LOC-CD" stype="Text" displayonly="yes">MIR-APCHD-LOC-CD</span></td>
+                <td class="celldisplaylabel"><label for="MIR-PREM-DUE-MO-NUM">払込期月:</label></td>
+                <td class="celldisplay"><span id="MIR-PREM-DUE-MO-NUM" stype="Text" displayonly="yes">MIR-PREM-DUE-MO-NUM</span></td>
+                </tr>
+
+
+                <tr>
+                  <td class="celldisplaylabel"><label for="MIR-UWG-RSLT-CD">復活査定結果:</label></td>
+                  <td class="celldisplay"><span id="MIR-UWG-RSLT-CD" stype="Text" displayonly="yes">MIR-UWG-RSLT-CD</span></td>
+                  <td class="celldisplaylabel"><label for="MIR-PREM-DUE-QTY">回数:</label></td>
+                 <td class="celldisplay"><span id="MIR-PREM-DUE-QTY" stype="Number" elength="03"   displayonly="yes">MIR-PREM-DUE-QTY</span></td>
+                </tr>
+
+
+                <!-- NWLLR3 Changes starts here -->
+                <!-- <tr>
+                  <td class="celldisplaylabel"><label for="MIR-EXCL-INFO-TXT">?????:</label></td>
+                <td class="celldisplay"><span id="MIR-EXCL-INFO-TXT" stype="Text" displayonly="yes">MIR-EXCL-INFO-TXT</span></td>
+                  <td class="celldisplaylabel"><label for="MIR-DV-EXP-DT">??????:</label></td>
+                <td class="celldisplay"><span id="MIR-DV-EXP-DT" stype="Date" displayonly="yes">MIR-DV-EXP-DT</span></td>
+                </tr> -->
+
+                <tr>
+                  <td class="celldisplaylabel"><label for="MIR-EXCL-INFO-TXT">不担保情報:</label></td>
+                <td class="celldisplay"><span id="MIR-EXCL-INFO-TXT" stype="Text" displayonly="yes">MIR-EXCL-INFO-TXT</span></td>
+                  <td class="celldisplaylabel"><label for="MIR-REINST-XPRY-DT">復活有効期限:</label></td>
+                <td class="celldisplay"><span id="MIR-REINST-XPRY-DT" stype="Date" displayonly="yes">MIR-REINST-XPRY-DT</span></td>
+                </tr>
+                <!-- NWLLR3 Changes ends here -->
+
+                <tr>
+                <td class="celldisplaylabel"><label for="MIR-UWG-DT">復活査定結果入力日:</label></td>
+                <td class="celldisplay"><span id="MIR-UWG-DT" stype="Date" displayonly="yes">MIR-UWG-DT</span></td>
+                    <td class="celldisplaylabel"><label for="MIR-REINST-DT">復活日:</label></td>
+                <td class="celldisplay"><span id="MIR-REINST-DT" stype="Date" displayonly="yes">MIR-REINST-DT</span></td>
+                </tr>
+                <!-- C13892 Changes starts here -->
+                <tr>
+                <td class="celldisplaylabel"><label for="MIR-LAPS-DT">失効日:</label></td>
+                <td class="celldisplay"><span id="MIR-LAPS-DT" stype="Date" displayonly="yes">MIR-LAPS-DT</span></td>
+                </tr>
+                <!-- C13892 Changes ends here -->
+
+            </table>
+
+    </form>
+  </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/Policytrim.js"></script>
+</html>

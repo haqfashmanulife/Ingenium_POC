@@ -1,0 +1,402 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:44 PM EDT
+*
+*********************************************************************************
+*  Component:   BF6947-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  02BL63  KRW      Add POL-BT-BILL-DLAY-IND and POL-BT-STRT-DT                
+*  P00626  YUC      Change label "Payor Name" to "Accountholder Name"          
+*  R10424  CTS      Changes to add Bank name and Branch name
+*  TDMG24 CTS      Screen Changes
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*  UYS133  CTS      PD group size field addition                                *
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF6947-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="splitBranch('MIR-BNK-BR-ID');onLoad()"> -->
+    <body class="bodyws" onLoad=" SubInpTrimPolicy(); splitBranch('MIR-BNK-BR-ID');onLoad()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID" id="MIR-BNK-BR-ID" jpnbranch="Branch" jpnsubbranch="SubBranch" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                </tr>
+                <!--TDMG24 Screen Changes Start-->
+				<tr>
+				    <td class="celldisplaykeylabel">
+				    </td>
+					<td class="celldisplaykey">
+				    </td>
+				    <td class="celldisplaykeylabel">
+						  <label for="MIR-PREM-PMT-CMPLT-IND">Base Policy Premium Payment Completion:</label>
+				    </td>
+					<td class="celldisplaykey">
+						  <input type="checkbox" name="MIR-PREM-PMT-CMPLT-IND" id="MIR-PREM-PMT-CMPLT-IND" stype="Indicator" value="Y" disabled="yes"/>
+				    </td>
+				</tr>
+				<!--TDMG24 Screen Changes  end-->
+
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CVG-REC-CTR">Number of Coverages:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Bank Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ID">Bank Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ID" stype="Text" displayonly="yes">MIR-BNK-ID</span>
+                    </td>
+                    <!-- R10424 CHANGES STARTS -->
+                    <!-- <td class="celldisplaylabel" /> -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-NM">Bank Name:</label>
+                    </td>
+                    <!-- <td class="celldisplay"></td> -->
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-NM" stype="Text" displayonly="yes">MIR-BNK-NM</span>
+                    </td>
+                    <!-- R10424 CHANGES ENDS -->
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="Branch">Branch Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-BR-ID" stype="Text" displayonly="yes">MIR-BNK-BR-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    <!-- R10424 CHANGES STARTS -->
+                       <!-- <label for="SubBranch">Sub Branch Number:</label> -->
+                       <label for="MIR-BNK-BR-NM">Branch Name:</label>
+                     </td>
+                    <td class="celldisplay">
+                        <!--<span id="SubBranch" stype="Text" displayonly="yes">SubBranch</span> -->
+                        <span id="MIR-BNK-BR-NM" stype="Text" displayonly="yes">MIR-BNK-BR-NM</span>
+                     <!-- R10424 CHANGES ENDS -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNK-ACCT-ID">Account Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNK-ACCT-ID" stype="Text" displayonly="yes">MIR-BNK-ACCT-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    <!-- R10424 CHANGES STARTS -->
+                        <!-- <label for="MIR-BNK-ACCT-TYP-CD">Account Type:</label> -->
+                        <label for="MIR-COMB-BILL-IND">Combine Billing Indicator:</label>
+                    <!-- R10424 CHANGES END    -->
+                    </td>
+                    <td class="celldisplay">
+                    <!-- R10424 CHANGES STARTS -->
+                        <!-- <span id="MIR-BNK-ACCT-TYP-CD" stype="Text" displayonly="yes">MIR-BNK-ACCT-TYP-CD</span> -->
+                        <span id="MIR-COMB-BILL-IND" stype="Text" displayonly="yes">MIR-COMB-BILL-IND</span>
+                    <!-- R10424 CHANGES END    -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                    <!-- R10424 CHANGES STARTS -->
+                       <!-- <label for="MIR-BNK-ACCT-MICR-IND">Cheque from account is      MICR-encoded:</label> -->
+                       <label for="MIR-BNK-ACCT-TYP-CD">Account Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <!--<input type="checkbox" name="MIR-BNK-ACCT-MICR-IND" id="MIR-BNK-ACCT-MICR-IND" stype="Indicator" value="Y" disabled="yes" /> -->
+                        <!-- <span id="SubBranch" stype="Text" displayonly="yes">SubBranch</span> -->
+                        <span id="MIR-BNK-ACCT-TYP-CD" stype="Text" displayonly="yes">MIR-BNK-ACCT-TYP-CD</span>
+                    <!-- R10424 CHANGES ENDS -->
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-BNK-ACCT-NUM">Bank Account Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-BNK-ACCT-NUM" stype="Text" displayonly="yes">MIR-CLI-BNK-ACCT-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-PAYR-CLI-NM">Accountholder Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAYR-CLI-NM" stype="Text" displayonly="yes">MIR-DV-PAYR-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAC-CLI-ID">Client Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAC-CLI-ID" stype="Text" displayonly="yes">MIR-PAC-CLI-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Billing Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MPREM-AMT">Mode Premium Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MPREM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-MPREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">Premium Mode:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAC-DRW-DT">Next PAC Deposit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAC-DRW-DT" stype="Date" displayonly="yes">MIR-PAC-DRW-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAC-DRW-DY">Deposit Day:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAC-DRW-DY" stype="Day" displayonly="yes">MIR-POL-PAC-DRW-DY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PD-TO-DT-NUM">Paid to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PD-TO-DT-NUM" stype="Text" displayonly="yes">MIR-POL-PD-TO-DT-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-TO-DT-NUM">Billed to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TO-DT-NUM" stype="Text" displayonly="yes">MIR-POL-BILL-TO-DT-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-TYP-CD">Billing Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TYP-CD" stype="Text" displayonly="yes">MIR-POL-BILL-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREM-SUSP-AMT">Premium Suspense:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREM-SUSP-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-PREM-SUSP-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BT-BILL-DLAY-IND">Bank Transfer Billing Delay:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-BT-BILL-DLAY-IND" id="MIR-POL-BT-BILL-DLAY-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BT-STRT-DT">Date of first BT Draw:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BT-STRT-DT" stype="Date" displayonly="yes">MIR-POL-BT-STRT-DT</span>
+                    </td>
+                </tr>
+<!--  UYS133 CHANGES STARTS HERE -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PD-GR-TYP-CD">PD group size:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PD-GR-TYP-CD" stype="Text" displayonly="yes">MIR-PD-GR-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+<!--  UYS133 CHANGES ENDS HERE -->
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">PAC Return / Redraw Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAC-RETRN-1-DT">Return PAC Cheque Date 1:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAC-RETRN-1-DT" stype="Date" displayonly="yes">MIR-POL-PAC-RETRN-1-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAC-RETRN-1-CD">Return PAC Cheque Reason      1:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAC-RETRN-1-CD" stype="Text" displayonly="yes">MIR-POL-PAC-RETRN-1-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAC-RETRN-2-DT">Return PAC Cheque Date 2:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAC-RETRN-2-DT" stype="Date" displayonly="yes">MIR-POL-PAC-RETRN-2-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAC-RETRN-2-CD">Return PAC Cheque Reason      2:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAC-RETRN-2-CD" stype="Text" displayonly="yes">MIR-POL-PAC-RETRN-2-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAC-REDRW-OPT-CD">PAC Redraw Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAC-REDRW-OPT-CD" stype="Text" displayonly="yes">MIR-PAC-REDRW-OPT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAC-REDRW-DT">PAC Redraw Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAC-REDRW-DT" stype="Date" displayonly="yes">MIR-POL-PAC-REDRW-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Billing Restrict Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-RBILL-CD">Restrict Billing:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-RBILL-CD" stype="Text" displayonly="yes">MIR-POL-RBILL-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RBILL-DEPT-ID">Department Responsible:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RBILL-DEPT-ID" stype="Text" displayonly="yes">MIR-RBILL-DEPT-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RBILL-USER-ID">User Responsible:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RBILL-USER-ID" stype="Text" displayonly="yes">MIR-RBILL-USER-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RBILL-MISC-1-CD">Restrict Billing Code 1:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RBILL-MISC-1-CD" stype="Text" displayonly="yes">MIR-RBILL-MISC-1-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RBILL-MISC-2-CD">Restrict Billing Code 2:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RBILL-MISC-2-CD" stype="Text" displayonly="yes">MIR-RBILL-MISC-2-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RBILL-EFF-DT">Effective Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RBILL-EFF-DT" stype="Date" displayonly="yes">MIR-RBILL-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RBILL-END-DT">End Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RBILL-END-DT" stype="Date" displayonly="yes">MIR-RBILL-END-DT</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/JapaneseBranch.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

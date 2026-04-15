@@ -1,0 +1,340 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:20 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0720-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  MP0010  PM       Add new fields - Cnvr P Amt and Non Renewal Cnvr P Amt
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                                                               
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0720-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-CLI-NM">Insured Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-CLI-NM" stype="Text" displayonly="yes">MIR-DV-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-MTHV-EFF-DT-NUM">Monthiversary Processing Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-MTHV-EFF-DT-NUM" stype="Text" displayonly="yes">MIR-MTHV-EFF-DT-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Policy Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SUM-INS-AMT">Total Sum Insured:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SUM-INS-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-SUM-INS-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MTHV-POL-CSV-AMT">Total Cash      Surrender Value:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MTHV-POL-CSV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-MTHV-POL-CSV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MTHV-POL-CV-AMT">Total Accumulated Value:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MTHV-POL-CV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-MTHV-POL-CV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-TOT-DED-AMT">Total Deductions:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-TOT-DED-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-POL-TOT-DED-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DED-WAV-AMT">Total Deductions Waived:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DED-WAV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-DED-WAV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MTHV-POL-SHRT-AMT">Amount of      Insufficient Funds:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MTHV-POL-SHRT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-MTHV-POL-SHRT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ADJ-CV-AMT">Adjusted Value:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ADJ-CV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-ADJ-CV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-GDLN-DB-AMT">Guideline Death Benefit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-GDLN-DB-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-GDLN-DB-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MTHV-PRCES-QTY">Number of Times Processing Done:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MTHV-PRCES-QTY" stype="Text" displayonly="yes">MIR-MTHV-PRCES-QTY</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MTHV-PRCES-DT">Transaction Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MTHV-PRCES-DT" stype="Date" displayonly="yes">MIR-MTHV-PRCES-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MTHV-ORIG-PRCES-DT">Original Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MTHV-ORIG-PRCES-DT" stype="Date" displayonly="yes">MIR-MTHV-ORIG-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CVG-REC-CTR">Number of      Coverages on Policy:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MTHV-POL-DB-OPT-CD">Death Benefit Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MTHV-POL-DB-OPT-CD" stype="Text" displayonly="yes">MIR-MTHV-POL-DB-OPT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MTHV-FND-SELCT-CD">Monthiversary Deduction Allocation Method:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MTHV-FND-SELCT-CD" stype="Text" displayonly="yes">MIR-MTHV-FND-SELCT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Deduction Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-STD-MORT-CHRG-AMT">Mortality Charge:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-STD-MORT-CHRG-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-STD-MORT-CHRG-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SSTD-MORT-CHRG-AMT">Substandard Mortality      Charge:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SSTD-MORT-CHRG-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-SSTD-MORT-CHRG-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-PERI-LOAD-AMT">Periodic Load Charge:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PERI-LOAD-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-CVG-PERI-LOAD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-SETUP-CHRG-AMT">Set Up      Charges:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SETUP-CHRG-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-CVG-SETUP-CHRG-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-AD-PREM-AMT">Accidental Death Premium Charges:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-AD-PREM-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-CVG-AD-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-WP-PREM-AMT">Waiver of Premium Charges:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-WP-PREM-AMT" stype="Currency" elength="11" signed="yes" displayonly="yes">MIR-CVG-WP-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-BNFT-CHRG-AMT">Supplementary Benefit Charges:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-BNFT-CHRG-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-CVG-BNFT-CHRG-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-TOT-DED-AMT">Total      Deductions:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-TOT-DED-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-CVG-TOT-DED-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MTHV-CVG-DRW-AMT">Total      Deduction Drawn:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MTHV-CVG-DRW-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-MTHV-CVG-DRW-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Risk Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MTHV-CVG-NAR-AMT">Net Amount at Risk:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MTHV-CVG-NAR-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-MTHV-CVG-NAR-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-CV-ALLOC-AMT">Cash Value Apportioned:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CV-ALLOC-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-CV-ALLOC-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-SUM-INS-AMT">Sum Insured Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SUM-INS-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-SUM-INS-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Coverage Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MTHV-CVG-CSTAT-CD">Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MTHV-CVG-CSTAT-CD" stype="Text" displayonly="yes">MIR-MTHV-CVG-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-GUAR-COI-AMT">Guaranteed Cost of Insurance:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-GUAR-COI-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-CVG-GUAR-COI-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MTHV-CVG-CV-AMT">Net Fund Value:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MTHV-CVG-CV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-MTHV-CVG-CV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MTHV-CVG-CORDR-AMT">Corridor Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MTHV-CVG-CORDR-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-MTHV-CVG-CORDR-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CNVR-P-AMT">Conversion P Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNVR-P-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CNVR-P-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NO-RENW-CNVR-P-AMT">Non Renewal Conversion P Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-RENW-CNVR-P-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-NO-RENW-CNVR-P-AMT</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

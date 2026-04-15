@@ -1,0 +1,485 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:13 PM EDT
+*
+*********************************************************************************
+*  Component:   AppLifestyleQuestionsND.htm                                    
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  016423  602J     New for release 602J                                       
+*  016905  611J     Change case on button file names to work on Sun platform   
+*  017150  612J     Remove Currency decimals="2"  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                             
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>AppLifestyleQuestions</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onfocus="setFocus()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="QuestionText" id="QuestionText" value="" stype="Hidden" />
+            <input type="hidden" name="PageFocus" id="PageFocus" value="" stype="Hidden" />
+            <div align="right">
+                <table>
+                    <tr>
+                        <td class="celldisplaykeylabel">
+                            <label for="MIR-DV-INSRD-CLI-NM">申込者:</label>
+                        </td>
+                        <td class="celldisplaykey">
+                            <span id="MIR-DV-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#NONPHYSICAL DATA">非健康データ</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#TOBACCO USAGE">喫煙状況</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#MEDICAL INFORMATION">健康状態</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <table class="tabledataentry" id="NonPhysicalData">
+                <tr>
+                    <td class="celldataentryheading" colspan="3">
+                        <a name="NONPHYSICAL DATA">健康状態以外のデータ</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading" width="450">以下の質問に「はい」と答えた場合は詳細を記入してください</td>
+                    <td class="celldataentryheading" width="30%">回答</td>
+                    <td class="celldataentryheading" width="10%">詳細</td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry" width="450" />
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="button" name="AllAnswersNoButton" id="AllAnswersNoButton" value="すべてに「いいえ」と回答する" onclick="setAllInTableToNo('NonPhysicalData')" />
+                    </td>
+                    <td class="celllabeldataentry" width="10%" />
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry" width="450">
+                        <b>被保険者は過去5年以内に:</b>
+                    </td>
+                    <td class="celllabeldataentry" width="30%" />
+                    <td class="celllabeldataentry" width="10%" />
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry" width="450">
+                        <b>a.</b>
+                        操縦士、副操縦士、訓練生、乗務員として航空機に搭乗した、あるいは搭乗する予定がある 
+                    </td> 
+                    <td class="celllabeldataentry" width="30%"> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-001" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>  
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-001" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input>  
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-001" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input>  
+                    </td>  
+                    <td class="celllabeldataentry" width="10%" />  
+                </tr>  
+                <tr>  
+                    <td class="celllabeldataentry" width="450">  
+                        <b>b.</b>  
+                        ハンググライダー、スカイダイビング、スキン／スキューバダイビング、ロッククライミング、登山、自動車／船舶／航空機によるレースなどの活動に参加した、あるいは参加する予定がある 
+                    </td> 
+                    <td class="celllabeldataentry" width="30%"> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-002" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>  
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-002" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input>  
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-002" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input>  
+                    </td>  
+                    <td class="celllabeldataentry" width="10%" />  
+                </tr>  
+                <tr>  
+                    <td class="celllabeldataentry" width="450">  
+                        <b>c.</b>  
+                        <span id="Question1"> 外国に居住した、あるいは今後6ヶ月以内に30日以上外国に滞在／旅行する予定がある</span>
+                    </td>
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-003" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-003" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-003" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input> 
+                    </td> 
+                    <td class="celllabeldataentry" width="10%"> 
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="CHG-IND" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-003');questionToOutput('Question1');onAction()" /> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabeldataentry" width="450"> 
+                        <b>d.</b> 
+                        <span id="Question2"> 運転免許証の交付を拒否された、免許停止処分を受けた、交通違反を犯した、交通事故を起こした、などの経験がある</span> 
+                    </td> 
+                    <td class="celllabeldataentry" width="30%"> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-007" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>  
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-007" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input>  
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-007" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input>  
+                    </td>  
+                    <td class="celllabeldataentry" width="10%">  
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="HAZ-DRIVE" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-007');questionToOutput('Question2');onAction()" />  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td class="celllabeldataentry" width="450">  
+                        <b>e.</b>  
+                        <span id="Question3"> 医師の処方なしに、規制薬物（コカイン、中枢神経興奮剤、その他の覚醒剤、バルビツール酸系睡眠薬やその他の鎮痛剤、LSD、大麻、その他の幻覚剤、ヘロイン、モルヒネ、アヘン、その他の麻薬など）を使用したことがある</span>
+                    </td>
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-011" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-011" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-011" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input> 
+                    </td> 
+                    <td class="celllabeldataentry" width="10%"> 
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="HARD-DRUGS" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-011');questionToOutput('Question3');onAction()" /> 
+                    </td> 
+                </tr> 
+            </table> 
+            <p align="right"> 
+                <a href="#top" class="backtotop"> 
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" /> 
+                        トップへ戻る 
+                </a> 
+            </p> 
+            <table class="tabledataentry" id="TobaccoUsage"> 
+                <tr> 
+                    <td class="celldataentryheading" colspan="3"> 
+                        <a name="MEDICAL INFORMATION">喫煙状況</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading" width="450">以下の質問に「はい」と答えた場合は詳細を記入してください</td>
+                    <td class="celldataentryheading" width="30%">回答</td>
+                    <td class="celldataentryheading" width="10%">詳細</td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry" width="450" />
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="button" name="AllAnswersNoButton" id="AllAnswersNoButton" value="すべてに「いいえ」と回答する" onclick="setAllInTableToNo('TobaccoUsage')" />
+                    </td>
+                    <td class="celllabeldataentry" width="10%" />
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry" width="450">
+                        <b>被保険者は:</b>
+                    </td>
+                    <td class="celllabeldataentry" width="30%" />
+                    <td class="celllabeldataentry" width="10%" />
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry" width="450">
+                        <b>a.</b>
+                        <span id="Question4"> 過去12ヶ月以内に1本以上のたばこを吸ったことがある</span> 
+                    </td> 
+                    <td class="celllabeldataentry" width="30%"> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-015" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>  
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-015" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input>  
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-015" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input>  
+                    </td>  
+                    <td class="celllabeldataentry" width="10%">  
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="SMOKE-CIGS" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-015');questionToOutput('Question4');onAction()" />  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td class="celllabeldataentry" width="450">  
+                        <b>b.</b>  
+                        <span id="Question4">過去に喫煙を常習としていた</span> 
+                    </td> 
+                    <td class="celllabeldataentry" width="30%"> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-019" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>  
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-019" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input>  
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-019" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input>  
+                    </td>  
+                    <td class="celllabeldataentry" width="10%" />  
+                </tr>  
+                <tr>  
+                    <td class="celllabeldataentry" width="450">  
+                        <b>c.</b>  
+                        <span id="Question5"> 過去12ヶ月間に他のたばこ類（葉巻、噛みたばこなど）を使用したことがある</span> 
+                    </td> 
+                    <td class="celllabeldataentry" width="30%"> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-020" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>  
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-020" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input>  
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-020" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input>  
+                    </td>  
+                    <td class="celllabeldataentry" width="10%">  
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="SMOKE-OTHR" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-020');questionToOutput('Question5');onAction()" />  
+                    </td>  
+                </tr>  
+            </table>  
+            <br />  
+            <p align="right">  
+                <a href="#top" class="backtotop">  
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />  
+                         トップへ戻る  
+                </a>  
+            </p>  
+            <table class="tabledataentry" id="MedicalInformation">  
+                <tr>  
+                    <td class="celldataentryheading" colspan="3">  
+                        健康状態 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldataentryheading" width="450">以下の質問に「はい」と答えた場合は詳細を記入してください</td> 
+                    <td class="celldataentryheading" width="30%">回答</td> 
+                    <td class="celldataentryheading" width="10%">詳細</td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabeldataentry" width="450" /> 
+                    <td class="celllabeldataentry" width="30%"> 
+                        <input type="button" name="AllAnswersNoButton" id="AllAnswersNoButton" value="すべてに「いいえ」と回答する" onclick="setAllInTableToNo('MedicalInformation')" /> 
+                    </td> 
+                    <td class="celllabeldataentry" width="10%" /> 
+                </tr> 
+                <tr> 
+                    <td class="celllabeldataentry" width="450"> 
+                        <b>1. 被保険者は過去10年以内に以下の症状を経験したか、医師、その他の医療関係者により以下の診断あるいはその治療を受けたことがある:</b>
+                    </td>
+                    <td class="celllabeldataentry" width="30%" />
+                    <td class="celllabeldataentry" width="10%" />
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry" width="450">
+                        <b>a.</b>
+                        <span id="Question6"> 胸の痛み、高血圧、心臓麻痺、心雑音、脳卒中、一過性脳虚血発作、貧血、静脈炎などの循環器系（心臓、血液、血管など）の異常</span>
+                    </td>
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-023" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-023" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-023" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input> 
+                    </td> 
+                    <td class="celllabeldataentry" width="10%"> 
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="SYS-CARDIO" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-023');questionToOutput('Question6');onAction()" /> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabeldataentry" width="450"> 
+                        <b>b.</b> 
+                        <span id="Question7"> 腸出血、潰瘍、クローン病、ヘルニア、痔核、大腸炎、1週間以上の下痢などの消化器系（食道、胃、腸、肝臓、胆嚢、膵臓など）の異常</span>
+                    </td>
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-024" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-024" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-024" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input> 
+                    </td> 
+                    <td class="celllabeldataentry" width="10%"> 
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="SYS-DIGEST" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-024');questionToOutput('Question7');onAction()" /> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabeldataentry" width="450"> 
+                        <b>c.</b> 
+                        <span id="Question8"> 糖尿病、甲状腺あるいは腺疾患などの内分泌系（甲状腺、副腎、下垂体など）の異常</span>
+                    </td>
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-025" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-025" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-025" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input> 
+                    </td> 
+                    <td class="celllabeldataentry" width="10%"> 
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="SYS-GLAND" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-025');questionToOutput('Question8');onAction()" /> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabeldataentry" width="450"> 
+                        <b>d.</b> 
+                        <span id="Question9"> 月経異常、妊娠合併症、前立腺疾患などの生殖器官（乳房、卵巣、子宮、前立腺、または精巣など）の異常</span>
+                    </td>
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-026" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-026" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-026" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input> 
+                    </td> 
+                    <td class="celllabeldataentry" width="10%"> 
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="SYS-URINRY" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-026');questionToOutput('Question9');onAction()" /> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabeldataentry" width="450"> 
+                        <b>e.</b> 
+                        <span id="Question10"> <b>.</b> 
+                        関節炎、首や背中の異常、坐骨神経痛、通風、狼痕、その他の結合組織異常などの骨格系（筋肉、骨、間接など）の異常</span>
+                    </td>
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-027" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-027" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-027" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input> 
+                    </td> 
+                    <td class="celllabeldataentry" width="10%"> 
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="SYS-SKELTL" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-027');questionToOutput('Question10');onAction()" /> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabeldataentry" width="450"> 
+                        <b>f.</b> 
+                        <span id="Question11"> 痙攣、癲癇、麻痺、多発性硬化症、脳性麻痺、失神、目眩などの神経系（脳、脊椎、神経など）の異常</span>
+                    </td>
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-028" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-028" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-028" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input> 
+                    </td> 
+                    <td class="celllabeldataentry" width="10%"> 
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="SYS-NERVE" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-028');questionToOutput('Question11');onAction()" /> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabeldataentry" width="450"> 
+                        <b>g.</b> 
+                        <span id="Question12"> アレルギー、喘息、息切れ、気腫などの呼吸器系（肺など）の異常</span>
+                    </td>
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-029" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-029" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-029" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input> 
+                    </td> 
+                    <td class="celllabeldataentry" width="10%"> 
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="SYS-RESPIR" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-029');questionToOutput('Question12');onAction()" /> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabeldataentry" width="450"> 
+                        <b>2. 被保険者は過去10年以内に:</b>
+                    </td>
+                    <td class="celllabeldataentry" width="30%" />
+                    <td class="celllabeldataentry" width="10%" />
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry" width="450">
+                        <b>a.</b>
+                        <span id="Question13"> 悪性、良性にかかわらず、腫瘍、嚢胞、または癌の診断あるいは治療を受けたことがある</span>
+                    </td>
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-030" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-030" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-030" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input> 
+                    </td> 
+                    <td class="celllabeldataentry" width="10%"> 
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="SYS-TUMOUR" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-030');questionToOutput('Question13');onAction()" /> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabeldataentry" width="450"> 
+                        <b>b.</b> 
+                        <span id="Question14"> エイズ（後天性免疫不全症候群）の診断、治療、あるいはカウンセリングを受けたことがある</span>
+                    </td>
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-036" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-036" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-036" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input> 
+                    </td> 
+                    <td class="celllabeldataentry" width="10%"> 
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="SYS-AIDS" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-036');questionToOutput('Question14');onAction()" /> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabeldataentry" width="450"> 
+                        <b>c.</b> 
+                        <span id="Question16"> <span id="Question31">アルコールあるいは薬物の使用で、治療あるいはカウンセリングを受けた、あるいは受けるように勧められた、また関連サポートグループの援助を受けたことがある</span></span>
+                    </td>
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-032" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-032" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-032" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input> 
+                    </td> 
+                    <td class="celllabeldataentry" width="10%"> 
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="ALCOHOLIC" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-032');questionToOutput('Question16');onAction()" /> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabeldataentry" width="450"> 
+                        <b>d.</b> 
+                        <span id="Question17"> <span id="Question32">けが、病気、その他の障害などで年金、保険金、その他の扶助を受けた、あるいは請求したことがある</span></span>
+                    </td>
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-033" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-033" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-033" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input> 
+                    </td> 
+                    <td class="celllabeldataentry" width="10%"> 
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="DISBENEFIT" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-033');questionToOutput('Question17');onAction()" /> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabeldataentry" width="450"> 
+                        <b>3. 上記以外に、被保険者は過去5年以内に:</b>
+                    </td>
+                    <td class="celllabeldataentry" width="30%" />
+                    <td class="celllabeldataentry" width="10%" />
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry" width="450">
+                        <b>a.</b>
+                        <span id="Question18"> 健康診断、健康相談、カイロプラクティック、セラピストカウンセリング、その他の治療、または外科的処置を受けたことがある</span>
+                    </td>
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-034" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-034" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input> 
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-034" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input> 
+                    </td> 
+                    <td class="celllabeldataentry" width="10%"> 
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="CONSULTATN" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-034');questionToOutput('Question18');onAction()" /> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabeldataentry" width="450"> 
+                        <b>b.</b> 
+                        <span id="Question19"><span id="Question33">病院、診療所、その他の医療機関で治療、診察を受けた、あるいは検査、外科的処置を受けるように勧められ、完了していない</span></span>
+                    </td>
+                    <td class="celllabeldataentry" width="30%">
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-035" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)">はい</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-035" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)">いいえ</input>
+                        <input type="radio" name="MIR-DV-QSTN-RESP-TXT-035" value=" " stype="YesNoUnanswered" onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)">無回答</input>
+                    </td>
+                    <td class="celllabeldataentry" width="10%">
+                        <input type="image" border="0" src="../japanese/images/details.gif" align="bottom" width="80" height="24" Action="DIAG-TESTS" onclick="saveObjectName('MIR-DV-QSTN-RESP-TXT-035');questionToOutput('Question19');onAction()" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                        トップへ戻る
+                </a>
+            </p>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#NONPHYSICAL DATA">非健康データ</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#TOBACCO USAGE">喫煙状況</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#MEDICAL INFORMATION">健康状態</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/BF1392-I.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

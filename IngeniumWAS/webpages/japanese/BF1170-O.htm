@@ -1,0 +1,260 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:31 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1170-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  016736  6.1.1J   Code Clean Up                                              
+*  017150  612J     Remove Currency decimals="2"                               
+*  FT7001 AKATO  FT7 Label Change 14JUN2004
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                       	               
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1170-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">被保険者:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-ID">クライアントID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-UWG-WRKSHT-NUM">ワークシート番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-UWG-WRKSHT-NUM" stype="Text" displayonly="yes">MIR-UWG-WRKSHT-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-MIB-DTL-TYP-CD-T[1]">医療情報局コードタイプ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CLI-MIB-DTL-CD-T[1]">医療情報局コード</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-MIB-DTL-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-DV-MIB-DTL-TYP-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-MIB-DTL-CD-T[]" stype="Text" displayonly="yes">MIR-DV-CLI-MIB-DTL-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-BASE-T[1]">証券番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-SFX-T[1]">枝番</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CSTAT-CD-T[1]">契約状況</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[1]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[1]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CSTAT-CD-T[1]" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD-T[1]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+              <tr>
+                <td class="celldisplayheading">
+                        <label for="MIR-CLI-MIB-IND-CD">医療情報局インジケータ:</label>
+                </td>
+                <td class="celldisplayheading"><label for="MIR-CNFD-COMNT-TXT">コメント:</label>
+                </td>
+              </tr>
+              <tr>
+                <td class="celldisplay"><span id="MIR-CLI-MIB-IND-CD" stype="Text" displayonly="yes">MIR-CLI-MIB-IND-CD</span>
+				</td>
+                <td class="celldisplay"><span id="MIR-CNFD-COMNT-TXT" stype="Text" displayonly="yes">MIR-CNFD-COMNT-TXT</span>
+                </td>
+              </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">査定情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-EARN-INCM-AMT">利益所得:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-EARN-INCM-AMT" stype="Currency" elength="13" decimals="0" displayonly="yes">MIR-CLI-EARN-INCM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-UWGDECN-CD">査定結果:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-UWGDECN-CD" stype="Text" displayonly="yes">MIR-CLI-UWGDECN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-UWGDECN-TYP-CD">査定結果タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-UWGDECN-TYP-CD" stype="Text" displayonly="yes">MIR-CLI-UWGDECN-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UW-USER-1-ID">第1査定人ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UW-USER-1-ID" stype="Text" displayonly="yes">MIR-UW-USER-1-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UW-USER-2-ID">第2査定人ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UW-USER-2-ID" stype="Text" displayonly="yes">MIR-UW-USER-2-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UWG-WRKSHT-DT">ワークシート作成日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UWG-WRKSHT-DT" stype="Date" displayonly="yes">MIR-UWG-WRKSHT-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-UWGDECN-DT">査定結果変更日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-UWGDECN-DT" stype="Date" displayonly="yes">MIR-CLI-UWGDECN-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">その他情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-CNFD-IND">クライアント情報は機密扱い:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CLI-CNFD-IND" id="MIR-CLI-CNFD-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-PREV-DCLN-IND">謝絶履歴あり:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CLI-PREV-DCLN-IND" id="MIR-CLI-PREV-DCLN-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CNFD-IND">契約は機密扱い:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-CNFD-IND" id="MIR-POL-CNFD-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-TIA-IND">一時保険約定で保障される契約:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-TIA-IND" id="MIR-POL-TIA-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-UWG-WP-IND">保険料払込免除適用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-DV-UWG-WP-IND" id="MIR-DV-UWG-WP-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REINS-CD">再保険:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-REINS-CD" stype="Text" displayonly="yes">MIR-POL-REINS-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">金額情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-CLI-TOT-UWG-AMT">査定額合計:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-TOT-UWG-AMT" stype="Currency" elength="17" displayonly="yes">MIR-DV-CLI-TOT-UWG-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-CLI-TOT-ADB-AMT">災害死亡給付金額合計:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-TOT-ADB-AMT" stype="Currency" elength="17" displayonly="yes">MIR-DV-CLI-TOT-ADB-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-CLI-TOT-INS-AMT">全会社保険金額合計:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CLI-TOT-INS-AMT" stype="Currency" elength="15" decimals="0" displayonly="yes">MIR-DV-CLI-TOT-INS-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

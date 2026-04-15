@@ -1,0 +1,261 @@
+<!--  
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:48 PM EDT
+*
+********************************************************************************* 
+*  Component:   BF2252-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+********************************************************************************* 
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                           
+*                                                                              
+********************************************************************************* 
+ --> 
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF2252-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());"> 
+            <input type="hidden" name="index" id="index" stype="Hidden" /> 
+            <input type="hidden" name="action" id="action" stype="Hidden" /> 
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" /> 
+            <table class="tabledisplaykey"> 
+                <tr> 
+                    <td class="celldisplaykeylabel"> 
+                        <label for="MIR-DV-INSRD-CLI-NM">被保険者:</label> 
+                    </td> 
+                    <td class="celldisplaykey"> 
+                        <span id="MIR-DV-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM</span> 
+                    </td> 
+                    <td class="celldisplaykeylabel"> 
+                        <label for="MIR-PREV-UPDT-DT">最終変更日:</label> 
+                    </td> 
+                    <td class="celldisplaykey"> 
+                        <span id="MIR-PREV-UPDT-DT" stype="Date" displayonly="yes">MIR-PREV-UPDT-DT</span> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaykeylabel"> 
+                        <label for="MIR-CLI-ID">クライアントID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">基本契約情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-DI-OINS-IND">その他の加入医療保険 - 
+                        契約中/ペンディング:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-DI-OINS-IND" id="MIR-CLI-DI-OINS-IND" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DI-INS-REFUS-IND">謝絶/特別条件付加入歴:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DI-INS-REFUS-IND" id="MIR-DI-INS-REFUS-IND" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" genrows="6">
+                <tr>
+                    <td class="celldataentryheading" colspan="6">加入医療保険 - 
+                      契約中/ペンディング</td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-OINS-CO-NM-T[1]">会社名</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-OINS-INFC-PEND-CD-T[1]">契約中/ペンディング</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-OINS-THIS-CO-IND-T[1]">同社の取扱い保険</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-OINS-BUS-PERS-CD-T[1]">団体/個人</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DI-OINS-INS-TYP-CD-T[1]">職種</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-OINS-ISS-YR-T[1]">契約年</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-OINS-CO-NM-T[]" id="MIR-CLI-OINS-CO-NM-T[]" stype="Text" maxlength="15" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-OINS-INFC-PEND-CD-T[]" id="MIR-OINS-INFC-PEND-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-OINS-THIS-CO-IND-T[]" id="MIR-OINS-THIS-CO-IND-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-OINS-BUS-PERS-CD-T[]" id="MIR-OINS-BUS-PERS-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DI-OINS-INS-TYP-CD-T[]" id="MIR-DI-OINS-INS-TYP-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-OINS-ISS-YR-T[]" id="MIR-CLI-OINS-ISS-YR-T[]" stype="Year" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" genrows="6">
+                <tr>
+                    <td class="celldataentryheading" colspan="6">加入医療保険 - 
+                      契約中/ペンディング（続き）</td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-OINS-TOT-AMT-T[1]">月次給付額</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-OINS-ADB-AMT-T[1]">災害死亡/機能喪失給付額</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DI-OINS-EP-DUR-T[1]">免責期間</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DI-OINS-BP-DUR-T[1]">給付期間</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DI-OINS-TAXBL-CD-T[1]">課税対象給付金</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DI-OINS-REPL-IND-T[1]">内部乗替</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-OINS-TOT-AMT-T[]" id="MIR-CLI-OINS-TOT-AMT-T[]" stype="Currency" elength="16" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-OINS-ADB-AMT-T[]" id="MIR-CLI-OINS-ADB-AMT-T[]" stype="Currency" elength="14" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DI-OINS-EP-DUR-T[]" id="MIR-DI-OINS-EP-DUR-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DI-OINS-BP-DUR-T[]" id="MIR-DI-OINS-BP-DUR-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DI-OINS-TAXBL-CD-T[]" id="MIR-DI-OINS-TAXBL-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DI-OINS-REPL-IND-T[]" id="MIR-DI-OINS-REPL-IND-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" genrows="2">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">謝絶/特別条件付保険</td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DI-REFUS-CO-1-NM-T[1]">会社名</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DI-REFUS-CO-1-IND-T[1]">同社の取扱い保険</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CLI-DI-REFUS-1-YR-T[1]">謝絶された年</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DI-REFUS-1-TXT-T[1]">謝絶/特別条件付発行事由</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DI-REFUS-CO-1-NM-T[]" id="MIR-DI-REFUS-CO-1-NM-T[]" stype="Text" maxlength="15" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DI-REFUS-CO-1-IND-T[]" id="MIR-DI-REFUS-CO-1-IND-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-DI-REFUS-1-YR-T[]" id="MIR-CLI-DI-REFUS-1-YR-T[]" stype="Year" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DI-REFUS-1-TXT-T[]" id="MIR-DI-REFUS-1-TXT-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="6">短期/長期就業不能給付</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-DI-ELIG-IND">短期/長期就業不能給付受取資格獲得予定:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-DI-ELIG-IND" id="MIR-CLI-DI-ELIG-IND" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-DI-ELIG-MO">給付開始（月）:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-DI-ELIG-MO" id="MIR-CLI-DI-ELIG-MO" stype="Month" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-DI-ELIG-YR">給付開始（年）:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-DI-ELIG-YR" id="MIR-CLI-DI-ELIG-YR" stype="Year" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ELIG-BP-DUR">給付期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-ELIG-BP-DUR" id="MIR-CLI-ELIG-BP-DUR" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ELIG-EP-DUR">免責期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-ELIG-EP-DUR" id="MIR-CLI-ELIG-EP-DUR" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DI-ELIG-AMT">月次給付額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DI-ELIG-AMT" id="MIR-DI-ELIG-AMT" stype="Currency" elength="12" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

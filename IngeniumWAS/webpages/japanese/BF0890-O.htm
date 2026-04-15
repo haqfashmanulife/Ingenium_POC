@@ -1,0 +1,204 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:27 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0890-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                           
+*                                                                              
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0890-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                    </td>
+                    <td colspan="3" class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-TAMRA-EFF-DT">レコード作成日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-TAMRA-EFF-DT" stype="Date" displayonly="yes">MIR-TAMRA-EFF-DT</span>
+                    </td>
+                    <td class="celldatakeylabel" />
+                    <td class="celldisplaykey" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="2">変更時契約価額</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAMRA-REASN-CD">事由:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAMRA-REASN-CD" stype="Text" displayonly="yes">MIR-TAMRA-REASN-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAMRA-STAT-CD">ステータス:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAMRA-STAT-CD" stype="Text" displayonly="yes">MIR-TAMRA-STAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAMRA-SUM-INS-AMT">保険金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAMRA-SUM-INS-AMT" stype="Currency" elength="17" displayonly="yes">MIR-TAMRA-SUM-INS-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAMRA-NSP-AMT">正味一時払保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAMRA-NSP-AMT" stype="Currency" elength="15" displayonly="yes">MIR-TAMRA-NSP-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAMRA-1035-PD-AMT">支払済1035保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAMRA-1035-PD-AMT" stype="Currency" elength="15" displayonly="yes">MIR-TAMRA-1035-PD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAMRA-ACB-AMT">調整コストベース価額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAMRA-ACB-AMT" stype="Currency" elength="15" displayonly="yes">MIR-TAMRA-ACB-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAMRA-CV-AMT">キャッシュバリュー:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAMRA-CV-AMT" stype="Currency" elength="15" displayonly="yes">MIR-TAMRA-CV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAMRA-7PAY-ANN-AMT">7-PAY年間保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAMRA-7PAY-ANN-AMT" stype="Currency" elength="15" displayonly="yes">MIR-TAMRA-7PAY-ANN-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAMRA-7PAY-CUM-AMT">7-PAY累積保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAMRA-7PAY-CUM-AMT" stype="Currency" elength="17" displayonly="yes">MIR-TAMRA-7PAY-CUM-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="2">現契約価額</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ISS-EFF-DT">契約日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MATRL-CHNG-DT">実質変更日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MATRL-CHNG-DT" stype="Date" displayonly="yes">MIR-POL-MATRL-CHNG-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MEC-DT">修正養老保険契約日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MEC-DT" stype="Date" displayonly="yes">MIR-POL-MEC-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-7PAY-ANN-AMT">7-PAY年間保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-7PAY-ANN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-7PAY-ANN-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-7PAY-CUM-AMT">7-PAY累積保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-7PAY-CUM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-7PAY-CUM-AMT</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

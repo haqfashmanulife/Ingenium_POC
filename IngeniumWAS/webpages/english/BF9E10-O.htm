@@ -1,0 +1,179 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:44 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9E10-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  UYS026  CTS      ADDITION OF NEW SCREEN - INQUIRY - PREMIUM DETAILS
+*  23774B  CTS      CHANGES DONE FOR IE RETIREMENT PROJECT TO MAKE IT
+*                   COMPATIBLE FOR MICROSOFT EDGE. CHANGES IN HTML INCLUDE
+*                   ADDING "ID" ATTRIBUTE FOR ALL INPUT FIELDS AND CHANGES IN
+*                   JAVA SCRIPTS TO MODIFY CERTAIN FUNCTIONS/COMMANDS WHICH
+*                   ARE NO LONGER COMPATILBLE WITH EDGE.             
+*
+*  UYS026B  CTS      ADDITION OF NEW SCREEN - INQUIRY - PREMIUM DETAILS
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*********************************************************************************
+ -->
+ <html>
+     <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+         <title>BF9E10-O</title>
+         <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+     </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+         <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+             <table class="tabledisplaykey">
+                 <tr>
+                     <td class="celldisplaykeylabel">
+                         <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                     </td>
+                     <td class="celldisplaykey">
+                         <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                     </td>
+                     <td class="celldisplaykeylabel">
+                         <label for="MIR-DV-POL-HLDR-NM">Policyholder Name:</label>
+                     </td>
+                     <td class="celldisplaykey">
+                         <span id="MIR-DV-POL-HLDR-NM" stype="Text" displayonly="yes">MIR-DV-POL-HLDR-NM</span>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td class="celldisplaykeylabel">
+                         <label for="MIR-SMALL-TYP-CD">Small Type Code:</label>
+                     </td>
+                     <td class="celldisplaykey">
+                         <span id="MIR-SMALL-TYP-CD" stype="Text" displayonly="yes">MIR-SMALL-TYP-CD</span>
+                     </td>
+                     <td class="celldisplaykeylabel">
+                         <label for="MIR-DV-INSRD-NM">Insured Name:</label>
+                     </td>
+                     <td class="celldisplaykey">
+                         <span id="MIR-DV-INSRD-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-NM</span>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td class="celldisplaykeylabel">
+                         <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                     </td>
+                     <td class="celldisplaykey">
+                         <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                     </td>
+                     <td class="celldisplaykeylabel">
+                         <label for="MIR-POL-ISS-EFF-DT">Policy Issue Effective Date:</label>
+                     </td>
+                     <td class="celldisplaykey">
+                         <span id="MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT</span>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td class="celldisplaykeylabel">
+                         <label for="MIR-POL-BILL-TYP-CD">Premium Payment Method:</label>
+                     </td>
+                     <td class="celldisplaykey">
+                         <span id="MIR-POL-BILL-TYP-CD" stype="Text" displayonly="yes">MIR-POL-BILL-TYP-CD</span>
+                     </td>
+                     <td class="celldisplaykeylabel">
+                         <label for="MIR-POL-BILL-MODE-CD">Premium Payment Mode:</label>
+                     </td>
+                     <td class="celldisplaykey">
+                         <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td class="celldisplaykeylabel">
+                         <label for="MIR-DV-PREM-PMT-PERI">Premium Payment Period:</label>
+                     </td>
+                     <td class="celldisplaykey">
+                         <span id="MIR-DV-PREM-PMT-PERI" stype="Text" displayonly="yes">MIR-DV-PREM-PMT-PERI</span>
+                     </td>
+                     <td class="celldisplaykeylabel"></td>
+                     <td class="celldisplaykey"></td>
+                 </tr>
+             </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="8">Premium Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-FROM-DT-T[1]">From Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-TO-DT-T[1]">To Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-BILL-TYP-CD-T[1]">Payment Method</label>
+                    </td>
+<!-- UYS26B -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-PD-GR-TYP-CD-T[1]">PD group size</label>
+                    </td>
+<!-- UYS26B -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-TOT-PREM-T[1]">Total Premium</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ENDOW-T[1]">Endowment</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-TERM-PREM-T[1]">Term</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RIDER-PREM-T[1]">Rider</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FROM-DT-T[]" stype="Date" displayonly="yes">MIR-DV-FROM-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TO-DT-T[]" stype="Date" displayonly="yes">MIR-DV-TO-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-POL-BILL-TYP-CD-T[]</span>
+                    </td>
+<!-- UYS26B -->
+                    <td class="celldisplay">
+                        <span id="MIR-PD-GR-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-PD-GR-TYP-CD-T[]</span>
+                    </td>
+<!-- UYS26B -->
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TOT-PREM-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DV-TOT-PREM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ENDOW-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-ENDOW-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TERM-PREM-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TERM-PREM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RIDER-PREM-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-RIDER-PREM-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <input type="hidden" name="action" id="action" stype="Hidden" />
+            </p>
+            <p>
+                <input type="hidden" name="index" id="index" stype="Hidden" />
+            </p>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

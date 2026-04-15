@@ -1,0 +1,237 @@
+<!--
+*********************************************************************************
+*  Component:   BF9305-O.htm
+*  Description: Advance Payment Management Output Screen
+*
+*********************************************************************************
+*  Chg#    AUTH     Description
+*
+*  NWLPP6  CTS      INITIAL VERSION
+*  M277B2  CTS      PREPAYMENT RATE CHANGE
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  UYS025  CTS      ADDITION OF ADVANCE PAYMENT RESERVE AMOUNT FIELD
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UY3153  CTS      CR148 DHY ANNUITY CSV
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+<title>BF9305-O</title>
+<link charset="UTF-8" href="../english/Ingenium.css" rel="stylesheet" type="text/css"/>
+</head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" id="inputForm" method="post" onsubmit="return(onSubmit());" target="_parent">
+<input name="action" id="action" stype="Hidden" type="hidden"/>
+<input name="MIR-PCHST-EFF-DT" id="MIR-PCHST-EFF-DT" stype="Hidden" type="hidden"/>
+<input name="MIR-PCHST-SEQ-NUM" id="MIR-PCHST-SEQ-NUM" stype="Hidden" type="hidden"/>
+<input name="MIR-TH-PREM-PD-DT-NUM" id="MIR-TH-PREM-PD-DT-NUM" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-ADV-PMT-STRT-DT" id="MIR-HID-ADV-PMT-STRT-DT" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-ADV-PMT-DUR" id="MIR-HID-ADV-PMT-DUR" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-ADV-PMT-END-DT" id="MIR-HID-ADV-PMT-END-DT" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-ADV-PMT-TYP-CD" id="MIR-HID-ADV-PMT-TYP-CD" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-RSDUE-AMT" id="MIR-HID-RSDUE-AMT" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-SURR-AMT" id="MIR-HID-SURR-AMT" stype="Hidden" type="hidden"/>
+     <table class="tabledisplaykey">
+          <tr>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-POL-ID-BASE">Policy ID:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-POL-ID-BASE" stype="Text">MIR-POL-ID-BASE</span>
+               </td>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-POL-ID-SFX">Suffix:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-POL-ID-SFX" stype="Text">MIR-POL-ID-SFX</span>
+               </td>
+          </tr>
+          <tr>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-PLAN-ID">Plan ID:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-PLAN-ID" stype="Text">MIR-PLAN-ID</span>
+               </td>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-DV-OWN-CLI-NM" stype="Text">MIR-DV-OWN-CLI-NM</span>
+               </td>
+          </tr>
+          <tr>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-PRCES-DT">Processing Date:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-PRCES-DT" stype="Date">MIR-PRCES-DT</span>
+               </td>
+          </tr>
+          <tr>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-TRAD-PD-DUR-NUM">Trad Paid Duration:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-TRAD-PD-DUR-NUM" stype="Text">MIR-TRAD-PD-DUR-NUM</span>
+               </td>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-TRAD-PD-TO-MO-NUM">Trad Paid to Month:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-TRAD-PD-TO-MO-NUM" stype="Text">MIR-TRAD-PD-TO-MO-NUM</span>
+               </td>
+          </tr>
+          <tr>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-POL-PD-DUR-NUM">Trad Actual Paid Duration:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-POL-PD-DUR-NUM" stype="Text">MIR-POL-PD-DUR-NUM</span>
+               </td>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-POL-PD-TO-MO-NUM">Trad Actual Paid to Month:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" id="MIR-POL-PD-TO-MO-NUM" stype="Text">MIR-POL-PD-TO-MO-NUM</span>
+               </td>
+          </tr>
+          <tr>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-SURR-AMT">Surrender Amount:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" elength="15" id="MIR-SURR-AMT" signed="yes" stype="Currency">MIR-SURR-AMT</span>
+               </td>
+<!-- UYS025 changes starts here -->
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-ADV-PMT-RSRV-AMT">Advance Payment Reserve Amount:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                   <span displayonly="yes"  elength="15" id="MIR-ADV-PMT-RSRV-AMT" signed="yes" stype="Currency">MIR-ADV-PMT-RSRV-AMT</span>
+               </td>
+<!-- UYS025 changes ends here -->
+          </tr>
+<!-- UY3153 changes starts here -->
+          <tr>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-ANN-PRE-BAL-AMT">Annuity Prepayment Balance Amount:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                    <span displayonly="yes" elength="15" id="MIR-ANN-PRE-BAL-AMT" signed="yes" stype="Currency">MIR-ANN-PRE-BAL-AMT</span>
+               </td>
+               <td class="celldisplaykeylabel">
+                    <label for="MIR-ANN-ADV-PAY-AMT">Individual Annuity Advance Payment Balance:</label>
+               </td>
+               <td class="celldisplaykey" colspan="5">
+                   <span displayonly="yes"  elength="15" id="MIR-ANN-ADV-PAY-AMT" signed="yes" stype="Currency">MIR-ANN-ADV-PAY-AMT</span>
+               </td>
+          </tr>
+<!-- UY3153 changes ends here -->
+     </table>
+     <table class="tabledisplay" genrows="0">
+     <tr>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-ADV-PMT-CAT-CD-T[1]">Category</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-PRCES-DT-T[1]">Processing Year, Month and Date</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-APROP-YR-MO-T[1]">Appropriation Year and Month</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-COLCT-AMT-T[1]">Collection Amount</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-APROP-AMT-T[1]">Amount Appropriated</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-RSDUE-AMT-T[1]">Residuals of Advance Payment</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-NUM-MO-INT-CAP-T[1]">Number of Months of Interest Capitalization</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-ADV-PMT-DUR-YYMM-T[1]">Year and Month of Advance Payment</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-NXT-APROP-YR-MO-T[1]">Next Appropriation Year and Month</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+<!-- M277B2 CHANGES STARTS HERE
+              <label for="MIR-INT-RT-T[1]">Interest Rate</label> -->
+               <label for="MIR-INT-RT-T[1]">Discount Rate</label>
+<!-- M277B2 CHANGES ENDS HERE -->
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-ADV-PMT-END-YR-MO-T[1]">Advance Payment End Year and Month</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-ADV-PMT-TYP-CD-T[1]">Prepayment/Lump-sum</label>
+          </td>
+          <td class="celldisplayheading" headingrow="yes">
+               <label for="MIR-ADV-PMT-STAT-CD-T[1]">Status</label>
+          </td>
+     </tr>
+     <tr>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-ADV-PMT-CAT-CD-T[]" stype="Text">MIR-ADV-PMT-CAT-CD-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-PRCES-DT-T[]" stype="Date">MIR-PRCES-DT-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-APROP-YR-MO-T[]" stype="Text">MIR-APROP-YR-MO-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" elength="15" id="MIR-COLCT-AMT-T[]" signed="yes" stype="Currency">MIR-COLCT-AMT-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" elength="15" id="MIR-APROP-AMT-T[]" signed="yes" stype="Currency">MIR-APROP-AMT-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" elength="15" id="MIR-RSDUE-AMT-T[]" signed="yes" stype="Currency">MIR-RSDUE-AMT-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-NUM-MO-INT-CAP-T[]" stype="Text">MIR-NUM-MO-INT-CAP-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-ADV-PMT-DUR-YYMM-T[]" stype="Text">MIR-ADV-PMT-DUR-YYMM-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-NXT-APROP-YR-MO-T[]" stype="Text">MIR-NXT-APROP-YR-MO-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span decimals="4" displayonly="yes" elength="7" id="MIR-INT-RT-T[]" stype="Percent">MIR-INT-RT-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-ADV-PMT-END-YR-MO-T[]" stype="Text">MIR-ADV-PMT-END-YR-MO-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-ADV-PMT-TYP-CD-T[]" stype="Text">MIR-ADV-PMT-TYP-CD-T[]</span>
+          </td>
+          <td class="celldisplay">
+               <span displayonly="yes" id="MIR-ADV-PMT-STAT-CD-T[]" stype="Text">MIR-ADV-PMT-STAT-CD-T[]</span>
+          </td>
+     </tr>
+     </table>
+</form>
+</body>
+<script src="../js/MessagesEnglish.js" ></script>
+<script src="../js/MessageFunctions.js" ></script>
+<script src="../js/ActionHandlers.js" ></script>
+<script src="../js/ClientLevelEdits.js" ></script>
+<script src="../js/GlobalUserMethods.js" ></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

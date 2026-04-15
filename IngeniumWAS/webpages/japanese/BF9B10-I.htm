@@ -1,0 +1,61 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:45 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9B10-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  M142S2  Split Policy-Tax Payment Record Information Inquiry
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*
+*  UY3004  CTS     INPUT HTML POLICY TRIM - 10 BYTES -> 7 BYTES
+*********************************************************************************
+ -->
+<html>
+     <head>
+     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+         <title>BF9B10-I</title>
+           <link charset="UTF-8" href="../english/Ingenium.css" rel="stylesheet" type="text/css"/>
+     </head>
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+<!-- UY3004 CHANGES ENDS HERE -->
+         <form action="pageserver" id="inputForm" method="post" onsubmit="return(onSubmit());" target="_parent">
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                         <input mandatory="yes" maxlength="9" name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" onfocus="enterField(this)" stype="Text" type="text" value=" "/>
+                    </td>
+                    <td class="celldatakeylabel">
+                         <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldatakey">
+                         <input maxlength="1" name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" onfocus="enterField(this)" stype="Text" type="text" value=" "/>
+                    </td>
+                </tr>
+            </table>
+                         <input type="hidden" name="action" id="action" stype="Hidden" />
+                         <input type="hidden" name="index" id="index" stype="Hidden" />
+        </form>
+     </body>
+     <script src="../js/MessagesEnglish.js" ></script>
+     <script src="../js/MessageFunctions.js" ></script>
+     <script src="../js/ActionHandlers.js" ></script>
+     <script src="../js/ClientLevelEdits.js" ></script>
+     <script src="../js/GlobalUserMethods.js" ></script>
+     <script src="../js/UpdateAllowedValues.js" ></script>
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

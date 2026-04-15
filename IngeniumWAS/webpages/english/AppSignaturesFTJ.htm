@@ -1,0 +1,195 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:09 PM EDT
+*
+*********************************************************************************
+*  Component:   AppSignaturesFTJ.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  016423  602J     New for release 602J
+*  017150  612J     Remove Currency decimals="2"
+*  01NB01  GW       App. Entry flow changes.
+*                   <input type="text" name="MIR-POL-AGT-SHR-PCT-T[1]" id="MIR-POL-AGT-SHR-PCT-T[1]" stype="Percent" elength="5" decimals="2" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+*  B00325  PHASE1   Change label for MIR-AGT-UWG-FAIL-IND
+*  B00404  VAN      Add POL-ASIGN-IND  and POL-APP-UPLD-DT
+*  B00489  WBP      Add POL-ASIGN-DT
+*  B00618  WBP      Remove Address Correction Indicator
+*  PR006O  AC       Remove MIR-AGT-UWG-FAIL-IND
+*  23774B  CTS      23774B-IE Retirement changes
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Agent Info/ Policy Ind</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body onload="onLoadCustom()" class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="AgentSplitCommission">Are there split commissions on this
+                        application?</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="radio" name="AgentSplitCommission" value="Y" stype="YesNo" onclick="onClickSplitCommissions(this);onYesNoUa('Yes')" onfocus="saveValue();enterField(this)" />
+                        Yes
+
+                        <input type="radio" name="AgentSplitCommission" value="N" stype="YesNo" onclick="onClickSplitCommissions(this);onYesNoUa('No')" onfocus="saveValue();enterField(this)" />
+                        No
+
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledataentry" genrows="2" keyfield="0" id="SplitCommissionTable">
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DV-AGT-CLI-NM-T[1]">Agent Name</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-AGT-ID-T[1]">Agent ID</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-POL-AGT-SHR-PCT-T[1]">% Split</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-AGT-TYP-CD-T[1]">Agent Type</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="AgentSearchLink-T[1]" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-DV-AGT-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-AGT-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-AGT-ID-T[]" id="MIR-AGT-ID-T[]" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-POL-AGT-SHR-PCT-T[]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-POL-AGT-SHR-PCT-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-AGT-TYP-CD-T[]" id="MIR-POL-AGT-TYP-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <a name="AgentSearchLink-T[]" href="a" action="GoToAgentSearch" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">Search for Agent</a>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <div id="agentIdTable">
+                <table class="tabledataentry">
+                    <tr>
+                        <td class="celldataentryheading">
+                            <label for="MIR-DV-SERV-AGT-NM">Servicing Agent Name</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-SERV-AGT-ID">Servicing Agent ID</label>
+                        </td>
+                        <td class="celldataentryheading" />
+                    </tr>
+                    <tr>
+                        <td class="celllabeldataentry">
+                            <span id="MIR-DV-SERV-AGT-NM" stype="Text" displayonly="yes">MIR-DV-SERV-AGT-NM</span>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-SERV-AGT-ID" id="MIR-SERV-AGT-ID" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <a name="AgentSearchLink" href="a" action="GoToAgentSearchService" onclick="onAction();return(false);" onfocus="enterField(this)">Search for Agent</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-INS-PURP-CD">Purpose of Insurance:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-INS-PURP-CD" id="MIR-POL-INS-PURP-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-REFRL-ID">Referral Code:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-REFRL-ID" id="MIR-POL-REFRL-ID" stype="Text" maxlength="6"   onfocus="enterField(this)"/>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">
+                        <a name="ApplicationInformation">Policy Indicators</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CNSLT-HO-IND">Head Office Consultation Request Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CNSLT-HO-IND" id="MIR-CNSLT-HO-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CORCT-APP-IND">Correct Application Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CORCT-APP-IND" id="MIR-CORCT-APP-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-APP-PROB-IND">Problems with Application Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-APP-PROB-IND" id="MIR-APP-PROB-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RQST-CNFRM-IND">Pre-Issue Confirmation Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-RQST-CNFRM-IND" id="MIR-RQST-CNFRM-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ASIGN-IND">Policy Assigned Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-POL-ASIGN-IND" id="MIR-POL-ASIGN-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ASIGN-DT">Policy Assigned Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-ASIGN-DT" id="MIR-POL-ASIGN-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-APP-UPLD-DT">Application Uploaded Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-APP-UPLD-DT" id="MIR-POL-APP-UPLD-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/AppSignaturesFTJ2.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

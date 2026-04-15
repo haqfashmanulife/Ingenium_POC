@@ -1,0 +1,153 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:51 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9872-I.htm                                                   
+*  Description: Disease/Surgery Major Code Update Screen                       
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  HCL111  HIN/CL   DISEASE AND SURGERY TABLES                                 
+*  B11062  HIN/CL   FIX SMALL AND LARGE KANA SEARCH                            
+*  MP162A  CTS      CHANGES FORMIR-T3-BENM-MULTR-FCT-T[] FROM 
+*  MP162A  CTS      MAXLENGTH TO ELENGTH FOR OWL SERVER 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.               
+*********************************************************************************
+ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9872-I</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+
+<body class="bodyws" onload="onLoadCustom()">
+    <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return onSubmitCustom();">
+        <input type="hidden" name="action" id="action" stype="Hidden"/>
+        <input type="hidden" name="index" id="index" stype="Hidden"/>
+
+        <input type="hidden" name="MIR-MEDC-TYP-CD" id="MIR-MEDC-TYP-CD" stype="Hidden"/>
+        <input type="hidden" name="MIR-GRP-MEDC-TYP-CD" id="MIR-GRP-MEDC-TYP-CD" stype="Hidden"/>
+
+        <table class="tabledisplaykey">
+            <tr>
+                <td class="celldisplaykeylabel">
+                    <label for="MIR-MEDIC-CD">Medical Type:</label>
+                </td>
+                <td class="celldisplaykey">
+                    <span id="MIR-MEDIC-CD" stype="Text" displayonly="yes">MIR-MEDIC-CD</span>
+                </td>
+                <td class="celldisplaykeylabel">
+                    <label for="MIR-MEDC-ID">Major Code:</label>
+                </td>
+                <td class="celldisplaykey">
+                    <span id="MIR-MEDC-ID" stype="Text" displayonly="yes">MIR-MEDC-ID</span>
+                </td>
+            </tr>
+        </table>
+
+        <p><h2>Major Code Name</h2></p>
+        <table class="tabledataentry">
+            <tr>
+                <td class="celllabelrightalign">
+                    <label for="MIR-LANG-DESC-1-TXT">Katakana Name:</label>
+                </td>
+                <td class="celllabeldataentry">
+                    <input type="text" value=" " name="MIR-LANG-DESC-1-TXT" id="MIR-LANG-DESC-1-TXT" stype="Text" maxlength="60" mandatory="yes" onfocus="enterField(this)" size="60" onkeypress="KanaKeyCheck()"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="celllabelrightalign">
+                    <label for="MIR-LANG-DESC-2-TXT">Kanji Name:</label>
+                </td>
+                <td class="celllabeldataentry">
+                    <input type="text" value=" " name="MIR-LANG-DESC-2-TXT" id="MIR-LANG-DESC-2-TXT" stype="Text" maxlength="60" mandatory="yes" onfocus="enterField(this)" size="60" />
+                </td>
+            </tr>
+        </table>
+
+        <div id="multSection">
+        <p><h2>Multiplier</h2></p>
+        <table class="tabledisplay" genrows="0" keyfield="0" id="multTable">
+            <tr>
+                <td class="celldisplayheading">
+                    <label for="MIR-T3-MULTR-TYP-CD-T[1]">Multiplier Category</label>
+                </td>
+                <td class="celldisplayheading">
+                    <label for="MIR-T3-BENM-MULTR-FCT-T[1]">Multiplier Amount</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="celllabeldataentry">
+                    <span id="MIR-T3-MULTR-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-T3-MULTR-TYP-CD-T[]</span>
+                </td>
+                <td class="celllabeldataentry">
+                    <input type="text" value=" " name="MIR-T3-BENM-MULTR-FCT-T[]" id="MIR-T3-BENM-MULTR-FCT-T[]" stype="Number" elength="5" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="5" />
+                </td>
+            </tr>
+        </table>
+        </div>
+
+        <div id="benCatSection">
+        <p><h2>Benefit Category</h2></p>
+        <table class="tabledisplay" genrows="0" keyfield="0" id="benCatTable">
+            <tr>
+                <td class="celldisplayheading">
+                    <label for="MIR-T1-MEDIC-CAT-CD-T[1]">Category Name</label>
+                </td>
+                <td class="celldisplayheading">
+                    <label for="MIR-T1-SELECT-T[1]">Select</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="celllabeldataentry">
+                    <span id="MIR-T1-MEDIC-CAT-CD-T[]" stype="Text" displayonly="yes">MIR-T1-MEDIC-CAT-CD-T[]</span>
+                </td>
+                <td class="celllabeldataentry">
+                    <input type="checkbox" value="Y" name="MIR-T1-SELECT-T[]" id="MIR-T1-SELECT-T[]" stype="Indicator" index="1"   onclick="onCheckBox()"  onfocus="enterField(this)"/>
+                </td>
+            </tr>
+        </table>
+        </div>
+
+        <p><h2>Business Rule</h2></p>
+        <table class="tabledisplay" genrows="0" keyfield="0">
+            <tr>
+                <td class="celldisplayheading">
+                    <label for="MIR-T2-MEDIC-CAT-CD-T[1]">Category Name</label>
+                </td>
+                <td class="celldisplayheading">
+                    <label for="MIR-T2-MCAT-TYP-CD-T[1]">Category Type</label>
+                </td>
+                <td class="celldisplayheading">
+                    <label for="MIR-T2-SELECT-T[1]">Select</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="celllabeldataentry">
+                    <span id="MIR-T2-MEDIC-CAT-CD-T[]" stype="Text" displayonly="yes">MIR-T2-MEDIC-CAT-CD-T[]</span>
+                </td>
+                <td class="celllabeldataentry">
+                    <span id="MIR-T2-MCAT-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-T2-MCAT-TYP-CD-T[]</span>
+                </td>
+                <td class="celllabeldataentry">
+                    <input type="checkbox" value="Y" name="MIR-T2-SELECT-T[]" id="MIR-T2-SELECT-T[]" stype="Indicator" index="1"   onclick="onCheckBox()"  onfocus="enterField(this)"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/BF9872-I.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<script src="../js/OnlyKana.js"></script>
+<script src="../js/OnlyKanaClm.js"></script>
+</html>

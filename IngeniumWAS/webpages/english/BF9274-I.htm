@@ -1,0 +1,111 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:50 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9274-I.htm                                                   
+*  Description: Claim Requirement Create                                       
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  HCL106A HIN/CL   Initial version                                            
+*  HCCL05  HIN/CL   Pick-up Facility 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                                       
+*  UYSDMC    CTS     USYS CLAIM IND ADDITION                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9274-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body onload="onLoadCustom()" class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+        <input type="hidden" name="index" id="index" stype="Hidden"/>
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-CLM-ID">Master Claim ID:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-CLM-ID" stype="Text" displayonly="yes">MIR-CLM-ID</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-CLMA-CLM-STAT-CD">Master Claim Status:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-CLMA-CLM-STAT-CD" stype="Text" displayonly="yes">MIR-CLMA-CLM-STAT-CD</span></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-POL-ID">Policy ID:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-POL-ID" stype="Text" displayonly="yes">MIR-POL-ID</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-CVG-NUM">Coverage Number:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-BNFT-NM-ID">Benefit Name:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-BNFT-NM-ID" stype="Text" displayonly="yes">MIR-BNFT-NM-ID</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-PLAN-ID">Rider Name:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-CLMA-ASSOC-CLM-ID">Associated Master Claim:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-CLMA-ASSOC-CLM-ID" stype="Text" displayonly="yes">MIR-CLMA-ASSOC-CLM-ID</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-CLMA-HIST-CLM-IND">Historical Claim:</label></td>
+                    <td class="celldisplaykey"><input type="checkbox" name="MIR-CLMA-HIST-CLM-IND" stype="Indicator" value="Y" disabled="yes"/></td>
+                </tr>
+                <tr>
+<!-- UYSDMC CHANGES START -->
+                    <td class="celldisplaykeylabel"><label for="MIR-CLMA-USYS-CLM-IND">Unisys Claim:</label></td>
+                    <td class="celldisplaykey"><input type="checkbox" name="MIR-CLMA-USYS-CLM-IND" stype="Indicator" value="Y" disabled="yes"/></td>
+<!-- UYSDMC CHANGES END -->
+                    <td class="celldisplaykeylabel"></td>
+                    <td class="celldisplaykey"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <input type="radio" name="MIR-CLM-REQIR-OPT-CD" value="C" stype="YesNoUnanswered"  onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)" >Claim Requirement</input>
+                        <input type="radio" name="MIR-CLM-REQIR-OPT-CD" value="P" stype="YesNoUnanswered"  onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)" >Policy Requirement</input>
+                        <input type="radio" name="MIR-CLM-REQIR-OPT-CD" value="B" stype="YesNoUnanswered"  onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)" >Benefit Requirement</input>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign"><label for="MIR-CLM-ID">Master Claim ID:</label></td>
+                    <td class="celllabeldataentry"><span id="MIR-CLM-ID" stype="Text" displayonly="yes">MIR-CLM-ID</span></td>
+                    <td class="celllabelrightalign"><label for="MIR-POL-ID">Policy ID:</label></td>
+                    <td class="celllabeldataentry"><span id="MIR-POL-ID" stype="Text" displayonly="yes">MIR-POL-ID</span></td>
+                    <td class="celllabelrightalign"><label for="MIR-PLAN-ID">Rider Name:</label></td>
+                    <td class="celllabeldataentry"><span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign"><label for="MIR-CLM-REQIR-ID">Requirement:</label></td>
+                    <td class="celllabeldataentry"><select name="MIR-CLM-REQIR-ID" id="MIR-CLM-REQIR-ID" size="1" stype="Selection" mandatory="yes" onfocus="enterField(this)"></select></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign"><label for="MIR-CRQT-STAT-CD">Requirement Status:</label></td>
+                    <td class="celllabeldataentry"><select name="MIR-CRQT-STAT-CD" id="MIR-CRQT-STAT-CD" size="1" stype="Selection" mandatory="yes" onfocus="enterField(this)"></select></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign"><label for="MIR-CRQT-ORDR-DT">Ordered Date:</label></td>
+                    <td class="celllabeldataentry"><input type="text" value=" " name="MIR-CRQT-ORDR-DT" id="MIR-CRQT-ORDR-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" /></td>
+                    <td class="celllabelrightalign"><label for="MIR-CRQT-RECV-DT">Received Date:</label></td>
+                    <td class="celllabeldataentry"><input type="text" value=" " name="MIR-CRQT-RECV-DT" id="MIR-CRQT-RECV-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" /></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/BF9274.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

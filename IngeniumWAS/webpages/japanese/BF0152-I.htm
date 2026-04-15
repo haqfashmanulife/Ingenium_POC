@@ -1,0 +1,2089 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:15 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0152-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  602J     Add onLoad() function to <body> tag for currency scaling   
+*  016109  602J     Free Fund Transfer Provision (and removed tab order)       
+*  017150  612J     Remove Currency decimals="2"                               
+*  01PR21  EKM      Survivorship Benefit Date                                  
+*  02BL13  DPK      Last Billing Notice Date                                   
+*  02BL63  KRW      Add date of Policy's first PAC(BT) draw                    
+*  02GL03  MAW      ADD POL-BT-SUSP-AMT, POL-PD-SUSP-AMT, POL-CC-SUSP-AMT      
+*  02PR17  WBP      ADD CASH BACK BONUS FIELDS                                 
+*  02GL57  DPK      CWA Suspense Account and Refund                            
+*  PR006E  CSS      ADD CASH BACK BONUS FIELDS (MIR-CBB-MRB-LST-PD-AMT  and    
+*  PR006E           MIR-CBB-MRB-LTD-PD-AMT)                                    
+*  PR0001  ROC      MVA 20% Free Withdrawal                                    
+*  M00011  ROC      OUTSTANDING DISBURSEMENT                                   
+*  M00011              ADD OS-DISB-SURR-AMT, OS-DISB-SURR-DT,                  
+*  M00011              ADD OS-DISB-MAT-AMT,  OS-DISB-MAT-DT,                   
+*  M00011              ADD OS-DISB-DTH-AMT,  OS-DISB-DTH-DT,                   
+*  M00011              ADD OS-DISB-CLM-AMT,  OS-DISB-CLM-DT,                   
+*  M00011              ADD OS-DISB-AD-AMT ,  OS-DISB-AD-DT ,                   
+*  P03322  CLB      TEMPORARY CHANGE FOR CANCELLING DXFR RECORDS UNTIL CHANGE 
+*  P03322           REQUEST MFF097 IS IMPLEMENTED.   
+*  NWLBCA  CTS       ADDED FOLLOWING FIELDS FOR TRAD POLICIES PROCESSING:
+*                       MIR-OVR-SHRT-PREM-AMT
+*                       MIR-OVR-SHRT-PREM-DT
+*  NWLLRP  CTS       ADDED FOLLOWING FIELDS FOR LOAN REPAYMENT:
+*                       MIR-LOAN-XCES-SHRT-AMT
+*                       MIR-LOAN-XCES-SHRT-DT
+*  NWLLTC  CTS       CHANGES DONE TO ADD OS LOAN DISB AMT AND OS LOAN DISB DT
+*                    FIELDS TO THE SCREEN
+*  Q10123  CTS       M161CA - CHANGES DONE FOR CREDIT CARD
+*  C15454  CTS      ADDED DISASTER LAPSE DATE
+*  M245B2  CTS      Foreign currency formatting
+*  R10428  CTS      RLSE0010428 - SCREEN CHANGE - PROTECTED POLICY UPDATE SCREEN
+*  M271O1  CTS      CHANGES DONE AS PART OF FRA
+*  M271A7  CTS      Online Screen Changes done as part of FRA
+*  Q60885  CTS      FRA CURRENCY CODE CHANGES
+*  M319O1  CTS      CHANGES DONE AS PART OF FXWL
+*  Q91591  CTS      CHANGES DONE AS PART OF FXWL
+*  R14127  CTS	    CHANGES FOR DISASTER RECOVERY                             
+*  TDM13B  CTS      CHANGES AS PART OF NWL/NWL2 POLICY PAYMENT COMPLETION PROCESS
+*  118579  CTS      CHANGES DONE TO CORRECT THE FIELD PREMIUM PAYMENT           
+*  118579           DESCRIPTION     
+*  FFF10R  CTS      CHANEGS FOR CC SUSPENSE HANDLING
+*  UYS025  CTS      ADDITION OF ADVANCE PMT RESERVE AMOUNT FIELD
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UYS133  CTS      PD group size field addition
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM  -                               *             
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0152-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <!-- M245B2 CHANGE STARTS HERE -->
+    <!-- <body class="bodyws" onLoad="onLoad()"> -->
+<!--  UY3004 CHANGES STARTS HERE
+      <body class="bodyws" onLoad="onLoad();validateCrcyDcml()"> -->
+      <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy();validateCrcyDcml()">
+<!--  UY3004 CHANGES ENDS HERE -->
+      <!-- M245B2 CHANGE STARTS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <!-- M245B2 CHANGE STARTS HERE -->
+			 <input type="hidden" name="MIR-POL-CRCY-CD" id="MIR-POL-CRCY-CD" stype="Hidden" />
+                         <input type="hidden" name="MIR-PMT-CRCY-CD" id="MIR-PMT-CRCY-CD" stype="Hidden" />
+			<!-- FFF10R CHANGE STARTS HERE -->
+			 <input type="hidden" name="MIR-CC-SUSP-CRCY-CD" id="MIR-CC-SUSP-CRCY-CD" stype="Hidden" />
+			 <input type="hidden" name="MIR-OVR-SHRT-PREM-CRCY-CD" id="MIR-OVR-SHRT-PREM-CRCY-CD" stype="Hidden" />
+			<!-- FFF10R CHANGE ENDS HERE -->
+	<!-- R10428 CHANGES STARTS HERE -->
+			 <input type="hidden" name="MIR-OS-DISB-CRCY-CD" id="MIR-OS-DISB-CRCY-CD" stype="Hidden" />
+	<!-- R10428 CHANGES ENDS HERE -->
+<!-- M245B2 CHANGE ENDS HERE -->
+            <!-- M271O1 CHANGE STARTS HERE -->
+					    <input type="hidden" name="MIR-PREM-CRCY-CD" id="MIR-PREM-CRCY-CD" stype="Hidden" />
+            <!-- M271O1 CHANGE ENDS HERE -->
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">子会社:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+            </table>
+            <center>
+                <br />
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#GeneralInformation">基本情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#FinancialInformation">会計情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#BillingInformation">請求情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PremiumReversalInformation">保険料リバース情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#LoanInformation">貸付情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#DividendInformation">配当情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#ReductionInformation">減額情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#RegisteredInformation">年金登録情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <h2>
+                <a name="GeneralInformation">総合情報</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">基本情報（保護データ）</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-PREV-FACE-AMT">基本保険金額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-POL-PREV-FACE-AMT" id="MIR-POL-PREV-FACE-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-PREV-FACE-AMT" id="MIR-POL-PREV-FACE-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ACCT-PAR-CD">配当オプション:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-ACCT-PAR-CD" id="MIR-POL-ACCT-PAR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-CSTAT-CD">契約状況:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-CSTAT-CD" id="MIR-POL-CSTAT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-GL-ACCT-TYP-CD">契約会計タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-GL-ACCT-TYP-CD" id="MIR-POL-GL-ACCT-TYP-CD" stype="Text" maxlength="1" onfocus="enterField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-PREV-ANNV-DUR">前応当日付け保険期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-PREV-ANNV-DUR" id="MIR-POL-PREV-ANNV-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-BASE-CVG-NUM">基準保障番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-BASE-CVG-NUM" id="MIR-POL-BASE-CVG-NUM" stype="Text" maxlength="2" onfocus="enterField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-PAR-CVG-NUM">配当付保障最小番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-PAR-CVG-NUM" id="MIR-POL-PAR-CVG-NUM" stype="Text" maxlength="2" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-NXT-FND-SRVBEN-DT">次回ファンド遺族給付金日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-NXT-FND-SRVBEN-DT" id="MIR-NXT-FND-SRVBEN-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+            <!-- TDM13B CHANGES START HERE -->
+                <tr>
+                    <td class="celllabelrightalign">
+                        <!-- 118579 Changes Begion -->
+				<!-- <label for="MIR-PREM-PMT-CMPLT-IND">払込満了:</label>	 -->
+				<label for="MIR-PREM-PMT-CMPLT-IND">主契約払込満了:</label>
+              <!-- 118579 Changes End -->
+                     </td>
+                     <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-PREM-PMT-CMPLT-IND" id="MIR-PREM-PMT-CMPLT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                     </td> 
+					     <!-- S45969 CHANGES START HERE 
+                     <td class="celllabelrightalign" />
+                     <td class="celllabeldataentry"  />	-->	
+                    <td class="celllabelrightalign">
+                        <label for="MIR-STR3-ERR-CD">Stream-3エラー:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-STR3-ERR-CD" id="MIR-STR3-ERR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>		
+            <!-- S45969 CHANGES ENDS HERE -->					
+                </tr>
+            <!-- TDM13B CHANGES END HERE -->    
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">所在地</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-XHBT-CRNT-LOC-CD">現所在地:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-XHBT-CRNT-LOC-CD" id="MIR-XHBT-CRNT-LOC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-XHBT-ISS-LOC-CD">発行地:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-XHBT-ISS-LOC-CD" id="MIR-XHBT-ISS-LOC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">SA Transfer Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CNCL-SA-XFER-IND">Cancel SA Transfer:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CNCL-SA-XFER-IND" id="MIR-CNCL-SA-XFER-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                      トップへ戻る  
+                </a>  
+            </p>  
+            <h2>  
+                <a name="FinancialInformation">会計情報</a>  
+            </h2>  
+            <table class="tabledataentry">  
+                <tr>  
+                    <td class="celldataentryheading" colspan="4">保険料預託ファンド情報</td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-POL-PDF-AMT">残高:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                    <!--    <input type="text" value=" " name="MIR-POL-PDF-AMT" id="MIR-POL-PDF-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <!-- M271O1 CHANGE STARTS HERE -->
+                    <!-- <input type="text" value=" " name="MIR-POL-PDF-AMT" id="MIR-POL-PDF-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+                         <input type="text" value=" " name="MIR-POL-PDF-AMT" id="MIR-POL-PDF-AMT" stype="Currency" elength="13" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    <!-- M271O1 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-POL-PDF-INT-AMT">未払利息:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-PDF-INT-AMT" id="MIR-POL-PDF-INT-AMT" stype="Currency" elength="11" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                      <input type="text" value=" " name="MIR-POL-PDF-INT-AMT" id="MIR-POL-PDF-INT-AMT" stype="Currency" elength="11" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-POL-PDF-INT-RT">利率:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" name="MIR-POL-PDF-INT-RT" id="MIR-POL-PDF-INT-RT" stype="Percent" elength="5" decimals="5" signed="yes" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                    </td> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-POL-PDF-AVB-AMT">平均残高:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-POL-PDF-AVB-AMT" id="MIR-POL-PDF-AVB-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-PDF-AVB-AMT" id="MIR-POL-PDF-AVB-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+            </table> 
+            <br /> 
+            <table class="tabledataentry"> 
+                <tr> 
+                    <td class="celldataentryheading">タイプ</td> 
+                    <td class="celldataentryheading">金額</td> 
+                    <td class="celldataentryheading">勘定更新日</td> 
+                </tr> 
+                <tr>
+                    <td class="celllabelrightalign">未収金:</td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CRC-RECV-AMT" id="MIR-CRC-RECV-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <!-- Q60885 CHANGE STARTS HERE -->
+                    <!-- <input type="text" value=" " name="MIR-CRC-RECV-AMT" id="MIR-CRC-RECV-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+                   <!-- M319O1 CHANGES STARTS HERE -->
+                  <!--   <input type="text" value=" " name="MIR-CRC-RECV-AMT" id="MIR-CRC-RECV-AMT" stype="Currency" elength="17" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+                         <input type="text" value=" " name="MIR-CRC-RECV-AMT" id="MIR-CRC-RECV-AMT" stype="Currency" elength="17" CurrencyCode="MIR-PMT-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                  <!-- M319O1 CHANGES STARTS HERE -->
+                    <!-- Q60885 CHANGE END HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CRC-RECV-UPDT-DT" id="MIR-CRC-RECV-UPDT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+      <!-- R10428 CHANGES STARTS HERE -->
+                <tr> 
+                    <td class="celllabelrightalign">雑仮勘定:</td> 
+                    <td class="celllabeldataentry"> 
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-POL-MISC-SUSP-AMT" id="MIR-POL-MISC-SUSP-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-POL-MISC-SUSP-AMT" id="MIR-POL-MISC-SUSP-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-POL-MISC-SUSP-DT" id="MIR-POL-MISC-SUSP-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> 
+                </tr>
+      <!-- R10428 CHANGES ENDS HERE -->
+                <tr> 
+                    <td class="celllabelrightalign">保険料仮勘定:</td> 
+                    <td class="celllabeldataentry"> 
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--    <input type="text" value=" " name="MIR-POL-PREM-SUSP-AMT" id="MIR-POL-PREM-SUSP-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <!-- M271O1 CHANGE STARTS HERE -->
+                    <!-- <input type="text" value=" " name="MIR-POL-PREM-SUSP-AMT" id="MIR-POL-PREM-SUSP-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+                         <input type="text" value=" " name="MIR-POL-PREM-SUSP-AMT" id="MIR-POL-PREM-SUSP-AMT" stype="Currency" elength="17" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    <!-- M271O1 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-POL-PREM-SUSP-DT" id="MIR-POL-PREM-SUSP-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> 
+                </tr> 
+     <!-- R10428 CHANGES STARTS HERE
+                <tr> 
+                    <td class="celllabelrightalign">雑仮勘定:</td> 
+                    <td class="celllabeldataentry">   -->
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-POL-MISC-SUSP-AMT" id="MIR-POL-MISC-SUSP-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+     <!-- R10428 CHANGES STARTS HERE
+                     <input type="text" value=" " name="MIR-POL-MISC-SUSP-AMT" id="MIR-POL-MISC-SUSP-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>   -->
+                    <!-- M245B2 CHANGE ENDS HERE -->
+     <!-- R10428 CHANGES STARTS HERE
+                    <td class="celllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-POL-MISC-SUSP-DT" id="MIR-POL-MISC-SUSP-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> 
+                </tr> -->
+                <tr> 
+                    <td class="celllabelrightalign">未払金:</td> 
+                    <td class="celllabeldataentry"> 
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-POL-OS-DISB-AMT" id="MIR-POL-OS-DISB-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-POL-OS-DISB-AMT" id="MIR-POL-OS-DISB-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-POL-OS-DISB-DT" id="MIR-POL-OS-DISB-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> 
+                </tr> 
+                <tr>
+                    <td class="celllabelrightalign">未払解約返戻金:</td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-OS-DISB-SURR-AMT" id="MIR-OS-DISB-SURR-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-OS-DISB-SURR-AMT" id="MIR-OS-DISB-SURR-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OS-DISB-SURR-DT" id="MIR-OS-DISB-SURR-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">未払満期保険金:</td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-OS-DISB-MAT-AMT" id="MIR-OS-DISB-MAT-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-OS-DISB-MAT-AMT" id="MIR-OS-DISB-MAT-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD"  signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OS-DISB-MAT-DT" id="MIR-OS-DISB-MAT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">未払死亡保険金:</td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-OS-DISB-DTH-AMT" id="MIR-OS-DISB-DTH-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-OS-DISB-DTH-AMT" id="MIR-OS-DISB-DTH-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OS-DISB-DTH-DT" id="MIR-OS-DISB-DTH-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">未払給付金:</td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-OS-DISB-CLM-AMT" id="MIR-OS-DISB-CLM-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-OS-DISB-CLM-AMT" id="MIR-OS-DISB-CLM-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OS-DISB-CLM-DT" id="MIR-OS-DISB-CLM-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">未払災害死亡保険金:</td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-OS-DISB-AD-AMT" id="MIR-OS-DISB-AD-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-OS-DISB-AD-AMT" id="MIR-OS-DISB-AD-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OS-DISB-AD-DT" id="MIR-OS-DISB-AD-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+<!-- NWLLTC CHANGES STARTS HERE -->
+                <tr>
+                    <td class="celllabelrightalign">未払契約者貸付金:</td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-OS-DISB-LOAN-AMT" id="MIR-OS-DISB-LOAN-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                      <input type="text" value=" " name="MIR-OS-DISB-LOAN-AMT" id="MIR-OS-DISB-LOAN-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OS-DISB-LOAN-DT" id="MIR-OS-DISB-LOAN-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+<!-- NWLLTC CHANGES ENDS HERE -->
+<!-- M271A7 Changes begin -->
+                   <tr>
+                     <td class="celllabelrightalign">保険料円払込額未払金:</td>
+		<td class="celllabeldataentry">
+	        <input type="text" value=" " name="MIR-OS-DISB-RFND-AMT" id="MIR-OS-DISB-RFND-AMT" stype="Currency" elength="15" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+	   </td>
+                     <td class="celllabeldataentry">
+     	         <input type="text" value=" " name="MIR-OS-DISB-RFND-DT" id="MIR-OS-DISB-RFND-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                   </tr>
+<!-- M271A7 Changes end  -->
+<!-- R10428 CHANGES STARTS HERE -->
+                <tr>
+                   <td class="celllabelrightalign">未払金 - UL生存給付金:</td>
+                   <td class="celllabeldataentry">
+                       <input type="text" value=" " name="MIR-OS-DISB-SRVBEN-AMT" id="MIR-OS-DISB-SRVBEN-AMT" stype="Currency" elength="17" CurrencyCode="MIR-OS-DISB-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                   </td>
+                   <td class="celllabeldataentry">
+                       <input type="text" value=" " name="MIR-OS-DISB-SRVBEN-DT" id="MIR-OS-DISB-SRVBEN-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                   </td>
+               </tr>
+               <tr>
+                   <td class="celllabelrightalign">前納保険料仮勘定:</td>
+                   <td class="celllabeldataentry">
+                       <input type="text" value=" " name="MIR-POL-PDF-SUSP-AMT" id="MIR-POL-PDF-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-PMT-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                   </td>
+                   <td class="celllabeldataentry">
+                       <input type="text" value=" " name="MIR-POL-PDF-SUSP-DT" id="MIR-POL-PDF-SUSP-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                   </td>
+               </tr>
+               <tr>
+                   <td class="celllabelrightalign"> </td>
+                   <td class="celllabeldataentry">
+                   </td>
+                   <td class="celllabeldataentry" />
+               </tr>
+               <tr>
+                   <td class="celllabelrightalign">事後失効解約金額:</td>
+                   <td class="celllabeldataentry">
+                       <input type="text" value=" " name="MIR-POST-LAPS-SURR-AMT" id="MIR-POST-LAPS-SURR-AMT" stype="Currency" elength="15" CurrencyCode="MIR-OS-DISB-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                   </td>
+                   <td class="celllabeldataentry" />
+               </tr>
+<!-- R10428 CHANGES ENDS HERE -->
+                <tr>
+                    <td class="celllabelrightalign">口振扱仮受勘定:</td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-POL-BT-SUSP-AMT" id="MIR-POL-BT-SUSP-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <!-- M271O1 CHANGE STARTS HERE -->
+                    <!-- <input type="text" value=" " name="MIR-POL-BT-SUSP-AMT" id="MIR-POL-BT-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+                   <!-- M319O1 CHANGES STARTS HERE -->
+                  <!--   <input type="text" value=" " name="MIR-POL-BT-SUSP-AMT" id="MIR-POL-BT-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+                         <input type="text" value=" " name="MIR-POL-BT-SUSP-AMT" id="MIR-POL-BT-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-PMT-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                   <!-- M319O1 CHANGES ENDS HERE -->
+                          <!-- M271O1 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-BT-SUSP-DT" id="MIR-POL-BT-SUSP-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">団体扱仮受勘定:</td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-POL-PD-SUSP-AMT" id="MIR-POL-PD-SUSP-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <!-- M271O1 CHANGE STARTS HERE -->
+                    <!-- <input type="text" value=" " name="MIR-POL-PD-SUSP-AMT" id="MIR-POL-PD-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+                   <!-- M319O1 CHANGES STARTS HERE -->
+                   <!--  <input type="text" value=" " name="MIR-POL-PD-SUSP-AMT" id="MIR-POL-PD-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+                         <input type="text" value=" " name="MIR-POL-PD-SUSP-AMT" id="MIR-POL-PD-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-PMT-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                   <!-- M319O1 CHANGES ENDS HERE -->
+                    <!-- M271O1 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-PD-SUSP-DT" id="MIR-POL-PD-SUSP-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">集金扱仮受勘定:</td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-POL-CC-SUSP-AMT" id="MIR-POL-CC-SUSP-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <!-- M271O1 CHANGE STARTS HERE -->
+                    <!-- <input type="text" value=" " name="MIR-POL-CC-SUSP-AMT" id="MIR-POL-CC-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+                   <!-- M319O1 CHANGES STARTS HERE -->
+                   <!--  <input type="text" value=" " name="MIR-POL-CC-SUSP-AMT" id="MIR-POL-CC-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+                   <!-- FFF10R CHANGES STARTS HERE -->
+                   <!--  <input type="text" value=" " name="MIR-POL-CC-SUSP-AMT" id="MIR-POL-CC-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-PMT-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />  -->
+                   <!-- M319O1 CHANGES ENDS HERE -->
+                         <input type="text" value=" " name="MIR-POL-CC-SUSP-AMT" id="MIR-POL-CC-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-CC-SUSP-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    <!-- M271O1 CHANGE ENDS HERE -->
+                   <!-- FFF10R CHANGES ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-CC-SUSP-DT" id="MIR-POL-CC-SUSP-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">一保未成立仮受金:</td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-POL-CWA-SUSP-AMT" id="MIR-POL-CWA-SUSP-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-CWA-SUSP-AMT" id="MIR-POL-CWA-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-PMT-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-CWA-SUSP-DT" id="MIR-POL-CWA-SUSP-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+<!-- R10428 CHANGES STARTS HERE
+                <tr>
+                    <td class="celllabelrightalign">保険料返還仮受金:</td>
+                    <td class="celllabeldataentry">   -->
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-CSH-RFND-SUSP-AMT" id="MIR-CSH-RFND-SUSP-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+<!-- R10428 CHANGES STARTS HERE
+                  <input type="text" value=" " name="MIR-CSH-RFND-SUSP-AMT" id="MIR-CSH-RFND-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-PMT-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td> -->
+                    <!-- M245B2 CHANGE ENDS HERE -->
+<!-- R10428 CHANGES STARTS HERE
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CSH-RFND-SUSP-DT" id="MIR-CSH-RFND-SUSP-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>   -->
+		<!-- NWLBCA CHANGES STARTS HERE -->
+<tr>
+				    <td class="celllabelrightalign">過不足保険料:</td>
+				    <td class="celllabeldataentry">
+				    <!-- M245B2 CHANGE STARTS HERE -->
+				      <!--  <input type="text" value=" " name="MIR-OVR-SHRT-PREM-AMT" id="MIR-OVR-SHRT-PREM-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+				    </td> -->
+				    <!-- M271O1 CHANGE STARTS HERE -->
+				    <!-- <input type="text" value=" " name="MIR-OVR-SHRT-PREM-AMT" id="MIR-OVR-SHRT-PREM-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+				    <!-- M319O1 CHANGE STARTS HERE -->
+				    <!-- <input type="text" value=" " name="MIR-OVR-SHRT-PREM-AMT" id="MIR-OVR-SHRT-PREM-AMT" stype="Currency" elength="15" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />-->
+				    <!-- FFF10R CHANGES STARTS HERE -->
+				    <!-- <input type="text" value=" " name="MIR-OVR-SHRT-PREM-AMT" id="MIR-OVR-SHRT-PREM-AMT" stype="Currency" elength="15" CurrencyCode="MIR-PMT-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+				         <input type="text" value=" " name="MIR-OVR-SHRT-PREM-AMT" id="MIR-OVR-SHRT-PREM-AMT" stype="Currency" elength="15" CurrencyCode="MIR-OVR-SHRT-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+				    <!-- FFF10R CHANGES ENDS HERE -->
+				    <!-- M319O1 CHANGE ENDS HERE -->
+				    <!-- M271O1 CHANGE ENDS HERE -->
+				    </td>
+				    <!-- M245B2 CHANGE ENDS HERE -->
+				     <td class="celllabeldataentry">
+				     <input type="text" value=" " name="MIR-OVR-SHRT-PREM-DT" id="MIR-OVR-SHRT-PREM-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+				     </td>
+                </tr>
+	      <!-- NWLBCA CHANGES ENDS HERE -->
+                <!-- NWLLRP CHANGES STARTS HERE -->
+                <tr>
+				    <td class="celllabelrightalign">契約者貸付利息過収金/不足金:</td>
+				    <td class="celllabeldataentry">
+				    <!-- M245B2 CHANGE STARTS HERE -->
+				    <!--    <input type="text" value=" " name="MIR-LOAN-XCES-SHRT-AMT" id="MIR-LOAN-XCES-SHRT-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+				    </td> -->
+                   <!-- M319O1 CHANGES STARTS HERE -->
+              <!--  <input type="text" value=" " name="MIR-LOAN-XCES-SHRT-AMT" id="MIR-LOAN-XCES-SHRT-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+<!-- Q91591 CHANGES STARTS HERE -->
+				     <!-- <input type="text" value=" " name="MIR-LOAN-XCES-SHRT-AMT" id="MIR-LOAN-XCES-SHRT-AMT" stype="Currency" elength="13" CurrencyCode="MIR-PMT-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+<input type="text" value=" " name="MIR-LOAN-XCES-SHRT-AMT" id="MIR-LOAN-XCES-SHRT-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+<!-- Q91591 CHANGES ends HERE -->
+                   <!-- M319O1 CHANGES ENDS HERE -->
+				    </td>
+				    <!-- M245B2 CHANGE ENDS HERE -->
+				     <td class="celllabeldataentry">
+				     <input type="text" value=" " name="MIR-LOAN-XCES-SHRT-DT" id="MIR-LOAN-XCES-SHRT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+				     </td>
+                </tr>
+		<!-- NWLLRP CHANGES ENDS HERE -->
+<!-- R10428 CHANGES STARTS HERE -->
+                <tr>
+                    <td class="celllabelrightalign">保険料返還仮受金:</td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-CSH-RFND-SUSP-AMT" id="MIR-CSH-RFND-SUSP-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                        <input type="text" value=" " name="MIR-CSH-RFND-SUSP-AMT" id="MIR-CSH-RFND-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-PMT-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CSH-RFND-SUSP-DT" id="MIR-CSH-RFND-SUSP-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">転換一時払保険料仮受金:</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DHY-SPREM-SUSP-AMT" id="MIR-DHY-SPREM-SUSP-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <td class="celllabeldataentry">
+                       <input type="text" value=" " name="MIR-DHY-SPREM-SUSP-DT" id="MIR-DHY-SPREM-SUSP-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">転換責任準備金仮受金:</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DHY-RSRV-SUSP-AMT" id="MIR-DHY-RSRV-SUSP-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DHY-RSRV-SUSP-DT" id="MIR-DHY-RSRV-SUSP-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">転換一時払保険料支払金:</td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DHY-OS-DISB-AMT" id="MIR-DHY-OS-DISB-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DHY-OS-DISB-DT" id="MIR-DHY-OS-DISB-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">第一回保険料－発生ベース:</td>
+                    <td class="celllabeldataentry">
+                   <!-- M319O1 CHANGES STARTS HERE -->
+                   <!--<input type="text" value=" " name="MIR-INIT-PREM-SUSP-AMT" id="MIR-INIT-PREM-SUSP-AMT" stype="Currency" elength="17" CurrencyCode="MIR-PMT-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+                   <input type="text" value=" " name="MIR-INIT-PREM-SUSP-AMT" id="MIR-INIT-PREM-SUSP-AMT" stype="Currency" elength="17" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                   <!-- M319O1 CHANGES ENDS HERE -->
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-INIT-PREM-SUSP-DT" id="MIR-INIT-PREM-SUSP-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+<!-- R10428 CHANGES ENDS HERE -->
+<!-- UYS025 changes starts here -->	
+            <tr>
+                <td class="celllabelrightalign">前払予約金:</td>   
+                <td class="celllabeldataentry">
+                  <input type="text" value=" " name="MIR-ADV-PMT-RSRV-AMT"  id="MIR-ADV-PMT-RSRV-AMT" stype="Currency" elength="15" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />                  
+                </td>
+            </tr>  
+<!-- UYS025 changes ends here -->
+
+         
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="2">契約／保証リセット年</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-PREV-RESET-YR">年:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-PREV-RESET-YR" id="MIR-POL-PREV-RESET-YR" stype="Year" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">払済増額保険情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SURR-DIV-ACUM-AMT">配当金積立額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-SURR-DIV-ACUM-AMT" id="MIR-SURR-DIV-ACUM-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-SURR-DIV-ACUM-AMT" id="MIR-SURR-DIV-ACUM-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-SURR-LOAN-AMT">貸付額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-SURR-LOAN-AMT" id="MIR-POL-SURR-LOAN-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-SURR-LOAN-AMT" id="MIR-POL-SURR-LOAN-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">払い済み付加</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-TRMN-PUA-AMT">解約額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-TRMN-PUA-AMT" id="MIR-POL-TRMN-PUA-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-POL-TRMN-PUA-AMT" id="MIR-POL-TRMN-PUA-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRMN-PUA-REASN-CD">解除事由:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TRMN-PUA-REASN-CD" id="MIR-TRMN-PUA-REASN-CD" stype="Text" maxlength="1" onfocus="enterField(this)" size="20" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">年金情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ANTY-SUSP-AMT">年金仮受勘定:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-POL-ANTY-SUSP-AMT" id="MIR-POL-ANTY-SUSP-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-ANTY-SUSP-AMT" id="MIR-POL-ANTY-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ANPAYO-PMT-DT">最終支払日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-ANPAYO-PMT-DT" id="MIR-POL-ANPAYO-PMT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-LOCK-FND-IND">契約には固定ファンドあり:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-POL-LOCK-FND-IND" id="MIR-POL-LOCK-FND-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">  
+                <tr>  
+                    <td class="celldataentryheading" colspan="4">キャッシュバックボーナス情報</td>  
+                </tr>  
+                <tr>  
+                    <td class="celllabelrightalign">  
+                        <label for="MIR-CBB-RBB-LST-PD-AMT">レートバンディングボーナス前回支払額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CBB-RBB-LST-PD-AMT" id="MIR-CBB-RBB-LST-PD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="22" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-CBB-RBB-LST-PD-AMT" id="MIR-CBB-RBB-LST-PD-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="22" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CBB-RBB-LTD-PD-AMT">レートバンディングボーナス合計支払額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CBB-RBB-LTD-PD-AMT" id="MIR-CBB-RBB-LTD-PD-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="24" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-CBB-RBB-LTD-PD-AMT" id="MIR-CBB-RBB-LTD-PD-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="24" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CBB-CMB-LST-PD-AMT">入金経路別ボーナス前回支払額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CBB-CMB-LST-PD-AMT" id="MIR-CBB-CMB-LST-PD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="22" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-CBB-CMB-LST-PD-AMT" id="MIR-CBB-CMB-LST-PD-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="22" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CBB-CMB-LTD-PD-AMT">入金経路別ボーナス合計支払額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CBB-CMB-LTD-PD-AMT" id="MIR-CBB-CMB-LTD-PD-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="24" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-CBB-CMB-LTD-PD-AMT" id="MIR-CBB-CMB-LTD-PD-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="24" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+                <tr>  
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CBB-MRB-LST-PD-AMT">医療特約ボーナス前回支払額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CBB-MRB-LST-PD-AMT" id="MIR-CBB-MRB-LST-PD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="22" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-CBB-MRB-LST-PD-AMT" id="MIR-CBB-MRB-LST-PD-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="22" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CBB-MRB-LTD-PD-AMT">医療特約ボーナス合計支払額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-CBB-MRB-LTD-PD-AMT" id="MIR-CBB-MRB-LTD-PD-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="24" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-CBB-MRB-LTD-PD-AMT" id="MIR-CBB-MRB-LTD-PD-AMT" stype="Currency" elength="17" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="24" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+                <tr>  
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CBB-LST-PD-YR">前回支払年:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CBB-LST-PD-YR" id="MIR-CBB-LST-PD-YR" stype="Text" maxlength="4" onfocus="enterField(this)" size="22" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="BillingInformation">請求情報</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">保護請求情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-PD-TO-DT-NUM">保険料払込到達日:</label>
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-POL-PD-TO-DT-NUM" id="MIR-POL-PD-TO-DT-NUM" stype="Text" maxlength="10" onfocus="enterField(this)" size="20" />
+                    </td> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-POL-TOT-BILL-AMT">請求額:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-TOT-BILL-AMT" id="MIR-POL-TOT-BILL-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                      <!-- M271O1 CHANGE STARTS HERE -->
+                      <!-- <input type="text" value=" " name="MIR-POL-TOT-BILL-AMT" id="MIR-POL-TOT-BILL-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+                      <!-- M319O1 CHANGE STARTS HERE -->
+                     <!--  <input type="text" value=" " name="MIR-POL-TOT-BILL-AMT" id="MIR-POL-TOT-BILL-AMT" stype="Currency" elength="15" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+                           <input type="text" value=" " name="MIR-POL-TOT-BILL-AMT" id="MIR-POL-TOT-BILL-AMT" stype="Currency" elength="15" CurrencyCode="MIR-PMT-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                      <!-- M319O1 CHANGE ENDS HERE -->
+                    <!-- M271O1 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-PREV-PD-TO-DT-NUM">前払込到達日:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-PREV-PD-TO-DT-NUM" id="MIR-PREV-PD-TO-DT-NUM" stype="Text" maxlength="10" onfocus="enterField(this)" size="20" />
+                    </td> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-POL-PAC-DRW-DT">口座振替日:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-POL-PAC-DRW-DT" id="MIR-POL-PAC-DRW-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-POL-PREV-MODE-CD">前回保険料払込経路:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-PREV-MODE-CD" id="MIR-POL-PREV-MODE-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-BILL-TYP-CD">前回請求タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PREV-BILL-TYP-CD" id="MIR-PREV-BILL-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+  <!-- UYS133 CHANGE STARTS HERE -->
+                 <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PD-GR-TYP-CD">団体規模:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-PD-GR-TYP-CD" stype="Text" displayonly="yes">MIR-PD-GR-TYP-CD</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                    </td>
+                    <td class="celllabeldataentry">
+                    </td>
+                </tr>
+ <!-- UYS133 CHANGE ENDS HERE -->
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UL-LAPS-NOTI-AMT">ユニバーサル生命保険失効通知額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--   <input type="text" value=" " name="MIR-UL-LAPS-NOTI-AMT" id="MIR-UL-LAPS-NOTI-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-UL-LAPS-NOTI-AMT" id="MIR-UL-LAPS-NOTI-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-BILL-NOTI-DT">前回請求通知日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PREV-BILL-NOTI-DT" id="MIR-PREV-BILL-NOTI-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-BT-STRT-DT">初回口振日付:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-BT-STRT-DT" id="MIR-POL-BT-STRT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+<!-- C15454 BEGINS  -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DSASTR-LAPS-DT">失効日（被災地特別対応用）:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DSASTR-LAPS-DT" id="MIR-DSASTR-LAPS-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                    <!-- <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td> -->
+<!-- C15454 ENDS  -->
+                </tr>
+ <!-- R14127 CHANGE STARTS HERE -->
+                <tr>
+                    <td class="celllabelrightalign">
+                        <font color="red">
+                        <label for="MIR-DSASTR-CD">災害コード:</label>
+                            </font>                        
+                </td>
+                    <td class="celllabeldataentry">
+                        <font color="red">
+                        <input type="text" value=" " name="MIR-DSASTR-CD" id="MIR-DSASTR-CD" stype="Text" maxlength="1" onfocus="enterField(this)" size="20" />
+                            </font>                        
+                </td>
+                    <td class="celllabelrightalign">
+                        <font color="red">
+                        <label for="MIR-DSASTR-SUB-CD">災害サブコード:</label>
+                            </font>                        
+                </td>
+                    <td class="celllabeldataentry">
+                        <font color="red">
+                        <select name="MIR-DSASTR-SUB-CD" id="MIR-DSASTR-SUB-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                            </font>                        
+                </td>
+                </tr>
+ <!-- R14127 CHANGE ENDS HERE -->                
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">特別頻度請求情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SFB-NEG-SUSP-IND">未収保険料扱い可:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-SFB-NEG-SUSP-IND" id="MIR-SFB-NEG-SUSP-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SFB-NEG-SUSP-QTY">未収保険料限度(月数):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-SFB-NEG-SUSP-QTY" id="MIR-SFB-NEG-SUSP-QTY" stype="Text" maxlength="2" onfocus="enterField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SFB-NXT-BILL-AMT">現在の請求額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-SFB-NXT-BILL-AMT" id="MIR-SFB-NXT-BILL-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <!-- M319O1 CHANGE STARTS HERE -->
+               <!--  <input type="text" value=" " name="MIR-SFB-NXT-BILL-AMT" id="MIR-SFB-NXT-BILL-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" /> -->
+                     <input type="text" value=" " name="MIR-SFB-NXT-BILL-AMT" id="MIR-SFB-NXT-BILL-AMT" stype="Currency" elength="15" CurrencyCode="MIR-PMT-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                     <!-- M319O1 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+            </table>
+            <h2>
+                <a name="PremiumReversalInformation">保険料リバース情報</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">係数情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-PREV-MODE-FCT">前回払方係数:</label>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <input type="text" value=" " name="MIR-POL-PREV-MODE-FCT" id="MIR-POL-PREV-MODE-FCT" stype="Number" elength="9" decimals="7" signed="yes" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-PREV-PFEE-FCT">前証券発行手数料係数:</label>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <input type="text" value=" " name="MIR-POL-PREV-PFEE-FCT" id="MIR-POL-PREV-PFEE-FCT" stype="Number" elength="9" decimals="7" signed="yes" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                      トップへ戻る  
+                </a>  
+            </p>  
+            <h2>  
+                <a name="LoanInformation">貸付情報</a>  
+            </h2>  
+            <table class="tabledataentry">  
+                <tr>  
+                    <td class="celldataentryheading" colspan="4">契約者貸付</td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-AMT-T[1]">合計貸付金額:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-LOAN-AMT-T[1]" id="MIR-LOAN-AMT-T[1]" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LOAN-AMT-T[1]" id="MIR-LOAN-AMT-T[1]" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-INT-RT-T[1]">貸付利率:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" name="MIR-LOAN-INT-RT-T[1]" id="MIR-LOAN-INT-RT-T[1]" stype="Percent" elength="5" decimals="5" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-INT-MAX-RT-T[1]">貸付利率上限:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" name="MIR-LOAN-INT-MAX-RT-T[1]" id="MIR-LOAN-INT-MAX-RT-T[1]" stype="Percent" elength="5" decimals="5" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                    </td> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-INT-BILL-AMT-T[1]">請求済貸付利息:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                       <!-- <input type="text" value=" " name="MIR-LOAN-INT-BILL-AMT-T[1]" id="MIR-LOAN-INT-BILL-AMT-T[1]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LOAN-INT-BILL-AMT-T[1]" id="MIR-LOAN-INT-BILL-AMT-T[1]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-INT-YTD-AMT-T[1]">当年支払済/資産化済貸付利息:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-LOAN-INT-YTD-AMT-T[1]" id="MIR-LOAN-INT-YTD-AMT-T[1]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LOAN-INT-YTD-AMT-T[1]" id="MIR-LOAN-INT-YTD-AMT-T[1]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-AVB-AMT-T[1]">平均貸付残高:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-LOAN-AVB-AMT-T[1]" id="MIR-LOAN-AVB-AMT-T[1]" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LOAN-AVB-AMT-T[1]" id="MIR-LOAN-AVB-AMT-T[1]" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-INT-TYP-CD-T[1]">貸付利率タイプ:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <select name="MIR-LOAN-INT-TYP-CD-T[1]" id="MIR-LOAN-INT-TYP-CD-T[1]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-DT-T[1]">発効日:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-LOAN-DT-T[1]" id="MIR-LOAN-DT-T[1]" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-ANNV-AMT-T[1]">契約応当日貸付残高:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-LOAN-ANNV-AMT-T[1]" id="MIR-LOAN-ANNV-AMT-T[1]" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-LOAN-ANNV-AMT-T[1]" id="MIR-LOAN-ANNV-AMT-T[1]" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-PREV-ANNV-AMT-T[1]">前契約応当日貸付残高:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-LOAN-PREV-ANNV-AMT-T[1]" id="MIR-LOAN-PREV-ANNV-AMT-T[1]" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-LOAN-PREV-ANNV-AMT-T[1]" id="MIR-LOAN-PREV-ANNV-AMT-T[1]" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">その他</td> 
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-LOAN-AMT-T[1]">合計貸付金額:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--  <input type="text" value=" " name="MIR-LOAN-AMT-T[2]" id="MIR-LOAN-AMT-T[2]" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LOAN-AMT-T[2]" id="MIR-LOAN-AMT-T[2]" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-INT-RT-T[1]">貸付利率:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" name="MIR-LOAN-INT-RT-T[2]" id="MIR-LOAN-INT-RT-T[2]" stype="Percent" elength="5" decimals="5" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-INT-MAX-RT-T[1]">貸付利率上限:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" name="MIR-LOAN-INT-MAX-RT-T[2]" id="MIR-LOAN-INT-MAX-RT-T[2]" stype="Percent" elength="5" decimals="5" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                    </td> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-INT-BILL-AMT-T[1]">請求済貸付利息:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-LOAN-INT-BILL-AMT-T[2]" id="MIR-LOAN-INT-BILL-AMT-T[2]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LOAN-INT-BILL-AMT-T[2]" id="MIR-LOAN-INT-BILL-AMT-T[2]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-INT-YTD-AMT-T[1]">当年支払済/資産化済貸付利息:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-LOAN-INT-YTD-AMT-T[2]" id="MIR-LOAN-INT-YTD-AMT-T[2]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>-->
+                     <input type="text" value=" " name="MIR-LOAN-INT-YTD-AMT-T[2]" id="MIR-LOAN-INT-YTD-AMT-T[2]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-AVB-AMT-T[1]">平均貸付残高:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-LOAN-AVB-AMT-T[2]" id="MIR-LOAN-AVB-AMT-T[2]" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LOAN-AVB-AMT-T[2]" id="MIR-LOAN-AVB-AMT-T[2]" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-INT-TYP-CD-T[1]">貸付利率タイプ:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <select name="MIR-LOAN-INT-TYP-CD-T[1]" id="MIR-LOAN-INT-TYP-CD-T[1]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-DT-T[1]">発効日:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-LOAN-DT-T[2]" id="MIR-LOAN-DT-T[2]" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-ANNV-AMT-T[1]">契約応当日貸付残高:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-LOAN-ANNV-AMT-T[2]" id="MIR-LOAN-ANNV-AMT-T[2]" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LOAN-ANNV-AMT-T[2]" id="MIR-LOAN-ANNV-AMT-T[2]" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-PREV-ANNV-AMT-T[1]">前契約応当日貸付残高:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-LOAN-PREV-ANNV-AMT-T[2]" id="MIR-LOAN-PREV-ANNV-AMT-T[2]" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LOAN-PREV-ANNV-AMT-T[2]" id="MIR-LOAN-PREV-ANNV-AMT-T[2]" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+            </table> 
+            <br /> 
+            <table class="tabledataentry"> 
+                <tr> 
+                    <td class="celldataentryheading" colspan="4">保険料自動振替貸付</td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-AMT-T[1]">合計貸付金額:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-LOAN-AMT-T[3]" id="MIR-LOAN-AMT-T[3]" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LOAN-AMT-T[3]" id="MIR-LOAN-AMT-T[3]" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-INT-RT-T[1]">貸付利率:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" name="MIR-LOAN-INT-RT-T[3]" id="MIR-LOAN-INT-RT-T[3]" stype="Percent" elength="5" decimals="5" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-INT-MAX-RT-T[1]">貸付利率上限:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" name="MIR-LOAN-INT-MAX-RT-T[3]" id="MIR-LOAN-INT-MAX-RT-T[3]" stype="Percent" elength="5" decimals="5" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                    </td> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-INT-BILL-AMT-T[1]">請求済貸付利息:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-LOAN-INT-BILL-AMT-T[3]" id="MIR-LOAN-INT-BILL-AMT-T[3]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LOAN-INT-BILL-AMT-T[3]" id="MIR-LOAN-INT-BILL-AMT-T[3]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-INT-YTD-AMT-T[1]">当年支払済/資産化済貸付利息:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-LOAN-INT-YTD-AMT-T[3]" id="MIR-LOAN-INT-YTD-AMT-T[3]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LOAN-INT-YTD-AMT-T[3]" id="MIR-LOAN-INT-YTD-AMT-T[3]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-AVB-AMT-T[1]">平均貸付残高:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-LOAN-AVB-AMT-T[3]" id="MIR-LOAN-AVB-AMT-T[3]" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LOAN-AVB-AMT-T[3]" id="MIR-LOAN-AVB-AMT-T[3]" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-INT-TYP-CD-T[1]">貸付利率タイプ:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <select name="MIR-LOAN-INT-TYP-CD-T[1]" id="MIR-LOAN-INT-TYP-CD-T[1]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-DT-T[1]">発効日:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-LOAN-DT-T[3]" id="MIR-LOAN-DT-T[3]" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-ANNV-AMT-T[1]">契約応当日貸付残高:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-LOAN-ANNV-AMT-T[3]" id="MIR-LOAN-ANNV-AMT-T[3]" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LOAN-ANNV-AMT-T[3]" id="MIR-LOAN-ANNV-AMT-T[3]" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LOAN-PREV-ANNV-AMT-T[1]">前契約応当日貸付残高:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-LOAN-PREV-ANNV-AMT-T[3]" id="MIR-LOAN-PREV-ANNV-AMT-T[3]" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LOAN-PREV-ANNV-AMT-T[3]" id="MIR-LOAN-PREV-ANNV-AMT-T[3]" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+            </table> 
+            <br /> 
+            <p align="right"> 
+                <a href="#top" class="backtotop"> 
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" /> 
+                      トップへ戻る  
+                </a>  
+            </p>  
+            <h2>  
+                <a name="DividendInformation">配当情報</a>  
+            </h2>  
+            <table class="tabledataentry">  
+                <tr>  
+                    <td class="celldataentryheading" colspan="4">基本配当情報（保護データ）</td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-DIV-DCLR-LTD-AMT">公表済配当金合計:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-DIV-DCLR-LTD-AMT" id="MIR-DIV-DCLR-LTD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-DIV-DCLR-LTD-AMT" id="MIR-DIV-DCLR-LTD-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-DOD-INT-RT">現行利率:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-POL-DOD-INT-RT" id="MIR-POL-DOD-INT-RT" stype="Percent" elength="5" decimals="5" signed="yes" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DIV-DCLR-YTD-AMT">当年公表配当額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <!-- M245B2 CHANGE STARTS HERE -->
+
+                      <!--<input type="text" value=" " name="MIR-DIV-DCLR-YTD-AMT" id="MIR-DIV-DCLR-YTD-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-DIV-DCLR-YTD-AMT" id="MIR-DIV-DCLR-YTD-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DOD-CRNT-INT-AMT">積立配当利息:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-DOD-CRNT-INT-AMT" id="MIR-DOD-CRNT-INT-AMT" stype="Currency" elength="11" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-DOD-CRNT-INT-AMT" id="MIR-DOD-CRNT-INT-AMT" stype="Currency" elength="11" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-DOD-ACUM-AMT">積立金配当:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-DOD-ACUM-AMT" id="MIR-POL-DOD-ACUM-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-DOD-ACUM-AMT" id="MIR-POL-DOD-ACUM-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-PREV-DIV-DUR">期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-PREV-DIV-DUR" id="MIR-POL-PREV-DIV-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-DOD-AVB-AMT">配当平均残高:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--  <input type="text" value=" " name="MIR-POL-DOD-AVB-AMT" id="MIR-POL-DOD-AVB-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-POL-DOD-AVB-AMT" id="MIR-POL-DOD-AVB-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-DIV-SUSP-AMT">配当一時停止額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-DIV-SUSP-AMT" id="MIR-POL-DIV-SUSP-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-POL-DIV-SUSP-AMT" id="MIR-POL-DIV-SUSP-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">買増情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PUA-LTD-FACE-AMT">払済増額保険金額合計:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-PUA-LTD-FACE-AMT" id="MIR-PUA-LTD-FACE-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-PUA-LTD-FACE-AMT" id="MIR-PUA-LTD-FACE-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PUA-YTD-FACE-AMT">現在の払済増額保険全額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-PUA-YTD-FACE-AMT" id="MIR-PUA-YTD-FACE-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-PUA-YTD-FACE-AMT" id="MIR-PUA-YTD-FACE-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-OYT-AMT">1年定期:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-OYT-AMT" id="MIR-POL-OYT-AMT" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-OYT-AMT" id="MIR-POL-OYT-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                      トップへ戻る 
+                </a> 
+            </p> 
+            <h2> 
+                <a name="ReductionInformation">減額情報</a> 
+            </h2> 
+            <table class="tabledataentry"> 
+                <tr> 
+                    <td class="celldataentryheading" colspan="4">全保障に対する解約合計</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-CRNT-PSUR-AMT">当期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-CRNT-PSUR-AMT" id="MIR-POL-CRNT-PSUR-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-POL-CRNT-PSUR-AMT" id="MIR-POL-CRNT-PSUR-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-PREV-PSUR-AMT">全保障に対する解約合計 - 前期間:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-PREV-PSUR-AMT" id="MIR-POL-PREV-PSUR-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-PREV-PSUR-AMT" id="MIR-POL-PREV-PSUR-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+            </table> 
+            <br /> 
+            <table class="tabledataentry"> 
+                <tr> 
+                    <td class="celldataentryheading" colspan="4">限度額情報</td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-POL-AFR-THRSHD-AMT">金額:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-AFR-THRSHD-AMT" id="MIR-POL-AFR-THRSHD-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-POL-AFR-THRSHD-AMT" id="MIR-POL-AFR-THRSHD-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-AFR-THRSHD-PERI-CD">期間:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <select name="MIR-AFR-THRSHD-PERI-CD" id="MIR-AFR-THRSHD-PERI-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td> 
+                </tr> 
+            </table> 
+            <br /> 
+            <table class="tabledataentry"> 
+                <tr> 
+                    <td class="celldataentryheading" colspan="4">自動保険金減額情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-TOT-AFR-AMT">前保険金額減少額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-TOT-AFR-AMT" id="MIR-POL-TOT-AFR-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-TOT-AFR-AMT" id="MIR-POL-TOT-AFR-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-AFR-ALLOC-CD">割当:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-AFR-ALLOC-CD" id="MIR-POL-AFR-ALLOC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">無料引出情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-WTHDR-CD">無料引出:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FREE-WTHDR-CD" id="MIR-FREE-WTHDR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-WTHDR-PERI-CD">期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FREE-WTHDR-PERI-CD" id="MIR-FREE-WTHDR-PERI-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-WTHDR-QTY">残余引出回数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FREE-WTHDR-QTY" id="MIR-FREE-WTHDR-QTY" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-WTHDR-TOT-AMT">合計引出額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-FREE-WTHDR-TOT-AMT" id="MIR-FREE-WTHDR-TOT-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-FREE-WTHDR-TOT-AMT" id="MIR-FREE-WTHDR-TOT-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-WTHDR-DUR">期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FREE-WTHDR-DUR" id="MIR-FREE-WTHDR-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-WTHDR-DT">最終日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FREE-WTHDR-DT" id="MIR-FREE-WTHDR-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">無料ファンド移転情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-XFER-CD">無料移転:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FREE-XFER-CD" id="MIR-FREE-XFER-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-XFER-PERI-CD">期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FREE-XFER-PERI-CD" id="MIR-FREE-XFER-PERI-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-XFER-QTY">残余移転回数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FREE-XFER-QTY" id="MIR-FREE-XFER-QTY" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FREE-XFER-TOT-AMT">合計移転額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-FREE-XFER-TOT-AMT" id="MIR-FREE-XFER-TOT-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-FREE-XFER-TOT-AMT" id="MIR-FREE-XFER-TOT-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                       トップへ戻る 
+                </a> 
+            </p> 
+            <h2> 
+                <a name="RegisteredInformation">年金登録情報</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">年金受取人登録情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-REG-CNTRB-1-AMT-T[1]">掛金:3月 - 12月:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-REG-CNTRB-1-AMT-T[1]" id="MIR-REG-CNTRB-1-AMT-T[1]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-REG-CNTRB-1-AMT-T[1]" id="MIR-REG-CNTRB-1-AMT-T[1]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-REG-RECPT-1-AMT-T[1]">受領金額:3月 - 12月:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--   <input type="text" value=" " name="MIR-REG-RECPT-1-AMT-T[1]" id="MIR-REG-RECPT-1-AMT-T[1]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-REG-RECPT-1-AMT-T[1]" id="MIR-REG-RECPT-1-AMT-T[1]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-REG-CNTRB-2-AMT-T[1]">掛金:1月 - 2月:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-REG-CNTRB-2-AMT-T[1]" id="MIR-REG-CNTRB-2-AMT-T[1]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-REG-CNTRB-2-AMT-T[1]" id="MIR-REG-CNTRB-2-AMT-T[1]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-REG-RECPT-2-AMT-T[1]">受領金額:1月 - 2月:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-REG-RECPT-2-AMT-T[1]" id="MIR-REG-RECPT-2-AMT-T[1]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-REG-RECPT-2-AMT-T[1]" id="MIR-REG-RECPT-2-AMT-T[1]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-REG-CNTRB-SPCL-AMT-T[1]">特別受領金額:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-REG-CNTRB-SPCL-AMT-T[1]" id="MIR-REG-CNTRB-SPCL-AMT-T[1]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-REG-CNTRB-SPCL-AMT-T[1]" id="MIR-REG-CNTRB-SPCL-AMT-T[1]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-POL-REG-TOT-AMT">登録済貯蓄金額合計:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-REG-TOT-AMT" id="MIR-POL-REG-TOT-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-REG-TOT-AMT" id="MIR-POL-REG-TOT-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-REG-CNTRB-RECPT-DT">前受領請求日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-REG-CNTRB-RECPT-DT" id="MIR-REG-CNTRB-RECPT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">配偶者年金登録情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-REG-CNTRB-1-AMT-T[1]">掛金:3月 - 12月:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-REG-CNTRB-1-AMT-T[2]" id="MIR-REG-CNTRB-1-AMT-T[2]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-REG-TOT-AMT" id="MIR-POL-REG-TOT-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-REG-RECPT-1-AMT-T[1]">受領金額:3月 - 12月:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                       <!-- <input type="text" value=" " name="MIR-REG-RECPT-1-AMT-T[2]" id="MIR-REG-RECPT-1-AMT-T[2]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-REG-RECPT-1-AMT-T[2]" id="MIR-REG-RECPT-1-AMT-T[2]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-REG-CNTRB-2-AMT-T[1]">掛金:1月 - 2月:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-REG-CNTRB-2-AMT-T[2]" id="MIR-REG-CNTRB-2-AMT-T[2]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-REG-CNTRB-2-AMT-T[2]" id="MIR-REG-CNTRB-2-AMT-T[2]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-REG-RECPT-2-AMT-T[1]">受領金額:1月 - 2月:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-REG-RECPT-2-AMT-T[2]" id="MIR-REG-RECPT-2-AMT-T[2]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-REG-RECPT-2-AMT-T[2]" id="MIR-REG-RECPT-2-AMT-T[2]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-REG-CNTRB-SPCL-AMT-T[1]">特別受領金額:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-REG-CNTRB-SPCL-AMT-T[2]" id="MIR-REG-CNTRB-SPCL-AMT-T[2]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-REG-CNTRB-SPCL-AMT-T[2]" id="MIR-REG-CNTRB-SPCL-AMT-T[2]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-REG-CNTRB-XFER-DT">最新掛金支払/移転日:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                        <input type="text" value=" " name="MIR-REG-CNTRB-XFER-DT" id="MIR-REG-CNTRB-XFER-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> 
+                </tr> 
+            </table> 
+            <br /> 
+            <table class="tabledataentry"> 
+                <tr> 
+                    <td class="celldataentryheading" colspan="4">年金契約情報</td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-POL-ANPAYO-PYR-AMT">前年の支払合計:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-ANPAYO-PYR-AMT" id="MIR-POL-ANPAYO-PYR-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-ANPAYO-PYR-AMT" id="MIR-POL-ANPAYO-PYR-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-POL-ANPAYO-YTD-AMT">当年支払額:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-ANPAYO-YTD-AMT" id="MIR-POL-ANPAYO-YTD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-ANPAYO-YTD-AMT" id="MIR-POL-ANPAYO-YTD-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-POL-ANPAYO-LTD-AMT">現在までの支払額:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-ANPAYO-LTD-AMT" id="MIR-POL-ANPAYO-LTD-AMT" stype="Currency" elength="11" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-ANPAYO-LTD-AMT" id="MIR-POL-ANPAYO-LTD-AMT" stype="Currency" elength="11" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" size="20" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign" /> 
+                    <td class="celllabeldataentry"></td>
+                </tr> 
+            </table> 
+            <br /> 
+            <table class="tabledataentry"> 
+                <tr> 
+                    <td class="celldataentryheading" colspan="4">最低支払額 (RRIF/LIF)情報</td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-POL-RRIF-MNPMT-AMT">当年:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-RRIF-MNPMT-AMT" id="MIR-POL-RRIF-MNPMT-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-RRIF-MNPMT-AMT" id="MIR-POL-RRIF-MNPMT-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-RRIF-MNPMT-PYR-AMT">前年:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-RRIF-MNPMT-PYR-AMT" id="MIR-RRIF-MNPMT-PYR-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-RRIF-MNPMT-PYR-AMT" id="MIR-RRIF-MNPMT-PYR-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+            </table> 
+            <br /> 
+            <table class="tabledataentry"> 
+                <tr> 
+                    <td class="celldataentryheading" colspan="4">最高支払許容額 (LIF)情報</td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-POL-LIF-MXPMT-AMT">当年:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-POL-LIF-MXPMT-AMT" id="MIR-POL-LIF-MXPMT-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-POL-LIF-MXPMT-AMT" id="MIR-POL-LIF-MXPMT-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD"  signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-LIF-MXPMT-PYR-AMT">前年:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                       <!-- <input type="text" value=" " name="MIR-LIF-MXPMT-PYR-AMT" id="MIR-LIF-MXPMT-PYR-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-LIF-MXPMT-PYR-AMT" id="MIR-LIF-MXPMT-PYR-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+            </table> 
+            <br /> 
+            <table class="tabledataentry"> 
+                <tr> 
+                    <td class="celldataentryheading" colspan="4">合計臨時支払額 (RRIF/LIF)情報</td> 
+                </tr> 
+                <tr> 
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-CASL-PMT-YTD-AMT">当年:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-CASL-PMT-YTD-AMT" id="MIR-CASL-PMT-YTD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-CASL-PMT-YTD-AMT" id="MIR-CASL-PMT-YTD-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign"> 
+                        <label for="MIR-CASL-PMT-PYR-AMT">前年:</label> 
+                    </td> 
+                    <td class="celllabeldataentry"> 
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--  <input type="text" value=" " name="MIR-CASL-PMT-PYR-AMT" id="MIR-CASL-PMT-PYR-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-CASL-PMT-PYR-AMT" id="MIR-CASL-PMT-PYR-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr> 
+            </table> 
+            <p align="right"> 
+                <a href="#top" class="backtotop"> 
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" /> 
+                      トップへ戻る 
+                </a> 
+            </p> 
+            <br /> 
+            <center> 
+                <table class="tableanchors"> 
+                    <tr> 
+                        <td class="cellanchors"> 
+                            <a href="#GeneralInformation">基本情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#FinancialInformation">会計情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#BillingInformation">請求情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PremiumReversalInformation">保険料リバース情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#LoanInformation">貸付情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#DividendInformation">配当情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#ReductionInformation">減額情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#RegisteredInformation">年金登録情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!-- M245B2 CHANGE STARTS HERE -->
+    <script src="../js/CrcyLevelEdits.js"></script>
+<!-- M245B2 CHANGE ENDS HERE -->
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

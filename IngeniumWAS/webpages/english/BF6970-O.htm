@@ -1,0 +1,415 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:44 PM EDT
+*
+*********************************************************************************
+*  Component:   BF6970-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  016736  611J    Code cleanup                           
+*  017150  612J     Remove Currency decimals="2"                               
+*  01AD25  BMB      Change MIR-CVG-NUM to control display of more than 20 cvgs 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF6970-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <a name="top" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="4">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value="01" name="MIR-CVG-NUM" id="MIR-CVG-NUM" stype="Number" size="2" elength="2" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CVG-REC-CTR">Number of Coverages:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#LapseInformation">Lapse Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#TargetsAllPolicyCoverages">Targets - All Policy Coverages</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#TargetsPerCoverage">Targets - PerCoverage</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#PaymentsApplied">Payments Applied</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#InterestGuaranteedPeriod">Interest Guaranteed Period Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#SurrenderInformation">Surrender Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="LapseInformation">Lapse Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-UL-PRCES-DT">Monthiversary Paid to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-UL-PRCES-DT" stype="Date" displayonly="yes">MIR-POL-UL-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DB-OPT-CD">Death Benefit Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DB-OPT-CD" stype="Text" displayonly="yes">MIR-POL-DB-OPT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-UL-SHRT-AMT">Shortage Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-UL-SHRT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-UL-SHRT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UL-LAPS-NOTI-AMT">Reactivate Policy Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UL-LAPS-NOTI-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-UL-LAPS-NOTI-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UL-LAPS-STRT-DT">Lapse Start Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UL-LAPS-STRT-DT" stype="Date" displayonly="yes">MIR-UL-LAPS-STRT-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-UL-NLAPS-END-DT">No Lapse Guaranteed End Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-UL-NLAPS-END-DT" stype="Date" displayonly="yes">MIR-DV-UL-NLAPS-END-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="TargetsAllPolicyCoverages">Targets - All Policy Coverages</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PMT-LOAD-TRG-AMT">Total Payment Load Targets:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PMT-LOAD-TRG-AMT" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-PMT-LOAD-TRG-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-SURR-TRG-AMT">Total Surrender Charge Targets:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SURR-TRG-AMT" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-CVG-SURR-TRG-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-COMM-TRG-AMT">Total Commission Targets:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-COMM-TRG-AMT" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-CVG-COMM-TRG-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MNPMT-TRG-AMT">Total Minimum Payment Targets:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MNPMT-TRG-AMT" stype="Currency" elength="15" decimals="0" signed="yes" displayonly="yes">MIR-POL-MNPMT-TRG-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="5">
+                        <a name="TargetsPerCoverage">Targets - Per Coverage</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">Coverage Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PMT-LOAD-TRG-AMT-T[1]">Total Payment Load Targets</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-COMM-TRG-AMT-T[1]">Total Commission Targets</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-SURR-TRG-AMT-T[1]">Total Surrender Charge Targets</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-MNPMT-TRG-LTD-AMT-T[1]">Minimum Payment Target Amount</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PMT-LOAD-TRG-AMT-T[]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-PMT-LOAD-TRG-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-COMM-TRG-AMT-T[]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-CVG-COMM-TRG-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SURR-TRG-AMT-T[]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-CVG-SURR-TRG-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MNPMT-TRG-LTD-AMT-T[]" stype="Currency" elength="15" decimals="0" signed="yes" displayonly="yes">MIR-MNPMT-TRG-LTD-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="2">
+                        <a name="PaymentsApplied">Payments Applied for...</a>
+                    </td>
+                    <td class="celldisplayheading" colspan="2">Duration</td>
+                    <td class="celldisplayheading" colspan="2">Life to Date</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">Coverage Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVGD-DUR-T[1]">Duration</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVGD-PMT-AMT-T[1]">Allocated Cumulative Payments</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVGD-PMT-LOAD-AMT-T[1]">Cumulative Front-end Load</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-PMT-LTD-AMT-T[1]">Total Payments Applied</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PMT-LOAD-LTD-AMT-T[1]">Total Payment Loads Applied</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVGD-DUR-T[]" stype="Text" displayonly="yes">MIR-CVGD-DUR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVGD-PMT-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CVGD-PMT-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVGD-PMT-LOAD-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CVGD-PMT-LOAD-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PMT-LTD-AMT-T[]" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-CVG-PMT-LTD-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PMT-LOAD-LTD-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-PMT-LOAD-LTD-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="3">
+                        <a name="SurrenderInformation">Surrender Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">Coverage Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-SURR-LTD-AMT-T[1]">Surrender Charges Life to Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SURR-LOAD-LTD-AMT-T[1]">Cumulative Surrender Life to Date</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURR-LOAD-LTD-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-SURR-LOAD-LTD-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SURR-LTD-AMT-T[]" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-CVG-SURR-LTD-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="InterestGuaranteedPeriod">Interest Guaranteed Period</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">Coverage Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-GUAR-INT-PCT-T[1]">Interest Guaranteed Period - Interest Rate</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-GUAR-IMPRD-INT-PCT-T[1]">Interest Guaranteed Period - Impaired Interest Rate</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-GUAR-INT-END-DT-T[1]">Interest Guarantee Period - End Date</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-GUAR-INT-PCT-T[]" stype="Percent" elength="9" decimals="6" signed="yes" displayonly="yes">MIR-CVG-GUAR-INT-PCT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-GUAR-IMPRD-INT-PCT-T[]" stype="Percent" elength="7" decimals="6" signed="yes" displayonly="yes">MIR-GUAR-IMPRD-INT-PCT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-GUAR-INT-END-DT-T[]" stype="Date" displayonly="yes">MIR-GUAR-INT-END-DT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#LapseInformation">Lapse Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#TargetsAllPolicyCoverages">Targets - All Policy Coverages</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#TargetsPerCoverage">Targets - PerCoverage</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#PaymentsApplied">Payments Applied</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#InterestGuaranteedPeriod">Interest Guaranteed Period Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#SurrenderInformation">Surrender Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

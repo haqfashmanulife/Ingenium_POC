@@ -1,0 +1,93 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:59 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9360-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  01PR10  CSS      New for MCL                                                
+* MP1669   CTS     To support APL,loan inFuture/Back dated trial calculation
+*  MP245K  CTS      CHANGES DONE FOR FA-REDUCTION AND SURRENDER                 
+*  RPU013  CTS      CHANGES DONE FOR POLICY SERVICE AFTER RPU PROCESSING        
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UYS043  CTS      CHANGES DONE FOR VIRTUAL QUOTE SCREEN   
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+           
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9360-I</title>
+<link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+</head>
+<!-- UY3004 CHANGES START HERE
+<body class="bodyws">-->
+<body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+<!-- UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<table class="tabledatakey">
+<tr>
+<td class="celldatakeylabel">
+<label for="MIR-APPL-CTL-PRCES-DT">処理日:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-APPL-CTL-PRCES-DT" id="MIR-APPL-CTL-PRCES-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/></td>
+<td class="celldatakeylabel">
+<label for="MIR-POL-ID-BASE">証券番号:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes"  onfocus="enterField(this)"/></td>
+</tr>
+<tr>
+<td class="celldatakeylabel">
+<label for="MIR-POL-ID-SFX">枝番:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1"   onfocus="enterField(this)"/></td>
+<!--  MP1669 changes starts here -->
+<td class="celldatakeylabel">
+<label for="MIR-TRAD-PD-TO-MO-NUM">払込月分:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-TRAD-PD-TO-MO-NUM" id="MIR-TRAD-PD-TO-MO-NUM" stype="Text" maxlength="7" onfocus="enterField(this)" onblur="validateField(this)"/></td>
+<!--  MP1669 changes ends here -->
+</tr>
+<!--  MP245K changes starts here -->
+<tr>
+<td class="celldatakeylabel">
+    <label for="MIR-DV-PAYO-JPY-BNFT-CD">円支払特約有無:</label>
+</td>
+<td class="celldatakey">
+    <select name="MIR-DV-PAYO-JPY-BNFT-CD" id="MIR-DV-PAYO-JPY-BNFT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+</td>
+<!--  RPU013 changes starts here -->
+<td class="celldatakeylabel">
+    <label for="MIR-RPU-TRNST-CNCL-IND">払済移行期間中取消:</label>
+</td>
+<td class="celldatakey">
+<input name="MIR-RPU-TRNST-CNCL-IND" id="MIR-RPU-TRNST-CNCL-IND" onclick="onCheckBox()" onfocus="enterField(this)" stype="Indicator" type="checkbox" value="Y"/>
+</td>
+<!--  RPU013 changes ends here -->
+</tr>
+<!--  MP245K changes ends here -->
+</table>
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+<!--  UYS043 changes starts here -->
+<table class="tabledatakey">
+<tr>
+   <td class="celldisplayheading" colspan="4">(バーチャル試算項目)</td>
+</tr>
+<tr>
+<td class="celldatakey">
+    <input name="MIR-VIR-SCREEN-IND"  id="MIR-VIR-SCREEN-IND" onclick="onCheckBox()" onfocus="enterField(this)" stype="Indicator" type="checkbox" value="Y">(バーチャル試算を実行する場合はチェックしてください)</input>
+</td>
+</tr>
+</table>
+<!--  UYS043 changes ends here -->
+</form>
+</body>
+<script src="../js/MessagesJapanese.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

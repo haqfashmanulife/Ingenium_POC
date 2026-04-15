@@ -1,0 +1,328 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:25 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0722-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  016637  6.0.2J   fix mir name for client name                               
+*  017150  612J     Remove Currency decimals="2"                               
+*  FT7001 AKATO  FT7 Label Change 14JUN2004  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge. 
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *                                    	               
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0722-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-CLI-NM">契約者名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-CLI-NM" stype="Text" displayonly="yes">MIR-DV-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">保障番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-MTHV-EFF-DT-NUM">月応当日処理日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-MTHV-EFF-DT-NUM" stype="Text" displayonly="yes">MIR-MTHV-EFF-DT-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">証券番号</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-SUM-INS-AMT">保険金額合計:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-SUM-INS-AMT" id="MIR-POL-SUM-INS-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="1" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MTHV-POL-CSV-AMT">解約返戻金合計:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MTHV-POL-CSV-AMT" id="MIR-MTHV-POL-CSV-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="2" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MTHV-POL-CV-AMT">合計累積価額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MTHV-POL-CV-AMT" id="MIR-MTHV-POL-CV-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="3" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-TOT-DED-AMT">控除合計:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-TOT-DED-AMT" id="MIR-POL-TOT-DED-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="4" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-DED-WAV-AMT">控除権利放棄合計額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-DED-WAV-AMT" id="MIR-POL-DED-WAV-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="5" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MTHV-POL-SHRT-AMT">ファンド猶予期間解消必要額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MTHV-POL-SHRT-AMT" id="MIR-MTHV-POL-SHRT-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="6" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ADJ-CV-AMT">調整値:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-ADJ-CV-AMT" id="MIR-POL-ADJ-CV-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="7" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-GDLN-DB-AMT">ガイドライン死亡給付金:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-GDLN-DB-AMT" id="MIR-POL-GDLN-DB-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="8" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MTHV-PRCES-QTY">処理回数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MTHV-PRCES-QTY" id="MIR-MTHV-PRCES-QTY" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" tabindex="9" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MTHV-PRCES-DT">トランザクション日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MTHV-PRCES-DT" id="MIR-MTHV-PRCES-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="10" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MTHV-ORIG-PRCES-DT">元の日付:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MTHV-ORIG-PRCES-DT" id="MIR-MTHV-ORIG-PRCES-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="11" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-CVG-REC-CTR">契約保障数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MTHV-POL-DB-OPT-CD">死亡給付オプション:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-MTHV-POL-DB-OPT-CD" id="MIR-MTHV-POL-DB-OPT-CD" size="1" stype="Selection" onfocus="enterField(this)" tabindex="12"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MTHV-FND-SELCT-CD">月応当日控除分配方式:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-MTHV-FND-SELCT-CD" stype="Text" displayonly="yes">MIR-MTHV-FND-SELCT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">控除情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-STD-MORT-CHRG-AMT">危険保険料:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-STD-MORT-CHRG-AMT" id="MIR-STD-MORT-CHRG-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="13" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SSTD-MORT-CHRG-AMT">特別条件死亡請求:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-SSTD-MORT-CHRG-AMT" id="MIR-SSTD-MORT-CHRG-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="14" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-PERI-LOAD-AMT">定期付加保険料:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-PERI-LOAD-AMT" id="MIR-CVG-PERI-LOAD-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="15" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-SETUP-CHRG-AMT">設定手数料:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-SETUP-CHRG-AMT" id="MIR-CVG-SETUP-CHRG-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="16" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-AD-PREM-AMT">災害死亡付加保険料:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-AD-PREM-AMT" id="MIR-CVG-AD-PREM-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="17" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-WP-PREM-AMT">保険料払込免除:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-WP-PREM-AMT" id="MIR-CVG-WP-PREM-AMT" stype="Currency" elength="11" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="18" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-BNFT-CHRG-AMT">補足給付付加保険料:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-BNFT-CHRG-AMT" id="MIR-CVG-BNFT-CHRG-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="19" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-TOT-DED-AMT">控除合計:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-TOT-DED-AMT" id="MIR-CVG-TOT-DED-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MTHV-CVG-DRW-AMT">控除振替額合計:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MTHV-CVG-DRW-AMT" id="MIR-MTHV-CVG-DRW-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="21" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">リスク情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MTHV-CVG-NAR-AMT">リスク正味額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MTHV-CVG-NAR-AMT" id="MIR-MTHV-CVG-NAR-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="22" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-CV-ALLOC-AMT">キャッシュバリュー割当:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-CV-ALLOC-AMT" id="MIR-CVG-CV-ALLOC-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="23" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-SUM-INS-AMT">保険金額合計:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-SUM-INS-AMT" id="MIR-CVG-SUM-INS-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="24" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">保障情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MTHV-CVG-CSTAT-CD">ステータス:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-MTHV-CVG-CSTAT-CD" id="MIR-MTHV-CVG-CSTAT-CD" size="1" stype="Selection" onfocus="enterField(this)" tabindex="25"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-GUAR-COI-AMT">保険原価保証額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-GUAR-COI-AMT" id="MIR-CVG-GUAR-COI-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="26" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MTHV-CVG-CV-AMT">正味ファンドバリュー:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MTHV-CVG-CV-AMT" id="MIR-MTHV-CVG-CV-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="27" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MTHV-CVG-CORDR-AMT">コリダー金額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MTHV-CVG-CORDR-AMT" id="MIR-MTHV-CVG-CORDR-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="28" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

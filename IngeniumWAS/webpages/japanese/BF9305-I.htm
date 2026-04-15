@@ -1,0 +1,76 @@
+﻿<!--
+*********************************************************************************
+*  Component:   BF9305-I.htm
+*  Description: Advance Payment Management Input Screen
+*
+*********************************************************************************
+*  Chg#    AUTH     Description
+*
+*  NWLPP6  CTS      INITIAL VERSION
+*  Q01526  CTS      NWLPP6 - LABEL NAME CHANGES REQUESTED BY USERS
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge. 
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+            
+*********************************************************************************
+-->
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+<title>BF9305-I</title>
+<link charset="UTF-8" href="../japanese/Ingenium.css" rel="stylesheet" type="text/css"/>
+</head>
+<!-- UY3004 CHANGES START HERE
+<body class="bodyws">-->
+<body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+<!-- UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" id="inputForm" method="post" onsubmit="return(onSubmit());" target="_parent">
+<input name="action" id="action" stype="Hidden" type="hidden"/>
+<input name="MIR-PCHST-EFF-DT" id="MIR-PCHST-EFF-DT" stype="Hidden" type="hidden"/>
+<input name="MIR-PCHST-SEQ-NUM" id="MIR-PCHST-SEQ-NUM" stype="Hidden" type="hidden"/>
+<input name="MIR-TH-PREM-PD-DT-NUM" id="MIR-TH-PREM-PD-DT-NUM" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-ADV-PMT-STRT-DT" id="MIR-HID-ADV-PMT-STRT-DT" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-ADV-PMT-DUR" id="MIR-HID-ADV-PMT-DUR" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-ADV-PMT-END-DT" id="MIR-HID-ADV-PMT-END-DT" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-ADV-PMT-TYP-CD" id="MIR-HID-ADV-PMT-TYP-CD" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-RSDUE-AMT" id="MIR-HID-RSDUE-AMT" stype="Hidden" type="hidden"/>
+<input name="MIR-HID-SURR-AMT" id="MIR-HID-SURR-AMT" stype="Hidden" type="hidden"/>
+     <table class="tabledatakey">
+          <tr>
+               <td class="celldatakeylabel">
+<!-- Q01526 changes begin
+                    <label for="MIR-POL-ID-BASE">契約ID:</label> -->
+                    <label for="MIR-POL-ID-BASE">証券番号:</label>
+<!-- Q01526 changes end -->
+               </td>
+               <td class="celldatakey">
+                    <input mandatory="yes" maxlength="9" name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" onfocus="enterField(this)" stype="Text" type="text" value=" "/>
+               </td>
+               <td class="celldatakeylabel">
+                    <label for="MIR-POL-ID-SFX">枝番:</label>
+               </td>
+               <td class="celldatakey">
+                    <input maxlength="1" name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" onfocus="enterField(this)" stype="Text" type="text" value=" "/>
+               </td>
+               <td class="celldatakeylabel">
+                    <label for="MIR-PRCES-DT">処理日:</label>
+               </td>
+               <td class="celldatakey">
+                    <input name="MIR-PRCES-DT" id="MIR-PRCES-DT" onblur="validateField(this)" onfocus="enterField(this)" stype="Date" type="text" value=" "/>
+               </td>
+          </tr>
+     </table>
+</form>
+</body>
+<script src="../js/MessagesJapanese.js" ></script>
+<script src="../js/MessageFunctions.js" ></script>
+<script src="../js/ActionHandlers.js" ></script>
+<script src="../js/ClientLevelEdits.js" ></script>
+<script src="../js/GlobalUserMethods.js" ></script>
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

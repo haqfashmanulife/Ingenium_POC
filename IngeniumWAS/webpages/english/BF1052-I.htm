@@ -1,0 +1,293 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:25 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1052-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  017150  612J     Remove Currency decimals="2"
+*  B00205  BMB      Remove CVG fields from display - this value will be 00
+*  NWLANR  CTS      Add Annuity Period field as part of NWL Project
+*
+*  M271A2  CTS      CHANGES DONE AS PART OF FRA
+*  Q61783  CTS      CHANGES DONE FOR MODIFYING THE NEW MESSAGE
+*  MP332B  CTS      XML CHANGES FOR MONEY LAUNDERING
+*  Q96525  CTS      FIX FOR BENEFICIARY'S KANA NAME FIELD
+*  015550  CTS      CHANGES AS PART OF NEW EMPEROR ERA NAME
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  TLB041  CTS      CORPORATE POLICY HOLDER NAME & ADDRESS EXPANSION
+*  TLB041  CTS      S20270 - CHANGES DONE FOR UDSD-270
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1052-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+<!-- MP332B Changes Starts here -->
+       <script>
+
+function onLoad1()
+
+{
+
+        setEmperorDate("MIR-BNFY-BTH-DT");
+
+
+}
+
+</script>
+<!-- MP332B Changes ends here -->
+    </head>
+<!-- MP332B Changes Starts here -->
+<!--<body class="bodyws">-->
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onload="onLoad1(); onLoad();"> -->
+    <body class="bodyws" onload="onLoad1() ; onLoad= onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+<!-- MP332B Changes ends here -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-INSRD-CLI-ID">Insured's Client Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-INSRD-CLI-ID" stype="Text" displayonly="yes">MIR-INSRD-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-BNFY-SEQ-NUM">Sequence Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-BNFY-SEQ-NUM" stype="Text" displayonly="yes">MIR-BNFY-SEQ-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNFY-NM">Beneficiary's Name:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- TLB041 CHANGES STARTS -->
+                    <!--<input type="text" value=" " name="MIR-BNFY-NM" id="MIR-BNFY-NM" stype="Text" maxlength="54" onfocus="enterField(this)" />-->
+                    <!--<input type="text" value=" " name="MIR-BNFY-NM" id="MIR-BNFY-NM" stype="Text" maxlength="100" onfocus="enterField(this)" />-->
+                    <!-- TLB041 S20270 CHANGES STARTS -->
+                        <input type="text" value=" " name="MIR-BNFY-NM" id="MIR-BNFY-NM" stype="Text" maxlength="50" onfocus="enterField(this)" />
+                    <!-- TLB041 S20270 CHANGES ENDS -->
+                    <!-- TLB041 CHANGES ENDS -->
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ID">Client Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ID" id="MIR-CLI-ID" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-TYP-CD">Address Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-ADDR-TYP-CD" id="MIR-CLI-ADDR-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign"></td>
+                    <td class="celllabeldataentry"></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNFY-DESGNT-CD">Designation:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BNFY-DESGNT-CD" id="MIR-BNFY-DESGNT-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNFY-PRCDS-PCT">Percentage:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-BNFY-PRCDS-PCT" id="MIR-BNFY-PRCDS-PCT" stype="Percent" elength="3" decimals="0" mandatory="yes" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNFY-TYP-CD">Beneficiary Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BNFY-TYP-CD" id="MIR-BNFY-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNFY-REL-INSRD-CD">Relation to Insured:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BNFY-REL-INSRD-CD" id="MIR-BNFY-REL-INSRD-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNFY-MINR-IND">Beneficiary is a minor:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-BNFY-MINR-IND" id="MIR-BNFY-MINR-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+<!-- NWLANR changes start here -->
+                    <!--<td class="celllabelrightalign"></td>
+                    <td class="celllabeldataentry"></td>  -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNFY-ANTY-PERI-CD">Annuity Period:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BNFY-ANTY-PERI-CD" id="MIR-BNFY-ANTY-PERI-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+<!-- NWLANR changes end here -->
+                </tr>
+<!-- MP332B Changes Starts here -->
+
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNFY-KA-NM">Beneficiary's Name Kana:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+<!-- Q96525 Changes Starts here -->
+                  <!-- TLB041 CHANGES STARTS -->
+                  <!--  <input type="text" value=" " name="MIR-BNFY-KA-NM" id="MIR-BNFY-KA-NM" stype="Text" maxlength="50"
+                               onkeypress="KanaKeyCheck()"
+                               onchange="onlyKatakana()"
+                               onfocus="enterField(this)" />  -->
+                        <input type="text" value=" " name="MIR-BNFY-KA-NM" id="MIR-BNFY-KA-NM" stype="Text" maxlength="100"
+                               onkeypress="KanaKeyCheck()"
+                               onchange="onlyKatakana()"
+                               onfocus="enterField(this)" />
+<!-- Q96525 Changes ends here -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNFY-SEX-CD">Sex:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BNFY-SEX-CD" id="MIR-BNFY-SEX-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign" width="89">
+                        <label for="MIR-BNFY-BTH-DT">Birth Date:</label>
+                    </td>
+                    <td class="celllabeldataentry" width="148">
+                        <input type="text" value=" " name="MIR-BNFY-BTH-DT" id="MIR-BNFY-BTH-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" emperorDate="myEmperorDate" />
+                    </td>
+                    <td class="celllabelrightalign" width="127">
+                        <label for="myEmperorDate">Emperor Date:</label>
+                    </td>
+                    <td width="196">
+                        <select name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" onblur="validateField(this)" onfocus="enterField(this)" serverDate="MIR-BNFY-BTH-DT">
+                            <option value="" />
+                            <option value="M">Meiji</option>
+                            <option value="T">Taisho</option>
+                            <option value="S">Showa</option>
+                            <option value="H">Heisei</option>
+<!-- 015550 CHANGES START HERE -->
+                            <option value="R">Reiwa</option>
+<!-- 015550 CHANGES ENDS HERE -->
+                        </select>
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-BNFY-BTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-BNFY-BTH-DT" />
+                        <input type="text" maxlength="2" size="2" elength="2" name="myEmperorDate" id="myEmperorDate" stype="EmperorDate" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" serverDate="MIR-BNFY-BTH-DT" />
+                    </td>
+                </tr>
+
+<!-- MP332B Changes Ends here -->
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-BNFY-UPDT-IND">Update beneficiary name automatically based on client number entered:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-BNFY-UPDT-IND" id="MIR-DV-BNFY-UPDT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+<!-- M271A2 Changes Starts here -->
+     <br />
+    <table class="tabledataentry">
+<!-- Q61783 Changes Starts here -->
+      <tr>
+           <td class="celllabeldataentry">
+              <font color = 'MidnightBlue'>
+               <b>
+                 Note: Relation to Insured will display the following depending on Designation.
+               </b>
+              </font>
+           </td>
+       </tr>
+<!-- Q61783 Changes Ends here -->
+      <tr>
+           <td class="celllabeldataentry">
+              <font color = 'MidnightBlue'>
+               <b>
+                 * Relation to policyholder if Designation is annuitant.
+               </b>
+              </font>
+           </td>
+       </tr>
+       <tr>
+           <td class="celllabeldataentry">
+              <font color = 'MidnightBlue'>
+                <b>
+                 * Relation to annuitant if Designation is Succeeding Annuitant.
+                </b>
+              </font>
+           </td>
+        </tr>
+        <tr>
+           <td class="celllabeldataentry">
+               <font color = 'MidnightBlue'>
+                <b>
+                 * Relation to insured if Designation is Death Benefit, Monthly Death Benefit or Specified Substitute Claimant.
+                </b>
+              </font>
+           </td>
+         </tr>
+    </table>
+<!-- M271A2 Changes Ends here -->
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!-- MP332B Changes Starts here -->
+    <script src="../js/EmperorDates.js"></script>
+    <script src="../js/OnlyKana.js"></script>
+<!-- MP332B Changes Ends here -->
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

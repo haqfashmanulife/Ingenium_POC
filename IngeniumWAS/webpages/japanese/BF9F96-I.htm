@@ -1,0 +1,88 @@
+﻿<!--
+# Converted from PathFinder 2.2 to 3.0 Jun 18, 2004 3:12:32 PM EDT
+
+#*******************************************************************************
+#*  Component:   BF9F96-I                                                      *
+#*  Description:                                                               *
+#*                                                                             *
+#*******************************************************************************
+#*  Chg#    Release  Description                                               *
+#*                                                                             *
+#*  CA0002  CTS     BANK SEARCH SCREEN                                         *
+#*  105533  CTS     FIX DONE FOR BANK BRANCH ID                                *
+#*  105698  CTS     FIX DONE FOR BANK AND BRANCH NAMES                         *
+#*  CA02CR  CTS     FIX DONE FOR KATAKANA CHANGES                              *
+#*  23774B  CTS      Changes done for ie retirement project to make it         *
+#*                   compatible for microsoft edge. Changes in html include    *
+#*                   adding "id" attribute for all input fields and changes in *
+#*                   java scripts to modify certain functions/commands which   *
+#*                   are no longer compatilble with edge.                      *
+#*******************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9F96-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BNK-ID">銀行コード:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-BNK-ID" id="MIR-BNK-ID" stype="Text" maxlength="4" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BNK-NM">銀行名(カナ):</label>
+                    </td>
+                    <td class="celldatakey">
+<!-- 105698 CHANGES STARTS HERE-->  
+                       <!-- <input type="text" value=" " name="MIR-BNK-NM" id="MIR-BNK-NM" stype="Text" maxlength="36" onfocus="enterField(this)" onchange="onlyKanji()" onkeypress="KanjiKeyCheck()"/> -->  
+<!-- CA02CR CHANGES STARTS HERE--> 
+                       <!-- <input type="text" value=" " name="MIR-BNK-NM" id="MIR-BNK-NM" stype="Text" maxlength="36" onfocus="enterField(this)" onchange="onlyKatakana()" onkeypress="KanaKeyCheck()"/> -->
+                            <input type="text" value=" " name="MIR-BNK-NM" id="MIR-BNK-NM" stype="Text" maxlength="36" onfocus="enterField(this)"/>
+<!-- CA02CR CHANGES ENDS HERE-->
+<!-- 105698 CHANGES ENDS HERE-->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BNK-BR-ID">支店コード:</label>
+                    </td>
+                    <td class="celldatakey">
+<!-- 105533 CHANGES STARTS HERE-->                    
+                       <!-- <input type="text" value=" " name="MIR-BNK-BR-ID" id="MIR-BNK-BR-ID" stype="Text" maxlength="5"  onfocus="enterField(this)" /> -->
+                       <input type="text" value=" " name="MIR-BNK-BR-ID" id="MIR-BNK-BR-ID" stype="Text" maxlength="3"  onfocus="enterField(this)" />
+<!-- 105533 CHANGES ENDS HERE-->
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BNK-BR-NM">支店名(カナ):</label>
+                    </td>
+                    <td class="celldatakey">
+<!-- 105698 CHANGES STARTS HERE--> 
+                        <!-- <input type="text" value=" " name="MIR-BNK-BR-NM" id="MIR-BNK-BR-NM" stype="Text" maxlength="36"  onfocus="enterField(this)" onchange="onlyKanji()" onkeypress="KanjiKeyCheck()"/> -->
+<!-- CA02CR CHANGES STARTS HERE--> 
+                       <!-- <input type="text" value=" " name="MIR-BNK-BR-NM" id="MIR-BNK-BR-NM" stype="Text" maxlength="36"  onfocus="enterField(this)" onchange="onlyKatakana()" onkeypress="KanaKeyCheck()"/> -->
+                            <input type="text" value=" " name="MIR-BNK-BR-NM" id="MIR-BNK-BR-NM" stype="Text" maxlength="36"  onfocus="enterField(this)"/>
+<!-- CA02CR CHANGES ENDS HERE-->
+<!-- 105698 CHANGES ENDS HERE-->
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!-- 105698 CHANGES STARTS HERE--> 
+    <!-- <script src="../js/OnlyKanji.js"></script> -->
+    <script src="../js/OnlyKana.js"></script>
+<!-- 105698 CHANGES ENDS HERE-->
+</html>

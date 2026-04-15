@@ -1,0 +1,506 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:16 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0223-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  BU3283  CTS      COMMENTED THE FIELD MIR-CLI-JP-ADDR-CD  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                                                                                                                                                   
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0223-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="splitBranch('MIR-BNK-BR-ID'); onLoadCustom(); onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="updateBranch('Branch'); return(onSubmit());">
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID" id="MIR-BNK-BR-ID" jpnbranch="Branch" jpnsubbranch="SubBranch" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CHQ-REF-ID">クライアントID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CHQ-REF-ID" id="MIR-CHQ-REF-ID" stype="Text" maxlength="10" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-TRNXT-PAYO-MTHD-CD">支払方法:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-DV-TRNXT-PAYO-MTHD-CD" id="MIR-DV-TRNXT-PAYO-MTHD-CD" size="1" stype="Selection" onfocus="enterField(this)" onChange="checkValue(this.getAttribute('value'))" mandatory="yes" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">電子振替（EFT）銀行口座情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-ACCT-HLDR-NM">口座名義:</label>
+                    </td>
+                    <td colspan="3" class="celllabelleftalign">
+                        <input type="text" value=" " name="MIR-BNK-ACCT-HLDR-NM" id="MIR-BNK-ACCT-HLDR-NM" stype="Text" maxlength="50" onfocus="enterField(this)" size="50" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-ACCT-TYP-CD">口座種目:</label>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <select name="MIR-BNK-ACCT-TYP-CD" id="MIR-BNK-ACCT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-ID">銀行番号:</label>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <input type="text" value=" " name="MIR-BNK-ID" id="MIR-BNK-ID" stype="Text" maxlength="4" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="Branch">支店番号:</label>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <input type="text" value=" " name="Branch" id="Branch" stype="Text" maxlength="3" onfocus="enterField(this)" size="20" branch="MIR-BNK-BR-ID" jpnsubbranch="SubBranch" onblur="updateBranch('Branch')" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="SubBranch">出張所番号:</label>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <input type="text" value=" " name="SubBranch" id="SubBranch" stype="text" maxlength="2" onfocus="enterField(this)" size="20" branch="MIR-BNK-BR-ID" jpnbranch="Branch" onblur="updateBranch('SubBranch')" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-ACCT-ID">口座番号:</label>
+                    </td>
+                    <td class="celllabelleftalign" colspan="3">
+                        <input type="text" value=" " name="MIR-BNK-ACCT-ID" id="MIR-BNK-ACCT-ID" stype="Text" maxlength="17" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">小切手情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-CHQ-VCHR-NUM">伝票番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-CHQ-VCHR-NUM" id="MIR-DV-CHQ-VCHR-NUM" stype="Text" maxlength="7" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign"></td>
+                    <td class="celllabeldataentry"></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CHQ-PAYE-NM-T[1]">受取人名:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CHQ-PAYE-NM-T[1]" id="MIR-CHQ-PAYE-NM-T[1]" stype="Text" maxlength="50" onfocus="enterField(this)" size="50" />
+                    </td>
+                    <td />
+                    <td />
+                </tr>
+                <tr>
+                    <td />
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CHQ-PAYE-NM-T[2]" id="MIR-CHQ-PAYE-NM-T[2]" stype="Text" maxlength="50" onfocus="enterField(this)" size="50" />
+                    </td>
+                    <td />
+                    <td />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-CHQ-DESC-TXT-T[1]">小切手詳細:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-CHQ-DESC-TXT-T[1]" id="MIR-DV-CHQ-DESC-TXT-T[1]" stype="Text" maxlength="120" onfocus="enterField(this)" size="50" />
+                    </td>
+                    <td />
+                    <td />
+                </tr>
+                <tr>
+                    <td />
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-CHQ-DESC-TXT-T[2]" id="MIR-DV-CHQ-DESC-TXT-T[2]" stype="Text" maxlength="120" onfocus="enterField(this)" size="50" />
+                    </td>
+                    <td />
+                    <td />
+                </tr>
+                <tr>
+                    <td />
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-CHQ-DESC-TXT-T[3]" id="MIR-DV-CHQ-DESC-TXT-T[3]" stype="Text" maxlength="120" onfocus="enterField(this)" size="50" />
+                    </td>
+                    <td />
+                    <td />
+                </tr>
+                <tr>
+                    <td />
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-CHQ-DESC-TXT-T[4]" id="MIR-DV-CHQ-DESC-TXT-T[4]" stype="Text" maxlength="120" onfocus="enterField(this)" size="50" />
+                    </td>
+                    <td />
+                    <td />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-CHQ-MANL-IND">会計エントリ手入力:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-CHQ-MANL-IND" id="MIR-DV-CHQ-MANL-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ACCT-CRCY-CD">通貨:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-ACCT-CRCY-CD" stype="Text" displayonly="yes">MIR-ACCT-CRCY-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">受取人住所</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-RES-TYP-CD">居住地タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-RES-TYP-CD" id="MIR-CLI-RES-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td />
+                    <td />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-LN-1-TXT">住所:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-LN-1-TXT" id="MIR-CLI-ADDR-LN-1-TXT" stype="Text" maxlength="30" onfocus="enterField(this)" size="30" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-RES-NUM">ｱﾊﾟｰﾄ/ﾏﾝｼｮﾝ部屋番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-RES-NUM" id="MIR-CLI-RES-NUM" stype="Text" maxlength="5" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td />
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-LN-2-TXT" id="MIR-CLI-ADDR-LN-2-TXT" stype="Text" maxlength="30" onfocus="enterField(this)" size="30" />
+                    </td>
+                    <td />
+                    <td />
+                </tr>
+                <tr>
+                    <td />
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-LN-3-TXT" id="MIR-CLI-ADDR-LN-3-TXT" stype="Text" maxlength="30" onfocus="enterField(this)" size="30" />
+                    </td>
+                    <td />
+                    <td />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CITY-NM-TXT">市/区/郡:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-CITY-NM-TXT" id="MIR-CLI-CITY-NM-TXT" stype="Text" maxlength="30" onfocus="enterField(this)" size="30" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CRNT-LOC-CD">州/国:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-CRNT-LOC-CD" id="MIR-CLI-CRNT-LOC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-PSTL-CD">郵便番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-PSTL-CD" id="MIR-CLI-PSTL-CD" stype="Text" maxlength="9" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-CTRY-CD">国:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-CTRY-CD" id="MIR-CLI-CTRY-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-ADDR-ADDL-TXT">追加情報:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <input type="text" value=" " name="MIR-CLI-ADDR-ADDL-TXT" id="MIR-CLI-ADDR-ADDL-TXT" stype="Text" maxlength="60" onfocus="enterField(this)" size="60" />
+                    </td>
+                </tr>
+                <!--BU3283 CHANGES BEGIN-->
+             <!--<tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-JP-ADDR-CD">都道府県:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-JP-ADDR-CD" id="MIR-CLI-JP-ADDR-CD" stype="Text" maxlength="11" onfocus="enterField(this)" size="11" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr> -->
+                <!--BU3283 CHANGES END-->
+            </table>
+            <br />
+            <table class="tabledataentry" keyfield="0">
+                <tr>
+                    <td class="celldataentryheading" colspan="8">会計情報</td>
+                </tr>
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-ACCT-BASE-ID-T[1]">仕訳科目コード</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DV-ACCT-DR-AMT-T[1]">借方金額</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DV-ACCT-CR-AMT-T[1]">貸方金額</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DV-ACCT-DESC-TXT-T[1]">会計エントリ</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-SBSDRY-CO-ID-T[1]">子会社</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-BR-OR-DEPT-ID-T[1]">支社/部署
+</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-ACCT-ISS-LOC-CD-T[1]">発行地</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-ACCT-CRNT-LOC-CD-T[1]">現所在地</label>
+                    </td>
+                </tr>
+                <tr>
+<!--         THIS FIELD WILL BE DISPLAYED BY DEFAULT AND WHEN EFT HAS BEEN SELECTED           -->
+                    <td id="rowEFT" style="display:none" class="celllabeldataentry">
+                        <input type="text" value="253000" name="MIR-ACCT-BASE-ID-T[1]" id="MIR-ACCT-BASE-ID-T[1]" stype="Text" readonly="yes" tabindex="-1" />
+                    </td>
+<!--         THIS FIELD WILL BE DISPLAYED WHEN CHEQUE HAS BEEN SELECTED                       -->
+                    <td id="nonEFTRow" style="display: none" class="celllabeldataentry">
+                        <input type="text" value="259900" name="MIR-ACCT-BASE-ID-T[1]" id="MIR-ACCT-BASE-ID-T[1]" stype="Text" readonly="yes" tabindex="-1" />
+                    </td>
+<!--         THE REMAINING FIELDS ARE DISPLAYED REGARDLESS OF PAY OUT METHOD                  -->
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-DR-AMT-T[1]" id="MIR-DV-ACCT-DR-AMT-T[1]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" readonly="yes" tabindex="-1" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-CR-AMT-T[1]" id="MIR-DV-ACCT-CR-AMT-T[1]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-DESC-TXT-T[1]" id="MIR-DV-ACCT-DESC-TXT-T[1]" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-SBSDRY-CO-ID-T[1]" id="MIR-SBSDRY-CO-ID-T[1]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BR-OR-DEPT-ID-T[1]" id="MIR-BR-OR-DEPT-ID-T[1]" size="1" stype="Selection" onfocus="enterField(this)" disabled="yes" tabindex="-1"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ACCT-ISS-LOC-CD-T[1]" id="MIR-ACCT-ISS-LOC-CD-T[1]" size="1" stype="Selection" onfocus="enterField(this)" disabled="yes" tabindex="-1"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ACCT-CRNT-LOC-CD-T[1]" id="MIR-ACCT-CRNT-LOC-CD-T[1]" size="1" stype="Selection" onfocus="enterField(this)" disabled="yes" tabindex="-1"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ACCT-BASE-ID-T[2]" id="MIR-ACCT-BASE-ID-T[2]" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-DR-AMT-T[2]" id="MIR-DV-ACCT-DR-AMT-T[2]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-CR-AMT-T[2]" id="MIR-DV-ACCT-CR-AMT-T[2]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-DESC-TXT-T[2]" id="MIR-DV-ACCT-DESC-TXT-T[2]" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-SBSDRY-CO-ID-T[2]" id="MIR-SBSDRY-CO-ID-T[2]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BR-OR-DEPT-ID-T[2]" id="MIR-BR-OR-DEPT-ID-T[2]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ACCT-ISS-LOC-CD-T[2]" id="MIR-ACCT-ISS-LOC-CD-T[2]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ACCT-CRNT-LOC-CD-T[2]" id="MIR-ACCT-CRNT-LOC-CD-T[2]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ACCT-BASE-ID-T[3]" id="MIR-ACCT-BASE-ID-T[3]" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-DR-AMT-T[3]" id="MIR-DV-ACCT-DR-AMT-T[3]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-CR-AMT-T[3]" id="MIR-DV-ACCT-CR-AMT-T[3]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-DESC-TXT-T[3]" id="MIR-DV-ACCT-DESC-TXT-T[3]" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-SBSDRY-CO-ID-T[3]" id="MIR-SBSDRY-CO-ID-T[3]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BR-OR-DEPT-ID-T[3]" id="MIR-BR-OR-DEPT-ID-T[3]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ACCT-ISS-LOC-CD-T[3]" id="MIR-ACCT-ISS-LOC-CD-T[3]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ACCT-CRNT-LOC-CD-T[3]" id="MIR-ACCT-CRNT-LOC-CD-T[3]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ACCT-BASE-ID-T[4]" id="MIR-ACCT-BASE-ID-T[4]" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-DR-AMT-T[4]" id="MIR-DV-ACCT-DR-AMT-T[4]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-CR-AMT-T[4]" id="MIR-DV-ACCT-CR-AMT-T[4]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-DESC-TXT-T[4]" id="MIR-DV-ACCT-DESC-TXT-T[4]" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-SBSDRY-CO-ID-T[4]" id="MIR-SBSDRY-CO-ID-T[4]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BR-OR-DEPT-ID-T[4]" id="MIR-BR-OR-DEPT-ID-T[4]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ACCT-ISS-LOC-CD-T[4]" id="MIR-ACCT-ISS-LOC-CD-T[4]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ACCT-CRNT-LOC-CD-T[4]" id="MIR-ACCT-CRNT-LOC-CD-T[4]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ACCT-BASE-ID-T[5]" id="MIR-ACCT-BASE-ID-T[5]" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-DR-AMT-T[5]" id="MIR-DV-ACCT-DR-AMT-T[5]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-CR-AMT-T[5]" id="MIR-DV-ACCT-CR-AMT-T[5]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-DESC-TXT-T[5]" id="MIR-DV-ACCT-DESC-TXT-T[5]" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-SBSDRY-CO-ID-T[5]" id="MIR-SBSDRY-CO-ID-T[5]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BR-OR-DEPT-ID-T[5]" id="MIR-BR-OR-DEPT-ID-T[5]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ACCT-ISS-LOC-CD-T[5]" id="MIR-ACCT-ISS-LOC-CD-T[5]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ACCT-CRNT-LOC-CD-T[5]" id="MIR-ACCT-CRNT-LOC-CD-T[5]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ACCT-BASE-ID-T[6]" id="MIR-ACCT-BASE-ID-T[6]" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-DR-AMT-T[6]" id="MIR-DV-ACCT-DR-AMT-T[6]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-CR-AMT-T[6]" id="MIR-DV-ACCT-CR-AMT-T[6]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-DESC-TXT-T[6]" id="MIR-DV-ACCT-DESC-TXT-T[6]" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-SBSDRY-CO-ID-T[6]" id="MIR-SBSDRY-CO-ID-T[6]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BR-OR-DEPT-ID-T[6]" id="MIR-BR-OR-DEPT-ID-T[6]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ACCT-ISS-LOC-CD-T[6]" id="MIR-ACCT-ISS-LOC-CD-T[6]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ACCT-CRNT-LOC-CD-T[6]" id="MIR-ACCT-CRNT-LOC-CD-T[6]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ACCT-BASE-ID-T[7]" id="MIR-ACCT-BASE-ID-T[7]" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-DR-AMT-T[7]" id="MIR-DV-ACCT-DR-AMT-T[7]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-CR-AMT-T[7]" id="MIR-DV-ACCT-CR-AMT-T[7]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-ACCT-DESC-TXT-T[7]" id="MIR-DV-ACCT-DESC-TXT-T[7]" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-SBSDRY-CO-ID-T[7]" id="MIR-SBSDRY-CO-ID-T[7]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BR-OR-DEPT-ID-T[7]" id="MIR-BR-OR-DEPT-ID-T[7]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ACCT-ISS-LOC-CD-T[7]" id="MIR-ACCT-ISS-LOC-CD-T[7]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ACCT-CRNT-LOC-CD-T[7]" id="MIR-ACCT-CRNT-LOC-CD-T[7]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/JapaneseBranch.js"></script>
+    <script src="../js/BF022x.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

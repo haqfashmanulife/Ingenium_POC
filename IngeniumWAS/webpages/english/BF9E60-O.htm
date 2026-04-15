@@ -1,0 +1,1628 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:27 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9E60-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  15997A  CTS      CHANGES FOR FRA PREMIUM REDUCTION SIMULATION SCREEN
+*  106540  CTS      FIX FOR ANNUITY COMMENCEMENT DATE(AFTER EXTENSION)
+*  106552  CTS      FIX FOR RIGHT ALIGHN
+*  15997B  CTS      CR-01 CHANGES FOR FRA YEN REDUCTION
+*  15997D  CTS      CR03 CHANGES FOR FRA PREMIUM REDUCTION SIMULATION SCREEN
+*  23774B  CTS      CHANGES DONE FOR IE RETIREMENT PROJECT TO MAKE IT
+*                   COMPATIBLE FOR MICROSOFT EDGE. CHANGES IN HTML INCLUDE
+*                   ADDING "ID" ATTRIBUTE FOR ALL INPUT FIELDS AND CHANGES IN
+*                   JAVA SCRIPTS TO MODIFY CERTAIN FUNCTIONS/COMMANDS WHICH
+*                   ARE NO LONGER COMPATILBLE WITH EDGE.             
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  M2025A  CTS      CHANGES AS PART OF PREMIUM REDUCTION SIMULATION FRA-2025
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9E60-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <a name="top" />
+            <input type="Hidden" name="index" id="index" stype="Hidden" />
+            <input type="Hidden" name="action" id="action" stype="Hidden" />
+
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SIMULTN-DT">Simulation Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SIMULTN-DT" stype="Date" displayonly="yes">MIR-SIMULTN-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+                    <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Name">Policy Information as of Current(Simulation Date)</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Profile">Simulation Conditions</a>
+                        </td>
+                    </tr>
+                </table>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Address">Scenario #1 Simulation Result</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Employment">Scenario #2 Simulation Result</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Banking">Scenario #3 Simulation Result</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Underwriting">Scenario #4 Simulation Result</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <h2>
+                <a name="Name">Policy Information as of Current(Simulation Date)</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Policy Information as of Current(Simulation Date)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SML-PROD-CD">Small Product Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SML-PROD-CD" stype="Text" displayonly="yes">MIR-SML-PROD-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ID">Plan:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ISS-EFF-DT">Policy Issue Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Policyholder Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-INSRD-CLI-NM">Insured Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSRD-SEX-CD">Insured Gender:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-SEX-CD" stype="Text" displayonly="yes">MIR-INSRD-SEX-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSRD-BTH-DT">Insured DOB:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-BTH-DT" stype="Date" displayonly="yes">MIR-INSRD-BTH-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSRD-ISS-AGE">Insured Issue Age:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-ISS-AGE" stype="Text" displayonly="yes">MIR-INSRD-ISS-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CRCY-CD">Policy Currency:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CRCY-CD" stype="Text" displayonly="yes">MIR-POL-CRCY-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-STBL-3-CD">Premium Payment Period:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-3-CD" stype="Text" displayonly="yes">MIR-CVG-STBL-3-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREM-YEN-PMT-AMT">Premium Yen Payment Amount:</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-PREM-YEN-PMT-AMT" SType = "Currency" elength="14" displayonly="yes">MIR-PREM-YEN-PMT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-STBL-4-CD">Annuity Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-4-CD" stype="Text" displayonly="yes">MIR-CVG-STBL-4-CD</span>
+                    </td>
+<!-- M2025A CHANGE STARTS HERE -->
+                    <td class="celldisplaylabel">
+		                <label for="MIR-FRA-PREM-SUSP">FRA Premium Suspension:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FRA-PREM-SUSP" stype="Text" displayonly="yes">MIR-FRA-PREM-SUSP</span>
+		    </td>
+                </tr>
+<!-- M2025A CHANGE ENDS HERE -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-STRT-AGE">Annuity Commencement Age:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-STRT-AGE" stype="Text" displayonly="yes">MIR-ANTY-STRT-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-STRT-DT">Annuity Commencement Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-STRT-DT" stype="Date" displayonly="yes">MIR-ANTY-STRT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TRAD-PD-TO-DT-NUM">Trad Paid to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRAD-PD-TO-DT-NUM" stype="Text" displayonly="yes">MIR-TRAD-PD-TO-DT-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PD-TO-DT-NUM">Paid to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PD-TO-DT-NUM" stype="Text" displayonly="yes">MIR-PD-TO-DT-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TRAD-PD-DUR-NUM">Trad Paid Duration:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRAD-PD-DUR-NUM" stype="Text" displayonly="yes">MIR-TRAD-PD-DUR-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TRAD-ACTL-PD-DUR-NUM">Trad Actual Paid Duration:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRAD-ACTL-PD-DUR-NUM" stype="Text" displayonly="yes">MIR-TRAD-ACTL-PD-DUR-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TRAD-PD-TO-MO-NUM">Trad Paid to Month:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRAD-PD-TO-MO-NUM" stype="Text" displayonly="yes">MIR-TRAD-PD-TO-MO-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TRAD-ACTL-PD-TO-MO-NUM">Trad Actual Paid to Month:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRAD-ACTL-PD-TO-MO-NUM" stype="Text" displayonly="yes">MIR-TRAD-ACTL-PD-TO-MO-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ACCUM-YEN-PREM-AMT">Accum.P Yen Amount as of Current(Excl.Unearned P):</label>
+                    </td>
+<!--
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-ACCUM-YEN-PREM-AMT" stype = "Currency" elength="14" displayonly="yes">MIR-ACCUM-YEN-PREM-AMT</span>
+                    </td>
+-->
+<!-- 106552 CHANGE STARTS HERE -->
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-ACCUM-YEN-PREM-AMT" stype = "Currency" elength="14" displayonly="yes">MIR-ACCUM-YEN-PREM-AMT</span>
+                    </td>
+<!-- 106552 CHANGE ENDS HERE -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UNEARN-PREM-AMT">Unearned Premium as of Current:</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-UNEARN-PREM-AMT" stype = "Currency" elength="14" displayonly="yes">MIR-UNEARN-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ACCUM-POL-VALU-AMT">Accum.PV as of Current:</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-ACCUM-POL-VALU-AMT" stype = "Currency" elength="16" displayonly="yes">MIR-ACCUM-POL-VALU-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INT-RT">Interest Rate as of Current:</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-INT-RT" stype = "Percent" elength="5" decimals="2" displayonly="yes">MIR-INT-RT</span>
+                    </td>
+                </tr>
+                <tr>
+  <!--  15997B CHANGES START HERE-->
+<!--                     <td class="celldisplaylabel">
+                        <label for="MIR-DB-AMT">Death Benefit as of Current:</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-DB-AMT" SType = "Currency" displayonly="yes">MIR-DB-AMT</span>
+                    </td>-->
+  <!--  15997B CHANGES END HERE-->
+  <!-- 15997D CHANGES STARTS HERE -->
+                     <td class="celldisplaylabel">
+<!--                       <label for="MIR-CSV-AMT">CSV as of Current:</label> -->
+                        <label for="MIR-CSV-AMT">CSV(Pay-out Currency) as of Current:</label>
+                    </td>
+ <!--  15997D CHANGES END HERE-->
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-CSV-AMT" SType = "Currency" displayonly="yes">MIR-CSV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay" align="right"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAYIN-RT">Pay-In-Yen Rate as of Current:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAYIN-RT" stype = "Number" elength="6" decimals="2" displayonly="yes">MIR-PAYIN-RT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAYIN-RT-INFO">Pay-In-Yen Rate info:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAYIN-RT-INFO" stype="Text" displayonly="yes">MIR-PAYIN-RT-INFO</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAYOUT-RT">PayOut-In-Yen Rate as of Current:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAYOUT-RT" stype = "Number" elength="6" decimals="2" displayonly="yes">MIR-PAYOUT-RT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAYOUT-RT-INFO">PayOut-In-Yen Rate info:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAYOUT-RT-INFO" stype="Text" displayonly="yes">MIR-PAYOUT-RT-INFO</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+
+            <h2>
+                <a name="Profile">Simulation Conditions</a>
+            </h2>
+            <table class="tabledisplay" genrows="0" keyfield= "1">
+                <tr>
+                    <td class="celldisplayheading" colspan="6">Premium Reduction / Payment Suspension / Payment Restart Conditions</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SEQ-NO-T[1]">#</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-TRNXT-YR-MO-T[1]">Transaction Year &amp; Month</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-ELAPS-YR-FRM-ISS-DT-T[1]"># of Elapsed Years From Iss DT</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ELPSD-MO-POL-ANNV-T[1]"># of Elapsed Months From Policy Anniversary</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-TRNXT-TYP-CD-T[1]">Transaction Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PREM-TRNXT-AMT-T[1]">Premium after Transaction</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-SEQ-NO-T[]" stype="Text" displayonly="yes">MIR-SEQ-NO-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRNXT-YR-MO-T[]" stype="Text" displayonly="yes">MIR-TRNXT-YR-MO-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ELAPS-YR-FRM-ISS-DT-T[]" stype="Text" displayonly="yes">MIR-ELAPS-YR-FRM-ISS-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ELPSD-MO-POL-ANNV-T[]" stype="Text" displayonly="yes">MIR-ELPSD-MO-POL-ANNV-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRNXT-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-TRNXT-TYP-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-PREM-TRNXT-AMT-T[]" stype = "Currency" displayonly="yes">MIR-PREM-TRNXT-AMT-T[]</span>
+                    </td>
+
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Interest Rate Conditions</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SC1-CRNT-RT">Scenario #1(Same as Current Rate):</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-CRNT-RT" stype = "Percent" elength="5" decimals="2" displayonly="yes">MIR-SC1-CRNT-RT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SC2-MIN-GUAR-RT">Scenario #2(Minimum Gauranteed Rate):</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-MIN-GUAR-RT" stype = "Percent" elength="5" decimals="2" displayonly="yes">MIR-SC2-MIN-GUAR-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SC3-OPTL-ENTR-RT">Scenario #3(Optional Entry Rate):</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-OPTL-ENTR-RT" stype = "Text" maxlength="5" displayonly="yes">MIR-SC3-OPTL-ENTR-RT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SC4-OPTL-ENTR-RT">Scenario #4(Optional Entry Rate):</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-OPTL-ENTR-RT" stype = "Text" maxlength="5" displayonly="yes">MIR-SC4-OPTL-ENTR-RT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Premium Payment Period Extension Condition Section</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NO-OF-EXT-YR"># of Extension years:</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-NO-OF-EXT-YR" stype="Text" displayonly="yes">MIR-NO-OF-EXT-YR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-STRT-AFT-EXT-DT">Annuity Commencement Date after Extension:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-STRT-AFT-EXT-DT" stype="Date" displayonly="yes">MIR-ANTY-STRT-AFT-EXT-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Simulation Result Report Creation Conditions Section</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SEND-MTHD-CD">Send Method:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SEND-MTHD-CD" stype="Text" displayonly="yes">MIR-SEND-MTHD-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SEND-TO-LAST-NM">Send To(Last Name):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SEND-TO-LAST-NM" stype="Text" displayonly="yes">MIR-SENT-TO-LAST-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SEND-TO-FIRST-NM">Send To(First Name):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SEND-TO-FIRST-NM" stype="Text" displayonly="yes">MIR-SENT-TO-FIRST-NM</span>
+                    </td>
+                </tr>
+                <tr>
+<!-- 15997D CHANGES STARTS HERE -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SEND-TO-CO-NM">Send To(Company Name):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SEND-TO-CO-NM" stype="Text" displayonly="yes">MIR-SENT-TO-CO-NM</span>
+                    </td>
+<!-- 15997D CHANGES ENDS HERE -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SEND-TO-PSTL-CD">Send To(Postal Code):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SEND-TO-PSTL-CD" stype="Text" displayonly="yes">MIR-SEND-TO-PSTL-CD</span>
+                    </td>
+<!-- 15997D CHANGES STARTS HERE -->
+<!--                    <td class="celldisplaylabel" />  -->
+<!--                    <td class="celldisplay" />  -->
+<!-- 15997D CHANGES ENDS HERE -->
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SEND-TO-ADDR-TXT">Send To(Address):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SEND-TO-ADDR-TXT" stype="Text" displayonly="yes">MIR-SEND-TO-ADDR-TXT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SEND-TO-ADDR-ADDL-TXT">Send To (Samakata-bu):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SEND-TO-ADDR-ADDL-TXT" stype="Text" displayonly="yes">MIR-SEND-TO-ADDR-ADDL-TXT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+                        <table class="tabledisplay">
+                            <tr>
+                                 <td class="celldisplayheading" colspan="4">Simulation Result Report by # of Elapsed Months DisPlay Conditions</td>
+                </tr>
+                <tr>
+                     <td class="celldisplaylabel">
+                         <label for="MIR-STRT-YR-MO">Start Year &amp; Month:</label>
+                     </td>
+                     <td class="celldisplay">
+                         <span id="MIR-STRT-YR-MO" stype="Text" displayonly="yes">MIR-STRT-YR-MO</span>
+                     </td>
+                     <td class="celldisplaylabel">
+                                             <label for="MIR-END-YR-MO">End Year &amp; Month:</label>
+                                         </td>
+                                         <td class="celldisplay">
+                                             <span id="MIR-END-YR-MO" stype="Text" displayonly="yes">MIR-END-YR-MO</span>
+                     </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+
+            <h2>
+                <a name="Address">Scenarion # 1 Simulation Result</a>
+            </h2>
+            <table class="tabledisplay" genrows="0" >
+                <tr>
+                    <td class="celldisplayheading" colspan="14">Scenario # 1 Reduction Simulation (By # of Elapsed Years)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC1-PREM-DUE-MO-T[1]">Premium Due Month</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC1-ELAPS-YR-T[1]"># of Elapsed Years From Iss Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC1-INSRD-AGE-T[1]">Age</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC1-PREM-YEN-AMT-T[1]">P Yen Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC1-ACUM-JP-PREM-AMT-T[1]">Accum P Yen Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC1-ACUM-FC-PREM-AMT-T[1]">Accum P Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC1-UNEARN-PREM-AMT-T[1]">Unearned P</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC1-INT-RT-T[1]">Interest RT</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC1-ACUM-FC-PV-AMT-T[1]">Accum PV(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC1-FC-DB-AMT-T[1]">Death Benefit(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC1-FC-CSV-AMT-T[1]">CSV(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC1-FC-CSV-INT-RT-T[1]">CSV Return RT(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC1-YEN-CSV-AMT-T[1]">CSV (Yen)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC1-YEN-CSV-INT-RT-T[1]">CSV Return RT(Yen)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <a name="MIR-SC1-PREM-DUE-MO-T[]" id ="MIR-SC1-PREM-DUE-MO-T[]" href="a" action="SelectItem1" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">MIR-SC1-PREM-DUE-MO-T[]</a>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC1-ELAPS-YR-T[]" stype="Text" displayonly="yes">MIR-SC1-ELAPS-YR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC1-INSRD-AGE-T[]" stype="Text" displayonly="yes">MIR-SC1-INSRD-AGE-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-PREM-YEN-AMT-T[]" SType = "Currency" displayonly="yes">MIR-SC1-PREM-YEN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-ACUM-JP-PREM-AMT-T[]" SType = "Currency" displayonly="yes">MIR-SC1-ACUM-JP-PREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-ACUM-FC-PREM-AMT-T[]" SType = "Currency" displayonly="yes">MIR-SC1-ACUM-FC-PREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-UNEARN-PREM-AMT-T[]" SType = "Currency" displayonly="yes">MIR-SC1-UNEARN-PREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-INT-RT-T[]" stype = "Percent" elength="5" decimals="2" displayonly="yes">MIR-SC1-INT-RT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-ACUM-FC-PV-AMT-T[]" SType = "Currency" displayonly="yes">MIR-SC1-ACUM-FC-PV-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-FC-DB-AMT-T[]" SType = "Currency" displayonly="yes">MIR-SC1-FC-DB-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-FC-CSV-AMT-T[]" SType = "Currency" displayonly="yes">MIR-SC1-FC-CSV-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-FC-CSV-INT-RT-T[]" stype = "Percent" elength="5" decimals="1" displayonly="yes">MIR-SC1-FC-CSV-INT-RT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-YEN-CSV-AMT-T[]" stype = "Currency" displayonly="yes">MIR-SC1-YEN-CSV-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-YEN-CSV-INT-RT-T[]" stype = "Percent" elength="5" decimals="1" displayonly="yes">MIR-SC1-YEN-CSV-INT-RT-T[]</span>
+                    </td>
+
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Scenario #1 Annuity Information</td>
+                </tr>
+                <tr>
+                                    <td class="celldisplaylabel">
+                                        <label for="MIR-CVG-STBL-4-CD">Annuity Type:</label>
+                                    </td>
+                                    <td class="celldisplay">
+                                        <span id="MIR-CVG-STBL-4-CD" stype="Text" displayonly="yes">MIR-CVG-STBL-4-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+<!--
+                                            <label for="MIR-ANTY-STRT-DT">Annuity Commencement Date (after Extension):</label>
+                                </td>
+                                        <td class="celldisplay">
+                                                <span id="MIR-ANTY-STRT-DT" stype="Date" displayonly="yes">MIR-ANTY-STRT-DT</span>
+                    </td>
+-->
+<!-- 106540 CHANGE STARTS HERE -->
+                                            <label for="MIR-ANTY-STRT-AFT-EXT-DT">Annuity Commencement Date (after Extension):</label>
+                                </td>
+                                        <td class="celldisplay">
+                                                <span id="MIR-ANTY-STRT-AFT-EXT-DT" stype="Date" displayonly="yes">MIR-ANTY-STRT-AFT-EXT-DT</span>
+                    </td>
+<!-- 106540 CHANGE ENDS HERE -->
+
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                       <label for="MIR-SC1-ACUM-PREM-JP-AMT">Accum. P Yen Amount as of 1-day before ACD:</label>
+                                    </td>
+                                        <td class="celldisplay" align="right">
+                                           <span id="MIR-SC1-ACUM-PREM-JP-AMT"  stype="Currency" displayonly="yes">MIR-SC1-ACUM-PREM-JP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                                       <label for="MIR-SC1-ACUM-PREM-FC-AMT">Accum. P Amount (Policy Curr.) as of 1-day before ACD:</label>
+                                        </td>
+                            <td class="celldisplay" align="right">
+                                       <span id="MIR-SC1-ACUM-PREM-FC-AMT" stype="Currency" displayonly="yes">MIR-SC1-ACUM-PREM-FC-AMT</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                           <label for="MIR-SC1-FC-ANTY-RESRC-AMT">Foreign Curr. Denomi. Annuity Resource:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                           <span id="MIR-SC1-FC-ANTY-RESRC-AMT"  stype="Currency" displayonly="yes">MIR-SC1-FC-ANTY-RESRC-AMT</span>
+                                        </td>
+                                        <td class="celldisplaylabel">
+                                   <label for="MIR-SC1-FC-ANTY-RESRC-RT">Foreign Curr. Denomi. Annuity Resource Return RT:</label>
+                                </td>
+                                    <td class="celldisplay" align="right">
+                                           <span id="MIR-SC1-FC-ANTY-RESRC-RT" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC1-FC-ANTY-RESRC-RT</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SC1-FC-ANTY-AMT">Foreign Curr. Denomi. Annuity AMT:</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-FC-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC1-FC-ANTY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                            <label for="MIR-SC1-ACUM-FC-ANTY-AMT">Accum. Foreign Curr. Denomi. Annuity AMT:</label>
+                                    </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC1-ACUM-FC-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC1-ACUM-FC-ANTY-AMT</span>
+                                        </td>
+                                    <td class="celldisplaylabel">
+                                        <label for="MIR-SC1-ACUM-FC-ANTY-RT">Accum. Foreign Curr. Denomi. Annuity AMT Return RT:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC1-ACUM-FC-ANTY-RT" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC1-ACUM-FC-ANTY-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                            <label for="MIR-SC1-ACUM-YEN-ANTY-AMT">Accum. Foreign Curr. Denomi. Annuity AMT (Yen Conv.):</label>
+                                    </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC1-ACUM-YEN-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC1-ACUM-YEN-ANTY-AMT</span>
+                                        </td>
+                                    <td class="celldisplaylabel">
+                                        <label for="MIR-SC1-ACUM-YEN-ANTY-RT">Accum. Foreign Curr. Denomi. Annuity AMT (Yen Conv.) Return RT:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC1-ACUM-YEN-ANTY-RT" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC1-ACUM-YEN-ANTY-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                            <label for="MIR-SC1-PAYOUT-YEN-ANTY-RT">PayOut-In-Yen RT for Yen Denomi. Annuity Resource:</label>
+                                    </td>
+                                        <td class="celldisplay">
+                                                <span id="MIR-SC1-PAYOUT-YEN-ANTY-RT" stype="Number" elength="6" decimals="2" displayonly="yes">MIR-SC1-PAYOUT-YEN-ANTY-RT</span>
+                                        </td>
+                                    <td class="celldisplaylabel">
+                                        <label for="MIR-SC1-YEN-ANTY-RESRC-AMT">Yen Denomi. Annuity Resource:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC1-YEN-ANTY-RESRC-AMT" stype="Currency" displayonly="yes">MIR-SC1-YEN-ANTY-RESRC-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SC1-YEN-ANTY-AMT">Yen Denomi. Annuity AMT:</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-YEN-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC1-YEN-ANTY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="5">Scenario #1 Annuity Amount(By # of Elapsed Years)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC1-ELAPS-YR-AFT-ACD-T[1]"># of Elapsed Years From ACD</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC1-ANTY-STRT-AGE-T[1]">Age</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC1-FC-ANTY-AMT-T[1]">Foreign Curr. Denomi. Annuity AMT</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC1-PAYOUT-YEN-RT-T[1]">PayOut-In-Yen RT</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC1-YEN-ANTY-AMT-T[1]">Foreign Curr. Denomi. Annuity AMT (Yen Conv.)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-SC1-ELAPS-YR-AFT-ACD-T[]" stype="Text" displayonly="yes">MIR-SC1-ELAPS-YR-AFT-ACD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC1-ANTY-STRT-AGE-T[]" stype="Text" displayonly="yes">MIR-SC1-ANTY-STRT-AGE-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-FC-ANTY-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC1-FC-ANTY-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC1-PAYOUT-YEN-RT-T[]" stype="Number" elength="6" decimals="2" displayonly="yes">MIR-SC1-PAYOUT-YEN-RT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC1-YEN-ANTY-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC1-YEN-ANTY-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Employment">Scenarion # 2 Simulation Result</a>
+            </h2>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="14">Scenario # 2 Reduction Simulation (By # of Elapsed Years)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC2-PREM-DUE-MO-T[1]">Premium Due Month</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC2-ELAPS-YR-T[1]"># of Elapsed Years From Iss Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC2-INSRD-AGE-T[1]">Age</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC2-PREM-YEN-AMT-T[1]">P Yen Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC2-ACUM-JP-PREM-AMT-T[1]">Accum P Yen Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC2-ACUM-FC-PREM-AMT-T[1]">Accum P Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC2-UNEARN-PREM-AMT-T[1]">Unearned P</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC2-INT-RT-T[1]">Interest RT</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC2-ACUM-FC-PV-AMT-T[1]">Accum PV(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC2-FC-DB-AMT-T[1]">Death Benefit(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC2-FC-CSV-AMT-T[1]">CSV(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC2-FC-CSV-INT-RT-T[1]">CSV Return RT(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC2-YEN-CSV-AMT-T[1]">CSV (Yen)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC2-YEN-CSV-INT-RT-T[1]">CSV Return RT(Yen)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <a name="MIR-SC2-PREM-DUE-MO-T[]" id ="MIR-SC2-PREM-DUE-MO-T[]" stype="Text" href="a" action="SelectItem2" index="1" onclick="onAction();return(false);" displayonly="yes">MIR-SC2-PREM-DUE-MO-T[]</a>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC2-ELAPS-YR-T[]" stype="Text" displayonly="yes">MIR-SC2-ELAPS-YR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC2-INSRD-AGE-T[]" stype="Text" displayonly="yes">MIR-SC2-INSRD-AGE-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-PREM-YEN-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC2-PREM-YEN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-ACUM-JP-PREM-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC2-ACUM-JP-PREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-ACUM-FC-PREM-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC2-ACUM-FC-PREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-UNEARN-PREM-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC2-UNEARN-PREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-INT-RT-T[]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-SC2-INT-RT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-ACUM-FC-PV-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC2-ACUM-FC-PV-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-FC-DB-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC2-FC-DB-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-FC-CSV-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC2-FC-CSV-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-FC-CSV-INT-RT-T[]" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC2-FC-CSV-INT-RT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-YEN-CSV-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC2-YEN-CSV-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-YEN-CSV-INT-RT-T[]" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC2-YEN-CSV-INT-RT-T[]</span>
+                    </td>
+
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Scenario #2 Annuity Information</td>
+                </tr>
+                <tr>
+                <td class="celldisplaylabel">
+                                        <label for="MIR-CVG-STBL-4-CD">Annuity Type:</label>
+                                    </td>
+                                    <td class="celldisplay">
+                                        <span id="MIR-CVG-STBL-4-CD" stype="Text" displayonly="yes">MIR-CVG-STBL-4-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+<!--
+                                            <label for="MIR-ANTY-STRT-DT">Annuity Commencement Date (after Extension):</label>
+                                </td>
+                                        <td class="celldisplay">
+                                                <span id="MIR-ANTY-STRT-DT" stype="Date" displayonly="yes">MIR-ANTY-STRT-DT</span>
+                    </td>
+-->
+<!-- 106540 CHANGE STARTS HERE -->
+                                            <label for="MIR-ANTY-STRT-AFT-EXT-DT">Annuity Commencement Date (after Extension):</label>
+                                </td>
+                                        <td class="celldisplay">
+                                                <span id="MIR-ANTY-STRT-AFT-EXT-DT" stype="Date" displayonly="yes">MIR-ANTY-STRT-AFT-EXT-DT</span>
+                    </td>
+<!-- 106540 CHANGE ENDS HERE -->
+
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                       <label for="MIR-SC2-ACUM-PREM-JP-AMT">Accum. P Yen Amount as of 1-day before ACD:</label>
+                                    </td>
+                                        <td class="celldisplay" align="right">
+                                           <span id="MIR-SC2-ACUM-PREM-JP-AMT" stype="Currency" displayonly="yes">MIR-SC2-ACUM-PREM-JP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                                       <label for="MIR-SC2-ACUM-PREM-FC-AMT">Accum. P Amount (Policy Curr.) as of 1-day before ACD:</label>
+                                        </td>
+                            <td class="celldisplay" align="right">
+                                       <span id="MIR-SC2-ACUM-PREM-FC-AMT" stype="Currency" displayonly="yes">MIR-SC2-ACUM-PREM-FC-AMT</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                           <label for="MIR-SC2-FC-ANTY-RESRC-AMT">Foreign Curr. Denomi. Annuity Resource:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                           <span id="MIR-SC2-FC-ANTY-RESRC-AMT" stype="Currency" displayonly="yes">MIR-SC2-FC-ANTY-RESRC-AMT</span>
+                                        </td>
+                                        <td class="celldisplaylabel">
+                                   <label for="MIR-SC2-FC-ANTY-RESRC-RT">Foreign Curr. Denomi. Annuity Resource Return RT:</label>
+                                </td>
+                                    <td class="celldisplay" align="right">
+                                           <span id="MIR-SC2-FC-ANTY-RESRC-RT" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC2-FC-ANTY-RESRC-RT</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SC2-FC-ANTY-AMT">Foreign Curr. Denomi. Annuity AMT:</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-FC-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC2-FC-ANTY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                            <label for="MIR-SC2-ACUM-FC-ANTY-AMT">Accum. Foreign Curr. Denomi. Annuity AMT:</label>
+                                    </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC2-ACUM-FC-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC2-ACUM-FC-ANTY-AMT</span>
+                                        </td>
+                                    <td class="celldisplaylabel">
+                                        <label for="MIR-SC2-ACUM-FC-ANTY-RT">Accum. Foreign Curr. Denomi. Annuity AMT Return RT:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC2-ACUM-FC-ANTY-RT" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC2-ACUM-FC-ANTY-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                            <label for="MIR-SC2-ACUM-YEN-ANTY-AMT">Accum. Foreign Curr. Denomi. Annuity AMT (Yen Conv.):</label>
+                                    </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC2-ACUM-YEN-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC2-ACUM-YEN-ANTY-AMT</span>
+                                        </td>
+                                    <td class="celldisplaylabel">
+                                        <label for="MIR-SC2-ACUM-YEN-ANTY-RT">Accum. Foreign Curr. Denomi. Annuity AMT (Yen Conv.) Return RT:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC2-ACUM-YEN-ANTY-RT" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC2-ACUM-YEN-ANTY-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                            <label for="MIR-SC2-PAYOUT-YEN-ANTY-RT">PayOut-In-Yen RT for Yen Denomi. Annuity Resource:</label>
+                                    </td>
+                                        <td class="celldisplay">
+                                                <span id="MIR-SC2-PAYOUT-YEN-ANTY-RT" stype="Number" elength="6" decimals="2" displayonly="yes">MIR-SC2-PAYOUT-YEN-ANTY-RT</span>
+                                        </td>
+                                    <td class="celldisplaylabel" align="right">
+                                        <label for="MIR-SC2-YEN-ANTY-RESRC-AMT">Yen Denomi. Annuity Resource:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC2-YEN-ANTY-RESRC-AMT" stype="Currency" displayonly="yes">MIR-SC2-YEN-ANTY-RESRC-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SC2-YEN-ANTY-AMT">Yen Denomi. Annuity AMT:</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-YEN-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC2-YEN-ANTY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="5">Scenario #2 Annuity Amount(By # of Elapsed Years)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC2-ELAPS-YR-AFT-ACD-T[1]"># of Elapsed Years From ACD</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC2-ANTY-STRT-AGE-T[1]">Age</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC2-FC-ANTY-AMT-T[1]">Foreign Curr. Denomi. Annuity AMT</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC2-PAYOUT-YEN-RT-T[1]">PayOut-In-Yen RT</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC2-YEN-ANTY-AMT-T[1]">Foreign Curr. Denomi. Annuity AMT (Yen Conv.)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-SC2-ELAPS-YR-AFT-ACD-T[]" stype="Text" displayonly="yes">MIR-SC2-ELAPS-YR-AFT-ACD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC2-ANTY-STRT-AGE-T[]" stype="Text" displayonly="yes">MIR-SC2-ANTY-STRT-AGE-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-FC-ANTY-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC2-FC-ANTY-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC2-PAYOUT-YEN-RT-T[]" stype="Number" elength="6" decimals="2" displayonly="yes">MIR-SC2-PAYOUT-YEN-RT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC2-YEN-ANTY-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC2-YEN-ANTY-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Banking">Scenarion # 3 Simulation Result</a>
+            </h2>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="14">Scenario # 3 Reduction Simulation (By # of Elapsed Years)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC3-PREM-DUE-MO-T[1]">Premium Due Month</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC3-ELAPS-YR-T[1]"># of Elapsed Years From Iss Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC3-INSRD-AGE-T[1]">Age</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC3-PREM-YEN-AMT-T[1]">P Yen Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC3-ACUM-JP-PREM-AMT-T[1]">Accum P Yen Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC3-ACUM-FC-PREM-AMT-T[1]">Accum P Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC3-UNEARN-PREM-AMT-T[1]">Unearned P</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC3-INT-RT-T[1]">Interest RT</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC3-ACUM-FC-PV-AMT-T[1]">Accum PV(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC3-FC-DB-AMT-T[1]">Death Benefit(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC3-FC-CSV-AMT-T[1]">CSV(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC3-FC-CSV-INT-RT-T[1]">CSV Return RT(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC3-YEN-CSV-AMT-T[1]">CSV (Yen)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC3-YEN-CSV-INT-RT-T[1]">CSV Return RT(Yen)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <a name="MIR-SC3-PREM-DUE-MO-T[]" id ="MIR-SC3-PREM-DUE-MO-T[]" stype="Text" href="a" action="SelectItem3" index="1" onclick="onAction();return(false);" displayonly="yes">MIR-SC3-PREM-DUE-MO-T[]</a>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC3-ELAPS-YR-T[]" stype="Text" displayonly="yes">MIR-SC3-ELAPS-YR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC3-INSRD-AGE-T[]" stype="Text" displayonly="yes">MIR-SC3-INSRD-AGE-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-PREM-YEN-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC3-PREM-YEN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-ACUM-JP-PREM-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC3-ACUM-JP-PREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-ACUM-FC-PREM-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC3-ACUM-FC-PREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-UNEARN-PREM-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC3-UNEARN-PREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-INT-RT-T[]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-SC3-INT-RT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-ACUM-FC-PV-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC3-ACUM-FC-PV-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-FC-DB-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC3-FC-DB-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-FC-CSV-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC3-FC-CSV-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-FC-CSV-INT-RT-T[]" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC3-FC-CSV-INT-RT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-YEN-CSV-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC3-YEN-CSV-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-YEN-CSV-INT-RT-T[]" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC3-YEN-CSV-INT-RT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Scenario #3 Annuity Information</td>
+                </tr>
+                <tr>
+                <td class="celldisplaylabel">
+                                        <label for="MIR-CVG-STBL-4-CD">Annuity Type:</label>
+                                    </td>
+                                    <td class="celldisplay">
+                                        <span id="MIR-CVG-STBL-4-CD"  stype="Text" displayonly="yes">MIR-CVG-STBL-4-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+<!--
+                                            <label for="MIR-ANTY-STRT-DT">Annuity Commencement Date (after Extension):</label>
+                                </td>
+                                        <td class="celldisplay">
+                                                <span id="MIR-ANTY-STRT-DT"  stype="Date" displayonly="yes">MIR-ANTY-STRT-DT</span>
+                    </td>
+-->
+<!-- 106540 CHANGE STARTS HERE -->
+                                            <label for="MIR-ANTY-STRT-AFT-EXT-DT">Annuity Commencement Date (after Extension):</label>
+                                </td>
+                                        <td class="celldisplay">
+                                                <span id="MIR-ANTY-STRT-AFT-EXT-DT" stype="Date" displayonly="yes">MIR-ANTY-STRT-AFT-EXT-DT</span>
+                    </td>
+<!-- 106540 CHANGE ENDS HERE -->
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                       <label for="MIR-SC3-ACUM-PREM-JP-AMT">Accum. P Yen Amount as of 1-day before ACD:</label>
+                                    </td>
+                                        <td class="celldisplay" align="right">
+                                           <span id="MIR-SC3-ACUM-PREM-JP-AMT" stype="Currency" displayonly="yes">MIR-SC3-ACUM-PREM-JP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                                       <label for="MIR-SC3-ACUM-PREM-FC-AMT">Accum. P Amount (Policy Curr.) as of 1-day before ACD:</label>
+                                        </td>
+                            <td class="celldisplay" align="right">
+                                       <span id="MIR-SC3-ACUM-PREM-FC-AMT" stype="Currency" displayonly="yes">MIR-SC3-ACUM-PREM-FC-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                           <label for="MIR-SC3-FC-ANTY-RESRC-AMT">Foreign Curr. Denomi. Annuity Resource:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                           <span id="MIR-SC3-FC-ANTY-RESRC-AMT" stype="Currency" displayonly="yes">MIR-SC3-FC-ANTY-RESRC-AMT</span>
+                                        </td>
+                                        <td class="celldisplaylabel">
+                                   <label for="MIR-SC3-FC-ANTY-RESRC-RT">Foreign Curr. Denomi. Annuity Resource Return RT:</label>
+                                </td>
+                                    <td class="celldisplay" align="right">
+                                           <span id="MIR-SC3-FC-ANTY-RESRC-RT" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC3-FC-ANTY-RESRC-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SC3-FC-ANTY-AMT">Foreign Curr. Denomi. Annuity AMT:</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-FC-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC3-FC-ANTY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                            <label for="MIR-SC3-ACUM-FC-ANTY-AMT">Accum. Foreign Curr. Denomi. Annuity AMT:</label>
+                                    </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC3-ACUM-FC-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC3-ACUM-FC-ANTY-AMT</span>
+                                        </td>
+                                    <td class="celldisplaylabel">
+                                        <label for="MIR-SC3-ACUM-FC-ANTY-RT">Accum. Foreign Curr. Denomi. Annuity AMT Return RT:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC3-ACUM-FC-ANTY-RT" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC3-ACUM-FC-ANTY-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                            <label for="MIR-SC3-ACUM-YEN-ANTY-AMT">Accum. Foreign Curr. Denomi. Annuity AMT (Yen Conv.):</label>
+                                    </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC3-ACUM-YEN-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC3-ACUM-YEN-ANTY-AMT</span>
+                                        </td>
+                                    <td class="celldisplaylabel">
+                                        <label for="MIR-SC3-ACUM-YEN-ANTY-RT">Accum. Foreign Curr. Denomi. Annuity AMT (Yen Conv.) Return RT:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC3-ACUM-YEN-ANTY-RT" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC3-ACUM-YEN-ANTY-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                            <label for="MIR-SC3-PAYOUT-YEN-ANTY-RT">PayOut-In-Yen RT for Yen Denomi. Annuity Resource:</label>
+                                    </td>
+                                        <td class="celldisplay">
+                                                <span id="MIR-SC3-PAYOUT-YEN-ANTY-RT" stype="Number" elength="6" decimals="1" displayonly="yes">MIR-SC3-PAYOUT-YEN-ANTY-RT</span>
+                                        </td>
+                                    <td class="celldisplaylabel">
+                                        <label for="MIR-SC3-YEN-ANTY-RESRC-AMT">Yen Denomi. Annuity Resource:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC3-YEN-ANTY-RESRC-AMT" stype="Currency" displayonly="yes">MIR-SC3-YEN-ANTY-RESRC-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SC3-YEN-ANTY-AMT">Yen Denomi. Annuity AMT:</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-YEN-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC3-YEN-ANTY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="5">Scenario #3 Annuity Amount(By # of Elapsed Years)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC3-ELAPS-YR-AFT-ACD-T[1]"># of Elapsed Years From ACD</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC3-ANTY-STRT-AGE-T[1]">Age</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC3-FC-ANTY-AMT-T[1]">Foreign Curr. Denomi. Annuity AMT</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC3-PAYOUT-YEN-RT-T[1]">PayOut-In-Yen RT</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC3-YEN-ANTY-AMT-T[1]">Foreign Curr. Denomi. Annuity AMT (Yen Conv.)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-SC3-ELAPS-YR-AFT-ACD-T[]" stype="Text" displayonly="yes">MIR-SC3-ELAPS-YR-AFT-ACD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC3-ANTY-STRT-AGE-T[]" stype="Text" displayonly="yes">MIR-SC3-ANTY-STRT-AGE-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-FC-ANTY-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC3-FC-ANTY-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC3-PAYOUT-YEN-RT-T[]" stype="Number" elength="6" decimals="2" displayonly="yes">MIR-SC3-PAYOUT-YEN-RT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC3-YEN-ANTY-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC3-YEN-ANTY-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Underwriting">Scenarion # 4 Simulation Result</a>
+            </h2>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="14">Scenario # 4 Reduction Simulation (By # of Elapsed Years)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC4-PREM-DUE-MO-T[1]">Premium Due Month</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC4-ELAPS-YR-T[1]"># of Elapsed Years From Iss Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC4-INSRD-AGE-T[1]">Age</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC4-PREM-YEN-AMT-T[1]">P Yen Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC4-ACUM-JP-PREM-AMT-T[1]">Accum P Yen Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC4-ACUM-FC-PREM-AMT-T[1]">Accum P Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC4-UNEARN-PREM-AMT-T[1]">Unearned P</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC4-INT-RT-T[1]">Interest RT</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC4-ACUM-FC-PV-AMT-T[1]">Accum PV(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC4-FC-DB-AMT-T[1]">Death Benefit(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC4-FC-CSV-AMT-T[1]">CSV(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC4-FC-CSV-INT-RT-T[1]">CSV Return RT(FC)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC4-YEN-CSV-AMT-T[1]">CSV (Yen)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC4-YEN-CSV-INT-RT-T[1]">CSV Return RT(Yen)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <a name="MIR-SC4-PREM-DUE-MO-T[]" id ="MIR-SC4-PREM-DUE-MO-T[]" stype="Text" href="a" action="SelectItem4" index="1" onclick="onAction();return(false);" displayonly="yes">MIR-SC4-PREM-DUE-MO-T[]</a>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC4-ELAPS-YR-T[]" stype="Text" displayonly="yes">MIR-SC4-ELAPS-YR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC4-INSRD-AGE-T[]" stype="Text" displayonly="yes">MIR-SC4-INSRD-AGE-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-PREM-YEN-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC4-PREM-YEN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-ACUM-JP-PREM-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC4-ACUM-JP-PREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-ACUM-FC-PREM-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC4-ACUM-FC-PREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-UNEARN-PREM-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC4-UNEARN-PREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-INT-RT-T[]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-SC4-INT-RT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-ACUM-FC-PV-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC4-ACUM-FC-PV-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-FC-DB-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC4-FC-DB-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-FC-CSV-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC4-FC-CSV-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-FC-CSV-INT-RT-T[]" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC4-FC-CSV-INT-RT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-YEN-CSV-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC4-YEN-CSV-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-YEN-CSV-INT-RT-T[]" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC4-YEN-CSV-INT-RT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Scenario #4 Annuity Information</td>
+                </tr>
+                <tr>
+                <td class="celldisplaylabel">
+                                        <label for="MIR-CVG-STBL-4-CD">Annuity Type:</label>
+                                    </td>
+                                    <td class="celldisplay">
+                                        <span id="MIR-CVG-STBL-4-CD"  stype="Text" displayonly="yes">MIR-CVG-STBL-4-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+<!--
+                                            <label for="MIR-ANTY-STRT-DT">Annuity Commencement Date (after Extension):</label>
+                                </td>
+                                        <td class="celldisplay">
+                                                <span id="MIR-ANTY-STRT-DT"  stype="Date" displayonly="yes">MIR-ANTY-STRT-DT</span>
+                    </td>
+-->
+<!-- 106540 CHANGE STARTS HERE -->
+                                            <label for="MIR-ANTY-STRT-AFT-EXT-DT">Annuity Commencement Date (after Extension):</label>
+                                </td>
+                                        <td class="celldisplay">
+                                                <span id="MIR-ANTY-STRT-AFT-EXT-DT" stype="Date" displayonly="yes">MIR-ANTY-STRT-AFT-EXT-DT</span>
+                    </td>
+<!-- 106540 CHANGE ENDS HERE -->
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                       <label for="MIR-SC4-ACUM-PREM-JP-AMT">Accum. P Yen Amount as of 1-day before ACD:</label>
+                                    </td>
+                                        <td class="celldisplay" align="right">
+                                           <span id="MIR-SC4-ACUM-PREM-JP-AMT" stype="Currency" displayonly="yes">MIR-SC4-ACUM-PREM-JP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                                       <label for="MIR-SC4-ACUM-PREM-FC-AMT">Accum. P Amount (Policy Curr.) as of 1-day before ACD:</label>
+                                        </td>
+                            <td class="celldisplay" align="right">
+                                       <span id="MIR-SC4-ACUM-PREM-FC-AMT" stype="Currency" displayonly="yes">MIR-SC4-ACUM-PREM-FC-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                           <label for="MIR-SC4-FC-ANTY-RESRC-AMT">Foreign Curr. Denomi. Annuity Resource:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                           <span id="MIR-SC4-FC-ANTY-RESRC-AMT" stype="Currency" displayonly="yes">MIR-SC4-FC-ANTY-RESRC-AMT</span>
+                                        </td>
+                                        <td class="celldisplaylabel">
+                                   <label for="MIR-SC4-FC-ANTY-RESRC-RT">Foreign Curr. Denomi. Annuity Resource Return RT:</label>
+                                </td>
+                                    <td class="celldisplay" align="right">
+                                           <span id="MIR-SC4-FC-ANTY-RESRC-RT" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC4-FC-ANTY-RESRC-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SC4-FC-ANTY-AMT">Foreign Curr. Denomi. Annuity AMT:</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-FC-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC4-FC-ANTY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                            <label for="MIR-SC4-ACUM-FC-ANTY-AMT">Accum. Foreign Curr. Denomi. Annuity AMT:</label>
+                                    </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC4-ACUM-FC-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC4-ACUM-FC-ANTY-AMT</span>
+                                        </td>
+                                    <td class="celldisplaylabel">
+                                        <label for="MIR-SC4-ACUM-FC-ANTY-RT">Accum. Foreign Curr. Denomi. Annuity AMT Return RT:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC4-ACUM-FC-ANTY-RT" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC4-ACUM-FC-ANTY-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                            <label for="MIR-SC4-ACUM-YEN-ANTY-AMT">Accum. Foreign Curr. Denomi. Annuity AMT (Yen Conv.):</label>
+                                    </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC4-ACUM-YEN-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC4-ACUM-YEN-ANTY-AMT</span>
+                                        </td>
+                                    <td class="celldisplaylabel">
+                                        <label for="MIR-SC4-ACUM-YEN-ANTY-RT">Accum. Foreign Curr. Denomi. Annuity AMT (Yen Conv.) Return RT:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC4-ACUM-YEN-ANTY-RT" stype="Percent" elength="5" decimals="1" displayonly="yes">MIR-SC4-ACUM-YEN-ANTY-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                                            <label for="MIR-SC4-PAYOUT-YEN-ANTY-RT">PayOut-In-Yen RT for Yen Denomi. Annuity Resource:</label>
+                                    </td>
+                                        <td class="celldisplay">
+                                                <span id="MIR-SC4-PAYOUT-YEN-ANTY-RT" stype="Number" elength="6" decimals="2" displayonly="yes">MIR-SC4-PAYOUT-YEN-ANTY-RT</span>
+                                        </td>
+                                    <td class="celldisplaylabel">
+                                        <label for="MIR-SC4-YEN-ANTY-RESRC-AMT">Yen Denomi. Annuity Resource:</label>
+                                        </td>
+                                        <td class="celldisplay" align="right">
+                                                <span id="MIR-SC4-YEN-ANTY-RESRC-AMT" stype="Currency" displayonly="yes">MIR-SC4-YEN-ANTY-RESRC-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SC4-YEN-ANTY-AMT">Yen Denomi. Annuity AMT:</label>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-YEN-ANTY-AMT" stype="Currency" displayonly="yes">MIR-SC4-YEN-ANTY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="5">Scenario #4 Annuity Amount(By # of Elapsed Years)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC4-ELAPS-YR-AFT-ACD-T[1]"># of Elapsed Years From ACD</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC4-ANTY-STRT-AGE-T[1]">Age</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC4-FC-ANTY-AMT-T[1]">Foreign Curr. Denomi. Annuity AMT</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SC4-PAYOUT-YEN-RT-T[1]">PayOut-In-Yen RT</label>
+                    </td>
+                    <td class="celldisplayheading">
+                       <label for="MIR-SC4-YEN-ANTY-AMT-T[1]">Foreign Curr. Denomi. Annuity AMT (Yen Conv.)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-SC4-ELAPS-YR-AFT-ACD-T[]" stype="Text" displayonly="yes">MIR-SC4-ELAPS-YR-AFT-ACD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC4-ANTY-STRT-AGE-T[]" stype="Text" displayonly="yes">MIR-SC4-ANTY-STRT-AGE-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-FC-ANTY-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC4-FC-ANTY-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SC4-PAYOUT-YEN-RT-T[]" stype="Number" elength="5" decimals="2" displayonly="yes">MIR-SC4-PAYOUT-YEN-RT-T[]</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-SC4-YEN-ANTY-AMT-T[]" stype="Currency" displayonly="yes">MIR-SC4-YEN-ANTY-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+                    <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Name">Policy Information as of Current(Simulation Date)</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Profile">Simulation Conditions</a>
+                        </td>
+                    </tr>
+                </table>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Address">Scenario #1 Simulation Result</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Employment">Scenario #2 Simulation Result</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Banking">Scenario #3 Simulation Result</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Underwriting">Scenario #4 Simulation Result</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+<!-- 15997D CHANGES STARTS HERE -->
+            <input type="hidden" name="MIR-XCHG-RT-DIFF-IND" id="MIR-XCHG-RT-DIFF-IND" stype="Hidden" />
+<!-- 15997D CHANGES ENDS HERE -->
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

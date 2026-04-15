@@ -1,0 +1,216 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:50 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9210-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  02GL03  6.1      New for Manuflex Phase 2 release
+*                   (note: some commented fields are designated for future use)
+*  B10454  BMB      Correct case for ClientLevelEdits: Unix is case-sensitive
+*  M00026  FB       Add MIR-ACCT-CLOS-IND - GL Account Journal Date Close Ind
+*  MI0009  AT       Add several fields related to generation of control records
+*  EN9547  CTS      Change the s-type declaration to 'text'
+*  NWLTPD  CTS      Added trad tax certificate group indicator
+*  NWLTBC  CTS      Added trad tax certificate individual indicator
+*  Q07504  CTS      Added Lapse Judgement day indicator
+*  M161CA   CTS      INTRODUCED NEW FIELDS TO THE BSDT TABLE
+*  M245G5  CTS      INTRODUCED NEW FIELDS TO THE BSDT TABLE FOR L-SPWL
+*  M269H2  CTS      INTRODUCED PD AND BT AUTO REFUND IND
+*  Q61597  CTS      ADDED BT COLCT DY INDICATOR
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  MP308B  CTS      CHANGES FOR PAYROLL DEDUCTION CHANGES
+*********************************************************************************
+ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9210-O</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<body class="bodyws">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+   <table class="tabledisplaykey">
+       <tr>
+           <td class="celldisplaykeylabel">
+               <label for="MIR-BUS-CAL-DT-YR">Year:</label>
+           </td>
+           <td class="celldisplaykey">
+<!--EN9547 Changes Begin -->
+<!--             <span id="MIR-BUS-CAL-DT-YR" stype="Numeric" displayonly="yes">MIR-BUS-CAL-DT-YR</span> -->
+                 <span id="MIR-BUS-CAL-DT-YR" stype="Text"    displayonly="yes">MIR-BUS-CAL-DT-YR</span>
+<!--EN9547 Changes End -->
+           </td>
+           <td class="celldisplaykeylabel">
+               <label for="MIR-BUS-CAL-DT-MO">Month:</label>
+           </td>
+           <td class="celldisplaykey">
+<!--EN9547 Changes Begin -->
+<!--            <span id="MIR-BUS-CAL-DT-MO" stype="Numeric" displayonly="yes">MIR-BUS-CAL-DT-MO</span> -->
+                <span id="MIR-BUS-CAL-DT-MO" stype="Text"    displayonly="yes">MIR-BUS-CAL-DT-MO</span>
+<!--EN9547 Changes End -->
+           </td>
+           <td class="celldisplaykeylabel">
+               <label for="MIR-BUS-CAL-DT-MTH-TXT">Name:</label>
+           </td>
+           <td class="celldisplaykey">
+               <span id="MIR-BUS-CAL-DT-MTH-TXT" stype="Text" displayonly="yes">MIR-BUS-CAL-DT-MTH-TXT</span>
+           </td>
+       </tr>
+   </table>
+<br />
+<table class="tabledisplay" genrows="0" >
+
+<tr>
+
+<td class="celldisplayheading"><label for="MIR-DV-DY-NM-T[1]">Name</label></td>
+<td class="celldisplayheading"><label for="MIR-DV-DY-NUM-T[1]">Day</label></td>
+<td class="celldisplayheading"><label for="MIR-BUS-DY-IND-T[1]">Bus. Day</label></td>
+<td class="celldisplayheading"><label for="MIR-ACCT-CLOS-IND-T[1]">Acct. Closed</label></td>
+<!--MP308B Changes Begin -->
+<!-- <td class="celldisplayheading"><label for="MIR-PD-PICK-DY-IND-T[1]">PD Pick</label></td> -->
+<!-- <td class="celldisplayheading"><label for="MIR-PD-PICK-DT-T[1]">PD Pick Date</label></td> -->
+<!--MP308B Changes End -->
+<td class="celldisplayheading"><label for="MIR-FISC-YE-IND-T[1]">Fiscal Year End</label></td>
+<td class="celldisplayheading"><label for="MIR-FISC-YE-LOW-DT-IND-T[1]">Fiscal Year End Low Date</label></td>
+<td class="celldisplayheading"><label for="MIR-FISC-YE-HIGH-DT-IND-T[1]">Fiscal Year End High Date</label></td>
+<td class="celldisplayheading"><label for="MIR-TAX-CERT-GR-IND-T[1]">Tax Certificate Group</label></td>
+<td class="celldisplayheading"><label for="MIR-TAX-CERT-INDV-IND-T[1]">Tax Certificate Individual</label></td>
+<!-- NWLTPD Changes Begins -->
+<td class="celldisplayheading"><label for="MIR-TD-TAX-CERT-GR-IND-T[1]">TD Tax Certificate Group</label></td>
+<!-- NWLTPD Changes Ends Here -->
+<!-- NWLTBC Changes Begins -->
+<td class="celldisplayheading"><label for="MIR-TD-TAX-CERT-INDV-IND-T[1]">TD Tax Certificate Individual</label></td>
+<!-- NWLTBC Changes Ends Here -->
+<!-- Q07504 Changes Starts Here -->
+<td class="celldisplayheading"><label for="MIR-LAPS-JDG-DY-IND-T[1]">Judg. Day</label></td>
+<!-- Q07504 Changes Ends Here -->
+<!-- M161CA START -->
+<td class="celldisplayheading"><label for="MIR-TRXN-RQST-DT-IND-T[1]">Transaction Request Date Indicator</label></td>
+<td class="celldisplayheading"><label for="MIR-VALID-RQST-DT-IND-T[1]">Validation File Creation Date Indicator</label></td>
+<td class="celldisplayheading"><label for="MIR-VALID-RSLT-DT-IND-T[1]">Validation Result Received Date Indicator</label></td>
+<td class="celldisplayheading"><label for="MIR-AUTO-CHRG-RQST-IND-T[1]">Automatic Charge Request Date Indicator</label></td>
+<td class="celldisplayheading"><label for="MIR-AUTO-CHRG-RSLT-IND-T[1]">Automatic Charge Result Date Indicator</label></td>
+<!-- M161CA END -->
+<!-- M245G5 Changes Begins -->
+<td class="celldisplayheading"><label for="MIR-USD-BUS-DY-IND-T[1]">USD</label></td>
+<td class="celldisplayheading"><label for="MIR-AUD-BUS-DY-IND-T[1]">AUD</label></td>
+<td class="celldisplayheading"><label for="MIR-EUR-BUS-DY-IND-T[1]">EUR</label></td>
+<td class="celldisplayheading"><label for="MIR-NZD-BUS-DY-IND-T[1]">NZD</label></td>
+<!-- M245G5 Changes End -->
+<!-- M269H2 Changes Begins -->
+<td class="celldisplayheading"><label for="MIR-BT-AUTO-RFND-IND-T[1]">BT Auto Refund Indicator</label></td>
+<td class="celldisplayheading"><label for="MIR-PD-AUTO-RFND-IND-T[1]">PD Auto Refund Indicator</label></td>
+<!-- M269H2 Changes Ends -->
+<!-- Q61597 Changes Ends -->
+<td class="celldisplayheading"><label for="MIR-BT-COLCT-DY-IND-T[1]">BT Collection Day Indicator</label></td>
+<!-- Q61597 Changes Ends -->
+<!--
+** the following is commented out for future use....
+<td class="celldisplayheading"><label for="MIR-BUS-MTHLY-CLOS-IND-T[1]">BMC</label></td>
+<td class="celldisplayheading"><label for="MIR-BT-BILL-DY-IND-T[1]">BT Bill</label></td>
+<td class="celldisplayheading"><label for="MIR-BT-COLCT-DY-IND-T[1]">BT Collect</label></td>
+<td class="celldisplayheading"><label for="MIR-APP-RECV-CUT-IND-T[1]">App Cutoff</label></td>
+ -->
+</tr>
+
+<tr>
+
+<td class="celldisplay"><span id="MIR-DV-DY-NM-T[]" stype="Text" displayonly="yes">MIR-DV-DY-NM-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-DV-DY-NUM-T[]" stype="Number" elength="2" decimals="0"  displayonly="yes">MIR-DV-DY-NUM-T[]</span>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-BUS-DY-IND-T[]" id="MIR-BUS-DY-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-ACCT-CLOS-IND-T[]" id="MIR-ACCT-CLOS-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<!--MP308B Changes Begin -->
+<!--<td class="celldisplay"><input type="checkbox" name="MIR-PD-PICK-DY-IND-T[]" id="MIR-PD-PICK-DY-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><span id="MIR-PD-PICK-DT-T[]" stype="Date" displayonly="yes">MIR-PD-PICK-DT-T[]</span>
+</td> -->
+<!--MP308B Changes End -->
+<td class="celldisplay"><input type="checkbox" name="MIR-FISC-YE-IND-T[]" id="MIR-FISC-YE-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-FISC-YE-LOW-DT-IND-T[]" id="MIR-FISC-YE-LOW-DT-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-FISC-YE-HIGH-DT-IND-T[]" id="MIR-FISC-YE-HIGH-DT-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-TAX-CERT-GR-IND-T[]" id="MIR-TAX-CERT-GR-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-TAX-CERT-INDV-IND-T[]" id="MIR-TAX-CERT-INDV-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<!-- NWLTPD Changes Begins -->
+<td class="celldisplay"><input type="checkbox" name="MIR-TD-TAX-CERT-GR-IND-T[]" id="MIR-TD-TAX-CERT-GR-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<!-- NWLTPD Changes Ends Here -->
+<!-- NWLTBC Changes Begins -->
+<td class="celldisplay"><input type="checkbox" name="MIR-TD-TAX-CERT-INDV-IND-T[]" id="MIR-TD-TAX-CERT-INDV-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<!-- NWLTBC Changes Ends Here -->
+<!-- Q07504 Changes Starts Here -->
+<td class="celldisplay"><input type="checkbox" name="MIR-LAPS-JDG-DY-IND-T[]" id="MIR-LAPS-JDG-DY-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<!-- Q07504 Changes Ends Here -->
+<!-- M161CA START -->
+<td class="celldisplay"><input type="checkbox" name="MIR-TRXN-RQST-DT-IND-T[]" id="MIR-TRXN-RQST-DT-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-VALID-RQST-DT-IND-T[]" id="MIR-VALID-RQST-DT-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-VALID-RSLT-DT-IND-T[]" id="MIR-VALID-RSLT-DT-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-AUTO-CHRG-RQST-IND-T[]" id="MIR-AUTO-CHRG-RQST-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-AUTO-CHRG-RSLT-IND-T[]" id="MIR-AUTO-CHRG-RSLT-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<!-- M161CA END -->
+<!-- M245G5 START -->
+<td class="celldisplay"><input type="checkbox" name="MIR-USD-BUS-DY-IND-T[]" id="MIR-USD-BUS-DY-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-AUD-BUS-DY-IND-T[]" id="MIR-AUD-BUS-DY-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-EUR-BUS-DY-IND-T[]" id="MIR-EUR-BUS-DY-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-NZD-BUS-DY-IND-T[]" id="MIR-NZD-BUS-DY-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<!-- M245G5 END -->
+<!-- M269H2 STARTS -->
+<td class="celldisplay"><input type="checkbox" name="MIR-BT-AUTO-RFND-IND-T[]" id="MIR-BT-AUTO-RFND-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-PD-AUTO-RFND-IND-T[]" id="MIR-PD-AUTO-RFND-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<!-- M269H2 ENDS -->
+<!-- Q61597 Changes Starts Here -->
+<td class="celldisplay"><input type="checkbox" name="MIR-BT-COLCT-DY-IND-T[]" id="MIR-BT-COLCT-DY-IND-T[]" stype="Indicator" value = "Y" disabled="yes"/>
+</td>
+<!-- Q61597 Changes Ends Here -->
+<!--
+** the following is commented out for future use....
+<td class="celldisplay"><input type="checkbox" name="MIR-BUS-MTHLY-CLOS-IND-T[]" id="MIR-BUS-MTHLY-CLOS-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-BT-BILL-DY-IND-T[]" id="MIR-BT-BILL-DY-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-BT-COLCT-DY-IND-T[]" id="MIR-BT-COLCT-DY-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-APP-RECV-CUT-IND-T[]" id="MIR-APP-RECV-CUT-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+ -->
+</tr>
+</table>
+<p><input type="hidden" name="action" id="action" stype="Hidden"/>
+</p>
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+</html>

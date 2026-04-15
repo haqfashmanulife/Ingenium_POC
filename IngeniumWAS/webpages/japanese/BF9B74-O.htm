@@ -1,0 +1,605 @@
+﻿<!--
+*********************************************************************************
+*  Component:   BF9B74-O.htm
+*  Description: 特約解約/特約減額試算- 確認画面
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  MP1171  CTS      INITIAL VERSION
+*  ADU149  CTS      JAPANESE TRANSLATION CORRECTED FOR INSURED PREMIUM AND 
+*                   TOTAL PREMIUM HEADING
+*  ADU152  CTS      ADDED ISSUE DATE COLUMN. ALSO MOVED INSURED NAME COLUMN
+*                   FROM 1st TO 6th POSITION
+*  MP1669   CTS     To support APL,loan inFuture/Back dated trial calculation
+*  Q11779  CTS      CHANGES TO ADD DV EFFECTIVE DATE
+*  MP161J  CTS      CHANGES TO ADD WP INDICATOR
+*  M213L1  CTS      CHANGES FOR RUM
+*  C20710  CTS      CHANGES DONE FOR FUTURE CSV SECTION
+*  Q37151  CTS      CHANGES DONE TO ADD JAPANESE TEXT 
+*  MP242F  CTS      CHANGES FOR WP INDICATOR FIELD FOR AMR 2
+*  C22559  PF4.3    Fix the labels for -T[1] format
+*  MP245K  CTS      CHANGES DONE FOR FA-REDUCTION AND SURRENDER                 
+*  MP269A  CTS      CHANGES FOR CSV CALC FOR MONTHIVERSAY               
+*  MP334A  CTS      CHANGES TO ADD TOTAL PAID PREMIUM FIELD                         
+*  UYS014  CTS      ADDITION OF NEW FIELD FOR INCREASING FACE AMOUNT          *                 
+*  UYS32E  CTS      ADDITIONAL ITEMS FOR UNEARNED INTEREST                      *                   
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                        
+*  23802P  CTS      SUL MATURITY ADMIN CHANGES              
+*  S23017  CTS      UYS014 - ATTRIBUTE SETUP FOR INCR FACE AMOUNT   
+*  UY3068  CTS      ADDITION OF NEW FIELDS AS PART OF STREAM3 FA REDUCTION     
+*  NVCA02  CTS      CHANGES DONE AS PART OF ONTARIO FA REDUCTION              
+*  CD3002  CTS      CHANGES DONE AS PART OF CERBERUS DAY-3                      *
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9B74-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws" onLoad="onLoad()> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!-- UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+<!--  MP1669 changes starts here -->
+            <input type="hidden" name="MIR-DV-UNDO-VALID-CD" id="MIR-DV-UNDO-VALID-CD" stype="Hidden" />
+            <input type="hidden" name="MIR-DV-COMMIT-CD" id="MIR-DV-COMMIT-CD" stype="Hidden" />
+<!--  MP1669 changes ends here -->
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">変更日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-APPL-CTL-PRCES-DT" stype="Text" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-SNDRY-AMT">定期払込保険料:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-SNDRY-AMT" stype="Currency" displayonly="yes">MIR-POL-SNDRY-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">払込回数:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+<!--  MP1669 changes starts here -->
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-EFF-DT">有効日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-EFF-DT" stype="Text" displayonly="yes">MIR-DV-EFF-DT</span>
+                    </td>
+                </tr>
+<!--  MP1669 changes ends here -->
+<!-- MP334A CHANGES START HERE -->
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-TOT-PD-PREM-AMT">既払込保険料:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-TOT-PD-PREM-AMT" stype="Currency" displayonly="yes">MIR-TOT-PD-PREM-AMT</span>
+                    </td>
+                    <td></td>                    
+                </tr>
+<!-- MP334A CHANGES ENDS HERE -->
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+<!-- NVCA02 CHANGES STARTS HERE	
+                    <td class="celldisplayheading" colspan="18">基本保険</td>-->
+                    <td class="celldisplayheading" colspan="20">基本保険</td>
+<!-- NVCA02 Change Ends Here -->
+                </tr>
+                <tr>
+ <!-- ADU152 Changes start here - Commented out Insured Name column 
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-INSRD-CLI-NM-T[1]">被保険者名</label>
+                    </td>
+ ADU152 Ends here -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">保障番号</label>
+                    </td>
+<!--  M213L1 changes starts here -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-PRIM-GR-ID-T[1]">グループID</label>
+                    </td>
+<!--  M213L1 changes ends here -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-PLAN-ID-T[1]">特約名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-FACE-AMT-T[1]">旧保険金額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NEW-FACE-AMT-T[1]">新保険金額</label>
+                    </td>
+ <!-- ADU152 Changes start here - Moved Insured Name column from 1st 
+      to 6th position. Also added cvg issue date -->
+                    <td class="celldisplayheading">
+					    <label for="MIR-CRNT-INCR-FACE-AMT-T[1]">旧逓増保険金額</label>
+                    </td>
+                    <td class="celldisplayheading">
+					    <label for="MIR-NEW-INCR-FACE-AMT-T[1]">新逓増保険金額</label>
+                    </td>					
+<!--  UYS014 changes ends here -->						
+ <!-- ADU152 Changes start here - Moved Insured Name column from 1st 
+      to 6th position. Also added cvg issue date -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-ISS-EFF-DT-T[1]">契約日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-INSRD-CLI-NM-T[1]">被保険者名</label>
+                    </td>
+ <!-- ADU152 Ends here -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-PREM-CHNG-DT-T[1]">次回更新日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-STBL-1-CD-T[1]">保険期間</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-STBL-2-CD-T[1]">給付制限</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-STBL-3-CD-T[1]">サブテーブル3</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-STBL-4-CD-T[1]">サブテーブル4</label>
+                    </td>
+<!-- MP161J STARTS -->
+                    <td class="celldisplayheading">
+<!-- MP242F STARTS -->
+                        <label for="MIR-CVG-WP-IND-T[1]">特疾P免特約/特則</label>
+<!-- MP242F ENDS -->
+                    </td>
+<!-- MP161J ENDS -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-MPREM-AMT-T[1]">特約保険料</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NEW-MPREM-AMT-T[1]">新特約保険料</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-CSV-AMT-T[1]">解約返戻金</label>
+                    </td>
+<!-- NVCA02 STARTS -->	
+                    <td class="celldisplayheading">
+                        <label for="MIR-BASE-MTHLY-PREM-AMT-T[1]">月払基準保険料</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NEW-BASE-MTHLY-PREM-AMT-T[1]">新月払基準保険料</label>
+                    </td>
+<!-- NVCA02 ENDS -->
+                </tr>
+                <tr>
+ <!-- ADU152 Changes start here - Commented out Insured Name column 
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INSRD-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM-T[]</span>
+                    </td>
+ ADU152 Ends here -->
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+<!--  MP213L changes starts here -->
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PRIM-GR-ID-T[]" stype="Text" displayonly="yes">MIR-CVG-PRIM-GR-ID-T[]</span>
+                    </td>
+<!--  MP213L changes ends here -->
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-FACE-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-CVG-FACE-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" style="color=#FF0000">
+                        <span id="MIR-NEW-FACE-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-NEW-FACE-AMT-T[]</span>
+                    </td>
+<!--  UYS014 changes starts here -->
+<!-- S23017 changes starts here
+                    <td class="celldisplay">
+                        <span id="MIR-CRNT-INCR-FACE-AMT-T[]" stype="Text" displayonly="yes">MIR-CRNT-INCR-FACE-AMT-T[]</span>
+					</td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-INCR-FACE-AMT-T[]" stype="Text" displayonly="yes">MIR-NEW-INCR-FACE-AMT-T[]</span>
+					</td>	
+-->
+                    <td class="celldisplay">
+                        <span id="MIR-CRNT-INCR-FACE-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-CRNT-INCR-FACE-AMT-T[]</span>
+					</td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-INCR-FACE-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-NEW-INCR-FACE-AMT-T[]</span>
+					</td>	
+<!-- S23017 changes ends here -->				
+<!--  UYS014 changes ends here -->						
+ <!-- ADU152 Changes start here - Moved Insured Name column from 1st 
+      to 6th position. Also added cvg issue date -->
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-ISS-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-CVG-ISS-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INSRD-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM-T[]</span>
+                    </td> 
+<!-- ADU152 Ends here -->
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PREM-CHNG-DT-T[]" stype="Date" displayonly="yes">MIR-CVG-PREM-CHNG-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-1-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-1-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-2-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-2-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-3-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-3-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-4-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-4-CD-T[]</span>
+                    </td>
+<!-- MP161J STARTS -->
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CVG-WP-IND-T[]" id="MIR-CVG-WP-IND-T[]" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+<!-- MP161J ENDS -->
+                    <td class="celldisplay" >
+                        <span id="MIR-CVG-MPREM-AMT-T[]" stype="Currency" elength="16" signed="yes"  displayonly="yes">MIR-CVG-MPREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" style="color=#FF0000">
+                        <span id="MIR-CVG-NEW-MPREM-AMT-T[]" stype="Currency" elength="16" signed="yes"  displayonly="yes">MIR-CVG-NEW-MPREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" style="color=#FF0000">
+                        <span id="MIR-CVG-CSV-AMT-T[]" stype="Currency" elength="16" signed="yes"  displayonly="yes">MIR-CVG-CSV-AMT-T[]</span>
+                    </td>
+<!-- NVCA02 STARTS -->					
+                    <td class="celldisplay" >
+                        <span id="MIR-BASE-MTHLY-PREM-AMT-T[]" stype="Currency" elength="16" signed="yes"  displayonly="yes">MIR-BASE-MTHLY-PREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" style="color=#FF0000">
+                        <span id="MIR-NEW-BASE-MTHLY-PREM-AMT-T[]" stype="Currency" elength="16" signed="yes"  displayonly="yes">MIR-NEW-BASE-MTHLY-PREM-AMT-T[]</span>
+                    </td>
+<!-- NVCA02 ENDS -->
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+ <!-- ADU149 Changes start here - Commented out the incorrect translation 
+                    <td class="celldisplayheading" colspan="17">被保険者　特別保険料</td>
+ -->
+                    <td class="celldisplayheading" colspan="17">被保険者保険料</td>
+ <!-- ADU149 Ends here -->
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-INSRD1-CLI-NM-T[1]">被保険者名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-MPREM1-AMT-T[1]">特約保険料</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-MPREM2-AMT-T[1]">新特約保険料</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-CSV1-AMT-T[1]">解約返戻金</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INSRD1-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-INSRD1-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-MPREM1-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-CVG-MPREM1-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-MPREM2-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-CVG-MPREM2-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CSV1-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-CVG-CSV1-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+		<!-- UY3068 CHANGES START HERE -->
+			  <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">配当金の保険金額条件</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" colspan="1">
+                        <label for="MIR-INC-FACE-AMT">増加生存保険買増</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="1">
+                        <label for="MIR-NEW-INC-FACE-AMT">減額後の増加生存保険買増</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="1">
+                        <label for="MIR-VST-FACE-AMT">ベスティング保険金額</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="1">
+                        <label for="MIR-NEW-VST-FACE-AMT">減額後のベスティング保険金額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-INC-FACE-AMT" stype="Currency" displayonly="yes" signed="yes" elength="16">MIR-INC-FACE-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-INC-FACE-AMT" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-NEW-INC-FACE-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-VST-FACE-AMT" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-VST-FACE-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-VST-FACE-AMT" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-NEW-VST-FACE-AMT</span>
+                    </td>
+                </tr>
+            </table> 
+			<br /> 
+		<!-- UY3068 CHANGES END HERE -->
+            <table class="tabledisplay" >
+                <tr>
+  <!-- ADU149 Changes start here - Commented out the incorrect translation 
+                    <td class="celldisplayheading" colspan="17">総報酬</td>
+  -->
+                    <td class="celldisplayheading" colspan="17">合計保険料</td>
+  <!-- ADU149 Ends here -->
+                </tr>
+                <tr>
+                    <td class="celldisplay">特約保険料(合計)</td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-CVG-MPREM-AMT" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-TOT-CVG-MPREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" >新特約保険料(合計)</td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-CVG-NEW-MPREM-AMT" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-TOT-CVG-NEW-MPREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">解約返戻金(合計)</td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-CSV-AMT" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-TOT-CSV-AMT</span>
+                    </td>
+                </tr> 
+			 <!-- UY3068 Changes Start here -->
+				 <tr>
+                    <td class="celldisplay" >増加生存保険買増部分の解約返戻金</td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSV-INC-FA-POR" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-CSV-INC-FA-POR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">ベスティング部分の解約返戻金</td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSV-VSTNG-FA-POR" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-CSV-VSTNG-FA-POR</span>
+                    </td>
+                </tr> 
+				<tr>
+                   <td class="celldisplay">新転換残高の解約返戻金:</td>
+                   <td class="celldisplay">
+                       <span id="MIR-CSV-UNIS-CNVR-BAL" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CSV-UNIS-CNVR-BAL</span>
+                   </td>
+                </tr>
+			 <!--  UY3068 Changes ends here -->
+             <!--  MP1669 changes starts here -->
+                <tr>
+                   <td class="celldisplay">自動振替貸付残高:</td>
+                   <td class="celldisplay">
+                       <span id="MIR-APL-BAL-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-APL-BAL-AMT</span>
+                   </td>
+                </tr>
+                <tr>
+                   <td class="celldisplay">自動振替貸付利息:</td>
+                   <td class="celldisplay">
+                       <span id="MIR-DV-APL-LOAN-INT-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-APL-LOAN-INT-AMT</span>
+                   </td>
+                </tr>
+                <tr>
+                   <td class="celldisplay">契約者貸付残高:</td>
+                   <td class="celldisplay">
+                       <span id="MIR-CSL-BAL-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CSL-BAL-AMT</span>
+                   </td>
+                </tr>
+                <tr>
+                   <td class="celldisplay">契約者貸付利息:</td>
+                   <td class="celldisplay">
+                       <span id="MIR-DV-LOAN-INT-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-LOAN-INT-AMT</span>
+                   </td>
+                </tr>
+                <!-- 23802P Changes Start here -->
+                <tr>
+                   <td class="celldisplay">源泉分離課税（所得税）:</td>
+                <td class="celldisplay">
+                    <span id="MIR-DV-NATNL-TAXWH-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-DV-NATNL-TAXWH-AMT</span>
+                </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">源泉分離課税（地方税）:</td>
+                <td class="celldisplay">
+                    <span id="MIR-DV-LOC-TAXWH-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-DV-LOC-TAXWH-AMT</span>
+                </td>
+                </tr>
+                <!-- 23802P Changes Ends here -->
+				
+<!-- UYS32E ADDITIONAL ITEM FOR UNEARNED INTEREST START HERE -->
+                <tr>
+                   <td class="celldisplay">契約者貸付利息過不足金:</td>
+                   <td class="celldisplay">
+                       <span id="MIR-XCES-SHRT-LOAN-INT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-XCES-SHRT-LOAN-INT-AMT</span>
+                   </td>
+                </tr>
+                <tr>
+                   <td class="celldisplay">契約者貸付未経過利息:</td>
+                   <td class="celldisplay">
+                       <span id="MIR-UNEARN-LOAN-INT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-UNEARN-LOAN-INT-AMT</span>
+                   </td>
+                </tr>
+<!-- UYS32E ADDITIONAL ITEM FOR UNEARNED INTEREST ENDS HERE -->
+<!-- CD3002 CHANGES START HERE -->
+                <tr>
+                   <td class="celldisplay">積立金区分特約の積増金の年未満端数分:</td>
+                   <td class="celldisplay">
+                       <span id="MIR-RSRV-ACUM-PREM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-RSRV-ACUM-PREM-AMT</span>
+                   </td>
+                </tr>
+<!-- CD3002 CHANGES ENDS HERE -->
+                <tr>
+                   <td class="celldisplay">差引支払金額:</td>
+                   <td class="celldisplay">
+                       <span id="MIR-DV-NET-PAY-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-NET-PAY-AMT</span>
+                   </td>
+                </tr>
+              <!--  MP1669 changes ends here -->
+            </table>
+            <br />
+            <!-- MP245K CHANGES START HERE -->
+            <table class="tabledisplay" >
+                <tr>
+                    <td class="celldisplayheading" colspan="17">外貨商品情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-PAYO-JPY-BNFT-CD">円支払特約有無</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-JP-XCHNG-EFF-DT">円換算為替基準日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-JP-XCHNG-RT">円換算レート</label>
+                    </td>
+                 </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAYO-JPY-BNFT-CD" stype="Text" displayonly="yes">MIR-DV-PAYO-JPY-BNFT-CD</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-JP-XCHNG-EFF-DT" stype="Text" displayonly="yes">MIR-DV-JP-XCHNG-EFF-DT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-JP-XCHNG-RT" stype="Text" elength="7" decimals="2" signed="yes" displayonly="yes">MIR-DV-JP-XCHNG-RT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <!-- MP245K CHANGES END HERE  -->
+            <!-- C20710 CHANGES STARTS HERE  -->
+<!-- MP269A changes starts here -->
+            <!--<table class="tabledisplay" genrows="0"> -->
+            <table class="tabledisplay" genrows="0" Id="annivdt">
+<!-- MP269A changes ends here -->
+                <tr>
+                    <td class="celldisplayheading" colspan="17">将来の解約返戻金</td>
+                </tr>
+
+                <tr>
+                    <td class="celldisplayheading" colspan="20">注意：
+　　　                  <!-- Q37151 CHANGES STARTS HERE  -->
+                     <br />契約に契約者貸付金または保険料自動振替貸付金がある場合でも、下の解約返戻金は控除前の金額を表示しています。
+                     <br />返戻率＝年応当日の解約返戻金額／（保険料払込累計額-減額による解約返戻金累計額）
+                     <br />保険料払込累計額は、年応当日の前月まで保険料が平準払で支払われた場合の予測額となります。
+　　　　		     <br />定期保険特約が付加されている契約は、特約期間中の年応当日のみ表示します。
+                     <!-- Q37151 CHANGES ENDS HERE  -->
+	            </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ANNIV-DT-T[1]">年応当日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-AGE-T[1]">被保険者年齢</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ELPSD-ISS-YR-T[1]">新契約時からの経過年数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ELPSD-FA-RED-YR-T[1]">減額後経過年数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CSV-AMT-T[1]">解約返戻金額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-TOT-ACCUM-AMT-T[1]">保険料払込累計額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CSV-RATE-T[1]">解約返戻金率</label>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                    <!-- MP269A changes starts here -->
+                       <!-- <span id="MIR-ANNIV-DT-T[]" stype="Date" displayonly="yes" elength="10">MIR-ANNIV-DT-T[]</span> -->
+                    <a name="MIR-ANNIV-DT-T[]" id="MIR-ANNIV-DT-T[]" href="a" action="SelectAnnivDt" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">MIR-ANNIV-DT-T[]</a>
+                    <!-- MP269A changes ends here -->
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-AGE-T[]" stype="Number" elength="3" signed="yes" displayonly="yes">MIR-INSRD-AGE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ELPSD-ISS-YR-T[]" stype="Number" elength="3" signed="yes" displayonly="yes"> MIR-ELPSD-ISS-YR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ELPSD-FA-RED-YR-T[]" stype="Number" elength="3" signed="yes" displayonly="yes">MIR-ELPSD-FA-RED-YR-T[]</span>
+                    </td>                    
+                    <td class="celldisplay">
+       <!-- C22559 Changes Starts -->
+       <!--                 <span id="MIR-CSV-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-CSV-AMT-T-T[]</span>  -->
+                        <span id="MIR-CSV-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-CSV-AMT-T[]</span>
+       <!-- C22559 Changes Ends -->
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-ACCUM-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-TOT-ACCUM-AMT-T[]</span>
+                    </td>                    
+                    <td class="celldisplay">
+                        <span id="MIR-CSV-RATE-T[]" stype="Percent" elength="7" signed="yes" displayonly="yes">MIR-CVG-CSV1-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table> 
+            <br /> 
+            <!-- C20710 ENDS STARTS HERE  -->  
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->	
+</html>
+

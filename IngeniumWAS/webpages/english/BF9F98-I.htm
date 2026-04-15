@@ -1,0 +1,144 @@
+<!--
+# Converted from PathFinder 2.2 to 3.0 Jun 18, 2004 3:13:13 PM EDT
+
+#*******************************************************************************
+#*  Component:   BF9F98-I                                                      *
+#*  Description: CWA REFUND APPROVAL/REJECTION SCREEN                          *
+#*******************************************************************************
+#*  Chg#    Release  Description                                               
+#*                                                                             
+#*  CA0002  CTS      Intial version                                            
+#*  105526  CTS      FIXED DONE FOR EXTRA LINE                                 
+#*  105529  CTS      FIXED DONE FOR DATE CHANGES                               
+#*  23774B  CTS      Changes done for ie retirement project to make it
+#*                   compatible for microsoft edge. Changes in html include
+#*                   adding "id" attribute for all input fields and changes in
+#*                   java scripts to modify certain functions/commands which
+#*                   are no longer compatilble with edge.
+#*******************************************************************************
+ -->
+<html>
+    <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9F98-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-APP-FORM-ID">Application Number:</label>
+                    </td>
+                     <td class="celldatakey">
+                         <input type="text" value=" " name="MIR-POL-APP-FORM-ID" id="MIR-POL-APP-FORM-ID" stype="Text" maxlength="15" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+                <p align="Left">
+                   About Owner Name/Insured Name Search:<br></br>
+                   Forward match search is performed for name fields. Please enter text exactly from the beginning.<br> </br>
+                   Example: If you want to search "Manulife Japan Corp",<br></br>
+                   Good: "Manulife J"<br></br>
+                   Bad: "MLJ".<br><br></br></br>
+                   Note for Owner Name Search:<br></br>
+                   In case of Individual Owner, enter either Last Name or First Name, or both.<br></br>
+                   In case of Corporate Owner, enter Company Name. <br></br>
+                </p>                  
+            <table class="tabledatakey">
+                <tr>
+                   <td class="celldatakeylabel">
+                        <label for="MIR-OWN-SUR-NM"> Owner Last Name:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-OWN-SUR-NM" id="MIR-OWN-SUR-NM" stype="Text" maxlength="50" onfocus="enterField(this)" />
+                    </td>
+
+                    <td class="celldatakeylabel">
+                        <label for="MIR-OWN-FRST-NM">Owner First Name:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-OWN-FRST-NM" id="MIR-OWN-FRST-NM" stype="Text" maxlength="50" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                 <tr>
+                   <td class="celldatakeylabel">
+                        <label for="MIR-OWN-CO-NM">Owner Company Name:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-OWN-CO-NM" id="MIR-OWN-CO-NM" stype="Text" maxlength="50" onfocus="enterField(this)" />
+                    </td>
+                  </tr>
+                <tr>
+                <td class="celldatakeylabel">
+                        <label for="MIR-INSRD-SUR-NM">Insured Last Name:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-INSRD-SUR-NM" id="MIR-INSRD-SUR-NM" stype="Text" maxlength="50" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INSRD-FRST-NM">Insured First Name:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-INSRD-FRST-NM" id="MIR-INSRD-FRST-NM" stype="Text" maxlength="50" onfocus="enterField(this)" />
+                    </td>
+                 </tr>
+                 <tr>
+                   <td class="celldatakeylabel">
+                        <label for="MIR-SERV-AGT-ID">Servicing Agent ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-SERV-AGT-ID" id="MIR-SERV-AGT-ID" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                  </tr>
+                </table>
+                <p align="Left">
+                   Note for MGA Channel policies:<br></br>
+                   - Enter MGA Agent Office Code for "Servicing Agent ID" <br></br>
+              <!-- CHANGES STARTS FOR 105526 --> 
+                 <!--   - "Servicing Agent Code/Name" is displayed in Agent Office level.  Branch level display is not available.<br></br> --> 
+              <!-- CHANGES END FOR 105526 --> 
+                   - Search with MGA Agent employee Code/Name is not available.<br></br>
+                </p>
+            <table class="tabledatakey">
+                <tr>
+                   <td class="celldatakeylabel">
+                        <label for="MIR-SRCH-PERI-STRT-DT">Search period(Start):</label>
+                    </td>
+                    <td class="celldatakey">
+                        <!-- CHANGES STARTS FOR 105529 -->
+                     <!--   <input type="text" value=" " name="MIR-SRCH-PERI-STRT-DT" id="MIR-SRCH-PERI-STRT-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)" /> -->
+                        <input type="text" value=" " name="MIR-SRCH-PERI-STRT-DT" id="MIR-SRCH-PERI-STRT-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)" />
+                        <!-- CHANGES END FOR 105529 -->
+                    </td>
+
+                    <td class="celldatakeylabel">
+                        <label for="MIR-SRCH-PERI-END-DT">Search period(End):</label>
+                    </td>
+                    <td class="celldatakey">
+                        <!-- CHANGES STARTS FOR 105529 -->
+                     <!--   <input type="text" value=" " name="MIR-SRCH-PERI-END-DT" id="MIR-SRCH-PERI-END-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)" /> -->
+                        <input type="text" value=" " name="MIR-SRCH-PERI-END-DT" id="MIR-SRCH-PERI-END-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)" />
+                        <!-- CHANGES END FOR 105529 -->
+                    </td>
+                </tr>
+                <tr>
+                <td class="celldatakeylabel">
+                        <label for="MIR-RFND-USER-ID">Refund User ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-RFND-USER-ID" id="MIR-RFND-USER-ID" stype="Text" maxlength="8" onfocus="enterField(this)" />
+                    </td>
+                 </tr>
+            </table>
+
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

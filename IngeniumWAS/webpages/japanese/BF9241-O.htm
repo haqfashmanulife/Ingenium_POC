@@ -1,0 +1,111 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:58 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9241-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  HCL103D HIN/CL   PRINT CONTACT CLIENT LABEL  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                            
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9241-O</title>
+    <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+        <!-- special style sheet for printing -->
+        <style media="print">
+        .noprint           { display: none }
+        .printtabledisplay { BORDER-STYLE: none;
+                             FONT-FAMILY: arial, verdana, helvetica, sans-serif;
+
+                             WIDTH: 100%}
+        .tableborder       {BORDER-STYLE: solid;
+			    BORDER-WIDTH: 1px}
+	.cellprint	    {
+			    COLOR: #000066;
+			    FONT-FAMILY: arial;
+			    FONT-SIZE: 12pt;
+			    HEIGHT:14;
+			    }
+        </style>
+        <style>
+	.cellprint	    {
+			    COLOR: #000066;
+			    FONT-FAMILY: arial;
+			    FONT-SIZE: 10pt;
+			    HEIGHT:14;
+			    }
+        </style>
+    </head>
+    <body class="bodyws" onLoad="printPageInit(printControls)">
+        <!-- MeadCo Printing ActiveX ScriptX Control -->
+        <object id="factory" style="display:none"
+        classid="clsid:1663ed61-23eb-11d2-b92f-008048fdd814"
+        codebase="/activex/ScriptX.cab#Version=6,1,429,14">
+        </object>
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <div class="noprint">
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLM-ID">マスタークレームID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLM-ID" stype="Text" displayonly="yes">MIR-CLM-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <h2>連絡先クライアント名と住所詳細</h2>
+            </div>
+	    <table class="printtabledisplay">
+                 <tr>
+                    <td class="cellprint">
+                        <span id="MIR-DV-ADDR-LN-1-TXT" stype="Text" displayonly="yes">MIR-DV-ADDR-LN-1-TXT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cellprint">
+                        <span id="MIR-DV-ADDR-LN-2-TXT" stype="Text" displayonly="yes">MIR-DV-ADDR-LN-2-TXT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cellprint">
+                        <span id="MIR-DV-ADDR-LN-3-TXT" stype="Text" displayonly="yes">MIR-DV-ADDR-LN-3-TXT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cellprint">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cellprint">
+                        <span id="MIR-DV-CNTCT-CLI-NM" stype="Text" displayonly="yes">MIR-DV-CNTCT-CLI-NM</span>
+                    </td>
+                </tr>
+            </table>
+	    <br  />
+            <div id="printControls" class="noprint">
+               <input type="button" value="印刷" onClick="factory.printing.Print(true, window)"></input>
+           </div>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/printPage.js"></script>
+</html>

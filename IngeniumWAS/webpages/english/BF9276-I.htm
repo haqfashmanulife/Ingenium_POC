@@ -1,0 +1,285 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:50 PM EDT
+*
+*********************************************************************************
+*  Component  : BF9276-I.htm
+*  Description: Add Adjustment/Exclusion
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+* HCL106  HIN/CL   ADJUDICATORS DECISION PART A & B (HCL106A)
+* HCCL05  HIN/CL   Pick-up Facility
+* RP2CLA   CTS   CHANGES FOR CANCER LUMPSUM AUTOMATION
+*  MP143F  CTS      CHANGES TO ADD ADVANCED MEDICAL BENEFIT AMOUNT FIELD
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+* UYSDMC  CTS      USYS CLAIM IND ADDITION
+* UY3023  CTS      STREAM 3 MEDICAL CLAIM
+*********************************************************************************
+-->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9276-I</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<body onload="onLoadCustom()" class="bodyws">
+<form action="pageserver" method="post" id="inputForm" target="_parent"  onsubmit="return(onSubmit());">
+     <input type="hidden" name="action" id="action" stype="Hidden"/>
+     <input type="hidden" name="index" id="index" stype="Hidden" />
+     <input type="hidden" name="MIR-DV-EXCL-ADJ-IND" id="MIR-DV-EXCL-ADJ-IND" stype="Hidden"/>
+    <table border="0" width="100%" class="tabledisplaykey">
+    <tr>
+
+        <td class="celldisplaykeylabel">
+          <label for="MIR-CLM-ID">Master Claim ID:</label>
+        </td>
+        <td class="celldisplaykey">
+          <span id="MIR-CLM-ID" stype="Text" displayonly="yes">MIR-CLM-ID</span>
+        </td>
+
+        <td class="celldisplaykeylabel">
+          <label for="MIR-DV-INS-CLI-NM">Insured Name:</label>
+        </td>
+        <td class="celldisplaykey">
+          <span id="MIR-DV-INS-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INS-CLI-NM</span>
+        </td>
+
+        <td class="celldisplaykeylabel">
+          <label for="MIR-CLMA-CLM-STAT-CD">Master Claim Status:</label>
+        </td>
+        <td class="celldisplaykey">
+          <span id="MIR-CLMA-CLM-STAT-CD" stype="Text" displayonly="yes">MIR-CLMA-CLM-STAT-CD</span>
+        </td>
+    </tr>
+
+    <tr>
+         <td class="celldisplaykeylabel">
+              <label for="MIR-CLMA-INSRD-CLI-ID">Insured Client ID:</label>
+         </td>
+         <td class="celldisplaykey">
+            <span id="MIR-CLMA-INSRD-CLI-ID" stype="Text" displayonly="yes">MIR-CLMA-INSRD-CLI-ID</span>
+         </td>
+
+         <td class="celldisplaykeylabel">
+            <label for="MIR-CLI-BTH-DT">Birth Date:</label>
+        </td>
+        <td class="celldisplaykey">
+          <span id="MIR-CLI-BTH-DT" stype="Date" displayonly="yes">MIR-CLI-BTH-DT</span>
+        </td>
+
+         <td class="celldisplaykeylabel">
+            <label for="MIR-CLI-SEX-CD">Sex:</label>
+         </td>
+        <td class="celldisplaykey">
+           <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+        </td>
+    </tr>
+
+    <tr>
+         <td class="celldisplaykeylabel">
+           <label for="MIR-INS-MORAL-RISK-IND">Insured Moral Risk:</label>
+        </td>
+       <td class="celldisplaykey">
+             <input type="checkbox" name="MIR-INS-MORAL-RISK-IND" id="MIR-INS-MORAL-RISK-IND" stype="Indicator" value="Y" disabled="yes"/>
+       </td>
+
+       <td class="celldisplaykeylabel">
+           <label for="MIR-CLAIM-NOTE-IND">Claim Note:</label>
+       </td>
+      <td class="celldisplaykey">
+           <input type="checkbox" name="MIR-CLAIM-NOTE-IND" id="MIR-CLAIM-NOTE-IND" stype="Indicator" value="Y" disabled="yes"/>
+      </td>
+
+      <td class="celldisplaykeylabel">
+        <label for="MIR-LIFE-INS-CLM-IND">Life Insurance Claim in Progress:</label>
+     </td>
+
+     <td class="celldisplaykey">
+         <input type="checkbox" name="MIR-LIFE-INS-CLM-IND" id="MIR-LIFE-INS-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+     </td>
+    </tr>
+
+    <tr>
+       <td class="celldisplaykeylabel">
+           <label for="MIR-POL-ID">Policy ID:</label>
+      </td>
+      <td class="celldisplaykey">
+         <span id="MIR-POL-ID" stype="Text" displayonly="yes">MIR-POL-ID</span>
+     </td>
+
+     <td class="celldisplaykeylabel">
+          <label for="MIR-CVG-NUM">Coverage Number:</label>
+     </td>
+     <td class="celldisplaykey">
+         <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+     </td>
+
+     <td class="celldisplaykeylabel">
+        <label for="MIR-PLAN-ID">Rider Name:</label>
+     </td>
+     <td class="celldisplaykey">
+         <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+     </td>
+    </tr>
+
+    <tr>
+       <td class="celldisplaykeylabel">
+           <label for="MIR-SERV-BR-ID">Servicing Branch:</label>
+      </td>
+      <td class="celldisplaykey">
+         <span id="MIR-SERV-BR-ID" stype="Text" displayonly="yes">MIR-SERV-BR-ID</span>
+      </td>
+
+      <td class="celldisplaykeylabel">
+         <label for="MIR-BNFT-NM-ID">Benefit Name:</label>
+      </td>
+      <td class="celldisplaykey">
+         <span id="MIR-BNFT-NM-ID" stype="Text" displayonly="yes">MIR-BNFT-NM-ID</span>
+      </td>
+
+      <td class="celldisplaykeylabel">
+         <label for="MIR-BNFT-STAT-CD">Benefit Claim Status:</label>
+      </td>
+      <td class="celldisplaykey">
+         <span id="MIR-BNFT-STAT-CD" stype="Text" displayonly="yes">MIR-BNFT-STAT-CD</span>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="celldisplaykeylabel">
+          <label for="MIR-CLMA-ASSOC-CLM-ID">Associated Master Claim:</label>
+      </td>
+      <td class="celldisplaykey">
+         <span id="MIR-CLMA-ASSOC-CLM-ID" stype="Text" displayonly="yes">MIR-CLMA-ASSOC-CLM-ID</span>
+      </td>
+      <td class="celldisplaykeylabel">
+         <label for="MIR-CLMA-HIST-CLM-IND">Historical Claim:</label>
+      </td>
+      <td class="celldisplaykey">
+         <input type="checkbox" name="MIR-CLMA-HIST-CLM-IND" id="MIR-CLMA-HIST-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+      </td>
+      <td class="celldisplaykeylabel">
+<!-- UYSDMC CHANGES START -->	  
+         <label for="MIR-CLMA-USYS-CLM-IND">Unisys Claim:</label>
+<!-- UYSDMC CHANGES END -->		 
+      </td>
+      <td class="celldisplaykey">
+<!-- UYSDMC CHANGES START -->	  
+         <input type="checkbox" name="MIR-CLMA-USYS-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+<!-- UYSDMC CHANGES END -->      
+	  </td>
+   </tr>
+  </table>
+
+<br> </br>
+
+
+<br/>
+<span id="ExclSection">
+<table class="tabledataentry"  >
+    <tr>
+        <td class="celllabelrightalign" >
+          <label for="MIR-EXCL-STRT-DT">Exclusion Start Date:</label>
+        </td>
+        <td class="celllabeldataentry" >
+            <input type="text" value=" " name="MIR-EXCL-STRT-DT" id="MIR-EXCL-STRT-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+        </td>
+        <td class="celllabelrightalign" >
+            <label for="MIR-EXCL-END-DT">Exclusion End Date:</label>
+        </td>
+
+        <td class="celldataentry" >
+            <input type="text" value=" " name="MIR-EXCL-END-DT" id="MIR-EXCL-END-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)"  />
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign" >
+          <label for="MIR-EXCL-REASN-CD">Exclusion Reason:</label>
+        </td>
+        <td class="celldataentry">
+          <select name="MIR-EXCL-REASN-CD" id="MIR-EXCL-REASN-CD" size="1" stype="Selection" mandatory="yes" onfocus="enterField(this)" >
+         </select>
+      </td>
+    </tr>
+    </table>
+</span>
+
+
+<span id="AdjSection">
+<table class="tabledataentry"  >
+    <tr>
+        <td class="celllabelrightalign">
+          <label for="MIR-ADJ-STRT-DT">Adjustment Start Date:</label>
+        </td>
+        <td class="celldataentry" >
+                  <input type="text" value=" " name="MIR-ADJ-STRT-DT" id="MIR-ADJ-STRT-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)"  />
+        </td>
+        <td class="celllabelrightalign" >
+            <label for="MIR-ADJ-END-DT">Adjustment End Date:</label>
+        </td>
+        <td class="celldataentry" >
+            <input type="text" value=" " name="MIR-ADJ-END-DT" id="MIR-ADJ-END-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)"  />
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign" >
+               <label for="MIR-ADJ-REASN-CD">Adjustment Reason:</label>
+        </td>
+        <td class="celldataentry">
+               <select name="MIR-ADJ-REASN-CD" id="MIR-ADJ-REASN-CD" size="1" stype="Selection" mandatory="yes" onfocus="enterField(this)" >
+               </select>
+       </td>
+<!-- RP2CLA CHANGES BEGIN -->
+       <td class="celllabelrightalign" >
+              <label for="MIR-CLBD-MULTR-FCT">Multiplier:</label>
+       </td>
+       <td class="celldataentry">
+              <select name="MIR-CLBD-MULTR-FCT" id="MIR-CLBD-MULTR-FCT" size="1" stype="Selection" onfocus="enterField(this)" >
+              </select>
+       </td>
+<!-- RP2CLA CHANGES END -->
+    </tr>
+<!-- UY3023 CHANGES STARTS -->
+   <tr>
+        <td class="celllabelrightalign" >
+               <label for="MIR-DISAB-ADJ-RAT">(For Disability Benefit) Adjustment Ratio:</label>
+        </td>
+        <td class="celldataentry">
+            <input type="text" value=" " name="MIR-DISAB-ADJ-RAT" id="MIR-DISAB-ADJ-RAT" stype="Text" maxlength="5"   onfocus="enterField(this)"/>
+        </td>
+       <td class="celllabelrightalign" >
+              <label for="MIR-DISAB-MULTR-FCT">(For Disability Benefit) Adjustment Multiplier:</label>
+       </td>
+       <td class="celldataentry">
+            <input type="text" value=" " name="MIR-DISAB-MULTR-FCT" id="MIR-DISAB-MULTR-FCT" stype="Text" maxlength="3"   onfocus="enterField(this)"/>
+        </td>
+   </tr>
+<!-- UY3023 CHANGES ENDS -->	
+<!-- MP143F CHANGES BEGIN -->
+    <tr>
+        <td class="celllabelrightalign" >
+               <label for="MIR-ADV-MEDIC-BNFT-AMT">Advanced Medical Benefit Amount:</label>
+        </td>
+        <td class="celldataentry">
+               <input type="text" value=" " name="MIR-ADV-MEDIC-BNFT-AMT" id="MIR-ADV-MEDIC-BNFT-AMT" stype="Currency" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)"  />
+       </td>
+    </tr>
+<!-- MP143F CHANGES END -->
+    </table>
+    </span>
+    </form>
+
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/BF9276-I.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>
+

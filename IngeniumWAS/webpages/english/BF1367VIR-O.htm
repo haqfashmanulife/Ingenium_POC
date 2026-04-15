@@ -1,0 +1,527 @@
+<!--
+*
+*********************************************************************************
+*  Component:   BF1367VIR-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  UYS043  CTS      INITIAL VERSION FOR VIRTUAL QUOTE
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1367VIR-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Policyholder Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                 <td class="celldisplaykeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">Company Received Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">Billing Mode:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                 <td class="celldisplaykeylabel">
+                        <label for="MIR-RPU-POL-TYP-CD">RPU Policy Type:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-RPU-POL-TYP-CD" stype="Text" displayonly="yes">MIR-RPU-POL-TYP-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="2">Policy Details Before RPU</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" >
+                    <label for="MIR-POL-ISS-EFF-DT">Issue Effective Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PLAN-ID">Plan</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                    <span id="MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT</span>
+                    </td>
+                    <td class="celldisplay">
+                    <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                 </tr>
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <label for="MIR-CVG-FACE-AMT">[A] Face Amount</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" colspan="4">
+                        <span id="MIR-CVG-FACE-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-FACE-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <table class="tabledisplay" >
+                <tr>
+                    <td class="celldisplayheading" colspan="4">RPU Source Amount Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" colspan="2">Deduction Amount[B]</td>
+                    <td class="celldisplayheading" colspan="2">Cash Surrender Value[C]</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-APL-BAL-AMT">APL Balance:</label>
+                    </td>
+                    <td class="celldisplay">
+                    <span id="MIR-APL-BAL-AMT" stype="Currency" elength="20" signed="yes" displayonly="yes">MIR-APL-BAL-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-DV-NET-GCSV-AMT">Coverage Net Surrender Value</label>
+                    </td>
+                    <td class="celldisplay">
+                    <span id="MIR-DV-NET-GCSV-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-DV-NET-GCSV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-DV-APL-INT-AMT">APL Interest:</label></td>
+                    <td class="celldisplay">
+                     <span id="MIR-DV-APL-INT-AMT" stype="Currency" elength="20" signed="yes" displayonly="yes">MIR-DV-APL-INT-AMT</span>
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                </tr>
+                <tr>
+                   <td class="celldisplaylabel">
+                   <label for="MIR-LOAN-BAL-AMT">Policy Loan Balance:</label>
+                    </td>
+                   <td class="celldisplay">
+                   <span id="MIR-LOAN-BAL-AMT" stype="Currency" elength="15" displayonly="yes">MIR-LOAN-BAL-AMT</span>
+                   </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                </tr>
+                <tr>
+                   <td class="celldisplaylabel">
+                   <label for="MIR-DV-LOAN-INT-AMT">Policy Loan Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                    <span id="MIR-DV-LOAN-INT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-DV-LOAN-INT-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                </tr>
+                <tr>
+                   <td class="celldisplaylabel">
+                   <label for="MIR-LOAN-SHRT-AMT">Policy Loan Shortage Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                    <span id="MIR-LOAN-SHRT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-LOAN-SHRT-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                </tr>
+                <tr>
+                   <td class="celldisplaylabel">
+                   <label for="MIR-OS-PREM-AMT">Outstanding Premium:</label>
+                    </td>
+                   <td class="celldisplay">
+                   <span id="MIR-OS-PREM-AMT" stype="Currency" displayonly="yes">MIR-OS-PREM-AMT</span>
+                   </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                </tr>
+                <tr>
+                   <td class="celldisplaylabel">
+                   <label for="MIR-SHRT-PREM-AMT">Shortage Premium:</label>
+                    </td>
+                   <td class="celldisplay">
+                   <span id="MIR-SHRT-PREM-AMT" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-SHRT-PREM-AMT</span>
+                   </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                </tr>
+                <tr>
+                   <td class="celldisplayheading" colspan="4">[D] Unadjusted RPU Source Amount ([C] - [B])</td>
+                </tr>
+                <tr>
+                   <td class="celldisplay" colspan="4">
+                    <span id="MIR-UNADJ-RPU-SRC-AMT" stype="Currency" elength="15" displayonly="yes">MIR-UNADJ-RPU-SRC-AMT</span>
+                   </td>
+                </tr>
+                <tr>
+                   <td class="celldisplayheading" colspan="4">[E] Unadjusted RPU Face Amount (Calculate from [D])</td>
+                </tr>
+                <tr>
+                   <td class="celldisplay" colspan="4">
+                   <span id="MIR-UNADJ-RPU-FACE-AMT" stype="Currency" elength="15" displayonly="yes">MIR-UNADJ-RPU-FACE-AMT</span>
+                   </td>
+                </tr>
+            </table>
+            <br/>
+            <table class="tabledisplay" >
+                <tr>
+                    <td class="celldisplayheading" colspan="4">[I] CSV Refund Amount</td>
+                </tr>
+                <tr>
+                   <td class="celldisplayheading" colspan="1">[E]Unadjusted RPU Face Amount</td>
+                   <td class="celldisplayheading" colspan="1">[A] Face Amount Before RPU</td>
+                   <td class="celldisplayheading" colspan="1"></td>
+                   <td class="celldisplayheading" colspan="1">[G]Adjusted RPU Face Amount (Smaller Value of either [A] or [E])</td>
+                </tr>
+                <tr>
+                   <td class="celldisplay">
+                   <span id="MIR-UNADJ-RPU-FACE-AMT" stype="Currency" elength="15" displayonly="yes">MIR-UNADJ-RPU-FACE-AMT</span>
+                   </td>
+                   <td class="celldisplay">
+                   <span id="MIR-CVG-FACE-AMT" stype="Currency" elength="15" displayonly="yes">MIR-CVG-FACE-AMT</span>
+                   </td>
+                   <td class="celldisplay">
+                   </td>
+                   <td class="celldisplay">
+                   <span id="MIR-ADJ-RPU-FACE-AMT" stype="Currency" eledisplayonly="yes">MIR-ADJ-RPU-FACE-AMT</span>
+                   </td>
+                </tr>
+                <tr>
+                   <td class="celldisplayheading" colspan="1">[D] Unadjusted RPU Source Amount </td>
+                   <td class="celldisplayheading" colspan="1">     </td>
+                   <td class="celldisplayheading" colspan="1">     </td>
+                   <td class="celldisplayheading" colspan="1">[H] Adjusted RPU Source Amount ([D]-[I])</td>
+                </tr>
+                <tr>
+                   <td class="celldisplay">
+                    <span id="MIR-UNADJ-RPU-SRC-AMT" stype="Currency" elength="15" displayonly="yes">MIR-UNADJ-RPU-SRC-AMT</span>
+                   </td>
+                   <td class="celldisplay">
+                    <span id="temp" stype="Currency" elength="15" displayonly="yes">   </span>
+                   </td>
+                   <td class="celldisplay">
+                    <span id="temp" stype="Currency" elength="15" displayonly="yes">   </span>
+                   </td>
+                   <td class="celldisplay">
+                    <span id="MIR-ADJ-RPU-SRC-AMT" stype="Currency" elength="15" displayonly="yes">MIR-ADJ-RPU-SRC-AMT</span>
+                   </td>
+                </tr>
+                <tr>
+                   <td class="celldisplayheading" colspan="4">[I] CSV Refund Amount (Populated only if [E] > [A])</td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" colspan="4">
+                    <span id="MIR-CSV-RFND-AMT" stype="Currency" elength="15" displayonly="yes">MIR-CSV-RFND-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <table class="tabledisplay" >
+                <tr>
+                    <td class="celldisplayheading" colspan="3">RPU Policy Details</td>
+                </tr>
+                <tr>
+                   <td class="celldisplayheading" colspan="1">RPU Effective Date</td>
+                   <td class="celldisplayheading" colspan="1">RPU Policy Type</td>
+                   <td class="celldisplayheading" colspan="1">RPU Coverage Duration</td>
+
+                </tr>
+                <tr>
+                   <td class="celldisplay">
+                    <span id="MIR-RPU-EFF-DT" stype="Date" displayonly="yes">MIR-RPU-EFF-DT</span>
+                   </td>
+                   <td class="celldisplay">
+                   <span id="MIR-RPU-PLAN-ID" stype="Text" displayonly="yes">MIR-RPU-PLAN-ID</span>
+                   </td>
+                   <td class="celldisplay">
+                   <span id="MIR-RPU-CVG-DUR" stype="Text" displayonly="yes">MIR-RPU-CVG-DUR</span>
+                   </td>
+                </tr>
+                <tr>
+                   <td class="celldisplayheading" colspan="3">[G] RPU Face Amount</td>
+                </tr>
+                <tr>
+                   <td class="celldisplay" colspan="3">
+                   <span id="MIR-ADJ-RPU-FACE-AMT" stype="Currency" elength="15" displayonly="yes">MIR-ADJ-RPU-FACE-AMT</span>
+                   </td>
+                </tr>
+            </table>
+            <br/>
+            <table class="tabledisplay" >
+                <tr>
+                    <td class="celldisplayheading" colspan="5">Remittance Amount</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" colspan="2">Remittance Amount Details</td>
+                    <td class="celldisplayheading" colspan="1">Remittance Amount (Policy Currency)</td>
+                    <td class="celldisplayheading" colspan="1">Overpaid Premium</td>
+                    <td class="celldisplayheading" colspan="1">Remittance Amount(JPY)</td>
+                </tr>
+                <tr>
+                   <td class="celldisplay">
+                   <label for="MIR-CSV-RFND-AMT">[I] CSV Refund Amount:</label>
+                    </td>
+                   <td class="celldisplay">
+                   <span id="MIR-CSV-RFND-AMT" stype="Currency" elength="15" displayonly="yes">MIR-CSV-RFND-AMT</span>
+                   </td>
+                   <td class="celldisplay">
+                   <span id="MIR-REMIT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-REMIT-AMT</span>
+                   </td>
+                   <td class="celldisplay">
+                   <span id="MIR-OVR-PAID-PREM-AMT" stype="Currency" elength="17" displayonly="yes">MIR-OVR-PAID-PREM-AMT</span>
+                   </td>
+                   <td class="celldisplay">
+                   <span id="MIR-DV-PAYO-CSV-AMT" stype="Currency" elength="15" displayonly="yes">MIR-DV-PAYO-CSV-AMT</span>
+                   </td>
+                </tr>
+                <tr>
+                   <td class="celldisplay">
+                   <label for="MIR-POL-LOAN-OVR-PAID-AMT">Policy Loan Overpaid Amount:</label>
+                    </td>
+                   <td class="celldisplay">
+                   <span id="MIR-POL-LOAN-OVR-PAID-AMT" stype="Currency" elength="17" displayonly="yes">MIR-POL-LOAN-OVR-PAID-AMT</span>
+                   </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                </tr>
+                <tr>
+                   <td class="celldisplay">
+                   <label for="MIR-PRE-PAY-INT-AMT">Prepayment Interest:</label>
+                    </td>
+                   <td class="celldisplay">
+                   <span id="MIR-PRE-PAY-INT-AMT" stype="Currency" elength="17" displayonly="yes">MIR-PRE-PAY-INT-AMT</span>
+                   </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                </tr>
+                <tr>
+                   <td class="celldisplay">
+                   <label for="MIR-DFRL-SURV-BNFT-AMT">Deferral Survival Benefit:</label>
+                    </td>
+                   <td class="celldisplay">
+                   <span id="MIR-DFRL-SURV-BNFT-AMT" stype="Currency" elength="17" displayonly="yes">MIR-DFRL-SURV-BNFT-AMT</span>
+                   </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                </tr>
+                <tr>
+                   <td class="celldisplay">
+                   <label for="MIR-DFRL-INT-AMT">Deferral Interest:</label>
+                    </td>
+                   <td class="celldisplay">
+                   <span id="MIR-DFRL-INT-AMT" stype="Currency" elength="17" displayonly="yes">MIR-DFRL-INT-AMT</span>
+                   </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                </tr>
+                <tr>
+                   <td class="celldisplay">
+                   <label for="MIR-UNEARN-LOAN-INT-AMT">Unearned Interest:</label>
+                    </td>
+                   <td class="celldisplay">
+                   <span id="MIR-UNEARN-LOAN-INT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-UNEARN-LOAN-INT-AMT</span>
+                   </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                    <td class="celldisplay">
+                     </td>
+                </tr>
+            </table>
+            <br/>
+            <table class="tabledisplay" >
+                <tr>
+                    <td class="celldisplayheading" colspan="3">Foreign Currency Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" colspan="1">JPY Benefit Rider</td>
+                    <td class="celldisplayheading" colspan="1">JPY Exchange Effective Date</td>
+                    <td class="celldisplayheading" colspan="1">JPY Exchange Rate</td>
+                </tr>
+                <tr>
+                   <td class="celldisplay">
+                   <span id="MIR-DV-PAYO-JPY-BNFT-CD" stype="Text" displayonly="yes">MIR-DV-PAYO-JPY-BNFT-CD</span>
+                   </td>
+                   <td class="celldisplay">
+                   <span id="MIR-DV-JP-XCHNG-EFF-DT" stype="Date" displayonly="yes">MIR-DV-JP-XCHNG-EFF-DT</span>
+                   </td>
+                   <td class="celldisplay">
+                        <span id="MIR-DV-JP-XCHNG-RT" stype="Text" elength="7" decimals="2" signed="yes" displayonly="yes">MIR-DV-JP-XCHNG-RT</span>
+                   </td>
+                </tr>
+             </table>
+                <table class="tabledisplay">
+                    <tr>
+                        <td class="celldisplayheading" colspan="4">Virtual Quote</td>
+                    </tr>
+                    <tr>
+                        <td class="celldisplaylabel" colspan="1">Next Payment Date</td>
+                        <td class="celldisplay">
+                           <span id="MIR-VIR-TRAD-PD-TO-MO-NUM" stype="Text" displayonly="yes">MIR-VIR-TRAD-PD-TO-MO-NUM</span>
+                        </td>
+                        <td class="celldisplaylabel" colspan="1">Elapsed years</td>
+                        <td class="celldisplay">
+                           <span id="MIR-VIR-CI-FRST-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-VIR-CI-FRST-ELAPS-YRS-DUR</span>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-VIR-ACTV-IND">Active:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-VIR-ACTV-IND"  id="MIR-VIR-ACTV-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-VIR-BILL-MODE-CD">Payment frequency:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-VIR-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-VIR-BILL-MODE-CD</span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                <td class="celldisplaylabel">
+                   <label for="MIR-VIR-LOAN-AMT">Policy Loan Balance:</label>
+                </td>
+                <td class="celldisplay">
+                   <span id="MIR-VIR-LOAN-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-VIR-LOAN-AMT</span>
+                </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-VIR-INT-STR-DT">Interest start date:</label>
+                    </td>
+                    <td class="celldisplay">
+                       <span id="MIR-VIR-INT-STR-DT" stype="Date" displayonly="yes">MIR-VIR-INT-STR-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                <td class="celldisplaylabel">
+                   <label for="MIR-VIR-APL-LOAN-AMT">APL Balance:</label>
+                </td>
+                <td class="celldisplay">
+                   <span id="MIR-VIR-APL-LOAN-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-VIR-APL-LOAN-AMT</span>
+                </td>
+                <td class="celldisplaylabel">
+                   <label for="MIR-VIR-POL-LOAN-EFF-DT">APL Date:</label>
+                </td>
+                <td class="celldisplay">
+                   <span id="MIR-VIR-POL-LOAN-EFF-DT" stype="Date" displayonly="yes">MIR-VIR-POL-LOAN-EFF-DT</span>
+                </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-VIR-PREPAY-MNG-IND">Prepayment management:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-VIR-PREPAY-MNG-IND"  id="MIR-VIR-PREPAY-MNG-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-VIR-SEI-ASS-IND">Seizure Assignment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-VIR-SEI-ASS-IND"  id="MIR-VIR-SEI-ASS-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                 </tr>
+            <table class="tabledisplay" genrows="0" keycolumn="1" id="CvgInfo">
+                <tr>
+               <td class="celldisplayheading" colspan="18">Face amount</td>
+
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-VIR-CVG-NUM-T[1]">Coverage no.</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-VIR-PLAN-ID-T[1]">Rider Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-VIR-CVG-FACE-AMT-T[1]">Face Amount</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-VIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-VIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-VIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-VIR-PLAN-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-VIR-CVG-FACE-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-VIR-CVG-FACE-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+
+                </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

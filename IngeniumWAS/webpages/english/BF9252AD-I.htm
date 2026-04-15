@@ -1,0 +1,1211 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:50 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9252AD-I.htm
+*  Description: Master Claim Update
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  HCL103  HIN/CL   Initial version
+*  HCCL05  HIN/CL   Pick-up Facility (add Historical Claim Indicator)
+*  B11066  HIN/CL   ADD CHECK FOR SAMAKATABU (chkSamakatabu)
+*  P02101  PF 3.0   Fix Calendar functions
+*  EN000207  GW     Updated Calendar function (added clear button)
+*  EN0195  CTS      DOCTORS CERTIFIED DATE FIELD ADDITION
+*  EN0388  CTS      ADDED RO,SO CODE AND ADJ USER ID
+*  EN0386  CTS      REMOVING HOSP & DSCHRG DT FROM OUTPATIENT SECTION
+*  RP2CLA  CTS      ADD CANCER DIAGNOSIS DATE AND CANCER TYPE CODE
+*  PF4.0   BMB      Change location of Calendar.css for PathFinder 4.0 release
+*  EN9512  PF4.0.2  PathFinder Upgrade
+*  MP143G  CTS      ADDED CI DIAGNOSIS DATE,CI EVENT TYPE CODE AND ICU DATE
+*  M176J3  CTS      CHANGES DONE FOR TRANSPLANT BENEFIT
+*  M253O1  CTS      ADDED OUTCOME OF CANCER FIELD AND CHEMOTHERAPY DATE FIELD
+*  M280P2  CTS      CHANGES DONE FOR ARM III
+*  M281P2  CTS      CHANGES AS PART OF RETAIL CANCER
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  R16993  CTS      Fix for incident INC05572197. The Clrrow function input
+*                   parameters to java script are fixed
+*  UYSDMC  CTS      USYS CLAIM IND ADDITION
+*  UY3023  CTS      MEDICAL CLAIM STREAM 3
+*********************************************************************************
+ -->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>BF9252AD-I</title>
+    <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../english/Calendar.css" charset="UTF-8" />
+</head>
+<!-- M253O1 CHANGES STARTS
+<body class="bodyws" onload="onLoadCustom();initCal();onLoad()">-->
+<body class="bodyws" onload="onLoadCustom();initCal();initCal2();onLoad()">
+<!-- M253O1 CHANGES ENDS -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="chkSamakatabuClm('MIR-CNTCT-ADDL-TXT');return(onSubmit());">
+    <input type="hidden" name="action" id="action" stype="Hidden"/>
+    <input type="hidden" name="index" id="index" stype="Hidden" />
+    <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+    <input type="hidden" name="LSIR-PRCES-DT" id="LSIR-PRCES-DT" stype="Hidden" />
+<!-- EN0386 CHANGES START -->
+    <input type="hidden" name="MIR-CLMA-HOSP-DT" id="MIR-CLMA-HOSP-DT" stype="Hidden" />
+    <input type="hidden" name="MIR-CLMA-DSCHRG-DT" id="MIR-CLMA-DSCHRG-DT" stype="Hidden" />
+<!-- EN0386 CHANGES END -->
+<table class="tabledisplaykey">
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLM-ID">Master Claim ID:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLM-ID" stype="Text" displayonly="yes">MIR-CLM-ID</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-DV-INS-CLI-NM">Insured Name:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-DV-INS-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INS-CLI-NM</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLMA-CLM-STAT-CD">Master Claim Status:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLMA-CLM-STAT-CD" stype="Text" displayonly="yes">MIR-CLMA-CLM-STAT-CD</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLMA-INSRD-CLI-ID">Insured Client ID:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLMA-INSRD-CLI-ID" stype="Text" displayonly="yes">MIR-CLMA-INSRD-CLI-ID</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLI-BTH-DT">Birth Date:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLI-BTH-DT" stype="Date" displayonly="yes">MIR-CLI-BTH-DT</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLI-SEX-CD">Sex:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-INS-MORAL-RISK-IND">Insured Moral Risk:</label>
+        </td>
+        <td class="celldisplaykey">
+            <input type="checkbox" name="MIR-INS-MORAL-RISK-IND" id="MIR-INS-MORAL-RISK-IND" stype="Indicator" value="Y" disabled="yes"/>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLAIM-NOTE-IND">Claim Note:</label>
+        </td>
+        <td class="celldisplaykey">
+            <input type="checkbox" name="MIR-CLAIM-NOTE-IND" id="MIR-CLAIM-NOTE-IND" stype="Indicator" value="Y" disabled="yes"/>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLI-DTH-DT">Date of Death:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLI-DTH-DT" stype="Date" displayonly="yes">MIR-CLI-DTH-DT</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-PREV-AUTO-ADJC-DT">Last Auto Adjudication Date:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-PREV-AUTO-ADJC-DT" stype="Date" displayonly="yes">MIR-PREV-AUTO-ADJC-DT</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-PREV-UPDT-DT">Previous Update Date:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-PREV-UPDT-DT" stype="Date" displayonly="yes">MIR-PREV-UPDT-DT</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-PREV-UPDT-USER-ID">Previous Update User ID:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-PREV-UPDT-USER-ID" stype="Text" displayonly="yes">MIR-PREV-UPDT-USER-ID</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+        </td>
+        <td class="celldisplaykeylabel">
+        </td>
+	    <td class="celldisplaykeylabel">
+<!-- UYSDMC CHANGES START -->
+            <label for="MIR-CLMA-USYS-CLM-IND">Unisys Claim:</label>
+<!-- UYSDMC CHANGES END -->
+        </td>
+<!-- UYSDMC CHANGES START -->
+<!--<td class="celldisplaykeylabel">
+        </td> -->
+        <td class="celldisplaykey">
+            <input type="checkbox" name="MIR-CLMA-USYS-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+        </td>
+<!-- UYSDMC CHANGES END -->
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLMA-HIST-CLM-IND">Historical Claim:</label>
+        </td>
+        <td class="celldisplaykey">
+            <input type="checkbox" name="MIR-CLMA-HIST-CLM-IND" id="MIR-CLMA-HIST-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+        </td>
+    </tr>
+</table>
+<br />
+<table class="tableanchors" align="center">
+    <tr>
+
+        <td class="cellanchors">
+            <a href="#Adjudicator">Adjudicator</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#ClmCntct">Claim Contact</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#Notification">Notification</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#ConfCoy">Confirmation Company</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#ClmIncident">Claim Incident</a>
+        </td>
+    </tr>
+</table>
+<table class="tableanchors" align="center">
+    <tr>
+        <td class="cellanchors">
+            <a href="#Accident">Accident</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#Licence">Licence</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#AccidentOutp">Accident Outpatient</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#Diseases">Diseases</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#DisCause">Disease Cause</a>
+        </td>
+<!-- M280P2 CHANGES STARTS HERE -->
+        <td class="cellanchors">
+            <a href="#AssocDis">Associated Disease</a>
+        </td>
+<!-- M280P2 CHANGES ENDS HERE -->
+    </tr>
+</table>
+<table class="tableanchors" align="center">
+    <tr>
+        <td class="cellanchors">
+            <a href="#GenMedical">General Medical</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#Hospital">Hospitalisations</a>
+        </td>
+        <td class="cellanchors">
+<!-- MP143G CHANGES BEGIN -->
+            <a href="#ICU">ICU</a>
+        </td>
+        <td class="cellanchors">
+<!-- MP143G CHANGES END -->
+            <a href="#Surgery">Surgeries</a>
+        </td>
+<!-- RP2CLA CHANGES BEGIN -->
+        <td class="cellanchors">
+            <a href="#cancer">Cancer diagnosis</a>
+        </td>
+<!-- RP2CLA CHANGES END -->
+<!-- M281P2 CHANGES BEGIN -->
+        <td class="cellanchors">
+            <a href="#Palliative">Cancer Palliative Care</a>
+        </td>
+<!-- M281P2 CHANGES END -->
+<!-- MP143G CHANGES BEGIN -->
+        <td class="cellanchors">
+        <!-- M176J3 CHANGES BEGIN -->
+        <!-- M176J3 <a href="#Crill">Critical Illness</a>  -->
+            <a href="#Crill">Critical Illness/Transplant Benefit</a>
+        <!-- M176J3 CHANGES END -->
+        </td>
+<!-- M280P2 CHANGES STARTS HERE -->
+        <td class="cellanchors">
+            <a href="#Home Treatment">Home Treatment</a>
+        </td>
+<!-- M280P2 CHANGES ENDS HERE -->
+<!-- MP143G CHANGES END -->
+        <td class="cellanchors">
+            <a href="#Outp">Outpatient Visits</a>
+        </td>
+<!-- UY3023 CHANGES STARTS HERE -->
+        <td class="cellanchors">
+            <a href="#Disability">Disability</a>
+        </td>
+<!-- UY3023 CHANGES ENDS HERE -->
+		
+<!-- M253O1 CHANGES START -->
+        <td class="cellanchors">
+            <a href="#Chemo">Chemotherapy</a>
+        </td>
+<!-- M253O1 CHANGES ENDS -->
+    </tr>
+</table>
+<br />
+<h2><a name="Adjudicator"></a></h2>
+<table class="tabledataentry">
+    <tr>
+        <td class="celldataentryheading" colspan="4">Adjudicator</td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-ADJ-USER-ID">Adjudicator User ID:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-ADJ-USER-ID" id="MIR-ADJ-USER-ID" stype="Text" maxlength="8"
+              onfocus="enterField(this)"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-BR-ID">RO Code:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-BR-ID" id="MIR-BR-ID" stype="Text" maxlength="5"
+             onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-SO-ID">SO Code:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-SO-ID" id="MIR-SO-ID" stype="Text" maxlength="5"
+             onfocus="enterField(this)"/>
+        </td>
+    </tr>
+</table>
+<h2><a name="ClmCntct"></a></h2>
+<table class="tabledataentry">
+    <tr>
+        <td class="celldataentryheading" colspan="4">Contact Client</td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-CNTCT-INDV-SUR-NM">Kanji Last Name:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CNTCT-INDV-SUR-NM" id="MIR-CNTCT-INDV-SUR-NM" size="25" stype="Text" maxlength="25"
+              onkeypress="KanjiKeyCheck()"
+              onchange="onlyKanji()"
+              onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CNTCT-INDV-GIV-NM">Kanji First Name:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CNTCT-INDV-GIV-NM" id="MIR-CNTCT-INDV-GIV-NM" size="25" stype="Text" maxlength="25"
+             onkeypress="KanjiKeyCheck()"
+             onchange="onlyKanji()"
+             onfocus="enterField(this)"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-CNTCT-CO-NM">Company Kanji Name:</label>
+        </td>
+        <td class="celllabeldataentry" colspan="3">
+            <input type="text" value=" " name="MIR-CNTCT-CO-NM" id="MIR-CNTCT-CO-NM" size="50" stype="Text" maxlength="50"
+             onkeypress="KanjiKeyCheck()"
+             onchange="onlyKanji()"
+             onfocus="enterField(this)"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-CNTCT-INSRD-REL-CD">Relationship to Insured:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-CNTCT-INSRD-REL-CD" id="MIR-CNTCT-INSRD-REL-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-CNTCT-PHON-1-TXT">Contact Phone Number:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CNTCT-PHON-1-TXT" id="MIR-CNTCT-PHON-1-TXT" stype="Text" maxlength="20"   onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CNTCT-PHON-2-TXT">Contact Mobile Number:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CNTCT-PHON-2-TXT" id="MIR-CNTCT-PHON-2-TXT" stype="Text" maxlength="20"   onfocus="enterField(this)"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-CNTCT-ADDR-LOC-CD">Contact Address Code:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CNTCT-ADDR-LOC-CD" id="MIR-CNTCT-ADDR-LOC-CD" stype="Text" maxlength="8"   onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CNTCT-PSTL-CD">Postal Code:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CNTCT-PSTL-CD" id="MIR-CNTCT-PSTL-CD" stype="Text" maxlength="9"   onfocus="enterField(this)"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-CNTCT-ADDL-TXT">Samakata-bu:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CNTCT-ADDL-TXT" id="MIR-CNTCT-ADDL-TXT" stype="Text" maxlength="72"
+              onkeypress="KanaKeyCheck()"
+              onchange="onlyKatakana()"
+              onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+    </tr>
+</table>
+<table class="tabledisplay">
+    <tr>
+        <td class="celldisplayheading" colspan="1">Contact Kanji Address</td>
+    </tr>
+    <tr>
+        <td class="celldisplay">
+            <span id="MIR-CNTCT-KJ-PREFCT-TXT" stype="Text" displayonly="yes">MIR-CNTCT-KJ-PREFCT-TXT</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplay">
+            <span id="MIR-CNTCT-KJ-CITY-TXT" stype="Text" displayonly="yes">MIR-CNTCT-KJ-CITY-TXT</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplay">
+            <span id="MIR-CNTCT-KJ-NGHBRHD-TXT" stype="Text" displayonly="yes">MIR-CNTCT-KJ-NGHBRHD-TXT</span>
+        </td>
+    </tr>
+</table>
+<h2><a name="ClmPayee"></a></h2>
+<table class="tabledataentry">
+    <tr>
+        <td class="celldataentryheading" colspan="1" >Claim Payee</td>
+    </tr>
+    <tr>
+        <td class="celllabelleftalign">
+            <a name="ListPayee" href="a" action="GoToListPayee" index="1" onclick="onAction();return(false);" onfocus="enterField(this)" preserve="yes">Payee List</a>
+        </td>
+    </tr>
+</table>
+<h2><a name="Notification"></a></h2>
+<table class="tabledataentry">
+    <tr>
+        <td class="celldataentryheading" colspan="4" >Notification</td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-HO-NOTI-DT">Head Office Notification Date:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CLMA-HO-NOTI-DT" id="MIR-CLMA-HO-NOTI-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-HO-ACPT-DT">Head Office Claim Form Acceptance Date:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CLMA-HO-ACPT-DT" id="MIR-CLMA-HO-ACPT-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-AGT-ACPT-DT">Agent Claim Form Acceptance Date:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CLMA-AGT-ACPT-DT" id="MIR-CLMA-AGT-ACPT-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-SO-ACPT-DT">Sales Office Claim Form Acceptance Date:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CLMA-SO-ACPT-DT" id="MIR-CLMA-SO-ACPT-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+    </tr>
+</table>
+<h2><a name="ConfCoy"></a></h2>
+<table class="tabledisplay" genrows="5" >
+    <tr>
+        <td class="celldataentryheading" colspan="4">Confirmation Company</td>
+    </tr>
+    <tr>
+        <td class="celldataentryheading"><label for="MIR-CLCC-CO-CD-T[1]">Confirmation Company</label></td>
+        <td class="celldataentryheading"><label for="MIR-CLCC-STRT-DT-T[1]">Start Date</label></td>
+        <td class="celldataentryheading"><label for="MIR-CLCC-END-DT-T[1]">Completion Date</label></td>
+        <td class="celldataentryheading"><label for="MIR-CLCC-AMT-T[1]">Amount Paid</label></td>
+    </tr>
+    <tr>
+        <td class="celllabeldataentry">
+            <select name="MIR-CLCC-CO-CD-T[]" id="MIR-CLCC-CO-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CLCC-STRT-DT-T[]" id="MIR-CLCC-STRT-DT-T[]" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CLCC-END-DT-T[]" id="MIR-CLCC-END-DT-T[]" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CLCC-AMT-T[]" id="MIR-CLCC-AMT-T[]" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+        </td>
+    </tr>
+</table>
+<p align="right">
+    <a href="#top" class="backtotop" onfocus="enterField(this)">
+        <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+    </a>
+</p>
+<h2><a name="ClmIncident"></a></h2>
+<table class="tabledataentry">
+    <tr>
+        <td class="celldataentryheading" colspan="8">Claim Incident</td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-INCID-TYP-CD">Incident Type:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-INCID-TYP-CD" id="MIR-INCID-TYP-CD" size="1" stype="Selection" mandatory="yes" onfocus="enterField(this)" ></select>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-INCID-DT">Incident Date:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CLMA-INCID-DT" id="MIR-CLMA-INCID-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-DOCTOR-CERT-DT">Dr's Certified Date:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CLMA-DOCTOR-CERT-DT" id="MIR-CLMA-DOCTOR-CERT-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-LIFE-INS-CLM-IND">Life Insurance Claim In Progress:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-LIFE-INS-CLM-IND" id="MIR-LIFE-INS-CLM-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+    </tr>
+</table>
+<h2><a name="Accident"></a></h2>
+<table class="tabledataentry">
+    <tr>
+        <td class="celldataentryheading" colspan="4">Accident</td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-ACCDNT-DSCLSRE-IND">Accident Disclosure Submit:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-ACCDNT-DSCLSRE-IND" id="MIR-ACCDNT-DSCLSRE-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-ALCHL-IND">Alcohol Indicator:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-CLMA-ALCHL-IND" id="MIR-CLMA-ALCHL-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-ACCDNT-TYP-CD">Accident Type:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-ACCDNT-TYP-CD" id="MIR-ACCDNT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-ACCDNT-CERT-IND">Accident Certificate Submit:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-ACCDNT-CERT-IND" id="MIR-ACCDNT-CERT-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-TRF-ACCDNT-TYP-CD">Traffic Accident Condition:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-TRF-ACCDNT-TYP-CD" id="MIR-TRF-ACCDNT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+    </tr>
+</table>
+<h2><a name="Licence"></a></h2>
+<table class="tabledataentry">
+    <tr>
+        <td class="celldataentryheading" colspan="6">Licence</td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-DRV-VEH-TYP-CD">Driving Vehicle Type:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-DRV-VEH-TYP-CD" id="MIR-DRV-VEH-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-DRV-LIC-SUBMIT-CD">Licence Submit:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-DRV-LIC-SUBMIT-CD" id="MIR-DRV-LIC-SUBMIT-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-DRV-LIC-DT">Licence Date:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-DRV-LIC-DT" id="MIR-DRV-LIC-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+    </tr>
+</table>
+<table class="tabledataentry">
+    <tr>
+        <td class="celllabelleftalign"><label for="MIR-DRV-LIC-LRG-IND">Large Vehicle</label></td>
+        <td class="celllabelleftalign"><label for="MIR-DRV-LIC-ORD-IND">Ordinary Vehicle</label></td>
+        <td class="celllabelleftalign"><label for="MIR-DRV-LIC-LS-IND">Large Special</label></td>
+        <td class="celllabelleftalign"><label for="MIR-DRV-LIC-MB-IND">Motor Bike</label></td>
+        <td class="celllabelleftalign"><label for="MIR-DRV-LIC-SS-IND">Small Special</label></td>
+        <td class="celllabelleftalign"><label for="MIR-DRV-LIC-MS-IND">Motor Scooter</label></td>
+        <td class="celllabelleftalign"><label for="MIR-DRV-LIC-TOW-IND">Tow Truck</label></td>
+        <td class="celllabelleftalign"><label for="MIR-DRV-LIC-LCOMM-IND">Large Commercial</label></td>
+        <td class="celllabelleftalign"><label for="MIR-DRV-LIC-OCOMM-IND">Ordinary Commercial</label></td>
+        <td class="celllabelleftalign"><label for="MIR-DRV-LIC-SCOMM-IND">Special Commercial</label></td>
+        <td class="celllabelleftalign"><label for="MIR-DRV-LIC-TCOMM-IND">Tow Commercial</label></td>
+    </tr>
+    <tr>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-DRV-LIC-LRG-IND" id="MIR-DRV-LIC-LRG-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-DRV-LIC-ORD-IND" id="MIR-DRV-LIC-ORD-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-DRV-LIC-LS-IND" id="MIR-DRV-LIC-LS-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-DRV-LIC-MB-IND" id="MIR-DRV-LIC-MB-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-DRV-LIC-SS-IND" id="MIR-DRV-LIC-SS-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-DRV-LIC-MS-IND" id="MIR-DRV-LIC-MS-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-DRV-LIC-TOW-IND" id="MIR-DRV-LIC-TOW-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-DRV-LIC-LCOMM-IND" id="MIR-DRV-LIC-LCOMM-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-DRV-LIC-OCOMM-IND" id="MIR-DRV-LIC-OCOMM-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-DRV-LIC-SCOMM-IND" id="MIR-DRV-LIC-SCOMM-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-DRV-LIC-TCOMM-IND" id="MIR-DRV-LIC-TCOMM-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-HD-INJ-IND">Head Injury</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-CLMA-HD-INJ-IND" id="MIR-CLMA-HD-INJ-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+    </tr>
+</table>
+<p align="right">
+    <a href="#top" class="backtotop" onfocus="enterField(this)">
+        <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+    </a>
+</p>
+<h2><a name="AccidentOutp"></a></h2>
+<table class="tabledataentry">
+    <tr>
+        <td class="celldataentryheading" colspan="4">Accident Outpatient</td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-ACCDNT-WHIP-IND">Reported Whiplash / Back Pain:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-ACCDNT-WHIP-IND" id="MIR-ACCDNT-WHIP-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-OBJ-SYMP-IND">Objective Symptom:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-CLMA-OBJ-SYMP-IND" id="MIR-CLMA-OBJ-SYMP-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-ACCDNT-RECOV-IND">Recovered:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-ACCDNT-RECOV-IND" id="MIR-ACCDNT-RECOV-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-ACCDNT-RECOV-DT">Recovered Date:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-ACCDNT-RECOV-DT" id="MIR-ACCDNT-RECOV-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-HOSP-CAT-CD">Hospital Category:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-CLMA-HOSP-CAT-CD" id="MIR-CLMA-HOSP-CAT-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-BODY-PART-CD">Body Parts:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-CLMA-BODY-PART-CD" id="MIR-CLMA-BODY-PART-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+    </tr>
+</table>
+<h2><a name="Diseases"></a>Diseases</h2>
+<table class="tabledataentry" genrows="5" id="DiseaseTable">
+    <tr>
+        <td class="celldataentryheading"></td>
+        <td class="celldataentryheading"><label for="MIR-DIS-MAJ-CD-T[1]">Major Disease Code</label></td>
+        <td class="celldataentryheading"><label for="MIR-DIS-MINR-DESC-T[1]">Kanji Description</label></td>
+        <td class="celldataentryheading"></td>
+    </tr>
+    <tr>
+        <td class="celllabelleftalign">
+            <a name="SearchDisease" href="a" action="GoToSearchDisease" index="1" onclick="onAction();return(false);" onfocus="enterField(this)" preserve="yes">Search Disease</a>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-DIS-MAJ-CD-T[]" id="MIR-DIS-MAJ-CD-T[]" readonly="yes" stype="Text" maxlength="10"   onfocus="enterField(this)" tabindex="-1"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-DIS-MINR-DESC-T[]" id="MIR-DIS-MINR-DESC-T[]" readonly="yes" stype="Text" size="60" maxlength="60"   onfocus="enterField(this)" tabindex="-2"/>
+        </td>
+        <td>
+            <input type="button" index="1" onclick="clrRow('DiseaseTable', this.getAttribute('index'))" value="Remove" name="clrRowButton" id="clrRowButton" />
+        </td>
+    </tr>
+</table>
+<input type="button" onclick="addRow('DiseaseTable')" value="Add Disease" name="addDisRowButton" id="addDisRowButton" />
+<p align="right">
+    <a href="#top" class="backtotop" onfocus="enterField(this)">
+        <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+    </a>
+</p>
+<h2><a name="DisCause"></a></h2>
+<table class="tabledataentry" id="DiseaseCause">
+    <tr>
+        <td class="celldataentryheading" colspan="6">Disease Cause</td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign"></td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-INCID-CAUS-CD">Incident Cause Code:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-CLMA-INCID-CAUS-CD" id="MIR-CLMA-INCID-CAUS-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelleftalign">
+            <a name="SearchDisease" href="a" action="GoToSearchDisCause" index="1" onclick="onAction();return(false);" onfocus="enterField(this)" preserve="yes">Search Disease</a>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-CAUS-MAJ-CD">Disease Cause Code:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CLMA-CAUS-MAJ-CD" id="MIR-CLMA-CAUS-MAJ-CD" readonly="yes" stype="Text" maxlength="10"   onfocus="enterField(this)" tabindex="-3"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-DIS-CAUS-DESC">Kanji Description:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CLMA-DIS-CAUS-DESC" id="MIR-CLMA-DIS-CAUS-DESC" readonly="yes" stype="Text" size="60" maxlength="60"   onfocus="enterField(this)" tabindex="-4"/>
+        </td>
+        <td>
+            <input type="button" index="1" onclick="clrRow('DiseaseCause', this.getAttribute('index'))" value="Remove" name="clrRowButton" id="clrRowButton" />
+        </td>
+    </tr>
+</table>
+<!-- M280P2 CHANGES STARTS HERE -->
+<h2><a name="AssocDis"></a>Associated Disease</h2>
+<table class="tabledataentry" genrows="10" id="AssociatedDisease">
+    <tr>
+        <td class="celldataentryheading"></td>
+        <td class="celldataentryheading"><label for="MIR-ASSOC-DIS-MAJ-CD-T[1]">Major Disease Code</label></td>
+        <td class="celldataentryheading"><label for="MIR-ASSOC-DIS-MINR-DESC-T[1]">Kanji Description</label></td>
+        <td class="celldataentryheading"><label for="MIR-ASSOC-DIS-STRT-DT-T[1]">Start Date</label></td>
+        <td class="celldataentryheading"><label for="MIR-ASSOC-DIS-END-DT-T[1]">End Date</label></td>
+        <td class="celldataentryheading"></td>
+    </tr>
+    <tr>
+        <td class="celllabelleftalign">
+            <a name="SearchDisease" href="a" action="GoToSearchAssocDisease" index="1" onclick="onAction();return(false);" onfocus="enterField(this)" preserve="yes">Search Disease</a>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-ASSOC-DIS-MAJ-CD-T[]" id="MIR-ASSOC-DIS-MAJ-CD-T[]" readonly="yes" stype="Text" maxlength="10" onfocus="enterField(this)" tabindex="-1"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-ASSOC-DIS-MINR-DESC-TXT-T[]" id="MIR-ASSOC-DIS-MINR-DESC-TXT-T[]" readonly="yes" stype="Text" size="60" maxlength="60"   onfocus="enterField(this)" tabindex="-2"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-ASSOC-DIS-STRT-DT-T[]" id="MIR-ASSOC-DIS-STRT-DT-T[]" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-ASSOC-DIS-END-DT-T[]" id="MIR-ASSOC-DIS-END-DT-T[]" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td>
+            <input type="button" index="1" onclick="clrRow('AssociatedDisease', this.getAttribute('index'))" value="Remove" name="clrRowButton" id="clrRowButton" />
+        </td>
+    </tr>
+</table>
+<input type="button" onclick="addRow('AssociatedDisease')" value="Add Disease" name="addAssocDisRowButton" id="addAssocDisRowButton" />
+<!-- M280P2 ENDS STARTS HERE -->
+<h2><a name="GenMedical"></a></h2>
+<table class="tabledataentry">
+    <tr>
+        <td class="celldataentryheading" colspan="6">General Medical</td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-CMPLC-IND">Complications:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-CLMA-CMPLC-IND" id="MIR-CLMA-CMPLC-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-FIRST-EXAM-DT">First Examination Date:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CLMA-FIRST-EXAM-DT" id="MIR-CLMA-FIRST-EXAM-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-PREV-DOCTOR-IND">Previous Doctor:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-PREV-DOCTOR-IND" id="MIR-PREV-DOCTOR-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-EXIST-CHRONIC-IND">Existing Symptom / Chronic Illness:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="checkbox" value="Y" name="MIR-EXIST-CHRONIC-IND" id="MIR-EXIST-CHRONIC-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CANCER-AWARE-CD">Cancer Awareness:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-CANCER-AWARE-CD" id="MIR-CANCER-AWARE-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+        <td class="celllabelrightalign">
+        </td>
+    </tr>
+</table>
+<h2><a name="Hospital"></a>Hospitalisations</h2>
+<table id="HospTable" class="tabledataentry" genrows="10" >
+    <tr>
+        <td class="celldataentryheading"><label for="MIR-HOSP-STRT-DT-T[1]">Start Date</label></td>
+        <td class="celldataentryheading"><label for="MIR-HOSP-END-DT-T[1]">End Date</label></td>
+        <td class="celldataentryheading"><label for="MIR-HOSP-STAT-CD-T[1]">Status</label></td>
+    </tr>
+    <tr>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-HOSP-STRT-DT-T[]" id="MIR-HOSP-STRT-DT-T[]" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-HOSP-END-DT-T[]" id="MIR-HOSP-END-DT-T[]" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-HOSP-STAT-CD-T[]" id="MIR-HOSP-STAT-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+    </tr>
+</table>
+<input type="button" onclick="addRow('HospTable')" value="Add Hospitalisation" name="addHospRowButton" id="addHospRowButton" />
+<p align="right">
+    <a href="#top" class="backtotop" onfocus="enterField(this)">
+        <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+    </a>
+</p>
+<!-- MP143G CHANGES BEGIN -->
+<h2><a name="ICU"></a>ICU</h2>
+<table class="tabledataentry" >
+     <tr>
+        <td class="celldataentryheading"><label for="MIR-ICU-DT">ICU Date</label></td>
+     </tr>
+     <tr>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-ICU-DT" id="MIR-ICU-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)"/></td>
+     </tr>
+</table>
+<!-- MP143G CHANGES END -->
+<h2><a name="Surgery"></a>Surgeries</h2>
+<!-- M280P2 CHANGES STARTS -->
+<!---<table id="SurgeryTable" class="tabledataentry" genrows="10" > -->
+<table id="SurgeryTable" class="tabledataentry" genrows="30" >
+<!-- M280P2 CHANGES ENDS -->
+    <tr>
+        <td class="celldataentryheading"><label for="MIR-SURGY-STRT-DT-T[1]">Start Date</label></td>
+        <td class="celldataentryheading"><label for="MIR-SURGY-END-DT-T[1]">End Date</label></td>
+        <td class="celldataentryheading"><label>Surgery Code Search</label></td>
+        <td class="celldataentryheading"><label for="MIR-SURGY-MINR-DESC-T[1]">Kanji Description</label></td>
+        <td class="celldataentryheading"><label for="MIR-SURGY-MEDC-SUBTYP-CD-T[1]">Surgery Subtype</label></td>
+    </tr>
+    <tr>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-SURGY-STRT-DT-T[]" id="MIR-SURGY-STRT-DT-T[]" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-SURGY-END-DT-T[]" id="MIR-SURGY-END-DT-T[]" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabelleftalign">
+            <a name="SearchSurgery" href="a" action="GoToSearchSurgery" index="1" onclick="onAction();return(false);" onfocus="enterField(this)" preserve="yes">Search Surgery</a>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-SURGY-MINR-DESC-T[]" id="MIR-SURGY-MINR-DESC-T[]" readonly="yes" stype="Text" size="60" maxlength="60"   onfocus="enterField(this)" tabindex="-5"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-SURGY-MEDC-SUBTYP-CD-T[]" id="MIR-SURGY-MEDC-SUBTYP-CD-T[]" readonly="yes" stype="Text" onfocus="enterField(this)" tabindex="-6"/>
+       </td>
+    </tr>
+</table>
+<input type="button" onclick="addRow('SurgeryTable')" value="Add Surgery" name="addSurgRowButton" id="addSurgRowButton" />
+<!-- RP2CLA CHANGES BEGIN -->
+<h2><a name="cancer"></a>Cancer diagnosis</h2>
+<table class="tabledataentry">
+     <tr>
+        <td class="celldataentryheading"><label for="MIR-CANCER-DIAGNS-DT">Diagnosed date</label></td>
+        <td class="celldataentryheading"><label for="MIR-CANCER-TYP-CD">Cancer Type</label></td>
+<!-- M281P2 CHANGES BEGIN -->
+        <td class="celldataentryheading"><label for="MIR-CANCER-STAGE-CD">Cancer Stage</label></td>
+<!-- M281P2 CHANGES END -->
+<!-- M253O1 CHANGES BEGIN -->
+        <td class="celldataentryheading"><label for="MIR-CANCER-OUTCM-CD">Outcome of Cancer</label></td>
+<!-- M253O1 CHANGES END -->
+     </tr>
+     <tr>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CANCER-DIAGNS-DT" id="MIR-CANCER-DIAGNS-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-CANCER-TYP-CD" id="MIR-CANCER-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+<!-- M281P2 CHANGES BEGIN -->
+        <td class="celllabeldataentry">
+            <select name="MIR-CANCER-STAGE-CD" id="MIR-CANCER-STAGE-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+<!-- M281P2 CHANGES END -->
+<!-- M253O1 CHANGES BEGIN -->
+        <td class="celllabeldataentry">
+            <select name="MIR-CANCER-OUTCM-CD" id="MIR-CANCER-OUTCM-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+<!-- M253O1 CHANGES END -->
+     </tr>
+</table>
+<!-- RP2CLA CHANGES END -->
+<!-- M281P2 CHANGES BEGIN -->
+
+<h2><a name="Palliative"></a>Cancer Palliative Care</h2>
+<table id="PalliativeTable" class="tabledataentry" genrows="20" >
+    <tr>
+        <td class="celldataentryheading"><label for="MIR-PALLIATIVE-STRT-DT-T[1]">Start Date</label></td>
+        <td class="celldataentryheading"><label for="MIR-PALLIATIVE-END-DT-T[1]">End Date</label></td>
+    </tr>
+    <tr>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-PALLIATIVE-STRT-DT-T[]" id="MIR-PALLIATIVE-STRT-DT-T[]" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-PALLIATIVE-END-DT-T[]" id="MIR-PALLIATIVE-END-DT-T[]" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+    </tr>
+</table>
+<input type="button" onclick="addRow('PalliativeTable')" value="Add Treatment" name="addPalliativeRowButton" id="addPalliativeRowButton" />
+<p align="right">
+    <a href="#top" class="backtotop" onfocus="enterField(this)">
+        <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+    </a>
+</p>
+<!-- M281P2 CHANGES END -->
+<!-- MP143G CHANGES BEGIN -->
+<!-- M176J3 CHANGES BEGIN -->
+<!--<h2><a name="Crill"></a>Critical Illness</h2>-->
+<h2><a name="Crill"></a>Critical Illness/Transplant Benefit</h2>
+<!-- M176J3 CHANGES END -->
+<table class="tabledataentry" >
+     <tr>
+        <td class="celldataentryheading"><label for="MIR-CI-DIAGNS-DT">Diagnosed date</label></td>
+        <td class="celldataentryheading"><label for="MIR-CI-EVNT-TYP-CD">CI Event Type</label></td>
+     </tr>
+     <tr>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CI-DIAGNS-DT" id="MIR-CI-DIAGNS-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-CI-EVNT-TYP-CD" id="MIR-CI-EVNT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+     </tr>
+</table>
+<!-- M280P2 CHANGES STARTS HERE-->
+<h2><a name="Home Treatment"></a>Home Treatment</h2>
+<table id="HometreatmentTable" class="tabledataentry" genrows="20" >
+    <tr>
+        <td class="celldataentryheading"><label for="MIR-HOME-TRTMNT-STRT-DT-T[1]">Start Date</label></td>
+        <td class="celldataentryheading"><label for="MIR-HOME-TRTMNT-END-DT-T[1]">End Date</label></td>
+    </tr>
+    <tr>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-HOME-TRTMNT-STRT-DT-T[]" id="MIR-HOME-TRTMNT-STRT-DT-T[]" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-HOME-TRTMNT-END-DT-T[]" id="MIR-HOME-TRTMNT-END-DT-T[]" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+    </tr>
+</table>
+<input type="button" onclick="addRow('HometreatmentTable')" value="Add Treatment" name="addTrtmntRowButton" id="addTrtmntRowButton" />
+<!-- MP143G CHANGES END -->
+<!-- UY3023 CHANGES STARTS HERE-->
+<h2><a name="Disability"></a>Disability</h2>
+<table class="tabledataentry">
+    <tr>
+        <td class="celldataentryheading"><label for="MIR-DISAB-GRADE-CD">Grade</label></td>
+        <td class="celldataentryheading"><label for="MIR-DISAB-RNG-CD">Code</label></td>
+		<td class="celldataentryheading"><label for="MIR-DISAB-FIXN-DT">Date of Fixation</label></td>
+    </tr>
+    <tr>
+	    <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-DISAB-GRADE-CD" id="MIR-DISAB-GRADE-CD" stype="Text" maxlength="2"   onfocus="enterField(this)"/>
+        </td>
+		<td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-DISAB-RNG-CD" id="MIR-DISAB-RNG-CD" stype="Text" maxlength="2"   onfocus="enterField(this)"/>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-DISAB-FIXN-DT" id="MIR-DISAB-FIXN-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+     </tr>
+</table>
+<!-- UY3023 CHANGES ENDS HERE-->
+<h2><a name="Outp"></a>Outpatient Visits</h2>
+<!--  EN0386 CHANGES START
+<table class="tabledataentry">
+    <tr>
+        <td class="celldataentryheading" colspan="4">Hospitalisation Dates Related To Outpatient Claims</td>
+    </tr>
+    <tr>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-HOSP-DT">Hospitalisation Date:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CLMA-HOSP-DT" id="MIR-CLMA-HOSP-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+        <td class="celllabelrightalign">
+            <label for="MIR-CLMA-DSCHRG-DT">Discharge Date:</label>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-CLMA-DSCHRG-DT" id="MIR-CLMA-DSCHRG-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+    </tr>
+</table>
+EN0386 CHANGES END  -->
+<br />
+<div id="OutPCal">calendar goes here</div>
+<div id="OutpMIR" style="DISPLAY: none">
+<table id="OutpTable" class="tabledataentry" genrows="100">
+    <tr>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-OUTP-STRT-DT-T[]" id="MIR-OUTP-STRT-DT-T[]" stype="Date" onblur="validateField(this)"/>
+        </td>
+    </tr>
+</table>
+</div>
+<input type="button" onclick="clearCal()" value="Clear Calendar" />
+<!-- M253O1 CHANGES STARTS-->
+<table class="tabledisplay" bgcolor="#008000" >
+    <tr>
+<td class="celldisplaygrn" colspan="2"><a name="Chemo"></a>Chemotherapy</td>
+</tr>
+<tr>
+<td>
+<br />
+<div id="ChemoCal">Calendar goes here</div>
+<div id="ChemoMIR" style="DISPLAY: none">
+<table id="ChemoTable" class="tabledataentry" genrows="100">
+    <tr>
+        <td class="celldisplaygrn">
+            <input type="text" value=" " name="MIR-CHEMOTHERAPY-DT-T[]" id="MIR-CHEMOTHERAPY-DT-T[]" stype="Date" onblur="validateField(this)"/>
+        </td>
+    </tr>
+</table>
+</div>
+<br />
+</td>
+</tr>
+</table>
+<input type="button" onclick="clearCal2()" value="Clear Calendar" />
+<!-- M253O1 CHANGES ENDS-->
+<table class="tableanchors" align="center">
+    <tr>
+        <td class="cellanchors">
+            <a href="#Adjudicator">Adjudicator</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#ClmCntct">Claim Contact</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#Notification">Notification</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#ConfCoy">Confirmation Company</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#ClmIncident">Claim Incident</a>
+        </td>
+    </tr>
+</table>
+<table class="tableanchors" align="center">
+    <tr>
+        <td class="cellanchors">
+            <a href="#Accident">Accident</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#Licence">Licence</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#AccidentOutp">Accident Outpatient</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#Diseases">Diseases</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#DisCause">Disease Cause</a>
+        </td>
+<!-- M280P2 CHANGES STARTS HERE -->
+        <td class="cellanchors">
+            <a href="#AssocDis">Associated Disease</a>
+        </td>
+<!-- M280P2 CHANGES ENDS HERE -->
+    </tr>
+</table>
+<table class="tableanchors" align="center">
+    <tr>
+        <td class="cellanchors">
+            <a href="#GenMedical">General Medical</a>
+        </td>
+        <td class="cellanchors">
+            <a href="#Hospital">Hospitalisations</a>
+        </td>
+        <td class="cellanchors">
+<!-- MP143G CHANGES BEGIN -->
+            <a href="#ICU">ICU</a>
+        </td>
+        <td class="cellanchors">
+<!-- MP143G CHANGES END -->
+            <a href="#Surgery">Surgeries</a>
+        </td>
+<!-- RP2CLA CHANGES BEGIN -->
+        <td class="cellanchors">
+            <a href="#cancer">Cancer diagnosis</a>
+        </td>
+<!-- RP2CLA CHANGES END -->
+<!-- M281P2 CHANGES BEGIN -->
+        <td class="cellanchors">
+            <a href="#Palliative">Cancer Palliative Care</a>
+        </td>
+<!-- M281P2 CHANGES END -->
+<!-- MP143G CHANGES BEGIN -->
+        <td class="cellanchors">
+            <!-- M176J3 CHANGES BEGIN -->
+            <!--<a href="#Crill">Critical Illness</a> -->
+            <a href="#Crill">Critical Illness/Transplant Benefit</a>
+            <!-- M176J3 CHANGES END -->
+        </td>
+<!-- MP143G CHANGES END -->
+<!-- M280P2 CHANGES STARTS HERE -->
+        <td class="cellanchors">
+            <a href="#Home Treatment">Home Treatment</a>
+        </td>
+<!-- M280P2 CHANGES ENDS HERE -->
+        <td class="cellanchors">
+            <a href="#Outp">Outpatient Visits</a>
+        </td>
+<!-- M253O1 CHANGES START -->
+        <td class="cellanchors">
+            <a href="#Chemo">Chemotherapy</a>
+        </td>
+<!-- M253O1 CHANGES ENDS -->
+    </tr>
+</table>
+
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<script src="../js/OnlyKana.js"></script>
+<script src="../js/OnlyKanaClm.js"></script>
+<script src="../js/OnlyKanji.js"></script>
+<script src="../js/BF9252NC.js"></script>
+<script src="../js/BF9252NC-I.js"></script>
+<script src="../js/Calendar.js"></script>
+</html>

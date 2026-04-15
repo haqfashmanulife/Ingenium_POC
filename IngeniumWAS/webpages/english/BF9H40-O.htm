@@ -1,0 +1,151 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:29 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9H40-O.htm                                                    *
+*  Description: Annuity/Death Lump Sum Quote                                    *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  UY3049  28AUG24  Intial Version                                              *
+*********************************************************************************
+ -->
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9H40-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                    </td>
+                    <td class="celldisplaykey">
+                    </td>
+
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-LMPSM-TYP-CD">LumpSum Type:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-LMPSM-TYP-CD" stype="Text" displayonly="yes">MIR-LMPSM-TYP-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Benefit Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-NEW-MTHLY-BNFT-AMT">New Monthly Benefit Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                    <span id="MIR-NEW-MTHLY-BNFT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-NEW-MTHLY-BNFT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-EFF-DT">Effective Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                      <span id="MIR-EFF-DT" stype="Date" displayonly="yes">MIR-EFF-DT</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-LMPSM-WTHDR-AMT">Lumpsum Withdrawal Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                    <span id="MIR-LMPSM-WTHDR-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-LMPSM-WTHDR-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-BNFT-REDC-REASN-CD">Reason For Reduction:</label>
+                    </td>
+                    <td class="celldisplay">
+                    <span id="MIR-BNFT-REDC-REASN-CD" stype="Text" displayonly="yes">MIR-BNFT-REDC-REASN-CD</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-WTHLD-TAX-AMT">Withholding Tax Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                    <span id="MIR-WTHLD-TAX-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-WTHLD-TAX-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-POL-PAYO-TAXWH-IND">Bypass Tax Withholding Calculatoins:</label>
+                    </td>
+                    <td class="celldisplay">
+                    <input type="checkbox" name="MIR-POL-PAYO-TAXWH-IND" id="MIR-POL-PAYO-TAXWH-IND" stype="Indicator" value="Y" disabled="yes" />
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-PAYO-TAXWH-OVRID-IND">Override Withholding Tax Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                      <input type="checkbox" name="MIR-PAYO-TAXWH-OVRID-IND" id="MIR-PAYO-TAXWH-OVRID-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-DLAY-INT-AMT">Delay Interest Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                    <span id="MIR-DLAY-INT-AMT" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-DLAY-INT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-UNPAY-SPLT-PMT-AMT">Unpaid Split Payment Amount:</label>
+                     </td>
+                    <td class="celldisplay">
+                    <span id="MIR-UNPAY-SPLT-PMT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-UNPAY-SPLT-PMT-AMT</span>
+                     </td>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-SPLT-PMT-INT-AMT">Interest for Split Payment Amount:</label></td>
+                    <td class="celldisplay">
+                     <span id="MIR-SPLT-PMT-INT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-SPLT-PMT-INT-AMT</span>
+                     </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                    <label for="MIR-REMITTANCE-AMT">Remittance Amount:</label>
+                     </td>
+                    <td class="celldisplay">
+                    <span id="MIR-REMITTANCE-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-REMITTANCE-AMT</span>
+                     </td>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                     </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

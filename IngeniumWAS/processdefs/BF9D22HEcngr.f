@@ -1,0 +1,376 @@
+# Converted from PathFinder 2.2 to 3.0 on Jun 18, 2004 3:12:07 PM EDT
+
+#*******************************************************************************
+#*  Component:   BF9D22HEcngr.f                                                *
+#*  Description: HEALTH CONGRATULATORY BENEFIT PAYOUT PROCESS                  *
+#*                                                                             *
+#*******************************************************************************
+#*                                                                             *
+#*  UY3071  CTS      INGENIUM HEALTH CONGRATULATORY BENEFIT                    *
+#*******************************************************************************
+
+INCLUDE "BF9D22-I.s";
+INCLUDE "BF9D22-P.p";
+INCLUDE "BF9D22-O.s";
+INCLUDE "BF9D22FB-I.s";
+INCLUDE "BF9D22FB-O.s";
+
+PROCESS BF9D22HEcngr
+{
+
+    Title = STRINGTABLE.IDS_TITLE_BF9D22HEcngr;
+    TitleBar = "TitleBar";
+    TitleBarSize = "70";
+    ButtonBar = "ButtonBarOKCancel";
+    ButtonBarSize = "40";
+    MessageFrame = "MessagesDisp";
+    MessageFrameSize = "70";
+
+    # Clear the messages before displaying the s-step for the first time
+     
+    MESSAGES-T[0] = "";
+
+    MIR-DV-TRNXT-PAYO-MTHD-CD = "F";
+
+
+    
+    STEP Input
+    {
+        USES S-STEP "BF9D22-I";
+        STRINGTABLE.IDS_TITLE_BF9D22Input -> Title;
+    }
+
+    IF action == "ACTION_BACK"
+    {
+        MESSAGES-T[0] = "";
+        EXIT;
+    }
+    TRACE("POL ID " +MIR-POL-ID-BASE);
+
+    UserDefinedPolicyIDBase   = MIR-POL-ID-BASE;
+    UserDefinedPolicyIDSuffix = MIR-POL-ID-SFX;
+    
+    STEP RetrieveList
+    {
+        USES PROCESS "BF9D34List";
+
+        UserDefinedPolicyIDBase -> MIR-POL-ID-BASE;
+        UserDefinedPolicyIDSuffix -> MIR-POL-ID-SFX;
+        WS-POL-ID-BASE <- WS9D34-POL-ID-BASE;
+        WS-POL-ID-SFX  <- WS9D34-POL-ID-SFX;
+        WS-POL-COUNTER <-WS9D34-POL-COUNTER;
+        WS-CANCEL-IND  <- WS9D34-CANCEL-IND;
+        WS-RETURN-CD   <- WS9D34-RETURN-CD;
+        UserDefinedPolicyIDBase <- WS9D34-POL-ID-BASE;
+        UserDefinedPolicyIDSuffix <- WS9D34-POL-ID-SFX;
+    }
+
+    IF  WS-CANCEL-IND == "Y" || WS-RETURN-CD !="00"
+       {
+        BRANCH Input;
+       }
+
+    IF WS-POL-COUNTER <="01"
+      {
+       MIR-POL-ID-BASE = UserDefinedPolicyIDBase;
+       MIR-POL-ID-SFX  = UserDefinedPolicyIDSuffix ;
+      }
+
+    IF WS-POL-COUNTER >"01"
+      {
+       MIR-POL-ID-BASE = WS-POL-ID-BASE;
+       MIR-POL-ID-SFX  = WS-POL-ID-SFX;
+      }
+
+
+    MIR-DV-PRCES-STATE-CD = "1";
+    TRACE("POL ID " +MIR-POL-ID-BASE);
+    STEP Quote
+    {
+        USES P-STEP "BF9D22-P";
+    }
+  
+    IF LSIR-RETURN-CD != "00"
+       BRANCH Input;
+    # Display output
+
+TEMP-CLM-POL-ID-T[1] = MIR-CLM-POL-ID-T[1];
+TEMP-CLM-POL-ID-T[2] = MIR-CLM-POL-ID-T[2];
+TEMP-CLM-POL-ID-T[3] = MIR-CLM-POL-ID-T[3];
+TEMP-CLM-POL-ID-T[4] = MIR-CLM-POL-ID-T[4];
+TEMP-CLM-POL-ID-T[5] = MIR-CLM-POL-ID-T[5];
+TEMP-CLM-POL-ID-T[6] = MIR-CLM-POL-ID-T[6];
+TEMP-CLM-POL-ID-T[7] = MIR-CLM-POL-ID-T[7];
+TEMP-CLM-POL-ID-T[8] = MIR-CLM-POL-ID-T[8];
+TEMP-CLM-POL-ID-T[9] = MIR-CLM-POL-ID-T[9];
+TEMP-CLM-POL-ID-T[10] = MIR-CLM-POL-ID-T[10];
+TEMP-CLM-POL-ID-T[11] = MIR-CLM-POL-ID-T[11];
+TEMP-CLM-POL-ID-T[12] = MIR-CLM-POL-ID-T[12];
+TEMP-CLM-POL-ID-T[13] = MIR-CLM-POL-ID-T[13];
+TEMP-CLM-POL-ID-T[14] = MIR-CLM-POL-ID-T[14];
+TEMP-CLM-POL-ID-T[15] = MIR-CLM-POL-ID-T[15];
+TEMP-CLM-POL-ID-T[16] = MIR-CLM-POL-ID-T[16];
+TEMP-CLM-POL-ID-T[17] = MIR-CLM-POL-ID-T[17];
+TEMP-CLM-POL-ID-T[18] = MIR-CLM-POL-ID-T[18];
+TEMP-CLM-POL-ID-T[19] = MIR-CLM-POL-ID-T[19];
+TEMP-CLM-POL-ID-T[20] = MIR-CLM-POL-ID-T[20];
+TEMP-CLM-POL-ID-T[21] = MIR-CLM-POL-ID-T[21];
+TEMP-CLM-POL-ID-T[22] = MIR-CLM-POL-ID-T[22];
+TEMP-CLM-POL-ID-T[23] = MIR-CLM-POL-ID-T[23];
+TEMP-CLM-POL-ID-T[24] = MIR-CLM-POL-ID-T[24];
+TEMP-CLM-POL-ID-T[25] = MIR-CLM-POL-ID-T[25];
+TEMP-CLM-POL-ID-T[26] = MIR-CLM-POL-ID-T[26];
+TEMP-CLM-POL-ID-T[27] = MIR-CLM-POL-ID-T[27];
+TEMP-CLM-POL-ID-T[28] = MIR-CLM-POL-ID-T[28];
+TEMP-CLM-POL-ID-T[29] = MIR-CLM-POL-ID-T[29];
+TEMP-CLM-POL-ID-T[30] = MIR-CLM-POL-ID-T[30];
+
+MIR-CLM-POL-ID-T[1] = SUBSTRING (MIR-CLM-POL-ID-T[1],1,7);
+MIR-CLM-POL-ID-T[2] = SUBSTRING (MIR-CLM-POL-ID-T[2],1,7);
+MIR-CLM-POL-ID-T[3] = SUBSTRING (MIR-CLM-POL-ID-T[3],1,7);
+MIR-CLM-POL-ID-T[4] = SUBSTRING (MIR-CLM-POL-ID-T[4],1,7);
+MIR-CLM-POL-ID-T[5] = SUBSTRING (MIR-CLM-POL-ID-T[5],1,7);
+MIR-CLM-POL-ID-T[6] = SUBSTRING (MIR-CLM-POL-ID-T[6],1,7);
+MIR-CLM-POL-ID-T[7] = SUBSTRING (MIR-CLM-POL-ID-T[7],1,7);
+MIR-CLM-POL-ID-T[8] = SUBSTRING (MIR-CLM-POL-ID-T[8],1,7);
+MIR-CLM-POL-ID-T[9] = SUBSTRING (MIR-CLM-POL-ID-T[9],1,7);
+MIR-CLM-POL-ID-T[10] = SUBSTRING (MIR-CLM-POL-ID-T[10],1,7);
+MIR-CLM-POL-ID-T[11] = SUBSTRING (MIR-CLM-POL-ID-T[11],1,7);
+MIR-CLM-POL-ID-T[12] = SUBSTRING (MIR-CLM-POL-ID-T[12],1,7);
+MIR-CLM-POL-ID-T[13] = SUBSTRING (MIR-CLM-POL-ID-T[13],1,7);
+MIR-CLM-POL-ID-T[14] = SUBSTRING (MIR-CLM-POL-ID-T[14],1,7);
+MIR-CLM-POL-ID-T[15] = SUBSTRING (MIR-CLM-POL-ID-T[15],1,7);
+MIR-CLM-POL-ID-T[16] = SUBSTRING (MIR-CLM-POL-ID-T[16],1,7);
+MIR-CLM-POL-ID-T[17] = SUBSTRING (MIR-CLM-POL-ID-T[17],1,7);
+MIR-CLM-POL-ID-T[18] = SUBSTRING (MIR-CLM-POL-ID-T[18],1,7);
+MIR-CLM-POL-ID-T[19] = SUBSTRING (MIR-CLM-POL-ID-T[19],1,7);
+MIR-CLM-POL-ID-T[20] = SUBSTRING (MIR-CLM-POL-ID-T[20],1,7);
+MIR-CLM-POL-ID-T[21] = SUBSTRING (MIR-CLM-POL-ID-T[21],1,7);
+MIR-CLM-POL-ID-T[22] = SUBSTRING (MIR-CLM-POL-ID-T[22],1,7);
+MIR-CLM-POL-ID-T[23] = SUBSTRING (MIR-CLM-POL-ID-T[23],1,7);
+MIR-CLM-POL-ID-T[24] = SUBSTRING (MIR-CLM-POL-ID-T[24],1,7);
+MIR-CLM-POL-ID-T[25] = SUBSTRING (MIR-CLM-POL-ID-T[25],1,7);
+MIR-CLM-POL-ID-T[26] = SUBSTRING (MIR-CLM-POL-ID-T[26],1,7);
+MIR-CLM-POL-ID-T[27] = SUBSTRING (MIR-CLM-POL-ID-T[27],1,7);
+MIR-CLM-POL-ID-T[28] = SUBSTRING (MIR-CLM-POL-ID-T[28],1,7);
+MIR-CLM-POL-ID-T[29] = SUBSTRING (MIR-CLM-POL-ID-T[29],1,7);
+MIR-CLM-POL-ID-T[30] = SUBSTRING (MIR-CLM-POL-ID-T[30],1,7);
+
+    STEP Output
+    {
+        USES S-STEP "BF9D22-O";
+        "ButtonBarConfirmCancel" -> ButtonBar;
+        STRINGTABLE.IDS_TITLE_BF9D22Output -> Title;
+    }
+
+MIR-CLM-POL-ID-T[1] = TEMP-CLM-POL-ID-T[1];
+MIR-CLM-POL-ID-T[2] = TEMP-CLM-POL-ID-T[2];
+MIR-CLM-POL-ID-T[3] = TEMP-CLM-POL-ID-T[3];
+MIR-CLM-POL-ID-T[4] = TEMP-CLM-POL-ID-T[4];
+MIR-CLM-POL-ID-T[5] = TEMP-CLM-POL-ID-T[5];
+MIR-CLM-POL-ID-T[6] = TEMP-CLM-POL-ID-T[6];
+MIR-CLM-POL-ID-T[7] = TEMP-CLM-POL-ID-T[7];
+MIR-CLM-POL-ID-T[8] = TEMP-CLM-POL-ID-T[8];
+MIR-CLM-POL-ID-T[9] = TEMP-CLM-POL-ID-T[9];
+MIR-CLM-POL-ID-T[10] = TEMP-CLM-POL-ID-T[10];
+MIR-CLM-POL-ID-T[11] = TEMP-CLM-POL-ID-T[11];
+MIR-CLM-POL-ID-T[12] = TEMP-CLM-POL-ID-T[12];
+MIR-CLM-POL-ID-T[13] = TEMP-CLM-POL-ID-T[13];
+MIR-CLM-POL-ID-T[14] = TEMP-CLM-POL-ID-T[14];
+MIR-CLM-POL-ID-T[15] = TEMP-CLM-POL-ID-T[15];
+MIR-CLM-POL-ID-T[16] = TEMP-CLM-POL-ID-T[16];
+MIR-CLM-POL-ID-T[17] = TEMP-CLM-POL-ID-T[17];
+MIR-CLM-POL-ID-T[18] = TEMP-CLM-POL-ID-T[18];
+MIR-CLM-POL-ID-T[19] = TEMP-CLM-POL-ID-T[19];
+MIR-CLM-POL-ID-T[20] = TEMP-CLM-POL-ID-T[20];
+MIR-CLM-POL-ID-T[21] = TEMP-CLM-POL-ID-T[21];
+MIR-CLM-POL-ID-T[22] = TEMP-CLM-POL-ID-T[22];
+MIR-CLM-POL-ID-T[23] = TEMP-CLM-POL-ID-T[23];
+MIR-CLM-POL-ID-T[24] = TEMP-CLM-POL-ID-T[24];
+MIR-CLM-POL-ID-T[25] = TEMP-CLM-POL-ID-T[25];
+MIR-CLM-POL-ID-T[26] = TEMP-CLM-POL-ID-T[26];
+MIR-CLM-POL-ID-T[27] = TEMP-CLM-POL-ID-T[27];
+MIR-CLM-POL-ID-T[28] = TEMP-CLM-POL-ID-T[28];
+MIR-CLM-POL-ID-T[29] = TEMP-CLM-POL-ID-T[29];
+MIR-CLM-POL-ID-T[30] = TEMP-CLM-POL-ID-T[30];
+
+    # If the user selects Cancel on the Confirm page, return to the Input page.
+
+    IF action == "ACTION_BACK"
+    {
+        MESSAGES-T[0] = "";
+        BRANCH Input;
+    }
+    
+            IF MIR-DV-TRNXT-PAYO-MTHD-CD != "F"
+          {
+              STEP CashDisbUpdate
+                 {
+                   USES P-STEP "BF9D22-P";
+                   "4" -> MIR-DV-PRCES-STATE-CD;
+                 }
+
+                 IF LSIR-RETURN-CD != "00"
+                     BRANCH Output;
+
+                 ELSE
+                     BRANCH Input;
+          }
+          
+        ELSE
+          {
+              STEP FBRetrieve
+                 {
+                   USES P-STEP "BF9D22-P";
+                   "2" -> MIR-DV-PRCES-STATE-CD;
+                 }
+
+                 IF LSIR-RETURN-CD != "00"
+                     BRANCH Output;
+
+              STEP FBInput-S
+                {
+                   USES S-STEP "BF9D22FB-I";
+                   "ButtonBarOKCancel" -> ButtonBar;
+                   STRINGTABLE.IDS_TITLE_BF9D22FBInput -> Title;
+                }
+
+              IF action == "ACTION_BACK"
+                {
+                   MESSAGES-T[0] = "";
+                   BRANCH Input;
+                }
+
+              STEP FBEdit
+                 {
+                   USES P-STEP "BF9D22-P";
+                   "3" -> MIR-DV-PRCES-STATE-CD;
+                 }
+
+                 IF LSIR-RETURN-CD != "00"
+                     BRANCH FBInput-S;
+
+TEMP-CLM-POL-ID-T[1] = MIR-CLM-POL-ID-T[1];
+TEMP-CLM-POL-ID-T[2] = MIR-CLM-POL-ID-T[2];
+TEMP-CLM-POL-ID-T[3] = MIR-CLM-POL-ID-T[3];
+TEMP-CLM-POL-ID-T[4] = MIR-CLM-POL-ID-T[4];
+TEMP-CLM-POL-ID-T[5] = MIR-CLM-POL-ID-T[5];
+TEMP-CLM-POL-ID-T[6] = MIR-CLM-POL-ID-T[6];
+TEMP-CLM-POL-ID-T[7] = MIR-CLM-POL-ID-T[7];
+TEMP-CLM-POL-ID-T[8] = MIR-CLM-POL-ID-T[8];
+TEMP-CLM-POL-ID-T[9] = MIR-CLM-POL-ID-T[9];
+TEMP-CLM-POL-ID-T[10] = MIR-CLM-POL-ID-T[10];
+TEMP-CLM-POL-ID-T[11] = MIR-CLM-POL-ID-T[11];
+TEMP-CLM-POL-ID-T[12] = MIR-CLM-POL-ID-T[12];
+TEMP-CLM-POL-ID-T[13] = MIR-CLM-POL-ID-T[13];
+TEMP-CLM-POL-ID-T[14] = MIR-CLM-POL-ID-T[14];
+TEMP-CLM-POL-ID-T[15] = MIR-CLM-POL-ID-T[15];
+TEMP-CLM-POL-ID-T[16] = MIR-CLM-POL-ID-T[16];
+TEMP-CLM-POL-ID-T[17] = MIR-CLM-POL-ID-T[17];
+TEMP-CLM-POL-ID-T[18] = MIR-CLM-POL-ID-T[18];
+TEMP-CLM-POL-ID-T[19] = MIR-CLM-POL-ID-T[19];
+TEMP-CLM-POL-ID-T[20] = MIR-CLM-POL-ID-T[20];
+TEMP-CLM-POL-ID-T[21] = MIR-CLM-POL-ID-T[21];
+TEMP-CLM-POL-ID-T[22] = MIR-CLM-POL-ID-T[22];
+TEMP-CLM-POL-ID-T[23] = MIR-CLM-POL-ID-T[23];
+TEMP-CLM-POL-ID-T[24] = MIR-CLM-POL-ID-T[24];
+TEMP-CLM-POL-ID-T[25] = MIR-CLM-POL-ID-T[25];
+TEMP-CLM-POL-ID-T[26] = MIR-CLM-POL-ID-T[26];
+TEMP-CLM-POL-ID-T[27] = MIR-CLM-POL-ID-T[27];
+TEMP-CLM-POL-ID-T[28] = MIR-CLM-POL-ID-T[28];
+TEMP-CLM-POL-ID-T[29] = MIR-CLM-POL-ID-T[29];
+TEMP-CLM-POL-ID-T[30] = MIR-CLM-POL-ID-T[30];
+
+MIR-CLM-POL-ID-T[1] = SUBSTRING (MIR-CLM-POL-ID-T[1],1,7);
+MIR-CLM-POL-ID-T[2] = SUBSTRING (MIR-CLM-POL-ID-T[2],1,7);
+MIR-CLM-POL-ID-T[3] = SUBSTRING (MIR-CLM-POL-ID-T[3],1,7);
+MIR-CLM-POL-ID-T[4] = SUBSTRING (MIR-CLM-POL-ID-T[4],1,7);
+MIR-CLM-POL-ID-T[5] = SUBSTRING (MIR-CLM-POL-ID-T[5],1,7);
+MIR-CLM-POL-ID-T[6] = SUBSTRING (MIR-CLM-POL-ID-T[6],1,7);
+MIR-CLM-POL-ID-T[7] = SUBSTRING (MIR-CLM-POL-ID-T[7],1,7);
+MIR-CLM-POL-ID-T[8] = SUBSTRING (MIR-CLM-POL-ID-T[8],1,7);
+MIR-CLM-POL-ID-T[9] = SUBSTRING (MIR-CLM-POL-ID-T[9],1,7);
+MIR-CLM-POL-ID-T[10] = SUBSTRING (MIR-CLM-POL-ID-T[10],1,7);
+MIR-CLM-POL-ID-T[11] = SUBSTRING (MIR-CLM-POL-ID-T[11],1,7);
+MIR-CLM-POL-ID-T[12] = SUBSTRING (MIR-CLM-POL-ID-T[12],1,7);
+MIR-CLM-POL-ID-T[13] = SUBSTRING (MIR-CLM-POL-ID-T[13],1,7);
+MIR-CLM-POL-ID-T[14] = SUBSTRING (MIR-CLM-POL-ID-T[14],1,7);
+MIR-CLM-POL-ID-T[15] = SUBSTRING (MIR-CLM-POL-ID-T[15],1,7);
+MIR-CLM-POL-ID-T[16] = SUBSTRING (MIR-CLM-POL-ID-T[16],1,7);
+MIR-CLM-POL-ID-T[17] = SUBSTRING (MIR-CLM-POL-ID-T[17],1,7);
+MIR-CLM-POL-ID-T[18] = SUBSTRING (MIR-CLM-POL-ID-T[18],1,7);
+MIR-CLM-POL-ID-T[19] = SUBSTRING (MIR-CLM-POL-ID-T[19],1,7);
+MIR-CLM-POL-ID-T[20] = SUBSTRING (MIR-CLM-POL-ID-T[20],1,7);
+MIR-CLM-POL-ID-T[21] = SUBSTRING (MIR-CLM-POL-ID-T[21],1,7);
+MIR-CLM-POL-ID-T[22] = SUBSTRING (MIR-CLM-POL-ID-T[22],1,7);
+MIR-CLM-POL-ID-T[23] = SUBSTRING (MIR-CLM-POL-ID-T[23],1,7);
+MIR-CLM-POL-ID-T[24] = SUBSTRING (MIR-CLM-POL-ID-T[24],1,7);
+MIR-CLM-POL-ID-T[25] = SUBSTRING (MIR-CLM-POL-ID-T[25],1,7);
+MIR-CLM-POL-ID-T[26] = SUBSTRING (MIR-CLM-POL-ID-T[26],1,7);
+MIR-CLM-POL-ID-T[27] = SUBSTRING (MIR-CLM-POL-ID-T[27],1,7);
+MIR-CLM-POL-ID-T[28] = SUBSTRING (MIR-CLM-POL-ID-T[28],1,7);
+MIR-CLM-POL-ID-T[29] = SUBSTRING (MIR-CLM-POL-ID-T[29],1,7);
+MIR-CLM-POL-ID-T[30] = SUBSTRING (MIR-CLM-POL-ID-T[30],1,7);
+
+              STEP FBOutput-S
+                {
+                   USES S-STEP "BF9D22FB-O";
+                   "ButtonBarConfirmCancelBack" -> ButtonBar;
+                   STRINGTABLE.IDS_TITLE_BF9D22FBOutput -> Title;
+                }
+                
+MIR-CLM-POL-ID-T[1] = TEMP-CLM-POL-ID-T[1];
+MIR-CLM-POL-ID-T[2] = TEMP-CLM-POL-ID-T[2];
+MIR-CLM-POL-ID-T[3] = TEMP-CLM-POL-ID-T[3];
+MIR-CLM-POL-ID-T[4] = TEMP-CLM-POL-ID-T[4];
+MIR-CLM-POL-ID-T[5] = TEMP-CLM-POL-ID-T[5];
+MIR-CLM-POL-ID-T[6] = TEMP-CLM-POL-ID-T[6];
+MIR-CLM-POL-ID-T[7] = TEMP-CLM-POL-ID-T[7];
+MIR-CLM-POL-ID-T[8] = TEMP-CLM-POL-ID-T[8];
+MIR-CLM-POL-ID-T[9] = TEMP-CLM-POL-ID-T[9];
+MIR-CLM-POL-ID-T[10] = TEMP-CLM-POL-ID-T[10];
+MIR-CLM-POL-ID-T[11] = TEMP-CLM-POL-ID-T[11];
+MIR-CLM-POL-ID-T[12] = TEMP-CLM-POL-ID-T[12];
+MIR-CLM-POL-ID-T[13] = TEMP-CLM-POL-ID-T[13];
+MIR-CLM-POL-ID-T[14] = TEMP-CLM-POL-ID-T[14];
+MIR-CLM-POL-ID-T[15] = TEMP-CLM-POL-ID-T[15];
+MIR-CLM-POL-ID-T[16] = TEMP-CLM-POL-ID-T[16];
+MIR-CLM-POL-ID-T[17] = TEMP-CLM-POL-ID-T[17];
+MIR-CLM-POL-ID-T[18] = TEMP-CLM-POL-ID-T[18];
+MIR-CLM-POL-ID-T[19] = TEMP-CLM-POL-ID-T[19];
+MIR-CLM-POL-ID-T[20] = TEMP-CLM-POL-ID-T[20];
+MIR-CLM-POL-ID-T[21] = TEMP-CLM-POL-ID-T[21];
+MIR-CLM-POL-ID-T[22] = TEMP-CLM-POL-ID-T[22];
+MIR-CLM-POL-ID-T[23] = TEMP-CLM-POL-ID-T[23];
+MIR-CLM-POL-ID-T[24] = TEMP-CLM-POL-ID-T[24];
+MIR-CLM-POL-ID-T[25] = TEMP-CLM-POL-ID-T[25];
+MIR-CLM-POL-ID-T[26] = TEMP-CLM-POL-ID-T[26];
+MIR-CLM-POL-ID-T[27] = TEMP-CLM-POL-ID-T[27];
+MIR-CLM-POL-ID-T[28] = TEMP-CLM-POL-ID-T[28];
+MIR-CLM-POL-ID-T[29] = TEMP-CLM-POL-ID-T[29];
+MIR-CLM-POL-ID-T[30] = TEMP-CLM-POL-ID-T[30];
+
+              IF action == "ACTION_BACK"
+                {
+                   MESSAGES-T[0] = "";
+                   BRANCH Input;
+                }
+
+              IF action == "ACTION_PREVIOUS"
+                {
+                   MESSAGES-T[0] = "";
+                   BRANCH FBInput-S;
+                }
+
+              STEP FBUpdate
+                 {
+                   USES P-STEP "BF9D22-P";
+                   "4" -> MIR-DV-PRCES-STATE-CD;
+                 }
+
+                 IF LSIR-RETURN-CD != "00"
+                     BRANCH FBOutput-S;
+                 BRANCH Input; 
+          }
+    }
+

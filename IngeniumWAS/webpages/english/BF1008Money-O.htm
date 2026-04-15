@@ -1,0 +1,187 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:24 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1008Money-O.htm                                              
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  016053  6.1      New for release 6.1                                        
+*  016246  602J     Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                              
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1008Money-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <a name="top" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldatakey" colspan="3">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-ID">Client ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">Quote Effective Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-APPL-CTL-PRCES-DT" id="MIR-APPL-CTL-PRCES-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <table class="tableanchors" align="right">
+                <tr>
+                    <td class="cellanchors">
+                        <a href="#PolicyList">Policy List</a>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <h2>Available Funds</h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">Totals</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-SUSP-AMT">Client Suspense Funds:</label>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-TOT-POL-ACUM-AMT">Client Total Accumulation Value:</label>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-TOT-POL-SURR-AMT">Total Full Policy Surrender Value:</label>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-TOT-MAX-LOAN-AMT">Total Maximum Loan Amount Available:</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-CLI-SUSP-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CLI-SUSP-AMT</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-DV-TOT-POL-ACUM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-TOT-POL-ACUM-AMT</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-DV-TOT-POL-SURR-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-TOT-POL-SURR-AMT</span>
+                    </td>
+                    <td class="celldisplay" align="right">
+                        <span id="MIR-DV-TOT-MAX-LOAN-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-TOT-MAX-LOAN-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <h2>
+                <a name="PolicyList">Policy List</a>
+            </h2>
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+                    <td class="celldisplayheading" colspan="10">
+                        <a name="CashValue">Policy Value Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="SELECT-T[1]" />
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-BASE-T[1]">Policy ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-SFX-T[1]">Suffix</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-POL-ACUM-AMT-T[1]">Total Accumulation Value</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-POL-SURR-AMT-T[1]">Full Policy Surrender Value</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-MAX-LOAN-AMT-T[1]">Maximum Loan Amount Available</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CSTAT-CD-T[1]">Policy Status</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ISS-EFF-DT-T[1]"> Issue Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-POL-JNT-OWN-IND-T[1]">Joint Owner</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SBSDRY-CO-ID-T[1]">Sub Company</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-POL-ACUM-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-POL-ACUM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-POL-SURR-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-POL-SURR-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-MAX-LOAN-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-MAX-LOAN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ISS-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-DV-POL-JNT-OWN-IND-T[]" id="MIR-DV-POL-JNT-OWN-IND-T[]" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SBSDRY-CO-ID-T[]" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                        Back to top
+                </a>
+            </p>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

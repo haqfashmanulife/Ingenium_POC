@@ -1,0 +1,465 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:17 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0360-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  01NB10  01AUG01  Add New Underwriting Form Type fields                      
+*  B00070  DPK      Changed Min & Max Amt fields from Currency to Number       
+*  B11144  BP       Add New My Kempo Process Code                              
+*  MP171B  CTS      Add Linked Test Section 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0360-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CCAS-TST-ID">検査番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CCAS-TST-ID" stype="Text" displayonly="yes">MIR-CCAS-TST-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CCAS-TST-SUBSET-ID">サブセット検査:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CCAS-TST-SUBSET-ID" stype="Text" displayonly="yes">MIR-CCAS-TST-SUBSET-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">実施検査</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CCAS-TST-NM">検査名:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CCAS-TST-NM" stype="Text" displayonly="yes">MIR-CCAS-TST-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CCAS-TST-TYP-CD">検査タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CCAS-TST-TYP-CD" stype="Text" displayonly="yes">MIR-CCAS-TST-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" colspan="4">
+                        <table class="tabledisplay" genrows="0">
+                            <tr>
+                                <td class="celldisplayheading">
+                                    <label for="MIR-REQIR-ID-T[1]">謝絶要件</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="celldisplay">
+                                    <span id="MIR-REQIR-ID-T[]" stype="Text" displayonly="yes">MIR-REQIR-ID-T[]</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="2">検査ルール -       申込書タイプ</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CCAS-TST-FORM-CD">書式タイプ       - 適用/除外:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CCAS-TST-FORM-CD" stype="Text" displayonly="yes">MIR-CCAS-TST-FORM-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" colspan="2">
+                        <table class="tabledisplay" genrows="0" keyfield="0">
+                            <tr>
+                                <td class="celldisplayheading">
+                                    <label for="MIR-APP-FORM-TYP-ID-T[1]">申込書タイプ</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="celldisplay">
+                                    <span id="MIR-APP-FORM-TYP-ID-T[]" stype="Text" displayonly="yes">MIR-APP-FORM-TYP-ID-T[]</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <br />
+                        <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="2">検査ルール - 査定申込書ID</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CCAS-TST-UW-TYP-CD">査定申込書ID - 適用/除外:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CCAS-TST-UW-TYP-CD" stype="Text" displayonly="yes">MIR-CCAS-TST-UW-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" colspan="2">
+                        <table class="tabledisplay" genrows="0" keyfield="0">
+                            <tr>
+                                <td class="celldisplayheading">
+                                    <label for="MIR-UW-FORM-ID-T[1]">査定申込書ID</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="celldisplay">
+                                    <span id="MIR-UW-FORM-ID-T[]" stype="Text" displayonly="yes">MIR-UW-FORM-ID-T[]</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <br />     
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="2">検査ルール -       所在地グループ</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOC-GRP-PRCES-CD">所在地グループ       - 適用/除外:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOC-GRP-PRCES-CD" stype="Text" displayonly="yes">MIR-LOC-GRP-PRCES-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" colspan="2">
+                        <table class="tabledisplay" genrows="0" keyfield="0">
+                            <tr>
+                                <td class="celldisplayheading">
+                                    <label for="MIR-LOC-GR-ID-T[1]">所在地グループ</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="celldisplay">
+                                    <span id="MIR-LOC-GR-ID-T[]" stype="Text" displayonly="yes">MIR-LOC-GR-ID-T[]</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="2">検査ルール - 子会社</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SBSDRY-CO-PRCES-CD">子会社 - 適用/除外:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SBSDRY-CO-PRCES-CD" stype="Text" displayonly="yes">MIR-SBSDRY-CO-PRCES-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" colspan="2">
+                        <table class="tabledisplay" genrows="0" keyfield="0">
+                            <tr>
+                                <td class="celldisplayheading">
+                                    <label for="MIR-SBSDRY-CO-ID-T[1]">子会社</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="celldisplay">
+                                    <span id="MIR-SBSDRY-CO-ID-T[]" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID-T[]</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="2">検査ルール - まいけんぽ</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MY-KEMPO-PRCES-CD">まいけんぽ範囲:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MY-KEMPO-PRCES-CD" stype="Text" displayonly="yes">MIR-MY-KEMPO-PRCES-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      トップに戻る
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">検査ルール - 年齢範囲</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CCAS-TST-AGE-CD">年齢範囲:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CCAS-TST-AGE-CD" stype="Text" displayonly="yes">MIR-CCAS-TST-AGE-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CCAS-TST-LOW-AGE">下限:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CCAS-TST-LOW-AGE" stype="Number" elength="2" decimals="0" displayonly="yes">MIR-CCAS-TST-LOW-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CCAS-TST-HIGH-AGE">上限:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CCAS-TST-HIGH-AGE" stype="Number" elength="2" decimals="0" displayonly="yes">MIR-CCAS-TST-HIGH-AGE</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <!-- MP171B CHANGES STARTS HERE -->
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Linked Test</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CCAS-LINK-TST-IND">Linked Test Indicator : </label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CCAS-LINK-TST-IND" id="MIR-CCAS-LINK-TST-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POS-LINK-TST-ID">Positive Linked Test Number : </label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POS-LINK-TST-ID" stype="Text" displayonly="yes" elength="4">MIR-POS-LINK-TST-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NEG-LINK-TST-ID">Negative Linked Test Number : </label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEG-LINK-TST-ID" stype="Text" displayonly="yes" elength="4">MIR-NEG-LINK-TST-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UNANSWR-LINK-TST-ID">Unanswered Linked Test Number : </label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UNANSWR-LINK-TST-ID" stype="Text" displayonly="yes" elength="4">MIR-UNANSWR-LINK-TST-ID</span>
+                    </td>
+                </tr>
+            </table>
+
+            <br />
+
+            <!-- MP171B CHANGES ENDS HERE -->
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">簡易査定</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FLD-ID">指定フィールド名:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FLD-ID" stype="Text" displayonly="yes">MIR-FLD-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UNANSWR-ACT-CD">無回答の場合:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UNANSWR-ACT-CD" stype="Text" displayonly="yes">MIR-UNANSWR-ACT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UNANSWR-MSG-REF-ID">無回答時参照メッセージ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UNANSWR-MSG-REF-ID" stype="Text" displayonly="yes">MIR-UNANSWR-MSG-REF-ID</span>
+                        <span id="MIR-MSG-REF-NUM" stype="Text" displayonly="yes">MIR-MSG-REF-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FAIL-MSG-REF-ID">回答適用不可時参照メッセージ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FAIL-MSG-REF-ID" stype="Text" displayonly="yes">MIR-FAIL-MSG-REF-ID</span>
+                        <span id="MIR-MSG-REF-NUM" stype="Text" displayonly="yes">MIR-MSG-REF-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-ANSWR-YES-ACT-CD">「はい」の場合:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ANSWR-YES-ACT-CD" stype="Text" displayonly="yes">MIR-DV-ANSWR-YES-ACT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-ANSWR-NO-ACT-CD">「いいえ」の場合:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ANSWR-NO-ACT-CD" stype="Text" displayonly="yes">MIR-DV-ANSWR-NO-ACT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">適用可/不可数値範囲</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-TST-NUM-MIN-AMT">最低額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TST-NUM-MIN-AMT" stype="Number" elength="9" decimals="0" displayonly="yes">MIR-DV-TST-NUM-MIN-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-TST-NUM-MAX-AMT">最高額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TST-NUM-MAX-AMT" stype="Number" elength="9" decimals="0" displayonly="yes">MIR-DV-TST-NUM-MAX-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-IN-RNG-ACT-CD">期間内処理:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-IN-RNG-ACT-CD" stype="Text" displayonly="yes">MIR-DV-IN-RNG-ACT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-OUT-RNG-ACT-CD">期間外処理:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-OUT-RNG-ACT-CD" stype="Text" displayonly="yes">MIR-DV-OUT-RNG-ACT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">リスト検索応答</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-TST-ETBL-TYP-ID">編集テーブルタイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TST-ETBL-TYP-ID" stype="Text" displayonly="yes">MIR-DV-TST-ETBL-TYP-ID</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FIND-ACT-CD">見つかった場合:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FIND-ACT-CD" stype="Text" displayonly="yes">MIR-DV-FIND-ACT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-NFIND-ACT-CD">見つからなかった場合:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-NFIND-ACT-CD" stype="Text" displayonly="yes">MIR-DV-NFIND-ACT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">適用可/不可日付範囲</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-APP-DT-TYP-CD">申込書署名/受領日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-APP-DT-TYP-CD" stype="Text" displayonly="yes">MIR-DV-APP-DT-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-TST-DT-DUR-CD">期間:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TST-DT-DUR-CD" stype="Text" displayonly="yes">MIR-DV-TST-DT-DUR-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-TST-DT-CUT-DUR">給付期間削除:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TST-DT-CUT-DUR" stype="Text" displayonly="yes">MIR-DV-TST-DT-CUT-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-IN-RNG-ACT-CD-2">範囲内処理:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-IN-RNG-ACT-CD-2" stype="Text" displayonly="yes">MIR-DV-IN-RNG-ACT-CD-2</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-OUT-RNG-ACT-CD-2">範囲外処理:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-OUT-RNG-ACT-CD-2" stype="Text" displayonly="yes">MIR-DV-OUT-RNG-ACT-CD-2</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                       トップに戻る
+                </a>
+            </p>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

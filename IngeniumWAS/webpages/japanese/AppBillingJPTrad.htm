@@ -1,0 +1,262 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:11 PM EDT
+*
+*********************************************************************************
+*  Component:   AppBillingJPTrad.htm                                          
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  016423  602J     New for release 602J                                       
+*  017150  612J     Remove Currency decimals="2"                               
+*  FT7001 AKATO  FT7 Label Change 14JUN2004   
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                       	                           
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>AppBillingJPTrad</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body onload="onLoad(); onLoadCustom(); splitBranchall()" class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="updateBranchall();onSubmitCustom(); return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[1]" id="MIR-BNK-BR-ID-T[1]" jpnbranch="Branch-T[1]" jpnsubbranch="SubBranch-T[1]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[2]" id="MIR-BNK-BR-ID-T[2]" jpnbranch="Branch-T[2]" jpnsubbranch="SubBranch-T[2]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[3]" id="MIR-BNK-BR-ID-T[3]" jpnbranch="Branch-T[3]" jpnsubbranch="SubBranch-T[3]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[4]" id="MIR-BNK-BR-ID-T[4]" jpnbranch="Branch-T[4]" jpnsubbranch="SubBranch-T[4]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[5]" id="MIR-BNK-BR-ID-T[5]" jpnbranch="Branch-T[5]" jpnsubbranch="SubBranch-T[5]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[6]" id="MIR-BNK-BR-ID-T[6]" jpnbranch="Branch-T[6]" jpnsubbranch="SubBranch-T[6]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[7]" id="MIR-BNK-BR-ID-T[7]" jpnbranch="Branch-T[7]" jpnsubbranch="SubBranch-T[7]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[8]" id="MIR-BNK-BR-ID-T[8]" jpnbranch="Branch-T[8]" jpnsubbranch="SubBranch-T[8]" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID-T[9]" id="MIR-BNK-BR-ID-T[9]" jpnbranch="Branch-T[9]" jpnsubbranch="SubBranch-T[9]" />
+            <input type="hidden" stype="Hidden" name="MIR-POL-BILL-TYP-CD" id="MIR-POL-BILL-TYP-CD" />
+            <input type="hidden" stype="Hidden" name="MIR-POL-BILL-MODE-CD" id="MIR-POL-BILL-MODE-CD" />
+            <table class="tabledataentrynoborder">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-SBOX-CD-T">払込回数/頻度:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DV-SBOX-CD-T" id="MIR-DV-SBOX-CD-T" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" onchange="onChangeBillingMethodOrFrequency(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREM-DSCNT-TYP-CD">保険料割引タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PREM-DSCNT-TYP-CD" id="MIR-PREM-DSCNT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-PREM-DSCNT-PCT">保険料割引率:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-POL-PREM-DSCNT-PCT" id="MIR-POL-PREM-DSCNT-PCT" stype="Percent" elength="5" decimals="3" signed="yes" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <span id="PacSection" style="display: none">
+                <table class="tabledataentry">
+                    <tr>
+                        <td class="celldataentryheading">
+                            <label for="PayorName">払込者名</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-DV-PAYR-CLI-ID">クライアントID</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-POL-PAC-DRW-DY">口座振替日</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="celllabeldataentry">
+                            <span id="PayorName" stype="Text" displayonly="yes">PayorName</span>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <span id="MIR-DV-PAYR-CLI-ID" stype="Text" displayonly="yes">MIR-DV-PAYR-CLI-ID</span>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-POL-PAC-DRW-DY" id="MIR-POL-PAC-DRW-DY" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <table id="acctTable" class="tabledisplay" genrows="9">
+                    <tr>
+                        <td class="celldataentryheading">
+                            <label for="SELECT-T[1]" id="LBL-SELECT-T[1]">選択</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-BNK-ID-T[1]">銀行番号</label>
+                        </td>
+                    <td class="celldataentryheading">
+                        <label for="Branch-T[1]">支店番号</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="SubBranch-T[1]">出張所番号</label>
+                    </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-BNK-ACCT-ID-T[1]">口座番号</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-BNK-NM-T[1]">銀行（金融機関）名</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-BNK-ACCT-HLDR-NM-T[1]">口座名義</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-BNK-ACCT-TYP-CD-T[1]">口座タイプ</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-BNK-ACCT-MICR-IND-T[1]">小切手MICRコード化</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="celllabeldataentry" align="center">
+                            <input type="checkbox" value=" " name="SELECT-T[]" id="SELECT-T[]" stype="Indicator" index="1" onclick="onListCheckBox()" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-BNK-ID-T[]" id="MIR-BNK-ID-T[]" stype="Text" maxlength="4" onfocus="enterField(this)" size="5" />
+                        </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="Branch-T[]" id="Branch-T[]" stype="Text" maxlength="3" onfocus="enterField(this)" onblur="updateBranchall()" size="4" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="SubBranch-T[]" id="SubBranch-T[]" stype="Text" maxlength="2" onfocus="enterField(this)" onblur="updateBranchall()" size="4" />
+                    </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-BNK-ACCT-ID-T[]" id="MIR-BNK-ACCT-ID-T[]" stype="Text" maxlength="15" onfocus="enterField(this)" onblur="validateField(this)" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <span id="MIR-BNK-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-NM-T[]</span>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-BNK-ACCT-HLDR-NM-T[]" id="MIR-BNK-ACCT-HLDR-NM-T[]" stype="Text" maxlength="50" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-BNK-ACCT-TYP-CD-T[]" id="MIR-BNK-ACCT-TYP-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="checkbox" value="Y" name="MIR-BNK-ACCT-MICR-IND-T[]" id="MIR-BNK-ACCT-MICR-IND-T[]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" />
+                        </td>
+                    </tr>
+                </table>
+            </span>
+            <span id="ListbillSection" style="display: none">
+                <table class="tabledataentry">
+                    <tr>
+                        <td class="celldataentryheading">
+                            <label for="MIR-DV-LBILL-CLI-NM">請求先団体名</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-DV-LBILL-CLI-ID">クライアントID</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="MIR-POL-LBILL-DRW-DY">振替日</label>
+                        </td>
+                        <td class="celldataentryheading">
+                            <label for="AddCompanyPayorLink" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="celllabeldataentry">
+                            <span id="MIR-DV-LBILL-CLI-NM" stype="Text" displayonly="yes">MIR-DV-LBILL-CLI-NM</span>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-DV-LBILL-CLI-ID" id="MIR-DV-LBILL-CLI-ID" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-POL-LBILL-DRW-DY" id="MIR-POL-LBILL-DRW-DY" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" />
+                        </td>
+                        <td class="celllabeldataentry">
+                            <a name="AddCompanyPayorLink" href="a" action="GoToCompanySearch" onclick="onAction();return(false);" onfocus="enterField(this)">請求先団体の検索</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="celllabelleftalign">
+                            <label for="SFYesNo">特別頻度請求の指定あり</label>
+                        </td>
+                        <td class="celllabelleftalign">
+                            <input type="radio" name="SFYesNo" value="Y" stype="YesNo" onclick="onClickSFBI(this)" onfocus="saveValue(); enterField(this)" />
+                            はい 
+                            <input type="radio" name="SFYesNo" value="N" stype="YesNo" onclick="onClickSFBI(this)" onfocus="saveValue(); enterField(this)" /> 
+                            いいえ
+                        </td>
+                        <td class="celllabelleftalign" />
+                        <td class="celllabelleftalign" />
+                    </tr>
+                </table>
+            </span>
+            <br />
+            <span id="SFBISection" style="display: none">
+                <table class="tabledataentry">
+                    <tr>
+                        <td class="celldataentryheading" colspan="4">
+                            特別頻度請求
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="celllabelrightalign">
+                            <label for="MIR-POL-SFB-CD">払込頻度:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-POL-SFB-CD" id="MIR-POL-SFB-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabelrightalign">
+                            <label for="MIR-SFB-SEMI-MTHLY-DY">半月払の追加振替日:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <select name="MIR-SFB-SEMI-MTHLY-DY" id="MIR-SFB-SEMI-MTHLY-DY" size="1" stype="Selection" onfocus="enterField(this)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="celllabelrightalign">
+                            <label for="MIR-SFB-STRT-DT">開始日:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-SFB-STRT-DT" id="MIR-SFB-STRT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                        </td>
+                        <td class="celllabelrightalign">
+                            <label for="MIR-SFB-END-DT">終了日:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-SFB-END-DT" id="MIR-SFB-END-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="celllabelrightalign">
+                            <label for="MIR-SFB-GP-STRT-DT-NUM">払込停止期間開始日:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-SFB-GP-STRT-DT-NUM" id="MIR-SFB-GP-STRT-DT-NUM" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                        </td>
+                        <td class="celllabelrightalign">
+                            <label for="MIR-SFB-GP-END-DT-NUM">払込停止期間終了日:</label>
+                        </td>
+                        <td class="celllabeldataentry">
+                            <input type="text" value=" " name="MIR-SFB-GP-END-DT-NUM" id="MIR-SFB-GP-END-DT-NUM" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                        </td>
+                    </tr>
+                </table>
+            </span>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/JapaneseBranch.js"></script>
+    <script src="../js/AppBillingBankBranch.js"></script>
+    <script src="../js/AppBillingJPTrad.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

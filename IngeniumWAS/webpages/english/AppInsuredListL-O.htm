@@ -1,0 +1,102 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:08 PM EDT
+*
+*********************************************************************************
+*  Component:   AppInsuredListL-O.htm                                           *
+*  Description:                                                                 *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  1CNB02  EKM      ADD MIR-CNVR-ORIG-DB-AMT & MIR-CNVR-ORIG-HOSP-AMT           *
+*  CR116C  FB       ADD RCLIU-CLI-TCB-IND                                       *
+*  P01161  AT       REDUCE LENGTH OF CONVERSION FIELDS                          *
+*  P02354  CY       ADJUST LENGTH OF CONVERSION FIELDS, 17 to 15                *
+*  MP4802  CTS      ADD RCLIU-SUBST-CLMT-IND                                    *
+*  23774B  CTS      23774B-IE Retirement changes                                *
+*********************************************************************************
+ -->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>AppInsuredListL-O</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<body class="bodyws">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<p><label for="MIR-POL-ID-BASE">Policy ID:</label><span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+</p>
+<p><label for="MIR-POL-ID-SFX">Suffix:</label><span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+</p>
+
+<table class="tabledisplay" genrows="0" keyfield="2">
+
+<tr>
+
+<td class="celldisplayheading"><label for="SELECT-T[1]"></label></td>
+<td class="celldisplayheading"><label for="MIR-DV-CLI-NM-T[1]">Client Name</label></td>
+<td class="celldisplayheading"><label for="MIR-STCKR-ID-T[1]">Sticker Number</label></td>
+<td class="celldisplayheading"><label for="MIR-UW-TYP-CD-T[1]">Level of Underwriting</label></td>
+<td class="celldisplayheading"><label for="MIR-OWNR-REL-INSR-CD-T[1]">Relationship of Owner to Insured</label></td>
+<td class="celldisplayheading"><label for="MIR-UW-UPLD-IND-T[1]">Underwriting Upload Indicator</label></td>
+<td class="celldisplayheading"><label for="MIR-UW-UPLD-DT-T[1]">Underwriting Upload Date</label></td>
+<td class="celldisplayheading"><label for="MIR-DEFIC-IND-T[1]">Deficiency Indicator</label></td>
+<td class="celldisplayheading"><label for="MIR-PRE-UWG-IND-T[1]">Pre-Underwriting Indicator</label></td>
+<td class="celldisplayheading"><label for="MIR-SPCL-NOTE-SD-IND-T[1]">Special Notes of Self-Disclosure Form</label></td>
+<td class="celldisplayheading"><label for="MIR-CLI-LNB-IND-T[1]">Living Needs Benefits</label></td>
+<td class="celldisplayheading"><label for="MIR-CLI-TCB-IND-T[1]">Terminal Care Benefits</label></td>
+<!-- MP4802 CHANGES START -->
+<td class="celldisplayheading"><label for="MIR-SUBST-CLMT-IND-T[1]">Substitute Claimant Rider Indicator</label></td>
+<!-- MP4802 CHANGES END   -->
+<td class="celldisplayheading"><label for="MIR-CNVR-ORIG-DB-AMT-T[1]">Pre-Conversion Total Death Benefit Amount</label></td>
+<td class="celldisplayheading"><label for="MIR-CNVR-ORIG-HOSP-AMT-T[1]">Pre-Conversion Total Hospitalization Daily Benefit Amount</label></td>
+</tr>
+
+<tr>
+
+<td class="celldisplay"><input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()"/></td>
+<td class="celldisplay"><a name="MIR-DV-CLI-NM-T[]" href="a" action="SelectItem" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">Full Name</a>
+</td>
+<td class="celldisplay"><span id="MIR-STCKR-ID-T[]" stype="Text" displayonly="yes">MIR-STCKR-ID-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-UW-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-UW-TYP-CD-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-OWNR-REL-INSR-CD-T[]" stype="Text" displayonly="yes">MIR-OWNR-REL-INSR-CD-T[]</span>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-UW-UPLD-IND-T[]" id="MIR-UW-UPLD-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><span id="MIR-UW-UPLD-DT-T[]" stype="Date" displayonly="yes">MIR-UW-UPLD-DT-T[]</span>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-DEFIC-IND-T[]" id="MIR-DEFIC-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-PRE-UWG-IND-T[]" id="MIR-PRE-UWG-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-SPCL-NOTE-SD-IND-T[]" id="MIR-SPCL-NOTE-SD-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-CLI-LNB-IND-T[]" id="MIR-CLI-LNB-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<td class="celldisplay"><input type="checkbox" name="MIR-CLI-TCB-IND-T[]" id="MIR-CLI-TCB-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<!-- MP4802 CHANGES START -->
+<td class="celldisplay"><input type="checkbox" name="MIR-SUBST-CLMT-IND-T[]" id="MIR-SUBST-CLMT-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<!-- MP4802 CHANGES END   -->
+<td class="celldisplay"><span id="MIR-CNVR-ORIG-DB-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CNVR-ORIG-DB-AMT-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-CNVR-ORIG-HOSP-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CNVR-ORIG-HOSP-AMT-T[]</span>
+</td>
+
+</tr>
+</table>
+<p><input type="hidden" name="action" id="action" stype="Hidden"/>
+</p>
+<p><input type="hidden" name="index" id="index" stype="Hidden"/>
+</p>
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+</html>

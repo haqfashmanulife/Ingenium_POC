@@ -1,0 +1,376 @@
+﻿<!--
+*********************************************************************************
+*  Component:   BF9C90-O.htm
+*  Description:Output Screen for Future Billing Request Inquiry Process
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*  M117PB  CTS      Initial Version
+*  FFF10P  CTS      NOMURA ONLINE CHANGES
+*  130660  CTS      BUG FIX FOR SCHEDULED ADV PREM PAYMENT FREQUENCYFIELDCHANGES
+*  130685  CTS      NOMURA ONLINE CHANGES
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM 
+*  UYS133  CTS      PD group size field addition
+*  27549A  CTS      CHANGES DONE AS PART OF CDAP                                *
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9C90-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PBRQ-EFF-DT">処理日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PBRQ-EFF-DT" stype="Date" displayonly="yes">MIR-PBRQ-EFF-DT</span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-POL-FUT-ACTV-TYP-CD">処理タイプ:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-POL-FUT-ACTV-TYP-CD" stype="Text" displayonly="yes">MIR-DV-POL-FUT-ACTV-TYP-CD</span>
+                    </td>
+			     </tr>
+<!-- 27549A CHANGE STARTS HERE -->
+                 <tr>					
+                    <td class="celldisplaykeylabel">
+                      <label for="MIR-ATO-NOT-APPL-IND">ATO非該当:</label>
+			        </td>
+			        <td class="celldisplaykey">
+	                  <input type="checkbox"  name="MIR-ATO-NOT-APPL-IND" id="MIR-ATO-NOT-APPL-IND" stype="Indicator" value="Y" disabled="yes"  />
+                    </td>
+				  </tr>	
+<!-- 27549A CHANGE ENDS HERE -->				 
+             </table>
+
+                <h2>
+                    <a name="Billing Request Change Information">将来日付処理内容</a>
+                </h2>
+
+
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="Billing Change Information">払込変更内容</a>
+                    </td>
+                </tr>
+            </table>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FUT-BILL-TYP-CD">払込経路:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FUT-BILL-TYP-CD" stype="Text" displayonly="yes">MIR-POL-FUT-BILL-TYP-CD</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FUT-BILL-MODE-CD">払込回数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FUT-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-FUT-BILL-MODE-CD</span>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FUT-PAC-DRW-DY">請求引落日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FUT-PAC-DRW-DY" stype="Day" displayonly="yes">MIR-POL-FUT-PAC-DRW-DY</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FUT-ACTV-STAT-CD">処理ステータス:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FUT-ACTV-STAT-CD" stype="Text" displayonly="yes">MIR-POL-FUT-ACTV-STAT-CD</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FUT-MPREM-AMT">保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FUT-MPREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-FUT-MPREM-AMT</span>
+                    </td>
+                   <!--130660 CHANGES BEGIN-->
+                    <!-- <td class ="celldisplay" />
+                    <td class ="celldisplay" />   -->
+
+                    <td class="celldisplaylabel">
+                     <label for="MIR-FUT-SCHD-ADV-PMT-DUR">登録制一括払月数:</label>
+                    </td>
+                    <td class="celldisplay">
+                      <span id="MIR-FUT-SCHD-ADV-PMT-DUR" stype="Text" displayonly="yes">MIR-FUT-SCHD-ADV-PMT-DUR</span>
+                    </td>
+                   <!--130660 CHANGES END-->                    
+                </tr>
+             </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="Payor Information">保険料払込者情報</a>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FUT-PAYR-CLI-ID"> 保険料払込者クライアントID</label>
+                    </td>
+                     <td class="celldisplay">
+                         <span id="MIR-DV-FUT-PAYR-CLI-ID" stype="Text" displayonly="yes">MIR-DV-FUT-PAYR-CLI-ID</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FUT-PAYR-SUB-CD">保険料払込者口座種類</label>
+                    </td>
+
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FUT-PAYR-SUB-CD" stype="Text" displayonly="yes">MIR-DV-FUT-PAYR-SUB-CD</span>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FUT-PAYR-ADDR-CD">保険料払込者住所タイプ</label>
+                    </td>
+
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FUT-PAYR-ADDR-CD" stype="Text" displayonly="yes">MIR-DV-FUT-PAYR-ADDR-CD</span>
+                    </td>
+                    <td class ="celldisplay" />
+                    <td class ="celldisplay" />
+                </tr>
+            </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="Payroll Deduction Information">団体請求情報</a>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FUT-LBILL-CLI-ID">団体クライアントID</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FUT-LBILL-CLI-ID" stype="Text" displayonly="yes">MIR-DV-FUT-LBILL-CLI-ID</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FUT-LBILL-CLI-NM">団体請求名</label>
+                    </td>
+
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FUT-LBILL-CLI-NM" stype="Text" displayonly="yes">MIR-DV-FUT-LBILL-CLI-NM</span>
+                    </td>
+                 </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FUT-LBILL-ADDR-CD">住所タイプ</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FUT-LBILL-ADDR-CD" stype="Text" displayonly="yes">MIR-DV-FUT-LBILL-ADDR-CD</span>
+                    </td>
+                    <td class ="celldisplay" />
+                    <td class ="celldisplay" />
+                </tr>
+
+              </table>
+
+                <h2>
+                    <a name="Current Policy Billing Information">現在の契約払込情報</a>
+                </h2>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="General Billing Information">一般払込情報</a>
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-TYP-CD">払込経路:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TYP-CD" stype="Text" displayonly="yes">MIR-POL-BILL-TYP-CD</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">払込回数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAC-DRW-DY">請求引落日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAC-DRW-DY" stype="Day" displayonly="yes">MIR-POL-PAC-DRW-DY</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MPREM-AMT">現在の保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MPREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-MPREM-AMT</span>
+                    </td>
+                </tr>
+                <!--130660 CHANGES BEGIN-->
+                <tr>
+                    <td class="celldisplaylabel">
+                     <label for="MIR-SCHD-ADV-PMT-DUR">登録制一括払月数:</label>
+                    </td>
+                    <td class="celldisplay">
+                      <span id="MIR-SCHD-ADV-PMT-DUR" stype="Text" displayonly="yes">MIR-SCHD-ADV-PMT-DUR</span>
+                    </td>
+<!--UYS133 CHANGE STARTS HERE -->
+                   <!--   <td class="celldisplaylabel"></td>
+                      <td class="celldisplay"></td> -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PD-GR-TYP-CD">団体規模:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PD-GR-TYP-CD" stype="Text" displayonly="yes">MIR-PD-GR-TYP-CD</span>
+                    </td>
+<!--UYS133 CHANGE ENDS HERE -->
+                 </tr>
+                 <!--130660 CHANGES END-->  
+             </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="Payor Information">保険料払込者情報</a>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-PAYR-CLI-ID">保険料払込者クライアントID</label>
+                    </td>
+                     <td class="celldisplay">
+                         <span id="MIR-DV-PAYR-CLI-ID" stype="Text" displayonly="yes">MIR-DV-PAYR-CLI-ID</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-PAYR-SUB-CD">保険料払込者口座種類</label>
+                    </td>
+
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAYR-SUB-CD" stype="Text" displayonly="yes">MIR-DV-PAYR-SUB-CD</span>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-PAYR-ADDR-CD">保険料払込者住所タイプ</label>
+                    </td>
+
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PAYR-ADDR-CD" stype="Text" displayonly="yes">MIR-DV-PAYR-ADDR-CD</span>
+                    </td>
+                    <td class ="celldisplay" />
+                    <td class ="celldisplay" />
+                </tr>
+            </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="Payroll Deduction Information">団体請求情報</a>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-LBILL-CLI-ID">団体クライアントID</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LBILL-CLI-ID" stype="Text" displayonly="yes">MIR-DV-LBILL-CLI-ID</span>
+                    </td>
+
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-LBILL-CLI-NM">団体請求名</label>
+                    </td>
+
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LBILL-CLI-NM" stype="Text" displayonly="yes">MIR-DV-LBILL-CLI-NM</span>
+                    </td>
+                 </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-LBILL-ADDR-CD">住所タイプ</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LBILL-ADDR-CD" stype="Text" displayonly="yes">MIR-DV-LBILL-ADDR-CD</span>
+                    </td>
+                    <td class ="celldisplay" />
+                    <td class ="celldisplay" />
+                </tr>
+
+              </table>
+
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+   <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

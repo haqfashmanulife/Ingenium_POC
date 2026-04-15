@@ -1,0 +1,605 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:22 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0860-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"   
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                            
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0860-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <a name="top" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-COMM-AGT-NM">Agent Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-COMM-AGT-NM" stype="Text" displayonly="yes">MIR-DV-COMM-AGT-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-AGT-ID">Agent ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-AGT-ID" stype="Text" displayonly="yes">MIR-AGT-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-BR-ID">Branch:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-BR-ID" stype="Text" displayonly="yes">MIR-BR-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#ProgressInformation">Progress Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#ProductionStatus">Production Status</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CurrentCommissionInformation">Current Commission Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#HistoricalCommissionInformation">Historical Commission Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="3" class="celldisplayheading">
+                        <a name="ProgressInformation">Progress Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplaylabel">
+                        <p align="left">Current Month</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">Year to Date</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FYR-CPREM-CMO-AMT">Commissionable Premiums - 1st Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-CPREM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-CPREM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-CPREM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-FYR-CPREM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FYR-LCOMM-CMO-AMT">Life Commissions - 1st Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-LCOMM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-LCOMM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-LCOMM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-FYR-LCOMM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RENW-CPREM-CMO-AMT">Commissionable Premiums - Renewal:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-CPREM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-CPREM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-CPREM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-RENW-CPREM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RENW-LCOMM-CMO-AMT">Life Commissions - Renewal:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-LCOMM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-LCOMM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-LCOMM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-RENW-LCOMM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-QLTY-BON-CMO-AMT">Quality Bonuses:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-QLTY-BON-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-QLTY-BON-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-QLTY-BON-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-QLTY-BON-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MKT-BON-CMO-AMT">Market Bonuses:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MKT-BON-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-MKT-BON-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MKT-BON-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-MKT-BON-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NHS-ALLOW-CMO-AMT">Non-Housed Allowance:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NHS-ALLOW-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-NHS-ALLOW-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NHS-ALLOW-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-NHS-ALLOW-YTD-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="3" class="celldisplayheading">Application Written Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplaylabel">
+                        <p align="left">Last Month</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">Year to Month</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LIFE-PWRIT-PMO-AMT">Total Premiums Written - Life:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LIFE-PWRIT-PMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-LIFE-PWRIT-PMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LIFE-PWRIT-YTM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-LIFE-PWRIT-YTM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AGT-PWRIT-PMO-AMT">Total Premiums Written - All:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PWRIT-PMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-AGT-PWRIT-PMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PWRIT-YTM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-AGT-PWRIT-YTM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AGT-APP-PMO-QTY">Application Count:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-APP-PMO-QTY" stype="Text" displayonly="yes">MIR-AGT-APP-PMO-QTY</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-APP-YTM-QTY" stype="Text" displayonly="yes">MIR-AGT-APP-YTM-QTY</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="ProductionStatus">Production Status</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" />
+                    <td class="celldisplayheading">
+                        <label for="MIR-APTVTY-AWD-4-IND-T[1]">Apptivity Awards</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CNVTN-ATND-4-IND-T[1]">Convention Attended</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NQA-4-IND-T[1]">National Quality Awards</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">Year 1</td>
+                    <td class="celldisplay">
+                        <span id="MIR-APTVTY-AWD-4-IND-T[1]" displayonly="yes">MIR-APTVTY-AWD-4-IND-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNVTN-ATND-4-IND-T[1]" displayonly="yes">MIR-CNVTN-ATND-4-IND-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NQA-4-IND-T[1]" displayonly="yes">MIR-NQA-4-IND-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">Year 2</td>
+                    <td class="celldisplay">
+                        <span id="MIR-APTVTY-AWD-4-IND-T[2]" displayonly="yes">MIR-APTVTY-AWD-4-IND-T[2]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNVTN-ATND-4-IND-T[2]" displayonly="yes">MIR-CNVTN-ATND-4-IND-T[2]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NQA-4-IND-T[2]" displayonly="yes">MIR-NQA-4-IND-T[2]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">Year 3</td>
+                    <td class="celldisplay">
+                        <span id="MIR-APTVTY-AWD-4-IND-T[3]" displayonly="yes">MIR-APTVTY-AWD-4-IND-T[3]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNVTN-ATND-4-IND-T[3]" displayonly="yes">MIR-CNVTN-ATND-4-IND-T[3]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NQA-4-IND-T[3]" displayonly="yes">MIR-NQA-4-IND-T[3]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">Year 4</td>
+                    <td class="celldisplay">
+                        <span id="MIR-APTVTY-AWD-4-IND-T[4]" displayonly="yes">MIR-APTVTY-AWD-4-IND-T[4]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNVTN-ATND-4-IND-T[4]" displayonly="yes">MIR-CNVTN-ATND-4-IND-T[4]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NQA-4-IND-T[4]" displayonly="yes">MIR-NQA-4-IND-T[4]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Production Status (Continued)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" />
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-MDRT-4-AMT-T[1]">MDRT Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-PROD-4-AMT-T[1]">Production Level</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-PRST-4-PCT-T[1]">Persistency Rate</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">Year 1</td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-MDRT-4-AMT-T[1]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-MDRT-4-AMT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PROD-4-AMT-T[1]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-PROD-4-AMT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PRST-4-PCT-T[1]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-AGT-PRST-4-PCT-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">Year 2</td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-MDRT-4-AMT-T[2]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-MDRT-4-AMT-T[2]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PROD-4-AMT-T[2]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-PROD-4-AMT-T[2]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PRST-4-PCT-T[2]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-AGT-PRST-4-PCT-T[2]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">Year 3</td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-MDRT-4-AMT-T[3]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-MDRT-4-AMT-T[3]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PROD-4-AMT-T[3]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-PROD-4-AMT-T[3]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PRST-4-PCT-T[3]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-AGT-PRST-4-PCT-T[3]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">Year 4</td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-MDRT-4-AMT-T[4]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-MDRT-4-AMT-T[4]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PROD-4-AMT-T[4]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-AGT-PROD-4-AMT-T[4]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PRST-4-PCT-T[4]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-AGT-PRST-4-PCT-T[4]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="3" class="celldisplayheading">
+                        <a name="CurrentCommissionInformation">Current Commission Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplaylabel">
+                        <p align="left">Current Month</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">Year to Date</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FYR-COMM-CMO-AMT">Net Commission - 1st Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-FYR-COMM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RENW-COMM-CMO-AMT">Net Commission - Renewal:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-RENW-COMM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TRAIL-COMM-CMO-AMT">Trail Commissions:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRAIL-COMM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-TRAIL-COMM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRAIL-COMM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TRAIL-COMM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OVRID-COMM-CMO-AMT">Total Net Overrides / Bonuses:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OVRID-COMM-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-OVRID-COMM-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OVRID-COMM-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-OVRID-COMM-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AGT-PAYO-CMO-AMT">Total Payments Made:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PAYO-CMO-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-AGT-PAYO-CMO-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PAYO-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-AGT-PAYO-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AGT-PAYBL-BAL-AMT">Current Balance:</label>
+                    </td>
+                    <td class="celldisplay" />
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-PAYBL-BAL-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-AGT-PAYBL-BAL-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="3">
+                        <a name="HistoricalCommissionInformation">Historical Commission Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" />
+                    <td class="celldisplayheading">
+                        <label for="MIR-FYR-COMM-12-AMT-T[1]">Net 1st Year Commission</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RENW-COMM-12-AMT-T[1]">Net Renewal Commission</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">Last Month</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[1]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[1]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[1]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">2 Months Past</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[2]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[2]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[2]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[2]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">3 Months Past</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[3]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[3]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[3]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[3]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">4 Months Past</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[4]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[4]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[4]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[4]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">5 Months Past</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[5]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[5]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[5]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[5]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">6 Months Past</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[6]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[6]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[6]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[6]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">7 Months Past</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[7]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[7]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[7]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[7]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">8 Months Past</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[8]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[8]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[8]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[8]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">9 Months Past</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[9]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[9]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[9]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[9]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">10 Months Past</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[10]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[10]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[10]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[10]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">11 Months Past</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[11]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[11]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[11]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[11]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">12 Months Past</td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-12-AMT-T[12]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-FYR-COMM-12-AMT-T[12]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-12-AMT-T[12]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-RENW-COMM-12-AMT-T[12]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#ProgressInformation">Progress Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#ProductionStatus">Production Status</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CurrentCommissionInformation">Current Commission Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#HistoricalCommissionInformation">Historical Commission Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

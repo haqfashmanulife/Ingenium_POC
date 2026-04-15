@@ -1,0 +1,298 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:44 PM EDT
+*
+*********************************************************************************
+*  Component:   BF6967-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                           
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF6967-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">Process      Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="3" class="celldisplayheading">Formula for Calculating the Policy Adjusted Cost Basis Value</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAXBL-PREM-PD-AMT">Total Premiums Paid:</label>
+                    </td>
+                    <td class="celldisplay" />
+                    <td class="celldisplay">
+                        <span id="MIR-TAXBL-PREM-PD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TAXBL-PREM-PD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAX-1035-PD-AMT">Total Premiums Received on 1035 Exchange:</label>
+                    </td>
+                    <td class="celldisplay">-</td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAX-1035-PD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TAX-1035-PD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAX-1035-ACB-AMT">Previous Cost Basis on 1035 Exchange:</label>
+                    </td>
+                    <td class="celldisplay">+</td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAX-1035-ACB-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TAX-1035-ACB-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAX-SUPP-PREM-AMT">Total Premiums for Supplementary Benefits:</label>
+                    </td>
+                    <td class="celldisplay">-</td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAX-SUPP-PREM-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-TAX-SUPP-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAX-DISP-YTD-AMT">Total Policy Dispositions:</label>
+                    </td>
+                    <td class="celldisplay">-</td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAX-DISP-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TAX-DISP-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-DISP-YTD-AMT">YTD Loan Disposition:</label>
+                    </td>
+                    <td class="celldisplay">-</td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-DISP-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-LOAN-DISP-YTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAX-PREV-DISP-AMT">Previous Dispositions:</label>
+                    </td>
+                    <td class="celldisplay">-</td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAX-PREV-DISP-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TAX-PREV-DISP-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREV-LOAN-DISP-AMT">Previous Loan Dispositions:</label>
+                    </td>
+                    <td class="celldisplay">-</td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREV-LOAN-DISP-AMT" stype="Currency" elength="11" signed="yes" displayonly="yes">MIR-PREV-LOAN-DISP-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREV-DISP-TAX-AMT">Amount of Life to Date Dispositions Taxed:</label>
+                    </td>
+                    <td class="celldisplay">+</td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREV-DISP-TAX-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-PREV-DISP-TAX-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-DISP-TAX-AMT">Taxable Loan Dispositions:</label>
+                    </td>
+                    <td class="celldisplay">+</td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-DISP-TAX-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-LOAN-DISP-TAX-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CFN-ACB-AMT">Adjusted Cost Basis Value:</label>
+                    </td>
+                    <td class="celldisplay" />
+                    <td class="celldisplay">
+                        <span id="MIR-CFN-ACB-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CFN-ACB-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">U.S. Tax Indicators</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAX-LOAN-DOD-AMT">Loan Secured Against Dividends on Deposit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAX-LOAN-DOD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TAX-LOAN-DOD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-TAX-TYP-CD">Policy Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-TAX-TYP-CD" stype="Text" displayonly="yes">MIR-POL-TAX-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PDF-RFND-CD">Premium Deposit Fund Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PDF-RFND-CD" stype="Text" displayonly="yes">MIR-POL-PDF-RFND-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-7702-CD">7702 Tax Regulations:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-7702-CD" stype="Text" displayonly="yes">MIR-POL-7702-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MEC-CD">Modified Endowment Contract (MEC):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MEC-CD" stype="Text" displayonly="yes">MIR-POL-MEC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MEC-DT">MEC Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MEC-DT" stype="Date" displayonly="yes">MIR-POL-MEC-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PNSN-QUALF-CD">Pension Qualified Indicator:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PNSN-QUALF-CD" stype="Text" displayonly="yes">MIR-POL-PNSN-QUALF-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LXPCT-CALC-CD">Life Expectancy Calculation Basis:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LXPCT-CALC-CD" stype="Text" displayonly="yes">MIR-LXPCT-CALC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LXPCT-RECALC-IND">Recalculate life expectancy:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-LXPCT-RECALC-IND" id="MIR-LXPCT-RECALC-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SE-GDLN-APREM-IND">Calculate SEC premiums:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-SE-GDLN-APREM-IND" id="MIR-SE-GDLN-APREM-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">Immediate Annuity Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-REMN-INV-AMT">Remaining Investment in the Contract:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-REMN-INV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-IA-REMN-INV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAXBL-PREM-PD-AMT-2">Original Investment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAXBL-PREM-PD-AMT-2" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TAXBL-PREM-PD-AMT-2</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NTAXBL-PAY-LTD-AMT">Nontaxed Portion Life to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NTAXBL-PAY-LTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-NTAXBL-PAY-LTD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

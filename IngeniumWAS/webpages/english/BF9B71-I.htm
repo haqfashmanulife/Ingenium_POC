@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*********************************************************************************
+*  Component:   BF9B71-I.htm
+*  Description: Rider Surrender/Rider FA Reduction Premium - Update
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  TVI15B  CTS      INITIAL VERSION - FA REDUCTION TVI
+*  23774A  CTS      CHANGES DONE FOR IE RETIREMENT PROJECT TO MAKE IT			
+*                   COMPATIBLE FOR MICROSOFT EDGE. CHANGES IN HTML INCLUDE		
+*                   ADDING "ID" ATTRIBUTE FOR ALL INPUT FIELDS AND CHANGES IN	
+*                   JAVA SCRIPTS TO MODIFY CERTAIN FUNCTIONS/COMMANDS WHICH		
+*                   ARE NO LONGER COMPATILBLE WITH EDGE.						
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9B71-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad();TrialCalc()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+        <input type="hidden" name="action" id="action" stype="Hidden" />
+        <input type="hidden" name="index" id="index" stype="Hidden" />
+         <input type="hidden" name="MIR-DV-UNDO-VALID-CD" id="MIR-DV-UNDO-VALID-CD" stype="Hidden" />
+         <input type="hidden" name="MIR-DV-COMMIT-CD" id="MIR-DV-COMMIT-CD" stype="Hidden" />
+         <input type="hidden" name="MIR-PRCES-STATE-CD" id="MIR-PRCES-STATE-CD" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Policy Holder Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">Date Of Change:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-APPL-CTL-PRCES-DT" stype="Text" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-SNDRY-AMT">Sundry Amount:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-SNDRY-AMT" stype="Currency" displayonly="yes">MIR-POL-SNDRY-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">Payment Mode:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-EFF-DT">Effective Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-EFF-DT" stype="Text" displayonly="yes">MIR-DV-EFF-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledatakey">
+                <tr>
+	            <td class="celldisplayheading" colspan="17"> Policy Premium Information</td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-MPREM-AMT">Mode Premium Amount :</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-MPREM-AMT" stype="Currency" displayonly="yes">MIR-POL-MPREM-AMT</span>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-NEW-POL-MPREM-AMT">New Mode Premium Amount :</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-NEW-POL-MPREM-AMT" id="MIR-NEW-POL-MPREM-AMT" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/TrialCal.js"></script>
+</html>

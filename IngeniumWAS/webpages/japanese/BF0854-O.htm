@@ -1,0 +1,110 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:27 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0854-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016737  611J     Code cleanup                                               
+*  017150  612J     Remove Currency decimals="2"    
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                        
+*                                                                              
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0854-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws" > 
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">-->
+    <body class="bodyws" onLoad="onLoad(); inputlisttrimpolicy();InpTrimPolicy()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="returnlisttrimpolicy();return(onSubmit())">
+            <input type="hidden" name="Dispolval" stype="Hidden" />
+            <input type="hidden" name="Dissfxval" stype="Hidden" />
+<!-- UY3004 CHANGES ENDS HERE -->
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-POL-PAYO-TYP-CD">配分タイプ:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-DV-POL-PAYO-TYP-CD" id="MIR-DV-POL-PAYO-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CDI-EFF-DT">実施日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CDI-EFF-DT" id="MIR-CDI-EFF-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="SELECT-T[1]">選択</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-POL-PAYO-TYP-CD-T[1]">配分タイプ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDI-EFF-DT-T[1]">実施日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDI-STAT-CD-T[1]">配分ステータス</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <a name="MIR-DV-POL-PAYO-TYP-CD-T[]" href="a" action="SelectItem" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">MIR-DV-POL-PAYO-TYP-CD-T[]</a>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDI-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-CDI-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDI-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-CDI-STAT-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

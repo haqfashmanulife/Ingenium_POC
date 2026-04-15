@@ -1,0 +1,124 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:39 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1604-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                           
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1604-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-INSRD-AGE">年齢:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CLI-INSRD-AGE" id="MIR-CLI-INSRD-AGE" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" size="20" tabindex="1" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-OCCP-CLAS-CD">職業区分:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-OCCP-CLAS-CD" id="MIR-OCCP-CLAS-CD" size="1" stype="Selection" onfocus="enterField(this)" tabindex="2"></select>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-ANN-INCM-AMT">年収:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CLI-ANN-INCM-AMT" id="MIR-CLI-ANN-INCM-AMT" stype="Currency" elength="13" decimals="0" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="3" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+                    <td class="celldisplayheading" rowspan="2" />
+                    <td class="celldisplayheading" rowspan="2">
+                        <label for="MIR-CLI-ANN-INCM-AMT-T[1]">年収</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="3">非課税給付金</td>
+                    <td class="celldisplayheading" colspan="3">課税給付金</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NTAXBL-NUIC-AMT-T[1]">UIC以外-全EP</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NTAXBL-UIC-EP1-AMT-T[1]">
+                            UIC - EP   
+&lt;                            120
+                        </label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NTAXBL-UIC-EP2-AMT-T[1]">UIC - EP   =120+</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-TAXBL-NUIC-AMT-T[1]">UIC以外-全EP</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-TAXBL-UIC-EP1-AMT-T[1]">
+                             UIC - EP 
+&lt;                            120
+                        </label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-TAXBL-UIC-EP2-AMT-T[1]"> UIC - EP =120+</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <a name="MIR-CLI-ANN-INCM-AMT-T[]" href="a" action="SelectItem" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">年収</a>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NTAXBL-NUIC-AMT-T[]" stype="Currency" elength="13" decimals="0" displayonly="yes">MIR-NTAXBL-NUIC-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NTAXBL-UIC-EP1-AMT-T[]" stype="Currency" elength="5" decimals="0" displayonly="yes">MIR-NTAXBL-UIC-EP1-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NTAXBL-UIC-EP2-AMT-T[]" stype="Currency" elength="5" decimals="0" displayonly="yes">MIR-NTAXBL-UIC-EP2-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAXBL-NUIC-AMT-T[]" stype="Currency" elength="13" decimals="0" displayonly="yes">MIR-TAXBL-NUIC-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAXBL-UIC-EP1-AMT-T[]" stype="Currency" elength="13" decimals="0" displayonly="yes">MIR-TAXBL-UIC-EP1-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAXBL-UIC-EP2-AMT-T[]" stype="Currency" elength="13" decimals="0" displayonly="yes">MIR-TAXBL-UIC-EP2-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

@@ -1,0 +1,123 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:11 PM EDT
+*
+*********************************************************************************
+*  Component:   AppBene.htm                                                    
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  016423  602J     New for release 602J                                       
+*  017150  612J     Remove Currency decimals="2"                               
+*  01NB01  Phase 1  Added selection-table    
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                  
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>AppBene</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoadCustom()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledataentrynoborder">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="beneInOut">保険金受取人を記録に追加する</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="radio" name="beneInOut" value="Y" stype="YesNoUnanswered" onclick="onYesNoUa('Yes')" onfocus="saveValue();enterField(this)" />
+                        はい
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="radio" name="beneInOut" value="N" stype="YesNoUnanswered" onclick="onYesNoUa('No')" onfocus="saveValue();enterField(this)" />
+                        いいえ/次のページへ続く
+                    </td>
+                </tr>
+            </table>
+            <br />
+           <table class="tabledisplay" genrows="0" >
+                <tr>
+                    <td class="celldisplayheading" colspan="3">
+                    <a name="Information">保険金受取人のクライアントを選択してください</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading"><label for="SELECT-T[1]"></label>
+                    </td>
+                    <td class="celldisplayheading"><label for="MIR-CLI-ID-T[1]">クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading"><label for="MIR-DV-CLI-NM-T[1]">クライアント名</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay"><input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()"/>
+                    </td>
+                    <td class="celldisplay"><span id="MIR-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay"><span id="MIR-DV-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-CLI-NM-T[]</span>
+                    </td>
+                </tr>
+           </table>
+           <br />
+            <table class="tabledisplay" genrows="0" keyfield="0" id="beneTable">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-NM-T[1]">クライアント名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-NM-T[1]">保険金受取人名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-TYP-CD-T[1]">受取人タイプ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-DESGNT-CD-T[1]">受取人順位</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-PRCDS-PCT-T[1]">受取金割合</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-REL-INSRD-CD-T[1]">被保険者との関係</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-NM-T[]" stype="Text" displayonly="yes">MIR-BNFY-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-TYP-CD-T[]" stype="Text" displayonly="yes">Beneficiary Type</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-DESGNT-CD-T[]" stype="Text" displayonly="yes">MIR-BNFY-DESGNT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-PRCDS-PCT-T[]" stype="Percent" elength="3" decimals="0" displayonly="yes">MIR-BNFY-PRCDS-PCT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-REL-INSRD-CD-T[]" stype="Text" displayonly="yes">MIR-BNFY-REL-INSRD-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>    
+
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/AppBene.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

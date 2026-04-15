@@ -1,0 +1,333 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:59 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9331-I.htm                                                   
+*  Description: Claim Payment                                                  
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  HCL109  HIN/CL   Claim Payment                                              
+*  B110071 HIN/CL   Fix lapse date decription                                  
+*  CCL05   HIN/CL   PICK-UP FACILITY                                           
+*  FT7001  AKATO    FT7 Label Change 14JUN2004 
+*  ISLCLM  INSLAW   Added a new dropdown field for Days before claim payment due
+*                        	               
+*  MP300C  CTS      Added new dropdown field Pre-LCD Check for ETC
+*  MP302M  CTS      Added new field for Survival Benefit Chargeback Amount
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.    
+*  UYSDMC  CTS      USYS CLAIM IND ADDITION         
+*  UY3070  CTS      STREAM 3 CANCER LUMP SUM        
+*  UY3023  CTS      STREAM 3 MEDICAL CLAIM  
+*  UY323A  CTS      MEDICAL CLAIM PAYMENT
+*********************************************************************************
+ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>BF9331-I</title>
+    <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+</head>
+<body class="bodyws" onload="onLoadCustom();onLoad()">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="onSubmitCustom(); return(onSubmit());">
+    <input type="hidden" name="action" id="action" stype="Hidden"/>
+    <input type="hidden" name="index" id="index" stype="Hidden" />
+<table class="tabledisplaykey">
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLM-ID">マスタークレームID:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLM-ID" stype="Text" displayonly="yes">MIR-CLM-ID</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLMA-CLM-STAT-CD">マスタークレーム ステータス:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLMA-CLM-STAT-CD" stype="Text" displayonly="yes">MIR-CLMA-CLM-STAT-CD</span>
+        </td>
+    </tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLMA-INSRD-CLI-ID">被保険者クライアントID:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLMA-INSRD-CLI-ID" stype="Text" displayonly="yes">MIR-CLMA-INSRD-CLI-ID</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-DV-INS-CLI-NM">被保険者名:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-DV-INS-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INS-CLI-NM</span>
+        </td>
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLI-BTH-DT">生年月日:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLI-BTH-DT" stype="Date" displayonly="yes">MIR-CLI-BTH-DT</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLI-SEX-CD">性別:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLMA-HO-ACPT-DT">本社請求書受理日:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLMA-HO-ACPT-DT" stype="Date" displayonly="yes">MIR-CLMA-HO-ACPT-DT</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-LIFE-INS-CLM-IND">保険金同時手続:</label>
+        </td>
+        <td class="celldisplaykey">
+            <input type="checkbox" value="Y" name="MIR-LIFE-INS-CLM-IND" id="MIR-LIFE-INS-CLM-IND" stype="Indicator" disabled="yes"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+<!-- UYSDMC CHANGES START -->
+            <label for="MIR-CLMA-USYS-CLM-IND">ユニシス請求:</label>
+<!-- UYSDMC CHANGES END --> 
+        </td>
+        <td class="celldisplaykey">
+<!-- UYSDMC CHANGES START -->
+            <input type="checkbox" name="MIR-CLMA-USYS-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+<!-- UYSDMC CHANGES END -->   		
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLMA-HIST-CLM-IND">クレーム履歴:</label>
+        </td>
+        <td class="celldisplaykey">
+            <input type="checkbox" name="MIR-CLMA-HIST-CLM-IND" id="MIR-CLMA-HIST-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+        </td>
+    </tr>
+</table>
+<br />
+<h2>支払済情報</h2>
+<table class="tabledisplay" genrows="0" keyfield="0">
+    <tr>
+        <td class="celldisplayheading"><label for="MIR-POL-ID-T[1]">証券番号</label></td>
+        <td class="celldisplayheading"><label for="MIR-PAYEE-NM-TXT-T[1]">受取人</label></td>
+        <td class="celldisplayheading"><label for="MIR-FINAL-APROV-DT-T[1]">日報日</label></td>
+        <td class="celldisplayheading"><label for="MIR-BNFT-PMT-AMT-T[1]">支払額</label></td>
+        <td class="celldisplayheading"><label for="MIR-PREM-DED-AMT-T[1]">保険料回収額</label></td>
+        <td class="celldisplayheading"><label for="MIR-DLAY-INT-AMT-T[1]">支払利息</label></td>
+        <td class="celldisplayheading"><label for="MIR-REMIT-AMT-T[1]">差引支払額</label></td>
+    </tr>
+    <tr>
+        <td class="celldisplay"><span id="MIR-POL-ID-T[]" stype="Text" displayonly="yes">MIR-POL-ID-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-PAYEE-NM-TXT-T[]" stype="Text" displayonly="yes">MIR-PAYEE-NM-TXT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-FINAL-APROV-DT-T[]" stype="Date" displayonly="yes">MIR-FINAL-APROV-DT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-BNFT-PMT-AMT-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-BNFT-PMT-AMT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-PREM-DED-AMT-T[]" stype="Currency" elength="11"  signed="yes" displayonly="yes">MIR-PREM-DED-AMT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-DLAY-INT-AMT-T[]" stype="Currency" elength="11"  signed="yes" displayonly="yes">MIR-DLAY-INT-AMT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-REMIT-AMT-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-REMIT-AMT-T[]</span>
+        </td>
+    </tr>
+</table>
+<h2>遅延利息情報</h2>
+<table class="tabledataentry" genrows="0" keyfield="0">
+    <tr>
+        <td class="celldataentryheading"><label for="MIR-POL-ID-4-T[1]">証券番号</label></td>
+        <td class="celldataentryheading"><label for="MIR-INT-STRT-DT-2-T[1]">起算日</label></td>
+<!-- ISLCLM CHANGES START HERE -->
+        <td class="celldataentryheading"><label for="MIR-CLMA-DYS-BFR-PMT-DUE-2-T[1]">履行期限日数</label></td>
+<!-- ISLCLM CHANGES END HERE -->
+   </tr>
+    <tr>
+        <td class="celllabeldataentry"><span id="MIR-POL-ID-4-T[]" stype="Text" displayonly="yes">MIR-POL-ID-4-T[]</span>
+        </td>
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-INT-STRT-DT-2-T[]" id="MIR-INT-STRT-DT-2-T[]" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+<!-- ISLCLM CHANGES START HERE -->
+        <td class="celllabeldataentry">
+            <select name="MIR-CLMA-DYS-BFR-PMT-DUE-2-T[]" id="MIR-CLMA-DYS-BFR-PMT-DUE-2-T[]" size="1" stype="Selection" onfocus="enterField(this)" onblur="validateField(this)"/>
+        </td>
+<!-- ISLCLM CHANGES END HERE -->
+    </tr>
+</table>
+<p>備考：遅延利息金額はマネージャーの承認日に基づいて変わります。</p>
+
+<h2>保険料情報</h2>
+<a name="ListPayee" href="a" action="GoToListPayee" onclick="onAction();return(false);" onfocus="enterField(this)" preserve="yes">受取人リスト</a>
+<br />
+
+<br />
+
+<table class="tabledataentry" genrows="0" keyfield="0">
+    <tr>
+        <td class="celldataentryheading"><label for="MIR-POL-ID-5-T[1]">証券番号</label></td>
+        <td class="celldataentryheading"><label for="MIR-POL-UL-SHRT-AMT-T[1]">猶予期間解消必要額</label></td>
+        <td class="celldataentryheading"><label for="MIR-UL-LAPS-STRT-DT-T[1]">失効開始日</label></td>
+        <td class="celldataentryheading"><label for="MIR-LTST-PD-END-DT-T[1]">支払事由最終日</label></td>
+<!-- MP143H CHANGES START HERE -->
+        <td class="celldataentryheading"><label for="MIR-TRAD-PD-TO-DT-NUM-T[1]">Trad次期応当日</label></td>
+        <td class="celldataentryheading"><label for="MIR-POL-MPREM-AMT-T[1]">払方別保険料</label></td>
+        <td class="celldataentryheading"><label for="MIR-POL-BILL-MODE-CD-T[1]">払込回数</label></td>
+        <td class="celldataentryheading"><label for="MIR-TRAD-UNPD-PREM-AMT-T[1]">未収保険料</label></td>
+<!-- MP143H CHANGES END HERE -->
+<!-- MP302M CHANGES STARTS HERE -->
+<!-- UY323A CHANGES STARTS HERE 
+        <td class="celldataentryheading"><label for="MIR-SRVBEN-CHRGBCK-AMT-T[1]">生存給付金戻入額</label></td> -->
+	    <td class="celldataentryheading"><label for="MIR-SRVBEN-CHRGBCK-AMT-T[1]">給付金戻入額</label></td>	
+<!-- UY323A CHANGES ENDS HERE -->		
+<!-- MP302M CHANGES ENDS HERE -->
+        <td class="celldataentryheading"><label for="MIR-PREM-DED-AMT-3-T[1]">保険料控除金額</label></td>
+        <td class="celldataentryheading"><label for="MIR-CLRL-SEQ-NUM-3-T[1]">受取人</label></td>
+    </tr>
+    <tr>
+        <td class="celllabeldataentry"><span id="MIR-POL-ID-5-T[]" stype="Text" displayonly="yes">MIR-POL-ID-5-T[]</span>
+        </td>
+        <td class="celllabeldataentry"><span id="MIR-POL-UL-SHRT-AMT-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-POL-UL-SHRT-AMT-T[]</span>
+        </td>
+        <td class="celllabeldataentry"><span id="MIR-UL-LAPS-STRT-DT-T[]" stype="Date" displayonly="yes">MIR-UL-LAPS-STRT-DT-T[]</span>
+        </td>
+        <td class="celllabeldataentry"><span id="MIR-LTST-PD-END-DT-T[]" stype="Date" displayonly="yes">MIR-LTST-PD-END-DT-T[]</span>
+        </td>
+<!-- MP143H CHANGES START HERE -->
+        <td class="celllabeldataentry"><span id="MIR-TRAD-PD-TO-DT-NUM-T[]" stype="Date" displayonly="yes">MIR-TRAD-PD-TO-DT-NUM-T[]</span>
+		</td>
+        <td class="celllabeldataentry"><span id="MIR-POL-MPREM-AMT-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-POL-MPREM-AMT-T[]</span>
+		</td>
+        <td class="celllabeldataentry"><span id="MIR-POL-BILL-MODE-CD-T[]" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD-T[]</span>
+		</td>
+		<td class="celllabeldataentry"><span id="MIR-TRAD-UNPD-PREM-AMT-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-TRAD-UNPD-PREM-AMT-T[]</span>
+		</td>
+<!-- MP143H CHANGES END HERE -->
+<!-- MP302M CHANGES STARTS HERE -->
+		<td class="celllabeldataentry"><span id="MIR-SRVBEN-CHRGBCK-AMT-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-SRVBEN-CHRGBCK-AMT-T[]</span>
+		</td>
+<!-- MP302M CHANGES ENDS HERE -->
+        <td class="celllabeldataentry">
+            <input type="text" value=" " name="MIR-PREM-DED-AMT-3-T[]" id="MIR-PREM-DED-AMT-3-T[]" stype="Currency" elength="11"  signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-CLRL-SEQ-NUM-3-T[]" id="MIR-CLRL-SEQ-NUM-3-T[]" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+    </tr>
+</table>
+
+<h2>支払情報（給付金別）</h2>
+<table class="tabledataentry" genrows="0" keyfield="0">
+    <tr>
+        <td class="celldataentryheading"><label for="MIR-POL-ID-3-T[1]">証券番号</label></td>
+        <!-- UY3023 CHANGES STARTS HERE -->
+        <td class="celldataentryheading"><label for="MIR-RIDER-CD-T[1]">種類</label></td>
+        <!-- UY3023 CHANGES ENDS HERE -->		
+        <td class="celldataentryheading"><label for="MIR-PLAN-ID-T[1]">特約名</label></td>
+        <td class="celldataentryheading"><label for="MIR-BNFT-NM-ID-T[1]">給付金名</label></td>
+        <td class="celldataentryheading"><label for="MIR-BNFT-DECSN-CD-T[1]">決定</label></td>
+        <td class="celldataentryheading"><label for="MIR-CLBN-ACRU-AMT-2-T[1]">支払額</label></td>
+        <td class="celldataentryheading"><label for="MIR-FINAL-APROV-DT-2-T[1]">最終承認日</label></td>
+        <td class="celldataentryheading"><label for="MIR-CLRL-SEQ-NUM-2-T[1]">受取人</label></td>
+    </tr>
+    <tr>
+        <td class="celllabeldataentry"><span id="MIR-POL-ID-3-T[]" stype="Text" displayonly="yes">MIR-POL-ID-3-T[]</span>
+        </td>
+	    <!-- UY3023 CHANGES STARTS HERE -->
+        <td class="celllabeldataentry"><span id="MIR-RIDER-CD-T[]" stype="Text" displayonly="yes">MIR-RIDER-CD-T[]</span>
+        </td>
+        <!-- UY3023 CHANGES ENDS HERE -->
+        <td class="celllabeldataentry"><span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>
+        </td>
+        <td class="celllabeldataentry"><span id="MIR-BNFT-NM-ID-T[]" stype="Text" displayonly="yes">MIR-BNFT-NM-ID-T[]</span>
+        </td>
+        <td class="celllabeldataentry"><span id="MIR-BNFT-DECSN-CD-T[]" stype="Text" displayonly="yes">MIR-BNFT-DECSN-CD-T[]</span>
+        </td>
+        <td class="celllabeldataentry"><span id="MIR-CLBN-ACRU-AMT-2-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-CLBN-ACRU-AMT-2-T[]</span>
+        </td>
+        <td class="celllabeldataentry"><span id="MIR-FINAL-APROV-DT-2-T[]" stype="Date" displayonly="yes">MIR-FINAL-APROV-DT-2-T[]</span>
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-CLRL-SEQ-NUM-2-T[]" id="MIR-CLRL-SEQ-NUM-2-T[]" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+        </td>
+    </tr>
+</table>
+<!-- MP300C CHANGES START HERE -->
+<h2>責前チェック</h2>
+<table class="tabledataentry" genrows="0" keyfield="0">
+    <tr>
+        <td class="celldataentryheading"><label for="MIR-POL-ID-4-T[1]">証券番号</label></td>        
+        <td class="celldataentryheading"><label for="MIR-PRE-LCD-CHK-IND-T[1]">責前チェック</label></td>
+   </tr>
+    <tr>
+        <td class="celllabeldataentry"><span id="MIR-POL-ID-4-T[]" stype="Text" displayonly="yes">MIR-POL-ID-4-T[]</span>
+        </td>
+        <td class="celllabeldataentry">
+            <select name="MIR-PRE-LCD-CHK-IND-T[]" id="MIR-PRE-LCD-CHK-IND-T[]" size="1" stype="Selection" onfocus="enterField(this)" />
+        </td>
+    </tr>
+</table>
+<!-- UY3070 CHANGES STARTS -->
+<h2>契約者貸付/立替の控除(Unisys契約ガン診断一時金用)</h2>
+<table class="tabledataentry" genrows="1" keyfield="0">
+    <tr>
+        <td class="celldisplayheading" colspan="4"><label for="MIR-DIR-BILL-LOAN-AMT">契約者貨付返済</label></td>
+		<td class="celldisplayheading" colspan="3"><label for="MIR-DIR-BILL-APL-AMT">自動振替貸付返済</label></td>
+    </tr>
+    <tr>
+        <td class="celldataentryheading"><label for="MIR-CSH-LOAN-BAL">契約者貨付残高</label></td>
+        <td class="celldataentryheading"><label for="MIR-OVR-SHRT-PREM-AMT">契貸利息過不足金</label></td>
+        <td class="celldataentryheading"><label for="MIR-UNEARN-LOAN-INT-AMT">契貨未經過利息</label></td>
+        <td class="celldataentryheading"><label for="MIR-OUT-INT-AMT">契貨未收利息</label></td>
+		<td class="celldataentryheading"><label for="MIR-APL-BAL-AMT">保険料振替貸付</label></td>
+		<td class="celldataentryheading"><label for="MIR-DV-APL-INT-AMT">立替利息</label></td>
+    </tr>
+    <tr>
+	<td class="celllabeldataentry">
+            <input disabled="yes" type="text" value=" " name="MIR-CSH-LOAN-BAL" id="MIR-CSH-LOAN-BAL]" stype="Currency" elength="15"  signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+    </td>
+    <td class="celllabeldataentry">
+            <input disabled="yes" type="text" value=" " name="MIR-OVR-SHRT-PREM-AMT" id="MIR-OVR-SHRT-PREM-AMT" stype="Currency" elength="15"  signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+    </td>
+    <td class="celllabeldataentry">
+            <input disabled="yes" type="text" value=" " name="MIR-UNEARN-LOAN-INT-AMT" id="MIR-UNEARN-LOAN-INT-AMT" stype="Currency" elength="15"  signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+    </td>
+    <td class="celllabeldataentry">
+            <input disabled="yes" type="text" value=" " name="MIR-OUT-INT-AMT" id="MIR-OUT-INT-AMT" stype="Currency" elength="15"  signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+    </td>
+    <td class="celllabeldataentry">
+            <input disabled="yes" type="text" value=" " name="MIR-APL-BAL-AMT" id="MIR-APL-BAL-AMT" stype="Currency" elength="20"  signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+    </td>
+	<td class="celllabeldataentry">
+            <input disabled="yes" type="text" value=" " name="MIR-DV-APL-INT-AMT" id="MIR-DV-APL-INT-AMT" stype="Currency" elength="20"  signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+    </td>
+    </tr>
+</table>
+<!--UY3070 CHANGES ENDS-->
+<!-- MP300C CHANGES END HERE -->
+<div id="BnftDescn" style="DISPLAY: none">
+<table class="tabledisplay" id="Decisions" genrows="0" keyfield="0">
+    <tr>
+        <td class="celldisplay">
+            <span id="MIR-BNFT-DECSN-CD-2-T[]" stype="Text" displayonly="yes">MIR-BNFT-DECSN-CD-2-T[]</span>
+        </td>
+    </tr>
+</table>
+</div>
+
+</form>
+</body>
+<script src="../js/MessagesJapanese.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/BF9331-I.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+</html>

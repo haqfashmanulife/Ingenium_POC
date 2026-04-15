@@ -1,0 +1,340 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:41 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1733-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  FT7001 AKATO  FT7 Label Change 14JUN2004 
+*  MFFFU4(appendix) 03OCT05 Saori  Japanese wording change
+*  P03589 31MAY06   Y.M  Japanese Label change
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge. 
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  NVCA05  CTS      CHANGES DONE FOR INSURANCE RELATED FIELDS                   *
+
+
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1733-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">保障番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CIA-EFF-DT">アクティビティ実行日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CIA-EFF-DT" stype="Date" displayonly="yes">MIR-CIA-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CIA-TYP-CD">アクティビティタイプ:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CIA-TYP-CD" stype="Text" displayonly="yes">MIR-CIA-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CIA-SEQ-NUM">シーケンス番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CIA-SEQ-NUM" stype="Text" displayonly="yes">MIR-CIA-SEQ-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CFN-STAT-CD">ステータス:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="5">
+                        <span id="MIR-CFN-STAT-CD" stype="Text" displayonly="yes">MIR-CFN-STAT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">一般情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-PRCES-DT">トランザクション日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-PRCES-DT" stype="Date" displayonly="yes">MIR-CIA-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-UNIT-STAT-CD">ユニットステータス:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-UNIT-STAT-CD" stype="Text" displayonly="yes">MIR-CIA-UNIT-STAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-REASN-CD">アクティビティ事由:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-REASN-CD" stype="Text" displayonly="yes">MIR-CIA-REASN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-SRC-DEST-CD">解約返戻金支払先:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-SRC-DEST-CD" stype="Text" displayonly="yes">MIR-CIA-SRC-DEST-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-REG-FND-SRC-CD">登録ファンド源:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-REG-FND-SRC-CD" stype="Text" displayonly="yes">MIR-CIA-REG-FND-SRC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-ALLOC-CD">配分方式:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-ALLOC-CD" stype="Text" displayonly="yes">MIR-CIA-ALLOC-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">アクティビティ金額/利率情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-CLI-TRXN-AMT">総出入額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-CLI-TRXN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CIA-CLI-TRXN-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-FND-TRXN-AMT">正味出入額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-FND-TRXN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CIA-FND-TRXN-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PEND-DPOS-INT-PCT">ペンディング利率:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PEND-DPOS-INT-PCT" stype="Percent" elength="9" decimals="6" displayonly="yes">MIR-PEND-DPOS-INT-PCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-PMT-LTD-AMT">払込済保険料累計額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PMT-LTD-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CVG-PMT-LTD-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">処理情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-REVRS-PRCES-DT">リバース実行日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-REVRS-PRCES-DT" stype="Date" displayonly="yes">MIR-CIA-REVRS-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-REVRS-REASN-CD">リバース事由:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-REVRS-REASN-CD" stype="Text" displayonly="yes">MIR-CIA-REVRS-REASN-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-SURR-LTD-AMT">解約返戻金累計額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SURR-LTD-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CVG-SURR-LTD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-LOAD-AMT">手数料等:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-LOAD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CIA-LOAD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-LOAD-FORCE-IND">付加保険料要求済:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CIA-LOAD-FORCE-IND" id="MIR-CIA-LOAD-FORCE-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-GUAR-VALU-AMT">保証価額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-GUAR-VALU-AMT" stype="Currency" elength="15" displayonly="yes">MIR-CVG-GUAR-VALU-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-GUAR-VALU-ESTB-IND">計算未処理:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-GUAR-VALU-ESTB-IND" id="MIR-GUAR-VALU-ESTB-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">ユニバーサル生命保険情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-SHRT-AMT">UL- 不足保険費用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-SHRT-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-CIA-SHRT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-SHRT-LTD-AMT">UL- 不足保険費用累計:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SHRT-LTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-SHRT-LTD-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">保険関係費情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-MAINT-COST-AMT">維持費:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-MAINT-COST-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-MAINT-COST-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-ACQ-COST-AMT">新契約費:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-ACQ-COST-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-ACQ-COST-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-WP-COST-AMT">保険料払込免除費用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-WP-COST-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-WP-COST-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-RSK-PREM-AMT">危険保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-RSK-PREM-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-RSK-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-SSTD-RSK-PREM-AMT">特別保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-SSTD-RSK-PREM-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-SSTD-RSK-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-OS-INS-FEE-AMT">未控除保険関係費(累計):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-OS-INS-FEE-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-OS-INS-FEE-AMT</span>
+                    </td>
+                </tr>
+<!-- NVCA05 CHANGES START -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-WP-INS-FEE-AMT">特約による保険料払込免除費用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-WP-INS-FEE-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-WP-INS-FEE-AMT</span>
+                    </td>
+                     <td class="celldisplaylabel">
+                         <label for="MIR-CIA-FND-MGMT-COST-AMT">特別勘定の管理に必要な費用:</label>
+                     </td>
+                     <td class="celldisplay">
+                         <span id="MIR-CIA-FND-MGMT-COST-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-FND-MGMT-COST-AMT</span>
+                     </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-GUAR-BFA-COST-AMT">基本保険金額保証に関する費用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-GUAR-BFA-COST-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-GUAR-BFA-COST-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CIA-HIGH-FA-DSCNT-AMT">高額割引:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CIA-HIGH-FA-DSCNT-AMT" stype="Currency" elength="17" displayonly="yes">MIR-CIA-HIGH-FA-DSCNT-AMT</span>
+                    </td>
+                </tr>
+<!-- NVCA05 CHANGES END -->
+            </table>
+            <br />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

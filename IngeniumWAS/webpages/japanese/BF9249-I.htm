@@ -1,0 +1,192 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:58 PM EDT
+*
+********************************************************************************
+*  Component:   BF9249.htm                                                     
+*  Description: Associate Other Master Claim                                   
+*                                                                              
+********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  HCL106  HIN/CL   ASSOCIATE OTHER MASTER CLAIM     (HCL106D)                 
+*  HCCL05  HIN/CL   Pick-up Facility (add Historical Claim Indicator)
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                       
+*  UYSDMC  CTS      USYS CLAIM IND ADDITION                                                                              
+********************************************************************************
+ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>BF9249-I</title>
+    <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    <script>
+
+function onLoad()
+
+{
+
+	setEmperorDate("MIR-CLI-BTH-DT");
+}
+
+    </script>
+
+</head>
+<body class="bodyws" onLoad="onLoad(); onLoadCustom()">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+    <input type="hidden" name="action" id="action" stype="Hidden" />
+    <input type="hidden" name="index" id="index" stype="Hidden" />
+<table class="tabledisplaykey">
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLM-ID">マスタークレームID:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLM-ID" stype="Text" displayonly="yes">MIR-CLM-ID</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-DV-INS-CLI-NM">被保険者名:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-DV-INS-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INS-CLI-NM</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLMA-CLM-STAT-CD">マスタークレームステータス:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLMA-CLM-STAT-CD" stype="Text" displayonly="yes">MIR-CLMA-CLM-STAT-CD</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLMA-INSRD-CLI-ID">被保険者クライアントID:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLMA-INSRD-CLI-ID" stype="Text" displayonly="yes">MIR-CLMA-INSRD-CLI-ID</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLI-BTH-DT">生年月日:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLI-BTH-DT" stype="Date" displayonly="yes">MIR-CLI-BTH-DT</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLI-SEX-CD">性別:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-INS-MORAL-RISK-IND">被保険者モラルリスク:</label>
+        </td>
+        <td class="celldisplaykey">
+            <input type="checkbox" name="MIR-INS-MORAL-RISK-IND" id="MIR-INS-MORAL-RISK-IND" stype="Indicator" value="Y" disabled="yes"/>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLAIM-NOTE-IND">クレーム備考:</label>
+        </td>
+        <td class="celldisplaykey">
+            <input type="checkbox" name="MIR-CLAIM-NOTE-IND" id="MIR-CLAIM-NOTE-IND" stype="Indicator" value="Y" disabled="yes"/>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLMA-ASSOC-CLM-ID">関連するマスタークレーム：</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLMA-ASSOC-CLM-ID" stype="Text" displayonly="yes">MIR-CLMA-ASSOC-CLM-ID</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+        </td>
+        <td class="celldisplaykeylabel">
+        </td>
+        <td class="celldisplaykeylabel">
+<!-- UYSDMC CHANGES START -->            
+			<label for="MIR-CLMA-USYS-CLM-IND">ユニシス請求:</label>
+<!-- UYSDMC CHANGES END -->        
+		</td>
+<!-- UYSDMC CHANGES START -->
+<!-- <td class="celldisplaykeylabel"> -->
+        <td class="celldisplaykey">             
+			<input type="checkbox" name="MIR-CLMA-USYS-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+<!-- UYSDMC CHANGES END -->          
+	    </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLMA-HIST-CLM-IND">クレーム履歴:</label>
+        </td>
+        <td class="celldisplaykey">
+            <input type="checkbox" name="MIR-CLMA-HIST-CLM-IND" id="MIR-CLMA-HIST-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+        </td>
+    </tr>
+</table>
+<h2>今回クレームの疾病/災害</h2>
+  <table class="tabledisplay" genrows="0" >
+ <!-- <table border="0" width="100%" class="tabledisplay">  -->
+    <tr>
+        <td class="celldisplayheading"><label for="MIR-DIS-MAJ-CD-T[1]">主要病名/災害コード</label></td>
+        <td class="celldisplayheading"><label for="MIR-DIS-MAJ-DESC-T[1]">主要病名/災害名</label></td>
+        <td class="celldisplayheading"><label for="MIR-DIS-MINR-DESC-T[1]">病名</label></td>
+    </tr>
+    <tr>
+        <td class="celldisplay"><span id="MIR-DIS-MAJ-CD-T[1]" stype="Text" displayonly="yes">MIR-DIS-MAJ-CD-T[1]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-DIS-MAJ-DESC-T[1]" stype="Text" displayonly="yes">MIR-DIS-MAJ-DESC-T[1]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-DIS-MINR-DESC-T[1]" stype="Text" displayonly="yes">MIR-DIS-MINR-DESC-T[1]</span>
+        </td>
+    </tr>
+  </table>
+<h2>他のマスタークレーム</h2>
+  <table class="tabledisplay" genrows="0" >
+    <tr>
+        <td class="celldisplayheading"><label for="MIR-SELECT-CD-T[1]"></label></td>
+        <td class="celldisplayheading"><label for="MIR-CLM-ID-T[1]">マスタークレームID</label></td>
+        <td class="celldisplayheading"><label for="MIR-CLMA-CLM-STAT-CD-T[1]">マスタークレーム ステータス</label></td>
+        <td class="celldisplayheading"><label for="MIR-CLMA-ASSOC-CLM-ID-T[1]">関連するマスタークレームID</label></td>
+        <td class="celldisplayheading"><label for="MIR-CLMA-INCID-TYP-CD-T[1]">傷病発生タイプ</label></td>
+        <td class="celldisplayheading"><label for="MIR-CLMA-INCID-DT-T[1]">傷病発生日</label></td>
+        <td class="celldisplayheading"><label for="MIR-OTHR-DIS-MAJ-CD-T[1]">主要病名/災害コード</label></td>
+        <td class="celldisplayheading"><label for="MIR-OTHR-DIS-MAJ-DESC-T[1]">主要病名/災害名</label></td>
+        <td class="celldisplayheading"><label for="MIR-OTHR-DIS-MINR-DESC-T[1]">病名</label></td>
+    </tr>
+
+    <tr>
+        <td class="celldisplay"><input stype="Indicator" type="checkbox" name="MIR-SELECT-CD-T[]" id="MIR-SELECT-CD-T[]" value="Y" index="1" onclick="onListCheckBox()" onfocus="enterField(this)"/>
+        </td>
+        <td class="celldisplay"><span id="MIR-CLM-ID-T[]" stype="Text" displayonly="yes">MIR-CLM-ID-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-CLMA-CLM-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-CLMA-CLM-STAT-CD-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-CLMA-ASSOC-CLM-ID-T[]" stype="Text" displayonly="yes">MIR-CLMA-ASSOC-CLM-ID-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-CLMA-INCID-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-CLMA-INCID-TYP-CD-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-CLMA-INCID-DT-T[]" stype="Text" displayonly="yes">MIR-CLMA-INCID-DT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-OTHR-DIS-MAJ-CD-T[]" stype="Text" displayonly="yes">MIR-OTHR-DIS-MAJ-CD-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-OTHR-DIS-MAJ-DESC-T[]" stype="Text" displayonly="yes">MIR-OTHR-DIS-MAJ-DESC-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-OTHR-DIS-MINR-DESC-T[]" stype="Text" displayonly="yes">MIR-OTHR-DIS-MINR-DESC-T[]</span>
+        </td>
+    </tr>
+  </table>
+</form>
+</body>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/MessagesJapanese.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+
+<script src="../js/ServiceEntryPoint.js"></script>
+<script src="../js/ServiceEntryPoint.js"></script>
+<script src="../js/EmperorDates.js"></script>
+<script src="../js/EmperorDateLoop.js"></script>
+
+</html>

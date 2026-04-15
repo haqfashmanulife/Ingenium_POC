@@ -1,0 +1,563 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:19 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0643-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                               
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0643-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-CF-CLI-TRXN-AMT">Amount      to Sweep:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-CF-CLI-TRXN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DV-CF-CLI-TRXN-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-CF-EFF-DT">Effective Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-CF-EFF-DT" stype="Date" displayonly="yes">MIR-DV-CF-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CF-SEQ-NUM">Sequence Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CF-SEQ-NUM" stype="Text" displayonly="yes">MIR-CF-SEQ-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SUPRES-CNFRM-IND">Suppress confirmation statement:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <input type="checkbox" name="MIR-SUPRES-CNFRM-IND" id="MIR-SUPRES-CNFRM-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#PolicyInformation">Policy Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#InterestInformation">Interest Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#EquityProductsInformation">Equity Products Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#DateInformation">Date Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CashFlowInformation">Cash Flow Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#SurrenderInformation">Surrender Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AgentInformation">Agent Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="PolicyInformation">Policy Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-STAT-CD">Cash Flow Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-STAT-CD" stype="Text" displayonly="yes">MIR-CF-STAT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-TRXN-CD">Transaction Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-TRXN-CD" stype="Text" displayonly="yes">MIR-CF-TRXN-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-REASN-CD">Transaction Reason:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-REASN-CD" stype="Text" displayonly="yes">MIR-CF-REASN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-REG-FND-SRC-CD">Source of Deposit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-REG-FND-SRC-CD" stype="Text" displayonly="yes">MIR-CF-REG-FND-SRC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-CLI-TRXN-AMT">Transaction Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-CLI-TRXN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-CLI-TRXN-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-FND-TRXN-AMT">Net Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-FND-TRXN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-FND-TRXN-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-FND-BAL-AMT">Current Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-FND-BAL-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-FND-BAL-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="InterestInformation">Interest Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-INT-PCT">Interest Rate / Unit Cost:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-INT-PCT" stype="Percent" elength="7" decimals="4" signed="yes" displayonly="yes">MIR-CF-INT-PCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INT-TO-NXT-CF-AMT">Current Interest Earned:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INT-TO-NXT-CF-AMT" stype="Currency" elength="14" signed="yes" displayonly="yes">MIR-INT-TO-NXT-CF-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-ACUM-INT-AMT">Previous Interest Earned:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-ACUM-INT-AMT" stype="Currency" elength="14" signed="yes" displayonly="yes">MIR-CF-ACUM-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-LOAN-IMPRD-AMT">DIA Impaired Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-LOAN-IMPRD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-LOAN-IMPRD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-IMPRD-INT-RT">DIA Impaired Interest Rate:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-IMPRD-INT-RT" stype="Percent" elength="7" decimals="4" displayonly="yes">MIR-LOAN-IMPRD-INT-RT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-INT-PAYO-DT">GIA Next Interest Payout Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-INT-PAYO-DT" stype="Date" displayonly="yes">MIR-CF-INT-PAYO-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ROLOVR-CF-DT">GIA Rollover Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ROLOVR-CF-DT" stype="Date" displayonly="yes">MIR-ROLOVR-CF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-DPOS-TRM-MO-DUR">Deposit Term:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-DPOS-TRM-MO-DUR" stype="Text" displayonly="yes">MIR-CF-DPOS-TRM-MO-DUR</span>
+                              months 
+                        <span id="MIR-CF-DPOS-TRM-DY-DUR" stype="Text" displayonly="yes">MIR-CF-DPOS-TRM-DY-DUR</span>
+                              days
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="EquityProductsInformation">Equity Products Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-UNIT-QTY"> Units Purchased:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-UNIT-QTY" stype="Text" displayonly="yes">MIR-CF-UNIT-QTY</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-EQTY-GLA-IND"> Gain / loss accounting complete:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CF-EQTY-GLA-IND" id="MIR-CF-EQTY-GLA-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UNIT-PRIC-ESTB-IND"> Unit cost on the effective transaction date has been established:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-UNIT-PRIC-ESTB-IND" id="MIR-UNIT-PRIC-ESTB-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="DateInformation">Date Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-PRCES-DT">Transaction Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-PRCES-DT" stype="Date" displayonly="yes">MIR-CF-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-ORIG-LF-DT">Original Deposit Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-ORIG-LF-DT" stype="Date" displayonly="yes">MIR-CF-ORIG-LF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-REVRS-PRCES-DT">Record Reversed Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-REVRS-PRCES-DT" stype="Date" displayonly="yes">MIR-CF-REVRS-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-7702-DECR-DT">Cash Flow 7702      Decrease Date on U.S. Policies:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-7702-DECR-DT" stype="Date" displayonly="yes">MIR-CF-7702-DECR-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-TAX-YR">Tax Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-TAX-YR" stype="Year" displayonly="yes">MIR-CF-TAX-YR</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="CashFlowInformation">Cash Flow Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SRC-CVG-NUM">Cash Destination      Activity Record - Source Coverage Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SRC-CVG-NUM" stype="Text" displayonly="yes">MIR-SRC-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SRC-CDA-SEQ-NUM">Cash      Destination Activity Record - Source Sequence Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SRC-CDA-SEQ-NUM" stype="Text" displayonly="yes">MIR-SRC-CDA-SEQ-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DEST-CDA-SEQ-NUM">Cash      Destination Activity Record - Destination Sequence Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEST-CDA-SEQ-NUM" stype="Text" displayonly="yes">MIR-DEST-CDA-SEQ-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREV-CF-DT">Previous Cash Flow      - Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREV-CF-DT" stype="Date" displayonly="yes">MIR-PREV-CF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREV-CF-SEQ-NUM">Previous Cash      Flow - Sequence Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREV-CF-SEQ-NUM" stype="Text" displayonly="yes">MIR-PREV-CF-SEQ-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NXT-CF-DT">Next Cash Flow - Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NXT-CF-DT" stype="Date" displayonly="yes">MIR-NXT-CF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NXT-CF-SEQ-NUM">Next Cash Flow - Sequence Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NXT-CF-SEQ-NUM" stype="Text" displayonly="yes">MIR-NXT-CF-SEQ-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-XFER-CF-SEQ-NUM">Interest Payout Sequence Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-XFER-CF-SEQ-NUM" stype="Text" displayonly="yes">MIR-XFER-CF-SEQ-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-XFER-CVG-NUM">Interest Payout Coverage Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-XFER-CVG-NUM" stype="Text" displayonly="yes">MIR-XFER-CVG-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAYO-CLUST-CF-DT">Deposit Family Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAYO-CLUST-CF-DT" stype="Date" displayonly="yes">MIR-PAYO-CLUST-CF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLUST-CF-SEQ-NUM">Family Sequence Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLUST-CF-SEQ-NUM" stype="Text" displayonly="yes">MIR-CLUST-CF-SEQ-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NXT-LF-CF-DT">LIFO - FIFO Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NXT-LF-CF-DT" stype="Date" displayonly="yes">MIR-NXT-LF-CF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NXT-LF-CF-SEQ-NUM">LIFO - FIFO Sequence Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NXT-LF-CF-SEQ-NUM" stype="Text" displayonly="yes">MIR-NXT-LF-CF-SEQ-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="SurrenderInformation">Surrender Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-TAX-GAIN-AMT">Gain Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-TAX-GAIN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-TAX-GAIN-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-MKTVAL-ADJ-AMT">Market Value Adjustment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-MKTVAL-ADJ-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-MKTVAL-ADJ-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-SURR-CHRG-AMT">Surrender Charge:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-SURR-CHRG-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-SURR-CHRG-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-TOT-SURR-AMT">Surrender Total:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-TOT-SURR-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CF-TOT-SURR-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CONN-CF-SEQ-NUM">Connected Sequence:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CONN-CF-SEQ-NUM" stype="Text" displayonly="yes">MIR-CONN-CF-SEQ-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="5">
+                        <a name="AgentInformation">Agent Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-1-ID-T[1]">Agent ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-COMM-RT-TBAC-1-ID-T[1]">Commission Rates Payable</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OVRID-1-ID-T[1]">Override Situation</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CFAGT-SHR-1-PCT-T[1]">Share of Commissions</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CF-CPREM-1-AMT-T[1]">Commissionable Premium Payable</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-1-ID-T[]" stype="Text" displayonly="yes">MIR-AGT-1-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COMM-RT-TBAC-1-ID-T[]" stype="Text" displayonly="yes">MIR-COMM-RT-TBAC-1-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OVRID-1-ID-T[]" stype="Text" displayonly="yes">MIR-OVRID-1-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CFAGT-SHR-1-PCT-T[]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-CFAGT-SHR-1-PCT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-CPREM-1-AMT-T[]" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-CF-CPREM-1-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      Back to top
+                </a>
+            </p>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#PolicyInformation">Policy Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#InterestInformation">Interest Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#EquityProductsInformation">Equity Products Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#DateInformation">Date Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CashFlowInformation">Cash Flow Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#SurrenderInformation">Surrender Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AgentInformation">Agent Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

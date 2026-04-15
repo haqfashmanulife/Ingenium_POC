@@ -1,0 +1,133 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:29 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9F90-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  M33418  CTS      POLICY PAID PREMIUM INQUIRY SCREEN                          *
+*  Q97536  CTS      FIX FOR CATEGORY FIELD                                      *
+*  UYS104  CTS      ADD OF FIELD PROPORTIONAL DISTRIBUTION PAID                 *
+*  UYS104           PREMIUM CALC FLAG.                                          * 
+*  23774B  CTS      Changes done for ie retirement project to make it           *
+*                   compatible for microsoft edge. Changes in html include      *
+*                   adding "id" attribute for all input fields and changes in   *
+*                   java scripts to modify certain functions/commands which     *
+*                   are no longer compatilble with edge.                        *
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  28463C  CTS      FRA PAID PREMIUM CHANGES INQUIRY SCREEN.                    *
+*********************************************************************************
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9F90-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="MIR-RECORD-CTR" id="MIR-RECORD-CTR" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX ">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey" >
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX </span>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PD-PREM-AMT">既払込保険料（円）:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PD-PREM-AMT" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-PD-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-TOT-PAYO-AMT">支払額合計（円）:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-TOT-PAYO-AMT" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-TOT-PAYO-AMT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-REMN-XPNS-AMT">必要経費残高（円）:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-REMN-XPNS-AMT" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-REMN-XPNS-AMT</span>
+                    </td>
+                </tr>
+<!-- UYS104 CHANGES START -->
+                <tr>
+		    <td class="celldisplaykeylabel">
+                        <label for="MIR-PROPORTN-PREM-IND">按分型既払込保険料計算フラグ:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                    <input type="checkbox" name="MIR-PROPORTN-PREM-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+		</tr>
+<!-- UYS104 CHANGES END -->
+<!-- 28463C CHANGES START -->
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PD-PREM-FRGN-AMT">こだわり個人年金(外貨建)の既払込保険料(外貨):</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PD-PREM-FRGN-AMT" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-PD-PREM-FRGN-AMT</span>
+                    </td>
+	        </tr>
+<!-- 28463C CHANGES END -->
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-EFF-DT-T[1]">有効日</label>
+                    </td>
+                    <td class="celldisplayheading">
+<!-- Q97536 CHANGES START -->
+<!--                       <label for="MIR-REASN-CD-T[1]">カテゴリ</label> -->
+                         <label for="MIR-REASN-CD-T[1]">カテゴリー</label>
+<!-- Q97536 CHANGES END -->    
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PAYO-AMT-T[1]">支払額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REASN-CD-T[]" stype="Text" displayonly="yes">MIR-REASN-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAYO-AMT-T[]" stype="Currency" elength="16"  signed="yes" displayonly="yes">MIR-PAYO-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

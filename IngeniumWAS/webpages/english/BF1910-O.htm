@@ -1,0 +1,197 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:39 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1910-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2"                               
+*  01MI06  PHASE1   Remove the password field                                  
+*  02MI01a YUC      Add Name, Employee Code and PIT ID   10SEP2002             
+*  MP310B  CTS      ADDED UW CLASS CODE
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.  
+*  UYS100  CTS      ADDED POLICY ADMINISTRATION CALSS CODE           
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1910-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-USER-ID">User ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-USER-ID" stype="Text" displayonly="yes">MIR-USER-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+<!--  02MI01a YUC   10SEP2002  Add 44 lines for Add Name and Employee Code  -->
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-KJ-SUR-NM">Kanji Last Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-KJ-SUR-NM" stype="Text" displayonly="yes">MIR-KJ-SUR-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-KJ-GIV-NM">Kanji First Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-KJ-GIV-NM" stype="Text" displayonly="yes">MIR-KJ-GIV-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-KA-SUR-NM">Kana Last Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-KA-SUR-NM" stype="Text" displayonly="yes">MIR-KA-SUR-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-KA-GIV-NM">Kana First Name:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-KA-GIV-NM" stype="Text" displayonly="yes">MIR-KA-GIV-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MLJ-EMPLE-ID">MLJ Employee Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MLJ-EMPLE-ID" stype="Text" displayonly="yes">MIR-MLJ-EMPLE-ID</span>
+                    </td>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplaylabel"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">      Security</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SECUR-CLAS-ID">Security Class:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SECUR-CLAS-ID" stype="Text" displayonly="yes">MIR-SECUR-CLAS-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USER-PSWD-XPRY-DUR">Password Expiry:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USER-PSWD-XPRY-DUR" stype="Text" displayonly="yes">MIR-USER-PSWD-XPRY-DUR</span>
+                    </td>
+                </tr>
+<!--  MP310B Changes Starts Here  -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UW-CLAS-CD">UW Class Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UW-CLAS-CD" stype="Text" displayonly="yes">MIR-UW-CLAS-CD</span>
+                    </td>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplaylabel"></td>
+                </tr>
+<!--  MP310B Changes Ends Here  -->
+<!--  UYS100 Changes Starts Here  -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ADMIN-CLAS-CD">Pol Administration Class CD:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ADMIN-CLAS-CD" stype="Text" displayonly="yes">MIR-POL-ADMIN-CLAS-CD</span>
+                    </td>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplaylabel"></td>
+                </tr>
+<!--  UYS100 Changes Ends Here  -->
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Identification</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BR-ID">Branch ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BR-ID" stype="Text" displayonly="yes">MIR-BR-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DEPT-ID">Department ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEPT-ID" stype="Text" displayonly="yes">MIR-DEPT-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PRTR-ID">Printer ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PRTR-ID" stype="Text" displayonly="yes">MIR-PRTR-ID</span>
+                    </td>
+<!--  02MI01a YUC   10SEP2002  Add 6 lines for Add PIT Code  -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PIT-ID">PIT ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PIT-ID" stype="Text" displayonly="yes">MIR-PIT-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">    System    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USER-LANG-CD">Language:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USER-LANG-CD" stype="Text" displayonly="yes">MIR-USER-LANG-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USER-RPT-DSTRB-CD">Distribution Code:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USER-RPT-DSTRB-CD" stype="Text" displayonly="yes">MIR-USER-RPT-DSTRB-CD</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

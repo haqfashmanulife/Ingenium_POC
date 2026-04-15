@@ -1,0 +1,363 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:53 PM EDT
+*
+*********************************************************************************
+*  Component  :  BF9A92-O.htm                                                   *
+*  Description: List  Payees for a Claim .                                      *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*  M271A3  CTS      Intial Version                                              *
+*  MP287A  CTS      CHANGES DONE AS A PART OF MP287A MY NUMBER                  *
+*  23774B  CTS      Changes done for ie retirement project to make it           *
+*                   compatible for microsoft edge. Changes in html include      *
+*                   adding "id" attribute for all input fields and changes in   *
+*                   java scripts to modify certain functions/commands which     *
+*                   are no longer compatilble with edge.                        *
+*********************************************************************************
+-->
+<html>
+    <head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9A92D-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+         <body  class="bodyws">
+            <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+		                <span id="MIR-POL-ID" stype="Text" displayonly="yes">MIR-POL-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+		                <label for="MIR-DV-INS-CLI-NM">被保険者名:</label>
+		            </td>
+		            <td class="celldisplaykey">
+		                <span id="MIR-DV-INS-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INS-CLI-NM</span>
+		            </td>
+		            <td class="celldisplaykeylabel">
+		                <label for="MIR-CLM-ID">死亡マスタークレームID:</label>
+		            </td>
+		            <td class="celldisplaykey">
+		                <span id="MIR-CLM-ID" stype="Text" displayonly="yes">MIR-CLM-ID</span>
+		            </td>
+		            <td class="celldisplaykeylabel">
+		                <label for="MIR-CLM-STAT-CD">マスタークレームステータス:</label>
+		            </td>
+		            <td class="celldisplaykey">
+		  		        <span id="MIR-CLM-STAT-CD" stype="Text" displayonly="yes">MIR-CLM-STAT-CD</span>
+		            </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+	  	                <label for="MIR-PREV-UPDT-DT">前回更新日:</label>
+	  	            </td>
+	  	            <td class="celldisplaykey">
+	  			        <span id="MIR-PREV-UPDT-DT" stype="Text" displayonly="yes">MIR-PREV-UPDT-DT</span>
+	                </td>
+	                <td class="celldisplaykeylabel">
+	  	                <label for="MIR-PREV-UPDT-USER-ID">前回更新ユーザID:</label>
+	  	            </td>
+	  	            <td class="celldisplaykey">
+	  	                <span id="MIR-PREV-UPDT-USER-ID" stype="Text" displayonly="yes">MIR-PREV-UPDT-USER-ID</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="celldisplaykeylabel">
+		                <label for="MIR-DCRL-PAYE-STAT-CD">受取人ステータス:</label>
+		            </td>
+		            <td class="celldisplaykey">
+				        <span id="MIR-DCRL-PAYE-STAT-CD" stype="Text" displayonly="yes">MIR-DCRL-PAYE-STAT-CD</span>
+                    </td>
+                </tr>
+            </table>
+                <br />
+            <table class="tabledisplay">
+                <tr>
+				    <td class="celldisplayheading" colspan="4">漢字表記</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DCRL-INDV-SUR-NM">姓:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DCRL-INDV-SUR-NM" stype="Text" displayonly="yes">MIR-DCRL-INDV-SUR-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DCRL-INDV-GIV-NM">名:</label>
+                     </td>
+                     <td class="celldisplay">
+                        <span id="MIR-DCRL-INDV-GIV-NM" stype="Text" displayonly="yes">MIR-DCRL-INDV-GIV-NM</span>
+                     </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                         <label for="MIR-DCRL-CO-NM">会社名:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DCRL-CO-NM" stype="Text" displayonly="yes">MIR-DCRL-CO-NM</span>
+                      </td>
+
+                     <td class="celldisplaylabel" >
+                       <label for="MIR-DCRL-INSRD-REL-CD">受取人との続柄:</label>
+                     </td>
+                       <td class="celldisplay">
+                       <span id="MIR-DCRL-INSRD-REL-CD" displayonly="yes">MIR-DCRL-INSRD-REL-CD</span>
+                     </td>
+                </tr>
+            </table>
+                <br />
+<!-- MP287A Changes Starts Here -->
+            <table class="tabledisplay">
+                <tr>
+				    <td class="celldisplayheading" colspan="4">氏名(ｶﾀｶﾅ)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INDV-KA-SUR-NM">氏名カナ（姓）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INDV-KA-SUR-NM" stype="Text" displayonly="yes">MIR-INDV-KA-SUR-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INDV-KA-GIV-NM">氏名カナ（名）:</label>
+                     </td>
+                     <td class="celldisplay">
+                        <span id="MIR-INDV-KA-GIV-NM" stype="Text" displayonly="yes">MIR-INDV-KA-GIV-NM</span>
+                     </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                         <label for="MIR-CO-KA-NM">会社名カナ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CO-KA-NM" stype="Text" displayonly="yes">MIR-CO-KA-NM</span>
+                      </td>
+
+                     <td class="celldisplaylabel"></td>
+                     <td class="celldisplay"></td>
+                </tr>
+            </table>
+                <br />
+            <table class="tabledisplay">
+                <tr>
+				    <td class="celldisplayheading" colspan="4">プロフィール</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-BTH-DT">生年月日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-BTH-DT" stype="Text" displayonly="yes">MIR-CLI-BTH-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-SEX-CD">性別コード:</label>
+                     </td>
+                     <td class="celldisplay">
+                        <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+                     </td>
+                </tr>
+            </table>
+                <br />
+<!-- MP287A Changes Ends Here -->
+            <table class="tabledisplay">
+                <tr>
+				    <td class="celldisplayheading" colspan="4">住所</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DCRL-ADDR-LOC-CD">住所コード:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DCRL-ADDR-LOC-CD" stype="Text" displayonly="yes">MIR-DCRL-ADDR-LOC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+					    <label for="MIR-DCRL-PSTL-CD">郵便番号:</label></td>
+					<td class="celldisplay">
+					    <span id="MIR-DCRL-PSTL-CD" stype="Text" displayonly="yes">MIR-DCRL-PSTL-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+					    <label for="MIR-DCRL-KJ-ADDR-TXT">住所:</label></td>
+					<td class="celldisplay">
+					    <span id="MIR-DCRL-KJ-ADDR-TXT" stype="Text" displayonly="yes">MIR-DCRL-KJ-ADDR-TXT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+					    <label for="MIR-DCRL-SAMAKATA-BU-TXT">住所カナ部:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DCRL-SAMAKATA-BU-TXT" stype="Text" displayonly="yes">MIR-DCRL-SAMAKATA-BU-TXT</span>
+                    </td>
+                </tr>
+                <tr>
+                     <td class="celldisplaylabel">
+                        <label for="MIR-DCRL-SEND-PMT-NOTI-IND">支払計算書の送付:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-DCRL-SEND-PMT-NOTI-IND" id="MIR-DCRL-SEND-PMT-NOTI-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAX-TYP-CD">支払調書の表示:</label>
+                    </td>
+                    <td class="celldisplay">
+                       <span id="MIR-TAX-TYP-CD" stype="Text" displayonly="yes">MIR-TAX-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREM-ACUM-AMT">課税対象の支払金額:</label>
+                    </td>
+                    <td class="celldisplay">
+					    <span id="MIR-PREM-ACUM-AMT" stype="Currency" elength="15"   displayonly="yes">MIR-PREM-ACUM-AMT</span>
+                     </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-EXPL-RMRK-TXT">摘要:</label>
+                    </td>
+		    <td class="celldisplay">
+                        <span id="MIR-EXPL-RMRK-TXT" stype="Text" displayonly="yes">MIR-EXPL-RMRK-TXT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+                <br />
+
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">銀行詳細</td>
+                </tr>
+			    <tr>
+			        <td class="celldisplaylabel">
+			            <label for="MIR-BNK-ID">銀行番号:</label>
+			        </td>
+			        <td class="celldisplay">
+			            <span id="MIR-BNK-ID" stype="Text" displayonly="yes">MIR-BNK-ID</span>
+			        </td>
+			        <td class="celldisplaylabel">
+			            <label for="MIR-BNK-NM">銀行名:</label></td>
+			        <td class="celldisplay">
+			            <span id="MIR-BNK-NM" stype="Text" displayonly="yes">MIR-BNK-NM</span>
+			        </td>
+			    </tr>
+			    <tr>
+			        <td class="celldisplaylabel">
+			            <label for="MIR-BNK-BR-ID">支店番号:</label></td>
+			        <td class="celldisplay">
+			           <span id="MIR-BNK-BR-ID" stype="Text" displayonly="yes">MIR-BNK-BR-ID</span>
+			        </td>
+			        <td class="celldisplaylabel">
+			            <label for="MIR-BNK-BR-NM">支店名:</label></td>
+			        <td class="celldisplay">
+			            <span id="MIR-BNK-BR-NM" stype="Text" displayonly="yes">MIR-BNK-BR-NM</span>
+			        </td>
+			    </tr>
+			    <tr>
+			        <td class="celldisplaylabel">
+			          <label for="MIR-DCRL-ACCT-TYP-CD">口座種類:</label>
+			        </td>
+			        <td class="celldisplay">
+			          <span id="MIR-DCRL-ACCT-TYP-CD" stype="Text" displayonly="yes">MIR-DCRL-ACCT-TYP-CD</span>
+			        </td>
+			        <td class="celldisplaylabel">
+                      <label for="MIR-MRF-IND">MRFビット:</label>
+                    </td>
+                    <td class="celldisplay">
+				      <input type="checkbox" name="MIR-MRF-IND" id="MIR-MRF-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+			    </tr>
+			    <tr>
+			        <td class="celldisplaylabel">
+
+			          <label for="MIR-DCRL-BNK-ACCT-ID">口座番号:</label></td>
+			          <td class="celldisplay">
+			             <span id="MIR-DCRL-BNK-ACCT-ID" stype="Text" displayonly="yes">MIR-DCRL-BNK-ACCT-ID</span></td>
+			         <td class="celldisplaylabel">
+			             <label for="MIR-DCRL-ACCT-HLDR-NM">口座名義人名:</label></td>
+			         <td class="celldisplay">
+			             <span id="MIR-DCRL-ACCT-HLDR-NM" stype="Text" displayonly="yes">MIR-DCRL-ACCT-HLDR-NM</span>
+			         </td>
+			    </tr>
+			    </table>
+                 <br />
+
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">保険料等返金 銀行詳細</td>
+                </tr>
+			    <tr>
+			        <td class="celldisplaylabel">
+			            <label for="MIR-BNK-2-ID">銀行番号:</label>
+			        </td>
+			        <td class="celldisplay">
+			            <span id="MIR-BNK-2-ID" stype="Text" displayonly="yes">MIR-BNK-2-ID</span>
+			        </td>
+			        <td class="celldisplaylabel">
+			            <label for="MIR-BNK-2-NM">銀行名:</label></td>
+			        <td class="celldisplay">
+			            <span id="MIR-BNK-2-NM" stype="Text" displayonly="yes">MIR-BNK-2-NM</span>
+			        </td>
+			    </tr>
+			    <tr>
+			        <td class="celldisplaylabel">
+			            <label for="MIR-BNK-BR-2-ID">支店番号:</label></td>
+			        <td class="celldisplay">
+			           <span id="MIR-BNK-BR-2-ID" stype="Text" displayonly="yes">MIR-BNK-BR-2-ID</span>
+			        </td>
+			        <td class="celldisplaylabel">
+			            <label for="MIR-BNK-BR-2-NM">支店名:</label></td>
+			        <td class="celldisplay">
+			            <span id="MIR-BNK-BR-2-NM" stype="Text" displayonly="yes">MIR-BNK-BR-2-NM</span>
+			        </td>
+			    </tr>
+			    <tr>
+			        <td class="celldisplaylabel">
+			          <label for="MIR-DCRL-ACCT-TYP-2-CD">口座種目:</label>
+			        </td>
+			        <td class="celldisplay">
+			          <span id="MIR-DCRL-ACCT-TYP-2-CD" stype="Text" displayonly="yes">MIR-DCRL-ACCT-TYP-2-CD</span>
+			        </td>
+			        <td class="celldisplaylabel">
+                      <label for="MIR-MRF-2-IND">MRFビット:</label>
+                    </td>
+                    <td class="celldisplay">
+				      <input type="checkbox" name="MIR-MRF-2-IND" id="MIR-MRF-2-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+			    </tr>
+			    <tr>
+			        <td class="celldisplaylabel">
+
+			          <label for="MIR-DCRL-BNK-ACCT-2-ID">口座番号:</label></td>
+			          <td class="celldisplay">
+			             <span id="MIR-DCRL-BNK-ACCT-2-ID" stype="Text" displayonly="yes">MIR-DCRL-BNK-ACCT-2-ID</span></td>
+			         <td class="celldisplaylabel">
+			             <label for="MIR-DCRL-ACCT-HLDR-2-NM">口座名義人:</label></td>
+			         <td class="celldisplay">
+			             <span id="MIR-DCRL-ACCT-HLDR-2-NM" stype="Text" displayonly="yes">MIR-DCRL-ACCT-HLDR-2-NM</span>
+			         </td>
+			    </tr>
+		    </table>
+    <input type="hidden" name="action" id="action" stype="Hidden" />
+</form>
+</body>
+<script src="../js/Messagesjapanese.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+</html>

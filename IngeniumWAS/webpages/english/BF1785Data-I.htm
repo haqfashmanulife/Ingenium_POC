@@ -1,0 +1,220 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:37 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1785Data-I.htm                                               
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  602J     Add onLoad() function to <body> tag for currency scaling   
+*  016107  602J     Automatic Face Reduction for Variable Products             
+*  017150  612J     Remove Currency decimals="2"  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                          
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1785Data-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="splitBranch('MIR-BNK-BR-ID');onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID" id="MIR-BNK-BR-ID" jpnbranch="Branch" jpnsubbranch="SubBranch" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CIA-EFF-DT">Effective Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CIA-EFF-DT" stype="Date" displayonly="yes">MIR-CIA-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CIA-REASN-CD">Surrender Reason:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CIA-REASN-CD" stype="Text" displayonly="yes">MIR-CIA-REASN-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CIA-SRC-DEST-CD">Destination of Surrender Amount:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CIA-SRC-DEST-CD" stype="Text" displayonly="yes">MIR-CIA-SRC-DEST-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CIA-TAXWH-IND">Bypass Tax Withholding Process:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <input type="checkbox" name="MIR-CIA-TAXWH-IND" id="MIR-CIA-TAXWH-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SUPRES-CNFRM-IND">Suppress Confirmation Statement:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <input type="checkbox" name="MIR-SUPRES-CNFRM-IND" id="MIR-SUPRES-CNFRM-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-REDC-FACE-IND">Override Automatic Face Reduction:</label>
+                    </td>
+                    <td class="celldisplaykey"><input type="checkbox" name="MIR-DV-REDC-FACE-IND" id="MIR-DV-REDC-FACE-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaykeylabel">
+                    </td>
+                    <td class="celldisplaykey">
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Bank Account Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-ACCT-HLDR-NM">Account Holder Name:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <span id="MIR-BNK-ACCT-HLDR-NM" stype="Text" displayonly="yes">MIR-BNK-ACCT-HLDR-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-ACCT-TYP-CD">Account Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-BNK-ACCT-TYP-CD" stype="Text" displayonly="yes">MIR-BNK-ACCT-TYP-CD</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-ID">Bank ID:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-BNK-ID" stype="Text" displayonly="yes">MIR-BNK-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="Branch">Branch ID:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="Branch" stype="Text" displayonly="yes">Branch</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="SubBranch">Sub Branch ID:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="SubBranch" stype="Text" displayonly="yes">SubBranch</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-ACCT-ID">Bank Account Number:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <span id="MIR-BNK-ACCT-ID" stype="Text" displayonly="yes">MIR-BNK-ACCT-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Surrender Details</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CIA-LOAD-AMT">Surrender Charge:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CIA-LOAD-AMT" id="MIR-CIA-LOAD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CIA-LOAD-FORCE-IND">Surrender Charge Override:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CIA-LOAD-FORCE-IND" id="MIR-CIA-LOAD-FORCE-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" genrows="0">
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-FND-ID-T[1]">Fund</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DV-CFN-APROX-AMT-T[1]">Approximate Fund Value</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CFN-INTG-AUNIT-QTY-T[1]">Approximate Number of Units</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-FIA-SURR-UNIT-QTY-T[1]">Number of Units to Surrender</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-FND-ID-T[]" stype="Text" displayonly="yes">MIR-FND-ID-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-DV-CFN-APROX-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DV-CFN-APROX-AMT-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CFN-INTG-AUNIT-QTY-T[]" stype="Text" displayonly="yes">MIR-CFN-INTG-AUNIT-QTY-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FIA-SURR-UNIT-QTY-T[]" id="MIR-FIA-SURR-UNIT-QTY-T[]" stype="Text" maxlength="18" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/JapaneseBranch.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

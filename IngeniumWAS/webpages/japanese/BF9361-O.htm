@@ -1,0 +1,127 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:51 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9361-O.htm                                                    *
+*  Description:                                                                 *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  MFPFU7  AC       New                                                         *
+*  5-0039  AC       Changed MIR-FND-UNIT-VALU-T from 9 decimal places to 4      *
+*  MP5002  CTS      ADD FLEXFUND SURRENDER TYPE                                 *
+*  ISLADM  CTS      CHANGES FOR INSURANCE LAW PROJECT                           *
+*  23774B  CTS      Changes done for ie retirement project to make it           *
+*                   compatible for microsoft edge. Changes in html include      *
+*                   adding "id" attribute for all input fields and changes in   *
+*                   java scripts to modify certain functions/commands which     *
+*                   are no longer compatilble with edge.                        *
+*                                                                               *
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9361-O</title>
+<link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+</head>
+<body class="bodyws">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<table class="tabledisplaykey">
+<tr>
+<td class="celldisplaykeylabel">
+<label for="MIR-APPL-CTL-PRCES-DT">処理日:</label></td><td class="celldisplaykey"><span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span></td>
+<td class="celldisplaykeylabel">
+<label for="MIR-POL-ID-BASE">証券番号:</label></td><td class="celldisplaykey"><span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span></td>
+</tr>
+<tr>
+<td class="celldisplaykeylabel">
+<label for="MIR-POL-ID-SFX">枝番:</label></td><td class="celldisplaykey"><span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span></td>
+<!-- MP5002 CHANGE STARTS HERE -->
+<td class="celldisplaykeylabel">
+<label for="MIR-SURR-CHRG-TYP-CD">フレックスファンド解約手数料タイプ:</label></td><td class="celldisplaykey"><span id="MIR-SURR-CHRG-TYP-CD" stype="Text" displayonly="yes">MIR-SURR-CHRG-TYP-CD</span></td>
+<!-- MP5002 CHANGE ENDS HERE -->
+</tr>
+<!-- ISLADM Changes Start here -->
+<tr>
+<td class="celldisplaykeylabel">
+<label for="MIR-SURR-FORM-ACPT-DT">解約請求書受理日:</label></td>
+<td class="celldisplaykey">
+<span id="MIR-SURR-FORM-ACPT-DT" stype="Date" displayonly="yes">MIR-SURR-FORM-ACPT-DT</span></td>
+<td class="celldisplaykeylabel">
+<label for="MIR-ASIGN-SURR-EFF-DT">質権•差押契約解約効力発生日:</label></td>
+<td class="celldisplaykey">
+<span id="MIR-ASIGN-SURR-EFF-DT" stype="Date"  displayonly="yes">MIR-ASIGN-SURR-EFF-DT</span></td>
+</tr>
+<tr>
+<td class="celldisplaykeylabel">
+<label for="MIR-POL-STEP-IN-RIGHT-IND">介入権対象契約:</label></td>
+<td class="celldisplaykey">
+<input type="checkbox" name="MIR-POL-STEP-IN-RIGHT-IND" id="MIR-POL-STEP-IN-RIGHT-IND" stype="Indicator" value="Y" disabled="yes"/></td>
+</tr>
+<!-- ISLADM Changes End here -->
+</table>
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+<br />
+<table class="tabledisplay">
+<tr>
+<td class="celldisplayheading">
+<label for="MIR-SBSDRY-CO-ID">子会社:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-DV-OWN-CLI-NM">保険契約者名:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-POL-CSTAT-CD">契約状況:</label></td>
+<td class="celldisplayheading">
+<label for="MIR-CVG-NUM">保障番号</label></td>
+</tr>
+
+<tr>
+<td class="celldisplay">
+<span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span></td>
+<td class="celldisplay">
+<span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span></td>
+<td class="celldisplay">
+<span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span></td>
+<td class="celldisplay">
+<span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span></td>
+</tr>
+</table>
+ 
+<br />
+<table class="tabledisplay" genrows="0" >
+  
+<tr>
+<td class="celldisplayheading"><label for="MIR-FND-ID-T[1]">ファンド</label></td>
+<td class="celldisplayheading"><label for="MIR-FND-UNIT-QTY-T[1]">概算ユニット数</label></td>
+<td class="celldisplayheading"><label for="MIR-FND-UNIT-VALU-T[1]">ユニットバリュー</label></td>
+<td class="celldisplayheading"><label for="MIR-FND-ACUM-VAL-T[1]">累積ファンドバリュー</label></td>
+<td class="celldisplayheading"><label for="MIR-FND-SURRCHRG-T[1]">早期解約控除</label></td>
+<td class="celldisplayheading"><label for="MIR-FND-NET-VAL-T[1]">正味ファンドバリュー</label></td>
+</tr>
+  
+<tr>
+<td class="celldisplay"><span id="MIR-FND-ID-T[]" stype="Text" displayonly="yes">MIR-FND-ID-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-FND-UNIT-QTY-T[]" stype="Number" elength="17"  decimals="4" displayonly="yes">MIR-FND-UNIT-QTY-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-FND-UNIT-VALU-T[]" stype="Currency" elength="17"  decimals="9" displayonly="yes">MIR-FND-UNIT-VALU-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-FND-ACUM-VAL-T[]" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-FND-ACUM-VAL-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-FND-SURRCHRG-T[]" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-FND-SURRCHRG-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-FND-NET-VAL-T[]" stype="Currency" elength="17"  signed="yes" displayonly="yes">MIR-FND-NET-VAL-T[]</span>
+</td>
+</tr>
+  
+</table>
+  
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+</html>

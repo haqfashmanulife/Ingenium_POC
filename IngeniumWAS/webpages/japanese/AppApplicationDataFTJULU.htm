@@ -1,0 +1,172 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:11 PM EDT
+*
+*********************************************************************************
+*  Component:   AppApplicationDataFTJULU.htm                                   
+*  Description: Update UL Application Data                                     
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  B00386  WBP      New for Application Update                                 
+*  B00619  WBP      Change label for App Recv Date                             
+*  1CNB02  EKM      Added MIR-POL-CNVR-TYP-CD, MIR-POL-CNVR-KEY-NUM            
+*                   and MIR-POL-FINAL-DISP-DT                                  
+*  PR006D  WBP      ADD MIR-PROD-APP-TYP-CD                                    
+*  PR006O  AC       MOVE MIR-AGT-UWG-FAIL-IND TO HERE                          
+*  PR006Q  FB       ADD MIR-MY-KEMPO-TYP-CD                                    
+*  FT7001 AKATO  FT7 Label Change 14JUN2004  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                        	                           
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>AppApplicationDataFTJULU</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad(); onLoadCustom()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="ReplacementCode" id="ReplacementCode" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredOwnerClientID" id="PrimaryInsuredOwnerClientID" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredADDR-TYP-CD-T[1]" id="PrimaryInsuredADDR-TYP-CD-T[1]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredName" id="PrimaryInsuredName" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredTAX-ID-T[1]" id="PrimaryInsuredTAX-ID-T[1]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredMailAddressLine-T[7]" id="PrimaryInsuredMailAddressLine-T[7]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredMailAddressLine-T[6]" id="PrimaryInsuredMailAddressLine-T[6]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredMailAddressLine-T[5]" id="PrimaryInsuredMailAddressLine-T[5]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredMailAddressLine-T[4]" id="PrimaryInsuredMailAddressLine-T[4]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredMailAddressLine-T[3]" id="PrimaryInsuredMailAddressLine-T[3]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredMailAddressLine-T[2]" id="PrimaryInsuredMailAddressLine-T[2]" stype="Hidden" />
+            <input type="hidden" name="PrimaryInsuredMailAddressLine-T[1]" id="PrimaryInsuredMailAddressLine-T[1]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-ID-T[1]" id="MIR-CLI-ID-T[1]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-ADDR-TYP-CD-T[1]" id="MIR-CLI-ADDR-TYP-CD-T[1]" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <h2 style="margin-top: 3; margin-bottom: 3">
+                <a name="Application Data">
+                    <u>申込データ</u>
+                </a>
+            </h2>
+            <br />
+            <table id="applicationDataTable" class="tabledataentrynoborder">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PLAN-ID">プラン:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PLAN-ID" id="MIR-PLAN-ID" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-APP-FORM-ID">申込番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-APP-FORM-ID" id="MIR-POL-APP-FORM-ID" stype="Text" maxlength="15" onfocus="enterField(this)" mandatory="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-APP-RECV-DT">営業所日報計上日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-APP-RECV-DT" id="MIR-POL-APP-RECV-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" onchange="refreshButtonspan.style.display='';" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ISS-EFF-DT">契約予定日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-ISS-EFF-DT" id="MIR-POL-ISS-EFF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentrynoborder">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-APP-CALC-DT">設計書計算基準日</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-APP-CALC-DT" id="MIR-POL-APP-CALC-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-APP-REASN-CD">設計書の事由:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-APP-REASN-CD" id="MIR-POL-APP-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PROD-APP-TYP-CD">商品名:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PROD-APP-TYP-CD" id="MIR-PROD-APP-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-AGT-UWG-FAIL-IND">募集タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-AGT-UWG-FAIL-IND" id="MIR-AGT-UWG-FAIL-IND" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MY-KEMPO-TYP-CD">変更種別:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-MY-KEMPO-TYP-CD" id="MIR-MY-KEMPO-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                    </td>
+                    <td class="celllabeldataentry">
+                    </td>
+                </tr>
+            </table>
+            <br />
+            
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-CNVR-TYP-CD">契約区分 :</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-CNVR-TYP-CD" id="MIR-POL-CNVR-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-CNVR-KEY-NUM">転換番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-CNVR-KEY-NUM" id="MIR-POL-CNVR-KEY-NUM" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-FINAL-DISP-DT">転換期限日・最終処理日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-FINAL-DISP-DT" id="MIR-POL-FINAL-DISP-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                    </td>
+                    <td class="celllabeldataentry">
+                    </td>
+                </tr>
+            </table>
+           
+           <br />
+        
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/AppApplicationDataFTJUL.js"></script>
+    <script src="../js/AppSignaturesFTJ.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

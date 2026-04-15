@@ -1,0 +1,238 @@
+# Converted from PathFinder 2.2 to 3.0 on Jun 18, 2004 3:12:05 PM EDT
+
+#*******************************************************************************
+#*  Component:   BF9B82BthSxChng.f                                              *
+#*  Description: Processing for Birth Date/Sex Modification                    *
+#*                                                                             *
+#*******************************************************************************
+#*  Chg#    Release  Description                                               *
+#*                                                                             *
+#*  UYS91B  CTS      Initial Version                                           *
+#*  S23432  CTS      FIX FOR COMPANY RECEIVE DATE FIELD POPULATION             *
+#*  S23695  CTS      FIX FOR SHRT AND EXCS PREM NOT DISPLAYED IN FB O/P        *
+#*******************************************************************************
+
+INCLUDE "BF9B82Key-I.s";
+INCLUDE "BF9B82Data-I.s";
+INCLUDE "BF9B82-P.p";
+INCLUDE "BF9B82-O.s";
+INCLUDE "GenSetDate.f";
+INCLUDE "BF9B82FB-I.s";
+INCLUDE "BF9B82FB-O.s";
+INCLUDE "BF9A5A-I.s";
+INCLUDE "BF9G99-P.p";
+
+PROCESS BF9B82BthSxChng
+{
+
+    Title = STRINGTABLE.IDS_TITLE_BF9B82key;
+    TitleBar = "TitleBar";
+    TitleBarSize = "70";
+    ButtonBar = "ButtonBarOKCancel";
+    ButtonBarSize = "40";
+    MessageFrame = "MessagesDisp";
+    MessageFrameSize = "70";
+    MIR-DV-TRNXT-PAYO-MTHD-CD = "F";
+    
+    STEP KeyFields-S
+       {
+           USES S-STEP "BF9B82Key-I";
+           STRINGTABLE.IDS_TITLE_BF9B82key -> Title;
+       
+           "ButtonBarOKCancel"  -> ButtonBar; 
+       
+       }
+    
+    # Hitting Cancel from the first page leaves the flow
+    
+    IF action == "ACTION_BACK"
+    EXIT;
+            
+    STEP GetInitialHostData-P
+       {
+           USES P-STEP "BF9B82-P";
+           "1" -> MIR-DV-PRCES-STATE-CD;
+       }
+    
+    IF LSIR-RETURN-CD != "00"
+    BRANCH KeyFields-S;
+    
+    temp-POL-ID-BASE = MIR-POL-ID-BASE;
+    temp-POL-ID-SFX = MIR-POL-ID-SFX;
+    temp-CO-RECV-DT = MIR-CO-RECV-DT;
+    temp-EFF-DT = MIR-EFF-DT;
+    temp-JRNL-DT = MIR-JRNL-DT;
+    temp-INSRD-CLI-NM = MIR-INSRD-CLI-NM;
+    temp-INSRD-CLI-ID = MIR-INSRD-CLI-ID;
+    temp-INSRD-AGE = MIR-INSRD-AGE;
+    temp-PLAN-ID = MIR-PLAN-ID;
+    temp-POL-BILL-MODE-CD = MIR-POL-BILL-MODE-CD;
+    temp-POL-ISS-EFF-DT = MIR-POL-ISS-EFF-DT;
+    temp-POL-MPREM-AMT = MIR-POL-MPREM-AMT;
+    temp-CLI-BTH-DT = MIR-CLI-BTH-DT;
+    temp-CLI-SEX-CD = MIR-CLI-SEX-CD; 
+    temp-PREM-CRCY-CD = MIR-PREM-CRCY-CD;
+    ButtonBar = "ButtonBarOKCancel";
+
+    STEP DataFields-I
+       {
+           USES S-STEP "BF9B82Data-I";
+           STRINGTABLE.IDS_TITLE_BF9B82Details -> Title;
+       }   
+    
+    # Hitting Cancel from the Second page goes to Key details screen
+    
+    IF action == "ACTION_BACK"
+    BRANCH KeyFields-S;
+    
+    MIR-POL-ID-BASE = temp-POL-ID-BASE;
+    MIR-POL-ID-SFX = temp-POL-ID-SFX;
+#S23432 - CHANGES STARTS HERE
+#    MIR-CO-RECV-DT = temp-MIR-CO-RECV-DT;
+    MIR-CO-RECV-DT = temp-CO-RECV-DT;
+#S23432 - CHANGES ENDS HERE
+    MIR-EFF-DT = temp-EFF-DT;
+    MIR-JRNL-DT = temp-JRNL-DT;
+            
+    STEP ProcessData-P
+            {
+                USES P-STEP "BF9B82-P";
+                "2" -> MIR-DV-PRCES-STATE-CD; 
+            }
+            
+            IF LSIR-RETURN-CD != "00" && MIR-DV-UNDO-VALID-CD != "N"
+               {
+                MIR-INSRD-CLI-NM = temp-INSRD-CLI-NM;
+                MIR-INSRD-CLI-ID = temp-INSRD-CLI-ID;
+                MIR-INSRD-AGE = temp-INSRD-AGE;
+                MIR-PLAN-ID = temp-PLAN-ID;
+                MIR-POL-BILL-MODE-CD = temp-POL-BILL-MODE-CD;
+                MIR-POL-ISS-EFF-DT = temp-POL-ISS-EFF-DT;
+                MIR-POL-MPREM-AMT = temp-POL-MPREM-AMT;
+                MIR-CLI-BTH-DT = temp-CLI-BTH-DT;
+                MIR-CLI-SEX-CD = temp-CLI-SEX-CD; 
+                MIR-PREM-CRCY-CD = temp-PREM-CRCY-CD;                
+                BRANCH DataFields-I;                 
+               }
+#S23695 - CHANGES START
+    temp-MIR-XCES-PREM-AMT = MIR-XCES-PREM-AMT; 
+    temp-MIR-SHRT-PREM-AMT = MIR-SHRT-PREM-AMT;
+#S23695 - CHANGES END
+    ButtonBar = "ButtonBarConfirmCancel";
+        
+    STEP Confirm
+       {
+           USES S-STEP "BF9B82-O";
+           "ButtonBarConfirmCancel" -> ButtonBar;
+           STRINGTABLE.IDS_TITLE_BF9B82Result -> Title;
+       }   
+    
+    # Hitting Cancel from the Third page goes to First screen
+
+    MESSAGES-T[0] = ""; 
+    IF action == "ACTION_BACK" 
+       {   
+         BRANCH KeyFields-S;
+         BRANCH DataFields-I; 
+       }
+   IF action == "ACTION_CONFIRM"
+       {
+         MESSAGES-T[0] = "";
+         IF MIR-DV-TRNXT-PAYO-MTHD-CD == "F" && MIR-XCES-PREM-AMT != "0.00"
+           {
+              STEP FBRetrieve
+                 {
+                   USES P-STEP "BF9B82-P";
+                   "4" -> MIR-DV-PRCES-STATE-CD;
+                 }
+                 IF LSIR-RETURN-CD != "00"
+                     BRANCH Confirm;
+
+              STEP FBInput-S
+                {
+                   USES S-STEP "BF9B82FB-I";
+                   "ButtonBarOKCancel" -> ButtonBar;
+                   STRINGTABLE.IDS_TITLE_BF9B82FBInput -> Title;
+                }
+
+              IF action == "ACTION_BACK"
+                {
+                   MESSAGES-T[0] = "";
+                  BRANCH KeyFields-S;  
+                }
+              STEP FBEdit
+                 {
+                   USES P-STEP "BF9B82-P";
+                   "5" -> MIR-DV-PRCES-STATE-CD;
+                 }
+                 IF LSIR-RETURN-CD != "00"
+                     BRANCH FBInput-S;
+#S23695 - CHANGES START
+                   MIR-XCES-PREM-AMT = temp-MIR-XCES-PREM-AMT; 
+                   MIR-SHRT-PREM-AMT = temp-MIR-SHRT-PREM-AMT;
+#S23695 - CHANGES END
+              STEP FBOutput-S
+                {
+                   USES S-STEP "BF9B82FB-O";
+                   "ButtonBarConfirmCancelBack" -> ButtonBar;
+                   STRINGTABLE.IDS_TITLE_BF9B82FBOutput -> Title;
+                }
+
+              IF action == "ACTION_BACK"
+                {
+                   MESSAGES-T[0] = "";
+                      BRANCH KeyFields-S;
+                }
+
+              IF action == "ACTION_PREVIOUS"
+                {
+                   MESSAGES-T[0] = "";
+                   BRANCH FBInput-S;
+                }      
+           }
+
+         STEP CashDisbProcess
+           {
+             USES P-STEP "BF9B82-P";
+             "3" -> MIR-DV-PRCES-STATE-CD;
+           }
+         IF LSIR-RETURN-CD != "00"
+             BRANCH Confirm;
+
+              temp-MSGS-T[1] = MESSAGES-T[1];
+              temp-MSGS-T[2] = MESSAGES-T[2];
+              temp-MSGS-T[3] = MESSAGES-T[3];
+              temp-MSGS-T[4] = MESSAGES-T[4];
+              temp-MSGS-T[5] = MESSAGES-T[5];
+              temp-MSGS-T[6] = MESSAGES-T[6];
+              temp-MSGS-T[7] = MESSAGES-T[7];
+              temp-MSGS-T[8] = MESSAGES-T[8];
+              temp-MSGS-T[9] = MESSAGES-T[9];
+              temp-MSGS-T[10] = MESSAGES-T[10];
+                 
+		     temp-DTL-INFO  = MIR-POL-ID-BASE + " " + MIR-POL-ID-SFX;
+		    STEP AUTROutput
+		     {
+		         USES P-STEP "BF9G99-P";
+		     
+		     SESSION.MIR-USER-ID -> MIR-USER-ID;
+		     SESSION.LSIR-BPF-ID  -> MIR-BFCN-ID;    
+		 
+		     temp-DTL-INFO  ->MIR-TRNX-DTL-INFO; 
+		     
+		     }
+		     IF LSIR-RETURN-CD != "00"
+                     BRANCH Confirm;
+      MESSAGES-T[1] = temp-MSGS-T[1];
+      MESSAGES-T[2] = temp-MSGS-T[2];
+      MESSAGES-T[3] = temp-MSGS-T[3];
+      MESSAGES-T[4] = temp-MSGS-T[4];
+      MESSAGES-T[5] = temp-MSGS-T[5];
+      MESSAGES-T[6] = temp-MSGS-T[6];
+      MESSAGES-T[7] = temp-MSGS-T[7];
+      MESSAGES-T[8] = temp-MSGS-T[8];
+      MESSAGES-T[9] = temp-MSGS-T[9];
+      MESSAGES-T[10] = temp-MSGS-T[10]; 
+                     BRANCH KeyFields-S;
+          }
+}

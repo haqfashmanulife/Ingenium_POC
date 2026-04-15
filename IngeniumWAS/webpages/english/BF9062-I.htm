@@ -1,0 +1,154 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:48 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9062-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  01NB01  TMC      New for MCL
+*  B00383  VAN      ADD RCLIU-CLI-LNB-IND
+*  2CNB02  EKM      ADD MIR-CNVR-ORIG-DB-AMT & MIR-CNVR-ORIG-HOSP-AMT
+*  B01136  EKM      CHANGE SIZE OF MIR-CNVR-ORIG-DB-AMT & MIR-CNVR-ORIG-HOSP-AM
+*                   TO 19 CHARACTERS.
+*  CR116C  FB       ADD RCLIU-CLI-TCB-IND
+*  P01161  SG       CHANGE SIZE OF MIR-CNVR-ORIG-DB-AMT & MIR-CNVR-ORIG-HOSP-AM
+*                   TO 15 CHARACTERS.
+*  MFFFU4   ACR     UW CHANGES FOR FUNDS PROJECT
+*  MP4801  CTS      ADD RCLIU-SUBST-CLMT-IND
+*  NWLXML  CTS      CHANGE LABEL OF CLIENT RELATIONSHIP FIELD
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9062-I</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<body class="bodyws">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<table class="tabledisplaykey">
+  <tr>
+  <td class="celldisplaykeylabel" nowrap="nowrap">
+<label for="MIR-CLI-ID">Client ID:</label></td><td class="celldisplaykey"><span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span></td>
+  <td class="celldisplaykeylabel" nowrap="nowrap"><label for="MIR-STCKR-ID">Sticker Number:</label></td>
+  <td class="celldisplaykey"><span id="MIR-STCKR-ID" stype="Text" displayonly="yes">MIR-STCKR-ID</span></td>
+  <td class="celldisplaykeylabel" nowrap="nowrap"><label for="MIR-POL-ID-BASE">Policy ID:</label></td>
+  <td class="celldisplaykey"><span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span></td>
+  <td class="celldisplaykeylabel" nowrap="nowrap"><label for="MIR-POL-ID-SFX">Suffix:</label></td><td class="celldisplaykey"><span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span></td>
+  </tr>
+ <tr>
+  <td class="celldisplaykeylabel">
+<label for="MIR-DV-CLI-NM" nowrap="nowrap">Client Name:</label></td><td class="celldisplaykey"><span id="MIR-DV-CLI-NM" stype="Text" displayonly="yes">MIR-DV-CLI-NM</span></td>
+  </tr>
+</table>
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+<br />
+<table class="tabledataentry">
+     <tr>
+<td class="celldisplayheading" colspan="4">Client Application Details</td>
+    </tr>
+  <tr>
+  <td class="celllabelrightalign">
+<label for="MIR-UW-TYP-CD">Level of Underwriting:</label></td><td class="celldatakey"><select name="MIR-UW-TYP-CD" id="MIR-UW-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes">
+</select></td>
+  <td class="celllabelrightalign">
+<label for="MIR-PRE-UWG-IND">Underwriting before Physical Exam:</label></td><td class="celldatakey"><input type="checkbox" value="Y" name="MIR-PRE-UWG-IND" id="MIR-PRE-UWG-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/></td>
+  </tr>
+  <tr>
+  <td class="celllabelrightalign">
+<label for="MIR-DEFIC-IND">Yes on Self-Disclosure Form:</label></td><td class="celldatakey"><input type="checkbox" value="Y" name="MIR-DEFIC-IND" id="MIR-DEFIC-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/></td>
+  <td class="celllabelrightalign">
+<!-- NWLXML Changes begin
+<label for="MIR-OWNR-REL-INSR-CD">Relationship of Insured to Policy Owner:</label></td><td class="celldatakey"><select name="MIR-OWNR-REL-INSR-CD" id="MIR-OWNR-REL-INSR-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select></td> -->
+<label for="MIR-OWNR-REL-INSR-CD">UL:Relationship to Policy Owner/TRAD:Relationship to Insured:</label></td><td class="celldatakey"><select name="MIR-OWNR-REL-INSR-CD" id="MIR-OWNR-REL-INSR-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select></td>
+<!-- NWLXML Changes end -->
+  </tr>
+  <tr>
+  <td class="celllabelrightalign">
+<label for="MIR-SPCL-NOTE-SD-IND">Special Notes on Self-Disclosure Form:</label></td><td class="celldatakey"><input type="checkbox" value="Y" name="MIR-SPCL-NOTE-SD-IND" id="MIR-SPCL-NOTE-SD-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/></td>
+  <td class="celllabelrightalign">
+<label for="MIR-OTHR-STCKR-ID">Other Sticker Number:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-OTHR-STCKR-ID" id="MIR-OTHR-STCKR-ID" stype="Text" maxlength="11"   onfocus="enterField(this)"/></td>
+  </tr>
+  <tr>
+  <td class="celllabelrightalign">
+<label for="MIR-CLI-LNB-IND">Living Needs Benefits:</label></td><td class="celldatakey"><input type="checkbox" value="Y" name="MIR-CLI-LNB-IND" id="MIR-CLI-LNB-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/></td>
+  <td class="celllabelrightalign">
+<label for="MIR-CLI-TCB-IND">Terminal Care Benefits:</label></td><td class="celldatakey"><input type="checkbox" value="Y" name="MIR-CLI-TCB-IND" id="MIR-CLI-TCB-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/></td>
+  </tr>
+  <tr>
+  <td class="celllabelrightalign">
+<label for="MIR-SUBST-CLMT-IND">Substitute Claimant Rider:</label></td><td class="celldatakey"><input type="checkbox" value="Y" name="MIR-SUBST-CLMT-IND" id="MIR-SUBST-CLMT-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/></td>
+  </tr>
+</table>
+  <br />
+  <table class="tabledataentry">
+     <tr>
+<td class="celldisplayheading" colspan="4">Financial Asset Experience</td>
+    </tr>
+  <tr>
+  <td class="celllabelrightalign">
+<label for="MIR-OWN-INV-XPER-IND">Does the policyholder have Investment Experience?:</label></td><td class="celldatakey"><select name="MIR-OWN-INV-XPER-IND" id="MIR-OWN-INV-XPER-IND" size="1" stype="Selection" onfocus="enterField(this)" mandatory="no">
+</select></td>
+    </tr>
+  <tr>
+  <td class="celllabelrightalign">
+<label for="MIR-AGT-XPER-CD">Sales Rep Experience:</label></td><td class="celldatakey"><select name="MIR-AGT-XPER-CD" id="MIR-AGT-XPER-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="no">
+</select></td>
+    </tr>
+  <tr>
+  <td class="celllabelrightalign">
+<label for="MIR-VERIF-MTHD-CD">What Method was used?:</label></td><td class="celldatakey"><select name="MIR-VERIF-MTHD-CD" id="MIR-VERIF-MTHD-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="no">
+</select></td>
+    </tr>
+</table>
+  <br />
+  <table class="tabledataentry">
+     <tr>
+<td class="celldisplayheading" colspan="4">Hitachi Interface</td>
+    </tr>
+   <tr>
+<td class="celllabelrightalign">
+<label for="MIR-UW-UPLD-IND">Underwriting Upload Indicator:</label></td><td class="celldatakey"><input type="checkbox" value="Y" name="MIR-UW-UPLD-IND" id="MIR-UW-UPLD-IND" stype="Indicator"    onclick="onCheckBox()"  onfocus="enterField(this)"/></td>
+<td class="celllabelrightalign">
+<label for="MIR-UW-UPLD-DT">Underwriting Upload Date:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-UW-UPLD-DT" id="MIR-UW-UPLD-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/></td>
+  </tr>
+</table>
+<br />
+
+<table class="tabledataentry">
+  <tr>
+<td class="celldisplayheading" colspan="4">Pre-Conversion Policy Information</td>
+  </tr>
+
+  <tr>
+  <td class="celllabelrightalign">
+  <label for="MIR-CNVR-ORIG-DB-AMT">Total Death Benefit Amount:</label>
+  </td>
+  <td class="celllabeldataentry">
+  <input type="text" value=" " name="MIR-CNVR-ORIG-DB-AMT" id="MIR-CNVR-ORIG-DB-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+  </td>
+  <td class="celllabelrightalign">
+  <label for="MIR-CNVR-ORIG-HOSP-AMT">Total Hospitalization Daily Benefit Amount:</label>
+  </td>
+  <td class="celllabeldataentry">
+  <input type="text" value=" " name="MIR-CNVR-ORIG-HOSP-AMT" id="MIR-CNVR-ORIG-HOSP-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+  </td>
+  </tr>
+</table>
+
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+</html>

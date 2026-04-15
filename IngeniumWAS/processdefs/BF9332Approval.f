@@ -1,0 +1,665 @@
+# Converted from PathFinder 2.2 to 3.0 on Jun 18, 2004 3:12:10 PM EDT
+
+#*******************************************************************************
+#*  Component:   BF9332Approval.f                                              *
+#*  Description:   Claim Final Approval                                        *
+#*                                                                             *
+#*******************************************************************************
+#*  Chg#    Release  Description                                               *
+#*                                                                             *
+#*  HCL109  HIN/CL   CLAIM PAYMENT                                             *
+#*  Task 29 CSE022   Modified the flow in Final Approval Screen to pop-up      *
+#*                   a dialog box in case the decision code is not pending     *
+#*                   (as part of EN000265)                                     *
+#*  EN0395  CTS      11-4 TASK (ADD THE QUESTIONS BUTTON BAR)                  *
+#*  AFU015  CTS      CHANGES FOR INPUT DISPLAY                                 *
+#*  R15582  CTS      AUTR FUNCTIONALITY CHANGES                                *
+#*  123718  CTS      BUG FIX FOR AUDIT LOG RELATED CHANGES                     *
+#*                                                                             *
+#*******************************************************************************
+
+INCLUDE "BF9334-I.s";
+INCLUDE "BF9330-O.s";
+INCLUDE "BF9334-O.s";
+INCLUDE "BF9330-P.p";
+INCLUDE "BF9332-P.p";
+INCLUDE "BF9334-P.p";
+INCLUDE "BF9270Retrieve.f";
+INCLUDE "BF9271Retrieve.f";
+#* AFU015 CHANGES START
+#* EN0395 CHANGES START
+#INCLUDE "BF9002Update.f";
+#* EN0395 CHANGES ENDS
+INCLUDE "BF9000Inquiry.f";
+#* AFU015 CHANGES ENDS
+#R15582 CHANGES START
+INCLUDE "BF9G99-P.p";
+#R15582 CHANGES END
+
+PROCESS BF9332Approval
+{
+    TitleBar = "TitleBar";
+    TitleBarSize = "70";
+    ButtonBar = "ButtonBarOKCancel";
+    ButtonBarSize = "40";
+    MessageFrame = "MessagesDisp";
+    MessageFrameSize = "70";
+
+    StartPoint:
+
+    Title = STRINGTABLE.IDS_TITLE_ClaimFinalApproval;
+    ButtonBar = "ButtonBarOKCancel";
+    NoList = "";
+
+    STEP ListStart
+    {
+        USES S-STEP "BF9334-I";
+    }
+
+    IF action == "ACTION_BACK"
+        EXIT;
+
+    IF action == "ACTION_REFRESH"
+        BRANCH ListStart;
+
+
+    SearchStart:
+
+
+    # If a Claim ID has been entered just go get it
+    # no need to do a search
+
+    IF MIR-CLM-ID != ""
+    {
+        NoList = "NO";
+
+        BRANCH Retrieve;
+
+    }
+
+
+    # Search for all records that match the search criteria
+
+    STEP FinalApprovalSearch
+    {
+        USES P-STEP "BF9334-P";
+    }
+
+    IF LSIR-RETURN-CD != "00"
+        BRANCH StartPoint;
+
+
+    Title = STRINGTABLE.IDS_TITLE_ClaimFinalApproval;
+    ButtonBar = "ButtonBarDetCancMore";
+
+    STEP DisplayList
+    {
+        USES S-STEP "BF9334-O";
+    }
+
+    IF action == "ACTION_BACK"
+        EXIT;
+
+
+    # If the user has pressed the more button, go back and reget the list
+
+    IF action == "ACTION_MORE"
+        BRANCH SearchStart;
+
+
+    # If the user hasn't selected an item to work with.  Go back.
+
+    IF index == "0"
+        BRANCH DisplayList;
+
+
+
+    # Build the key ID from the row that the user selected
+    # Build all of the key variables that will be required
+    # by the following steps and pass them to each step. 
+
+    MIR-CLM-ID = MIR-CLM-ID-T[index];
+
+
+    # Retrieve Claim Details                
+
+    STEP Retrieve
+    {
+        USES P-STEP "BF9330-P";
+    }
+
+    IF LSIR-RETURN-CD != "00" && LSIR-RETURN-CD != "03"
+        BRANCH StartPoint;
+
+#* EN0395 CHANGES START
+#    ButtonBar = "ButtonBarAppDetCanc";
+    ButtonBar = "ButtonBarAppDetQuestionsCanc";
+#* EN0395 CHANGES END
+    Title = STRINGTABLE.IDS_TITLE_ClaimFinalApprovalDetails;
+    MIR-MORE-CLM-ID = MIR-CLM-ID;
+
+TEMP-POL-ID-2-T[1] = MIR-POL-ID-2-T[1];
+TEMP-POL-ID-2-T[2] = MIR-POL-ID-2-T[2];
+TEMP-POL-ID-2-T[3] = MIR-POL-ID-2-T[3];
+TEMP-POL-ID-2-T[4] = MIR-POL-ID-2-T[4];
+TEMP-POL-ID-2-T[5] = MIR-POL-ID-2-T[5];
+TEMP-POL-ID-2-T[6] = MIR-POL-ID-2-T[6];
+TEMP-POL-ID-2-T[7] = MIR-POL-ID-2-T[7];
+TEMP-POL-ID-2-T[8] = MIR-POL-ID-2-T[8];
+TEMP-POL-ID-2-T[9] = MIR-POL-ID-2-T[9];
+TEMP-POL-ID-2-T[10] = MIR-POL-ID-2-T[10];
+TEMP-POL-ID-2-T[11] = MIR-POL-ID-2-T[11];
+TEMP-POL-ID-2-T[12] = MIR-POL-ID-2-T[12];
+TEMP-POL-ID-2-T[13] = MIR-POL-ID-2-T[13];
+TEMP-POL-ID-2-T[14] = MIR-POL-ID-2-T[14];
+TEMP-POL-ID-2-T[15] = MIR-POL-ID-2-T[15];
+TEMP-POL-ID-2-T[16] = MIR-POL-ID-2-T[16];
+TEMP-POL-ID-2-T[17] = MIR-POL-ID-2-T[17];
+TEMP-POL-ID-2-T[18] = MIR-POL-ID-2-T[18];
+TEMP-POL-ID-2-T[19] = MIR-POL-ID-2-T[19];
+TEMP-POL-ID-2-T[20] = MIR-POL-ID-2-T[20];
+TEMP-POL-ID-2-T[21] = MIR-POL-ID-2-T[21];
+TEMP-POL-ID-2-T[22] = MIR-POL-ID-2-T[22];
+TEMP-POL-ID-2-T[23] = MIR-POL-ID-2-T[23];
+TEMP-POL-ID-2-T[24] = MIR-POL-ID-2-T[24];
+TEMP-POL-ID-2-T[25] = MIR-POL-ID-2-T[25];
+TEMP-POL-ID-2-T[26] = MIR-POL-ID-2-T[26];
+TEMP-POL-ID-2-T[27] = MIR-POL-ID-2-T[27];
+TEMP-POL-ID-2-T[28] = MIR-POL-ID-2-T[28];
+TEMP-POL-ID-2-T[29] = MIR-POL-ID-2-T[29];
+TEMP-POL-ID-2-T[30] = MIR-POL-ID-2-T[30];
+
+TEMP-POL-ID-3-T[1] = MIR-POL-ID-3-T[1];
+TEMP-POL-ID-3-T[2] = MIR-POL-ID-3-T[2];
+TEMP-POL-ID-3-T[3] = MIR-POL-ID-3-T[3];
+TEMP-POL-ID-3-T[4] = MIR-POL-ID-3-T[4];
+TEMP-POL-ID-3-T[5] = MIR-POL-ID-3-T[5];
+TEMP-POL-ID-3-T[6] = MIR-POL-ID-3-T[6];
+TEMP-POL-ID-3-T[7] = MIR-POL-ID-3-T[7];
+TEMP-POL-ID-3-T[8] = MIR-POL-ID-3-T[8];
+TEMP-POL-ID-3-T[9] = MIR-POL-ID-3-T[9];
+TEMP-POL-ID-3-T[10] = MIR-POL-ID-3-T[10];
+TEMP-POL-ID-3-T[11] = MIR-POL-ID-3-T[11];
+TEMP-POL-ID-3-T[12] = MIR-POL-ID-3-T[12];
+TEMP-POL-ID-3-T[13] = MIR-POL-ID-3-T[13];
+TEMP-POL-ID-3-T[14] = MIR-POL-ID-3-T[14];
+TEMP-POL-ID-3-T[15] = MIR-POL-ID-3-T[15];
+TEMP-POL-ID-3-T[16] = MIR-POL-ID-3-T[16];
+TEMP-POL-ID-3-T[17] = MIR-POL-ID-3-T[17];
+TEMP-POL-ID-3-T[18] = MIR-POL-ID-3-T[18];
+TEMP-POL-ID-3-T[19] = MIR-POL-ID-3-T[19];
+TEMP-POL-ID-3-T[20] = MIR-POL-ID-3-T[20];
+TEMP-POL-ID-3-T[21] = MIR-POL-ID-3-T[21];
+TEMP-POL-ID-3-T[22] = MIR-POL-ID-3-T[22];
+TEMP-POL-ID-3-T[23] = MIR-POL-ID-3-T[23];
+TEMP-POL-ID-3-T[24] = MIR-POL-ID-3-T[24];
+TEMP-POL-ID-3-T[25] = MIR-POL-ID-3-T[25];
+TEMP-POL-ID-3-T[26] = MIR-POL-ID-3-T[26];
+TEMP-POL-ID-3-T[27] = MIR-POL-ID-3-T[27];
+TEMP-POL-ID-3-T[28] = MIR-POL-ID-3-T[28];
+TEMP-POL-ID-3-T[29] = MIR-POL-ID-3-T[29];
+TEMP-POL-ID-3-T[30] = MIR-POL-ID-3-T[30];
+
+TEMP-POL-ID-4-T[1] = MIR-POL-ID-4-T[1];
+TEMP-POL-ID-4-T[2] = MIR-POL-ID-4-T[2];
+TEMP-POL-ID-4-T[3] = MIR-POL-ID-4-T[3];
+TEMP-POL-ID-4-T[4] = MIR-POL-ID-4-T[4];
+TEMP-POL-ID-4-T[5] = MIR-POL-ID-4-T[5];
+TEMP-POL-ID-4-T[6] = MIR-POL-ID-4-T[6];
+TEMP-POL-ID-4-T[7] = MIR-POL-ID-4-T[7];
+TEMP-POL-ID-4-T[8] = MIR-POL-ID-4-T[8];
+TEMP-POL-ID-4-T[9] = MIR-POL-ID-4-T[9];
+TEMP-POL-ID-4-T[10] = MIR-POL-ID-4-T[10];
+TEMP-POL-ID-4-T[11] = MIR-POL-ID-4-T[11];
+TEMP-POL-ID-4-T[12] = MIR-POL-ID-4-T[12];
+TEMP-POL-ID-4-T[13] = MIR-POL-ID-4-T[13];
+TEMP-POL-ID-4-T[14] = MIR-POL-ID-4-T[14];
+TEMP-POL-ID-4-T[15] = MIR-POL-ID-4-T[15];
+TEMP-POL-ID-4-T[16] = MIR-POL-ID-4-T[16];
+TEMP-POL-ID-4-T[17] = MIR-POL-ID-4-T[17];
+TEMP-POL-ID-4-T[18] = MIR-POL-ID-4-T[18];
+TEMP-POL-ID-4-T[19] = MIR-POL-ID-4-T[19];
+TEMP-POL-ID-4-T[20] = MIR-POL-ID-4-T[20];
+TEMP-POL-ID-4-T[21] = MIR-POL-ID-4-T[21];
+TEMP-POL-ID-4-T[22] = MIR-POL-ID-4-T[22];
+TEMP-POL-ID-4-T[23] = MIR-POL-ID-4-T[23];
+TEMP-POL-ID-4-T[24] = MIR-POL-ID-4-T[24];
+TEMP-POL-ID-4-T[25] = MIR-POL-ID-4-T[25];
+TEMP-POL-ID-4-T[26] = MIR-POL-ID-4-T[26];
+TEMP-POL-ID-4-T[27] = MIR-POL-ID-4-T[27];
+TEMP-POL-ID-4-T[28] = MIR-POL-ID-4-T[28];
+TEMP-POL-ID-4-T[29] = MIR-POL-ID-4-T[29];
+TEMP-POL-ID-4-T[30] = MIR-POL-ID-4-T[30];
+
+TEMP-POL-ID-5-T[1] = MIR-POL-ID-5-T[1];
+TEMP-POL-ID-5-T[2] = MIR-POL-ID-5-T[2];
+TEMP-POL-ID-5-T[3] = MIR-POL-ID-5-T[3];
+TEMP-POL-ID-5-T[4] = MIR-POL-ID-5-T[4];
+TEMP-POL-ID-5-T[5] = MIR-POL-ID-5-T[5];
+TEMP-POL-ID-5-T[6] = MIR-POL-ID-5-T[6];
+TEMP-POL-ID-5-T[7] = MIR-POL-ID-5-T[7];
+TEMP-POL-ID-5-T[8] = MIR-POL-ID-5-T[8];
+TEMP-POL-ID-5-T[9] = MIR-POL-ID-5-T[9];
+TEMP-POL-ID-5-T[10] = MIR-POL-ID-5-T[10];
+TEMP-POL-ID-5-T[11] = MIR-POL-ID-5-T[11];
+TEMP-POL-ID-5-T[12] = MIR-POL-ID-5-T[12];
+TEMP-POL-ID-5-T[13] = MIR-POL-ID-5-T[13];
+TEMP-POL-ID-5-T[14] = MIR-POL-ID-5-T[14];
+TEMP-POL-ID-5-T[15] = MIR-POL-ID-5-T[15];
+TEMP-POL-ID-5-T[16] = MIR-POL-ID-5-T[16];
+TEMP-POL-ID-5-T[17] = MIR-POL-ID-5-T[17];
+TEMP-POL-ID-5-T[18] = MIR-POL-ID-5-T[18];
+TEMP-POL-ID-5-T[19] = MIR-POL-ID-5-T[19];
+TEMP-POL-ID-5-T[20] = MIR-POL-ID-5-T[20];
+TEMP-POL-ID-5-T[21] = MIR-POL-ID-5-T[21];
+TEMP-POL-ID-5-T[22] = MIR-POL-ID-5-T[22];
+TEMP-POL-ID-5-T[23] = MIR-POL-ID-5-T[23];
+TEMP-POL-ID-5-T[24] = MIR-POL-ID-5-T[24];
+TEMP-POL-ID-5-T[25] = MIR-POL-ID-5-T[25];
+TEMP-POL-ID-5-T[26] = MIR-POL-ID-5-T[26];
+TEMP-POL-ID-5-T[27] = MIR-POL-ID-5-T[27];
+TEMP-POL-ID-5-T[28] = MIR-POL-ID-5-T[28];
+TEMP-POL-ID-5-T[29] = MIR-POL-ID-5-T[29];
+TEMP-POL-ID-5-T[30] = MIR-POL-ID-5-T[30];
+
+TEMP-POL-ID = MIR-POL-ID;
+
+MIR-POL-ID = SUBSTRING (MIR-POL-ID,1,7);
+
+MIR-POL-ID-2-T[1] = SUBSTRING (MIR-POL-ID-2-T[1],1,7);
+MIR-POL-ID-2-T[1] = SUBSTRING (MIR-POL-ID-2-T[1],1,7);
+MIR-POL-ID-2-T[2] = SUBSTRING (MIR-POL-ID-2-T[2],1,7);
+MIR-POL-ID-2-T[3] = SUBSTRING (MIR-POL-ID-2-T[3],1,7);
+MIR-POL-ID-2-T[4] = SUBSTRING (MIR-POL-ID-2-T[4],1,7);
+MIR-POL-ID-2-T[5] = SUBSTRING (MIR-POL-ID-2-T[5],1,7);
+MIR-POL-ID-2-T[6] = SUBSTRING (MIR-POL-ID-2-T[6],1,7);
+MIR-POL-ID-2-T[7] = SUBSTRING (MIR-POL-ID-2-T[7],1,7);
+MIR-POL-ID-2-T[8] = SUBSTRING (MIR-POL-ID-2-T[8],1,7);
+MIR-POL-ID-2-T[9] = SUBSTRING (MIR-POL-ID-2-T[9],1,7);
+MIR-POL-ID-2-T[10] = SUBSTRING (MIR-POL-ID-2-T[10],1,7);
+MIR-POL-ID-2-T[11] = SUBSTRING (MIR-POL-ID-2-T[11],1,7);
+MIR-POL-ID-2-T[12] = SUBSTRING (MIR-POL-ID-2-T[12],1,7);
+MIR-POL-ID-2-T[13] = SUBSTRING (MIR-POL-ID-2-T[13],1,7);
+MIR-POL-ID-2-T[14] = SUBSTRING (MIR-POL-ID-2-T[14],1,7);
+MIR-POL-ID-2-T[15] = SUBSTRING (MIR-POL-ID-2-T[15],1,7);
+MIR-POL-ID-2-T[16] = SUBSTRING (MIR-POL-ID-2-T[16],1,7);
+MIR-POL-ID-2-T[17] = SUBSTRING (MIR-POL-ID-2-T[17],1,7);
+MIR-POL-ID-2-T[18] = SUBSTRING (MIR-POL-ID-2-T[18],1,7);
+MIR-POL-ID-2-T[19] = SUBSTRING (MIR-POL-ID-2-T[19],1,7);
+MIR-POL-ID-2-T[20] = SUBSTRING (MIR-POL-ID-2-T[20],1,7);
+MIR-POL-ID-2-T[21] = SUBSTRING (MIR-POL-ID-2-T[21],1,7);
+MIR-POL-ID-2-T[22] = SUBSTRING (MIR-POL-ID-2-T[22],1,7);
+MIR-POL-ID-2-T[23] = SUBSTRING (MIR-POL-ID-2-T[23],1,7);
+MIR-POL-ID-2-T[24] = SUBSTRING (MIR-POL-ID-2-T[24],1,7);
+MIR-POL-ID-2-T[25] = SUBSTRING (MIR-POL-ID-2-T[25],1,7);
+MIR-POL-ID-2-T[26] = SUBSTRING (MIR-POL-ID-2-T[26],1,7);
+MIR-POL-ID-2-T[27] = SUBSTRING (MIR-POL-ID-2-T[27],1,7);
+MIR-POL-ID-2-T[28] = SUBSTRING (MIR-POL-ID-2-T[28],1,7);
+MIR-POL-ID-2-T[29] = SUBSTRING (MIR-POL-ID-2-T[29],1,7);
+MIR-POL-ID-2-T[30] = SUBSTRING (MIR-POL-ID-2-T[30],1,7);
+
+MIR-POL-ID-3-T[1] = SUBSTRING (MIR-POL-ID-3-T[1],1,7);
+MIR-POL-ID-3-T[2] = SUBSTRING (MIR-POL-ID-3-T[2],1,7);
+MIR-POL-ID-3-T[3] = SUBSTRING (MIR-POL-ID-3-T[3],1,7);
+MIR-POL-ID-3-T[4] = SUBSTRING (MIR-POL-ID-3-T[4],1,7);
+MIR-POL-ID-3-T[5] = SUBSTRING (MIR-POL-ID-3-T[5],1,7);
+MIR-POL-ID-3-T[6] = SUBSTRING (MIR-POL-ID-3-T[6],1,7);
+MIR-POL-ID-3-T[7] = SUBSTRING (MIR-POL-ID-3-T[7],1,7);
+MIR-POL-ID-3-T[8] = SUBSTRING (MIR-POL-ID-3-T[8],1,7);
+MIR-POL-ID-3-T[9] = SUBSTRING (MIR-POL-ID-3-T[9],1,7);
+MIR-POL-ID-3-T[10] = SUBSTRING (MIR-POL-ID-3-T[10],1,7);
+MIR-POL-ID-3-T[11] = SUBSTRING (MIR-POL-ID-3-T[11],1,7);
+MIR-POL-ID-3-T[12] = SUBSTRING (MIR-POL-ID-3-T[12],1,7);
+MIR-POL-ID-3-T[13] = SUBSTRING (MIR-POL-ID-3-T[13],1,7);
+MIR-POL-ID-3-T[14] = SUBSTRING (MIR-POL-ID-3-T[14],1,7);
+MIR-POL-ID-3-T[15] = SUBSTRING (MIR-POL-ID-3-T[15],1,7);
+MIR-POL-ID-3-T[16] = SUBSTRING (MIR-POL-ID-3-T[16],1,7);
+MIR-POL-ID-3-T[17] = SUBSTRING (MIR-POL-ID-3-T[17],1,7);
+MIR-POL-ID-3-T[18] = SUBSTRING (MIR-POL-ID-3-T[18],1,7);
+MIR-POL-ID-3-T[19] = SUBSTRING (MIR-POL-ID-3-T[19],1,7);
+MIR-POL-ID-3-T[20] = SUBSTRING (MIR-POL-ID-3-T[20],1,7);
+MIR-POL-ID-3-T[21] = SUBSTRING (MIR-POL-ID-3-T[21],1,7);
+MIR-POL-ID-3-T[22] = SUBSTRING (MIR-POL-ID-3-T[22],1,7);
+MIR-POL-ID-3-T[23] = SUBSTRING (MIR-POL-ID-3-T[23],1,7);
+MIR-POL-ID-3-T[24] = SUBSTRING (MIR-POL-ID-3-T[24],1,7);
+MIR-POL-ID-3-T[25] = SUBSTRING (MIR-POL-ID-3-T[25],1,7);
+MIR-POL-ID-3-T[26] = SUBSTRING (MIR-POL-ID-3-T[26],1,7);
+MIR-POL-ID-3-T[27] = SUBSTRING (MIR-POL-ID-3-T[27],1,7);
+MIR-POL-ID-3-T[28] = SUBSTRING (MIR-POL-ID-3-T[28],1,7);
+MIR-POL-ID-3-T[29] = SUBSTRING (MIR-POL-ID-3-T[29],1,7);
+MIR-POL-ID-3-T[30] = SUBSTRING (MIR-POL-ID-3-T[30],1,7);
+
+MIR-POL-ID-4-T[1] = SUBSTRING (MIR-POL-ID-4-T[1],1,7);
+MIR-POL-ID-4-T[2] = SUBSTRING (MIR-POL-ID-4-T[2],1,7);
+MIR-POL-ID-4-T[3] = SUBSTRING (MIR-POL-ID-4-T[3],1,7);
+MIR-POL-ID-4-T[4] = SUBSTRING (MIR-POL-ID-4-T[4],1,7);
+MIR-POL-ID-4-T[5] = SUBSTRING (MIR-POL-ID-4-T[5],1,7);
+MIR-POL-ID-4-T[6] = SUBSTRING (MIR-POL-ID-4-T[6],1,7);
+MIR-POL-ID-4-T[7] = SUBSTRING (MIR-POL-ID-4-T[7],1,7);
+MIR-POL-ID-4-T[8] = SUBSTRING (MIR-POL-ID-4-T[8],1,7);
+MIR-POL-ID-4-T[9] = SUBSTRING (MIR-POL-ID-4-T[9],1,7);
+MIR-POL-ID-4-T[10] = SUBSTRING (MIR-POL-ID-4-T[10],1,7);
+MIR-POL-ID-4-T[11] = SUBSTRING (MIR-POL-ID-4-T[11],1,7);
+MIR-POL-ID-4-T[12] = SUBSTRING (MIR-POL-ID-4-T[12],1,7);
+MIR-POL-ID-4-T[13] = SUBSTRING (MIR-POL-ID-4-T[13],1,7);
+MIR-POL-ID-4-T[14] = SUBSTRING (MIR-POL-ID-4-T[14],1,7);
+MIR-POL-ID-4-T[15] = SUBSTRING (MIR-POL-ID-4-T[15],1,7);
+MIR-POL-ID-4-T[16] = SUBSTRING (MIR-POL-ID-4-T[16],1,7);
+MIR-POL-ID-4-T[17] = SUBSTRING (MIR-POL-ID-4-T[17],1,7);
+MIR-POL-ID-4-T[18] = SUBSTRING (MIR-POL-ID-4-T[18],1,7);
+MIR-POL-ID-4-T[19] = SUBSTRING (MIR-POL-ID-4-T[19],1,7);
+MIR-POL-ID-4-T[20] = SUBSTRING (MIR-POL-ID-4-T[20],1,7);
+MIR-POL-ID-4-T[21] = SUBSTRING (MIR-POL-ID-4-T[21],1,7);
+MIR-POL-ID-4-T[22] = SUBSTRING (MIR-POL-ID-4-T[22],1,7);
+MIR-POL-ID-4-T[23] = SUBSTRING (MIR-POL-ID-4-T[23],1,7);
+MIR-POL-ID-4-T[24] = SUBSTRING (MIR-POL-ID-4-T[24],1,7);
+MIR-POL-ID-4-T[25] = SUBSTRING (MIR-POL-ID-4-T[25],1,7);
+MIR-POL-ID-4-T[26] = SUBSTRING (MIR-POL-ID-4-T[26],1,7);
+MIR-POL-ID-4-T[27] = SUBSTRING (MIR-POL-ID-4-T[27],1,7);
+MIR-POL-ID-4-T[28] = SUBSTRING (MIR-POL-ID-4-T[28],1,7);
+MIR-POL-ID-4-T[29] = SUBSTRING (MIR-POL-ID-4-T[29],1,7);
+MIR-POL-ID-4-T[30] = SUBSTRING (MIR-POL-ID-4-T[30],1,7);
+
+MIR-POL-ID-5-T[1] = SUBSTRING (MIR-POL-ID-5-T[1],1,7);
+MIR-POL-ID-5-T[2] = SUBSTRING (MIR-POL-ID-5-T[2],1,7);
+MIR-POL-ID-5-T[3] = SUBSTRING (MIR-POL-ID-5-T[3],1,7);
+MIR-POL-ID-5-T[4] = SUBSTRING (MIR-POL-ID-5-T[4],1,7);
+MIR-POL-ID-5-T[5] = SUBSTRING (MIR-POL-ID-5-T[5],1,7);
+MIR-POL-ID-5-T[6] = SUBSTRING (MIR-POL-ID-5-T[6],1,7);
+MIR-POL-ID-5-T[7] = SUBSTRING (MIR-POL-ID-5-T[7],1,7);
+MIR-POL-ID-5-T[8] = SUBSTRING (MIR-POL-ID-5-T[8],1,7);
+MIR-POL-ID-5-T[9] = SUBSTRING (MIR-POL-ID-5-T[9],1,7);
+MIR-POL-ID-5-T[10] = SUBSTRING (MIR-POL-ID-5-T[10],1,7);
+MIR-POL-ID-5-T[11] = SUBSTRING (MIR-POL-ID-5-T[11],1,7);
+MIR-POL-ID-5-T[12] = SUBSTRING (MIR-POL-ID-5-T[12],1,7);
+MIR-POL-ID-5-T[13] = SUBSTRING (MIR-POL-ID-5-T[13],1,7);
+MIR-POL-ID-5-T[14] = SUBSTRING (MIR-POL-ID-5-T[14],1,7);
+MIR-POL-ID-5-T[15] = SUBSTRING (MIR-POL-ID-5-T[15],1,7);
+MIR-POL-ID-5-T[16] = SUBSTRING (MIR-POL-ID-5-T[16],1,7);
+MIR-POL-ID-5-T[17] = SUBSTRING (MIR-POL-ID-5-T[17],1,7);
+MIR-POL-ID-5-T[18] = SUBSTRING (MIR-POL-ID-5-T[18],1,7);
+MIR-POL-ID-5-T[19] = SUBSTRING (MIR-POL-ID-5-T[19],1,7);
+MIR-POL-ID-5-T[20] = SUBSTRING (MIR-POL-ID-5-T[20],1,7);
+MIR-POL-ID-5-T[21] = SUBSTRING (MIR-POL-ID-5-T[21],1,7);
+MIR-POL-ID-5-T[22] = SUBSTRING (MIR-POL-ID-5-T[22],1,7);
+MIR-POL-ID-5-T[23] = SUBSTRING (MIR-POL-ID-5-T[23],1,7);
+MIR-POL-ID-5-T[24] = SUBSTRING (MIR-POL-ID-5-T[24],1,7);
+MIR-POL-ID-5-T[25] = SUBSTRING (MIR-POL-ID-5-T[25],1,7);
+MIR-POL-ID-5-T[26] = SUBSTRING (MIR-POL-ID-5-T[26],1,7);
+MIR-POL-ID-5-T[27] = SUBSTRING (MIR-POL-ID-5-T[27],1,7);
+MIR-POL-ID-5-T[28] = SUBSTRING (MIR-POL-ID-5-T[28],1,7);
+MIR-POL-ID-5-T[29] = SUBSTRING (MIR-POL-ID-5-T[29],1,7);
+MIR-POL-ID-5-T[30] = SUBSTRING (MIR-POL-ID-5-T[30],1,7);
+
+    STEP Update-S
+    {
+        USES S-STEP "BF9330-O";
+    }
+    
+MIR-POL-ID = TEMP-POL-ID;  
+
+MIR-POL-ID-2-T[1] = TEMP-POL-ID-2-T[1];  
+MIR-POL-ID-2-T[2] = TEMP-POL-ID-2-T[2]; 
+MIR-POL-ID-2-T[3] = TEMP-POL-ID-2-T[3]; 
+MIR-POL-ID-2-T[4] = TEMP-POL-ID-2-T[4]; 
+MIR-POL-ID-2-T[5] = TEMP-POL-ID-2-T[5]; 
+MIR-POL-ID-2-T[6] = TEMP-POL-ID-2-T[6]; 
+MIR-POL-ID-2-T[7] = TEMP-POL-ID-2-T[7]; 
+MIR-POL-ID-2-T[8] = TEMP-POL-ID-2-T[8]; 
+MIR-POL-ID-2-T[9] = TEMP-POL-ID-2-T[9]; 
+MIR-POL-ID-2-T[10] = TEMP-POL-ID-2-T[10]; 
+MIR-POL-ID-2-T[11] = TEMP-POL-ID-2-T[11];
+MIR-POL-ID-2-T[12] = TEMP-POL-ID-2-T[12];
+MIR-POL-ID-2-T[13] = TEMP-POL-ID-2-T[13];
+MIR-POL-ID-2-T[14] = TEMP-POL-ID-2-T[14];
+MIR-POL-ID-2-T[15] = TEMP-POL-ID-2-T[15];
+MIR-POL-ID-2-T[16] = TEMP-POL-ID-2-T[16];
+MIR-POL-ID-2-T[17] = TEMP-POL-ID-2-T[17];
+MIR-POL-ID-2-T[18] = TEMP-POL-ID-2-T[18];
+MIR-POL-ID-2-T[19] = TEMP-POL-ID-2-T[19];
+MIR-POL-ID-2-T[20] = TEMP-POL-ID-2-T[20];
+MIR-POL-ID-2-T[21] = TEMP-POL-ID-2-T[21];
+MIR-POL-ID-2-T[22] = TEMP-POL-ID-2-T[22];
+MIR-POL-ID-2-T[23] = TEMP-POL-ID-2-T[23];
+MIR-POL-ID-2-T[24] = TEMP-POL-ID-2-T[24];
+MIR-POL-ID-2-T[25] = TEMP-POL-ID-2-T[25];
+MIR-POL-ID-2-T[26] = TEMP-POL-ID-2-T[26];
+MIR-POL-ID-2-T[27] = TEMP-POL-ID-2-T[27];
+MIR-POL-ID-2-T[28] = TEMP-POL-ID-2-T[28];
+MIR-POL-ID-2-T[29] = TEMP-POL-ID-2-T[29];
+MIR-POL-ID-2-T[30] = TEMP-POL-ID-2-T[30];
+
+MIR-POL-ID-3-T[1] = TEMP-POL-ID-3-T[1];  
+MIR-POL-ID-3-T[2] = TEMP-POL-ID-3-T[2]; 
+MIR-POL-ID-3-T[3] = TEMP-POL-ID-3-T[3]; 
+MIR-POL-ID-3-T[4] = TEMP-POL-ID-3-T[4]; 
+MIR-POL-ID-3-T[5] = TEMP-POL-ID-3-T[5]; 
+MIR-POL-ID-3-T[6] = TEMP-POL-ID-3-T[6]; 
+MIR-POL-ID-3-T[7] = TEMP-POL-ID-3-T[7]; 
+MIR-POL-ID-3-T[8] = TEMP-POL-ID-3-T[8]; 
+MIR-POL-ID-3-T[9] = TEMP-POL-ID-3-T[9]; 
+MIR-POL-ID-3-T[10] = TEMP-POL-ID-3-T[10]; 
+MIR-POL-ID-3-T[11] = TEMP-POL-ID-3-T[11];
+MIR-POL-ID-3-T[12] = TEMP-POL-ID-3-T[12];
+MIR-POL-ID-3-T[13] = TEMP-POL-ID-3-T[13];
+MIR-POL-ID-3-T[14] = TEMP-POL-ID-3-T[14];
+MIR-POL-ID-3-T[15] = TEMP-POL-ID-3-T[15];
+MIR-POL-ID-3-T[16] = TEMP-POL-ID-3-T[16];
+MIR-POL-ID-3-T[17] = TEMP-POL-ID-3-T[17];
+MIR-POL-ID-3-T[18] = TEMP-POL-ID-3-T[18];
+MIR-POL-ID-3-T[19] = TEMP-POL-ID-3-T[19];
+MIR-POL-ID-3-T[20] = TEMP-POL-ID-3-T[20];
+MIR-POL-ID-3-T[21] = TEMP-POL-ID-3-T[21];
+MIR-POL-ID-3-T[22] = TEMP-POL-ID-3-T[22];
+MIR-POL-ID-3-T[23] = TEMP-POL-ID-3-T[23];
+MIR-POL-ID-3-T[24] = TEMP-POL-ID-3-T[24];
+MIR-POL-ID-3-T[25] = TEMP-POL-ID-3-T[25];
+MIR-POL-ID-3-T[26] = TEMP-POL-ID-3-T[26];
+MIR-POL-ID-3-T[27] = TEMP-POL-ID-3-T[27];
+MIR-POL-ID-3-T[28] = TEMP-POL-ID-3-T[28];
+MIR-POL-ID-3-T[29] = TEMP-POL-ID-3-T[29];
+MIR-POL-ID-3-T[30] = TEMP-POL-ID-3-T[30];
+
+MIR-POL-ID-4-T[1] = TEMP-POL-ID-4-T[1];  
+MIR-POL-ID-4-T[2] = TEMP-POL-ID-4-T[2]; 
+MIR-POL-ID-4-T[3] = TEMP-POL-ID-4-T[3]; 
+MIR-POL-ID-4-T[4] = TEMP-POL-ID-4-T[4]; 
+MIR-POL-ID-4-T[5] = TEMP-POL-ID-4-T[5]; 
+MIR-POL-ID-4-T[6] = TEMP-POL-ID-4-T[6]; 
+MIR-POL-ID-4-T[7] = TEMP-POL-ID-4-T[7]; 
+MIR-POL-ID-4-T[8] = TEMP-POL-ID-4-T[8]; 
+MIR-POL-ID-4-T[9] = TEMP-POL-ID-4-T[9]; 
+MIR-POL-ID-4-T[10] = TEMP-POL-ID-4-T[10]; 
+MIR-POL-ID-4-T[11] = TEMP-POL-ID-4-T[11];
+MIR-POL-ID-4-T[12] = TEMP-POL-ID-4-T[12];
+MIR-POL-ID-4-T[13] = TEMP-POL-ID-4-T[13];
+MIR-POL-ID-4-T[14] = TEMP-POL-ID-4-T[14];
+MIR-POL-ID-4-T[15] = TEMP-POL-ID-4-T[15];
+MIR-POL-ID-4-T[16] = TEMP-POL-ID-4-T[16];
+MIR-POL-ID-4-T[17] = TEMP-POL-ID-4-T[17];
+MIR-POL-ID-4-T[18] = TEMP-POL-ID-4-T[18];
+MIR-POL-ID-4-T[19] = TEMP-POL-ID-4-T[19];
+MIR-POL-ID-4-T[20] = TEMP-POL-ID-4-T[20];
+MIR-POL-ID-4-T[21] = TEMP-POL-ID-4-T[21];
+MIR-POL-ID-4-T[22] = TEMP-POL-ID-4-T[22];
+MIR-POL-ID-4-T[23] = TEMP-POL-ID-4-T[23];
+MIR-POL-ID-4-T[24] = TEMP-POL-ID-4-T[24];
+MIR-POL-ID-4-T[25] = TEMP-POL-ID-4-T[25];
+MIR-POL-ID-4-T[26] = TEMP-POL-ID-4-T[26];
+MIR-POL-ID-4-T[27] = TEMP-POL-ID-4-T[27];
+MIR-POL-ID-4-T[28] = TEMP-POL-ID-4-T[28];
+MIR-POL-ID-4-T[29] = TEMP-POL-ID-4-T[29];
+MIR-POL-ID-4-T[30] = TEMP-POL-ID-4-T[30];
+
+MIR-POL-ID-5-T[1] = TEMP-POL-ID-5-T[1];  
+MIR-POL-ID-5-T[2] = TEMP-POL-ID-5-T[2]; 
+MIR-POL-ID-5-T[3] = TEMP-POL-ID-5-T[3]; 
+MIR-POL-ID-5-T[4] = TEMP-POL-ID-5-T[4]; 
+MIR-POL-ID-5-T[5] = TEMP-POL-ID-5-T[5]; 
+MIR-POL-ID-5-T[6] = TEMP-POL-ID-5-T[6]; 
+MIR-POL-ID-5-T[7] = TEMP-POL-ID-5-T[7]; 
+MIR-POL-ID-5-T[8] = TEMP-POL-ID-5-T[8]; 
+MIR-POL-ID-5-T[9] = TEMP-POL-ID-5-T[9]; 
+MIR-POL-ID-5-T[10] = TEMP-POL-ID-5-T[10]; 
+MIR-POL-ID-5-T[11] = TEMP-POL-ID-5-T[11];
+MIR-POL-ID-5-T[12] = TEMP-POL-ID-5-T[12];
+MIR-POL-ID-5-T[13] = TEMP-POL-ID-5-T[13];
+MIR-POL-ID-5-T[14] = TEMP-POL-ID-5-T[14];
+MIR-POL-ID-5-T[15] = TEMP-POL-ID-5-T[15];
+MIR-POL-ID-5-T[16] = TEMP-POL-ID-5-T[16];
+MIR-POL-ID-5-T[17] = TEMP-POL-ID-5-T[17];
+MIR-POL-ID-5-T[18] = TEMP-POL-ID-5-T[18];
+MIR-POL-ID-5-T[19] = TEMP-POL-ID-5-T[19];
+MIR-POL-ID-5-T[20] = TEMP-POL-ID-5-T[20];
+MIR-POL-ID-5-T[21] = TEMP-POL-ID-5-T[21];
+MIR-POL-ID-5-T[22] = TEMP-POL-ID-5-T[22];
+MIR-POL-ID-5-T[23] = TEMP-POL-ID-5-T[23];
+MIR-POL-ID-5-T[24] = TEMP-POL-ID-5-T[24];
+MIR-POL-ID-5-T[25] = TEMP-POL-ID-5-T[25];
+MIR-POL-ID-5-T[26] = TEMP-POL-ID-5-T[26];
+MIR-POL-ID-5-T[27] = TEMP-POL-ID-5-T[27];
+MIR-POL-ID-5-T[28] = TEMP-POL-ID-5-T[28];
+MIR-POL-ID-5-T[29] = TEMP-POL-ID-5-T[29];
+MIR-POL-ID-5-T[30] = TEMP-POL-ID-5-T[30];
+
+    # If user hit cancel and they had previosly entered a CLAIM-ID
+    # go back to the beginning, otherwise resume the search
+
+    IF action == "ACTION_BACK"
+    {
+        MIR-CLM-ID = "        ";
+        MESSAGES-T[0] = "";
+
+        IF NoList == "NO"
+            BRANCH StartPoint;
+
+        ELSE
+            BRANCH FinalApprovalSearch;
+
+
+    }
+    IF action == "ACTION_DETAILS"
+    {
+        temp-MSGS-T = MESSAGES-T;
+        MESSAGES-T[0] = "";
+
+        STEP AdjDecision
+        {
+            USES PROCESS "BF9270Retrieve";
+            ATTRIBUTES
+            {
+                Explicit;
+                GetMessages = "NO";
+            }
+
+
+            # Send Master Claim ID.
+
+            MIR-CLM-ID -> MIR-CLM-ID;
+            "FALSE" -> DisplayInput;
+        }
+
+        MESSAGES-T = temp-MSGS-T;
+
+#* EN0395 CHANGES START
+#        ButtonBar = "ButtonBarAppDetCanc";
+        ButtonBar = "ButtonBarAppDetQuestionsCanc";
+#* EN0395 CHANGES END
+
+        BRANCH Update-S;
+
+    }
+
+#* EN0395 CHANGES START
+
+    IF action == "ACTION_QUESTIONS"
+    {
+       LSIR-RETURN-CD = "00";
+       MESSAGES-T[0] = "";
+      
+       STEP Questions
+       {
+#AFU015 CHANGES START
+#          USES PROCESS "BF9002Update";  
+           USES PROCESS "BF9000Inquiry";  
+           "FALSE" -> DisplayInput;
+#AFU015 CHANGES END
+       }
+
+        MESSAGES-T = temp-MSGS-T;
+        ButtonBar = "ButtonBarAppDetQuestionsCanc";
+
+        BRANCH Update-S;
+    }
+
+#* EN0395 CHANGES END
+
+
+#Claims Task 29 changes Start
+    IF action == "ACTION_CAN"
+    {
+        BRANCH Update-S;
+    }
+#Claims Task 29 changes End 
+    # Approve the Claim  
+
+    STEP UpdateHost-P
+    {
+        USES P-STEP "BF9332-P";
+    }
+
+    IF LSIR-RETURN-CD != "00"
+        BRANCH Update-S;
+        
+#123718 CHANGES BEGIN
+              temp-MSGS-T[1] = MESSAGES-T[1];
+              temp-MSGS-T[2] = MESSAGES-T[2];
+              temp-MSGS-T[3] = MESSAGES-T[3];
+              temp-MSGS-T[4] = MESSAGES-T[4];
+              temp-MSGS-T[5] = MESSAGES-T[5];
+              temp-MSGS-T[6] = MESSAGES-T[6];
+              temp-MSGS-T[7] = MESSAGES-T[7];
+              temp-MSGS-T[8] = MESSAGES-T[8];
+              temp-MSGS-T[9] = MESSAGES-T[9];
+              temp-MSGS-T[10] = MESSAGES-T[10];
+#123718 CHANGES END
+#R15582 CHANGES START        
+  temp-DTL-INFO  = MIR-PREV-UPDT-USER-ID + " " + MIR-STATUS-CD + " " + MIR-CLM-ID;
+ 
+   STEP AUTROutput
+    {
+        USES P-STEP "BF9G99-P";
+    
+    SESSION.MIR-USER-ID -> MIR-USER-ID;
+    SESSION.LSIR-BPF-ID  -> MIR-BFCN-ID;
+
+   temp-DTL-INFO ->MIR-TRNX-DTL-INFO; 
+    
+    }
+
+    IF LSIR-RETURN-CD != "00"
+          BRANCH Update-S; 
+ #R15582 CHANGES END  
+ #123718 CHANGES BEGIN
+       MESSAGES-T[1] = temp-MSGS-T[1];
+       MESSAGES-T[2] = temp-MSGS-T[2];
+       MESSAGES-T[3] = temp-MSGS-T[3];
+       MESSAGES-T[4] = temp-MSGS-T[4];
+       MESSAGES-T[5] = temp-MSGS-T[5];
+       MESSAGES-T[6] = temp-MSGS-T[6];
+       MESSAGES-T[7] = temp-MSGS-T[7];
+       MESSAGES-T[8] = temp-MSGS-T[8];
+       MESSAGES-T[9] = temp-MSGS-T[9];
+       MESSAGES-T[10] = temp-MSGS-T[10]; 
+#123718 CHANGES END
+
+    # Go and ask for another Claim to Approve
+
+    IF NoList == "NO"
+        BRANCH StartPoint;
+
+    ELSE
+        BRANCH FinalApprovalSearch;
+
+}
+

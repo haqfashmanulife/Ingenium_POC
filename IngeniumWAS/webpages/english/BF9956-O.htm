@@ -1,0 +1,980 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:45 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9956-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  PIRAEX  CTS      PIRA INGENIUM DATA EXTRACT
+*  ACU080  CTS      ADD KANJI NAME FOR POLICY HOLDER(COMPANY)
+*  ACU139  CTS      ADD MATURITY/EXPIRY REASON CODE AT RIDER LEVEL
+*  IPDDEX  CTS      ADD IPDD RIDER FILEDS AT CLIENT LEVEL AND RIDER LEVEL
+*  RPL017  CTS      ADD SUBTABLE CODE 3 AND SUBTABLE CODE 4 FIELDS AT RIDER LEVEL
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9956-O</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+    <table class="tabledisplaykey">
+       <tr>
+          <td class="celldisplaykeylabel">
+			<label for="MIR-POL-ID-BASE">Policy ID:</label>
+          </td>
+          <td class="celldisplaykey" colspan="3">
+			<span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+          </td>
+       </tr>
+       <tr>
+          <td class="celldisplaykeylabel">
+			<label for="MIR-POL-ID-SFX">Suffix:</label>
+          </td>
+          <td class="celldisplaykey" colspan="3">
+			<span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+          </td>
+       </tr>
+       <tr>
+          <td class="celldisplaykeylabel">
+			<label for="MIR-SERV-AGT-ID">Servicing Agent ID:</label>
+          </td>
+          <td class="celldisplaykey" colspan="3">
+			<span id="MIR-SERV-AGT-ID" stype="Text" displayonly="yes">MIR-SERV-AGT-ID</span>
+          </td>
+       </tr>
+	</table>
+
+<table class="tabledisplay" id="MIR-POL-INFO">
+
+<tr>
+	<td class="celldisplayheading" headingrow="yes">
+		<label>MIR-POL-INFO</label>
+	</td>
+	<td class="celldisplayheading" colspan="2"></td>
+</tr>
+
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-POL-INFO.MIR-POL-APP-FORM-ID">Application Number:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-POL-INFO.MIR-POL-APP-FORM-ID" stype="Text" displayonly="yes">MIR-POL-INFO.MIR-POL-APP-FORM-ID</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-POL-INFO.MIR-POL-ISS-EFF-DT">Policy Issue Date:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-POL-INFO.MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-INFO.MIR-POL-ISS-EFF-DT</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-POL-INFO.MIR-PLAN-ID">Plan:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-POL-INFO.MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-POL-INFO.MIR-PLAN-ID</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-POL-INFO.MIR-PROD-APP-TYP-CD">Product Application Type:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-POL-INFO.MIR-PROD-APP-TYP-CD" stype="Text" displayonly="yes">MIR-POL-INFO.MIR-PROD-APP-TYP-CD</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-POL-INFO.MIR-POL-ASIGN-IND">Policy Assigned Indicator:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-POL-INFO.MIR-POL-ASIGN-IND" stype="Text" displayonly="yes">MIR-POL-INFO.MIR-POL-ASIGN-IND</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-POL-INFO.MIR-APPL-CTL-PRCES-DT">System Date:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-POL-INFO.MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-POL-INFO.MIR-APPL-CTL-PRCES-DT</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-POL-INFO.MIR-INSRD-NO">Insured Number:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-POL-INFO.MIR-INSRD-NO" stype="Text" displayonly="yes">MIR-POL-INFO.MIR-INSRD-NO</span>
+
+	</td>
+</tr>
+
+</table>
+
+<table class="tabledisplay" id="MIR-PREM-INFO">
+
+<tr>
+	<td class="celldisplayheading" headingrow="yes">
+		<label>MIR-PREM-INFO</label>
+	</td>
+	<td class="celldisplayheading" colspan="2"></td>
+</tr>
+
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-PREM-INFO.MIR-POL-BILL-TYP-CD">Policy Billing Method:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-PREM-INFO.MIR-POL-BILL-TYP-CD" stype="Text" displayonly="yes">MIR-PREM-INFO.MIR-POL-BILL-TYP-CD</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-PREM-INFO.MIR-CLI-GR-TYP-CD">Group Size:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-PREM-INFO.MIR-CLI-GR-TYP-CD" stype="Text" displayonly="yes">MIR-PREM-INFO.MIR-CLI-GR-TYP-CD</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-PREM-INFO.MIR-POL-BILL-MODE-CD">Policy Billing Frequency:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-PREM-INFO.MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-PREM-INFO.MIR-POL-BILL-MODE-CD</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-PREM-INFO.MIR-POL-SNDRY-AMT">Sundry Payment Amount:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-PREM-INFO.MIR-POL-SNDRY-AMT" stype="Currency" elength="13"   displayonly="yes">MIR-PREM-INFO.MIR-POL-SNDRY-AMT</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-PREM-INFO.MIR-POL-CV-EX-ESC-AMT">Cash Value Less ESC:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-PREM-INFO.MIR-POL-CV-EX-ESC-AMT" stype="Currency" elength="17"   displayonly="yes">MIR-PREM-INFO.MIR-POL-CV-EX-ESC-AMT</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-PREM-INFO.MIR-TOT-SA-PREM-AMT">SA Regular Premium:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-PREM-INFO.MIR-TOT-SA-PREM-AMT" stype="Currency" elength="15"   displayonly="yes">MIR-PREM-INFO.MIR-TOT-SA-PREM-AMT</span>
+
+	</td>
+</tr>
+
+</table>
+
+<table class="tabledisplay" id="MIR-OWNER-INFO">
+
+<tr>
+	<td class="celldisplayheading" headingrow="yes">
+		<label>MIR-OWNER-INFO</label>
+	</td>
+	<td class="celldisplayheading" colspan="2"></td>
+</tr>
+
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-CLI-ID">Client ID:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-CLI-ID" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-CLI-ID</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-CLI-CO-ENTR-NM">Company Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-CLI-CO-ENTR-NM" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-CLI-CO-ENTR-NM</span>
+
+	</td>
+</tr>
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-KJ-CO-ENTR-NM">Kanji Company Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-KJ-CO-ENTR-NM" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-KJ-CO-ENTR-NM</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-KA-SUR-NM">Kana Sur Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-KA-SUR-NM" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-KA-SUR-NM</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-KA-GIV-NM">Kana Given Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-KA-GIV-NM" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-KA-GIV-NM</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-KJ-SUR-NM">Kanji Sur Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-KJ-SUR-NM" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-KJ-SUR-NM</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-KJ-GIV-NM">Kanji Giv Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-KJ-GIV-NM" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-KJ-GIV-NM</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-CLI-SEX-CD">Sex:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-CLI-SEX-CD</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-CLI-BTH-DT">Birth Date:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-CLI-BTH-DT" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-CLI-BTH-DT</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-CLI-ADDR-LOC-CD">Address Code:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-CLI-ADDR-LOC-CD" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-CLI-ADDR-LOC-CD</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-CLI-PSTL-CD">Postal Code:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-CLI-PSTL-CD" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-CLI-PSTL-CD</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-CLI-PREFCT-TXT">Prefecture:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-CLI-PREFCT-TXT" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-CLI-PREFCT-TXT</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-CLI-CITY-NM-TXT">City:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-CLI-CITY-NM-TXT" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-CLI-CITY-NM-TXT</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-CLI-ADDR-LN-1-TXT">Address:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-CLI-ADDR-LN-1-TXT" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-CLI-ADDR-LN-1-TXT</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-CLI-ADDR-ADDL-TXT">Samakata-bu:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-CLI-ADDR-ADDL-TXT" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-CLI-ADDR-ADDL-TXT</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-OWNER-INFO.MIR-CLI-CNTCT-ID-TXT">Identification Code:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-OWNER-INFO.MIR-CLI-CNTCT-ID-TXT" stype="Text" displayonly="yes">MIR-OWNER-INFO.MIR-CLI-CNTCT-ID-TXT</span>
+
+	</td>
+</tr>
+
+</table>
+
+<table class="tabledisplay" id="MIR-INSRD-INFO-G[]" genrows="0" >
+
+<tr>
+	<td class="celldisplayheading" headingrow="yes">
+		<label>MIR-INSRD-INFO-G[]</label>
+	</td>
+	<td class="celldisplayheading" colspan="2"></td>
+</tr>
+
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-CLI-ID-T">Client ID:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-CLI-ID-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-CLI-ID-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-STCKR-ID-T">Sticker Number:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-STCKR-ID-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-STCKR-ID-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-CLI-CO-ENTR-NM-T">Company Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-CLI-CO-ENTR-NM-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-CLI-CO-ENTR-NM-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-KA-SUR-NM-T">Kana Sur Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-KA-SUR-NM-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-KA-SUR-NM-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-KA-GIV-NM-T">Kana Giv Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-KA-GIV-NM-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-KA-GIV-NM-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-KJ-SUR-NM-T">Kanji Sur Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-KJ-SUR-NM-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-KJ-SUR-NM-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-KJ-GIV-NM-T">Kanji Giv Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-KJ-GIV-NM-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-KJ-GIV-NM-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-CLI-SEX-CD-T">Sex:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-CLI-SEX-CD-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-CLI-SEX-CD-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-CLI-BTH-DT-T">Birth Date:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-CLI-BTH-DT-T" stype="Date" displayonly="yes">MIR-INSRD-INFO-G[].MIR-CLI-BTH-DT-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-BASE-INSRD-CD-T">Insured for Policy:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-BASE-INSRD-CD-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-BASE-INSRD-CD-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-OWNR-REL-INSR-CD-T">Relationship of Insured to Policy Owner:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-OWNR-REL-INSR-CD-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-OWNR-REL-INSR-CD-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-CLI-TCB-IND-T">Terminal Care Benefit:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-CLI-TCB-IND-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-CLI-TCB-IND-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-CLI-LNB-IND-T">Living Needs Benefit:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-CLI-LNB-IND-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-CLI-LNB-IND-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-CLI-ADDR-LOC-CD-T">Address Code:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-CLI-ADDR-LOC-CD-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-CLI-ADDR-LOC-CD-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-CLI-PSTL-CD-T">Postal Code:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-CLI-PSTL-CD-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-CLI-PSTL-CD-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-CLI-PREFCT-TXT-T">Prefecture:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-CLI-PREFCT-TXT-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-CLI-PREFCT-TXT-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-CLI-CITY-NM-TXT-T">City:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-CLI-CITY-NM-TXT-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-CLI-CITY-NM-TXT-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-CLI-ADDR-LN-1-TXT-T">Address:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-CLI-ADDR-LN-1-TXT-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-CLI-ADDR-LN-1-TXT-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-CLI-ADDR-ADDL-TXT-T">Samakata-bu:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-CLI-ADDR-ADDL-TXT-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-CLI-ADDR-ADDL-TXT-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-CLI-CNTCT-ID-TXT-T">Contact Information:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-CLI-CNTCT-ID-TXT-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-CLI-CNTCT-ID-TXT-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-BNFY-REL-INSRD-CD-T">Beneficiary's Relation to Insured:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-BNFY-REL-INSRD-CD-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-BNFY-REL-INSRD-CD-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-BNFY-COMP-NM-T">Beneficiary's Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-BNFY-COMP-NM-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-BNFY-COMP-NM-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-BNFY-SUR-NM-T">Beneficiary's Sur Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-BNFY-SUR-NM-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-BNFY-SUR-NM-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-BNFY-GIV-NM-T">Beneficiary's Given Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-BNFY-GIV-NM-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-BNFY-GIV-NM-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-BNFY-PRCDS-PCT-T">Percentage:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-BNFY-PRCDS-PCT-T" stype="Number" elength="3"   displayonly="yes">MIR-INSRD-INFO-G[].MIR-BNFY-PRCDS-PCT-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-BNFY-REL-INSRD-CD1-T">Proxy Beneficiary's Relation to Insured:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-BNFY-REL-INSRD-CD1-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-BNFY-REL-INSRD-CD1-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-BNFY-SUR-NM1-T">Proxy Beneficiary's Sur Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-BNFY-SUR-NM1-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-BNFY-SUR-NM1-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-BNFY-GIV-NM1-T">Proxy Beneficiary's Given Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-BNFY-GIV-NM1-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-BNFY-GIV-NM1-T</span>
+
+	</td>
+</tr>
+<!-- IPDDEX STARTS HERE -->
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-BNFY-REL-INSRD-CD2-T">Death Monthly Benefit Beneficiary's Relation to Insured:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-BNFY-REL-INSRD-CD2-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-BNFY-REL-INSRD-CD2-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-BNFY-COMP-NM2-T">Death Monthly Beneficiary Company's Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-BNFY-COMP-NM2-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-BNFY-COMP-NM2-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-BNFY-SUR-NM2-T">Death Monthly Benefit Beneficiary's Sur Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-BNFY-SUR-NM2-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-BNFY-SUR-NM2-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-BNFY-GIV-NM2-T">Death Monthly Benefit Beneficiary's Given Name:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-BNFY-GIV-NM2-T" stype="Text" displayonly="yes">MIR-INSRD-INFO-G[].MIR-BNFY-GIV-NM2-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-INSRD-INFO-G[1].MIR-BNFY-PRCDS-PCT2-T">Death Monthly Benefit Percentage:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-INSRD-INFO-G[].MIR-BNFY-PRCDS-PCT2-T" stype="Number" elength="3"   displayonly="yes">MIR-INSRD-INFO-G[].MIR-BNFY-PRCDS-PCT2-T</span>
+
+	</td>
+</tr>
+<!-- IPDDEX ENDS HERE -->
+
+</table>
+
+<table class="tabledisplay" id="MIR-RIDER-INFO-G[]" genrows="0" >
+
+<tr>
+	<td class="celldisplayheading" headingrow="yes">
+		<label>MIR-RIDER-INFO-G[]</label>
+	</td>
+	<td class="celldisplayheading" colspan="2"></td>
+</tr>
+
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-RIDER-INFO-G[1].MIR-CVG-PLAN-ID-T">Plan:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-RIDER-INFO-G[].MIR-CVG-PLAN-ID-T" stype="Text" displayonly="yes">MIR-RIDER-INFO-G[].MIR-CVG-PLAN-ID-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-RIDER-INFO-G[1].MIR-CVG-FACE-AMT-T">Face Amount:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-RIDER-INFO-G[].MIR-CVG-FACE-AMT-T" stype="Currency" elength="15"   displayonly="yes">MIR-RIDER-INFO-G[].MIR-CVG-FACE-AMT-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-RIDER-INFO-G[1].MIR-CVG-STBL-1-CD-T">Sub-table 1:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-RIDER-INFO-G[].MIR-CVG-STBL-1-CD-T" stype="Text" displayonly="yes">MIR-RIDER-INFO-G[].MIR-CVG-STBL-1-CD-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-RIDER-INFO-G[1].MIR-CVG-STBL-2-CD-T">Sub-table 2:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-RIDER-INFO-G[].MIR-CVG-STBL-2-CD-T" stype="Text" displayonly="yes">MIR-RIDER-INFO-G[].MIR-CVG-STBL-2-CD-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-RIDER-INFO-G[1].MIR-CVG-STBL-3-CD-T">Sub-table 3:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-RIDER-INFO-G[].MIR-CVG-STBL-3-CD-T" stype="Text" displayonly="yes">MIR-RIDER-INFO-G[].MIR-CVG-STBL-3-CD-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-RIDER-INFO-G[1].MIR-CVG-STBL-4-CD-T">Sub-table 4:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-RIDER-INFO-G[].MIR-CVG-STBL-4-CD-T" stype="Text" displayonly="yes">MIR-RIDER-INFO-G[].MIR-CVG-STBL-4-CD-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-RIDER-INFO-G[1].MIR-CVG-BASIC-PREM-AMT-T">Annual Premium:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-RIDER-INFO-G[].MIR-CVG-BASIC-PREM-AMT-T" stype="Currency" elength="13"   displayonly="yes">MIR-RIDER-INFO-G[].MIR-CVG-BASIC-PREM-AMT-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-RIDER-INFO-G[1].MIR-CVG-ISS-EFF-DT-T">Issue Date:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-RIDER-INFO-G[].MIR-CVG-ISS-EFF-DT-T" stype="Date" displayonly="yes">MIR-RIDER-INFO-G[].MIR-CVG-ISS-EFF-DT-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-RIDER-INFO-G[1].MIR-CVG-ME-PREM-AMT-T">Multiple / Mortality Extra Premium:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-RIDER-INFO-G[].MIR-CVG-ME-PREM-AMT-T" stype="Currency" elength="13"   displayonly="yes">MIR-RIDER-INFO-G[].MIR-CVG-ME-PREM-AMT-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-RIDER-INFO-G[1].MIR-CVG-CSTAT-CD-T">Coverage Status:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-RIDER-INFO-G[].MIR-CVG-CSTAT-CD-T" stype="Text" displayonly="yes">MIR-RIDER-INFO-G[].MIR-CVG-CSTAT-CD-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-RIDER-INFO-G[1].MIR-CVG-CLI-ID-T">Client ID:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-RIDER-INFO-G[].MIR-CVG-CLI-ID-T" stype="Text" displayonly="yes">MIR-RIDER-INFO-G[].MIR-CVG-CLI-ID-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-RIDER-INFO-G[1].MIR-CVG-ALLOC-AMT-T">Coverage Level SA Premium:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-RIDER-INFO-G[].MIR-CVG-ALLOC-AMT-T" stype="Currency" elength="15"   displayonly="yes">MIR-RIDER-INFO-G[].MIR-CVG-ALLOC-AMT-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-RIDER-INFO-G[1].MIR-MAT-XPRY-REASN-CD-T">Maturity / Expiry Reason Code:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-RIDER-INFO-G[].MIR-MAT-XPRY-REASN-CD-T" stype="Text" displayonly="yes">MIR-RIDER-INFO-G[].MIR-MAT-XPRY-REASN-CD-T</span>
+	</td>
+</tr>
+<!-- IPDDEX STARTS HERE -->
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-RIDER-INFO-G[1].MIR-PRES-CNVR-FACE-AMT-T">Present Converted Face Amount:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-RIDER-INFO-G[].MIR-PRES-CNVR-FACE-AMT-T" stype="Currency" elength="15"   displayonly="yes">MIR-RIDER-INFO-G[].MIR-PRES-CNVR-FACE-AMT-T</span>
+
+	</td>
+</tr>
+
+<tr>
+	<td class="celldisplay"></td>
+	<td class="celldisplaylabel">
+		<label for="MIR-RIDER-INFO-G[1].MIR-GP-CNVR-FACE-AMT-T">Converted Face Amount for Guarantee Period:</label>
+	</td>
+	<td class="celldisplay">
+		<span id="MIR-RIDER-INFO-G[].MIR-GP-CNVR-FACE-AMT-T" stype="Currency" elength="15"   displayonly="yes">MIR-RIDER-INFO-G[].MIR-GP-CNVR-FACE-AMT-T</span>
+
+	</td>
+</tr>
+<!-- IPDDEX ENDS HERE -->
+
+</table>
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

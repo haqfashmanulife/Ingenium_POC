@@ -1,0 +1,165 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:37 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1780Key-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016246  602J     Add onLoad() function to <body> tag for currency scaling
+*  016107  602J     Automatic Face Reduction for Variable Products
+*  017150  612J     Remove Currency decimals="2"
+*  MFPFU7  AC       Add Firm Banking
+*  ISLADM  CTS      CHANGES FOR INSURANCE LAW PROJECT
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*
+*  27549A  CTS      CHANGES DONE AS PART OF CDAP
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1780Key-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CVG-NUM" id="MIR-CVG-NUM" stype="Text" maxlength="2" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CIA-EFF-DT">Effective Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CIA-EFF-DT" id="MIR-CIA-EFF-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CIA-ALLOC-SURR-AMT">Surrender Amount:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CIA-ALLOC-SURR-AMT" id="MIR-CIA-ALLOC-SURR-AMT" stype="Currency" elength="15" mandatory="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CIA-REASN-CD">Surrender Reason:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-CIA-REASN-CD" id="MIR-CIA-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CIA-SRC-DEST-CD">Destination of Surrender Amount:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-CIA-SRC-DEST-CD" id="MIR-CIA-SRC-DEST-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CIA-LOAD-AMT">Surrender Charge:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CIA-LOAD-AMT" id="MIR-CIA-LOAD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CIA-LOAD-FORCE-IND">Surrender Charge Override:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="checkbox" value="Y" name="MIR-CIA-LOAD-FORCE-IND" id="MIR-CIA-LOAD-FORCE-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CIA-TAXWH-IND">Bypass Tax Withholding Process:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="checkbox" value="Y" name="MIR-CIA-TAXWH-IND" id="MIR-CIA-TAXWH-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-SUPRES-CNFRM-IND">Suppress Confirmation Statement:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="checkbox" value="Y" name="MIR-SUPRES-CNFRM-IND" id="MIR-SUPRES-CNFRM-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-REDC-FACE-IND">Override Automatic Face Reduction:</label>
+                    </td>
+                    <td class="celldatakey"><input type="checkbox" value="Y" name="MIR-DV-REDC-FACE-IND" id="MIR-DV-REDC-FACE-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-JRNL-DT">Journal Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-JRNL-DT" id="MIR-JRNL-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+<!-- ISLADM Changes Start:  Comment HO-FORM-ACPT-DT field
+                    <td class="celldatakeylabel">
+                        <label for="MIR-HO-FORM-ACPT-DT">Home Office Form Acceptance Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-HO-FORM-ACPT-DT" id="MIR-HO-FORM-ACPT-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+ISLADM Changes Ends -->
+<!-- ISLADM Changes Start:  Append CO-RECV-DT field -->
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CO-RECV-DT">Company Received Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CO-RECV-DT" id="MIR-CO-RECV-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+<!-- ISLADM Changes Ends -->
+                </tr>
+<!-- 27549A  CHANGE STARTS HERE -->				
+				    <tr>
+					 <td class="celldatakeylabel">
+                     <label for="MIR-ATO-NOT-APPL-IND">ATO not applicable:</label>
+	                  </td>
+	                 <td class="celldatakey">
+                      <input type="checkbox" value="Y" name="MIR-ATO-NOT-APPL-IND" id="MIR-ATO-NOT-APPL-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    </tr>
+<!-- 27549A  CHANGE ENDS HERE -->					
+            </table>
+            <br />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/JapaneseBranch.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

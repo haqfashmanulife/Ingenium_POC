@@ -1,0 +1,146 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:36 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1738-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge. 
+*  UY3004  CTS      INPUT HTML POLICY TRIM - 10 BYTES -> 7 BYTES
+                                        
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1738-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CIA-EFF-DT">Activity Effective Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CIA-EFF-DT" stype="Date" displayonly="yes">MIR-CIA-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CIA-TYP-CD">Activity Type:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CIA-TYP-CD" stype="Text" displayonly="yes">MIR-CIA-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CIA-SEQ-NUM">Sequence Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CIA-SEQ-NUM" stype="Text" displayonly="yes">MIR-CIA-SEQ-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CFN-STAT-CD">Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CFN-STAT-CD" stype="Text" displayonly="yes">MIR-CFN-STAT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FND-ID-T[1]">Fund</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FIA-GLA-CD-T[1]">Calculation Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FIA-FND-GLA-AMT-T[1]">Amount Charged to Fund</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FIA-GNRL-GLA-AMT-T[1]">Amount Charged to General Account</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FIA-REVRS-GLA-CD-T[1]">Calculation Type on Reversal</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-REVRS-FND-GLA-AMT-T[1]">Amount Charged to Fund for Reversal</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-REVRS-GNRL-GLA-AMT-T[1]">Amount Charged to General Account for Reversal</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-FND-ID-T[]" stype="Text" displayonly="yes">MIR-FND-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FIA-GLA-CD-T[]" stype="Text" displayonly="yes">MIR-FIA-GLA-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FIA-FND-GLA-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-FIA-FND-GLA-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FIA-GNRL-GLA-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-FIA-GNRL-GLA-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FIA-REVRS-GLA-CD-T[]" stype="Text" displayonly="yes">MIR-FIA-REVRS-GLA-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REVRS-FND-GLA-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-REVRS-FND-GLA-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REVRS-GNRL-GLA-AMT-T[]" stype="Currency" elength="11" signed="yes" displayonly="yes">MIR-REVRS-GNRL-GLA-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

@@ -1,0 +1,255 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:26 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9B88Data-O.htm                                                *
+*  Description: Trial calculation for Birth Date/Sex Modification Screen        *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 
+*                                                                               
+*  M319A5  CTS      INITIAL CREATION                                            
+*  100506  CTS      QC-100506 FIX TO SET THE DECIMAL AS ZERO FOR YEN CURRENCY   
+*                   FIELDS MIR-SHRT-PREM-PMT-CRCY-AMT,MIR-XCES-PREM-PMT-CRCY-AMT
+*  100775  CTS      FIX TO DISPLAY SET THE DECIMAL FOR RATE FIELD               
+*  23774B  CTS      CHANGES DONE FOR IE RETIREMENT PROJECT TO MAKE IT			
+*                   COMPATIBLE FOR MICROSOFT EDGE. CHANGES IN HTML INCLUDE		
+*                   ADDING "ID" ATTRIBUTE FOR ALL INPUT FIELDS AND CHANGES IN	
+*                   JAVA SCRIPTS TO MODIFY CERTAIN FUNCTIONS/COMMANDS WHICH		
+*                   ARE NO LONGER COMPATILBLE WITH EDGE.						
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9B88-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplayheading" colspan="8">
+                        <a name="BasicInformation">Basic Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-HO-RCVD-DT">Head Office Received Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HO-RCVD-DT" stype="Date" displayonly="yes">MIR-HO-RCVD-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RECPT-DT">Receipt Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RECPT-DT" stype="Date" displayonly="yes">MIR-RECPT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ISS-EFF-DT">Policy Issue Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">Premium Mode:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ID">Plan:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSRD-CLI-NM">Insured Name:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-INSRD-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSRD-CLI-ID">Insured Client ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-ID" stype="Text" displayonly="yes">MIR-INSRD-CLI-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-BTH-DT">Birth Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-BTH-DT" stype="Date" displayonly="yes">MIR-CLI-BTH-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-SEX-CD">Sex:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSRD-AGE">Issue Age:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-AGE" stype="Text" displayonly="yes">MIR-INSRD-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MPREM-AMT">Modal Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+<!-- S24286 CHANGES START -->
+<!--                        <span id="MIR-POL-MPREM-AMT" stype="Currency" elength="17" decimals="2" signed="yes" displayonly="yes">MIR-POL-MPREM-AMT</span> -->
+                        <span id="MIR-POL-MPREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-MPREM-AMT</span>
+<!-- S24286 CHANGES END -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NEW-BTH-DT">New Birth Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-BTH-DT" stype="Date" displayonly="yes">MIR-NEW-BTH-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NEW-SEX-CD">New Sex:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-SEX-CD" stype="Text" displayonly="yes">MIR-NEW-SEX-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NEW-INSRD-AGE">New Issue Age:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NEW-INSRD-AGE" stype="Text" displayonly="yes">MIR-NEW-INSRD-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NEW-POL-MPREM-AMT">New Modal Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+<!-- S24286 CHANGES START -->
+<!--                        <span id="MIR-NEW-POL-MPREM-AMT" stype="Currency" elength="17" decimals="2" signed="yes" displayonly="yes">MIR-NEW-POL-MPREM-AMT</span> -->
+                        <span id="MIR-NEW-POL-MPREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-NEW-POL-MPREM-AMT</span>
+<!-- S24286 CHANGES END -->
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Excess Premium/Shortage Premium">Excess Premium/Shortage Premium</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading" colspan="2">
+                        <a name="Excess Premium">Excess Premium</a>
+                    </td>
+                    <td class="celldisplayheading" colspan="2">
+                        <a name="Shortage Premium">Shortage Premium</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-XCES-PREM-AMT">Excess Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+<!-- S24286 CHANGES START -->
+<!--                        <span id="MIR-XCES-PREM-AMT" stype="Currency" elength="17" decimals="2" signed="yes" displayonly="yes">MIR-XCES-PREM-AMT</span> -->
+                        <span id="MIR-XCES-PREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-XCES-PREM-AMT</span>
+<!-- S24286 CHANGES END -->
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SHRT-PREM-AMT">Shortage Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+<!-- S24286 CHANGES START -->
+<!--                         <span id="MIR-SHRT-PREM-AMT" stype="Currency" elength="17" decimals="2" signed="yes" displayonly="yes">MIR-SHRT-PREM-AMT</span> -->
+                        <span id="MIR-SHRT-PREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-SHRT-PREM-AMT</span>
+<!-- S24286 CHANGES END -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAY-OUT-RT">Payout-In-Yen-Rate:</label>
+                    </td>
+                    <td class="celldisplay">
+<!-- 100775  CHANGES BEGINS
+                        <span id="MIR-PAY-OUT-RT" stype="Currency" elength="18" decimals="5" signed="yes"
+
+displayonly="yes">MIR-PAY-OUT-YEN-RT</span> -->
+                        <span id="MIR-PAY-OUT-RT"  elength="18" decimals="2" signed="yes" displayonly="yes">MIR-PAY-OUT-RT</span>
+<!-- 100775  CHANGES ENDS -->
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAY-IN-RT">Pay-In-Yen-Rate:</label>
+                    </td>
+                    <td class="celldisplay">
+<!-- 100775  CHANGES BEGINS
+                        <span id="MIR-PAY-IN-RT" stype="Currency" elength="18" decimals="5" signed="yes"
+
+displayonly="yes">MIR-PAY-IN-YEN-RT</span> -->
+                        <span id="MIR-PAY-IN-RT"  elength="18" decimals="2" signed="yes" displayonly="yes">MIR-PAY-IN-RT</span>
+<!-- 100775  CHANGES ENDS -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAY-OUT-XCHNG-EFF-DT">Exchange Effective Date to JPY:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAY-OUT-XCHNG-EFF-DT" stype="Date" displayonly="yes">MIR-PAY-OUT-XCHNG-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAY-IN-XCHNG-EFF-DT">Exchange Effective Date to JPY:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAY-IN-XCHNG-EFF-DT" stype="Date" displayonly="yes">MIR-PAY-IN-XCHNG-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-XCES-PREM-PMT-CRCY-AMT">Excess Premium (JPY):*Refered Amount</label>
+                    </td>
+                    <!-- 100506 CHANGES START -->
+                    <td class="celldisplay">
+                        <span id="MIR-XCES-PREM-PMT-CRCY-AMT" stype="Currency" elength="17" decimals="0" signed="yes" displayonly="yes">MIR-XCES-PREM-JPY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SHRT-PREM-PMT-CRCY-AMT">Shortage Premium (JPY):*Request Amount</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-PREM-PMT-CRCY-AMT" stype="Currency" elength="17" decimals="0" signed="yes" displayonly="yes">MIR-SHRT-PREM-JPY-AMT</span>
+                    <!-- 100506 CHANGES END -->
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/JapaneseBranch.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

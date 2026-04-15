@@ -1,0 +1,158 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:09 PM EDT
+*
+*********************************************************************************
+*  Component:   AppNonmedPhysicianJP.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  016423  602J     New for release 602J
+*  017150  612J     Remove Currency decimals="2"
+*  23774B  CTS      23774B-IE Retirement changes
+*
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>AppNonmedPhysicianJP</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <div align="right">
+                <table>
+                    <tr>
+                        <td class="celldisplaykeylabel">
+                            <label for="MIR-DV-INSRD-CLI-NM">Applicant:</label>
+                        </td>
+                        <td class="celldisplaykey">
+                            <span id="MIR-DV-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Physician Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-DOCTOR-NM">Name:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-DOCTOR-NM" id="MIR-CLI-DOCTOR-NM" stype="Text" maxlength="50" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DOCTOR-CITY-NM-TXT">City:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DOCTOR-CITY-NM-TXT" id="MIR-DOCTOR-CITY-NM-TXT" stype="Text" maxlength="25" onfocus="enterField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-DOCTOR-PROV-CD">Province:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-DOCTOR-PROV-CD" id="MIR-CLI-DOCTOR-PROV-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                        <span id="refreshButtonspan" style="display: none">
+
+                            <input type="image" name="refreshButton" id="refreshButton" border="0" src="../english/images/refresh.gif" align="bottom" width="70" height="26" onclick="doRefresh()" />
+							</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-DOCTOR-CTRY-CD">Country:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-DOCTOR-CTRY-CD" id="MIR-CLI-DOCTOR-CTRY-CD" size="1" stype="Selection" onfocus="enterField(this)" onchange="refreshButtonspan.style.display='';"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Last Visit Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DOCTOR-PREV-VST-DT">Date Last Consulted:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DOCTOR-PREV-VST-DT" id="MIR-DOCTOR-PREV-VST-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-VST-REASN-CD">Reason Last Consulted:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PREV-VST-REASN-CD" id="MIR-PREV-VST-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-VST-RSLT-TXT">Results of Visit:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PREV-VST-RSLT-TXT" id="MIR-PREV-VST-RSLT-TXT" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DISORD-DIAGNS-TXT">Disorder/Diagnosis:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DISORD-DIAGNS-TXT" id="MIR-DISORD-DIAGNS-TXT" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTMNT-RECV-TXT">Treatment Received:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-TRTMNT-RECV-TXT" id="MIR-TRTMNT-RECV-TXT" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-MEDCTN-GIV-TXT">Medication Given:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-MEDCTN-GIV-TXT" id="MIR-CLI-MEDCTN-GIV-TXT" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="6">Pregnancy Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-PREG-IND">Currently Pregnant:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-PREG-IND" id="MIR-CLI-PREG-IND" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-PREG-CNFMT-DT">Confinement Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-PREG-CNFMT-DT" id="MIR-CLI-PREG-CNFMT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREG-CMPLIC-IND">Complications Now or in Past:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PREG-CMPLIC-IND" id="MIR-PREG-CMPLIC-IND" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

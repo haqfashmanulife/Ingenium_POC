@@ -1,0 +1,153 @@
+<!--  
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:11 PM EDT
+*
+********************************************************************************* 
+*  Component:   BF1694-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+********************************************************************************* 
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2"                               
+*  PF 3.0  PF30     Corrected "-T-" to "-T[" for some fields 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                    
+*                                                                              
+********************************************************************************* 
+ --> 
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1694-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="setEmperorDateLoop('MIR-CLI-BTH-DT-T[',40);">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());"> 
+            <table class="tabledisplaykey"> 
+                <tr> 
+                    <td class="celldisplaykeylabel"> 
+                        <label for="MIR-CLI-LTST-SUR-NM">姓:</label> 
+                    </td> 
+                    <td class="celldisplaykey"> 
+                        <input type="text" value=" " name="MIR-CLI-LTST-SUR-NM" id="MIR-CLI-LTST-SUR-NM" stype="Text" maxlength="25" onfocus="enterField(this)" /> 
+                    </td> 
+                </tr> 
+            </table> 
+            <br /> 
+            <table class="tabledisplay" genrows="0" keyfield="1"> 
+                <tr> 
+                    <td class="celldisplayheading"> 
+                        <label for="SELECT-T[1]" /> 
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-CLI-LTST-SUR-NM-T[1]">姓</label> 
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-CLI-GIV-NM-T[1]">名</label> 
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-CLI-MID-INIT-NM-T[1]">イニシャル</label> 
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-CLI-SEX-CD-T[1]">性別</label> 
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-CLI-BTH-DT-T[1]">生年月日</label> 
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="myEmperorDate-T[1]">生年月日（和暦）</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-TAX-ID-T[1]">納税者番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LAB-ID-T[1]">検査機関</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-LTST-SUR-NM-T[]" stype="Text" displayonly="yes">姓</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-GIV-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-GIV-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-MID-INIT-NM-T[]" stype="Text" displayonly="yes">MIR-CLI-MID-INIT-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-SEX-CD-T[]" stype="Text" displayonly="yes">MIR-CLI-SEX-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-BTH-DT-T[]" stype="Date" displayonly="yes" emperorDate="myEmperorDate">MIR-CLI-BTH-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="myEmperorDate-T[]" displayonly="yes">myEmperorDate</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-TAX-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-TAX-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LAB-ID-T[]" stype="Text" displayonly="yes">MIR-LAB-ID-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM" id="MIR-CLI-LTST-SEQ-NUM" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[1]" id="MIR-CLI-LTST-SEQ-NUM-T[1]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[2]" id="MIR-CLI-LTST-SEQ-NUM-T[2]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[3]" id="MIR-CLI-LTST-SEQ-NUM-T[3]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[4]" id="MIR-CLI-LTST-SEQ-NUM-T[4]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[5]" id="MIR-CLI-LTST-SEQ-NUM-T[5]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[6]" id="MIR-CLI-LTST-SEQ-NUM-T[6]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[7]" id="MIR-CLI-LTST-SEQ-NUM-T[7]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[8]" id="MIR-CLI-LTST-SEQ-NUM-T[8]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[9]" id="MIR-CLI-LTST-SEQ-NUM-T[9]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[10]" id="MIR-CLI-LTST-SEQ-NUM-T[10]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[11]" id="MIR-CLI-LTST-SEQ-NUM-T[11]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[12]" id="MIR-CLI-LTST-SEQ-NUM-T[12]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[13]" id="MIR-CLI-LTST-SEQ-NUM-T[13]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[14]" id="MIR-CLI-LTST-SEQ-NUM-T[14]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[15]" id="MIR-CLI-LTST-SEQ-NUM-T[15]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[16]" id="MIR-CLI-LTST-SEQ-NUM-T[16]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[17]" id="MIR-CLI-LTST-SEQ-NUM-T[17]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[18]" id="MIR-CLI-LTST-SEQ-NUM-T[18]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[19]" id="MIR-CLI-LTST-SEQ-NUM-T[19]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[20]" id="MIR-CLI-LTST-SEQ-NUM-T[20]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[21]" id="MIR-CLI-LTST-SEQ-NUM-T[21]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[22]" id="MIR-CLI-LTST-SEQ-NUM-T[22]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[23]" id="MIR-CLI-LTST-SEQ-NUM-T[23]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[24]" id="MIR-CLI-LTST-SEQ-NUM-T[24]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[25]" id="MIR-CLI-LTST-SEQ-NUM-T[25]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[26]" id="MIR-CLI-LTST-SEQ-NUM-T[26]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[27]" id="MIR-CLI-LTST-SEQ-NUM-T[27]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[28]" id="MIR-CLI-LTST-SEQ-NUM-T[28]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[29]" id="MIR-CLI-LTST-SEQ-NUM-T[29]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[30]" id="MIR-CLI-LTST-SEQ-NUM-T[30]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[31]" id="MIR-CLI-LTST-SEQ-NUM-T[31]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[32]" id="MIR-CLI-LTST-SEQ-NUM-T[32]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[33]" id="MIR-CLI-LTST-SEQ-NUM-T[33]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[34]" id="MIR-CLI-LTST-SEQ-NUM-T[34]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[35]" id="MIR-CLI-LTST-SEQ-NUM-T[35]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[36]" id="MIR-CLI-LTST-SEQ-NUM-T[36]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[37]" id="MIR-CLI-LTST-SEQ-NUM-T[37]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[38]" id="MIR-CLI-LTST-SEQ-NUM-T[38]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[39]" id="MIR-CLI-LTST-SEQ-NUM-T[39]" stype="Hidden" />
+            <input type="hidden" name="MIR-CLI-LTST-SEQ-NUM-T[40]" id="MIR-CLI-LTST-SEQ-NUM-T[40]" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/EmperorDates.js"></script>
+    <script src="../js/EmperorDateLoop.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

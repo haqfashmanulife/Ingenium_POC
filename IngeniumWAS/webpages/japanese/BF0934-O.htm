@@ -1,0 +1,135 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:28 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0934-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  015704  6.1.1J   Added hyperlink for inquiry                                
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                           
+*  UY3004  CTS     INPUT HTML POLICY TRIM - 10 BYTES -> 7 BYTES                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0934-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws" > 
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">-->
+    <body class="bodyws" onLoad="onLoad(); inputlisttrimpolicy();InpTrimPolicy()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="returnlisttrimpolicy();return(onSubmit())">
+            <input type="hidden" name="Dispolval" stype="Hidden" />
+            <input type="hidden" name="Dissfxval" stype="Hidden" />
+<!-- UY3004 CHANGES ENDS HERE -->
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DEST-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-DEST-POL-ID-BASE" id="MIR-DEST-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DEST-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-DEST-POL-ID-SFX" id="MIR-DEST-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DEST-CVG-NUM">保障番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-DEST-CVG-NUM" id="MIR-DEST-CVG-NUM" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CDA-EFF-DT">処理日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CDA-EFF-DT" id="MIR-CDA-EFF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DEST-SEQ-NUM">シーケンス番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-DEST-SEQ-NUM" id="MIR-DEST-SEQ-NUM" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel" />
+                    <td class="celldatakey" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="SELECT-T[1]" />
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDA-EFF-DT-T[1]">処理日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDA-SEQ-NUM-T[1]">シーケンス番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDA-STAT-CD-T[1]">ステータス</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">保障番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SRC-CF-EFF-DT-T[1]">振替元積立日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SRC-CF-SEQ-NUM-T[1]">振替元シーケンス番号</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <a name="MIR-CDA-EFF-DT-T[]" href="a" action="SelectItem" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">MIR-CDA-EFF-DT-T[]</a>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDA-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-CDA-SEQ-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDA-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-CDA-STAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SRC-CF-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-SRC-CF-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SRC-CF-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-SRC-CF-SEQ-NUM-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

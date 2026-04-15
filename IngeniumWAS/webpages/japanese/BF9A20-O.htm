@@ -1,0 +1,1913 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:42 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9A20-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  AHS048  CTS      INSERTED SCOLL BAR FOR PHYSICAL CONDITION TABLE
+*  AHS049  CTS      INSERTED SCOLL BAR FOR COVERAGES TABLE AND SPACES ARE CLOSED IN THE SCREEN
+*  AHU065  14JUL08  CHANGES TO RIDER EXCLUSION LIST
+*  AHU068  CTS      CHANGES FOR COVERAGE UW-NOTE
+*  M16138  CTS      CHANGES TO DISPLAY STATE OF ADDITION OF 3DD WOP RIDER FIELD
+*  M213F1  CTS      CHANGES TO DISPLAY THE NEW SIX INDICATOR FIELDS
+*  MP245J  CTS      ADD NEW FIELD FOR SUBSTANDARD AGE DURATION AS PART OF SPWL  *
+*  MP253E  CTS      ADDED NEW INDICATOR FOR ULE2
+*  MP265G CTS      ADDED NEW FIELD AGENT NAME AS PART OF NOMURA
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9A20-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="../japanese/scroll.css" charset="UTF-8" />
+        <script>
+
+</script>
+    </head>
+    <body class="bodyws" onload="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-APP-UPLD-DT">アップロード日　更新:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-APP-UPLD-DT" stype="Date" displayonly="yes">MIR-POL-APP-UPLD-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-UW-NM">査定者名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-UW-NM" stype="text" displayonly="yes">MIR-DV-UW-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-KANA-FULL-NM">被保険者カナ氏名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-KANA-FULL-NM" stype="text" displayonly="yes">MIR-CLI-KANA-FULL-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+              <label for="MIR-CLI-KJ-FULL-NM">被保険者漢字氏名:</label>
+          </td>
+          <td class="celldisplaykey">
+              <span id="MIR-CLI-KJ-FULL-NM" stype="text" displayonly="yes">MIR-CLI-KJ-FULL-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-ID">クライアントＩＤ:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID" stype="text" displayonly="yes">MIR-POL-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">処理日　経過日数:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-BTH-DT">生年月日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-BTH-DT" stype="Date" displayonly="yes">MIR-CLI-BTH-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-AGE">契約年齢:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-AGE" stype="Text" displayonly="yes">MIR-CLI-AGE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-SEX-CD">性別:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-SEX-CD" stype="text" displayonly="yes">MIR-CLI-SEX-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-STCKR-ID">シール番号　シーケンス番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-STCKR-ID" stype="text" displayonly="yes">MIR-STCKR-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">契約ステータス:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                </tr>
+<!--   MP245J CHANGES STARTS HERE -->
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SSTD-AGE-ADD-DUR">年増年数:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SSTD-AGE-ADD-DUR" stype="Number" elength="2" decimals="0" displayonly="yes">MIR-SSTD-AGE-ADD-DUR</span>
+                    </td>
+                </tr>
+<!--   MP245J CHANGES ENDS   HERE -->
+            </table>
+            <br />
+            <table class="tabledatakey">
+            <tr>
+            <td>
+                <table class="tabledisplaykey" height="100%">
+                <tr>
+                    <td class="celldisplayheading" colspan="1">保障内容</td>
+                </tr>
+                </table>
+
+                <div id="tableContainer" class="tableContainer">
+                <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">保障番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PLAN-ID-T[1]">特約名称</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-FACE-AMT-T[1]">保険金額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-STBL-1-CD-T[1]">期間</label>
+                    </td>
+<!-- Changes for M16138 start -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-WP-IND-T[1]">3DD</label>
+                    </td>
+
+<!-- Changes for M16138 end -->
+<!-- Changes for AHU068 start
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-STBL-2-CD-T[1]">給付タイプ</label>
+                    </td>
+-->
+                    <td class="celldisplayheading">
+                        <label for="MIR-UW-NOTE-T[1]">備考</label>
+                    </td>
+
+<!-- Changes for AHU068 end
+-->
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-FACE-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-CVG-FACE-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-1-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-1-CD-T[]</span>
+                    </td>
+<!-- Changes for M16138 start -->
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CVG-WP-IND-T[]" id="MIR-CVG-WP-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+<!-- Changes for M16138 end -->
+<!-- Changes for AHU068 start
+
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-2-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-2-CD-T[]</span>
+                    </td>
+-->
+                    <td class="celldisplay">
+                        <span id="MIR-UW-NOTE-T[]" stype="Text" displayonly="yes">MIR-UW-NOTE-T[]</span>
+                    </td>
+
+
+<!-- Changes for AHU068 end
+-->
+                </tr>
+            </table>
+            </div>
+
+            </td>
+            <td>
+            <table class="tabledisplaykey">
+          <tr>
+              <td class="celldisplayheading" colspan="2">基本情報欄</td>
+          </tr>
+          </table>
+          <table class="tabledisplaykey" height="100%">
+          <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BR-ID">ＲＯコード:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BR-ID" stype="Text" displayonly="yes">MIR-BR-ID</span>
+                    </td>
+          </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CNVR-TYP-CD">申込書タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CNVR-TYP-CD" stype="Text" displayonly="yes">MIR-POL-CNVR-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UW-TYP-CD">選択方法:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UW-TYP-CD" stype="Text" displayonly="yes">MIR-UW-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NON-CNTRCT-DOCTOR-IND">非嘱託医:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-NON-CNTRCT-DOCTOR-IND" id="MIR-NON-CNTRCT-DOCTOR-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CNTRCT-DOCTOR-ID">嘱託医コード:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNTRCT-DOCTOR-ID" stype="Text" displayonly="yes">MIR-CNTRCT-DOCTOR-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DOCTOR-RANK-CD">ランク:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DOCTOR-RANK-CD" stype="Text" displayonly="yes">MIR-DOCTOR-RANK-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MEDIC-RPT-NUM">報状番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MEDIC-RPT-NUM" stype="Text" displayonly="yes">MIR-MEDIC-RPT-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MEDIC-RPT-DT">診査日（面接日）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MEDIC-RPT-DT" stype="Text" displayonly="yes">MIR-MEDIC-RPT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MOBIL-INTRVW-IND">モバイル面接:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-MOBIL-INTRVW-IND" id="MIR-MOBIL-INTRVW-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+                </tr>
+<!-- MP265G CHANGES START-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-AGT-NM">代理店名:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-AGT-NM" stype="Text" displayonly="yes">MIR-DV-AGT-NM</span>
+                    </td>
+                </tr>
+<!-- MP265G CHANGES END-->
+            </table>
+            </td>
+            </tr>
+            </table>
+            <br />
+            <table class="tabledatakey">
+             <tr>
+                 <td class="celldisplayheading" colspan="8">医的情報</td>
+                   </tr>
+                   <tr>
+                       <td class="celldisplaylabel">
+                           <label for="MIR-BLOOD-TXT">血液:</label>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-BLOOD-TXT-CHNG-IND" stype="Text" displayonly="yes">MIR-BLOOD-TXT-CHNG-IND</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-BLOOD-TXT" stype="TextArea" displayonly="yes">MIR-BLOOD-TXT</span>
+                       </td>
+                       <td class="celldisplaylabel">
+                 <label for="MIR-MED-MIN-BLOOD-RT">血圧値　-　最小：</label>
+             </td>
+             <td class="celldisplay">
+                 <span id="MIR-MED-MIN-BLOOD-RT" stype="Text" displayonly="yes">MIR-MED-MIN-BLOOD-RT</span>
+                       </td>
+                       <td class="celldisplaylabel">
+                 <label for="MIR-MED-MAX-BLOOD-RT">最大　　限度外:</label>
+             </td>
+             <td class="celldisplay">
+                 <span id="MIR-MED-MAX-BLOOD-RT" stype="Text" displayonly="yes">MIR-MED-MAX-BLOOD-RT</span>
+                       </td>
+                       <td class="celldisplaylabel">
+                 <label for="MIR-ECG-TXT">心電図:</label>
+             </td>
+                        <td class="celldisplay">
+                           <span id="MIR-ECG-TXT-CHNG-IND" stype="Text" displayonly="yes">MIR-ECG-TXT-CHNG-IND</span>
+                       </td>
+            <td class="celldisplay">
+                 <span id="MIR-ECG-TXT" stype="TextArea" displayonly="yes">MIR-ECG-TXT</span>
+                       </td>
+                    </tr>
+             </table>
+             <table class="tabledatakey">
+                    <tr>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-BLOOD-TEST-IND" id="MIR-BLOOD-TEST-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-BLOOD-TEST-IND">血液検査結果値</label>
+                        </td>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-ECG-IND" id="MIR-ECG-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-ECG-IND">心電図</label>
+                        </td>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-HLTH-CHK-RSLT-IND" id="MIR-HLTH-CHK-RSLT-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-HLTH-CHK-RSLT-IND">健康診断結果</label>
+                        </td>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-MEDIC-RPT-IND" id="MIR-MEDIC-RPT-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-MEDIC-RPT-IND">診断書　（新契約）　給付金</label>
+                        </td>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-ADDL-SELF-DSCLSRE-IND" id="MIR-ADDL-SELF-DSCLSRE-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-ADDL-SELF-DSCLSRE-IND">追加告知書</label>
+                        </td>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-DEDCT-SELF-DSCLSRE-IND" id="MIR-DEDCT-SELF-DSCLSRE-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-DEDCT-SELF-DSCLSRE-IND">専用追加告知書</label>
+                        </td>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-EXIST-SELF-DSCLSRE-IND" id="MIR-EXIST-SELF-DSCLSRE-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-EXIST-SELF-DSCLSRE-IND">既契約告知書　（報状）</label>
+                        </td>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-PRE-ISS-RPT-IND" id="MIR-PRE-ISS-RPT-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-PRE-ISS-RPT-IND">成立前報告</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-HLTH-RPT-RESP-IND" id="MIR-HLTH-RPT-RESP-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-HLTH-RPT-RESP-IND">医師・面接士回答</label>
+                        </td>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-PRLM-UW-RSLT-IND" id="MIR-PRLM-UW-RSLT-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-PRLM-UW-RSLT-IND">仮査定結果　画面コピー</label>
+                        </td>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-MEDIC-BNFT-RPT-IND" id="MIR-MEDIC-BNFT-RPT-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-MEDIC-BNFT-RPT-IND">診断書　（保険金・給付金）</label>
+                        </td>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-INCMPLT-DOC-IND" id="MIR-INCMPLT-DOC-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-INCMPLT-DOC-IND">不備回答書類</label>
+                        </td>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-SCR-WRITN-PLDG-IND" id="MIR-SCR-WRITN-PLDG-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-SCR-WRITN-PLDG-IND">代筆者誓約書　申請文</label>
+                        </td>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-EXIST-POL-DOC-IND" id="MIR-EXIST-POL-DOC-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-EXIST-POL-DOC-IND">既契約書類</label>
+                        </td>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-OTHRS-IND" id="MIR-OTHRS-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-OTHRS-IND">その他</label>
+                        </td>
+                        <td class="celldisplay">
+                            <span id="MIR-OTHRS-DESC-TXT" stype="TextArea" displayonly="yes">MIR-OTHRS-DESC-TXT</span>
+                        </td>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-OTHRS-DESC-TXT">コメント欄</label>
+                        </td>
+                    </tr>
+            </table>
+            <br />
+                 <h2>
+         <a name="1. Mortality / Hospitalization Ratio">1.死亡指数：入院指数欄</a>
+                 </h2>
+            <br />
+            <table class="tabledatakey">
+                   <tr>
+                       <td class="celldisplaylabel">
+                           <label>参考事項欄　指数欄</label>
+                       </td>
+                       <td class="celldisplaylabel">
+                           <label for="MIR-SELF-DSCLSRE-IND">告知有</label>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-SELF-DSCLSRE-IND" stype="Text" displayonly="yes">MIR-SELF-DSCLSRE-IND</span>
+                       </td>
+                       <td class="celldisplaylabel">
+                           <label for="MIR-BMI-VALU-TXT">BM値:</label>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-BMI-VALU-TXT" stype="Text" displayonly="yes">MIR-BMI-VALU-TXT</span>
+                       </td>
+                       <td class="celldisplaylabel">
+                           <label for="MIR-MED-URINE-IND">尿:</label>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MED-URINE-IND" stype="Text" displayonly="yes">MIR-MED-URINE-IND</span>
+                       </td>
+                       <td class="celldisplaylabel">
+                           <label for="MIR-MED-BLOOD-RT-IND">血圧:</label>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MED-BLOOD-RT-IND" stype="Text" displayonly="yes">MIR-MED-BLOOD-RT-IND</span>
+                       </td>
+                       <td class="celldisplaylabel">
+                           <label for="MIR-MED-PULSE-RT-IND">脈拍:</label>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MED-PULSE-RT-IND" stype="Text" displayonly="yes">MIR-MED-PULSE-RT-IND</span>
+                       </td>
+                       <td class="celldisplaylabel">
+                           <label for="MIR-MED-BLOOD-TST-IND">血液検査有:</label>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MED-BLOOD-TST-IND" stype="Text" displayonly="yes">MIR-MED-BLOOD-TST-IND</span>
+                       </td>
+                       <td class="celldisplaylabel">
+                           <label for="MIR-MED-ECG-IND">心電図有:</label>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MED-ECG-IND" stype="Text" displayonly="yes">MIR-MED-ECG-IND</span>
+                       </td>
+                   </tr>
+                   </table>
+                   <table class="tabledatakey">
+                   <tr>
+                       <td class="celldisplayheading" colspan="1"></td>
+                       <td class="celldisplayheading">
+                           <span id="" stype="Text" displayonly="yes"></span>
+                       </td>
+
+                       <td class="celldisplayheading" colspan="1">既往</td>
+                       <td class="celldisplayheading">
+                           <span id="" stype="Text" displayonly="yes"></span>
+                       </td>
+
+                       <td class="celldisplayheading" colspan="1">現症</td>
+                       <td class="celldisplayheading">
+                           <span id="" stype="Text" displayonly="yes"></span>
+                       </td>
+
+                       <td class="celldisplayheading" colspan="1">体格</td>
+                       <td class="celldisplayheading">
+                           <span id="" stype="Text" displayonly="yes"></span>
+                       </td>
+
+                       <td class="celldisplayheading" colspan="1">脈拍</td>
+                       <td class="celldisplayheading">
+                           <span id="" stype="Text" displayonly="yes"></span>
+                       </td>
+
+                       <td class="celldisplayheading" colspan="1">血圧</td>
+                       <td class="celldisplayheading">
+                           <span id="" stype="Text" displayonly="yes"></span>
+                       </td>
+
+                       <td class="celldisplayheading" colspan="1">尿</td>
+                       <td class="celldisplayheading">
+                           <span id="" stype="Text" displayonly="yes"></span>
+                       </td>
+
+                       <td class="celldisplayheading" colspan="1">血糖</td>
+                       <td class="celldisplayheading">
+                           <span id="" stype="Text" displayonly="yes"></span>
+                       </td>
+
+                       <td class="celldisplayheading" colspan="1">肝</td>
+                       <td class="celldisplayheading">
+                           <span id="" stype="Text" displayonly="yes"></span>
+                       </td>
+
+                       <td class="celldisplayheading" colspan="1">脂質</td>
+                       <td class="celldisplayheading">
+                           <span id="" stype="Text" displayonly="yes"></span>
+                       </td>
+
+                       <td class="celldisplayheading" colspan="1">貧血</td>
+                       <td class="celldisplayheading">
+                           <span id="" stype="Text" displayonly="yes"></span>
+                       </td>
+
+                       <td class="celldisplayheading" colspan="1">心電図</td>
+                       <td class="celldisplayheading">
+                           <span id="" stype="Text" displayonly="yes"></span>
+                       </td>
+
+                       <td class="celldisplayheading" colspan="1">修正</td>
+
+
+                       <td class="celldisplayheading" colspan="1">標準</td>
+                       <td class="celldisplayheading">
+                           <span id="" stype="Text" displayonly="yes"></span>
+                       </td>
+
+                       <td class="celldisplayheading" colspan="1">合計</td>
+
+                   </tr>
+                   <tr>
+                       <td class="celldisplaylabel" colspan="1">
+                          <label>死亡</label>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-PREV-DIS-CHNG-IND" stype="Text" displayonly="yes">MIR-DTH-PREV-DIS-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay" colspan="1">
+                           <span id="MIR-DTH-PREV-DIS-CD" stype="Text" displayonly="yes">MIR-DTH-PREV-DIS-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-CRNT-DIS-CHNG-IND" stype="Text" displayonly="yes">MIR-DTH-CRNT-DIS-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-CRNT-DIS-CD" stype="Text" displayonly="yes">MIR-DTH-CRNT-DIS-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-BLD-CHNG-IND" stype="Text" displayonly="yes">MIR-DTH-BLD-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-BLD-CD" stype="Text" displayonly="yes">MIR-DTH-BLD-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-PULSE-CHNG-IND" stype="Text" displayonly="yes">MIR-DTH-PULSE-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-PULSE-CD" stype="Text" displayonly="yes">MIR-DTH-PULSE-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-BD-CHNG-IND" stype="Text" displayonly="yes">MIR-DTH-BD-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-BD-CD" stype="Text" displayonly="yes">MIR-DTH-BD-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-URINE-CHNG-IND" stype="Text" displayonly="yes">MIR-DTH-URINE-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-URINE-CD" stype="Text" displayonly="yes">MIR-DTH-URINE-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-BLOOD-SUGAR-CHNG-IND" stype="Text" displayonly="yes">MIR-DTH-BLOOD-SUGAR-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-BLOOD-SUGAR-CD" stype="Text" displayonly="yes">MIR-DTH-BLOOD-SUGAR-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-LIVER-CHNG-IND" stype="Text" displayonly="yes">MIR-DTH-LIVER-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-LIVER-CD" stype="Text" displayonly="yes">MIR-DTH-LIVER-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-LIPID-CHNG-IND" stype="Text" displayonly="yes">MIR-DTH-LIPID-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-LIPID-CD" stype="Text" displayonly="yes">MIR-DTH-LIPID-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-ANEM-CHNG-IND" stype="Text" displayonly="yes">MIR-DTH-ANEM-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-ANEM-CD" stype="Text" displayonly="yes">MIR-DTH-ANEM-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-ECG-CHNG-IND" stype="Text" displayonly="yes">MIR-DTH-ECG-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-ECG-CD" stype="Text" displayonly="yes">MIR-DTH-ECG-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-ADJ-CHNG-IND" stype="Text" displayonly="yes">MIR-DTH-ADJ-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-ADJ-CD" stype="Text" displayonly="yes">MIR-DTH-ADJ-CD</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-STD-CD" stype="Text" displayonly="yes">MIR-DTH-STD-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-TOT-AMT-CHNG-IND" stype="Text" displayonly="yes">MIR-DTH-TOT-AMT-CHNG-IND</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-DTH-TOT-AMT" stype="Text" displayonly="yes">MIR-DTH-TOT-AMT</span>
+                       </td>
+                    </tr>
+                    <tr>
+                       <td class="celldisplaylabel">
+                          <label>Ｓ</label>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-CON-PREV-DIS-CHNG-IND" stype="Text" displayonly="yes">MIR-CON-PREV-DIS-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay" colspan="1">
+                           <span id="MIR-CON-PREV-DIS-CD" stype="Text" displayonly="yes">MIR-CON-PREV-DIS-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-CON-CRNT-DIS-CHNG-IND" stype="Text" displayonly="yes">MIR-CON-CRNT-DIS-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-CON-CRNT-DIS-CD" stype="Text" displayonly="yes">MIR-CON-CRNT-DIS-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-CON-BLD-CHNG-IND" stype="Text" displayonly="yes">MIR-CON-BLD-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-CON-BLD-CD" stype="Text" displayonly="yes">MIR-CON-BLD-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-CON-PULSE-CHNG-IND" stype="Text" displayonly="yes">MIR-CON-PULSE-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-CON-PULSE-CD" stype="Text" displayonly="yes">MIR-CON-PULSE-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-CON-BD-CHNG-IND" stype="Text" displayonly="yes">MIR-CON-BD-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-CON-BD-CD" stype="Text" displayonly="yes">MIR-CON-BD-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-CON-URINE-CHNG-IND" stype="Text" displayonly="yes">MIR-CON-URINE-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-CON-URINE-CD" stype="Text" displayonly="yes">MIR-CON-URINE-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-CON-BLOOD-SUGAR-CHNG-IND" stype="Text" displayonly="yes">MIR-CON-BLOOD-SUGAR-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-CON-BLOOD-SUGAR-CD" stype="Text" displayonly="yes">MIR-CON-BLOOD-SUGAR-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-CON-LIVER-CHNG-IND" stype="Text" displayonly="yes">MIR-CON-LIVER-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-CON-LIVER-CD" stype="Text" displayonly="yes">MIR-CON-LIVER-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-CON-LIPID-CHNG-IND" stype="Text" displayonly="yes">MIR-CON-LIPID-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-CON-LIPID-CD" stype="Text" displayonly="yes">MIR-CON-LIPID-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-CON-ANEM-CHNG-IND" stype="Text" displayonly="yes">MIR-CON-ANEM-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-CON-ANEM-CD" stype="Text" displayonly="yes">MIR-CON-ANEM-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-CON-ECG-CHNG-IND" stype="Text" displayonly="yes">MIR-CON-ECG-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-CON-ECG-CD" stype="Text" displayonly="yes">MIR-CON-ECG-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-CON-ADJ-CHNG-IND" stype="Text" displayonly="yes">MIR-CON-ADJ-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-CON-ADJ-CD" stype="Text" displayonly="yes">MIR-CON-ADJ-CD</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-CON-STD-CD" stype="Text" displayonly="yes">MIR-CON-STD-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-CON-TOT-AMT-CHNG-IND" stype="Text" displayonly="yes">MIR-CON-TOT-AMT-CHNG-IND</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-CON-TOT-AMT" stype="Text" displayonly="yes">MIR-CON-TOT-AMT</span>
+                       </td>
+                    </tr>
+                   <tr>
+                       <td class="celldisplaylabel">
+                          <label>入院</label>
+                        </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-PREV-DIS-CHNG-IND" stype="Text" displayonly="yes">MIR-MEDIC-PREV-DIS-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay" colspan="1">
+                           <span id="MIR-MEDIC-PREV-DIS-CD" stype="Text" displayonly="yes">MIR-MEDIC-PREV-DIS-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-CRNT-DIS-CHNG-IND" stype="Text" displayonly="yes">MIR-MEDIC-CRNT-DIS-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-CRNT-DIS-CD" stype="Text" displayonly="yes">MIR-MEDIC-CRNT-DIS-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-BLD-CHNG-IND" stype="Text" displayonly="yes">MIR-MEDIC-BLD-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-BLD-CD" stype="Text" displayonly="yes">MIR-MEDIC-BLD-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-PULSE-CHNG-IND" stype="Text" displayonly="yes">MIR-MEDIC-PULSE-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-PULSE-CD" stype="Text" displayonly="yes">MIR-MEDIC-PULSE-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-BD-CHNG-IND" stype="Text" displayonly="yes">MIR-MEDIC-BD-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-BD-CD" stype="Text" displayonly="yes">MIR-MEDIC-BD-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-URINE-CHNG-IND" stype="Text" displayonly="yes">MIR-MEDIC-URINE-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-URINE-CD" stype="Text" displayonly="yes">MIR-MEDIC-URINE-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-BLOOD-SUGAR-CHNG-IND" stype="Text" displayonly="yes">MIR-MEDIC-BLOOD-SUGAR-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-BLOOD-SUGAR-CD" stype="Text" displayonly="yes">MIR-MEDIC-BLOOD-SUGAR-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-LIVER-CHNG-IND" stype="Text" displayonly="yes">MIR-MEDIC-LIVER-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-LIVER-CD" stype="Text" displayonly="yes">MIR-MEDIC-LIVER-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-LIPID-CHNG-IND" stype="Text" displayonly="yes">MIR-MEDIC-LIPID-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-LIPID-CD" stype="Text" displayonly="yes">MIR-MEDIC-LIPID-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-ANEM-CHNG-IND" stype="Text" displayonly="yes">MIR-MEDIC-ANEM-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-ANEM-CD" stype="Text" displayonly="yes">MIR-MEDIC-ANEM-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-ECG-CHNG-IND" stype="Text" displayonly="yes">MIR-MEDIC-ECG-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-ECG-CD" stype="Text" displayonly="yes">MIR-MEDIC-ECG-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-ADJ-CHNG-IND" stype="Text" displayonly="yes">MIR-MEDIC-ADJ-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-ADJ-CD" stype="Text" displayonly="yes">MIR-MEDIC-ADJ-CD</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-STD-CD" stype="Text" displayonly="yes">MIR-MEDIC-STD-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-TOT-AMT-CHNG-IND" stype="Text" displayonly="yes">MIR-MEDIC-TOT-AMT-CHNG-IND</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-MEDIC-TOT-AMT" stype="Text" displayonly="yes">MIR-MEDIC-TOT-AMT</span>
+                       </td>
+                    </tr>
+                    <tr>
+                       <td class="celldisplaylabel">
+                          <label>部位不担保</label>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-PREV-DIS-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-PREV-DIS-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay" colspan="1">
+                           <span id="MIR-EXCL-PREV-DIS-CD" stype="Text" displayonly="yes">MIR-EXCL-PREV-DIS-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-CRNT-DIS-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-CRNT-DIS-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-CRNT-DIS-CD" stype="Text" displayonly="yes">MIR-EXCL-CRNT-DIS-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-BLD-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-BLD-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-BLD-CD" stype="Text" displayonly="yes">MIR-EXCL-BLD-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-PULSE-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-PULSE-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-PULSE-CD" stype="Text" displayonly="yes">MIR-EXCL-PULSE-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-BD-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-BD-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-BD-CD" stype="Text" displayonly="yes">MIR-EXCL-BD-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-URINE-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-URINE-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-URINE-CD" stype="Text" displayonly="yes">MIR-EXCL-URINE-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-BLOOD-SUGAR-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-BLOOD-SUGAR-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-BLOOD-SUGAR-CD" stype="Text" displayonly="yes">MIR-EXCL-BLOOD-SUGAR-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-LIVER-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-LIVER-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-LIVER-CD" stype="Text" displayonly="yes">MIR-EXCL-LIVER-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-LIPID-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-LIPID-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-LIPID-CD" stype="Text" displayonly="yes">MIR-EXCL-LIPID-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-ANEM-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-ANEM-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-ANEM-CD" stype="Text" displayonly="yes">MIR-EXCL-ANEM-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-ECG-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-ECG-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-ECG-CD" stype="Text" displayonly="yes">MIR-EXCL-ECG-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-ADJ-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-ADJ-CHNG-IND</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-ADJ-CD" stype="Text" displayonly="yes">MIR-EXCL-ADJ-CD</span>
+                       </td>
+
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-STD-CD" stype="Text" displayonly="yes">MIR-EXCL-STD-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-TOT-AMT-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-TOT-AMT-CHNG-IND</span>
+                       </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-TOT-AMT" stype="Text" displayonly="yes">MIR-EXCL-TOT-AMT</span>
+                       </td>
+                    </tr>
+            </table>
+            <br />
+                 <h2>
+         <a name="2. Underwriting Results">2.体況結果欄</a>
+                 </h2>
+            <br/>
+            <table class="tabledatakey">
+            <tr>
+            <td>
+                <table class="tabledatakey">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MLJ-HLTH-ASSESS-CD">体況結果（ＭＬＪ結果）</label>
+                     </td>
+                     <td class="celldisplay">
+                         <span id="MIR-MLJ-HLTH-ASSESS-CHNG-IND" stype="Text" displayonly="yes">MIR-MLJ-HLTH-ASSESS-CHNG-IND</span>
+                     </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MLJ-HLTH-ASSESS-CD" stype="Text" displayonly="yes">MIR-MLJ-HLTH-ASSESS-CD</span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-REINS-HLTH-ASSESS-CD">体況結果（再保険結果）</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REINS-HLTH-ASSESS-CHNG-IND" stype="Text" displayonly="yes">MIR-REINS-HLTH-ASSESS-CHNG-IND</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REINS-HLTH-ASSESS-CD" stype="Text" displayonly="yes">MIR-REINS-HLTH-ASSESS-CD</span>
+                    </td>
+                 </tr>
+            </table>
+            <table class="tabledatakey">
+                    <tr>
+                        <td class="celldisplaylabel">
+                          <label>部位不担保</label>
+                        </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-BODY-PART-1-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-BODY-PART-1-CHNG-IND</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-EXCL-BODY-PART-1-CD" stype="Text" displayonly="yes">MIR-EXCL-BODY-PART-1-CD</span>
+                        </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-BODY-PART-2-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-BODY-PART-2-CHNG-IND</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-EXCL-BODY-PART-2-CD" stype="Text" displayonly="yes">MIR-EXCL-BODY-PART-2-CD</span>
+                        </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-BODY-PART-3-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-BODY-PART-3-CHNG-IND</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-EXCL-BODY-PART-3-CD" stype="Text" displayonly="yes">MIR-EXCL-BODY-PART-3-CD</span>
+                        </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-BODY-PART-4-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-BODY-PART-4-CHNG-IND</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-EXCL-BODY-PART-4-CD" stype="Text" displayonly="yes">MIR-EXCL-BODY-PART-4-CD</span>
+                        </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-BODY-PART-5-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-BODY-PART-5-CHNG-IND</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-EXCL-BODY-PART-5-CD" stype="Text" displayonly="yes">MIR-EXCL-BODY-PART-5-CD</span>
+                        </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-BODY-PART-6-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-BODY-PART-6-CHNG-IND</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-EXCL-BODY-PART-6-CD" stype="Text" displayonly="yes">MIR-EXCL-BODY-PART-6-CD</span>
+                        </td>
+                       <td class="celldisplay">
+                           <span id="MIR-EXCL-BODY-PART-7-CHNG-IND" stype="Text" displayonly="yes">MIR-EXCL-BODY-PART-7-CHNG-IND</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-EXCL-BODY-PART-7-CD" stype="Text" displayonly="yes">MIR-EXCL-BODY-PART-7-CD</span>
+                        </td>
+                    </tr>
+            </table>
+            <table class="tabledatakey">
+                    <tr>
+                        <td class="celldisplaylabel">
+                            <label for="MIR-DISABL-NOT-COVD-IND">特定障害不担保</label>
+                        </td>
+                       <td class="celldisplay">
+                           <span id="MIR-DISABL-NOT-COVD-CHNG-IND" stype="Text" displayonly="yes">MIR-DISABL-NOT-COVD-CHNG-IND</span>
+                       </td>
+                        <td class="celldisplay">
+                            <input type="checkbox" name="MIR-DISABL-NOT-COVD-IND" id="MIR-DISABL-NOT-COVD-IND" stype="Indicator" value="Y" disabled="yes"/>
+                        </td>
+                    </tr>
+            </table>
+            <table class="tabledatakey">
+                    <tr>
+                           <td class="celldisplayheading" colspan="1">体況情報</td>
+                           <td class="celldisplayheading" colspan="1"></td>
+                           <td class="celldisplayheading" colspan="1">理由ＣＤ1</td>
+                           <td class="celldisplayheading" colspan="1"></td>
+                           <td class="celldisplayheading" colspan="1">理由ＣＤ2</td>
+                           <td class="celldisplayheading" colspan="1"></td>
+                           <td class="celldisplayheading" colspan="1">理由ＣＤ3</td>
+                           <td class="celldisplayheading" colspan="1"></td>
+                           <td class="celldisplayheading" colspan="1">理由ＣＤ4</td>
+                           <td class="celldisplayheading" colspan="1"></td>
+                           <td class="celldisplayheading" colspan="1">理由ＣＤ5</td>
+                    </tr>
+                    <tr>
+                        <td class="celldisplay">
+                        </td>
+                       <td class="celldisplay">
+                           <span id="MIR-REASN-1-CD-CHNG-IND" stype="Text" displayonly="yes">MIR-REASN-1-CD-CHNG-IND</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-REASN-1-CD" stype="Text" displayonly="yes">MIR-REASN-1-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-REASN-2-CD-CHNG-IND" stype="Text" displayonly="yes">MIR-REASN-2-CD-CHNG-IND</span>
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-REASN-2-CD" stype="Text" displayonly="yes">MIR-REASN-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-REASN-3-CD-CHNG-IND" stype="Text" displayonly="yes">MIR-REASN-3-CD-CHNG-IND</span>
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-REASN-3-CD" stype="Text" displayonly="yes">MIR-REASN-3-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-REASN-4-CD-CHNG-IND" stype="Text" displayonly="yes">MIR-REASN-4-CD-CHNG-IND</span>
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-REASN-4-CD" stype="Text" displayonly="yes">MIR-REASN-4-CD</span>
+                        </td>
+                       <td class="celldisplay">
+                           <span id="MIR-REASN-5-CD-CHNG-IND" stype="Text" displayonly="yes">MIR-REASN-5-CD-CHNG-IND</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-REASN-5-CD" stype="Text" displayonly="yes">MIR-REASN-5-CD</span>
+                        </td>
+                     </tr>
+            </table>
+
+            <div id="tableContainer2" class="tableContainer2">
+            <table class="tabledatakey" keyfield="0">
+                     <tr>
+                         <td class="celldisplay"></td>
+                         <td class="celldisplayheading" colspan="1"></td>
+                         <td class="celldisplayheading" colspan="1">欠陥ＣＤ1</td>
+                         <td class="celldisplayheading" colspan="1"></td>
+                         <td class="celldisplayheading" colspan="1">欠陥ＣＤ2</td>
+                         <td class="celldisplayheading" colspan="1"></td>
+                         <td class="celldisplayheading" colspan="1">経過年数</td>
+                         <td class="celldisplayheading" colspan="1"></td>
+                         <td class="celldisplayheading" colspan="1">手術1</td>
+                         <td class="celldisplayheading" colspan="1"></td>
+                         <td class="celldisplayheading" colspan="1">手術2</td>
+                         <td class="celldisplayheading" colspan="1"></td>
+                         <td class="celldisplayheading" colspan="1">手術3</td>
+                         <td class="celldisplayheading" colspan="1"></td>
+                         <td class="celldisplayheading" colspan="1">付加情報</td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FRST-DFCT-1-CD" stype="Text" displayonly="yes">MIR-CI-FRST-DFCT-1-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FRST-DFCT-1-CD" stype="Text" displayonly="yes">MIR-FRST-DFCT-1-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FRST-DFCT-2-CD" stype="Text" displayonly="yes">MIR-CI-FRST-DFCT-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FRST-DFCT-2-CD" stype="Text" displayonly="yes">MIR-FRST-DFCT-2-CD</span>
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-FRST-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-CI-FRST-ELAPS-YRS-DUR</span>
+                       </td>
+                        <td class="celldisplay">
+                <span id="MIR-FRST-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-FRST-ELAPS-YRS-DUR</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FRST-SURGY-1-CD" stype="Text" displayonly="yes">MIR-CI-FRST-SURGY-1-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FRST-SURGY-1-CD" stype="Text" displayonly="yes">MIR-FRST-SURGY-1-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FRST-SURGY-2-CD" stype="Text" displayonly="yes">MIR-CI-FRST-SURGY-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FRST-SURGY-2-CD" stype="Text" displayonly="yes">MIR-FRST-SURGY-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FRST-SURGY-3-CD" stype="Text" displayonly="yes">MIR-CI-FRST-SURGY-3-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FRST-SURGY-3-CD" stype="Text" displayonly="yes">MIR-FRST-SURGY-3-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FRST-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-CI-FRST-ADDL-INFO-TXT</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FRST-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-FRST-ADDL-INFO-TXT</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-SEC-DFCT-1-CD" stype="Text" displayonly="yes">MIR-CI-SEC-DFCT-1-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-SEC-DFCT-1-CD" stype="Text" displayonly="yes">MIR-SEC-DFCT-1-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-SEC-DFCT-2-CD" stype="Text" displayonly="yes">MIR-CI-SEC-DFCT-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-SEC-DFCT-2-CD" stype="Text" displayonly="yes">MIR-SEC-DFCT-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-SEC-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-CI-SEC-ELAPS-YRS-DUR</span>
+                       </td>
+                        <td class="celldisplay">
+                <span id="MIR-SEC-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-SEC-ELAPS-YRS-DUR</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-SEC-SURGY-1-CD" stype="Text" displayonly="yes">MIR-CI-SEC-SURGY-1-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-SEC-SURGY-1-CD" stype="Text" displayonly="yes">MIR-SEC-SURGY-1-CD</span>
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-SEC-SURGY-2-CD" stype="Text" displayonly="yes">MIR-CI-SEC-SURGY-2-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-SEC-SURGY-2-CD" stype="Text" displayonly="yes">MIR-SEC-SURGY-2-CD</span>
+                        </td>
+                          <td class="celldisplay">
+                           <span id="MIR-CI-SEC-SURGY-3-CD" stype="Text" displayonly="yes">MIR-CI-SEC-SURGY-3-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-SEC-SURGY-3-CD" stype="Text" displayonly="yes">MIR-SEC-SURGY-3-CD</span>
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-SEC-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-CI-SEC-ADDL-INFO-TXT</span>
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-SEC-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-SEC-ADDL-INFO-TXT</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-THRD-DFCT-1-CD" stype="Text" displayonly="yes">MIR-CI-THRD-DFCT-1-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-THRD-DFCT-1-CD" stype="Text" displayonly="yes">MIR-THRD-DFCT-1-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-THRD-DFCT-2-CD" stype="Text" displayonly="yes">MIR-CI-THRD-DFCT-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-THRD-DFCT-2-CD" stype="Text" displayonly="yes">MIR-THRD-DFCT-2-CD</span>
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-THRD-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-CI-THRD-ELAPS-YRS-DUR</span>
+                       </td>
+                        <td class="celldisplay">
+                <span id="MIR-THRD-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-THRD-ELAPS-YRS-DUR</span>
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-THRD-SURGY-1-CD" stype="Text" displayonly="yes">MIR-CI-THRD-SURGY-1-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-THRD-SURGY-1-CD" stype="Text" displayonly="yes">MIR-THRD-SURGY-1-CD</span>
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-THRD-SURGY-2-CD" stype="Text" displayonly="yes">MIR-CI-THRD-SURGY-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-THRD-SURGY-2-CD" stype="Text" displayonly="yes">MIR-THRD-SURGY-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-THRD-SURGY-3-CD" stype="Text" displayonly="yes">MIR-CI-THRD-SURGY-3-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-THRD-SURGY-3-CD" stype="Text" displayonly="yes">MIR-THRD-SURGY-3-CD</span>
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-THRD-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-CI-THRD-ADDL-INFO-TXT</span>
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-THRD-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-THRD-ADDL-INFO-TXT</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-FRTH-DFCT-1-CD" stype="Text" displayonly="yes">MIR-CI-FRTH-DFCT-1-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-FRTH-DFCT-1-CD" stype="Text" displayonly="yes">MIR-FRTH-DFCT-1-CD</span>
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-FRTH-DFCT-2-CD" stype="Text" displayonly="yes">MIR-CI-FRTH-DFCT-2-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-FRTH-DFCT-2-CD" stype="Text" displayonly="yes">MIR-FRTH-DFCT-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FRTH-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-CI-FRTH-ELAPS-YRS-DUR</span>
+                       </td>
+                        <td class="celldisplay">
+                <span id="MIR-FRTH-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-FRTH-ELAPS-YRS-DUR</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FRTH-SURGY-1-CD" stype="Text" displayonly="yes">MIR-CI-FRTH-SURGY-1-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FRTH-SURGY-1-CD" stype="Text" displayonly="yes">MIR-FRTH-SURGY-1-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FRTH-SURGY-2-CD" stype="Text" displayonly="yes">MIR-CI-FRTH-SURGY-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FRTH-SURGY-2-CD" stype="Text" displayonly="yes">MIR-FRTH-SURGY-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FRTH-SURGY-3-CD" stype="Text" displayonly="yes">MIR-CI-FRTH-SURGY-3-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FRTH-SURGY-3-CD" stype="Text" displayonly="yes">MIR-FRTH-SURGY-3-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FRTH-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-CI-FRTH-ADDL-INFO-TXT</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FRTH-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-FRTH-ADDL-INFO-TXT</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FIFTH-DFCT-1-CD" stype="Text" displayonly="yes">MIR-CI-FIFTH-DFCT-1-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FIFTH-DFCT-1-CD" stype="Text" displayonly="yes">MIR-FIFTH-DFCT-1-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FIFTH-DFCT-2-CD" stype="Text" displayonly="yes">MIR-CI-FIFTH-DFCT-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FIFTH-DFCT-2-CD" stype="Text" displayonly="yes">MIR-FIFTH-DFCT-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FIFTH-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-CI-FIFTH-ELAPS-YRS-DUR</span>
+                       </td>
+                        <td class="celldisplay">
+                <span id="MIR-FIFTH-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-FIFTH-ELAPS-YRS-DUR</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FIFTH-SURGY-1-CD" stype="Text" displayonly="yes">MIR-CI-FIFTH-SURGY-1-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FIFTH-SURGY-1-CD" stype="Text" displayonly="yes">MIR-FIFTH-SURGY-1-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FIFTH-SURGY-2-CD" stype="Text" displayonly="yes">MIR-CI-FIFTH-SURGY-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FIFTH-SURGY-2-CD" stype="Text" displayonly="yes">MIR-FIFTH-SURGY-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FIFTH-SURGY-3-CD" stype="Text" displayonly="yes">MIR-CI-FIFTH-SURGY-3-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FIFTH-SURGY-3-CD" stype="Text" displayonly="yes">MIR-FIFTH-SURGY-3-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-FIFTH-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-CI-FIFTH-ADDL-INFO-TXT</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-FIFTH-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-FIFTH-ADDL-INFO-TXT</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-SIXTH-DFCT-1-CD" stype="Text" displayonly="yes">MIR-CI-SIXTH-DFCT-1-CDIND</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-SIXTH-DFCT-1-CD" stype="Text" displayonly="yes">MIR-SIXTH-DFCT-1-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-SIXTH-DFCT-2-CD" stype="Text" displayonly="yes">MIR-CI-SIXTH-DFCT-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-SIXTH-DFCT-2-CD" stype="Text" displayonly="yes">MIR-SIXTH-DFCT-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-SIXTH-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-CI-SIXTH-ELAPS-YRS-DUR</span>
+                       </td>
+                        <td class="celldisplay">
+                <span id="MIR-SIXTH-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-SIXTH-ELAPS-YRS-DUR</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-SIXTH-SURGY-1-CD" stype="Text" displayonly="yes">MIR-CI-SIXTH-SURGY-1-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-SIXTH-SURGY-1-CD" stype="Text" displayonly="yes">MIR-SIXTH-SURGY-1-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-SIXTH-SURGY-2-CD" stype="Text" displayonly="yes">MIR-CI-SIXTH-SURGY-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-SIXTH-SURGY-2-CD" stype="Text" displayonly="yes">MIR-SIXTH-SURGY-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-SIXTH-SURGY-3-CD" stype="Text" displayonly="yes">MIR-CI-SIXTH-SURGY-3-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-SIXTH-SURGY-3-CD" stype="Text" displayonly="yes">MIR-SIXTH-SURGY-3-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-SIXTH-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-CI-SIXTH-ADDL-INFO-TXT</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-SIXTH-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-SIXTH-ADDL-INFO-TXT</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-SVNTH-DFCT-1-CD" stype="Text" displayonly="yes">MIR-CI-SVNTH-DFCT-1-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-SVNTH-DFCT-1-CD" stype="Text" displayonly="yes">MIR-SVNTH-DFCT-1-CD</span>
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-SVNTH-DFCT-2-CD" stype="Text" displayonly="yes">MIR-CI-SVNTH-DFCT-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-SVNTH-DFCT-2-CD" stype="Text" displayonly="yes">MIR-SVNTH-DFCT-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-SVNTH-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-CI-SVNTH-ELAPS-YRS-DUR</span>
+                       </td>
+                        <td class="celldisplay">
+                <span id="MIR-SVNTH-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-SVNTH-ELAPS-YRS-DUR</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-SVNTH-SURGY-1-CD" stype="Text" displayonly="yes">MIR-CI-SVNTH-SURGY-1-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-SVNTH-SURGY-1-CD" stype="Text" displayonly="yes">MIR-SVNTH-SURGY-1-CD</span>
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-SVNTH-SURGY-2-CD" stype="Text" displayonly="yes">MIR-CI-SVNTH-SURGY-2-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-SVNTH-SURGY-2-CD" stype="Text" displayonly="yes">MIR-SVNTH-SURGY-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-SVNTH-SURGY-3-CD" stype="Text" displayonly="yes">MIR-CI-SVNTH-SURGY-3-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-SVNTH-SURGY-3-CD" stype="Text" displayonly="yes">MIR-SVNTH-SURGY-3-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-SVNTH-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-CI-SVNTH-ADDL-INFO-TXT</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-SVNTH-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-SVNTH-ADDL-INFO-TXT</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-EIGTH-DFCT-1-CD" stype="Text" displayonly="yes">MIR-CI-EIGTH-DFCT-1-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-EIGTH-DFCT-1-CD" stype="Text" displayonly="yes">MIR-EIGTH-DFCT-1-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-EIGTH-DFCT-2-CD" stype="Text" displayonly="yes">MIR-CI-EIGTH-DFCT-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-EIGTH-DFCT-2-CD" stype="Text" displayonly="yes">MIR-EIGTH-DFCT-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-EIGTH-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-CI-EIGTH-ELAPS-YRS-DUR</span>
+                       </td>
+                        <td class="celldisplay">
+                <span id="MIR-EIGTH-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-EIGTH-ELAPS-YRS-DUR</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-EIGTH-SURGY-1-CD" stype="Text" displayonly="yes">MIR-CI-EIGTH-SURGY-1-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-EIGTH-SURGY-1-CD" stype="Text" displayonly="yes">MIR-EIGTH-SURGY-1-CD</span>
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-EIGTH-SURGY-2-CD" stype="Text" displayonly="yes">MIR-CI-EIGTH-SURGY-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-EIGTH-SURGY-2-CD" stype="Text" displayonly="yes">MIR-EIGTH-SURGY-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-EIGTH-SURGY-3-CD" stype="Text" displayonly="yes">MIR-CI-EIGTH-SURGY-3-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-EIGTH-SURGY-3-CD" stype="Text" displayonly="yes">MIR-EIGTH-SURGY-3-CD</span>
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-EIGTH-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-CI-EIGTH-ADDL-INFO-TXT</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-EIGTH-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-EIGTH-ADDL-INFO-TXT</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-NINTH-DFCT-1-CD" stype="Text" displayonly="yes">MIR-CI-NINTH-DFCT-1-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-NINTH-DFCT-1-CD" stype="Text" displayonly="yes">MIR-NINTH-DFCT-1-CD</span>
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-NINTH-DFCT-2-CD" stype="Text" displayonly="yes">MIR-CI-NINTH-DFCT-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-NINTH-DFCT-2-CD" stype="Text" displayonly="yes">MIR-NINTH-DFCT-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-NINTH-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-CI-NINTH-ELAPS-YRS-DUR</span>
+                       </td>
+                        <td class="celldisplay">
+                <span id="MIR-NINTH-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-NINTH-ELAPS-YRS-DUR</span>
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-NINTH-SURGY-1-CD" stype="Text" displayonly="yes">MIR-CI-NINTH-SURGY-1-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-NINTH-SURGY-1-CD" stype="Text" displayonly="yes">MIR-NINTH-SURGY-1-CD</span>
+                        </td>
+                          <td class="celldisplay">
+                           <span id="MIR-CI-NINTH-SURGY-2-CD" stype="Text" displayonly="yes">MIR-CI-NINTH-SURGY-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-NINTH-SURGY-2-CD" stype="Text" displayonly="yes">MIR-NINTH-SURGY-2-CD</span>
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-NINTH-SURGY-3-CD" stype="Text" displayonly="yes">MIR-CI-NINTH-SURGY-3-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-NINTH-SURGY-3-CD" stype="Text" displayonly="yes">MIR-NINTH-SURGY-3-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-NINTH-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-CI-NINTH-ADDL-INFO-TXT</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-NINTH-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-NINTH-ADDL-INFO-TXT</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="celldisplay">
+                        </td>
+                         <td class="celldisplay">
+                           <span id="MIR-CI-TENTH-DFCT-1-CD" stype="Text" displayonly="yes">MIR-CI-TENTH-DFCT-1-CD</span>
+                       </td>
+                       <td class="celldisplay">
+                            <span id="MIR-TENTH-DFCT-1-CD" stype="Text" displayonly="yes">MIR-TENTH-DFCT-1-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-TENTH-DFCT-2-CD" stype="Text" displayonly="yes">MIR-CI-TENTH-DFCT-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-TENTH-DFCT-2-CD" stype="Text" displayonly="yes">MIR-TENTH-DFCT-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-TENTH-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-CI-TENTH-ELAPS-YRS-DUR</span>
+                       </td>
+                        <td class="celldisplay">
+                <span id="MIR-TENTH-ELAPS-YRS-DUR" stype="Text" displayonly="yes">MIR-TENTH-ELAPS-YRS-DUR</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-TENTH-SURGY-1-CD" stype="Text" displayonly="yes">MIR-CI-TENTH-SURGY-1-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-TENTH-SURGY-1-CD" stype="Text" displayonly="yes">MIR-TENTH-SURGY-1-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-TENTH-SURGY-2-CD" stype="Text" displayonly="yes">MIR-CI-TENTH-SURGY-2-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-TENTH-SURGY-2-CD" stype="Text" displayonly="yes">MIR-TENTH-SURGY-2-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-TENTH-SURGY-3-CD" stype="Text" displayonly="yes">MIR-CI-TENTH-SURGY-3-CD</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-TENTH-SURGY-3-CD" stype="Text" displayonly="yes">MIR-TENTH-SURGY-3-CD</span>
+                        </td>
+                        <td class="celldisplay">
+                           <span id="MIR-CI-TENTH-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-CI-TENTH-ADDL-INFO-TXT</span>
+                       </td>
+                        <td class="celldisplay">
+                            <span id="MIR-TENTH-ADDL-INFO-TXT" stype="Text" displayonly="yes">MIR-TENTH-ADDL-INFO-TXT</span>
+                        </td>
+                     </tr>
+                </table>
+                </div>
+                <table class="tabledatakey" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-UW-NM-T[1]">査定者名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CREAT-DT-T[1]">作成日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-UW-COMNT-TXT-T[1]">査定者記入事項</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DOCTOR-CMNT-TXT-T[1]">DR 記入欄</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-UW-NM-T[]" stype="Text" displayonly="yes">MIR-DV-UW-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CREAT-DT-T[]" stype="Text" displayonly="yes">MIR-CREAT-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UW-COMNT-TXT-T[]" stype="Text" displayonly="yes">MIR-UW-COMNT-TXT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DOCTOR-CMNT-TXT-T[]" stype="Text" displayonly="yes">MIR-DOCTOR-CMNT-TXT-T[]</span>
+                    </td>
+                </tr>
+                </table>
+                <table class="tabledatakey">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PHYS-COND-TXT">体況関連フリーコメント欄</label>
+                    </td>
+                       <td class="celldisplay">
+                           <span id="MIR-PHYS-COND-TXT-CHNG-IND" stype="Text" displayonly="yes">MIR-PHYS-COND-TXT-CHNG-IND</span>
+                       </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PHYS-COND-TXT" stype="TextArea" displayonly="yes">MIR-PHYS-COND-TXT</span>
+                    </td>
+                </tr>
+                </table>
+                </td>
+                <td>
+                <table class="tabledatakey">
+<!-- AHU065
+Modified class for all label fields from celldisplaylabel to celldisplaylabelmod; a new style celldisplaylabelmod has been added to scroll.css
+-->
+                       <tr>
+                       <td class="celldisplay">
+                           <span id="MIR-ADULT-DIS-CVG-CHNG-IND" stype="Text" displayonly="yes">MIR-ADULT-DIS-CVG-CHNG-IND</span>
+                       </td>
+                           <td class="celldisplay">
+                               <input type="checkbox" name="MIR-ADULT-DIS-CVG-IND" id="MIR-ADULT-DIS-CVG-IND" stype="Indicator" value="Y" disabled="yes"/>
+                           </td>
+                           <td class="celldisplaylabelmod">
+                           <!-- M213F1 Changes<label for="MIR-ADULT-DIS-CVG-IND">成人病入院特約不可</label>-->
+                               <label for="MIR-ADULT-DIS-CVG-IND">成人病/生活習慣病入院特約不可</label>
+                           </td>
+                      </tr>
+                       <tr>
+                       <td class="celldisplay">
+                           <span id="MIR-FEM-DIS-HOSP-CVG-CHNG-IND" stype="Text" displayonly="yes">MIR-FEM-DIS-HOSP-CVG-CHNG-IND</span>
+                       </td>
+                           <td class="celldisplay">
+                               <input type="checkbox" name="MIR-FEM-DIS-HOSP-CVG-IND" id="MIR-FEM-DIS-HOSP-CVG-IND" stype="Indicator" value="Y" disabled="yes"/>
+                           </td>
+                           <td class="celldisplaylabelmod">
+                               <label for="MIR-FEMALE-DIS-HOSP-CVG-IND">女性疾病入院特約不可</label>
+                           </td>
+                      </tr>
+                       <tr>
+                       <td class="celldisplay">
+                           <span id="MIR-INJURY-CVG-CHNG-IND" stype="Text" displayonly="yes">MIR-INJURY-CVG-CHNG-IND</span>
+                       </td>
+                           <td class="celldisplay">
+                               <input type="checkbox" name="MIR-INJURY-CVG-IND" id="MIR-INJURY-CVG-IND" stype="Indicator" value="Y" disabled="yes"/>
+                           </td>
+                           <td class="celldisplaylabelmod">
+                               <label for="MIR-INJURY-CVG-IND">傷害特約不可</label>
+                           </td>
+                      </tr>
+                       <tr>
+                       <td class="celldisplay">
+                           <span id="MIR-ACCDNT-DTH-CVG-CHNG-IND" stype="Text" displayonly="yes">MIR-ACCDNT-DTH-CVG-CHNG-IND</span>
+                       </td>
+                           <td class="celldisplay">
+                               <input type="checkbox" name="MIR-ACCDNT-DTH-CVG-IND" id="MIR-ACCDNT-DTH-CVG-IND" stype="Indicator" value="Y" disabled="yes"/>
+                           </td>
+                           <td class="celldisplaylabelmod">
+                               <label for="MIR-ACCDNT-DTH-CVG-IND">災害割増特約不可</label>
+                           </td>
+                      </tr>
+                       <tr>
+                       <td class="celldisplay">
+                           <span id="MIR-ACCDNT-HOSP-CVG-CHNG-IND" stype="Text" displayonly="yes">MIR-ACCDNT-HOSP-CVG-CHNG-IND</span>
+                       </td>
+                           <td class="celldisplay">
+                               <input type="checkbox" name="MIR-ACCDNT-HOSP-CVG-IND" id="MIR-ACCDNT-HOSP-CVG-IND" stype="Indicator" value="Y" disabled="yes"/>
+                           </td>
+                           <td class="celldisplaylabelmod">
+                               <label for="MIR-ACCDNT-HOSP-CVG-IND">災害入院特約不可</label>
+                           </td>
+                      </tr>
+<!-- Changes for AHU065
+Remove Disease hospitalization and C Type hospitalization rider
+                       <tr>
+                        <td class="celldisplay">
+                           <span id="MIR-DIS-HOSP-CVG-CHNG-IND" stype="Text" displayonly="yes">MIR-DIS-HOSP-CVG-CHNG-IND</span>
+                       </td>
+                           <td class="celldisplay">
+                               <input type="checkbox" name="MIR-DIS-HOSP-CVG-IND" id="MIR-DIS-HOSP-CVG-IND" stype="Indicator" value="Y" disabled="yes"/>
+                           </td>
+                           <td class="celldisplaylabel">
+                               <label for="MIR-DIS-HOSP-CVG-IND">疾病入院特約不可</label>
+                           </td>
+                      </tr>
+                       <tr>
+                        <td class="celldisplay">
+                           <span id="MIR-CTYP-HOSP-CVG-CHNG-IND" stype="Text" displayonly="yes">MIR-CTYP-HOSP-CVG-CHNG-IND</span>
+                       </td>
+                           <td class="celldisplay">
+                               <input type="checkbox" name="MIR-CTYP-HOSP-CVG-IND" id="MIR-CTYP-HOSP-CVG-IND" stype="Indicator" value="Y" disabled="yes"/>
+                           </td>
+                           <td class="celldisplaylabel">
+                               <label for="MIR-CTYP-HOSP0-CVG-IND">Ｃタイプ入院特約不可</label>
+                           </td>
+                      </tr>
+-->
+
+                       <tr>
+                        <td class="celldisplay">
+                           <span id="MIR-DSCHRG-CVG-CHNG-IND" stype="Text" displayonly="yes">MIR-DSCHRG-CVG-CHNG-IND</span>
+                       </td>
+                           <td class="celldisplay">
+                               <input type="checkbox" name="MIR-DSCHRG-CVG-IND" id="MIR-DSCHRG-CVG-IND" stype="Indicator" value="Y" disabled="yes"/>
+                           </td>
+                           <td class="celldisplaylabelmod">
+<!--Changes for AHU065
+Changed label from "Ineligible for Discharge Disease rider" to "Ineligible for Fracture rider"
+-->
+                               <label for="MIR-DSCHRG-CVG-IND">特定損傷特約不可</label>
+                           </td>
+                      </tr>
+                       <tr>
+                        <td class="celldisplay">
+                           <span id="MIR-CANCER-REL-CVG-CHNG-IND" stype="Text" displayonly="yes">MIR-CANCER-REL-CVG-CHNG-IND</span>
+                       </td>
+                           <td class="celldisplay">
+                               <input type="checkbox" name="MIR-CANCER-REL-CVG-IND" id="MIR-CANCER-REL-CVG-IND" stype="Indicator" value="Y" disabled="yes"/>
+                           </td>
+                           <td class="celldisplaylabelmod">
+                               <label for="MIR-CANCER-REL-CVG-IND">ガン関係特約不可</label>
+                           </td>
+                      </tr>
+                         <!-- Changes for M213F1 start -->
+
+                        <tr>
+                          <td class="celldisplay">
+                         <span id="MIR-DD-WP-CVG-CHNG-IND" stype="Text" displayonly="yes">MIR-DD-WP-CVG-CHNG-IND</span>
+                             </td>
+                          <td class="celldisplay">
+                              <input type="checkbox" value="Y" name="MIR-DD-WP-CVG-IND" id="MIR-DD-WP-CVG-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                          </td>
+                          <td  class="celldisplaylabelmod"  >
+                              <label for="MIR-DD-WP-CVG-IND" >特定疾病P免特約不可</label>
+                          </td>
+                     </tr>
+                      <tr>
+                      <td class="celldisplay">
+                         <span id="MIR-PREF-RT-CVG-CHNG-IND" stype="Text" displayonly="yes">MIR-PREF-RT-CVG-CHNG-IND</span>
+                             </td>
+                          <td class="celldisplay">
+                              <input type="checkbox" value="Y" name="MIR-PREF-RT-CVG-IND" id="MIR-PREF-RT-CVG-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                          </td>
+                          <td class="celldisplaylabelmod">
+                              <label for="MIR-PREF-RT-CVG-IND">優良体料率不可</label>
+                          </td>
+                     </tr>
+                      <tr>
+                    <td class="celldisplay">
+                     <span id="MIR-LD-EXT-CVG-CHNG-IND" stype="Text" displayonly="yes">MIR-LD-EXT-CVG-CHNG-IND</span>
+                             </td>
+                          <td class="celldisplay">
+                              <input type="checkbox" value="Y" name="MIR-LD-EXT-CVG-IND" id="MIR-LD-EXT-CVG-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                          </td>
+                          <td class="celldisplaylabelmod">
+                              <label for="MIR-LD-EXT-CVG-IND">七大延長特約不可</label>
+                          </td>
+                     </tr>
+                      <tr>
+                    <td class="celldisplay">
+                      <span id="MIR-CRIT-ILL-CVG-CHNG-IND" stype="Text" displayonly="yes">MIR-CRIT-ILL-CVG-CHNG-IND</span>
+                             </td>
+                              <td class="celldisplay">
+                              <input type="checkbox" value="Y" name="MIR-CRIT-ILL-CVG-IND" id="MIR-CRIT-ILL-CVG-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                          </td>
+                          <td class="celldisplaylabelmod">
+                              <label for="MIR-CRIT-ILL-CVG-IND">重度疾病特約不可</label>
+                          </td>
+                     </tr>
+                      <tr>
+                     <td class="celldisplay">
+                     <span id="MIR-PRIM-MEDIC-CVG-CHNG-IND" stype="Text" displayonly="yes">MIR-PRIM-MEDIC-CVG-CHNG-IND</span>
+                             </td>
+                          <td class="celldisplay">
+                              <input type="checkbox" value="Y" name="MIR-PRIM-MEDIC-CVG-IND" id="MIR-PRIM-MEDIC-CVG-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                          </td>
+                          <td class="celldisplaylabelmod">
+                              <label for="MIR-PRIM-MEDIC-CVG-IND">総合医療特約</label>
+                          </td>
+                     </tr>
+                     <tr>
+                     <td class="celldisplay">
+                       <span id="MIR-ADV-MEDIC-TRTMNT-CHNG-IND" stype="Text" displayonly="yes">MIR-ADV-MEDIC-TRTMNT-CHNG-IND</span>
+                       </td>
+                          <td class="celldisplay">
+                              <input type="checkbox" value="Y" name="MIR-ADV-MEDIC-TRTMNT-IND" id="MIR-ADV-MEDIC-TRTMNT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                          </td>
+                          <td class="celldisplaylabelmod">
+                              <label for="MIR-ADV-MEDIC-TRTMNT-IND">先進医療特約不可</label>
+                          </td>
+                     </tr>
+
+                <!-- Changes for M213F1 END -->
+                <!--MP253E Changes starts here-->?
+                     <tr>
+                     <td class="celldisplay">
+                             <span id="MIR-LNG-TRM-CARE-CHNG-IND" stype="Text" displayonly="yes">MIR-LNG-TRM-CARE-CHNG-IND</span>
+                             </td>
+                          <td class="celldisplay">
+                              <input type="checkbox" name="MIR-LNG-TRM-CARE-IND" id="MIR-LNG-TRM-CARE-IND" stype="Indicator" value="Y" disabled="yes" />
+                          </td>
+                          <td class="celldisplaylabelmod">
+                              <label for="MIR-LNG-TRM-CARE-IND">介護保障特約不可</label>
+                          </td>
+                     </tr>
+                <!--MP253E Changes Ends Here-->
+           </table>
+          <!-- Changes for M213F1 Start -->
+           <!--<table class="tabledatakey">
+                      <tr>
+                          <td class="celldisplayheading" colspan="1">ＤＲ記入欄</td>
+                      </tr>
+                      <tr>
+                          <td class="celldisplay">
+                              <span id="MIR-DOCTOR-CMNT-TXT" stype="TextArea" displayonly="yes">MIR-DOCTOR-CMNT-TXT</span>
+                          </td>
+                     </tr>
+                      <tr>
+                          <td class="celldisplayheading" colspan="1">査定記入欄</td>
+                      </tr>
+                      <tr>
+                          <td class="celldisplay">
+                              <span id="MIR-UW-COMNT-TXT" stype="TextArea" displayonly="yes">MIR-UW-COMNT-TXT</span>
+                          </td>
+                     </tr>
+            </table>-->
+              <!-- Changes for M213F1 end -->
+            </td>
+            </tr>
+            </table>
+            <br />
+            <!-- Changes for M213F1 Start -->
+             <table class="tabledatakey">
+                      <tr>
+                          <td class="celldisplayheading" colspan="1">ＤＲ記入欄</td>
+                      </tr>
+                      <tr>
+                          <td class="celldisplay">
+                              <span id="MIR-DOCTOR-CMNT-TXT" stype="TextArea" displayonly="yes">MIR-DOCTOR-CMNT-TXT</span>
+                          </td>
+                     </tr>
+                      <tr>
+                          <td class="celldisplayheading" colspan="1">査定記入欄</td>
+                      </tr>
+                      <tr>
+                          <td class="celldisplay">
+                              <span id="MIR-UW-COMNT-TXT" stype="TextArea" displayonly="yes">MIR-UW-COMNT-TXT</span>
+                          </td>
+                     </tr>
+            </table>
+             <!-- Changes for M213F1 end -->
+                 <h2>
+                 <a name="3. Manager Approval">3.役席決済</a>
+                 </h2>
+
+
+            <table class="tabledatakey">
+            <tr>
+                <td class="celldisplaylabel">
+                    <label for="MIR-MNGR-DECID-INFO-CD">諾否</label>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-MNGR-DECID-INFO-CD" stype="Text" displayonly="yes">MIR-MNGR-DECID-INFO-CD</span>
+                </td>
+                <td class="celldisplaylabel">
+                    <label for="MIR-CASE-TYP-INFO-CD">案件種類</label>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-CASE-TYP-INFO-CD" stype="Text" displayonly="yes">MIR-CASE-TYP-INFO-CD</span>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-MNGR-OTHR-INFO-TXT" stype="TextArea" displayonly="yes">MIR-MNGR-OTHER-INFO-TXT</span>
+                </td>
+                <td class="celldisplaylabel">
+                    <label for="MIR-MNGR-COMNT-TXT">コメント欄</label>
+                </td>
+                <td class="celldisplay">
+                    <span id="MIR-MNGR-COMNT-TXT" stype="TextArea" displayonly="yes">MIR-MNGR-COMNT-TXT</span>
+                </td>
+            </tr>
+            </table>
+
+       </form>
+           </body>
+           <script src="../js/ActionHandlers.js"></script>
+           <script src="../js/MessageFunctions.js"></script>
+           <script src="../js/MessagesJapanese.js"></script>
+           <script src="../js/ClientLevelEdits.js"></script>
+           <script src="../js/GlobalUserMethods.js"></script>
+       </html>

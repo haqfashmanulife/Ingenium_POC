@@ -1,0 +1,64 @@
+<!--
+*******************************************************************************
+*  Component:   BF9831-I.htm                                                  *
+*  Description: Question Description Create Screen                            *
+*                                                                             *
+*******************************************************************************
+*  Chg#    Release  Description                                               *
+*                                                                             *
+*  EN0395    CTS     Initial version                                          *
+*  AFU013    CTS     CHANGES FOR USER TYPE FLOW                               *
+*  EN9547    CTS     Style of the english page is changed                     *
+*  23774B  CTS      Changes done for ie retirement project to make it         *
+*                   compatible for microsoft edge. Changes in html include    *
+*                   adding "id" attribute for all input fields and changes in *
+*                   java scripts to modify certain functions/commands which   *
+*                   are no longer compatilble with edge.                      *
+*******************************************************************************
+ -->
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9831-I</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css"/>
+</head>
+<body class="bodyws">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden"/>
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="MIR-HID-QSTN-ID" id="MIR-HID-QSTN-ID" stype="Hidden" />
+<table width="100%" id="table1" class="tabledatakey">
+	<tr>
+		<td class="celldatakeylabel" width="132"><label for="MIR-QSTN-ID">Question ID:</label></td>
+		<td class="celldatakey" width="162">
+<span id="MIR-QSTN-ID" stype="Text" displayonly="yes">MIR-QSTN-ID</span></td>
+		<td class="celldatakeylabel" width="179"><label for="MIR-MAJ-QSTN-IND">Major Question Indicator:</label></td>
+		<td class="celldatakey"><input type="checkbox" value="Y" name="MIR-MAJ-QSTN-IND" id="MIR-MAJ-QSTN-IND" stype="Indicator"                            onclick="onCheckBox()" onfocus="enterField(this)"/></td>
+		<td class="celldatakeylabel"><label for="MIR-USER-TYP-CD">User Type:</label></td>
+		<td class="celldatakey" width="249">
+<!--AFU013 CHANGES START
+		<select name="MIR-USER-TYP-CD" id="MIR-USER-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes">
+-->
+		<select name="MIR-USER-TYP-CD" id="MIR-USER-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)">
+<!--AFU013 CHANGES END-->
+                </select></td>
+	</tr>
+</table>
+</form>
+</body>
+<!--EN9547 CHANGES BEGIN -->
+<!--
+<script src="../../js/MessagesEnglish.js"></script>
+<script src="../../js/MessageFunctions.js"></script>
+<script src="../../js/ActionHandlers.js"></script>
+<script src="../../js/ClientLevelEdits.js"></script>
+<script src="../../js/GlobalUserMethods.js"></script>
+-->
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<!--EN9547 CHANGES END -->
+</html>

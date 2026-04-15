@@ -1,0 +1,293 @@
+<html>
+<!--
+*********************************************************************************
+*  (C) COPYRIGHT 2001 INSURANCE SOFTWARE SOLUTIONS CORP.  ALL RIGHTS RESERVED   *
+*********************************************************************************
+*  Component:   ConsoleControlPanel.htm                                         *
+*  Description:                                                                 *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*          1.3      PathFinder 1.3                                              *
+*  021892  2.2      Enhanced PathFinder Statistics Logging                      *
+*  023809  PF3.0    Changed encoding to UTF-8                                   *
+*  022924  PF3.0    Added text to explain functions                             *
+*********************************************************************************
+-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Console Control Panel</title>
+<link rel="stylesheet" type="text/css" href="../english/PathFinder.css" charset="UTF-8" />
+</head>
+<body class="bodyws">
+<table width="100%">
+    <tr>
+        <td width="33%">
+            <h5 align="left"><a href="/index.html">&lt;&lt; Return to Main Index</a></h5>
+        </td>
+        <td width="33%">
+            <h3 align="center">PathFinder Control Panel </h3>
+        </td>
+        <td width="34%">
+        </td>
+    </tr>
+</table>
+<table class="tablepanel">
+    <tr>
+        <td class="cellpanel" style="BORDER-LEFT: 0px">
+	       <h2>PathFinder Control</h2>
+            <a href="/servlet/consoleserver?PathFinder=Clear&amp;LocaleID=E">Reset PathFinder's definitions</a>
+            <br>
+            <span class="textpanel2">
+                Clears all P-Step, S-Step and Process Flow definitions that were previously loaded by PathFinder.
+            </span>
+         	  <span id="PFCacheShow" class="textpanel2">
+        	      <div align="right">
+        		     <a  href="javascript:showhideTree('PFCacheHide','PFCacheShow');" >
+    			         Details &gt;&gt;  
+   	        		</a>
+		    	</div>
+            </span>
+            <span id="PFCacheHide" style="DISPLAY: none"  class="textpanel2">
+	           <div align="right">
+       		     <a href="javascript:showhideTree('PFCacheShow','PFCacheHide');">
+       			    &lt;&lt; Hide Details
+       			</a>
+			</div>
+			<blockquote>
+			    Clearing the PathFinder's definitions allows changes 
+                   made to these files to be tested without restarting the PathFinder.
+		     </blockquote>
+            </span>
+        </td>
+        <td class="cellpanel" style="BORDER-RIGHT: 0px">
+	       <h2>MenuServer Control</h2>
+		  <a href="/servlet/consoleserver?MenuServer=Clear&amp;LocaleID=E">Clear MenuServer's cache</a>
+		    <br>
+            <span class="textpanel2">
+	            Clears the cache maintained by the IngeniumMenu CodeServer data source.
+            </span>
+           	<span id="MSCacheShow" class="textpanel2">
+	        	<div align="right">
+        			<a  href="javascript:showhideTree('MSCacheHide','MSCacheShow');" >
+        				Details &gt;&gt; 
+       				</a>
+				</div>
+       		</span>
+			<span id="MSCacheHide" style="DISPLAY: none" class="textpanel2">
+	            <div align="right">
+       			    <a href="javascript:showhideTree('MSCacheShow','MSCacheHide');">
+       				    &lt;&lt; Hide Details
+       		    	</a>
+			    </div>
+			    <blockquote>
+			         Clearing the MenuServer cache allows changes made 
+			         to the menu information to be tested without restarting the system. 
+			    </blockquote>
+			</span>
+      </td>
+    </tr>
+    <tr>
+        <td class="cellpanel" style="BORDER-LEFT: 0px" rowspan="2">
+            <h2>PageServer Control</h2>
+            <a href="/servlet/consoleserver?PageServer=Clear&amp;LocaleID=E">Clear PageServer's caches</a>
+                <br>
+                <span class="textpanel2">
+     		     Clears all HTML template pages that have been previously loaded by the PageServer. 
+                </span>
+           	 <span id="PSClearCacheShow" class="textpanel2">
+	        	     <div align="right">
+        		         <a  href="javascript:showhideTree('PSClearCacheHide','PSClearCacheShow');" >
+        				    Details &gt;&gt;
+       			    </a>
+			    </div>
+			    <br>
+			    <br>
+            </span>
+            <span id="PSClearCacheHide" style="DISPLAY: none" class="textpanel2">
+	           <div align="right">
+       		     <a href="javascript:showhideTree('PSClearCacheShow','PSClearCacheHide');">
+       			    &lt;&lt; Hide Details
+       			</a>
+			 </div>
+                <blockquote>
+			     Clearing the PageServer cache allows you 
+                    to test changes made to HTML templates without restarting PageServer.
+			 </blockquote>
+            </span>
+            <a href="/servlet/consoleserver?PageServer=ClearTempDir&amp;LocaleID=E">Clear PageServer's temporary directories</a>
+		  <br>
+            <span class="textpanel2">
+         		Clears all the temporary HTML pages merged with PathFinder data in the work directories.
+		    </span>
+           	<span id="PSCacheTempShow" class="textpanel2">
+	        	<div align="right">
+        			<a  href="javascript:showhideTree('PSCacheTempHide','PSCacheTempShow');" >
+        				Details &gt;&gt; 
+       				</a>
+				</div>
+				<br>
+       		</span>
+			<span id="PSCacheTempHide" style="DISPLAY: none" class="textpanel2">
+	        <div align="right">
+       			<a href="javascript:showhideTree('PSCacheTempShow','PSCacheTempHide');">
+       				&lt;&lt; Hide Details
+       			</a>
+			</div>
+			<blockquote>
+			    Clearing PageServer's temporary
+			    directories allows you to test changes made to image files and files used in the
+			    TitleBarFrame, BannerBarFrame, MessageFrame or ButtonBarFrame 
+			    without restarting PageServer.
+			</blockquote>
+			</span>
+		    <a href="/servlet/consoleserver?PageServer=Yes&amp;LocaleID=E">Turn  caching ON</a>
+              <br>
+            <span class="textpanel2">
+        		Tells PageServer to cache HTML page templates in memory to improve 
+                performance.
+            </span>    
+           	<span id="PSCacheYesShow" class="textpanel2">
+	        	<div align="right">
+        			<a  href="javascript:showhideTree('PSCacheYesHide','PSCacheYesShow');" >
+        				Details &gt;&gt; 
+       			</a>
+				</div>
+				<br>
+				<br>
+       		</span>
+			<span id="PSCacheYesHide" style="DISPLAY: none" class="textpanel2">
+	        <div align="right">
+       			<a href="javascript:showhideTree('PSCacheYesShow','PSCacheYesHide');">
+       				&lt;&lt; Hide Details
+       			</a>
+			</div>
+			<blockquote>
+			    When caching is turned 
+        		off, the templates must be loaded every time the page is displayed. 
+        		Caching the templates in memory improves the performance of the 
+        		PageServer but means that changes to the templates are not visible until 
+        		either the PageServer is restarted or the PageServer cache is cleared 
+        		using the control panel.
+			</blockquote>
+			</span>
+    		<a href="/servlet/consoleserver?PageServer=No&amp;LocaleID=E">Turn  caching OFF</a>
+          <br>
+            <span class="textpanel2">
+		        Tells PageServer to stop caching HTML page templates in memory.
+		    </span>
+			<span id="PSCacheNoShow" class="textpanel2">
+			    <div align="right">
+       			    <a href="javascript:showhideTree('PSCacheNoHide','PSCacheNoShow');">
+       				     Details &gt;&gt;
+       				</a>
+                </div>
+                <br>	
+            </span>
+			<span id="PSCacheNoHide" style="DISPLAY: none" class="textpanel2">
+			    <div align="right">
+       			    <a href="javascript:showhideTree('PSCacheNoShow','PSCacheNoHide');">
+       				     &lt;&lt; Hide Details
+                        </a>
+                </div>
+                <blockquote>
+                    This is useful when templates are being developed and tested as 
+                    changes made to the templates are visible the next time the page is 
+                    displayed. Performance is impacted slightly as the template is loaded 
+                    every time it is needed. This is not recommended in a production 
+                    environment.
+                </blockquote>
+		  </span>
+            <a href="/servlet/consoleserver?PageServer=Status&amp;LocaleID=E">Caching status</a>
+            <br>
+            <span class="textpanel2">
+                Indicates whether HTML page templates caching is on or off.
+            </span>
+        </td>
+      <td class="cellpanel" style="BORDER-RIGHT: 0px">
+
+            <h2>CodeServer Control</h2>
+		  <a href="/servlet/consoleserver?CodeServer=Clear&amp;LocaleID=E">
+                Clear CodeServer's caches</a>
+		  <br>
+            <span class="textpanel2">
+		        Clears the caches of allowable values maintained by all caching CodeServer data 
+                sources.
+            </span>
+			<span id="CodeServerShow" class="textpanel2">
+			    <div align="right">
+       			    <a href="javascript:showhideTree('CodeServerHide','CodeServerShow');">
+       				     Details &gt;&gt;
+       				</a>
+                </div>
+            </span>
+			<span id="CodeServerHide" style="DISPLAY: none" class="textpanel2">
+			    <div align="right">
+         			<a href="javascript:showhideTree('CodeServerShow','CodeServerHide');">
+        				&lt;&lt; Hide Details
+    				</a>
+                </div>
+                <br>
+		        <blockquote>
+		        Clearing the CodeServer cache deletes the caches maintained by caching CodeServer data sources, with base INGENIUM these are: Xtab, Edit, Ctlc and 
+                DataModel. CodeServer then instructs those data sources that are configured to load the cache at 
+                startup to reload their cache.
+                <br>
+                <br>
+                The process could take an extended period of time since CodeServer needs 
+                to retrieve a large amount of data through the CICS gateway transaction and backend database. 
+                The time it takes will depend on the CICS gateway speed, the network connection speed and the 
+                backend processing speed.
+                </blockquote>
+		    </span>
+	  </td>
+    </tr>
+    <tr>
+        <td class="cellpanel" style="BORDER-RIGHT: 0px">
+            <h2>Statistics Logging Control </h2>
+            <a href="/servlet/consoleserver?PageServer=LogStatusYes&amp;LocaleID=E">Turn statistics logging ON</a>
+            <br>
+            <br>
+            <a href="/servlet/consoleserver?PageServer=LogStatusNo&amp;LocaleID=E">Turn statistics logging OFF</a>
+            <br>
+            <br>
+            <a href="/servlet/consoleserver?PageServer=LogStatus&amp;LocaleID=E">Statistics logging status</a>
+            <br>
+            <br>
+            <span id="StatsLogShow" class="textpanel2">
+                <div align="right">
+                    <a href="javascript:showhideTree('StatsLogHide','StatsLogShow');">
+                        Details &gt;&gt;
+                    </a>
+                </div>
+            </span>
+            <span id="StatsLogHide" style="DISPLAY: none" class="textpanel2">
+                <div align="right">
+                    <a href="javascript:showhideTree('StatsLogShow','StatsLogHide');">
+                        &lt;&lt; Hide Details
+                    </a>
+                </div>
+                <blockquote>
+                    Statistic logging refers to PathFinder's Business Activity Monitoring (BAM) facility. 
+                    Each PathFinder component can generate messages detailing the business activity being performed 
+                    by the component. The  events that are logged and the log files the messages are written out to are
+                    specified in the HttpBam / events section of PathFinder.xml
+                </blockquote>
+            </span>
+        </td>
+    </tr>
+</table>
+</body>
+    <script>
+    // This script will show and hide paragraphs
+
+    function showhideTree(show,hide)
+    {
+              document.all[show].style.display = "";
+              document.all[hide].style.display = "None";
+
+    }
+
+     </script>
+</html>

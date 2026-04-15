@@ -1,0 +1,451 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:33 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1272-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"   
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                         
+*                                                                              
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1272-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-INSRD-CLI-NM">被保険者:</label>
+                    </td>
+                    <td colspan="3" class="celldisplaykey">
+                        <span id="MIR-DV-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">保障番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DI-CLM-ID">請求番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DI-CLM-ID" stype="Text" displayonly="yes">MIR-DI-CLM-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">クライアント情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CLI-ID">クライアントID:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CLI-SEX-CD">性別:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-DV-CLI-DISAB-AGE">就業不能年齢:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-DV-CLI-DISAB-AGE" stype="Number" elength="3" decimals="0" signed="yes" displayonly="yes">MIR-DV-CLI-DISAB-AGE</span>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-DV-CLI-INSRD-AGE">現在の年齢:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-DV-CLI-INSRD-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-DV-CLI-INSRD-AGE</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-OCCP-ID">職業:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-OCCP-ID" stype="Text" displayonly="yes">MIR-OCCP-ID</span>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-INSRD-CRNT-OCCP-CD">現在の職業:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-INSRD-CRNT-OCCP-CD" id="MIR-INSRD-CRNT-OCCP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">契約情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CLM-APROV-CD">支払承認:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLM-APROV-CD" id="MIR-CLM-APROV-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CLM-PAYO-MTHD-CD">保険金支払方式:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLM-PAYO-MTHD-CD" id="MIR-CLM-PAYO-MTHD-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-PAYO-RECIP-TYP-CD">受給者タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PAYO-RECIP-TYP-CD" id="MIR-PAYO-RECIP-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CLI-ADDR-TYP-CD">受給者住所タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-ADDR-TYP-CD" id="MIR-CLI-ADDR-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CLM-AUTO-PMT-IND">自動支払:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CLM-AUTO-PMT-IND" id="MIR-CLM-AUTO-PMT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-AUTO-PMT-XPRY-DT">自動支払終了日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-AUTO-PMT-XPRY-DT" id="MIR-AUTO-PMT-XPRY-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-DV-NXT-CLM-PMT-DT">次回支払日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-DV-NXT-CLM-PMT-DT" stype="Date" displayonly="yes">MIR-DV-NXT-CLM-PMT-DT</span>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-PREV-CLM-PMT-DT">最終支払日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-PREV-CLM-PMT-DT" stype="Date" displayonly="yes">MIR-PREV-CLM-PMT-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">ステータス</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CLM-CRNT-STAT-CD">請求総合ステータス:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <span id="MIR-CLM-CRNT-STAT-CD" stype="Text" displayonly="yes">MIR-CLM-CRNT-STAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-DI-CLM-CLOS-DT">請求終了日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DI-CLM-CLOS-DT" id="MIR-DI-CLM-CLOS-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CLM-CLOS-REASN-CD">請求終了事由:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLM-CLOS-REASN-CD" id="MIR-CLM-CLOS-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-INSRD-DISAB-DT">被保険者就業不能発現日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-INSRD-DISAB-DT" id="MIR-INSRD-DISAB-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-DISAB-RPT-DT">請求日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DISAB-RPT-DT" id="MIR-DISAB-RPT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-DISAB-REASN-CD">就業不能事由:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DISAB-REASN-CD" id="MIR-DISAB-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-INSRD-DISAB-TYP-CD">就業不能タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-INSRD-DISAB-TYP-CD" id="MIR-INSRD-DISAB-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">プラン情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-PLAN-ID">プラン:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CVG-ISS-EFF-DT">発行日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CVG-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-CVG-ISS-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CVG-STBL-1-CD">適用期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CVG-STBL-1-CD" stype="Text" displayonly="yes">MIR-CVG-STBL-1-CD</span>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CVG-STBL-2-CD">免責期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CVG-STBL-2-CD" stype="Text" displayonly="yes">MIR-CVG-STBL-2-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CVG-STBL-3-CD">給付期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CVG-STBL-3-CD" stype="Text" displayonly="yes">MIR-CVG-STBL-3-CD</span>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CVG-STBL-4-CD">職業区分:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CVG-STBL-4-CD" stype="Text" displayonly="yes">MIR-CVG-STBL-4-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-REDC-EP-SELCT-IND">入院時免責期間短縮あり:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" name="MIR-REDC-EP-SELCT-IND" id="MIR-REDC-EP-SELCT-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-REDC-EP-DUR">入院時免責期間短縮(月数):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-REDC-EP-DUR" id="MIR-REDC-EP-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CVG-COLA-SELCT-CD">生計費調整あり:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CVG-COLA-SELCT-CD" stype="Text" displayonly="yes">MIR-CVG-COLA-SELCT-CD</span>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-UW-USER-ID">査定人ID:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-UW-USER-ID" stype="Text" displayonly="yes">MIR-UW-USER-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CVG-LTA-SELCT-IND">終身傷害就業不能給付あり:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" name="MIR-CVG-LTA-SELCT-IND" id="MIR-CVG-LTA-SELCT-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CVG-LTB-SELCT-IND">終身就業不能給付あり:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" name="MIR-CVG-LTB-SELCT-IND" id="MIR-CVG-LTB-SELCT-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-PDISAB-SELCT-IND">部分就業不能給付あり:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" name="MIR-PDISAB-SELCT-IND" id="MIR-PDISAB-SELCT-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celllabelleftalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">給付情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CVG-BNFT-STAT-CD">給付ステータス:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-BNFT-STAT-CD" id="MIR-CVG-BNFT-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-BNFT-ADJ-REASN-CD">給付調整事由:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BNFT-ADJ-REASN-CD" id="MIR-BNFT-ADJ-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-MAX-BNFT-TYP-CD">給付期間タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-MAX-BNFT-TYP-CD" id="MIR-MAX-BNFT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-MAX-BNFT-DUR">最長支払期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-BNFT-DUR" id="MIR-MAX-BNFT-DUR" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-MTHLY-BNFT-AMT">現在の給付金月額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MTHLY-BNFT-AMT" id="MIR-MTHLY-BNFT-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CVG-ORIG-FACE-AMT">適用基本額面保険金額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CVG-ORIG-FACE-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-ORIG-FACE-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-BNFT-XPRY-DT">給付終了日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-BNFT-XPRY-DT" id="MIR-BNFT-XPRY-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-CVG-MAT-XPRY-DT">保障満期/満了日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CVG-MAT-XPRY-DT" stype="Date" displayonly="yes">MIR-CVG-MAT-XPRY-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-RSDUE-BNFT-FCT">後遺障害乗数:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-RSDUE-BNFT-FCT" id="MIR-RSDUE-BNFT-FCT" stype="Number" elength="3" decimals="2" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-RSDUE-BNFT-STRT-DT">後遺障害給付開始日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-RSDUE-BNFT-STRT-DT" id="MIR-RSDUE-BNFT-STRT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-OWN-OCCP-SELCT-IND">本来職業就業不能給付あり:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" name="MIR-OWN-OCCP-SELCT-IND" id="MIR-OWN-OCCP-SELCT-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-OWN-OCCP-DUR">本来職業就業不能保障(年数):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OWN-OCCP-DUR" id="MIR-OWN-OCCP-DUR" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="2" class="celldataentryheading">コメント</td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DI-CLM-RMRK-TXT" id="MIR-DI-CLM-RMRK-TXT" stype="Text" maxlength="50" onfocus="enterField(this)" size="100" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

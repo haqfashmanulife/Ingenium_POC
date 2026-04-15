@@ -1,0 +1,131 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:11 PM EDT
+*
+*********************************************************************************
+*  Component:   AppAgentSearch.htm                                             
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  016423  602J     New for release 602J                                       
+*  016103  6.1.1J   Added radio buttons for Search Language Group Code         
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                              
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>AppAgentSearch</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="celldatakey">
+                <tr>
+                    <td class="celldatakey" width="4%">
+                        <input type="radio" name="MIR-DV-SRCH-GR-CD" value="KJ"  onfocus="saveValue(); enterField(this)" />
+                    </td>
+                    <td class="celldatakey" ><b>漢字表記クライアント名を検索する</b></td>
+                </tr>
+                <tr>
+                    <td class="celldatakey" width="4%">
+                        <input type="radio" name="MIR-DV-SRCH-GR-CD" value="KA"  onfocus="saveValue(); enterField(this)" />
+                    </td>
+                    <td class="celldatakey" ><b>カタカナ表記クライアント名を検索する</b></td>
+				  </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ENTR-SUR-NM">募集者姓:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ENTR-SUR-NM" id="MIR-ENTR-SUR-NM" stype="Text" maxlength="25" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ENTR-GIV-NM">募集者名:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ENTR-GIV-NM" id="MIR-ENTR-GIV-NM" stype="Text" maxlength="25" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="SELECT-T[1]" />
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-SRCH-CLI-NM-T[1]">募集者名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-ID-T[1]">募集者ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-CLAS-LIC-CD-T[1]">募集資格の対象</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-CMPNST-SCHD-CD-T[1]">契約タイプ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-LOC-LIC-CD-T[1]">募集資格の対象地</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-STAT-CD-T[1]">募集者ステータス</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BR-ID-T[1]">所属支社</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SO-ID-T[1]">営業所</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-SRCH-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-SRCH-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-ID-T[]" stype="Text" displayonly="yes">MIR-AGT-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-CLAS-LIC-CD-T[]" stype="Text" displayonly="yes">MIR-AGT-CLAS-LIC-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-CMPNST-SCHD-CD-T[]" stype="Text" displayonly="yes">MIR-AGT-CMPNST-SCHD-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-LOC-LIC-CD-T[]" stype="Text" displayonly="yes">MIR-AGT-LOC-LIC-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-AGT-STAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BR-ID-T[]" stype="Text" displayonly="yes">MIR-BR-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SO-ID-T[]" stype="Text" displayonly="yes">MIR-SO-ID-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

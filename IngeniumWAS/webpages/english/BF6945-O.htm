@@ -1,0 +1,215 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:44 PM EDT
+*
+*********************************************************************************
+*  Component:   BF6945-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016616  602J     Fix Beneficiary is a minor indicator                       
+*  017150  612J     Remove Currency decimals="2"                               
+*  01CL06  BMB      Add Insured CLI-ID and name, remove Coverage # from detail 
+*  B00310  WBP      Move Insured CLI-ID and Name                               
+*  MP332B  CTS      XML Changes for Money Laundering
+*  TDMG24 CTS      Screen Changes
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF6945-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-INSRD-CLI-ID">Insured Client's ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-INSRD-CLI-ID" stype="Text" displayonly="yes">MIR-INSRD-CLI-ID</span>
+                    </td>
+<!--
+                    <td class="celldisplaykeylabel">
+                         <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+-->
+                </tr>
+                <!--TDMG24 Screen Changes Start-->
+				<tr>
+				    <td class="celldisplaykeylabel">
+				          <label for="MIR-PREM-PMT-CMPLT-IND">Base Policy Premium Payment Completion:</label>
+				    </td>
+				    <td class="celldisplaykey">
+				          <input type="checkbox" name="MIR-PREM-PMT-CMPLT-IND" id="MIR-PREM-PMT-CMPLT-IND" stype="Indicator" value="Y" disabled="yes"/>
+				    </td>
+			    </tr>
+
+                <!--TDMG24 Screen Changes  end-->
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CVG-REC-CTR">Number of Coverages:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey"></td>
+                </tr>
+            </table>
+            <BR />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+<!--
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">Coverage Number</label>
+                    </td>
+ -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-ID-T[1]">Insured Client's ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-INSRD-NM-T[1]">Insured Client's Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-SEQ-NUM-T[1]">Sequence Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-T[1]">Client Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-NM-T[1]">Beneficiary's Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-TYP-CD-T[1]">Beneficiary Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-DESGNT-CD-T[1]">Designation</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-PRCDS-PCT-T[1]">Percentage</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-REL-INSRD-CD-T[1]">Relation to Insured</label>
+                    </td>
+<!-- MP332B Changes start Here -->
+                    <td class="celldisplayheading">
+                    	<label for="MIR-BNFY-SEX-CD-T[1]">Sex</label>
+                    </td>
+                    <td class="celldisplayheading">
+                    	<label for="MIR-BNFY-BTH-DT-T[1]">Birth Date</label>
+                    </td>
+<!-- MP332B Changes End Here -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-MINR-IND-T[1]">Beneficiary is a minor</label>
+                    </td>
+                </tr>
+                <tr>
+<!--
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+-->
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INSRD-NM-T[]" stype="Text" displayonly="yes">MIR-DV-INSRD-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-BNFY-SEQ-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-NM-T[]" stype="Text" displayonly="yes">MIR-BNFY-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-BNFY-TYP-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-DESGNT-CD-T[]" stype="Text" displayonly="yes">MIR-BNFY-DESGNT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-PRCDS-PCT-T[]" stype="Percent" elength="3" decimals="0" displayonly="yes">MIR-BNFY-PRCDS-PCT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-REL-INSRD-CD-T[]" stype="Text" displayonly="yes">MIR-BNFY-REL-INSRD-CD-T[]</span>
+                    </td>
+<!-- MP332B Changes Start Here -->
+                    <td class="celldisplay">
+                    	<span id="MIR-BNFY-SEX-CD-T[]" stype="Text" displayonly="yes">MIR-BNFY-SEX-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                    	<span id="MIR-BNFY-BTH-DT-T[]" stype="Text" displayonly="yes">MIR-BNFY-BTH-DT-T[]</span>
+                    </td>
+<!-- MP332B Chnages End Here -->
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-BNFY-MINR-IND-T[]" id="MIR-BNFY-MINR-IND-T[]" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

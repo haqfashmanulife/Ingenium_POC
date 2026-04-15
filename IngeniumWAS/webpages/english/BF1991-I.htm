@@ -1,0 +1,83 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:40 PM EDT
+*  (C) COPYRIGHT 2001 INSURANCE SOFTWARE SOLUTIONS CORP.  ALL RIGHTS RESERVED  
+*********************************************************************************
+*  Component:   BF1991-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  019361  PF13     Changed disable to readonly for MIR-USER-ID                
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                             
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1991-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CO-ID">Individual Company:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-CO-ID" id="MIR-CO-ID" size="1" stype="Selection" onfocus="enterField(this)" onchange="disableEnableCoIdCheckBox(this)" tabindex="1"></select>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-CO-ID-IND">All Companies:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="checkbox" value="Y" name="MIR-DV-CO-ID-IND" id="MIR-DV-CO-ID-IND" stype="Indicator" onclick="disableEnableCoIdSelBox(this); onCheckBox()" onfocus="enterField(this)" tabindex="2" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-USER-ID">Individual User ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-USER-ID" id="MIR-USER-ID" stype="Text" maxlength="8" onfocus="enterField(this)" size="20" onchange="disableEnableUserIdCheckBox(this)" readonly="yes" tabindex="3" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-USER-ID-IND">All Users:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="checkbox" value="Y" name="MIR-DV-USER-ID-IND" id="MIR-DV-USER-ID-IND" stype="Indicator" onclick="disableEnableUserIdText(this); onCheckBox()" onfocus="enterField(this)" tabindex="4" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="2">Authorization</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-USER-PSWD-TXT">Password:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="password" value=" " name="MIR-USER-PSWD-TXT" id="MIR-USER-PSWD-TXT" stype="Text" maxlength="8" mandatory="yes" onfocus="enterField(this)" size="20" tabindex="5" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/UserSession.js"></script>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

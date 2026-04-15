@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*********************************************************************************
+*  Component:   BF9D54-I.htm
+*  Description: CURRENCY EXCHANGE RATE LIST SCREEN
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*  M271O2  CTS      NEW SCREEN FOR CURRENCY EXCHANGE RATE LIST SCREEN
+*  23774B  CTS      CHANGES DONE FOR IE RETIREMENT PROJECT TO MAKE IT
+*                   COMPATIBLE FOR MICROSOFT EDGE. CHANGES IN HTML INCLUDE
+*                   ADDING "ID" ATTRIBUTE FOR ALL INPUT FIELDS AND CHANGES IN
+*                   JAVA SCRIPTS TO MODIFY CERTAIN FUNCTIONS/COMMANDS WHICH
+*                   ARE NO LONGER COMPATILBLE WITH EDGE.             
+*********************************************************************************
+ -->
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <title>BF9D54-I</title>
+       <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="ISO-8859-1" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+              <table class="tabledatakey">
+                 <tr>
+                    <td class="celldatakeylabel">
+				 		<label for="MIR-XCHNG-FROM-CRCY-CD">From Currency:</label>
+				    </td>
+				 		<td class="celldatakey">
+				 		<select name="MIR-XCHNG-FROM-CRCY-CD" id="MIR-XCHNG-FROM-CRCY-CD" size="1" stype="Selection" onfocus="enterField(this)" onchange="validateCrcyDcml()" mandatory="yes" ></select>
+					</td>
+                    <td class="celldatakeylabel">
+				 		<label for="MIR-XCHNG-TO-CRCY-CD">To Currency:</label>
+				    </td>
+				 		<td class="celldatakey">
+				 		<select name="MIR-XCHNG-TO-CRCY-CD" id="MIR-XCHNG-TO-CRCY-CD" size="1" stype="Selection" onfocus="enterField(this)" onchange="validateCrcyDcml()" mandatory="yes" ></select>
+					</td>
+                    <td class="celldatakeylabel">
+					    <label for="MIR-XCHNG-EFF-DT">Exchange Effective Date:</label>
+				    </td>
+					<td class="celldatakey">
+					    <input type="text" value=" " name="MIR-XCHNG-EFF-DT" id="MIR-XCHNG-EFF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                 </tr>
+
+              </table>
+    <input type="hidden" name="action" id="action" stype="Hidden"/>
+        </form>
+    </body>
+
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+
+</html>

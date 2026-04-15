@@ -1,0 +1,261 @@
+# Converted from PathFinder 2.2 to 3.0 on Jun 18, 2004 3:12:10 PM EDT
+
+#*******************************************************************************
+#*  Component:   BF9330Retrieve.f                                              *
+#*  Description:                                                               *
+#*                                                                             *
+#*******************************************************************************
+#*  Chg#    Release  Description                                               *
+#*                                                                             *
+#*  HCL109  HIN/CL   CLAIM PAYMENT                                             *
+#*  EN0395  CTS      11-4 TASK (ADD THE QUESTIONS BUTTON BAR)                  *
+#*  AFU015  CTS      CHANGES FOR INPUT DISPLAY                                 *
+#*  23774A  CTS      AUDIT LOG RELATED  CHANGES                                *
+#*                                                                             *
+#*******************************************************************************
+
+INCLUDE "BF9330-P.p";
+INCLUDE "BF9330-I.s";
+INCLUDE "BF9330-O.s";
+
+#* EN0395 CHANGES START
+#*INCLUDE "GenRetrieve.f";
+INCLUDE "BF9000Inquiry.f";
+#23774A CHANGES BEGIN
+INCLUDE "BF9G99-P.p";
+#23774A CHANGES END
+
+#PROCESS BF9330Retrieve
+#{
+#    STEP Main
+#    {
+#        USES PROCESS "GenRetrieve";
+#        ATTRIBUTES
+#        {
+#            GetMessages = "NO";
+#        }
+#
+#        STRINGTABLE.IDS_TITLE_BF9330Retrieve -> Title;
+#        "BF9330-I" -> InputS;
+#        "BF9330-P" -> RetrieveP;
+#        "BF9330-O" -> OutputS;
+#    }
+#
+#    IF DisplayInput == "FALSE"
+#        EXIT;
+#
+#    IF action == "ACTION_BACK"
+#        EXIT;
+#
+#
+#    BRANCH Main;
+#}
+
+PROCESS BF9330Retrieve
+{
+    Title = STRINGTABLE.IDS_TITLE_BF9330Retrieve;
+    TitleBar = "TitleBar";
+    TitleBarSize = "70";
+    ButtonBar = "ButtonBarOKCancel";
+    ButtonBarSize = "40";
+    MessageFrame = "MessagesDisp";
+    MessageFrameSize = "70";
+
+    IF DisplayInput == "FALSE"
+        BRANCH Retrieve;
+
+    # Collect the key value 
+
+    STEP Input
+    {
+        USES S-STEP "BF9330-I";
+    }
+
+    IF action == "ACTION_BACK"
+        EXIT;
+
+    # Retrieve the data for the key value
+
+    STEP Retrieve
+    {
+        USES P-STEP "BF9330-P";
+    }
+
+    IF LSIR-RETURN-CD != "00"
+        BRANCH Input;
+
+# 23774A CHANGES BEGIN
+    
+   STEP AUTROutput
+    {
+        USES P-STEP "BF9G99-P";
+    
+    SESSION.MIR-USER-ID -> MIR-USER-ID;
+    SESSION.LSIR-BPF-ID  -> MIR-BFCN-ID;
+
+    MIR-CLM-ID -> MIR-TRNX-DTL-INFO;    
+    "I" -> MIR-LOG-LEVL-CD;    
+    }
+      
+    IF LSIR-RETURN-CD != "00"
+        BRANCH Input;
+        
+# 23774A CHANGES END
+
+     ButtonBar = "ButtonBarOKQuestions";
+    # Display the record retrieved
+
+MIR-POL-ID-2-T[1] = SUBSTRING (MIR-POL-ID-2-T[1],1,7);
+MIR-POL-ID-2-T[2] = SUBSTRING (MIR-POL-ID-2-T[2],1,7);
+MIR-POL-ID-2-T[3] = SUBSTRING (MIR-POL-ID-2-T[3],1,7);
+MIR-POL-ID-2-T[4] = SUBSTRING (MIR-POL-ID-2-T[4],1,7);
+MIR-POL-ID-2-T[5] = SUBSTRING (MIR-POL-ID-2-T[5],1,7);
+MIR-POL-ID-2-T[6] = SUBSTRING (MIR-POL-ID-2-T[6],1,7);
+MIR-POL-ID-2-T[7] = SUBSTRING (MIR-POL-ID-2-T[7],1,7);
+MIR-POL-ID-2-T[8] = SUBSTRING (MIR-POL-ID-2-T[8],1,7);
+MIR-POL-ID-2-T[9] = SUBSTRING (MIR-POL-ID-2-T[9],1,7);
+MIR-POL-ID-2-T[10] = SUBSTRING (MIR-POL-ID-2-T[10],1,7);
+MIR-POL-ID-2-T[11] = SUBSTRING (MIR-POL-ID-2-T[11],1,7);
+MIR-POL-ID-2-T[12] = SUBSTRING (MIR-POL-ID-2-T[12],1,7);
+MIR-POL-ID-2-T[13] = SUBSTRING (MIR-POL-ID-2-T[13],1,7);
+MIR-POL-ID-2-T[14] = SUBSTRING (MIR-POL-ID-2-T[14],1,7);
+MIR-POL-ID-2-T[15] = SUBSTRING (MIR-POL-ID-2-T[15],1,7);
+MIR-POL-ID-2-T[16] = SUBSTRING (MIR-POL-ID-2-T[16],1,7);
+MIR-POL-ID-2-T[17] = SUBSTRING (MIR-POL-ID-2-T[17],1,7);
+MIR-POL-ID-2-T[18] = SUBSTRING (MIR-POL-ID-2-T[18],1,7);
+MIR-POL-ID-2-T[19] = SUBSTRING (MIR-POL-ID-2-T[19],1,7);
+MIR-POL-ID-2-T[20] = SUBSTRING (MIR-POL-ID-2-T[20],1,7);
+MIR-POL-ID-2-T[21] = SUBSTRING (MIR-POL-ID-2-T[21],1,7);
+MIR-POL-ID-2-T[22] = SUBSTRING (MIR-POL-ID-2-T[22],1,7);
+MIR-POL-ID-2-T[23] = SUBSTRING (MIR-POL-ID-2-T[23],1,7);
+MIR-POL-ID-2-T[24] = SUBSTRING (MIR-POL-ID-2-T[24],1,7);
+MIR-POL-ID-2-T[25] = SUBSTRING (MIR-POL-ID-2-T[25],1,7);
+MIR-POL-ID-2-T[26] = SUBSTRING (MIR-POL-ID-2-T[26],1,7);
+MIR-POL-ID-2-T[27] = SUBSTRING (MIR-POL-ID-2-T[27],1,7);
+MIR-POL-ID-2-T[28] = SUBSTRING (MIR-POL-ID-2-T[28],1,7);
+MIR-POL-ID-2-T[29] = SUBSTRING (MIR-POL-ID-2-T[29],1,7);
+MIR-POL-ID-2-T[30] = SUBSTRING (MIR-POL-ID-2-T[30],1,7);
+
+
+MIR-POL-ID-3-T[1] = SUBSTRING (MIR-POL-ID-3-T[1],1,7);
+MIR-POL-ID-3-T[2] = SUBSTRING (MIR-POL-ID-3-T[2],1,7);
+MIR-POL-ID-3-T[3] = SUBSTRING (MIR-POL-ID-3-T[3],1,7);
+MIR-POL-ID-3-T[4] = SUBSTRING (MIR-POL-ID-3-T[4],1,7);
+MIR-POL-ID-3-T[5] = SUBSTRING (MIR-POL-ID-3-T[5],1,7);
+MIR-POL-ID-3-T[6] = SUBSTRING (MIR-POL-ID-3-T[6],1,7);
+MIR-POL-ID-3-T[7] = SUBSTRING (MIR-POL-ID-3-T[7],1,7);
+MIR-POL-ID-3-T[8] = SUBSTRING (MIR-POL-ID-3-T[8],1,7);
+MIR-POL-ID-3-T[9] = SUBSTRING (MIR-POL-ID-3-T[9],1,7);
+MIR-POL-ID-3-T[10] = SUBSTRING (MIR-POL-ID-3-T[10],1,7);
+MIR-POL-ID-3-T[11] = SUBSTRING (MIR-POL-ID-3-T[11],1,7);
+MIR-POL-ID-3-T[12] = SUBSTRING (MIR-POL-ID-3-T[12],1,7);
+MIR-POL-ID-3-T[13] = SUBSTRING (MIR-POL-ID-3-T[13],1,7);
+MIR-POL-ID-3-T[14] = SUBSTRING (MIR-POL-ID-3-T[14],1,7);
+MIR-POL-ID-3-T[15] = SUBSTRING (MIR-POL-ID-3-T[15],1,7);
+MIR-POL-ID-3-T[16] = SUBSTRING (MIR-POL-ID-3-T[16],1,7);
+MIR-POL-ID-3-T[17] = SUBSTRING (MIR-POL-ID-3-T[17],1,7);
+MIR-POL-ID-3-T[18] = SUBSTRING (MIR-POL-ID-3-T[18],1,7);
+MIR-POL-ID-3-T[19] = SUBSTRING (MIR-POL-ID-3-T[19],1,7);
+MIR-POL-ID-3-T[20] = SUBSTRING (MIR-POL-ID-3-T[20],1,7);
+MIR-POL-ID-3-T[21] = SUBSTRING (MIR-POL-ID-3-T[21],1,7);
+MIR-POL-ID-3-T[22] = SUBSTRING (MIR-POL-ID-3-T[22],1,7);
+MIR-POL-ID-3-T[23] = SUBSTRING (MIR-POL-ID-3-T[23],1,7);
+MIR-POL-ID-3-T[24] = SUBSTRING (MIR-POL-ID-3-T[24],1,7);
+MIR-POL-ID-3-T[25] = SUBSTRING (MIR-POL-ID-3-T[25],1,7);
+MIR-POL-ID-3-T[26] = SUBSTRING (MIR-POL-ID-3-T[26],1,7);
+MIR-POL-ID-3-T[27] = SUBSTRING (MIR-POL-ID-3-T[27],1,7);
+MIR-POL-ID-3-T[28] = SUBSTRING (MIR-POL-ID-3-T[28],1,7);
+MIR-POL-ID-3-T[29] = SUBSTRING (MIR-POL-ID-3-T[29],1,7);
+MIR-POL-ID-3-T[30] = SUBSTRING (MIR-POL-ID-3-T[30],1,7);
+
+
+MIR-POL-ID-4-T[1] = SUBSTRING (MIR-POL-ID-4-T[1],1,7);
+MIR-POL-ID-4-T[2] = SUBSTRING (MIR-POL-ID-4-T[2],1,7);
+MIR-POL-ID-4-T[3] = SUBSTRING (MIR-POL-ID-4-T[3],1,7);
+MIR-POL-ID-4-T[4] = SUBSTRING (MIR-POL-ID-4-T[4],1,7);
+MIR-POL-ID-4-T[5] = SUBSTRING (MIR-POL-ID-4-T[5],1,7);
+MIR-POL-ID-4-T[6] = SUBSTRING (MIR-POL-ID-4-T[6],1,7);
+MIR-POL-ID-4-T[7] = SUBSTRING (MIR-POL-ID-4-T[7],1,7);
+MIR-POL-ID-4-T[8] = SUBSTRING (MIR-POL-ID-4-T[8],1,7);
+MIR-POL-ID-4-T[9] = SUBSTRING (MIR-POL-ID-4-T[9],1,7);
+MIR-POL-ID-4-T[10] = SUBSTRING (MIR-POL-ID-4-T[10],1,7);
+MIR-POL-ID-4-T[11] = SUBSTRING (MIR-POL-ID-4-T[11],1,7);
+MIR-POL-ID-4-T[12] = SUBSTRING (MIR-POL-ID-4-T[12],1,7);
+MIR-POL-ID-4-T[13] = SUBSTRING (MIR-POL-ID-4-T[13],1,7);
+MIR-POL-ID-4-T[14] = SUBSTRING (MIR-POL-ID-4-T[14],1,7);
+MIR-POL-ID-4-T[15] = SUBSTRING (MIR-POL-ID-4-T[15],1,7);
+MIR-POL-ID-4-T[16] = SUBSTRING (MIR-POL-ID-4-T[16],1,7);
+MIR-POL-ID-4-T[17] = SUBSTRING (MIR-POL-ID-4-T[17],1,7);
+MIR-POL-ID-4-T[18] = SUBSTRING (MIR-POL-ID-4-T[18],1,7);
+MIR-POL-ID-4-T[19] = SUBSTRING (MIR-POL-ID-4-T[19],1,7);
+MIR-POL-ID-4-T[20] = SUBSTRING (MIR-POL-ID-4-T[20],1,7);
+MIR-POL-ID-4-T[21] = SUBSTRING (MIR-POL-ID-4-T[21],1,7);
+MIR-POL-ID-4-T[22] = SUBSTRING (MIR-POL-ID-4-T[22],1,7);
+MIR-POL-ID-4-T[23] = SUBSTRING (MIR-POL-ID-4-T[23],1,7);
+MIR-POL-ID-4-T[24] = SUBSTRING (MIR-POL-ID-4-T[24],1,7);
+MIR-POL-ID-4-T[25] = SUBSTRING (MIR-POL-ID-4-T[25],1,7);
+MIR-POL-ID-4-T[26] = SUBSTRING (MIR-POL-ID-4-T[26],1,7);
+MIR-POL-ID-4-T[27] = SUBSTRING (MIR-POL-ID-4-T[27],1,7);
+MIR-POL-ID-4-T[28] = SUBSTRING (MIR-POL-ID-4-T[28],1,7);
+MIR-POL-ID-4-T[29] = SUBSTRING (MIR-POL-ID-4-T[29],1,7);
+MIR-POL-ID-4-T[30] = SUBSTRING (MIR-POL-ID-4-T[30],1,7);
+
+MIR-POL-ID-5-T[1] = SUBSTRING (MIR-POL-ID-5-T[1],1,7);
+MIR-POL-ID-5-T[2] = SUBSTRING (MIR-POL-ID-5-T[2],1,7);
+MIR-POL-ID-5-T[3] = SUBSTRING (MIR-POL-ID-5-T[3],1,7);
+MIR-POL-ID-5-T[4] = SUBSTRING (MIR-POL-ID-5-T[4],1,7);
+MIR-POL-ID-5-T[5] = SUBSTRING (MIR-POL-ID-5-T[5],1,7);
+MIR-POL-ID-5-T[6] = SUBSTRING (MIR-POL-ID-5-T[6],1,7);
+MIR-POL-ID-5-T[7] = SUBSTRING (MIR-POL-ID-5-T[7],1,7);
+MIR-POL-ID-5-T[8] = SUBSTRING (MIR-POL-ID-5-T[8],1,7);
+MIR-POL-ID-5-T[9] = SUBSTRING (MIR-POL-ID-5-T[9],1,7);
+MIR-POL-ID-5-T[10] = SUBSTRING (MIR-POL-ID-5-T[10],1,7);
+MIR-POL-ID-5-T[11] = SUBSTRING (MIR-POL-ID-5-T[11],1,7);
+MIR-POL-ID-5-T[12] = SUBSTRING (MIR-POL-ID-5-T[12],1,7);
+MIR-POL-ID-5-T[13] = SUBSTRING (MIR-POL-ID-5-T[13],1,7);
+MIR-POL-ID-5-T[14] = SUBSTRING (MIR-POL-ID-5-T[14],1,7);
+MIR-POL-ID-5-T[15] = SUBSTRING (MIR-POL-ID-5-T[15],1,7);
+MIR-POL-ID-5-T[16] = SUBSTRING (MIR-POL-ID-5-T[16],1,7);
+MIR-POL-ID-5-T[17] = SUBSTRING (MIR-POL-ID-5-T[17],1,7);
+MIR-POL-ID-5-T[18] = SUBSTRING (MIR-POL-ID-5-T[18],1,7);
+MIR-POL-ID-5-T[19] = SUBSTRING (MIR-POL-ID-5-T[19],1,7);
+MIR-POL-ID-5-T[20] = SUBSTRING (MIR-POL-ID-5-T[20],1,7);
+MIR-POL-ID-5-T[21] = SUBSTRING (MIR-POL-ID-5-T[21],1,7);
+MIR-POL-ID-5-T[22] = SUBSTRING (MIR-POL-ID-5-T[22],1,7);
+MIR-POL-ID-5-T[23] = SUBSTRING (MIR-POL-ID-5-T[23],1,7);
+MIR-POL-ID-5-T[24] = SUBSTRING (MIR-POL-ID-5-T[24],1,7);
+MIR-POL-ID-5-T[25] = SUBSTRING (MIR-POL-ID-5-T[25],1,7);
+MIR-POL-ID-5-T[26] = SUBSTRING (MIR-POL-ID-5-T[26],1,7);
+MIR-POL-ID-5-T[27] = SUBSTRING (MIR-POL-ID-5-T[27],1,7);
+MIR-POL-ID-5-T[28] = SUBSTRING (MIR-POL-ID-5-T[28],1,7);
+MIR-POL-ID-5-T[29] = SUBSTRING (MIR-POL-ID-5-T[29],1,7);
+MIR-POL-ID-5-T[30] = SUBSTRING (MIR-POL-ID-5-T[30],1,7);
+
+    STEP Output
+    {
+
+        USES S-STEP "BF9330-O";
+    }
+
+    IF action == "ACTION_QUESTIONS"
+    {
+       LSIR-RETURN-CD = "00";
+       MESSAGES-T[0] = "";
+      
+       STEP Questions
+       {
+           USES PROCESS "BF9000Inquiry";  
+#AFU015 CHANGES START
+           "FALSE" -> DisplayInput;
+#AFU015 CHANGES END
+       }
+
+       BRANCH Retrieve;
+    }
+
+     ButtonBar = "ButtonBarOK";
+     BRANCH Input;
+
+#* EN0395 CHANGES END
+
+}

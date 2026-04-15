@@ -1,0 +1,62 @@
+<!--
+# Converted from PathFinder 2.2 to 3.0 Jun 18, 2004 3:13:13 PM EDT
+
+#*******************************************************************************
+#*  Component:   BF9F99KEY-I                                                   *
+#*  Description: CWA REFUND APPROVAL/REJECTION SCREEN                          *
+#*******************************************************************************
+#*  Chg#    Release  Description                                               
+#*                                                                             
+#*  CA0002  CTS      Intial version                                            
+#*  105522  CTS      FIXED CODE DONE FOR DATE CHANGES                          
+#*  23774B  CTS      Changes done for ie retirement project to make it
+#*                   compatible for microsoft edge. Changes in html include
+#*                   adding "id" attribute for all input fields and changes in
+#*                   java scripts to modify certain functions/commands which
+#*                   are no longer compatilble with edge.
+#*******************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9F99Key-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-REJ-RQST-DT">Rejection Request Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <!-- CHANGES STARTS FOR 105522 --> 
+                      <!--  <input type="text" value=" " name="MIR-REJ-RQST-DT" id="MIR-REJ-RQST-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)" /> -->
+                        <input type="text" value=" " name="MIR-REJ-RQST-DT" id="MIR-REJ-RQST-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)" />
+                        <!-- CHANGES END FOR 105522 -->
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-CHNL-CD">Channel:</label>
+                    </td>
+                    <td class="celldatakey">
+                    <select name="MIR-POL-CHNL-CD" id="MIR-POL-CHNL-CD" onfocus="enterField(this)" size="1" stype="Selection"></select>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-OPER-CAT-CD">Operation Category code:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-OPER-CAT-CD" id="MIR-OPER-CAT-CD" onfocus="enterField(this)" size="1" stype="Selection"></select>
+                    </td>
+
+                </tr>
+            </table>
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

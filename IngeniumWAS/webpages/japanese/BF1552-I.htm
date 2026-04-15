@@ -1,0 +1,273 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:39 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1552-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2"
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                            
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1552-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-INSRD-CLI-NM">被保険者:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="5">
+                        <span id="MIR-DV-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-ID">クライアントID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-SEX-CD">性別:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-CLI-INSRD-AGE">年齢:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-CLI-INSRD-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-DV-CLI-INSRD-AGE</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-LTST-DT">検査実行日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-LTST-DT" stype="Date" displayonly="yes">MIR-CLI-LTST-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-LTST-ID">検査番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-LTST-ID" stype="Text" displayonly="yes">MIR-LTST-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-LTST-SEQ-NUM">シーケンスナンバー:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-LTST-SEQ-NUM" stype="Text" displayonly="yes">MIR-CLI-LTST-SEQ-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DOC-ID">文書名:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DOC-ID" id="MIR-DOC-ID" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">検査情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-LTST-LAB-ID">検査機関名:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-LTST-LAB-ID" id="MIR-CLI-LTST-LAB-ID" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-LAB-GEN-REF-ID">検査機関照会番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-LAB-GEN-REF-ID" id="MIR-LAB-GEN-REF-ID" stype="Text" maxlength="20" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-LTST-STAT-CD">検査ステータス:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-LTST-STAT-CD" id="MIR-CLI-LTST-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-STAT-CHNG-REASN-CD">ステータス変更事由:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-STAT-CHNG-REASN-CD" id="MIR-STAT-CHNG-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BAD-LAB-INFO-IND">検査結果拒否:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-BAD-LAB-INFO-IND" id="MIR-BAD-LAB-INFO-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RSLT-REC-CREAT-CD">検査作成タイプ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-RSLT-REC-CREAT-CD" stype="Text" displayonly="yes">MIR-RSLT-REC-CREAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-LAB-RMRK-NUM">検査機関所見ID:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <select name="MIR-LAB-RMRK-NUM" id="MIR-LAB-RMRK-NUM" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-LTST-RMRK-TXT">検査機関所見テキスト:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <input type="text" value=" " name="MIR-CLI-LTST-RMRK-TXT" id="MIR-CLI-LTST-RMRK-TXT" stype="Text" maxlength="204" onfocus="enterField(this)" size="85" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">検査結果</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-LTST-RSLT-CD">検査結果:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-LTST-RSLT-CD" id="MIR-CLI-LTST-RSLT-CD" stype="Text" maxlength="40" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UNIT-MESUR-TXT">計測単位:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-UNIT-MESUR-TXT" stype="Text" displayonly="yes">MIR-UNIT-MESUR-TXT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-MEAL-DT">最終食事日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PREV-MEAL-DT" id="MIR-PREV-MEAL-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-MEAL-TIME">最終食事時間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PREV-MEAL-TIME" id="MIR-PREV-MEAL-TIME" stype="Time" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-URIN-DESC-TXT">尿検査結果:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-URIN-DESC-TXT" id="MIR-URIN-DESC-TXT" stype="Text" maxlength="204" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SERUM-DESC-TXT">血清検査結果:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-SERUM-DESC-TXT" id="MIR-SERUM-DESC-TXT" stype="Text" maxlength="8" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SAMPL-VOID-DT">尿検査サンプル採取日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-SAMPL-VOID-DT" id="MIR-SAMPL-VOID-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BLOOD-DRW-DT">血液サンプル採取日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-BLOOD-DRW-DT" id="MIR-BLOOD-DRW-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ALPHA-RESP-ETBL-ID">アルファベット順結果エディットポインタ:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-ALPHA-RESP-ETBL-ID" stype="Text" displayonly="yes">MIR-ALPHA-RESP-ETBL-ID</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BLOOD-DRW-TIME">血液サンプル採取時間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-BLOOD-DRW-TIME" id="MIR-BLOOD-DRW-TIME" stype="Time" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">検査範囲:</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CO-MIN-NRNG-QTY">下限 - 企業:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CO-MIN-NRNG-QTY" stype="Text" displayonly="yes">MIR-CO-MIN-NRNG-QTY</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CO-MAX-NRNG-QTY">上限 - 企業:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CO-MAX-NRNG-QTY" stype="Text" displayonly="yes">MIR-CO-MAX-NRNG-QTY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-LAB-MIN-NRNG-QTY">下限 - 検査機関:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-LAB-MIN-NRNG-QTY" stype="Text" displayonly="yes">MIR-LAB-MIN-NRNG-QTY</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-LAB-MAX-NRNG-QTY">上限 - 検査機関:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-LAB-MAX-NRNG-QTY" stype="Text" displayonly="yes">MIR-LAB-MAX-NRNG-QTY</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

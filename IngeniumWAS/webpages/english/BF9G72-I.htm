@@ -1,0 +1,70 @@
+<!--
+*
+*********************************************************************************
+*  Component:   BF9G72-I.htm                                                    *
+*  Description: CREATED FOR ANNUITY PAYOUT QUOTATION                            *
+*                                                                               *
+*********************************************************************************
+*  Chg#     Release  Author  Description                                        *
+*  UY3047            CTS     INITIAL VERSION.                                   *
+*  UY3149            CTS     CHANGES MADE AS PART OF VIRTUAL QUOTE SCREEN       *
+*********************************************************************************
+-->
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9G72-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+        <body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+        <input type="hidden" name="action" id="action" stype="Hidden" />
+        <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CALC-DT">Calculation Base Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CALC-DT" id="MIR-CALC-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-JRNL-DT">Journal Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-JRNL-DT" id="MIR-JRNL-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+		    </table>
+<!--  UY3149  CHANGES STARTS HERE -->
+            <table class="tabledatakey">
+                <tr>
+                   <td class="celldatakey">
+                        <input name="MIR-VIR-SCREEN-IND"  id="MIR-VIR-SCREEN-IND" onclick="onCheckBox()" onfocus="enterField(this)" stype="Indicator" type="checkbox" value="Y">(Please check in case of virtual quote implementation)</input>
+                   </td>
+                 </tr>
+<!--  UY3149  CHANGES ENDS HERE -->
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/Policytrim.js"></script>
+</html>

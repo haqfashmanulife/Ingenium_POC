@@ -1,0 +1,746 @@
+<!--
+* Converted to Pathfinder 3.0 on SEP 18, 2006 3:22:50 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9222-O.htm
+*  Description: UL MEDICAL CLAIM SUMMARY OUTPUT
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+* EN000388 CTS   Initial version
+* AFU007   CTS   Changed Border Style
+* EN001115 CTS   Changed width for Decision field
+* RP211d   CTS   ADDED SUBTABLE 4 CODE
+* RP2CLA   CTS   CHANGES FOR CANCER LUMPSUM AUTOMATION
+* ISLCLM   CTS   ADDED COMPANY RECEIVED DATE AND STEP-IN RIGHT INFORMATION
+*                FIELDS
+* AWU034   CTS   ISLCLM-INCREASE WIDTH OF CO-RECV-DT AND HO-ACPT-DT FIELDS
+*  EN9547  CTS      Style of the english page is changed
+* MP143H   CTS   Changed Screen Name and added CI Event Date, CI Event Type and
+* MP143H         ICU Date fields
+* M176J3   CTS   Changed hyperlink Name and CI Event Date, CI Event Type Name
+* M253O1   CTS   Added fields for the payee information and Cancer Diagnosis
+* M281P2   CTS   CHANGES AS PART OF RETAIL CANCER
+* M280P2   CTS   CHANGES DONE FOR ARM III
+* Q70335   CTS   M280P1 - CHANGES DONE TO INCREASE THE LENGTH OF 3DD FIELD
+* Q71518   CTS   CHANGES DONE TO ADD ASSOCIATED DISEASE AND HOME TREATMENT
+* Q71518         FIELDS
+* MP300C   CTS   ADDED NEW FIELDS FOR ETC MEDICAL CLAIM CHANGES
+* MP302M   CTS   Added new field for Survival Benefit Chargeback Amount
+* CS0008   CTS   CSA IMPROVEMENTS-MEDICAL CLAIM CHANGES.
+* 105746   CTS   NEW WIDTH CHANGES FOR NON-PAYMENT REASON CODE.
+* 128754   CTS   FIX FOR ECLAIMS NEW FIELDS ADDITION
+* 128754         IN MEDICAL CLAIM SUMMARY SHEET SCREEN
+*  23774B  CTS   Changes done for ie retirement project to make it
+*                compatible for microsoft edge. Changes in html include
+*                adding "id" attribute for all input fields and changes in
+*                java scripts to modify certain functions/commands which
+*                are no longer compatilble with edge.             
+* UY3070   CTS   STREAM 3 CANCER LUMP SUM PAYMENT
+* UY323A   CTS   MEDICAL CLAIM PAYMENT  
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9222-O</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="ISO-8859-1" />
+<link charset="UTF-8" href="../english/IngeniumBlkLnPrint.css" rel="stylesheet" type="text/css" />
+<style>
+.celldisplayr
+{
+    BACKGROUND-COLOR: #cbeaf8;
+    border:solid;
+    border-width:1px;
+    COLOR: #000066;
+    FONT-FAMILY: verdana;
+    FONT-SIZE: 10pt;
+    TEXT-ALIGN: right;
+}
+<!-- ISLCLM CHANGES START HERE -->
+.celldisplayheadinga
+{
+    BACKGROUND-COLOR: #0000A4;
+    COLOR: #ffef52;
+    FONT-FAMILY: verdana;
+    FONT-SIZE: 15pt;
+    FONT-WEIGHT: bold
+}
+<!-- ISLCLM CHANGES END HERE -->
+</style>
+</head>
+<body class="bodyws" onLoad="onLoad();SubInpArTrimPolicy2()">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+
+<!-- MP143H Changes start here-->
+<!--<h1><a name="UL Medical Claim Summary Sheet" />UL Medical Claim Summary Sheet</h1>-->
+<h1><a name="Medical Claim Summary Sheet" />Medical Claim Summary Sheet</h1>
+<!-- MP143H Changes end here-->
+
+<table class="tabledisplay" width="100%">
+<!-- ISLCLM CHANGES START HERE -->
+<!-- AWU034 COMMENT OUT CODE
+<tr>
+<td width="80%"></td>
+<td width="10%" class="celldisplayheadinga"><label for="MIR-CO-RECV-DT">Company Received Date</label></td>
+<td width="10%" class="celldisplayheadinga"><label for="MIR-CLMA-HO-ACPT-DT">HO Acceptance Date</label></td>
+</tr>
+<tr>
+<td width="80%"></td>
+<td width="10%" class="celldisplay"><span id="MIR-CO-RECV-DT" stype="Date" displayonly="yes">MIR-CO-RECV-DT</span>
+</td>
+<td width="10%" class="celldisplay"><span id="MIR-CLMA-HO-ACPT-DT" stype="Date" displayonly="yes">MIR-CLMA-HO-ACPT-DT</span>
+</td>
+</tr>
+</table>
+-->
+<!-- AWU034 ADD MODIFIED CODE -->
+<tr>
+<td width="70%"></td>
+<td width="15%" class="celldisplayheadinga"><label for="MIR-CO-RECV-DT">Company Received Date</label></td>
+<td width="15%" class="celldisplayheadinga"><label for="MIR-CLMA-HO-ACPT-DT">HO Acceptance Date</label></td>
+</tr>
+<tr>
+<td width="70%"></td>
+<td width="15%" class="celldisplay"><span id="MIR-CO-RECV-DT" stype="Date" displayonly="yes">MIR-CO-RECV-DT</span>
+</td>
+<td width="15%" class="celldisplay"><span id="MIR-CLMA-HO-ACPT-DT" stype="Date" displayonly="yes">MIR-CLMA-HO-ACPT-DT</span>
+</td>
+</tr>
+</table>
+<!-- AWU034 CHANGES END HERE -->
+<!-- ISLCLM CHANGES END HERE -->
+
+<table class="tabledisplay" width="100%">
+<tr>
+<td width="10%" class="celldisplayheading"><label for="MIR-CLM-ID">Master Claim ID</label></td>
+<td width="10%" class="celldisplayheading"><label for="MIR-CLMA-ASSOC-CLM-ID">Associated Master Claim ID</label></td>
+<td width="10%" class="celldisplayheading"><label for="MIR-CLMA-INSRD-CLI-ID">Insured Client ID</label></td>
+<td width="10%" class="celldisplayheading"><label for="MIR-DV-INS-CLI-NM">Insured Name</label></td>
+<td width="10%" class="celldisplayheading"><label for="MIR-CLI-BTH-DT">Birth Date</label></td>
+<td width="10%" class="celldisplayheading"><label for="MIR-CLI-SEX-CD">Gender</label></td>
+<!-- ISLCLM CHANGES START HERE
+<td width="10%" class="celldisplayheading"><label for="MIR-CLMA-HO-ACPT-DT">HO Acceptance Date</label></td>
+     ISLCLM CHANGED END HERE -->
+<td width="10%" class="celldisplayheading"><label for="MIR-BR-ID">RO Code</label></td>
+<td width="10%" class="celldisplayheading"><label for="MIR-SO-ID">SO Code</label></td>
+<td width="10%" class="celldisplayheading"><label for="MIR-ADJ-USER-ID">Adjudicator ID</label></td>
+</tr>
+<tr>
+
+<td width="10%" class="celldisplay"><span id="MIR-CLM-ID" stype="Text" displayonly="yes">MIR-CLM-ID</span>
+</td>
+<td width="10%" class="celldisplay"><span id="MIR-CLMA-ASSOC-CLM-ID" stype="Text" displayonly="yes">MIR-CLMA-ASSOC-CLM-ID</span>
+</td>
+<td width="10%" class="celldisplay"><span id="MIR-CLMA-INSRD-CLI-ID" stype="Text" displayonly="yes">MIR-CLMA-INSRD-CLI-ID</span>
+</td>
+<td width="10%" class="celldisplay"><span id="MIR-DV-INS-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INS-CLI-NM</span>
+</td>
+<td width="10%" class="celldisplay"><span id="MIR-CLI-BTH-DT" stype="Date" displayonly="yes">MIR-CLI-BTH-DT</span>
+</td>
+<td width="20%" class="celldisplay"><span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+</td>
+<!-- ISLCLM CHANGES START HERE
+<td width="10%" class="celldisplay"><span id="MIR-CLMA-HO-ACPT-DT" stype="Date" displayonly="yes">MIR-CLMA-HO-ACPT-DT</span>
+</td>
+     ISLCLM CHANGES END HERE -->
+<td width="10%" class="celldisplay"><span id="MIR-BR-ID" stype="Text" displayonly="yes">MIR-BR-ID</span>
+</td>
+<td width="10%" class="celldisplay"><span id="MIR-SO-ID" stype="Text" displayonly="yes">MIR-SO-ID</span>
+</td>
+<td width="10%" class="celldisplay"><span id="MIR-ADJ-USER-ID" stype="Text" displayonly="yes">MIR-ADJ-USER-ID</span>
+</td>
+</tr>
+</table>
+
+
+<table class="tabledisplay" genrows="0" width="100%">
+
+<tr>
+
+<td width="8%" class="celldisplayheading"><label for="MIR-POL-ID-T[1]">Policy Id</label></td>
+<!-- Q70335 CHANGES STARTS HERE -->
+<!--<td width="8%" class="celldisplayheading"><label for="MIR-CVG-NUM-T[1]">Coverage Number</label></td>
+<td width="34%" class="celldisplayheading"><label for="MIR-PLAN-ID-T[1]">Plan</label></td>-->
+<td width="6%" class="celldisplayheading"><label for="MIR-CVG-NUM-T[1]">Coverage Number</label></td>
+<!-- UY3070 CHANGES STARTS HERE -->
+<td width="6%" class="celldisplayheading"><label for="MIR-PLAN-CD-T[1]">Plan Code</label></td>
+<!-- UY3070 CHANGES ENDS HERE -->
+<td width="32%" class="celldisplayheading"><label for="MIR-PLAN-ID-T[1]">Plan</label></td>
+<!-- Q70335 CHANGES ENDS HERE -->
+<td width="12%" class="celldisplayheading"><label for="MIR-CVG-FACE-AMT-T[1]">Face Amount</label></td>
+<td width="10%" class="celldisplayheading"><label for="MIR-CVG-ISS-EFF-DT-T[1]">Issue Date</label></td>
+<td width="10%" class="celldisplayheading"><label for="MIR-CVG-CSTAT-CD-T[1]">Coverage Status</label></td>
+<!-- Q70335 CHANGES STARTS HERE -->
+<!--<td width="9%" class="celldisplayheading"><label for="MIR-CVG-STBL-2-CD-T[1]">Sub-table 2</label></td>
+<td width="9%" class="celldisplayheading"><label for="MIR-CVG-STBL-4-CD-T[1]">Sub-table 4</label></td>
+<td width="12%" class="celldisplayheading"><label for="MIR-3DD-WP-IND-T[1]">3DD Waiver of Premium</label></td>-->
+<td width="7%" class="celldisplayheading"><label for="MIR-CVG-STBL-2-CD-T[1]">Sub-table 2</label></td>
+<td width="7%" class="celldisplayheading"><label for="MIR-CVG-STBL-4-CD-T[1]">Sub-table 4</label></td>
+<td width="8%" class="celldisplayheading"><label for="MIR-3DD-WP-IND-T[1]">3DD Waiver of Premium</label></td>
+<!-- Q70335 CHANGES ENDS HERE -->
+</tr>
+
+<tr>
+<td width="8%" class="celldisplay"><span id="MIR-POL-ID-T[]" stype="Text" displayonly="yes">MIR-POL-ID-T[]</span>
+</td>
+<!-- Q70335 CHANGES STARTS HERE -->
+<!--<td width="8%" class="celldisplay"><span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>-->
+<td width="6%" class="celldisplay"><span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+<!-- Q70335 CHANGES ENDS HERE -->
+</td>
+<!-- UY3070 CHANGES STARTS HERE -->
+<td width="6%" class="celldisplay"><span id="MIR-PLAN-CD-T[]" stype="Text" displayonly="yes">MIR-PLAN-CD-T[]</span>
+<!-- UY3070 CHANGES STARTS HERE -->
+</td>
+<!-- Q70335 CHANGES STARTS HERE -->
+<!--<td width="34%" class="celldisplay"><span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>-->
+<td width="32%" class="celldisplay"><span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>
+<!-- Q70335 CHANGES ENDS HERE -->
+</td>
+<td width="12%" class="celldisplayr"><span id="MIR-CVG-FACE-AMT-T[]" stype="Currency" elength="16"  signed="yes" displayonly="yes">MIR-CVG-FACE-AMT-T[]</span>
+</td>
+<td width="10%" class="celldisplay"><span id="MIR-CVG-ISS-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-CVG-ISS-EFF-DT-T[]</span>
+</td>
+<td width="10%" class="celldisplay"><span id="MIR-CVG-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[]</span>
+</td>
+<!-- Q70335 CHANGES STARTS HERE -->
+<!--<td width="9%" class="celldisplay"><span id="MIR-CVG-STBL-2-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-2-CD-T[]</span>-->
+<td width="7%" class="celldisplay"><span id="MIR-CVG-STBL-2-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-2-CD-T[]</span>
+<!-- Q70335 CHANGES ENDS HERE -->
+</td>
+<!-- Q70335 CHANGES STARTS HERE -->
+<!--<td width="9%" class="celldisplay"><span id="MIR-CVG-STBL-4-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-4-CD-T[]</span>-->
+<td width="7%" class="celldisplay"><span id="MIR-CVG-STBL-4-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-4-CD-T[]</span>
+<!-- Q70335 CHANGES ENDS HERE -->
+</td>
+<!-- M280P2 CHANGES START HERE -->
+<!-- Q70335 CHANGES STARTS HERE -->
+<!--<td width="12%" class="celldisplay"><span id="MIR-3DD-WP-IND-T[]" stype="Text" displayonly="yes">MIR-3DD-WP-IND-T[]</span>-->
+<td width="8%" class="celldisplay"><span id="MIR-3DD-WP-IND-T[]" stype="Text" displayonly="yes">MIR-3DD-WP-IND-T[]</span>
+<!-- Q70335 CHANGES ENDS HERE -->
+</td>
+<!-- M280P2 CHANGES ENDS HERE -->
+</tr>
+</table>
+
+
+<!-- ISLCLM Changes start here-->
+<table class="tabledisplay" width="100%" >
+<tr>
+<td class="celldisplayheading"><label for="MIR-SURR-FORM-ACPT-DT">Surrender Request Form Acceptance Date</label></td>
+<td class="celldisplayheading"><label for="MIR-ASIGN-SURR-EFF-DT">Assigned Surrender Effective Date for Policy with Assignee</label></td>
+<td class="celldisplayheading"><label for="MIR-POL-STEP-IN-RIGHT-IND">Policy with Step-In Right</label></td>
+</tr>
+<tr>
+<td class="celldisplay"><span id="MIR-SURR-FORM-ACPT-DT" stype="Date" displayonly="yes">MIR-SURR-FORM-ACPT-DT</span></td>
+<td class="celldisplay"><span id="MIR-ASIGN-SURR-EFF-DT" stype="Date" displayonly="yes">MIR-ASIGN-SURR-EFF-DT</span></td>
+<td class="celldisplay"> <input type="checkbox" name="MIR-POL-STEP-IN-RIGHT-IND" id="MIR-POL-STEP-IN-RIGHT-IND" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+</tr>
+</table>
+<!-- ISLCLM Changes end here-->
+
+<table class="tabledisplay" width="100%" >
+
+<tr>
+
+<td width="50%" class="celldisplayheading"><label for="MIR-CLMA-INCID-TYP">Incident Type</label></td>
+<td width="50%" class="celldisplayheading"><label for="MIR-CLMA-INCID-DT">Incident Date</label></td>
+</tr>
+
+<tr>
+
+<td width="50%" class="celldisplay"><span id="MIR-CLMA-INCID-TYP" stype="Text" displayonly="yes">MIR-CLMA-INCID-TYP</span>
+</td>
+<td width="50%" class="celldisplay"><span id="MIR-CLMA-INCID-DT" stype="Date" displayonly="yes">MIR-CLMA-INCID-DT</span>
+</td>
+</tr>
+</table>
+<table class="tabledisplay" genrows="0" width="100%" >
+
+<tr>
+
+<td width="50%" class="celldisplayheading"><label for="MIR-DIS-MAJ-CD-T[1]">Major Disease Code</label></td>
+<td width="50%" class="celldisplayheading"><label for="MIR-DV-CLMA-DIS-CAUS-DESC-T[1]">Kanji Description</label></td>
+</tr>
+
+<tr>
+
+<td width="50%" class="celldisplay"><span id="MIR-DIS-MAJ-CD-T[]" stype="Text" displayonly="yes">MIR-DIS-MAJ-CD-T[]</span>
+</td>
+<td width="50%" class="celldisplay"><span id="MIR-DV-CLMA-DIS-CAUS-DESC-T[]" stype="Text" displayonly="yes">MIR-DV-CLMA-DIS-CAUS-DESC-T[]</span>
+</td>
+</tr>
+</table>
+<!-- Q71518 CHANGES STARTS HERE -->
+
+<table class="tabledisplay" width ="100%">
+<tr>
+<td class="celldisplayheading" colspan="4">Associated Disease</td>
+</tr>
+</table>
+
+<table class="tabledisplay" genrows="0" width="100%" >
+<tr>
+<td width="25%"  class="celldisplayheading"><label for="MIR-ASSOC-DIS-MAJ-CD-T[1]">Major Disease Code</label></td>
+<td width="25%"  class="celldisplayheading"><label for="MIR-ASSOC-DIS-MINR-DESC-T[1]">Kanji Description</label></td>
+<td width="25%"  class="celldisplayheading"><label for="MIR-ASSOC-DIS-STRT-DT-T[1]">Start Date</label></td>
+<td width="25%"  class="celldisplayheading"><label for="MIR-ASSOC-DIS-END-DT-T[1]">End Date</label></td>
+</tr>
+<tr>
+<td width="25%"  class="celldisplay"><span id="MIR-ASSOC-DIS-MAJ-CD-T[]" stype="Text" displayonly="yes">MIR-ASSOC-DIS-MAJ-CD-T[]</span>
+</td>
+<td width="25%"  class="celldisplay"><span id="MIR-ASSOC-DIS-MINR-DESC-TXT-T[]" stype="Text" displayonly="yes">MIR-ASSOC-DIS-MINR-DESC-TXT-T[]</span>
+</td>
+<td width="25%"  class="celldisplay"><span id="MIR-ASSOC-DIS-STRT-DT-T[]" stype="Date" displayonly="yes">MIR-ASSOC-DIS-STRT-DT-T[]</span>
+</td>
+<td width="25%"  class="celldisplay"><span id="MIR-ASSOC-DIS-END-DT-T[]" stype="Date" displayonly="yes">MIR-ASSOC-DIS-END-DT-T[]</span>
+</td>
+</tr>
+</table>
+<!-- Q71518 CHANGES ENDS HERE -->
+
+<table class="tabledisplay" genrows="0" width="100%" >
+
+<tr>
+
+<td width="25%" class="celldisplayheading"><label for="MIR-HOSP-STRT-DT-T[1]">Hosp. Start Date</label></td>
+<td width="25%" class="celldisplayheading"><label for="MIR-HOSP-END-DT-T[1]">Hosp. End Date</label></td>
+<td width="25%" class="celldisplayheading"><label for="MIR-DV-TOT-BEFORE-AGGR-QTY-T[1]">Total Before Aggregation</label></td>
+<td width="25%" class="celldisplayheading"><label for="MIR-HOSP-STAT-CD-T[1]">Discharge Status</label></td>
+</tr>
+
+<tr>
+
+<td width="25%" class="celldisplay"><span id="MIR-HOSP-STRT-DT-T[]" stype="Date" displayonly="yes">MIR-HOSP-STRT-DT-T[]</span>
+</td>
+<td width="25%" class="celldisplay"><span id="MIR-HOSP-END-DT-T[]" stype="Date" displayonly="yes">MIR-HOSP-END-DT-T[]</span>
+</td>
+<td width="25%" class="celldisplay"><span id="MIR-DV-TOT-BEFORE-AGGR-QTY-T[]" stype="Text" displayonly="yes">MIR-DV-TOT-BEFORE-AGGR-QTY-T[]</span>
+</td>
+<td width="25%" class="celldisplay"><span id="MIR-HOSP-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-HOSP-STAT-CD-T[]</span>
+</td>
+</tr>
+</table>
+
+<table class="tabledisplay" genrows="0" width="100%" >
+
+<tr>
+
+<td width="50%" class="celldisplayheading"><label for="MIR-SURGY-STRT-DT-T[1]">Surgeries Start Date</label></td>
+<td width="50%" class="celldisplayheading"><label for="MIR-DV-SURGY-MINR-DESC-T[1]">Kanji Description</label></td>
+</tr>
+
+<tr>
+
+<td width="50%" class="celldisplay"><span id="MIR-SURGY-STRT-DT-T[]" stype="Date" displayonly="yes">MIR-SURGY-STRT-DT-T[]</span>
+</td>
+<td width="50%" class="celldisplay"><span id="MIR-DV-SURGY-MINR-DESC-T[]" stype="Text" displayonly="yes">MIR-DV-SURGY-MINR-DESC-T[]</span>
+</td>
+</tr>
+</table>
+
+<table class="tabledisplay" width="100%" >
+
+<tr>
+
+<td width="33%" class="celldisplayheading"><label for="MIR-OUTP-STRT-DT">First Outpatient Date</label></td>
+<td width="33%" class="celldisplayheading"><label for="MIR-OUTP-END-DT">Last Outpatient Date</label></td>
+<td width="34%" class="celldisplayheading"><label for="MIR-DV-TOT-OUTP-DYS">Total</label></td>
+</tr>
+
+<tr>
+
+<td width="33%" class="celldisplay"><span id="MIR-OUTP-STRT-DT" stype="Date" displayonly="yes">MIR-OUTP-STRT-DT</span>
+</td>
+<td width="33%" class="celldisplay"><span id="MIR-OUTP-END-DT" stype="Date" displayonly="yes">MIR-OUTP-END-DT</span>
+</td>
+<td width="34%" class="celldisplay"><span id="MIR-DV-TOT-OUTP-DYS" stype="Text" displayonly="yes">MIR-DV-TOT-OUTP-DYS</span>
+</td>
+</tr>
+</table>
+
+<!-- M253O1 Changes Starts here-->
+<!-- M281P2 CHANGES START
+<table class="tabledisplay" width="100%" >
+
+<tr>
+
+<td width="33%" class="celldisplayheading"><label for="MIR-CANCER-DIAGNS-DT">Diagnosed Date</label></td>
+<td width="33%" class="celldisplayheading"><label for="MIR-CANCER-TYP-CD">Cancer Type</label></td>
+<td width="34%" class="celldisplayheading"><label for="MIR-CANCER-OUTCM-CD">Outcome of Cancer</label></td>
+
+</tr>
+
+<tr>
+
+<td width="33%" class="celldisplay"><span id="MIR-CANCER-DIAGNS-DT" stype="Date" displayonly="yes">MIR-CANCER-DIAGNS-DT</span>
+</td>
+<td width="33%" class="celldisplay"><span id="MIR-CANCER-TYP-CD" stype="Date" displayonly="yes">MIR-CANCER-TYP-CD</span>
+</td>
+<td width="34%" class="celldisplay"><span id="MIR-CANCER-OUTCM-CD" stype="Text" displayonly="yes">MIR-CANCER-OUTCM-CD</span>
+</td>
+</tr>
+</table>
+M281P2 CHANGES END-->
+
+<!-- M281P2 CHANGES START-->
+<table class="tabledisplay" width="100%" >
+
+<tr>
+
+<td width="25%" class="celldisplayheading"><label for="MIR-CANCER-DIAGNS-DT">Diagnosed Date</label></td>
+<td width="25%" class="celldisplayheading"><label for="MIR-CANCER-TYP-CD">Cancer Type</label></td>
+<td width="25%" class="celldisplayheading"><label for="MIR-CANCER-STAGE-CD">Cancer Stage</label></td>
+<td width="25%" class="celldisplayheading"><label for="MIR-CANCER-OUTCM-CD">Outcome of Cancer</label></td>
+</tr>
+
+<tr>
+
+<td width="25%" class="celldisplay"><span id="MIR-CANCER-DIAGNS-DT" stype="Date" displayonly="yes">MIR-CANCER-DIAGNS-DT</span>
+</td>
+<td width="25%" class="celldisplay"><span id="MIR-CANCER-TYP-CD" stype="Date" displayonly="yes">MIR-CANCER-TYP-CD</span>
+</td>
+<td width="25%" class="celldisplay"><span id="MIR-CANCER-STAGE-CD" stype="Text" displayonly="yes">MIR-CANCER-STAGE-CD</span>
+</td>
+<td width="25%" class="celldisplay"><span id="MIR-CANCER-OUTCM-CD" stype="Text" displayonly="yes">MIR-CANCER-OUTCM-CD</span>
+</td>
+</tr>
+</table>
+<!-- M281P2 CHANGES END-->
+
+<!-- M253O1 Changes Ends here-->
+
+<!-- M281P2 CHANGES BEGIN -->
+<table class="tabledisplay" genrows="0" width="100%" >
+
+<tr>
+
+<td width="50%" class="celldisplayheading"><label for="MIR-PALLIATIVE-STRT-DT-T[1]">Palliative. Start Date</label></td>
+<td width="50%" class="celldisplayheading"><label for="MIR-PALLIATIVE-END-DT-T[1]">Palliative. End Date</label></td>
+</tr>
+
+<tr>
+
+<td width="50%" class="celldisplay"><span id="MIR-PALLIATIVE-STRT-DT-T[]" stype="Date" displayonly="yes">MIR-PALLIATIVE-STRT-DT-T[]</span>
+</td>
+<td width="50%" class="celldisplay"><span id="MIR-PALLIATIVE-END-DT-T[]" stype="Date" displayonly="yes">MIR-PALLIATIVE-END-DT-T[]</span>
+</td>
+</tr>
+</table>
+<!-- M281P2 CHANGES END -->
+
+<!-- MP143H Changes start here-->
+<table class="tabledisplay" width="100%" >
+
+<tr>
+<!-- M176J3 Changes start here-->
+<!-- M176J3 Changes <td width="33%" class="celldisplayheading"><label for="MIR-CI-DIAGNS-DT">CI/Transplant Benefit Event Date</label></td>
+<td width="34%" class="celldisplayheading"><label for="MIR-CI-EVNT-TYP-CD">CI/Transplant Benefit Event Type</label></td> -->
+
+<td width="33%" class="celldisplayheading"><label for="MIR-CI-DIAGNS-DT">CI/Transplant Benefit Event Date</label></td>
+<td width="34%" class="celldisplayheading"><label for="MIR-CI-EVNT-TYP-CD">CI/Transplant Benefit Event Type</label></td>
+
+<!-- M176J3 Changes ends here-->
+<td width="33%" class="celldisplayheading"><label for="MIR-ICU-DT">ICU Date</label></td>
+</tr>
+
+<tr>
+
+<td width="33%" class="celldisplay"><span id="MIR-CI-DIAGNS-DT" stype="Date" displayonly="yes">MIR-CI-DIAGNS-DT</span>
+</td>
+<td width="34%" class="celldisplay"><span id="MIR-CI-EVNT-TYP-CD" stype="Text" displayonly="yes">MIR-CI-EVNT-TYP-CD</span>
+</td>
+<td width="33%" class="celldisplay"><span id="MIR-ICU-DT" stype="Date" displayonly="yes">MIR-ICU-DT"</span>
+</td>
+</tr>
+</table>
+<!-- MP143H Changes end here-->
+
+<!-- Q71518 CHANGES BEGIN -->
+<table class="tabledisplay" genrows="0" width="100%" >
+
+<tr>
+
+<td width="50%" class="celldisplayheading"><label for="MIR-HOME-TRTMNT-STRT-DT-T[1]">Home Treatment Start Date</label></td>
+<td width="50%" class="celldisplayheading"><label for="MIR-HOME-TRTMNT-END-DT-T[1]">Home Treatment  End Date</label></td>
+</tr>
+
+<tr>
+
+<td width="50%" class="celldisplay"><span id="MIR-HOME-TRTMNT-STRT-DT-T[]" stype="Date" displayonly="yes">MIR-HOME-TRTMNT-STRT-DT-T[]</span>
+</td>
+<td width="50%" class="celldisplay"><span id="MIR-HOME-TRTMNT-END-DT-T[]" stype="Date" displayonly="yes">MIR-HOME-TRTMNT-END-DT-T[]</span>
+</td>
+</tr>
+</table>
+<!-- Q71518 CHANGES END -->
+
+<table class="tabledisplay" genrows="0" width="100%" >
+
+<tr>
+<!-- 105746 CHANGES STARTS HERE -->
+<!-- <td width="8%" class="celldisplayheading"><label for="MIR-POL-ID1-T[1]">Policy Id</label></td> -->
+<!-- <td width="7%" class="celldisplayheading"><label for="MIR-CVG-NUM1-T[1]">Coverage Number</label></td> -->
+<!-- <td width="34%" class="celldisplayheading"><label for="MIR-PLAN-ID1-T[1]">Plan</label></td> -->
+<!-- <td width="11%" class="celldisplayheading"><label for="MIR-CVG-FACE-AMT1-T[1]">Face Amount</label></td> -->
+<td width="5%" class="celldisplayheading"><label for="MIR-POL-ID1-T[1]">Policy Id</label></td>
+<td width="4%" class="celldisplayheading"><label for="MIR-CVG-NUM1-T[1]">Coverage Number</label></td>
+<!-- UY3070 CHANGES STARTS HERE -->
+<td width="4%" class="celldisplayheading"><label for="MIR-PLAN-CD1-T[1]">Plan Code</label></td>
+<!-- UY3070 CHANGES ENDS HERE -->
+<td width="20%" class="celldisplayheading"><label for="MIR-PLAN-ID1-T[1]">Plan</label></td>
+<td width="8%" class="celldisplayheading"><label for="MIR-CVG-FACE-AMT1-T[1]">Face Amount</label></td>
+<!-- 105746 CHANGES ENDS HERE -->
+<td width="15%" class="celldisplayheading"><label for="MIR-BNFT-NM-ID-T[1]">Benefit Name</label></td>
+<!-- 105746 CHANGES STARTS HERE -->
+<!-- <td width="8%" class="celldisplayheading"><label for="MIR-BNFT-DECSN-CD-T[1]">Decision</label></td> -->
+<!-- <td width="7%" class="celldisplayheading"><label for="MIR-DV-BNFT-MULTR-FCT-T[1]">Multiplier</label></td> -->
+<!-- <td width="11%" class="celldisplayheading"><label for="MIR-DV-BNFT-PAYBL-AMT-T[1]">Payment Amount</label></td> -->
+<td width="5%" class="celldisplayheading"><label for="MIR-BNFT-DECSN-CD-T[1]">Decision</label></td>
+<td width="5%" class="celldisplayheading"><label for="MIR-DV-BNFT-MULTR-FCT-T[1]">Multiplier</label></td>
+<td width="8%" class="celldisplayheading"><label for="MIR-DV-BNFT-PAYBL-AMT-T[1]">Payment Amount</label></td>
+<!-- 105746 CHANGES ENDS HERE -->
+<!-- CS0008 CHANGES STARTS HERE -->
+<!-- 105746 CHANGES STARTS HERE -->
+<!-- <td width="11%" class="celldisplayheading"><label for="MIR-NON-PMT-REASN-TXT-T[1]">Non-payment reason code</label></td> -->
+<td width="30%" class="celldisplayheading"><label for="MIR-NON-PMT-REASN-TXT-T[1]">Non-payment reason code</label></td>
+<!-- 105746 CHANGES ENDS HERE -->
+<!-- CS0008 CHANGES ENDS HERE -->
+</tr>
+
+<tr>
+<!-- 105746 CHANGES STARTS HERE -->
+<!-- <td width="8%" class="celldisplay"><span id="MIR-POL-ID1-T[]" stype="Text" displayonly="yes">MIR-POL-ID1-T[]</span></td> -->
+<!-- <td width="7%" class="celldisplay"><span id="MIR-CVG-NUM1-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM1-T[]</span></td> -->
+<!-- <td width="34%" class="celldisplay"><span id="MIR-PLAN-ID1-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID1-T[]</span></td> -->
+<!-- <td width="11%" class="celldisplayr"><span id="MIR-CVG-FACE-AMT1-T[]" stype="Currency" elength="16"  signed="yes" displayonly="yes">MIR-CVG-FACE-AMT1-T[]</span></td> -->
+<td width="5%" class="celldisplay"><span id="MIR-POL-ID1-T[]" stype="Text" displayonly="yes">MIR-POL-ID1-T[]</span></td>
+<td width="4%" class="celldisplay"><span id="MIR-CVG-NUM1-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM1-T[]</span></td>
+<!-- UY3070 CHANGES STARTS HERE -->
+<td width="4%" class="celldisplay"><span id="MIR-PLAN-CD1-T[]" stype="Text" displayonly="yes">MIR-PLAN-CD1-T[]</span></td>
+<!-- UY3070 CHANGES ENDS HERE -->
+<td width="20%" class="celldisplay"><span id="MIR-PLAN-ID1-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID1-T[]</span></td>
+<td width="8%" class="celldisplayr"><span id="MIR-CVG-FACE-AMT1-T[]" stype="Currency" elength="16"  signed="yes" displayonly="yes">MIR-CVG-FACE-AMT1-T[]</span></td>
+<!-- 105746 CHANGES ENDS HERE -->
+<td width="15%" class="celldisplay"><span id="MIR-BNFT-NM-ID-T[]" stype="Text" displayonly="yes">MIR-BNFT-NM-ID-T[]</span></td>
+<!-- 105746 CHANGES STARTS HERE -->
+<!-- <td width="8%" class="celldisplay"><span id="MIR-BNFT-DECSN-CD-T[]" stype="Text" displayonly="yes">MIR-BNFT-DECSN-CD-T[]</span></td> -->
+<!-- RP2CLA Changed Length to "7" and Decimals ="1"-->
+<!-- <td width="7%" class="celldisplay"><span id="MIR-DV-BNFT-MULTR-FCT-T[]" stype="Number" elength="7" decimals="1"  displayonly="yes">MIR-DV-BNFT-MULTR-FCT-T[]</span></td> -->
+<!-- <td width="11%" class="celldisplayr"><span id="MIR-DV-BNFT-PAYBL-AMT-T[]" stype="Currency" elength="16"  signed="yes" displayonly="yes">MIR-DV-BNFT-PAYBL-AMT-T[]</span></td> -->
+<td width="5%" class="celldisplay"><span id="MIR-BNFT-DECSN-CD-T[]" stype="Text" displayonly="yes">MIR-BNFT-DECSN-CD-T[]</span></td>
+<td width="5%" class="celldisplay"><span id="MIR-DV-BNFT-MULTR-FCT-T[]" stype="Number" elength="7" decimals="1"  displayonly="yes">MIR-DV-BNFT-MULTR-FCT-T[]</span></td>
+<td width="8%" class="celldisplayr"><span id="MIR-DV-BNFT-PAYBL-AMT-T[]" stype="Currency" elength="16"  signed="yes" displayonly="yes">MIR-DV-BNFT-PAYBL-AMT-T[]</span></td>
+<!-- 105746 CHANGES ENDS HERE -->
+<!-- CS0008 CHANGES STARTS HERE -->
+<!-- 105746 CHANGES STARTS HERE -->
+<!-- <td width="15%" class="celldisplayr"><span id="MIR-NON-PMT-REASN-TXT-T[]" stype="Text" elength="08"  signed="yes" displayonly="yes">MIR-NON-PMT-REASN-TXT-T[]</span></td> -->
+<td width="30%" class="celldisplay"><span id="MIR-NON-PMT-REASN-TXT-T[]" stype="Text" displayonly="yes">MIR-NON-PMT-REASN-TXT-T[]</span></td>
+<!-- 105746 CHANGES ENDS HERE -->
+<!-- CS0008 CHANGES ENDS HERE -->
+</tr>
+</table>
+
+<table class="tabledisplay" >
+<tr>
+<td width="87.5%" class="celldisplayr" ><b><label for="MIR-DV-FACE-AMT-TOT">Face Amount Total</label></b></td>
+<td width="12.5%" class="celldisplayr"><span id="MIR-DV-FACE-AMT-TOT" stype="Currency" elength="16"  signed="yes" displayonly="yes">MIR-DV-FACE-AMT-TOT</span></td>
+</tr>
+<!-- MP302M Changes Starts here-->
+<tr>
+<!-- UY323A Changes Starts here
+<td width="87.5%" class="celldisplayr" ><b><label for="MIR-SRVBEN-CHRGBCK-AMT">Survival Benefit Chargeback Amount</label></b></td> -->
+<td width="87.5%" class="celldisplayr" ><b><label for="MIR-SRVBEN-CHRGBCK-AMT">Benefit Chargeback Amount</label></b></td>
+<!-- UY323A Changes Starts here-->
+<td width="12.5%" class="celldisplayr"><span id="MIR-SRVBEN-CHRGBCK-AMT" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-SRVBEN-CHRGBCK-AMT</span></td>
+</tr>
+<!-- MP302M Changes Ends here-->
+</table>
+
+<!-- M253O1 Changes starts here-->
+<table class="tabledisplay" genrows="0" width="100%" >
+<tr>
+
+<td width="12%" class="celldisplayheading"><label for="MIR-SEND-PMT-NOTI-IND-T[1]">Send Payment Notice</label></td>
+<td width="11.5%" class="celldisplayheading"><label for="MIR-KJ-PREFCT-TXT-T[1]">Address Line 1</label></td>
+<td width="11.5%" class="celldisplayheading"><label for="MIR-KJ-CITY-TXT-T[1]">Address Line 2</label></td>
+<td width="11.5%" class="celldisplayheading"><label for="MIR-KJ-NGHBRHD-TXT-T[1]">Address Line 3</label></td>
+<td width="11.5%" class="celldisplayheading"><label for="MIR-CLRL-SAMAKATA-BU-TXT-T[1]">Address Line 4</label></td>
+<td width="13%" class="celldisplayheading"><label for="MIR-PAYEE-NM-TXT-6-T[1]">Payee Name</label></td>
+<td width="13%" class="celldisplayheading"><label for="MIR-PAYEE-PREV-UPDT-DT-T[1]">Payee Previous Update Date</label></td>
+<td width="16%" class="celldisplayheading"><label for="MIR-PAYEE-PREV-UPDT-USER-ID-T[1]">Payee Previous Update User ID</label></td>
+</tr>
+
+<tr>
+<td width="12%" class="celldisplay"><input type="checkbox" name="MIR-SEND-PMT-NOTI-IND-T[]" id="MIR-SEND-PMT-NOTI-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<td width="11.5%" class="celldisplay"><span id="MIR-KJ-PREFCT-TXT-T[]" stype="Text" displayonly="yes">MIR-KJ-PREFCT-TXT-T[]</span>
+</td>
+<td width="11.5%" class="celldisplay"><span id="MIR-KJ-CITY-TXT-T[]" stype="Text" displayonly="yes">MIR-KJ-CITY-TXT-T[]</span>
+</td>
+<td width="11.5%" class="celldisplay"><span id="MIR-KJ-NGHBRHD-TXT-T[]" stype="Text" displayonly="yes">MIR-KJ-NGHBRHD-TXT-T[]</span>
+</td>
+<td width="11.5%" class="celldisplay"><span id="MIR-CLRL-SAMAKATA-BU-TXT-T[]" stype="Text" displayonly="yes">MIR-CLRL-SAMAKATA-BU-TXT-T[]</span>
+</td>
+<td width="13%" class="celldisplay"><span id="MIR-PAYEE-NM-TXT-6-T[]" stype="Text" displayonly="yes">MIR-PAYEE-NM-TXT-6-T[]</span>
+</td>
+<td width="13%" class="celldisplay"><span id="MIR-PAYEE-PREV-UPDT-DT-T[]" stype="Text" displayonly="yes">MIR-PAYEE-PREV-UPDT-DT-T[]</span>
+</td>
+<td width="16%" class="celldisplay"><span id="MIR-PAYEE-PREV-UPDT-USER-ID-T[]" stype="Text" displayonly="yes">MIR-PAYEE-PREV-UPDT-DT-T[]</span>
+</td>
+</tr>
+</table>
+<!-- M253O1 Changes ends here-->
+<table class="tabledisplay" genrows="0" width="100%" >
+<!--
+<tr>
+<td class="celldisplayheading" colspan="9">Remittance Account</td>
+</tr>
+ -->
+<tr>
+
+<td width="11.11%" class="celldisplayheading"><label for="MIR-BNK-ID-T[1]">Bank Code</label></td>
+<td width="11.11%" class="celldisplayheading"><label for="MIR-BNK-NM-T[1]">Bank Name</label></td>
+<td width="11.11%" class="celldisplayheading"><label for="MIR-BNK-BR-ID-T[1]">Branch Code</label></td>
+<td width="11.11%" class="celldisplayheading"><label for="MIR-BNK-BR-NM-T[1]">Branch Name</label></td>
+<td width="11.11%" class="celldisplayheading"><label for="MIR-PAYEE-ACCT-TYP-CD-T[1]">Account Type</label></td>
+<td width="11.11%" class="celldisplayheading"><label for="MIR-PAYEE-BNK-ACCT-ID-T[1]">Account Number</label></td>
+<td width="11.11%" class="celldisplayheading"><label for="MIR-PAYEE-ACCT-HLDR-NM-T[1]">Account Nominee Name</label></td>
+<td width="11.11%" class="celldisplayheading"><label for="MIR-POL-BILL-TYP-CD-IND-T[1]">Bill type Indicator</label></td>
+<td width="11.11%" class="celldisplayheading"><label for="MIR-DV-ACCT-CHK-IND-T[1]">Account Check Indicator</label></td>
+</tr>
+
+<tr>
+
+<td width="11.11%" class="celldisplay"><span id="MIR-BNK-ID-T[]" stype="Text" displayonly="yes">MIR-BNK-ID-T[]</span>
+</td>
+<td width="11.11%" class="celldisplay"><span id="MIR-BNK-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-NM-T[]</span>
+</td>
+<td width="11.11%" class="celldisplay"><span id="MIR-BNK-BR-ID-T[]" stype="Text" displayonly="yes">MIR-BNK-BR-ID-T[]</span>
+</td>
+<td width="11.11%" class="celldisplay"><span id="MIR-BNK-BR-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-BR-NM-T[]</span>
+</td>
+<td width="11.11%" class="celldisplay"><span id="MIR-PAYEE-ACCT-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-PAYEE-ACCT-TYP-CD-T[]</span>
+</td>
+<td width="11.11%" class="celldisplay"><span id="MIR-PAYEE-BNK-ACCT-ID-T[]" stype="Text" displayonly="yes">MIR-PAYEE-BNK-ACCT-ID-T[]</span>
+</td>
+<td width="11.11%" class="celldisplay"><span id="MIR-PAYEE-ACCT-HLDR-NM-T[]" stype="Text" displayonly="yes">MIR-PAYEE-ACCT-HLDR-NM-T[]</span>
+</td>
+<td width="11.11%" class="celldisplay"><input type="checkbox" name="MIR-POL-BILL-TYP-CD-IND-T[]" id="MIR-POL-BILL-TYP-CD-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+<td width="11.11%" class="celldisplay"><input type="checkbox" name="MIR-DV-ACCT-CHK-IND-T[]" id="MIR-DV-ACCT-CHK-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+</td>
+</tr>
+</table>
+
+<!-- 128754 CHANGES START HERE -->
+<table class="tabledisplay" width="100%" >
+    <tr>
+        <td class="celldisplayheading"><label for="MIR-CLIM-MORAL-RISK-CD">Moral Risk Category</label></td>
+        <td class="celldisplayheading"><label for="MIR-FTXT-MORAL-CMNT-INFO">Moral Risk Note</label></td>
+    </tr>
+    <tr>
+        <td class="celldisplay"><span id="MIR-CLIM-MORAL-RISK-CD" stype="Text" displayonly="yes">MIR-CLIM-MORAL-RISK-CD</span></td>
+        <td class="celldisplay"><span id="MIR-FTXT-MORAL-CMNT-INFO" stype="Text" displayonly="yes">MIR-FTXT-MORAL-CMNT-INFO</span></td>
+    </tr>
+</table>
+<!-- 128754 CHANGES END HERE -->
+
+<table class="tabledisplay" genrows="0" width="100%">
+
+<tr>
+
+<td width="50%" class="celldisplayheading"><label for="MIR-MSG-TXT-T[1]">Message</label></td>
+</tr>
+
+<tr>
+
+<td width="50%" class="celldisplay"><span id="MIR-MSG-TXT-T[]" stype="Text" displayonly="yes">MIR-MSG-TXT-T[]</span>
+</td>
+</tr>
+</table>
+
+
+<table class="tabledisplay" genrows="0" width="100%" >
+<!--
+<tr>
+<td class="celldisplayheading" colspan="9">Exclusion</td>
+</tr>
+ -->
+<tr>
+
+<td width="50%" class="celldisplayheading"><label for="MIR-AMEX-POL-ID-T[1]">Exclusion-Policy ID</label></td>
+<td width="50%" class="celldisplayheading"><label for="MIR-AMEX-COMNT-INFO-T[1]">Exclusion</label></td>
+</tr>
+
+<tr>
+
+<td width="50%" class="celldisplay"><span id="MIR-AMEX-POL-ID-T[]" stype="Text" displayonly="yes">MIR-AMEX-POL-ID-T[]</span>
+</td>
+<td width="50%" class="celldisplay"><span id="MIR-AMEX-COMNT-INFO-T[]" stype="Text" displayonly="yes">MIR-AMEX-COMNT-INFO-T[]</span>
+</td>
+</tr>
+</table>
+
+<table class="tabledisplay" genrows="0" width="100%" >
+
+<tr>
+
+<td width="15%" class="celldisplayheading"><label for="MIR-PREV-UPDT-USER-ID-T[1]">User</label></td>
+<td width="15%" class="celldisplayheading"><label for="MIR-PREV-UPDT-DT-T[1]">Creation Day</label></td>
+<td width="70%" class="celldisplayheading"><label for="MIR-FTXT-CMNT-INFO-T[1]">Claim Note</label></td>
+</tr>
+
+<tr>
+
+<td width="15%" class="celldisplay"><span id="MIR-PREV-UPDT-USER-ID-T[]" stype="Text" displayonly="yes">MIR-PREV-UPDT-USER-ID-T[]</span>
+</td>
+<td width="15%" class="celldisplay"><span id="MIR-PREV-UPDT-DT-T[]" stype="Date" displayonly="yes">MIR-PREV-UPDT-DT-T[]</span>
+</td>
+<td width="70%" class="celldisplay"><span id="MIR-FTXT-CMNT-INFO-T[]" stype="Text" displayonly="yes">MIR-FTXT-CMNT-INFO-T[]</span>
+</td>
+</tr>
+</table>
+<!-- MP300C CHANGES START HERE -->
+<table class="tabledisplay" genrows="0" width="100%" >
+    <tr>
+        <td class="celldisplayheading"><label for="MIR-SCRN-POL-ID-T[1]">Policy ID</label></td>
+
+        <td class="celldisplayheading"><label for="MIR-SCRN-PRE-LCD-CHK-IND-T[1]">Pre-LCD Check</label></td>
+
+    </tr>
+    <tr>
+        <td class="celldisplay"><span id="MIR-SCRN-POL-ID-T[]" stype="Text" displayonly="yes">MIR-SCRN-POL-ID-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-SCRN-PRE-LCD-CHK-IND-T[]" stype="Text"  displayonly="yes">MIR-SCRN-PRE-LCD-CHK-IND-T[]</span>
+        </td>
+    </tr>
+</table>
+<!-- MP300C CHANGES END HERE -->
+<p><input type="hidden" name="MIR-INFO" id="MIR-INFO" stype="Hidden"/>
+</p>
+<p><input type="hidden" name="action" id="action" stype="Hidden"/>
+</p>
+</form>
+</body>
+<!--EN9547 CHANGES BEGIN -->
+<!--
+<script src="../../js/MessagesEnglish.js"></script>
+<script src="../../js/MessageFunctions.js"></script>
+<script src="../../js/ActionHandlers.js"></script>
+<script src="../../js/ClientLevelEdits.js"></script>
+<script src="../../js/GlobalUserMethods.js"></script>
+-->
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<!--EN9547 CHANGES END -->
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

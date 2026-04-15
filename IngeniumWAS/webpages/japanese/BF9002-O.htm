@@ -1,0 +1,180 @@
+﻿<!--
+*******************************************************************************
+*  Component:   BF9002-O.htm                                                  *
+*  Description: Claims Additional Question Output Screen                      *
+*                                                                             *
+*******************************************************************************
+*  Chg#    Release  Description                                               *
+*                                                                             *
+*  EN9547    CTS    Style of Japanese page is changed                         *
+*                                                                             *
+*  23774B  CTS      Changes done for ie retirement project to make it         *
+*                   compatible for microsoft edge. Changes in html include    *
+*                   adding "id" attribute for all input fields and changes in *
+*                   java scripts to modify certain functions/commands which   *
+*                   are no longer compatilble with edge.                      *
+*  UYSDMC  CTS      USYS CLAIM IND ADDITION                                   *
+*******************************************************************************
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9002-I</title>
+<!--EN9547 changes begin -->
+<!-- <link rel="stylesheet" type="text/css" href="../../japanese/Ingenium.css" charset="ISO-8859-1" /> -->
+<link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="ISO-8859-1" />
+</head>
+<!--EN9547 changes end -->
+<body onLoad="MajorQstn(); QstnDisable(); Indent()" class="bodyws">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+
+<table width="100%" id="table1">
+	<tr>
+		<td class="celldisplaykeylabel"><label for="MIR-CLM-ID">マスタークレームID:</label></td>
+		<td class="celldisplaykey">
+		<span id="MIR-CLM-ID" stype="Text" displayonly="yes">MIR-CLM-ID</span>
+		</td>
+		<td class="celldisplaykeylabel"><label for="MIR-DV-INS-CLI-NM">
+		被保険者名:</label></td>
+		<td class="celldisplaykey">
+		<span id="MIR-DV-INS-CLI-NM" stype="Text" displayonly="yes">
+		MIR-DV-INS-CLI-NM</span>
+		</td>
+		<td class="celldisplaykeylabel"><label for="MIR-CLMA-CLM-STAT-CD">
+		マスタークレーム ステータス:</label></td>
+		<td class="celldisplaykey"><span id="MIR-CLMA-CLM-STAT-CD" stype="Text" displayonly="yes">
+		MIR-CLMA-CLM-STAT-CD</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="celldisplaykeylabel"><label for="MIR-CLMA-INSRD-CLI-ID">
+		被保険者クライアントID:</label></td>
+		<td class="celldisplaykey"><span id="MIR-CLMA-INSRD-CLI-ID" stype="Text" displayonly="yes">
+		MIR-CLMA-INSRD-CLI-ID</span>
+		</td>
+		<td class="celldisplaykeylabel"><label for="MIR-CLI-BTH-DT">
+		生年月日:</label></td>
+		<td class="celldisplaykey">
+		<span id="MIR-CLI-BTH-DT" stype="Date" displayonly="yes">MIR-CLI-BTH-DT</span>		</td>
+		<td class="celldisplaykeylabel"><label for="MIR-CLI-SEX-CD">
+		性別:</label></td>
+		<td class="celldisplaykey">
+		<span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span></td>
+	</tr>
+	<tr>
+		<td class="celldisplaykeylabel"><label for="MIR-INS-MORAL-RISK-IND">
+		被保険者モラルリスク:</label></td>
+		<td class="celldisplaykey"><input type="checkbox" name="MIR-INS-MORAL-RISK-IND" id="MIR-INS-MORAL-RISK-IND" stype="Indicator" value="Y"                    disabled="yes"/></td>
+		<td class="celldisplaykeylabel"><label for="MIR-CLAIM-NOTE-IND">
+		クレーム備考:</label></td>
+		<td class="celldisplaykey"><input type="checkbox" name="MIR-CLAIM-NOTE-IND" id="MIR-CLAIM-NOTE-IND" stype="Indicator" value="Y"                        disabled="yes"/></td>
+		<td class="celldisplaykeylabel"><label for="MIR-CLI-DTH-DT">
+		死亡年月日:</label></td>
+		<td class="celldisplaykey">
+		<span id="MIR-CLI-DTH-DT" stype="Date" displayonly="yes">MIR-CLI-DTH-DT</span></td>
+	</tr>
+	<tr>
+		<td class="celldisplaykeylabel"><label for="MIR-PREV-AUTO-ADJC-DT">
+		最終自動査定日:</label></td>
+		<td class="celldisplaykey"><span id="MIR-PREV-AUTO-ADJC-DT" stype="Date" displayonly="yes">
+		MIR-PREV-AUTO-ADJC-DT</span></td>
+		<td class="celldisplaykeylabel"><label for="MIR-PREV-UPDT-DT">
+		前回更新日:</label></td>
+		<td class="celldisplaykey">
+		<span id="MIR-PREV-UPDT-DT" stype="Date" displayonly="yes">
+		MIR-PREV-UPDT-DT</span></td>
+		<td class="celldisplaykeylabel"><label for="MIR-PREV-UPDT-USER-ID">
+		前回更新者ユーザID:</label></td>
+		<td class="celldisplaykey">
+		<span id="MIR-PREV-UPDT-USER-ID" stype="Text" displayonly="yes">
+		MIR-PREV-UPDT-USER-ID</span></td>
+	</tr>
+	<tr>
+		<td class="celldisplaykeylabel"></td>
+		<td class="celldisplaykey"></td>
+        <td class="celldisplaykeylabel">
+<!-- UYSDMC CHANGES START -->
+            <label for="MIR-CLMA-USYS-CLM-IND">ユニシス請求:</label>
+<!-- UYSDMC CHANGES END -->	        
+		</td>
+        <td class="celldisplaykey">
+<!-- UYSDMC CHANGES START -->        
+			<input type="checkbox" name="MIR-CLMA-USYS-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+<!-- UYSDMC CHANGES END -->	        
+		</td>
+		<td class="celldisplaykeylabel"><label for="MIR-CLMA-HIST-CLM-IND">
+		クレーム履歴:</label></td>
+		<td class="celldisplaykey"><input type="checkbox" name="MIR-CLMA-HIST-CLM-IND" id="MIR-CLMA-HIST-CLM-IND" stype="Indicator" value="Y"                  disabled="yes"/></td>
+	</tr>
+</table>
+
+<table class="tabledisplay" genrows="0" id="tab1">
+
+<tr>
+
+<td class="celldisplayheading"><label for="MIR-QSTN-DESC-TXT-T[1]">質問</label></td>
+<td class="celldisplayheading"><label for="MIR-ANSWR-CD-T[1]">応答</label></td>
+<td class="celldisplayheading"></td>
+<td class="celldisplayheading"></td>
+
+</tr>
+
+<tr>
+<td class="celldisplay"><span id="MIR-QSTN-DESC-TXT-T[]" stype="Text" displayonly="yes">MIR-QSTN-DESC-TXT-T[]</span>
+</td>
+
+<td class="celldisplay"><input type="radio" name="MIR-ANSWR-CD-T[]" value="Y" stype="YesNoUnanswered"  onclick="onYesNoUa('Yes')" onfocus="saveValue(); enterField(this)" >Yes</input></td>
+
+<td class="celldisplay"><input type="radio" name="MIR-ANSWR-CD-T[]" value="N" stype="YesNoUnanswered"  onclick="onYesNoUa('No')" onfocus="saveValue(); enterField(this)" >No</input></td>
+
+<td class="celldisplay"><input type="radio" name="MIR-ANSWR-CD-T[]" value="U" stype="YesNoUnanswered"  onclick="onYesNoUa('Ua')" onfocus="saveValue(); enterField(this)" >Unknown</input></td>
+</tr>
+</table>
+
+<input type="hidden" name="MIR-HID-MORE-QSTN-ID" id="MIR-HID-MORE-QSTN-ID" stype="Hidden"/>
+
+<input type="hidden" name="MIR-HID-MORE-LVL-NUM" id="MIR-HID-MORE-LVL-NUM" stype="Hidden"/>
+
+<input type="hidden" name="MIR-HID-FLOW-CHK-IND" id="MIR-HID-FLOW-CHK-IND" stype="Hidden"/>
+
+<table genrows="0" >
+<tr>
+<td><input type="hidden" name="MIR-HID-QSTN-ID-T[]" id="MIR-HID-QSTN-ID-T[]" stype="Hidden"/></td>
+</tr>
+</table>
+
+<table genrows="0" >
+<tr>
+<td><input type="hidden" name="MIR-HID-LVL-NUM-T[]" id="MIR-HID-LVL-NUM-T[]" stype="Hidden"/></td>
+</tr>
+</table>
+<table genrows="0" >
+<tr>
+<td><input type="hidden" name="MIR-HID-TRIGGR-CD-T[]" id="MIR-HID-TRIGGR-CD-T[]" stype="Hidden"/></td>
+</tr>
+</table>
+<table genrows="0" >
+<tr>
+<td><input type="hidden" name="MIR-HID-PARNT-QSTN-ID-T[]" id="MIR-HID-PARNT-QSTN-ID-T[]" stype="Hidden"/></td>
+</tr>
+</table>
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+
+</form>
+</body>
+<!-- EN9547 CHANGES START
+<script src="../../js/MessagesJapanese.js"></script>
+<script src="../../js/MessageFunctions.js"></script>
+<script src="../../js/ActionHandlers.js"></script>
+<script src="../../js/ClientLevelEdits.js"></script>
+<script src="../../js/GlobalUserMethods.js"></script>
+<script src="../../js/MajorQstn.js"></script>
+-->
+<script src="../js/MessagesJapanese.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<script src="../js/MajorQstn.js"></script>
+<!-- EN9547 CHANGES END -->
+</html>

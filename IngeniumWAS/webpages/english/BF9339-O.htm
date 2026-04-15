@@ -1,0 +1,117 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:51 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9339-O.htm
+*  Description: Final Approval Reversal list
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  HCL109  HIN/CL   CLAIM PAYMENT
+*  CCL05   HIN/CL   PICK-UP FACILITY
+*  C22559  PF4.3    Fix the labels for -T[1] format
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*  UYSDMC  CTS      USYS CLAIM IND ADDITION
+*********************************************************************************
+ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9339-O</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<body class="bodyws">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<table class="tabledatakey">
+   <tr>
+        <td class="celldatakeylabel">
+            <label for="MIR-CLM-ID">Master Claim ID:</label>
+        </td>
+        <td class="celldatakey">
+            <input type="text" value=" " name="MIR-CLM-ID" id="MIR-CLM-ID" stype="Text" maxlength="10"   onfocus="enterField(this)"/>
+        </td>
+        <td></td>
+        <td></td>
+   </tr>
+   <tr>
+        <td class="celldatakeylabel">
+            <label for="MIR-DV-INS-CLI-NM">Insured Name:</label>
+        </td>
+        <td class="celldatakey">
+            <span id="MIR-DV-INS-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INS-CLI-NM</span>
+        </td>
+        <td class="celldatakeylabel">
+            <label for="MIR-CLMA-CLM-STAT-CD">Master Claim Status:</label>
+        </td>
+        <td class="celldatakey">
+            <span id="MIR-CLMA-CLM-STAT-CD" stype="Text" displayonly="yes">MIR-CLMA-CLM-STAT-CD</span>
+        </td>
+   </tr>
+   <tr>
+        <td class="celldatakeylabel">
+            <label for="MIR-PREV-UPDT-DT">Previous Update Date:</label>
+        </td>
+        <td class="celldatakey">
+            <span id="MIR-PREV-UPDT-DT" stype="Text" displayonly="yes">MIR-PREV-UPDT-DT</span>
+        </td>
+        <td class="celldatakeylabel">
+            <label for="MIR-PREV-UPDT-USER-ID">Previous Update User ID:</label>
+        </td>
+        <td class="celldatakey">
+            <span id="MIR-PREV-UPDT-USER-ID" stype="Text" displayonly="yes">MIR-PREV-UPDT-USER-ID</span>
+        </td>
+   </tr>
+    <tr>
+        <td class="celldatakeylabel">
+<!-- UYSDMC CHANGES START -->		
+            <label for="MIR-CLMA-USYS-CLM-IND">Unisys Claim:</label>
+<!-- UYSDMC CHANGES END -->	        
+		</td>
+        <td class="celldatakey">
+<!-- UYSDMC CHANGES START -->	
+            <input type="checkbox" name="MIR-CLMA-USYS-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+<!-- UYSDMC CHANGES END -->        
+		</td>
+        <td class="celldatakeylabel">
+            <label for="MIR-CLMA-HIST-CLM-IND">Historical Claim:</label>
+        </td>
+        <td class="celldatakey">
+            <input type="checkbox" name="MIR-CLMA-HIST-CLM-IND" id="MIR-CLMA-HIST-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+        </td>
+    </tr>
+</table>
+
+<br />
+<table class="tabledisplay" genrows="0" keyfield="1">
+
+   <tr>
+      <td class="celldisplayheading"></td>
+      <!-- C22559 Changes Starts -->
+      <!--<td class="celldisplayheading"><label for="MIR-APROV-SEQ-NUM-T">Seq #</label></td>  -->
+      <td class="celldisplayheading"><label for="MIR-APROV-SEQ-NUM-T[1]">Seq #</label></td>
+      <!-- C22559 Changes Ends -->
+      <td class="celldisplayheading"><label for="MIR-BNFT-PMT-AMT-T[1]">Payment Amount</label></td>
+      <td class="celldisplayheading"><label for="MIR-REMIT-AMT-T[1]">Adjusted Payment Amount</label></td>
+   </tr>
+   <tr>
+     <td class="celldisplay"><input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()"/></td>
+     <td class="celldisplay"><span id="MIR-APROV-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-APROV-SEQ-NUM-T[]</span></td>
+     <td class="celldisplay"><span id="MIR-BNFT-PMT-AMT-T[]" stype="Currency" elength="15" displayonly="yes">MIR-BNFT-PMT-AMT-T[]</span></td>
+     <td class="celldisplay"><span id="MIR-REMIT-AMT-T[]" stype="Currency" elength="15" displayonly="yes">MIR-REMIT-AMT-T[]</span></td>
+   </tr>
+</table>
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+<input type="hidden" name="index" id="index" stype="Hidden"/>
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+</html>

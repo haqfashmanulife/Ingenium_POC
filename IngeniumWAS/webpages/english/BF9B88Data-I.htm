@@ -1,0 +1,194 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:26 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9B88Data-I.htm                                                *
+*  Description: Trial calculation for Birth Date/Sex Modification Screen        *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  M319A5  CTS      INITIAL CREATION                                            *
+*  23774B  CTS      CHANGES DONE FOR IE RETIREMENT PROJECT TO MAKE IT			*
+*                   COMPATIBLE FOR MICROSOFT EDGE. CHANGES IN HTML INCLUDE		*
+*                   ADDING "ID" ATTRIBUTE FOR ALL INPUT FIELDS AND CHANGES IN	*
+*                   JAVA SCRIPTS TO MODIFY CERTAIN FUNCTIONS/COMMANDS WHICH		*
+*                   ARE NO LONGER COMPATILBLE WITH EDGE.						*
+*                                                                               *
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  UYS91B  CTS      Field addition for Birth date/sex correction process        *
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9B88data-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplayheading" colspan="8">
+                        <a name="BasicInformation">Basic Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaylabel" colspan="1">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-HO-RCVD-DT">Head Office Received Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HO-RCVD-DT" stype="Date" displayonly="yes">MIR-HO-RCVD-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RECPT-DT">Receipt Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RECPT-DT" stype="Date" displayonly="yes">MIR-RECPT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ISS-EFF-DT">Policy Issue Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">Premium Mode:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ID">Plan:</label>
+                    </td>
+                    <td class="celldisplay" colspan="4">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSRD-CLI-NM">Insured Name:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-INSRD-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSRD-CLI-ID">Insured Client ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-ID" stype="Text" displayonly="yes">MIR-INSRD-CLI-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-BTH-DT">Birth Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-BTH-DT" stype="Date" displayonly="yes">MIR-CLI-BTH-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-SEX-CD">Sex:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSRD-AGE">Issue Age:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-AGE" stype="Text" displayonly="yes">MIR-INSRD-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MPREM-AMT">Modal Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+<!-- S24286 CHANGES START -->
+<!--                        <span id="MIR-POL-MPREM-AMT" stype="Currency" elength="17" decimals="2" signed="yes" displayonly="yes">MIR-POL-MPREM-AMT</span> -->
+                        <span id="MIR-POL-MPREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-MPREM-AMT</span>
+<!-- S24286 CHANGES END -->
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-NEW-BTH-DT">New Birth Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-NEW-BTH-DT" id="MIR-NEW-BTH-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-NEW-SEX-CD">New Sex:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-NEW-SEX-CD" id="MIR-NEW-SEX-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" tabindex="5"></select>
+                    </td>
+                </tr>
+            </table>
+<!--UYS91B Changes Begin-->
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="8">Related Policy ID</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-BASE-T[1]">Policy ID:</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-SFX-T[1]">Suffix:</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PLAN-ID-T[1]"> Plan Name:</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CSTAT-CD-T[1]"> Policy Status:</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+<!--UYS91B Changes End-->
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/JapaneseBranch.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

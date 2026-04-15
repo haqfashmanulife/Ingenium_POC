@@ -1,0 +1,98 @@
+# Converted from PathFinder 2.2 to 3.0 Jun 18, 2004 3:13:42 PM EDT
+
+#*******************************************************************************
+#*  Component:   BF1624-P.p                                                    *
+#*  Description:                                                               *
+#*                                                                             *
+#*******************************************************************************
+#*  Chg#    Release  Description                                               *
+#*                                                                             *
+#*  014590  6.0      New for release 6.0                                       *
+#*  017150  612J     Remove Currency Decimals = "2"                            *
+#*                                                                             *
+#*******************************************************************************
+
+P-STEP BF1624-P
+{
+    ATTRIBUTES
+    {
+        BusinessFunctionId = "1624";
+        BusinessFunctionName = "Plan Bonus Declaration List";
+        BusinessFunctionType = "List";
+        MirName = "CCWM3070";
+    }
+
+    OUT LSIR-RETURN-CD;
+
+    OUT MIR-RETRN-CD;
+
+    INOUT MIR-PLAN-BON-IDT-NUM
+    {
+        Key;
+        Length = "10";
+        DBTableName = "TPLBN";
+        SType = "Date";
+        Label = "Effective Date";
+    }
+
+    INOUT MIR-PLAN-ID
+    {
+        Key;
+        Mandatory;
+        Length = "40";
+        CodeSource = "EDIT";
+        CodeType = "PLAN";
+        DBTableName = "TPH";
+        SType = "Selection";
+        Label = "Plan";
+    }
+
+    INOUT MIR-SBSDRY-CO-ID
+    {
+        Key;
+        Mandatory;
+        Length = "40";
+        CodeSource = "EDIT";
+        CodeType = "SUBCO";
+        DBTableName = "TPLBN";
+        SType = "Selection";
+        Label = "Sub Company";
+    }
+
+    OUT MIR-PLAN-BON-IDT-NUM-T[11]
+    {
+        Length = "10";
+        FieldGroup = "Table11";
+        DBTableName = "TPLBN";
+        SType = "Date";
+        Label = "Effective Date";
+        Index = "1";
+    }
+
+    OUT MIR-PLAN-ID-T[11]
+    {
+        Length = "40";
+        FieldGroup = "Table11";
+        KeyColumn;
+        CodeSource = "EDIT";
+        CodeType = "PLAN";
+        DBTableName = "TPH";
+        SType = "Text";
+        Label = "Plan";
+        Index = "1";
+    }
+
+    OUT MIR-SBSDRY-CO-ID-T[11]
+    {
+        Length = "40";
+        FieldGroup = "Table11";
+        CodeSource = "EDIT";
+        CodeType = "SUBCO";
+        DBTableName = "TPLBN";
+        SType = "Text";
+        Label = "Sub Company";
+        Index = "1";
+    }
+
+}
+

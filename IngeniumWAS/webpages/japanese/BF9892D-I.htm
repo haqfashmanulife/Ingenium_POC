@@ -1,0 +1,163 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:26:00 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9892D-I.htm
+*  Description: Disease/Surgery Update - Output (Disease)
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  HCL111  HIN/CL   DISEASE AND SURGERY TABLES
+*  B11062  HIN/CL   FIX SMALL AND LARGE KANA SEARCH
+*MP143R  CTS        ADDITION OF NEW FIELDS
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>BF9892D-I</title>
+    <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+</head>
+
+<body class="bodyws">
+    <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return onSubmitCustom();">
+        <input type="hidden" name="action" id="action" stype="Hidden"/>
+        <input type="hidden" name="index" id="index" stype="Hidden"/>
+
+        <input type="hidden" name="MIR-MEDC-TYP-CD" id="MIR-MEDC-TYP-CD" stype="Hidden"/>
+        <input type="hidden" name="MIR-GRP-MEDC-TYP-CD" id="MIR-GRP-MEDC-TYP-CD" stype="Hidden"/>
+
+        <table class="tabledisplaykey">
+            <tr>
+                <td class="celldisplaykeylabel">
+                    <label for="MIR-MEDIC-CD">医療タイプ:</label>
+                </td>
+                <td class="celldisplaykey">
+                    <span id="MIR-MEDIC-CD" stype="Text" displayonly="yes">MIR-MEDIC-CD</span>
+                </td>
+                <td class="celldisplaykeylabel">
+                    <label for="MIR-MEDC-ID">病名コード:</label>
+                </td>
+                <td class="celldisplaykey">
+                    <span id="MIR-MEDC-ID" stype="Text" displayonly="yes">MIR-MEDC-ID</span>
+                </td>
+            </tr>
+        </table>
+
+        <p><h2>病名</h2></p>
+        <table class="tabledataentry">
+            <tr>
+                <td class="celllabelrightalign">
+                    <label for="MIR-LANG-DESC-1-TXT">ｶﾀｶﾅ表記:</label>
+                </td>
+                <td class="celllabeldataentry">
+                    <input type="text" value=" " name="MIR-LANG-DESC-1-TXT" id="MIR-LANG-DESC-1-TXT" stype="Text" maxlength="60" mandatory="yes" onfocus="enterField(this)" size="60" onkeypress="KanaKeyCheck()"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="celllabelrightalign">
+                    <label for="MIR-LANG-DESC-2-TXT">漢字表記:</label>
+                </td>
+                <td class="celllabeldataentry">
+                    <input type="text" value=" " name="MIR-LANG-DESC-2-TXT" id="MIR-LANG-DESC-2-TXT" stype="Text" maxlength="60" mandatory="yes" onfocus="enterField(this)" size="60" />
+                </td>
+            </tr>
+        </table>
+
+        <p><h2>主要コード</h2></p>
+        <table class="tabledataentry">
+            <tr>
+                <td class="celllabelrightalign">
+                    <label for="MIR-GRP-MEDC-ID">主要コード:</label>
+                </td>
+                <td class="celllabeldataentry">
+                    <input type="text" value=" " name="MIR-GRP-MEDC-ID" id="MIR-GRP-MEDC-ID" stype="Text" maxlength="10" onfocus="enterField(this)" size="10" />
+                </td>
+                <td class="celllabeldataentry">
+                    <span id="MIR-GRP-LANG-DESC-1-TXT" stype="Text" displayonly="yes">MIR-GRP-LANG-DESC-1-TXT</span>
+                </td>
+            </tr>
+        </table>
+
+        <p><h2>給付金区分</h2></p>
+        <table class="tabledisplay" genrows="0" keyfield="0">
+            <tr>
+                <td class="celldisplayheading">
+                    <label for="MIR-T1-MEDIC-CAT-CD-T[1]">区分名</label>
+                </td>
+                <td class="celldisplayheading">
+                    <label for="MIR-T1-SELECT-T[1]">選択</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="celllabeldataentry">
+                    <span id="MIR-T1-MEDIC-CAT-CD-T[]" stype="Text" displayonly="yes">MIR-T1-MEDIC-CAT-CD-T[]</span>
+                </td>
+                <td class="celllabeldataentry">
+                    <input type="checkbox" value="Y" name="MIR-T1-SELECT-T[]" id="MIR-T1-SELECT-T[]" stype="Indicator" index="1"   onclick="onCheckBox()"  onfocus="enterField(this)"/>
+                </td>
+            </tr>
+        </table>
+
+        <p><h2>業務ルール</h2></p>
+        <table class="tabledisplay" genrows="0" keyfield="0">
+            <tr>
+                <td class="celldisplayheading">
+                    <label for="MIR-T2-MEDIC-CAT-CD-T[1]">区分名</label>
+                </td>
+                <td class="celldisplayheading">
+                    <label for="MIR-T2-MCAT-TYP-CD-T[1]">区分タイプ</label>
+                </td>
+                <td class="celldisplayheading">
+                    <label for="MIR-T2-SELECT-T[1]">選択</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="celllabeldataentry">
+                    <span id="MIR-T2-MEDIC-CAT-CD-T[]" stype="Text" displayonly="yes">MIR-T2-MEDIC-CAT-CD-T[]</span>
+                </td>
+                <td class="celllabeldataentry">
+                    <span id="MIR-T2-MCAT-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-T2-MCAT-TYP-CD-T[]</span>
+                </td>
+                <td class="celllabeldataentry">
+                    <input type="checkbox" value="Y" name="MIR-T2-SELECT-T[]" id="MIR-T2-SELECT-T[]" stype="Indicator" index="1"   onclick="onCheckBox()"  onfocus="enterField(this)"/>
+                </td>
+            </tr>
+        </table>
+<!--MP143R code changes start here-->
+           <p><h2>病名有効日/終了日</h2></p>
+        <table class="tabledataentry">
+            <tr>
+                <td class="celllabelrightalign">
+                    <label for="MIR-EFF-DT">有効日</label>
+                </td>
+                <td class="celllabeldataentry">
+                    <input type="text" value=" " name="MIR-EFF-DT" id="MIR-EFF-DT" stype="Text" maxlength="10" onfocus="enterField(this)" size="10" onkeypress="KanaKeyCheck()"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="celllabelrightalign">
+                   <label for="MIR-XPRY-DT">終了日</label>
+                </td>
+                <td class="celllabeldataentry">
+                    <input type="text" value=" " name="MIR-XPRY-DT" id="MIR-XPRY-DT" stype="Text" maxlength="10"  onfocus="enterField(this)" size="10" />
+                </td>
+            </tr>
+        </table>
+<!--MP143R code changes ends here-->
+    </form>
+</body>
+<script src="../js/MessagesJapanese.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<script src="../js/OnlyKana.js"></script>
+<script src="../js/OnlyKanaClm.js"></script>
+</html>

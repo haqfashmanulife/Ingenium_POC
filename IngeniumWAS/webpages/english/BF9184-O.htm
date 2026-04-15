@@ -1,0 +1,158 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:49 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9184-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  PR006I  BMB      Changes for ManuMed Riders
+*  018395  CTS      CHANGES DONE FOR TRAD RIDER RENEWAL
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*
+*********************************************************************************
+ -->
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9184-O</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="RiderRenewCheck();onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="4">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-EFF-DT">Effective Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-EFF-DT" stype="Date" displayonly="yes">MIR-DV-POL-ANNIV-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-SNDRY-AMT">Sundry Amount:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-SNDRY-AMT" stype="Currency" displayonly="yes">MIR-POL-SNDRY-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">Premium Mode:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILl-MODE-CD</span>
+                    </td>
+<!-- 018395 CHANGES START HERE -->
+                   <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-MPREM-AMT">Trad modal premium:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-MPREM-AMT" stype="Currency" displayonly="yes">MIR-POL-MPREM-AMT</span>
+                    </td>
+<!-- 018395 CHANGES END HERE -->
+                </tr>
+<!-- 018395 CHANGES START HERE -->
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                   <td class="celldisplaykeylabel">
+                        <label for="MIR-ADV-PMT-AMT">Advance Premium:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-ADV-PMT-AMT" stype="Currency" displayonly="yes">MIR-ADV-PMT-AMT</span>
+                    </td>
+                </tr>
+<!-- 018395 CHANGES END HERE -->
+            </table>
+            <br />
+
+<table class="tabledisplay" genrows="0" >
+  
+<tr>
+  
+<td class="celldisplayheading"><label for="MIR-DV-INSRD-CLI-NM-T[1]">Insured's Name</label></td>
+<td class="celldisplayheading"><label for="MIR-CVG-NUM-T[1]">#</label></td>
+<td class="celldisplayheading"><label for="MIR-DV-CHNG-STATUS-T[1]">Stat</label></td>
+<td class="celldisplayheading"><label for="MIR-PLAN-ID-T[1]">Rider Name</label></td>
+<td class="celldisplayheading"><label for="MIR-CVG-STBL-1-CD-T[1]">Duration</label></td>
+<td class="celldisplayheading"><label for="MIR-CVG-PREM-CHNG-DT-1">Next Renewal Date</label></td>
+<td class="celldisplayheading"><label for="MIR-CVG-STBL-2-CD-T[1]">Benefit Limit</label></td>
+<td class="celldisplayheading"><label for="MIR-CVG-FACE-AMT-T[1]">Current Face Amount</label></td>
+<td class="celldisplayheading"><label for="MIR-CVG-MPREM-AMT-T[1]">Renewal Modal Premium</label></td>
+</tr>
+  
+<tr>
+  
+<td class="celldisplay"><span id="MIR-DV-INSRD-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-DV-CHNG-STATUS-T[]" stype="Text" displayonly="yes">MIR-DV-CHNG-STATUS-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-CVG-STBL-1-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-1-CD-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-CVG-PREM-CHNG-DT-T[]" stype="Date" displayonly="yes">MIR-CVG-PREM-CHNG-DT-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-CVG-STBL-2-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-2-CD-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-CVG-FACE-AMT-T[]" stype="Currency" elength="15"   displayonly="yes">MIR-CVG-FACE-AMT-T[]</span>
+</td>
+<td class="celldisplay"><span id="MIR-CVG-MPREM-AMT-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-CVG-MPREM-AMT-T[]</span>
+</td>
+<td class="celldisplay"><input type="hidden" name="MIR-DV-CVG-RENEW-CD-T[]" id="MIR-DV-CVG-RENEW-CD-T[]" stype="Hidden"/>
+</td>
+<td class="celldisplay"><input type="hidden" name="MIR-DV-CVG-PLAN-ID-T[]" id="MIR-DV-CVG-PLAN-ID-T[]" stype="Hidden"/>
+</td>
+<td class="celldisplay"><input type="hidden" name="MIR-DV-BASE-RENW-IND" id="MIR-DV-BASE-RENW-IND" stype="Hidden"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<script src="../js/BF9184.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

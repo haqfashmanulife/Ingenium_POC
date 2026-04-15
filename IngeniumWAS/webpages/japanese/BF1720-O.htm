@@ -1,0 +1,455 @@
+<!--    
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:41 PM EDT
+*
+*********************************************************************************   
+*  Component:   BF1720-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************   
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  602J     Add onLoad() function to <body> tag for currency scaling   
+*  016109  602J     Free Fund Transfer Provision                               
+*  017150  612J     Remove Currency decimals="2"  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                          
+*                                                                              
+*********************************************************************************   
+ -->   
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1720-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">   
+            <input type="hidden" name="index" id="index" stype="Hidden" />   
+            <input type="hidden" name="action" id="action" stype="Hidden" />   
+            <a name="top" />   
+            <table class="tabledisplaykey">   
+                <tr>   
+                    <td class="celldisplaykeylabel">   
+                        <label for="MIR-PLAN-ID">プラン:</label>   
+                    </td>   
+                    <td class="celldisplaykey">   
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>   
+                    </td>   
+                </tr>   
+            </table>   
+            <br />   
+            <center>   
+                <table class="tableanchors">   
+                    <tr>   
+                        <td class="cellanchors">   
+                          <a href="#FundControlInformation">ファンド管理情報</a>   
+                        </td>   
+                        <td class="cellanchors">   
+                            <a href="#UnitPriceUsed">ユニット価格</a>   
+                        </td>   
+                        <td class="cellanchors">   
+                            <a href="#PaymentsChargeInformation">払込/請求データ</a>  
+                        </td>  
+                        <td class="cellanchors">  
+                            <a href="#NotificationTransferFeeInformation">通知/移転手数料</a>  
+                        </td>  
+                    </tr>  
+                </table>  
+            </center>  
+            <center>  
+                <table class="tableanchors">  
+                    <tr>  
+                        <td class="cellanchors">  
+                            <a href="#FreeFundTransferInformation">無料ファンド移転</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PartialSurrenderInformation">一部解約</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#GuaranteedInformation">保証額</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#CommissionDetails">手数料詳細</a> 
+                        </td> 
+                    </tr> 
+                </table> 
+            </center> 
+            <br /> 
+            <table class="tabledisplay"> 
+                <tr> 
+                    <td colspan="4" class="celldisplayheading"> 
+                        <a name="FundControlInformation">ファンド管理情報</a> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-PLAN-REQIR-FND-CD">必要ファンド:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-PLAN-REQIR-FND-CD" stype="Text" displayonly="yes">MIR-PLAN-REQIR-FND-CD</span> 
+                    </td> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-PLAN-MAX-FND-QTY">ファンド数上限:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-PLAN-MAX-FND-QTY" stype="Text" displayonly="yes">MIR-PLAN-MAX-FND-QTY</span> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-MIN-AUTO-TRMN-AMT">自動終了ベンチマーク:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-MIN-AUTO-TRMN-AMT" stype="Currency" elength="15" displayonly="yes">MIR-MIN-AUTO-TRMN-AMT</span> 
+                    </td> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-AUTO-TRMN-MO-DUR">自動終了期間 (月):</label>    
+                    </td>    
+                    <td class="celldisplay">    
+                        <span id="MIR-AUTO-TRMN-MO-DUR" stype="Text" displayonly="yes">MIR-AUTO-TRMN-MO-DUR</span>    
+                    </td>    
+                </tr>    
+                <tr>    
+                    <td class="celldisplaylabel">    
+                        <label for="MIR-PEND-PMT-INT-RT-ID">ペンディング払込利息:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-PEND-PMT-INT-RT-ID" stype="Text" displayonly="yes">MIR-PEND-PMT-INT-RT-ID</span>   
+                    </td>   
+                    <td class="celldisplaylabel">   
+                        <label for="MIR-XFER-INT-RT-ID">ペンディング移転利息:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-XFER-INT-RT-ID" stype="Text" displayonly="yes">MIR-XFER-INT-RT-ID</span>   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celldisplaylabel">   
+                        <label for="MIR-MIN-INT-ELIG-AMT">積立残高利息に対する最低必要額:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-MIN-INT-ELIG-AMT" stype="Currency" elength="15" displayonly="yes">MIR-MIN-INT-ELIG-AMT</span>   
+                    </td>   
+                    <td class="celldisplaylabel">   
+                        <label for="MIR-INT-CALC-TYP-CD">利息方式:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-INT-CALC-TYP-CD" stype="Text" displayonly="yes">MIR-INT-CALC-TYP-CD</span>   
+                    </td>   
+                </tr>   
+            </table>   
+            <br />   
+            <table class="tabledisplay">   
+                <tr>   
+                    <td colspan="4" class="celldisplayheading">   
+                        <a name="UnitPriceUsed">ユニット価格</a>   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celldisplaylabel">   
+                        <label for="MIR-PLAN-PURCH-DIR-CD">購入:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-PLAN-PURCH-DIR-CD" stype="Text" displayonly="yes">MIR-PLAN-PURCH-DIR-CD</span>   
+                    </td>   
+                    <td class="celldisplaylabel">   
+                        <label for="MIR-MTHV-CV-DIR-CD">月応答日計算:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-MTHV-CV-DIR-CD" stype="Text" displayonly="yes">MIR-MTHV-CV-DIR-CD</span>   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celldisplaylabel">   
+                        <label for="MIR-XFER-IN-DIR-CD">ファンドへの資産移転:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-XFER-IN-DIR-CD" stype="Text" displayonly="yes">MIR-XFER-IN-DIR-CD</span>   
+                    </td>   
+                    <td class="celldisplaylabel">   
+                        <label for="MIR-XFER-OUT-DIR-CD">ファンドからの資産移転:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-XFER-OUT-DIR-CD" stype="Text" displayonly="yes">MIR-XFER-OUT-DIR-CD</span>   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celldisplaylabel">   
+                        <label for="MIR-PLAN-WTHDR-DIR-CD">引出:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-PLAN-WTHDR-DIR-CD" stype="Text" displayonly="yes">MIR-PLAN-WTHDR-DIR-CD</span>   
+                    </td>   
+                    <td class="celldisplaylabel">   
+                        <label for="MIR-PLAN-OUT-ALLOC-CD">分配引出方式:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-PLAN-OUT-ALLOC-CD" stype="Text" displayonly="yes">MIR-PLAN-OUT-ALLOC-CD</span>   
+                    </td>   
+                </tr>   
+            </table>   
+            <br />   
+            <table class="tabledisplay">   
+                <tr>   
+                    <td colspan="4" class="celldisplayheading">   
+                        <a name="PaymentsChargeInformation">払込/請求データ</a>   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celldisplaylabel">   
+                        <label for="MIR-MIN-INIT-DPOS-AMT">初回最低払込額:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-MIN-INIT-DPOS-AMT" stype="Currency" elength="15" displayonly="yes">MIR-MIN-INIT-DPOS-AMT</span>   
+                    </td>   
+                    <td class="celldisplaylabel">   
+                        <label for="MIR-SETUP-CHRG-AMT">セットアップ手数料:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-SETUP-CHRG-AMT" stype="Currency" elength="15" displayonly="yes">MIR-SETUP-CHRG-AMT</span>   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celldisplaylabel">   
+                        <label for="MIR-MIN-ADDL-DPOS-AMT">最低追加払込額:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-MIN-ADDL-DPOS-AMT" stype="Currency" elength="15" displayonly="yes">MIR-MIN-ADDL-DPOS-AMT</span>   
+                    </td>   
+                    <td class="celldisplaylabel" />   
+                    <td class="celldisplay" />   
+                </tr>   
+            </table>   
+            <p align="right">   
+                <a href="#top" class="backtotop">   
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />   
+                    トップに戻る    
+                </a>    
+            </p>    
+            <table class="tabledisplay">    
+                <tr>    
+                    <td colspan="4" class="celldisplayheading">    
+                        <a name="NotificationTransferFeeInformation">通知/移転手数料</a>   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celldisplaylabel">   
+                        <label for="MIR-PLAN-DPOS-NOTI-CD">通知タイプ:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-PLAN-DPOS-NOTI-CD" stype="Text" displayonly="yes">MIR-PLAN-DPOS-NOTI-CD</span>   
+                    </td>   
+                    <td class="celldisplaylabel">   
+                        <label for="MIR-MIN-CNFRM-NOTI-AMT">最低額確認通知:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-MIN-CNFRM-NOTI-AMT" stype="Currency" elength="15" displayonly="yes">MIR-MIN-CNFRM-NOTI-AMT</span>   
+                    </td>   
+                </tr>   
+                <tr>   
+                    <td class="celldisplaylabel">   
+                        <label for="MIR-XFER-FEE-TYP-CD">移転手数料タイプ:</label>   
+                    </td>   
+                    <td class="celldisplay">   
+                        <span id="MIR-XFER-FEE-TYP-CD" stype="Text" displayonly="yes">MIR-XFER-FEE-TYP-CD</span>   
+                    </td>   
+                    <td class="celldisplaylabel" />   
+                    <td class="celldisplay" />   
+                </tr>   
+            </table>   
+            <br />   
+            <table class="tabledisplay">   
+                <tr>   
+                    <td colspan="4" class="celldisplayheading">   
+                        無料ファンド移転情報 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-FREE-XFER-CD">計算ベース:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-FREE-XFER-CD" stype="Text" displayonly="yes">MIR-FREE-XFER-CD</span> 
+                    </td> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-FREE-XFER-PERI-CD">期間:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-FREE-XFER-PERI-CD" stype="Text" displayonly="yes">MIR-FREE-XFER-PERI-CD</span> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-FREE-XFER-QTY">期間内無料移転数:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-FREE-XFER-QTY" stype="Text" displayonly="yes">MIR-FREE-XFER-QTY</span> 
+                    </td> 
+                    <td class="celldisplaylabel"> 
+                    </td> 
+                    <td class="celldisplay"> 
+                    </td> 
+                </tr> 
+            </table> 
+            <br /> 
+            <table class="tabledisplay"> 
+                <tr> 
+                    <td colspan="4" class="celldisplayheading"> 
+                        <a name="PartialSurrenderInformation">一部解約情報</a>  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td class="celldisplaylabel">  
+                        <label for="MIR-PLAN-MIN-PSUR-AMT">最低額:</label>  
+                    </td>  
+                    <td class="celldisplay">  
+                        <span id="MIR-PLAN-MIN-PSUR-AMT" stype="Currency" elength="15" displayonly="yes">MIR-PLAN-MIN-PSUR-AMT</span>  
+                    </td>  
+                    <td class="celldisplaylabel">  
+                        <label for="MIR-PLAN-MAX-PSUR-CD">上限:</label>  
+                    </td>  
+                    <td class="celldisplay">  
+                        <span id="MIR-PLAN-MAX-PSUR-CD" stype="Text" displayonly="yes">MIR-PLAN-MAX-PSUR-CD</span>  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td class="celldisplaylabel">  
+                        <label for="MIR-PLAN-MAX-PSUR-QTY">期間内上限:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-PLAN-MAX-PSUR-QTY" stype="Text" displayonly="yes">MIR-PLAN-MAX-PSUR-QTY</span> 
+                    </td> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-MAX-PSUR-MO-DUR">最大期間（月）:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-MAX-PSUR-MO-DUR" stype="Text" displayonly="yes">MIR-MAX-PSUR-MO-DUR</span> 
+                    </td> 
+                </tr> 
+            </table> 
+            <br /> 
+            <table class="tabledisplay"> 
+                <tr> 
+                    <td class="celldisplayheading" colspan="4"> 
+                        保障額情報 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-GUAR-VALU-CALC-CD">各種支払金計算方式:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-GUAR-VALU-CALC-CD" stype="Text" displayonly="yes">MIR-GUAR-VALU-CALC-CD</span> 
+                    </td> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-DB-GUAR-VALU-PCT">最低死亡給付率:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-DB-GUAR-VALU-PCT" stype="Percent" elength="7" decimals="4" displayonly="yes">MIR-DB-GUAR-VALU-PCT</span> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-MAT-GUAR-VALU-PCT">最低満期支払率:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-MAT-GUAR-VALU-PCT" stype="Percent" elength="7" decimals="4" displayonly="yes">MIR-MAT-GUAR-VALU-PCT</span> 
+                    </td> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-SURR-GUAR-VALU-PCT">最低解約支払率:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-SURR-GUAR-VALU-PCT" stype="Percent" elength="7" decimals="4" displayonly="yes">MIR-SURR-GUAR-VALU-PCT</span> 
+                    </td> 
+                </tr> 
+            </table> 
+            <br /> 
+            <table class="tabledisplay"> 
+                <tr> 
+                    <td class="celldisplayheading" colspan="4"> 
+                        <a name="CommissionDetails">手数料詳細</a> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-DPOS-COMM-RH-ID">手数料ポインタ:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-DPOS-COMM-RH-ID" stype="Text" displayonly="yes">MIR-DPOS-COMM-RH-ID</span> 
+                    </td> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CV-COMM-RH-ID">ファンド額手数料ポインタ:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CV-COMM-RH-ID" stype="Text" displayonly="yes">MIR-CV-COMM-RH-ID</span> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-CV-COMM-CALC-DUR">ファンド額手数料相殺（月数）:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <span id="MIR-CV-COMM-CALC-DUR" stype="Text" displayonly="yes">MIR-CV-COMM-CALC-DUR</span> 
+                    </td> 
+                    <td class="celldisplaylabel"> 
+                        <label for="MIR-PLAN-CV-COMM-IND">ファンド手数料支払あり:</label> 
+                    </td> 
+                    <td class="celldisplay"> 
+                        <input type="checkbox" name="MIR-PLAN-CV-COMM-IND" id="MIR-PLAN-CV-COMM-IND" stype="Indicator" value="Y" disabled="yes" /> 
+                    </td> 
+                </tr> 
+            </table> 
+            <p align="right"> 
+                <a href="#top" class="backtotop"> 
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" /> 
+                    トップに戻る   
+                </a>   
+            </p>   
+            <center>   
+                <table class="tableanchors">   
+                    <tr>   
+                        <td class="cellanchors">   
+                            <a href="#FundControlInformation">ファンド管理情報</a>   
+                        </td>   
+                        <td class="cellanchors">   
+                            <a href="#UnitPriceUsed">ユニット価格</a>   
+                        </td>   
+                        <td class="cellanchors">   
+                            <a href="#PaymentsChargeInformation">払込/請求データ</a>   
+                        </td>   
+                        <td class="cellanchors">   
+                            <a href="#NotificationTransferFeeInformation">通知/移転手数料</a>   
+                        </td>   
+                    </tr>   
+                </table>   
+            </center>   
+            <center>   
+                <table class="tableanchors">   
+                    <tr>   
+                        <td class="cellanchors">  
+                            <a href="#FreeFundTransferInformation">無料ファンド移転</a> 
+                        </td> 
+                        <td class="cellanchors">  
+                            <a href="#PartialSurrenderInformation">一部解約</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#GuaranteedInformation">保障額</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#CommissionDetails">手数料詳細</a> 
+                        </td> 
+                    </tr> 
+                </table> 
+            </center> 
+        </form> 
+    </body> 
+    <script src="../js/ActionHandlers.js"></script> 
+    <script src="../js/MessageFunctions.js"></script> 
+    <script src="../js/MessagesJapanese.js"></script> 
+    <script src="../js/ClientLevelEdits.js"></script> 
+    <script src="../js/GlobalUserMethods.js"></script> 
+</html> 

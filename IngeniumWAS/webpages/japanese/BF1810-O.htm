@@ -1,0 +1,2921 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:43 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1810-O.htm                                                    *
+*  Description:                                                                 *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  014590  6.0      New for release 6.0                                         *
+*  016246  602J     Add onLoad() function to <body> tag for currency scaling    *
+*  016246  602J     Japanese Currency Display                                   *
+*  016736  611J     Code Cleanup - chg EIA calc field to selection box          *
+*  017150  612J     Remove Currency decimals="2"                                *
+*  16074   KRW      Premium refund Rate: New label & stype                      *
+*  1CPR01  DEL      New fields for conversion                                   *
+*  HNB004  HIN/AI   NEW EDITS PHASE 1                                           *
+*  HIS007  HIN/LJ   Increase MIR-PYRL-SAV-COMP-LMT length                       *
+*  PR0003  FB       NEW MIR-STDALN-DISALLOW-DT                                  *
+*  CR126C  AT       ADD MINIMUM SUNDRY C AMOUNT                                 *
+*  MM0056  BMB      Add Plan Renewal Expiry Date                                *
+*  PR0001  ROC      MVA 20% Free Withdrawal                                     *
+*  M00037  CLB      Add minimum sundry D amount                                 *
+*  FT7001  AKATO    FT7 Label Change 14JUN2004                                  *
+*  MP0010  PM       Add Renewal Commission Date
+*  MFFFU2  CLB      Add fields for SegFund COI Withdrawal Order                 *
+*  PF30    AKATO    PF 3.0 Retrofit 2004AUG05                                   *
+*  MFFFU6  CLB      Add fields for Fund Transfers                               *
+*  IPPIRA  SUG      Add fields for Plan Group Code                              *
+*  RP1VA2  CTS      Add new fields for Re-pricing Project                       *
+*  IPMPPU  CTS      Add Payout Mode for IPMP                                    *
+*  IPMPV4  CTS      Added Annuity Payout Type and Annuity Rate Type for IPMP    *
+*  MP5002  CTS      Add MVA Removal Cut Off Date                                *
+*  MP4801  CTS      Add Substitute Claimant Cut off Date                        *
+*  FEID01  CTS      ADD LIAB-ISS-CUT-OFF-DT for for LCD Issue Date Calculation  *
+*                   - Online Screen Changes                                     *
+*  MP9713  CTS      Add new fields COI-RPRC-2-DT and VALN-RPRC-2-DT             *
+*  NWLPSC  CTS      Changes done to remove Policy fee and modal factors from    *
+*  NWLPSC           Plan maintanence screen                                     *
+*  MP1541  CTS      Add New Field APL-INT-RT-TYP-CD For APL Processing          *
+*  Q06002  CTS      Rename the field name for MIR-APL-INT-RT-ID                 *
+*  MP143A  CTS      ADD NEW FIELD PREM-CALC-MTHD-CD FOR AMI PROCESSING          *
+*  MP173A  CTS      ADD NEW FIELD FOR TAX DEDUCTION CATEGORY                    *
+*  TVI005  CTS      TVI005 - ADD NEW FIELD ADV-PMT-ALLOW-TYP-CD FOR TVI         *
+*  23774B  CTS      Changes done for ie retirement project to make it           *
+*                   compatible for microsoft edge. Changes in html include      *
+*                   adding "id" attribute for all input fields and changes in   *
+*                   java scripts to modify certain functions/commands which     *
+*                   are no longer compatilble with edge.                        *
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1810-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PLAN-ID">プラン:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tableanchors">
+                <tr>
+                    <td class="cellanchors">
+                        <a href="#Basic Information">基本情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#New Business Support">新契約サポート</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Premium Information">保険料</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Modal Loads / Policy Fees">払方別付加保険料/発行手数料</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Commission Information">募集手数料</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Cash Value Information">キャッシュバリュー</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Cash Flow Information">キャッシュフロー</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Contractual Dates">各種既定日</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Benefit Expiry Information">各種給付期限</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Notify Information">通知情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Periodic Statements Information">定期報告書</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Loan Information">貸付情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Dividend Information">配当情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Non-Forfeiture Support">不没収オプション</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Free Look Information">クーリングオフ</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cellanchors">
+                        <a href="#Terminal Bonus Support">消滅時配当</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Non-Traditional Products">新型商品情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#FPUL Information">定額保険料UL</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#EIA Information">EIA情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Non-Trad Payment Parameters">新型商品払込パラメータ</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Non-Trad Withdrawal Parameters">従来型商品引出パラメータ</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Universal Life">ユニバーサル生命保険</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Multiple Fund Policy Support">複数ファンド契約サポート</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Guideline Premium Support">ガイドライン保険料</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Immediate Annuity">即時年金</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Interest Rate Information">利率情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Mortality Table Information">死亡率テーブル</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Other Product Features">その他商品オプション</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Tax Information">税金情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Registered Information">税制適格</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Valuation Information">価格計算</a>
+                    </td>
+<!---RP1VA2 CHANGES START-->
+                    <td class="cellanchors">
+                        <a href="#Rate Information">レート情報</a>
+                    </td>
+<!---RP1VA2 CHANGES END  -->
+                </tr>
+            </table>
+            <h2>
+                <a name="Basic Information">基本情報</a>
+            </h2>
+            <table class="tabledisplay" height="522">
+                <tr>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-PLAN-INS-TYP-CD">保険タイプ:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-PLAN-INS-TYP-CD" stype="Text" displayonly="yes">MIR-PLAN-INS-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-MAJ-LN-SORT-CD">主要行ソートキー:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-MAJ-LN-SORT-CD" stype="Text" displayonly="yes">MIR-MAJ-LN-SORT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-APP-FORM-TYP-ID">申込書タイプ:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-APP-FORM-TYP-ID" stype="Text" displayonly="yes">MIR-APP-FORM-TYP-ID</span>
+                    </td>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-PLAN-ACCT-TYP-CD">アカウント番号第2桁:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-PLAN-ACCT-TYP-CD" stype="Text" displayonly="yes">MIR-PLAN-ACCT-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-PLAN-BUS-CLAS-CD">契約種別:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-PLAN-BUS-CLAS-CD" stype="Text" displayonly="yes">MIR-PLAN-BUS-CLAS-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-LOC-GR-COLCT-ID">団体所在地ポインタ:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-LOC-GR-COLCT-ID" stype="Text" displayonly="yes">MIR-LOC-GR-COLCT-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-BASIC-PLAN-IND">このプランは基本保障:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <input type="checkbox" name="MIR-BASIC-PLAN-IND" id="MIR-BASIC-PLAN-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-PLAN-SUPP-BNFT-CD">補足給付タイプ:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-PLAN-SUPP-BNFT-CD" stype="Text" displayonly="yes">MIR-PLAN-SUPP-BNFT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-PLAN-UNIT-VALU-AMT">ユニット価格:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-PLAN-UNIT-VALU-AMT" stype="Currency" elength="7" decimals="0" displayonly="yes">MIR-PLAN-UNIT-VALU-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-DB-CALC-TYP-CD">死亡給付金計算方式:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-DB-CALC-TYP-CD" stype="Text" displayonly="yes">MIR-DB-CALC-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-FACE-AMT-TYP-CD">保険金額タイプ:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-FACE-AMT-TYP-CD" stype="Text" displayonly="yes">MIR-FACE-AMT-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-SUM-INS-CALC-CD">保険金計算方式:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-SUM-INS-CALC-CD" stype="Text" displayonly="yes">MIR-SUM-INS-CALC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="59">
+                        <label for="MIR-FACE-CALC-MTHD-CD">保険金額計算方式:</label>
+                    </td>
+                    <td class="celldisplay" height="59">
+                        <span id="MIR-FACE-CALC-MTHD-CD" stype="Text" displayonly="yes">MIR-FACE-CALC-MTHD-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" height="59">
+                        <label for="MIR-PLAN-RULE-TYP-CD">保険金額計算方法の種類:</label>
+                    </td>
+                    <td class="celldisplay" height="59">
+                        <span id="MIR-PLAN-RULE-TYP-CD" stype="Text" displayonly="yes">MIR-PLAN-RULE-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-PLAN-EFF-DT">プラン契約日:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-PLAN-EFF-DT" stype="Date" displayonly="yes">MIR-PLAN-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-PLAN-XPRY-DT">プラン終了日:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-PLAN-XPRY-DT" stype="Date" displayonly="yes">MIR-PLAN-XPRY-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-CASM-ID">契約アセンブリポインタ:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-CASM-ID" stype="Text" displayonly="yes">MIR-CASM-ID</span>
+                    </td>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-APPL-ID">管理システム:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-APPL-ID" stype="Text" displayonly="yes">MIR-APPL-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="59">
+                        <label for="MIR-ACTN-COLCT-ID">アクティビティ通知ポインタ:</label>
+                    </td>
+                    <td class="celldisplay" height="59">
+                        <span id="MIR-ACTN-COLCT-ID" stype="Text" displayonly="yes">MIR-ACTN-COLCT-ID</span>
+                    </td>
+                    <td class="celldisplaylabel" height="59">
+                        <label for="MIR-PLAN-BNFT-TYP-CD">給付プランタイプコード:</label>
+                    </td>
+                    <td class="celldisplay" height="59">
+                        <span id="MIR-PLAN-BNFT-TYP-CD" stype="Text" displayonly="yes">MIR-PLAN-BNFT-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-CNVR-TYP-CD">転換タイプ:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-CNVR-TYP-CD" stype="Text" displayonly="yes">MIR-CNVR-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-LIFE-RSK-TYP-CD">ライフリスクの種類:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-LIFE-RSK-TYP-CD" stype="Text" displayonly="yes">MIR-LIFE-RSK-TYP-CD</span>
+                    </td>
+               </tr>
+               <tr>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-HLTH-STYLE-CD">健康スタイルコード:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-HLTH-STYLE-CD" stype="Text" displayonly="yes">MIR-HLTH-STYLE-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-LIVES-INSRD-CD">付帯生命保険契約コード:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-LIVES-INSRD-CD" stype="Text" displayonly="yes">MIR-LIVES-INSRD-CD</span>
+                    </td>
+               </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-STDALN-DISALLOW-DT">単一契約不可開始日付:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-STDALN-DISALLOW-DT" stype="Text" displayonly="yes">MIR-STDALN-DISALLOW-DT</span>
+                    </td>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-PLAN-RENW-XPRY-DT">更新有効期限日:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-PLAN-RENW-XPRY-DT" stype="Date" displayonly="yes">MIR-PLAN-RENW-XPRY-DT</span>
+                    </td>
+               </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-PLAN-GR-CD">プラングループコード:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-PLAN-GR-CD" stype="Text" displayonly="yes">MIR-PLAN-GR-CD</span>
+                    </td>
+<!-- MP4801 CHANGES START -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SUBST-CLMT-CUT-DT">指定代理請求特約カットオフ日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUBST-CLMT-CUT-DT" stype="Date" displayonly="yes">MIR-SUBST-CLMT-CUT-DT</span>
+                    </td>
+<!-- MP4801 CHANGES END  -->
+               </tr>
+                <tr>
+<!--  FEID01 changes begin  -->
+		    <td class="celldisplaylabel">
+			<label for="MIR-LIAB-ISS-CUT-OFF-DT">責任開始日基準の契約日　制度実施日:</label>
+		    </td>
+		    <td class="celldisplay">
+			<span id="MIR-LIAB-ISS-CUT-OFF-DT" stype="Text" displayonly="yes">MIR-LIAB-ISS-CUT-OFF-DT</span>
+		    </td>
+                    <td class="celldisplaylabel"></td>
+		    <td class="celldisplay"></td>
+<!--  FEID01 Changes end -->
+               </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="New Business Support">新契約サポート</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-MIN-MPREM-QTY">既契約最低保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-MIN-MPREM-QTY" stype="Text" displayonly="yes">MIR-PLAN-MIN-MPREM-QTY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-LOC-LIC-CD">商品ライセンス:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-LOC-LIC-CD" stype="Text" displayonly="yes">MIR-PLAN-LOC-LIC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ISS-DT-TYP-CD">日付ルール:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ISS-DT-TYP-CD" stype="Text" displayonly="yes">MIR-PLAN-ISS-DT-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-UWG-IND">査定必要:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-PLAN-UWG-IND" id="MIR-PLAN-UWG-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DFLT-REQIR-ID">年齢/金額要件ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DFLT-REQIR-ID" stype="Text" displayonly="yes">MIR-DFLT-REQIR-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UWG-FACE-AMT-FCT">査定乗数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UWG-FACE-AMT-FCT" stype="Number" elength="3" decimals="2" displayonly="yes">MIR-UWG-FACE-AMT-FCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ALLOW-CCAS-IND">クリアケース査定可:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-ALLOW-CCAS-IND" id="MIR-ALLOW-CCAS-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Premium Information">保険料情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREM-CALC-TYP-CD">保険料計算方式:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREM-CALC-TYP-CD" stype="Text" displayonly="yes">MIR-PREM-CALC-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CNTRCT-PREM-IND">保険料は契約既定:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CNTRCT-PREM-IND" id="MIR-CNTRCT-PREM-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-GIR-PREM-INCL-IND">保険料GIR計算:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-GIR-PREM-INCL-IND" id="MIR-GIR-PREM-INCL-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AGE-CALC-MTHD-CD">年齢計算ベース:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGE-CALC-MTHD-CD" stype="Text" displayonly="yes">MIR-AGE-CALC-MTHD-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-AGE-STBCK-CD">女性年齢引き下げ法:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-AGE-STBCK-CD" stype="Text" displayonly="yes">MIR-PLAN-AGE-STBCK-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-AGE-STBCK-QTY">女性年齢引き下げ年数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-AGE-STBCK-QTY" stype="Text" displayonly="yes">MIR-PLAN-AGE-STBCK-QTY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AGE-STBCK-STRT-AGE">引き下げ開始年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AGE-STBCK-STRT-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-AGE-STBCK-STRT-AGE</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-NEG-SUSP-IND">特別頻度請求は借方処理可:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-SFB-NEG-SUSP-IND" id="MIR-SFB-NEG-SUSP-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SFB-NEG-SUSP-QTY">借方処理可能回数（月払）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SFB-NEG-SUSP-QTY" stype="Text" displayonly="yes">MIR-SFB-NEG-SUSP-QTY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREM-RENW-RT-CD">保険料更新タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREM-RENW-RT-CD" stype="Text" displayonly="yes">MIR-PREM-RENW-RT-CD</span>
+                    </td>
+                </tr>
+<!-- MP143A CHANGES START HERE-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREM-CALC-MTHD-CD">保険料計算方法コード:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREM-CALC-MTHD-CD" stype="Text" displayonly="yes">MIR-PREM-CALC-MTHD-CD</span>
+                    </td>
+                </tr>
+
+<!-- MP143A CHANGES END HERE-->
+
+<!-- TVI005 CHANGES START HERE-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ADV-PMT-ALLOW-TYP-CD">許容される前払タイプコード:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ADV-PMT-ALLOW-TYP-CD" stype="Text" displayonly="yes">MIR-ADV-PMT-ALLOW-TYP-CD</span>
+                    </td>
+                </tr>
+
+<!-- TVI005 CHANGES END HERE-->
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                         トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Modal Loads / Policy Fees">払方別付加保険料/発行手数料</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-PFEE-AMT">基本保障-発行手数料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-PFEE-AMT" stype="Currency" elength="9" displayonly="yes">MIR-PLAN-PFEE-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-MODE-FEE-AMT">払方別一律付加保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-MODE-FEE-AMT" stype="Currency" elength="9" signed="yes" displayonly="yes">MIR-PLAN-MODE-FEE-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-CVG-PFEE-AMT">追加保障-発行手数料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-CVG-PFEE-AMT" stype="Currency" elength="9" displayonly="yes">MIR-PLAN-CVG-PFEE-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAC-MODE-FEE-AMT">払方別口座振替一律手数料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAC-MODE-FEE-AMT" stype="Currency" elength="9" displayonly="yes">MIR-PAC-MODE-FEE-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-IA-PFEE-AMT">即時年金証券発行手数料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-IA-PFEE-AMT" stype="Currency" elength="11" displayonly="yes">MIR-PLAN-IA-PFEE-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LBILL-MODE-FEE-AMT">団体請求払方別一律額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LBILL-MODE-FEE-AMT" stype="Currency" elength="9" displayonly="yes">MIR-LBILL-MODE-FEE-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+<!--NWLPSC CHANGES START HERE-->
+            <!--<table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-SEMI-ANN-FCT">半年払係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-SEMI-ANN-FCT" stype="Number" elength="8" decimals="7" displayonly="yes">MIR-PLAN-SEMI-ANN-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SEMI-ANN-PFEE-FCT">半年払発行手数料係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SEMI-ANN-PFEE-FCT" stype="Number" elength="8" decimals="7" displayonly="yes">MIR-SEMI-ANN-PFEE-FCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-QTR-FCT">四半期払係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-QTR-FCT" stype="Number" elength="8" decimals="7" displayonly="yes">MIR-PLAN-QTR-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-QTR-PFEE-FCT">四半期払発行手数料係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-QTR-PFEE-FCT" stype="Number" elength="8" decimals="7" displayonly="yes">MIR-PLAN-QTR-PFEE-FCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-MTHLY-FCT">月払係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-MTHLY-FCT" stype="Number" elength="8" decimals="7" displayonly="yes">MIR-PLAN-MTHLY-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MTHLY-PFEE-FCT">月払発行手数料係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MTHLY-PFEE-FCT" stype="Number" elength="8" decimals="7" displayonly="yes">MIR-MTHLY-PFEE-FCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAC-SEMI-ANN-FCT">半年払口座振替係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAC-SEMI-ANN-FCT" stype="Number" elength="8" decimals="7" displayonly="yes">MIR-PAC-SEMI-ANN-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAC-SEMI-PFEE-FCT">半年払口座振替発行手数料係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAC-SEMI-PFEE-FCT" stype="Number" elength="8" decimals="7" displayonly="yes">MIR-PAC-SEMI-PFEE-FCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-PAC-QTR-FCT">四半期払口座振替係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-PAC-QTR-FCT" stype="Number" elength="8" decimals="7" displayonly="yes">MIR-PLAN-PAC-QTR-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAC-QTR-PFEE-FCT">四半期払口座振替発行手数料係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAC-QTR-PFEE-FCT" stype="Number" elength="8" decimals="7" displayonly="yes">MIR-PAC-QTR-PFEE-FCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-PAC-MTHLY-FCT">月払口座振替係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-PAC-MTHLY-FCT" stype="Number" elength="8" decimals="7" displayonly="yes">MIR-PLAN-PAC-MTHLY-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAC-MTHLY-PFEE-FCT">月払口座振替発行手数料係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAC-MTHLY-PFEE-FCT" stype="Number" elength="8" decimals="7" displayonly="yes">MIR-PAC-MTHLY-PFEE-FCT</span>
+                    </td>
+                </tr>
+            </table>-->
+<!-- NWLPSC CHANGES END HERE -->
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Commission Information">募集手数料情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-COMM-RT-TBAC-CD">手数料レートタイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COMM-RT-TBAC-CD" stype="Text" displayonly="yes">MIR-COMM-RT-TBAC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TRAIL-COMM-BEG-DUR">成果手数料開始（何ヶ月後）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRAIL-COMM-BEG-DUR" stype="Text" displayonly="yes">MIR-TRAIL-COMM-BEG-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-CPREM-CALC-CD">手数料計算方式:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-CPREM-CALC-CD" stype="Text" displayonly="yes">MIR-PLAN-CPREM-CALC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TRAIL-COMM-FREQ-CD">成果手数料頻度:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRAIL-COMM-FREQ-CD" stype="Text" displayonly="yes">MIR-TRAIL-COMM-FREQ-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TRAIL-COMM-LAG-DUR">成果手数料計算（何ヶ月後）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TRAIL-COMM-LAG-DUR" stype="Text" displayonly="yes">MIR-TRAIL-COMM-LAG-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-COMM-PLAN-TYP-CD">手数料パーセントポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COMM-PLAN-TYP-CD" stype="Text" displayonly="yes">MIR-COMM-PLAN-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-COMM-RH-SUB-CD">手数料レートヘッダポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COMM-RH-SUB-CD" stype="Text" displayonly="yes">MIR-COMM-RH-SUB-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FYR-COMM-XTRA-RT">初年度特別手数料割合:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-XTRA-RT" stype="Percent" elength="5" decimals="4" displayonly="yes">MIR-FYR-COMM-XTRA-RT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-MDRT-CLAS-CD">MDRT成績区分:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-MDRT-CLAS-CD" stype="Text" displayonly="yes">MIR-PLAN-MDRT-CLAS-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OVRID-FRST-DGT-CD">上乗せ手数料状況:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OVRID-FRST-DGT-CD" stype="Text" displayonly="yes">MIR-OVRID-FRST-DGT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-COMM-RT-LOOP-IND">レートは10回更新後はじめに戻る:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-COMM-RT-LOOP-IND" id="MIR-COMM-RT-LOOP-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-RENW-COMM-DT">更新レート基準日:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-RENW-COMM-DT" stype="Date" displayonly="yes">MIR-RENW-COMM-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Cash Value Information">キャッシュバリュー情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSV-CALC-MTHD-CD">キャッシュバリュー計算タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSV-CALC-MTHD-CD" stype="Text" displayonly="yes">MIR-CSV-CALC-MTHD-CD</span>
+                    </td>
+                    <td colspan="2" class="celldisplaylabel">
+                        <label for="MIR-PREM-PAY-UVAL-ID">ユニット価格ポインタ - 保険料払込:</label>
+                    </td>
+                    <td colspan="2" class="celldisplay">
+                        <span id="MIR-PREM-PAY-UVAL-ID" stype="Text" displayonly="yes">MIR-PREM-PAY-UVAL-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-CSV-DT-TYP-CD">キャッシュバリュー計算日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-CSV-DT-TYP-CD" stype="Text" displayonly="yes">MIR-PLAN-CSV-DT-TYP-CD</span>
+                    </td>
+                    <td colspan="2" class="celldisplaylabel">
+                        <label for="MIR-PU-UVAL-ID">ユニット価格ポインタ - 払済:</label>
+                    </td>
+                    <td colspan="2" class="celldisplay">
+                        <span id="MIR-PU-UVAL-ID" stype="Text" displayonly="yes">MIR-PU-UVAL-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MCV-CALC-REQIR-IND">最低キャッシュバリュー計算:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-MCV-CALC-REQIR-IND" id="MIR-MCV-CALC-REQIR-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td colspan="2" class="celldisplaylabel">
+                        <label for="MIR-TRM-PREM-RFND-RT">払戻保険料割合:</label>
+                    </td>
+                    <td colspan="2" class="celldisplay">
+                        <span id="MIR-TRM-PREM-RFND-RT" stype="Number" elength="5" decimals="4" signed="yes" displayonly="yes">MIR-TRM-PREM-RFND-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MCV-INT-MTHD-CD">MCV利息計算方式:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MCV-INT-MTHD-CD" stype="Text" displayonly="yes">MIR-MCV-INT-MTHD-CD</span>
+                    </td>
+                    <td colspan="2" class="celldisplaylabel">
+                        <label for="MIR-MCV-PMT-LOAD-CD">MCV手数料支払:</label>
+                    </td>
+                    <td colspan="2" class="celldisplay">
+                        <span id="MIR-MCV-PMT-LOAD-CD" stype="Text" displayonly="yes">MIR-MCV-PMT-LOAD-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-EIC-FREQ-CD">超過利息貸方記入頻度:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-EIC-FREQ-CD" stype="Text" displayonly="yes">MIR-PLAN-EIC-FREQ-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-EIC-INIT-YR-DUR">初回超過利息貸方計算（何年後）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-EIC-INIT-YR-DUR" stype="Text" displayonly="yes">MIR-EIC-INIT-YR-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-EIC-SUBSEQ-YR-DUR">超過利息貸方計算インターバル（年数）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-EIC-SUBSEQ-YR-DUR" stype="Text" displayonly="yes">MIR-EIC-SUBSEQ-YR-DUR</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Cash Flow Information">キャッシュフロー情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-CF-TYP-CD">キュッシュフロータイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-CF-TYP-CD" stype="Text" displayonly="yes">MIR-PLAN-CF-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-INT-PAYO-CD">利息取扱法:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-INT-PAYO-CD" stype="Text" displayonly="yes">MIR-PLAN-INT-PAYO-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-WTHDR-ORDR-CD">ファンド引出順:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-WTHDR-ORDR-CD" stype="Text" displayonly="yes">MIR-PLAN-WTHDR-ORDR-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-INT-MODE-CD">利息取扱頻度:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-INT-MODE-CD" stype="Text" displayonly="yes">MIR-CF-INT-MODE-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSV-INT-RT-ID">ファンド利率ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSV-INT-RT-ID" stype="Text" displayonly="yes">MIR-CSV-INT-RT-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CF-INT-CALC-TYP-CD">利息計算タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CF-INT-CALC-TYP-CD" stype="Text" displayonly="yes">MIR-CF-INT-CALC-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PDF-INT-RT-ID">PDF利率ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PDF-INT-RT-ID" stype="Text" displayonly="yes">MIR-PDF-INT-RT-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INT-ADJ-MAX-DUR">利息調整頻度:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INT-ADJ-MAX-DUR" stype="Text" displayonly="yes">MIR-INT-ADJ-MAX-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MIN-ROLOVR-DY-DUR">保証最低期間月/日数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MIN-ROLOVR-DY-DUR" stype="Text" displayonly="yes">MIR-MIN-ROLOVR-DY-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAX-ROLOVR-DY-DUR">保証最高期間月/日数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAX-ROLOVR-DY-DUR" stype="Text" displayonly="yes">MIR-MAX-ROLOVR-DY-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ROLOVR-TYP-CD">保証期間ロールオーバータイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ROLOVR-TYP-CD" stype="Text" displayonly="yes">MIR-PLAN-ROLOVR-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ROLOVR-DT-IND">満期/満了日後のロールオーバー可:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-PLAN-ROLOVR-DT-IND" id="MIR-PLAN-ROLOVR-DT-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-GUAR-INT-RT">保証最低利率:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-GUAR-INT-RT" stype="Percent" elength="5" decimals="5" displayonly="yes">MIR-PLAN-GUAR-INT-RT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ACUM-BRKPT-AMT">保障最低利息:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACUM-BRKPT-AMT" stype="Number" elength="11" decimals="0" displayonly="yes" scaleValue="yes">MIR-ACUM-BRKPT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DIA-SWP-THRSHD-CD">DIA自動スイープ-総出入額/限度額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIA-SWP-THRSHD-CD" stype="Text" displayonly="yes">MIR-DIA-SWP-THRSHD-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DIA-SWP-THRSHD-AMT">自動スイープ限度額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIA-SWP-THRSHD-AMT" stype="Currency" elength="15" displayonly="yes">MIR-DIA-SWP-THRSHD-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                    トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Contractual Dates">各種契約既定日情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREM-CHNG-DT-CD">保険料変更時期:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREM-CHNG-DT-CD" stype="Text" displayonly="yes">MIR-PREM-CHNG-DT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-XPRY-DT-CALC-CD">満了日計算方式:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-XPRY-DT-CALC-CD" stype="Text" displayonly="yes">MIR-XPRY-DT-CALC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREM-CHNG-AGE-DUR">保険料変更年齢/年数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREM-CHNG-AGE-DUR" stype="Text" displayonly="yes">MIR-PREM-CHNG-AGE-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-BASE-XPRY-AGE">契約満了年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-BASE-XPRY-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-PLAN-BASE-XPRY-AGE</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INIT-PREM-CHNG-AGE">初回保険料変更年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INIT-PREM-CHNG-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-INIT-PREM-CHNG-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-XPRY-AGE-DUR">契約満了年数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-XPRY-AGE-DUR" stype="Text" displayonly="yes">MIR-POL-XPRY-AGE-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ULT-PREM-CHNG-AGE">最終保険料変更年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ULT-PREM-CHNG-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-ULT-PREM-CHNG-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-CVG-XPRY-AGE">保障満了年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-CVG-XPRY-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-PLAN-CVG-XPRY-AGE</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-XPRY-AGE-DUR">保障満了年数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-XPRY-AGE-DUR" stype="Text" displayonly="yes">MIR-CVG-XPRY-AGE-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAT-DT-CALC-CD">満期年齢/年数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAT-DT-CALC-CD" stype="Text" displayonly="yes">MIR-MAT-DT-CALC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-MAT-AGE">プラン満期年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-MAT-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-PLAN-MAT-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-MAT-AGE-DUR">プラン満期年数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-MAT-AGE-DUR" stype="Text" displayonly="yes">MIR-PLAN-MAT-AGE-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CNVR-XPRY-DT-CD">転換期限タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNVR-XPRY-DT-CD" stype="Text" displayonly="yes">MIR-CNVR-XPRY-DT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CNVR-XPRY-AGE-DUR">転換期限年齢/年数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNVR-XPRY-AGE-DUR" stype="Text" displayonly="yes">MIR-CNVR-XPRY-AGE-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MORT-XPNS-CALC-CD">死亡率/事業費計算タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MORT-XPNS-CALC-CD" stype="Text" displayonly="yes">MIR-MORT-XPNS-CALC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MORT-XPNS-CHRG-AGE">死亡率/事業費変更年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MORT-XPNS-CHRG-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-MORT-XPNS-CHRG-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MORT-XPNS-CHRG-DUR">死亡率/事業費変更期間:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MORT-XPNS-CHRG-DUR" stype="Text" displayonly="yes">MIR-MORT-XPNS-CHRG-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FND-SRVBEN-CD">（主契約）生存給付タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FND-SRVBEN-CD" stype="Text" displayonly="yes">MIR-POL-FND-SRVBEN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FND-SRVBEN-DUR">（主契約）生存給付期間:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FND-SRVBEN-DUR" stype="Text" displayonly="yes">MIR-POL-FND-SRVBEN-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-UL-PU-CD">UL払済タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-UL-PU-CD" stype="Text" displayonly="yes">MIR-CVG-UL-PU-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-UL-PU-AGE-DUR">UL払済年齢/期間:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-UL-PU-AGE-DUR" stype="Text" displayonly="yes">MIR-CVG-UL-PU-AGE-DUR</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                        トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Benefit Expiry Information">給付期間の終期情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-WP-XPRY-AGE">払込免除特約満了年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-WP-XPRY-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-PLAN-WP-XPRY-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-DUR-TYP-CD">払込者免除特約満了:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-DUR-TYP-CD" stype="Text" displayonly="yes">MIR-PLAN-DUR-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ADB-XPRY-AGE">災害死亡給付満了年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ADB-XPRY-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-PLAN-ADB-XPRY-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-WP-XPRY-CD">免除満了-基本保障との関係:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-WP-XPRY-CD" stype="Text" displayonly="yes">MIR-PLAN-WP-XPRY-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-REDC-EP-XPRY-AGE">入院時免責期間短縮特約満了年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REDC-EP-XPRY-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-REDC-EP-XPRY-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-LTA-XPRY-AGE">終身傷害就業不能給付満了年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-LTA-XPRY-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-PLAN-LTA-XPRY-AGE</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OWN-OCCP-XPRY-AGE">本来職業就業不能満了年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OWN-OCCP-XPRY-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-OWN-OCCP-XPRY-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-LTB-XPRY-AGE">終身就業不能給付満了年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-LTB-XPRY-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-PLAN-LTB-XPRY-AGE</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PDISAB-XPRY-AGE">部分就業不能満了年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PDISAB-XPRY-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-PDISAB-XPRY-AGE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-COLA-XPRY-AGE">生計費調整満了年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-COLA-XPRY-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-PLAN-COLA-XPRY-AGE</span>
+                    </td>
+                </tr>
+            </table>
+            <h2>
+                <a name="Notify Information">通知情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NOTI-DT-CALC-CD">通知時期:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NOTI-DT-CALC-CD" stype="Text" displayonly="yes">MIR-NOTI-DT-CALC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NOTI-LOW-AGE-DUR">通知年齢/年数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NOTI-LOW-AGE-DUR" stype="Text" displayonly="yes">MIR-NOTI-LOW-AGE-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NOTI-HIGH-AGE-DUR">最終通知年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NOTI-HIGH-AGE-DUR" stype="Text" displayonly="yes">MIR-NOTI-HIGH-AGE-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-NOTI-REASN-CD">通知事由:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-NOTI-REASN-CD" stype="Text" displayonly="yes">MIR-PLAN-NOTI-REASN-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NOTI-DEPT-ID">通知部署:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NOTI-DEPT-ID" stype="Text" displayonly="yes">MIR-NOTI-DEPT-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Periodic Statements Information">定期報告書情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PERI-STMT-TYP-CD">報告書タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PERI-STMT-TYP-CD" stype="Text" displayonly="yes">MIR-PERI-STMT-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PERI-STMT-DY-DUR">報告書作成周期（日数）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PERI-STMT-DY-DUR" stype="Text" displayonly="yes">MIR-PERI-STMT-DY-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PERI-STMT-MO-DUR">報告書作成周期（月数）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PERI-STMT-MO-DUR" stype="Text" displayonly="yes">MIR-PERI-STMT-MO-DUR</span>
+                    </td>
+                </tr>
+            </table>
+            <h2>
+                <a name="Loan Information">貸付情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-INT-CALC-CD">貸付利息計算方式:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-INT-CALC-CD" stype="Text" displayonly="yes">MIR-LOAN-INT-CALC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-INT-RT-ID">貸付利率ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-INT-RT-ID" stype="Text" displayonly="yes">MIR-LOAN-INT-RT-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-INT-RT-TYP-CD">貸付利率タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-INT-RT-TYP-CD" stype="Text" displayonly="yes">MIR-LOAN-INT-RT-TYP-CD</span>
+                    </td>
+<!-- Q06002 Changes starts here
+                    <td class="celldisplaylabel">
+                        <label for="MIR-APL-INT-RT-ID">APL利息ポインタ:</label>
+                    </td>
+-->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-APL-INT-RT-ID">保険料自動振替貸付利息ポインタ:</label>
+                    </td>
+<!-- Q06002 Changes ends here -->
+                    <td class="celldisplay">
+                        <span id="MIR-APL-INT-RT-ID" stype="Text" displayonly="yes">MIR-APL-INT-RT-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-CVG-LOAN-IND">保障貸付インジケータ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-PLAN-CVG-LOAN-IND" id="MIR-PLAN-CVG-LOAN-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-LOAN-INT-RT">貸付利率:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-LOAN-INT-RT" stype="Percent" elength="5" decimals="5" displayonly="yes">MIR-PLAN-LOAN-INT-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-COLFND-REQIR-IND">プランに貸付担保必要:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-COLFND-REQIR-IND" id="MIR-COLFND-REQIR-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-COLFND-IND">プランは貸付担保:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-PLAN-COLFND-IND" id="MIR-PLAN-COLFND-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-IMPRD-RT-CD">減少利率タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-IMPRD-RT-CD" stype="Text" displayonly="yes">MIR-PLAN-IMPRD-RT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-IMPRD-INT-RT">貸付減少利率:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-IMPRD-INT-RT" stype="Percent" elength="5" decimals="5" displayonly="yes">MIR-PLAN-IMPRD-INT-RT</span>
+                    </td>
+                </tr>
+<!-- MP1541 CHANGES START -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-APL-INT-RT-TYP-CD">自動振替貸付利率タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-APL-INT-RT-TYP-CD" stype="Text" displayonly="yes">MIR-APL-INT-RT-TYP-CD</span>
+                    </td> 
+                   <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                 </tr>
+<!-- MP1541 CHANGES ends -->
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Dividend Information">配当情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-PAR-CD">配当インジケータ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-PAR-CD" stype="Text" displayonly="yes">MIR-PLAN-PAR-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-BON-EFF-MO">年間配当有効月数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-BON-EFF-MO" stype="Month" displayonly="yes">MIR-PLAN-BON-EFF-MO</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DOD-INT-RT-ID">積立金配当 - 利息ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DOD-INT-RT-ID" stype="Text" displayonly="yes">MIR-DOD-INT-RT-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-BON-EFF-DY">年間配当有効日数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-BON-EFF-DY" stype="Day" displayonly="yes">MIR-PLAN-BON-EFF-DY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DIV-OYT-TBAC-ID">一年定期ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIV-OYT-TBAC-ID" stype="Text" displayonly="yes">MIR-DIV-OYT-TBAC-ID</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DIV-PUA-TBAC-ID">払済増額ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIV-PUA-TBAC-ID" stype="Text" displayonly="yes">MIR-DIV-PUA-TBAC-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PUA-DIV-CALC-CD">払済増額計算方式:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PUA-DIV-CALC-CD" stype="Text" displayonly="yes">MIR-PUA-DIV-CALC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-RPU-DIV-RT">減額払済配当計算割合:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-RPU-DIV-RT" stype="Percent" elength="5" decimals="5" displayonly="yes">MIR-PLAN-RPU-DIV-RT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Non-Forfeiture Support">不没収（継続）オプション情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NF-PRCES-MO-DUR">不没収/失効までの月/日数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NF-PRCES-MO-DUR" stype="Text" displayonly="yes">MIR-NF-PRCES-MO-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FPU-PLAN-BASE-ID">払済プラン:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FPU-PLAN-BASE-ID" stype="Text" displayonly="yes">MIR-FPU-PLAN-BASE-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-RPU-TBAC-ID">減額払済計算レートポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RPU-TBAC-ID" stype="Text" displayonly="yes">MIR-RPU-TBAC-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ETI-FACE-CALC-CD">延長定期金額計算方式:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ETI-FACE-CALC-CD" stype="Text" displayonly="yes">MIR-ETI-FACE-CALC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ETI-TBAC-ID">延長定期計算レートポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ETI-TBAC-ID" stype="Text" displayonly="yes">MIR-ETI-TBAC-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <h2>
+                <a name="Free Look Information">クーリングオフ情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FREE-LK-PRCES-IND">クーリングオフ処理対象:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-FREE-LK-PRCES-IND" id="MIR-FREE-LK-PRCES-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Terminal Bonus Support">消滅時配当情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-DIV-INT-RT-ID">配当利率ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-DIV-INT-RT-ID" stype="Text" displayonly="yes">MIR-PLAN-DIV-INT-RT-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-BON-INT-RT-ID">ボーナス利率ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-BON-INT-RT-ID" stype="Text" displayonly="yes">MIR-PLAN-BON-INT-RT-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <h2>
+                <a name="Non-Traditional Products">新型商品情報</a>
+            </h2>
+            <table class="tabledisplay" height="314">
+              <tr>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-PLAN-VPO-IND">消滅保険料オプションあり:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <input type="checkbox" name="MIR-PLAN-VPO-IND" id="MIR-PLAN-VPO-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel" height="40" />
+                    <td class="celldisplay" height="40" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="59">
+                        <label for="MIR-ISWL-FRST-CALC-DUR">金利感応型終身（ISWL）初回再計算:</label>
+                    </td>
+                    <td class="celldisplay" height="59">
+                        <span id="MIR-ISWL-FRST-CALC-DUR" stype="Text" displayonly="yes">MIR-ISWL-FRST-CALC-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel" height="59" />
+                    <td class="celldisplay" height="59" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="40">
+                        <label for="MIR-ISWL-CALC-ADV-DUR">ISWL再計算事前通知日数:</label>
+                    </td>
+                    <td class="celldisplay" height="40">
+                        <span id="MIR-ISWL-CALC-ADV-DUR" stype="Text" displayonly="yes">MIR-ISWL-CALC-ADV-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel" height="40" />
+                    <td class="celldisplay" height="40" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="59">
+                        <label for="MIR-ISWL-PREM-VAR-RT">再計算オプション最小差額％:</label>
+                    </td>
+                    <td class="celldisplay" height="59">
+                        <span id="MIR-ISWL-PREM-VAR-RT" stype="Percent" elength="5" decimals="5" displayonly="yes">MIR-ISWL-PREM-VAR-RT</span>
+                    </td>
+                    <td class="celldisplaylabel" height="59">
+                        <label for="MIR-ISWL-CALC-FREQ-DUR">ISWL再計算周期（年数）:</label>
+                    </td>
+                    <td class="celldisplay" height="59">
+                        <span id="MIR-ISWL-CALC-FREQ-DUR" stype="Text" displayonly="yes">MIR-ISWL-CALC-FREQ-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" height="58" />
+                    <td class="celldisplay" height="58" />
+                    <td class="celldisplaylabel" height="58">
+                        <label for="MIR-PREM-RECALC-OPT-CD">ISWL再計算オプション:</label>
+                    </td>
+                    <td class="celldisplay" height="58">
+                        <span id="MIR-PREM-RECALC-OPT-CD" stype="Text" displayonly="yes">MIR-PREM-RECALC-OPT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="FPUL Information">定額保険料ユニバーサル生命保険（FPUL）情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FPUL-ADDL-PREM-IND">FPULの追加払込可能:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-FPUL-ADDL-PREM-IND" id="MIR-FPUL-ADDL-PREM-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FPUL-LOAD-TYP-CD">FPUL付加保険料タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FPUL-LOAD-TYP-CD" stype="Text" displayonly="yes">MIR-FPUL-LOAD-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AUTO-PREM-PMT-IND">APP利用可能:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-AUTO-PREM-PMT-IND" id="MIR-AUTO-PREM-PMT-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <h2>
+                <a name="EIA Information">株価指数連動型年金（EIA）情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INDX-INCR-MTHD-CD">計算方式:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INDX-INCR-MTHD-CD" stype="Text" displayonly="yes">MIR-INDX-INCR-MTHD-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INDX-INCR-MO-DUR">インターバル月数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INDX-INCR-MO-DUR" stype="Text" displayonly="yes">MIR-INDX-INCR-MO-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INDX-INCR-DY-DUR">インターバル日数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INDX-INCR-DY-DUR" stype="Text" displayonly="yes">MIR-INDX-INCR-DY-DUR</span>
+                    </td>
+                </tr>
+            </table>
+            <h2>
+                <a name="Non-Trad Payment Parameters">新型商品払込パラメータ情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PMT-LOAD-ORDR-CD">手数料順位:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PMT-LOAD-ORDR-CD" stype="Text" displayonly="yes">MIR-PMT-LOAD-ORDR-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PMT-LOAD-FLAT-AMT">手数料一律額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PMT-LOAD-FLAT-AMT" stype="Currency" elength="11" displayonly="yes">MIR-PMT-LOAD-FLAT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PMT-LOAD-CALC-CD">先取手数料タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PMT-LOAD-CALC-CD" stype="Text" displayonly="yes">MIR-PMT-LOAD-CALC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PMT-LOAD-RTBL2-ID">手数料パーセントテーブルポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PMT-LOAD-RTBL2-ID" stype="Text" displayonly="yes">MIR-PMT-LOAD-RTBL2-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DIR-DPOS-MIN-AMT">直接払込最低額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIR-DPOS-MIN-AMT" stype="Currency" elength="13" displayonly="yes">MIR-DIR-DPOS-MIN-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PAC-DPOS-MIN-AMT">振替最低額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PAC-DPOS-MIN-AMT" stype="Currency" elength="13" displayonly="yes">MIR-PAC-DPOS-MIN-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-INIT-PMT-IND">初回払込額は必要最低保険料と同額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-PLAN-INIT-PMT-IND" id="MIR-PLAN-INIT-PMT-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Non-Trad Withdrawal Parameters">従来型商品引出パラメータ情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURR-ADJ-TYP-CD">月応当日調整-解約タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURR-ADJ-TYP-CD" stype="Text" displayonly="yes">MIR-SURR-ADJ-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ADMIN-FEE-AMT">年間管理手数料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ADMIN-FEE-AMT" stype="Currency" elength="11" displayonly="yes">MIR-PLAN-ADMIN-FEE-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURR-ADJ-MO-DUR">月応当日調整月数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURR-ADJ-MO-DUR" stype="Text" displayonly="yes">MIR-SURR-ADJ-MO-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ADMIN-FEE-WAV-AMT">管理手数料免除金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ADMIN-FEE-WAV-AMT" stype="Currency" elength="15" displayonly="yes">MIR-ADMIN-FEE-WAV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURR-ADJ-CALC-CD">月応当日調整方式:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURR-ADJ-CALC-CD" stype="Text" displayonly="yes">MIR-SURR-ADJ-CALC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAT-CHRG-RTBL2-ID">満期手数料レートポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAT-CHRG-RTBL2-ID" stype="Text" displayonly="yes">MIR-MAT-CHRG-RTBL2-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AFR-THRSHD-CD">金額減額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AFR-THRSHD-CD" stype="Text" displayonly="yes">MIR-AFR-THRSHD-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-MKTVAL-ADJ-CD">解約手数料計算:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-MKTVAL-ADJ-CD" stype="Text" displayonly="yes">MIR-PLAN-MKTVAL-ADJ-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-AFR-THRSHD-PERI-CD">限度額適用期間:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-AFR-THRSHD-PERI-CD" stype="Text" displayonly="yes">MIR-AFR-THRSHD-PERI-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-SURR-CHRG-CD">部分解約処理タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-SURR-CHRG-CD" stype="Text" displayonly="yes">MIR-PLAN-SURR-CHRG-CD</span>
+                    </td>
+<!-- MP5002 CHANGES START -->
+                    <td class="celldisplaylabel" >
+                        <label for="MIR-MVA-REMOV-CUT-DT">MVA撤廃カットオフ日:</label>
+                    </td>
+                    <td class="celldisplay" >
+                        <span id="MIR-MVA-REMOV-CUT-DT" stype="Text" displayonly="yes">MIR-MVA-REMOV-CUT-DT</span>
+                    </td>
+<!-- MP5002 CHANGES ends -->
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURR-CHRG-CALC-CD">解約控除計算タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURR-CHRG-CALC-CD" stype="Text" displayonly="yes">MIR-SURR-CHRG-CALC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MIN-WTHDR-AMT">最低引出金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MIN-WTHDR-AMT" stype="Currency" displayonly="yes">MIR-MIN-WTHDR-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DPOS-WTHDR-ORDR-CD">積立金引出順位:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DPOS-WTHDR-ORDR-CD" stype="Text" displayonly="yes">MIR-DPOS-WTHDR-ORDR-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ESC-XPRY-DT">早期解約控除 (ESC) 有効期限:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ESC-XPRY-DT" stype="Text" displayonly="yes">MIR-ESC-XPRY-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PSUR-CHRG-TYP-CD">部分早期解約控除額タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PSUR-CHRG-TYP-CD" stype="Text" displayonly="yes">MIR-PSUR-CHRG-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURR-CHRG-TYP-CD">完全早期解約控除額タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURR-CHRG-TYP-CD" stype="Text" displayonly="yes">MIR-SURR-CHRG-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PSUR-CHRG-FLAT-AMT">部分解約控除一律金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PSUR-CHRG-FLAT-AMT" stype="Currency" elength="11" displayonly="yes">MIR-PSUR-CHRG-FLAT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURR-CHRG-FLAT-AMT">完全解約控除一律金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURR-CHRG-FLAT-AMT" stype="Currency" elength="11" displayonly="yes">MIR-SURR-CHRG-FLAT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PSUR-CHRG-RTBL2-ID">部分早期解約控除額レートテーブルポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PSUR-CHRG-RTBL2-ID" stype="Text" displayonly="yes">MIR-PSUR-CHRG-RTBL2-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURR-CHRG-RTBL2-ID">完全早期解約控除額レートテーブルポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURR-CHRG-RTBL2-ID" stype="Text" displayonly="yes">MIR-SURR-CHRG-RTBL2-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MIN-FNDVL-ESC-IND">最低ファンドバリュー＝ESC金額 :</label>
+                    </td>
+                    <td class="celldisplay">
+                         <input type="checkbox" name="MIR-MIN-FNDVL-ESC-IND" id="MIR-MIN-FNDVL-ESC-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <h2>
+                <a name="Universal Life">ユニバーサル生命保険情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MNPMT-TRG-SSTD-IND">最低目標額に条件料率適用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-MNPMT-TRG-SSTD-IND" id="MIR-MNPMT-TRG-SSTD-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PMT-LOAD-SSTD-IND">手数料目標額に条件料率適用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-PMT-LOAD-SSTD-IND" id="MIR-PMT-LOAD-SSTD-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-COMM-TRG-SSTD-IND">募集手数料目標額に条件料率適用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-COMM-TRG-SSTD-IND" id="MIR-COMM-TRG-SSTD-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURR-TRG-SSTD-IND">解約計算に条件料率適用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-SURR-TRG-SSTD-IND" id="MIR-SURR-TRG-SSTD-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PMT-ALLOC-MTHD-CD">積立金分配方式:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PMT-ALLOC-MTHD-CD" stype="Text" displayonly="yes">MIR-PMT-ALLOC-MTHD-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-NAR-DSCNT-RT">リスクレート除数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-NAR-DSCNT-RT" stype="Percent" elength="9" decimals="8" displayonly="yes">MIR-PLAN-NAR-DSCNT-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CV-ALLOC-MTHD-CD">キャッシュバリュー分配方式:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CV-ALLOC-MTHD-CD" stype="Text" displayonly="yes">MIR-CV-ALLOC-MTHD-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-CV-ALLOC-IND">定額死亡保障にキャッシュバリューを適用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CVG-CV-ALLOC-IND" id="MIR-CVG-CV-ALLOC-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MIN-SNDRY-AMT-CD">最低定期払込保険料コード:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MIN-SNDRY-AMT-CD" stype="Text" displayonly="yes">MIR-MIN-SNDRY-AMT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MIN-SNDRY-A-AMT">最低A定期払込保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MIN-SNDRY-A-AMT" stype="Currency" elength="13" displayonly="yes">MIR-MIN-SNDRY-A-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MIN-SNDRY-B-AMT">最低B定期払込保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MIN-SNDRY-B-AMT" stype="Currency" elength="13" displayonly="yes">MIR-MIN-SNDRY-B-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MIN-SNDRY-C-AMT">最低C定期払込保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MIN-SNDRY-C-AMT" stype="Currency" elength="13" displayonly="yes">MIR-MIN-SNDRY-C-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MIN-SNDRY-D-AMT">最低D定期払込保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MIN-SNDRY-D-AMT" stype="Currency" elength="13" displayonly="yes">MIR-MIN-SNDRY-D-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAX-SNDRY-AMT-CD">最高定期払込保険料コード:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAX-SNDRY-AMT-CD" stype="Text" displayonly="yes">MIR-MAX-SNDRY-AMT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAX-SNDRY-A-AMT">最高A定期払込保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAX-SNDRY-A-AMT" stype="Currency" elength="13" displayonly="yes">MIR-MAX-SNDRY-A-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAX-SNDRY-B-AMT">最高B定期払込保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAX-SNDRY-B-AMT" stype="Currency" elength="13" displayonly="yes">MIR-MAX-SNDRY-B-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAX-SNDRY-COI-QTY">最高定期払込保険料数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAX-SNDRY-COI-QTY" stype="Text" displayonly="yes">MIR-MAX-SNDRY-COI-QTY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PYRL-SAV-COMP-LMT">給与天引き積立金コンポーネント限度額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PYRL-SAV-COMP-LMT" stype="Currency" elength="13" displayonly="yes">MIR-PYRL-SAV-COMP-LMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MAX-LMPSM-FCT">最高一時投入金額乗数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAX-LMPSM-FCT" stype="Text" displayonly="yes">MIR-MAX-LMPSM-FCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-REINST-MO-DUR">復活期限 ?月数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-REINST-MO-DUR" stype="Text" displayonly="yes">MIR-PLAN-REINST-MO-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-REINST-DY-DUR">復活期限 ?日数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-REINST-DY-DUR" stype="Text" displayonly="yes">MIR-PLAN-REINST-DY-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-REINST-LMT-CD">期限計算開始日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-REINST-LMT-CD" stype="Text" displayonly="yes">MIR-PLAN-REINST-LMT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PRE-CNVR-PREM-IND">転換前保険料確認インジケータ:</label>
+                    </td>
+                    <td class="celldisplay">
+                         <input type="checkbox" name="MIR-PRE-CNVR-PREM-IND" id="MIR-PRE-CNVR-PREM-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                        トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Multiple Fund Policy Support">複数ファンド契約サポート</a>
+            </h2>
+            <table class="tabledisplay">
+               <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-COI-WTHDR-RULE-CD">COI引出規則:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COI-WTHDR-RULE-CD" stype="Text" displayonly="yes">MIR-COI-WTHDR-RULE-CD</span>
+                    </td>
+                </tr>
+               <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-COI-PLAN-ORDR-CD">COI引出プランレベル順序:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COI-PLAN-ORDR-CD" stype="Text" displayonly="yes">MIR-COI-PLAN-ORDR-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MIN-XFER-AMT">最低移行金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MIN-XFER-AMT" stype="Currency" elength="13" displayonly="yes">MIR-MIN-XFER-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                 </tr>
+                </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                        トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Guideline Premium Support">ガイドライン保険料情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-TAMRA-IND">TAMRA税処理を適用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-PLAN-TAMRA-IND" id="MIR-PLAN-TAMRA-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-7702-MXDX-ID">7702一時払純保険料ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-7702-MXDX-ID" stype="Text" displayonly="yes">MIR-PLAN-7702-MXDX-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-TAMRA-MXDX-ID">TAMRA 7PAYポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-TAMRA-MXDX-ID" stype="Text" displayonly="yes">MIR-PLAN-TAMRA-MXDX-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SE-GDLN-APREM-IND">SEC保険料計算:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-SE-GDLN-APREM-IND" id="MIR-SE-GDLN-APREM-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FREE-LK-INCR-CD">増額時クーリングオフ/販売手数料適用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FREE-LK-INCR-CD" stype="Text" displayonly="yes">MIR-FREE-LK-INCR-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <h2>
+                <a name="Immediate Annuity">即時年金（IA）情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-COMM-BAND-1-PCT">IA手数料金額1適用％:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-COMM-BAND-1-PCT" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-IA-COMM-BAND-1-PCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-COMM-BAND-1-AMT">IA手数料レート1適用掛金総出入額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-COMM-BAND-1-AMT" stype="Currency" elength="15" displayonly="yes">MIR-IA-COMM-BAND-1-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-COMM-BAND-2-PCT">IA手数料金額2適用％:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-COMM-BAND-2-PCT" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-IA-COMM-BAND-2-PCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-COMM-BAND-2-AMT">IA手数料レート2適用掛金総出入額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-COMM-BAND-2-AMT" stype="Currency" elength="15" displayonly="yes">MIR-IA-COMM-BAND-2-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-COMM-BAND-3-PCT">IA手数料金額3適用％:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-COMM-BAND-3-PCT" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-IA-COMM-BAND-3-PCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-COMM-BAND-3-AMT">IA手数料レート3適用掛金総出入額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-COMM-BAND-3-AMT" stype="Currency" elength="15" displayonly="yes">MIR-IA-COMM-BAND-3-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-COMM-MAX-AMT">IA手数料上限額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-COMM-MAX-AMT" stype="Currency" elength="13" displayonly="yes">MIR-IA-COMM-MAX-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Interest Rate Information">利率情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-INT-RT-ID">IA評価利息ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INT-RT-ID" stype="Text" displayonly="yes">MIR-IA-INT-RT-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-INT-PREM-ID">IA掛金評価利率スケール:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INT-PREM-ID" stype="Text" displayonly="yes">MIR-IA-INT-PREM-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-INT-LEGAL-ID">IA掛金法定評価利率スケール:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INT-LEGAL-ID" stype="Text" displayonly="yes">MIR-IA-INT-LEGAL-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-INT-TAX-ID">IA掛金法定評価死亡率スケール:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INT-TAX-ID" stype="Text" displayonly="yes">MIR-IA-INT-TAX-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <h2>
+                <a name="Mortality Table Information">死亡率テーブル情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-MORT-UVAL-ID">IA評価死亡率ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-MORT-UVAL-ID" stype="Text" displayonly="yes">MIR-IA-MORT-UVAL-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-MORT-PREM-ID">IA掛金死亡率スケール:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-MORT-PREM-ID" stype="Text" displayonly="yes">MIR-IA-MORT-PREM-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-MORT-LEGAL-ID">IA掛金法定評価死亡率スケール:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-MORT-LEGAL-ID" stype="Text" displayonly="yes">MIR-IA-MORT-LEGAL-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-MORT-TAX-ID">IA課税死亡率スケール:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-MORT-TAX-ID" stype="Text" displayonly="yes">MIR-IA-MORT-TAX-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Other Product Features">その他商品オプション情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-ENHC-TYP-CD">保障増額の適用:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-ENHC-TYP-CD" stype="Text" displayonly="yes">MIR-CVG-ENHC-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ENHC-FREQ-DUR">保障増額周期（年数）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ENHC-FREQ-DUR" stype="Text" displayonly="yes">MIR-ENHC-FREQ-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ENHC-STRT-DUR">増額開始契約応当日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ENHC-STRT-DUR" stype="Text" displayonly="yes">MIR-ENHC-STRT-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ENHC-END-DUR">増額終了契約応当日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ENHC-END-DUR" stype="Text" displayonly="yes">MIR-ENHC-END-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ENHC-END-AGE">保障増額終了年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ENHC-END-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-ENHC-END-AGE</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NUM-GIR-OPT-QTY">無診査増額特約オプション回数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NUM-GIR-OPT-QTY" stype="Text" displayonly="yes">MIR-NUM-GIR-OPT-QTY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ENHC-UWG-FREQ-DUR">増額会計証明周期（年数）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ENHC-UWG-FREQ-DUR" stype="Text" displayonly="yes">MIR-ENHC-UWG-FREQ-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ENHC-NELCT-DUR">増額非選択回数上限:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ENHC-NELCT-DUR" stype="Text" displayonly="yes">MIR-ENHC-NELCT-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ENHC-HIATUS-DUR">保障増額中断年数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ENHC-HIATUS-DUR" stype="Text" displayonly="yes">MIR-ENHC-HIATUS-DUR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-PAYO-MTHD-CD">契約既定支払オプション:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-PAYO-MTHD-CD" stype="Text" displayonly="yes">MIR-PLAN-PAYO-MTHD-CD</span>
+                    </td>
+                </tr>
+<!---IPMPPU STARTS HERE-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-PAYO-MODE-CD">支払方法（ﾓｰﾄﾞ）:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-PAYO-MODE-CD" stype="Text" displayonly="yes">MIR-PLAN-PAYO-MODE-CD</span>
+                    </td>
+                </tr>
+<!---IPMPPU ENDS HERE-->
+<!--IPMPV4 STARTS HERE-->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-PAYO-TYP-CD">年金支払タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-PAYO-TYP-CD" stype="Text" displayonly="yes">MIR-ANTY-PAYO-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-RT-TYP-CD">年金レートタイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-RT-TYP-CD" stype="Text" displayonly="yes">MIR-ANTY-RT-TYP-CD</span>
+                    </td>
+                </tr>
+<!--IPMPV4 ENDS HERE-->
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Tax Information">税金情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-TXEMP-CD">非課税:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-TXEMP-CD" stype="Text" displayonly="yes">MIR-PLAN-TXEMP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-XEMP-TST-UVAL-ID">非課税テストレートポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-XEMP-TST-UVAL-ID" stype="Text" displayonly="yes">MIR-XEMP-TST-UVAL-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-TAX-TYP-CD">課税処理インジケータ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-TAX-TYP-CD" stype="Text" displayonly="yes">MIR-PLAN-TAX-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DISP-WTHDR-ORDR-CD">課税処理引出順位:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISP-WTHDR-ORDR-CD" stype="Text" displayonly="yes">MIR-DISP-WTHDR-ORDR-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-TAXWH-IND">譲渡金源泉課税実施:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-PLAN-TAXWH-IND" id="MIR-PLAN-TAXWH-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-GAIN-RPT-TIME-CD">課税収益レポート:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-GAIN-RPT-TIME-CD" stype="Text" displayonly="yes">MIR-GAIN-RPT-TIME-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PNSN-QUALF-IND">プランは税制適格:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-PNSN-QUALF-IND" id="MIR-PNSN-QUALF-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <!--MP173A  Changes Begin -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TAX-DED-CAT-CD">控除証明区分:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAX-DED-CAT-CD" stype="Text" displayonly="yes">MIR-TAX-DED-CAT-CD</span>
+                    </td>
+                </tr>
+                <!--MP173A  Changes End -->
+            </table>
+            <h2>
+                <a name="Registered Information">税制適格情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-REG-IND">税制適格登録可:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-PLAN-REG-IND" id="MIR-PLAN-REG-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-T5-REG-TITL-TXT">T5タイトル:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-T5-REG-TITL-TXT" stype="Text" displayonly="yes">MIR-T5-REG-TITL-TXT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-MIN-CASL-PAYO-AMT">RRIF/LIF臨時支払最低額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MIN-CASL-PAYO-AMT" stype="Currency" elength="13" displayonly="yes">MIR-MIN-CASL-PAYO-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-LOCK-FND-IND">拘束引出ファンドあり:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-PLAN-LOCK-FND-IND" id="MIR-PLAN-LOCK-FND-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                          トップへ戻る
+                </a>
+            </p>
+            <h2>
+                <a name="Valuation Information">価格計算情報</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-RSRV-CALC-CD">準備金計算方式:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-RSRV-CALC-CD" stype="Text" displayonly="yes">MIR-PLAN-RSRV-CALC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-VALN-LBL-ID">価格計算ヘッダ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-VALN-LBL-ID" stype="Text" displayonly="yes">MIR-VALN-LBL-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-WP-PLAN-ID">払込免除準備金ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-WP-PLAN-ID" stype="Text" displayonly="yes">MIR-WP-PLAN-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ADB-PLAN-ID">災害死亡給付準備金ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ADB-PLAN-ID" stype="Text" displayonly="yes">MIR-ADB-PLAN-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-REDC-EP-PLAN-ID">入院時免責期間短縮特約準備金ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REDC-EP-PLAN-ID" stype="Text" displayonly="yes">MIR-REDC-EP-PLAN-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LTA-PLAN-ID">終身傷害就業不能準備金ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LTA-PLAN-ID" stype="Text" displayonly="yes">MIR-LTA-PLAN-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OWN-OCCP-PLAN-ID">本来職業就業不能準備金ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OWN-OCCP-PLAN-ID" stype="Text" displayonly="yes">MIR-OWN-OCCP-PLAN-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LTB-PLAN-ID">終身就業不能準備金ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LTB-PLAN-ID" stype="Text" displayonly="yes">MIR-LTB-PLAN-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PDISAB-PLAN-ID">部分就業不能準備金ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PDISAB-PLAN-ID" stype="Text" displayonly="yes">MIR-PDISAB-PLAN-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-COLA-1-PLAN-ID">生計費調整1準備金ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COLA-1-PLAN-ID" stype="Text" displayonly="yes">MIR-COLA-1-PLAN-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-COLA-2-PLAN-ID">生計費調整2準備金ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COLA-2-PLAN-ID" stype="Text" displayonly="yes">MIR-COLA-2-PLAN-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-COLA-3-PLAN-ID">生計費調整3準備金ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COLA-3-PLAN-ID" stype="Text" displayonly="yes">MIR-COLA-3-PLAN-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                    <td class="celldisplaylabel">
+                        <label for="MIR-COLA-4-PLAN-ID">生計費調整4準備金ポインタ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COLA-4-PLAN-ID" stype="Text" displayonly="yes">MIR-COLA-4-PLAN-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                         トップへ戻る
+                </a>
+            </p>
+<!---RP1VA2 CHANGES START-->
+            <h2>
+                <a name="Rate Information">レート情報</a>
+            </h2>
+            <table class="tabledisplay" width="100%">
+                <tr>
+                    <td width="32%" class="celldisplaylabel">
+                        <label for="MIR-COI-RPRC-DT">COI料率改定有効日:</label>
+                    </td>
+                    <td width="23%" class="celldisplay">
+                        <span id="MIR-COI-RPRC-DT" stype="Date" displayonly="yes">MIR-COI-RPRC-DT</span>
+                    </td>
+                    <td width="25%" class="celldisplaylabel">
+                        <label for="MIR-VALN-RPRC-DT">バリュエーション料率改定有効日:</label>
+                    </td>
+                    <td width="20%" class="celldisplay">
+                        <span id="MIR-VALN-RPRC-DT" stype="Date" displayonly="yes">MIR-VALN-RPRC-DT</span>
+                    </td>
+                </tr>
+<!-- MP9713 CHANGES START HERE-->
+                <tr>
+                    <td width="38%" class="celldisplaylabel">
+                        <label for="MIR-COI-RPRC-2-DT">COI料率改定有効日 - 2:</label>
+                    </td>
+                    <td width="20%" class="celldisplay">
+                        <span id="MIR-COI-RPRC-2-DT" stype="Date" displayonly="yes">MIR-COI-RPRC-2-DT</span>
+                    </td>
+                    <td width="25%" class="celldisplaylabel">
+                        <label for="MIR-VALN-RPRC-2-DT">バリュエーション料率改定有効日 - 2:</label>
+                    </td>
+                    <td width="17%" class="celldisplay">
+                        <span id="MIR-VALN-RPRC-2-DT" stype="Date" displayonly="yes">MIR-VALN-RPRC-2-DT</span>
+                    </td>
+                </tr>
+<!-- MP9713 CHANGES END HERE-->
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                         トップへ戻る
+                </a>
+            </p>
+<!---RP1VA2 CHANGES END  -->
+            <table class="tableanchors">
+                <tr>
+                    <td class="cellanchors">
+                        <a href="#Basic Information">基本情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#New Business Support">新契約サポート</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Premium Information">保険料情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Modal Loads / Policy Fees">払方別付加保険料/発行手数料</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Commission Information">募集手数料 </a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Cash Value Information">キャッシュバリュー</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Cash Flow Information">キャッシュフロー</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Contractual Dates">契約既定日</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Benefit Expiry Information">各種給付期限</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Notify Information">通知情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Periodic Statements Information">定期報告書</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Loan Information">貸付情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Dividend Information">配当情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Non-Forfeiture Support">不没収オプション</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Free Look Information">クーリングオフ</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cellanchors">
+                        <a href="#Terminal Bonus Support">消滅時配当</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Non-Traditional Products">新型商品情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#EIA Information">EIA情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Non-Trad Payment Parameters">新型商品払込パラメータ</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Non-Trad Withdrawal Parameters">従来型商品引出パラメータ</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Universal Life">ユニバーサル生命保険</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Multiple Fund Policy Support">複数ファンド契約サポート</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Guideline Premium Support">ガイドライン保険料</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Immediate Annuity">即時年金</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Interest Rate Information">利率情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Mortality Table Information">死亡率テーブル</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Other Product Features">その他商品オプション</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Tax Information">税金情報</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Registered Information">税制適格</a>
+                    </td>
+                    <td class="cellanchors">
+                        <a href="#Valuation Information">価格計算</a>
+                    </td>
+<!---RP1VA2 CHANGES START-->
+                    <td class="cellanchors">
+                        <a href="#Rate Information">レート情報</a>
+                    </td>
+<!---RP1VA2 CHANGES END  -->
+                    <td class="cellanchors" />
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

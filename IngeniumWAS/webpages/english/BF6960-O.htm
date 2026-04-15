@@ -1,0 +1,627 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:44 PM EDT
+*
+*********************************************************************************
+*  Component:   BF6960-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  01AD25  BMB      Add a new field to control display of more than 20 cvgs    
+*  02BL63  KRW      Add POL-BT-BILL-DLAY-IND                                   
+*  02PR55  RNL      Add MAT-XPRY-REASN-CD                                      
+*  M00011  ROC      OUTSTANDING DISBURSEMENT                                   
+*                      ADD OS-DISB-SURR-AMT, OS-DISB-MAT-AMT,                  
+*                      ADD OS-DISB-DTH-AMT,  OS-DISB-CLM-AMT,                  
+*                      ADD OS-DISB-AD-AMT                                      
+*                                                                              
+*  M161CA  CTS      ADD INIT-PMT-TYP-CD FIELD
+*  TDMG24 CTS      Screen Changes
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*  UYS133  CTS      PD group size field addition                              *
+*  UYSD11  CTS      ADDIITION OF UNISYS MIGRATION TYPE CODE  
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF6960-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="5">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">Process Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CVG-REC-CTR">Number of Coverages:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value="01" name="MIR-CVG-NUM" id="MIR-CVG-NUM" stype="Number" size="2" elength="2" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+
+					<!-- <td class="celldatakeylabel"/>
+                    <td class="celldatakey"/> -->
+                    <!--TDMG24 Screen Changes Start-->
+
+					<td class="celldisplaykeylabel">
+					      <label for="MIR-PREM-PMT-CMPLT-IND">Base Policy Premium Payment Completion:</label>
+					</td>
+					<td class="celldisplaykey">
+					      <input type="checkbox" name="MIR-PREM-PMT-CMPLT-IND" id="MIR-PREM-PMT-CMPLT-IND" stype="Indicator" value="Y" disabled="yes"/>
+				    </td>
+					<!--TDMG24 Screen Changes  end-->
+                <!--UYSD11 - STARTS -->
+                    <td class="celldisplaykeylabel"><label for="MIR-USYS-MIGR-POL-IND">Migrated Policy:</label></td>
+                    <td class="celldisplaykey"><input type="checkbox" name="MIR-USYS-MIGR-POL-IND" stype="Indicator" value="Y" disabled="yes"/></td>
+                <!--    <td class="celldisplaykeylabel"></td>
+                    <td class="celldisplaykey"></td> -->
+                <!--UYSD11 - ENDS -->
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#CoverageLevelValues">Coverage Level Values</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#UnderwritingOutstandingRequirements">Underwriting Outstanding Requirements</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4">
+                        <p class="celldisplayheading">SUMMARY INFORMATION</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-COMNT-TXT">Policy Comments:</label>
+                    </td>
+                    <td colspan="3" class="celldisplay">
+                        <span id="MIR-POL-COMNT-TXT" stype="Text" displayonly="yes">MIR-POL-COMNT-TXT</span>
+                    </td>
+                </tr>
+                <!-- M161CA START -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INIT-PMT-TYP-CD">Payment Route(First Premium):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INIT-PMT-TYP-CD" stype="Text" displayonly="yes">MIR-INIT-PMT-TYP-CD</span>
+                    </td>
+<!-- UYS133 CHANGE STARTS HERE-->
+                  <!--  <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td> -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PD-GR-TYP-CD">PD group size:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PD-GR-TYP-CD" stype="Text" displayonly="yes">MIR-PD-GR-TYP-CD</span>
+                    </td>
+<!-- UYS133 CHANGE ENDS HERE-->
+                </tr>
+                <!-- M161CA END -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <!-- M161CA START -->
+                        <!-- <label for="MIR-POL-BILL-TYP-CD">Billing Type:</label> -->
+                        <label for="MIR-POL-BILL-TYP-CD">Billing Type(Subsequent Premium):</label>
+                        <!-- M161CA END -->
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TYP-CD" stype="Text" displayonly="yes">MIR-POL-BILL-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">Premium Mode:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-POL-CSV-AMT">Cash Surrender Value:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-POL-CSV-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-DV-POL-CSV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PD-TO-DT-NUM">Paid to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PD-TO-DT-NUM" stype="Text" displayonly="yes">MIR-POL-PD-TO-DT-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MISC-SUSP-AMT">Miscellaneous Suspense:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MISC-SUSP-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-POL-MISC-SUSP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LATST-ACTV-DT">Last Transaction Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LATST-ACTV-DT" stype="Date" displayonly="yes">MIR-LATST-ACTV-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREM-SUSP-AMT">Premium Suspense:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREM-SUSP-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-POL-PREM-SUSP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREV-FILE-MAINT-DT">Last Maintain Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREV-FILE-MAINT-DT" stype="Date" displayonly="yes">MIR-PREV-FILE-MAINT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DIV-OPT-CD">Policy Dividend Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DIV-OPT-CD" stype="Text" displayonly="yes">MIR-POL-DIV-OPT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREM-DSCNT-PCT">Policy Discount Percentage:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREM-DSCNT-PCT" stype="Percent" elength="7" decimals="3" signed="yes" displayonly="yes">MIR-POL-PREM-DSCNT-PCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-MAX-LOAN-AMT">Maximum      Loan Available:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-MAX-LOAN-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-MAX-LOAN-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FREE-LK-FND-IND">Free Look Fund Required:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-FREE-LK-FND-IND" id="MIR-FREE-LK-FND-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BT-BILL-DLAY-IND">Bank Transfer Billing Delay:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-BT-BILL-DLAY-IND" id="MIR-POL-BT-BILL-DLAY-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NXT-ACTV-TYP-CD">Next Activity Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NXT-ACTV-TYP-CD" stype="Text" displayonly="yes">MIR-NXT-ACTV-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-NXT-ACTV-DT">Next Activity Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-NXT-ACTV-DT" stype="Date" displayonly="yes">MIR-POL-NXT-ACTV-DT</span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-OS-DISB-AMT">Outstanding Disbursements:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-OS-DISB-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-POL-OS-DISB-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-SURR-AMT">OS Disb - Surrender:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-SURR-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-OS-DISB-SURR-AMT</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-MAT-AMT">OS Disb - Maturity:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-MAT-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-OS-DISB-MAT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-DTH-AMT">OS Disb - Death:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-DTH-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-OS-DISB-DTH-AMT</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-CLM-AMT">OS Disb - Claim:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-CLM-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-OS-DISB-CLM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-AD-AMT">OS Disb - Acc Death:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-AD-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-OS-DISB-AD-AMT</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="celldisplayheading" colspan="2">Current Year to date</td>
+                    <td class="celldisplayheading" colspan="2">Claims Life to Date</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-WP-YTD-AMT">Total      Premiums Waived:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-WP-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-WP-YTD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-WP-LTD-AMT">Total Premiums Waived:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-WP-LTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-WP-LTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-CLM-YTD-AMT">Total      Claims Paid:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CLM-YTD-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CVG-CLM-YTD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-CLM-LTD-AMT">Total Claims Paid:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CLM-LTD-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CVG-CLM-LTD-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="6">
+                        <a name="CoverageLevelValues">Coverage Level Values</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">Coverage Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PLAN-ID-T[1]">Type of Plan</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-ISS-EFF-DT-T[1]">Issue Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-PREM-CHNG-DT-T[1]">Premium Change Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-MAT-XPRY-DT-T[1]">Coverage Maturity / Expiry Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-MAT-XPRY-REASN-CD-T[1]">Maturity / Expiry Reason</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-ISS-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-CVG-ISS-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PREM-CHNG-DT-T[]" stype="Date" displayonly="yes">MIR-CVG-PREM-CHNG-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-MAT-XPRY-DT-T[]" stype="Date" displayonly="yes">MIR-CVG-MAT-XPRY-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-MAT-XPRY-REASN-CD-T[]" stype="Text" displayonly="yes">MIR-MAT-XPRY-REASN-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">Coverage Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NOTI-DT-T[1]">Notify Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NOTI-REASN-CD-T[1]">Notify Reason</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-MPREM-AMT-T[1]">Mode Premium</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-CSTAT-CD-T[1]">Coverage Status</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-FREE-LK-FND-CD-T[1]">Free Look Fund Type</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NOTI-DT-T[]" stype="Date" displayonly="yes">MIR-CVG-NOTI-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NOTI-REASN-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-NOTI-REASN-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-MPREM-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-MPREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-FREE-LK-FND-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-FREE-LK-FND-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="8">
+                        <a name="UnderwritingOutstandingRequirements">Underwriting Outstanding      Requirements</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">Coverage Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-UWG-REQIR-ESTB-IND-T[1]">Requirements have been established</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NMED-CD-T[1]">Non-medical</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-PMED-CD-T[1]">Paramedical</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-PHYS-EXAM-CD-T[1]">Medical Examination</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-INTRNL-EXAM-CD-T[1]">Medical      (Internist or Specialist)</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-EKG-CD-T[1]">Electro-cardiogram</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-XRAY-CD-T[1]">X-ray</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-UWG-REQIR-ESTB-IND-T[]" id="MIR-UWG-REQIR-ESTB-IND-T[]" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NMED-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-NMED-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PMED-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-PMED-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PHYS-EXAM-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-PHYS-EXAM-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-INTRNL-EXAM-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-INTRNL-EXAM-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-EKG-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-EKG-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-XRAY-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-XRAY-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading" rowspan="2">
+                        <label for="MIR-CVG-NUM-T[1]">Coverage Number</label>
+                    </td>
+                    <td class="celldisplayheading" rowspan="2">
+                        <label for="MIR-CVG-HO-SPCMN-CD-T[1]">Head Office Specimen</label>
+                    </td>
+                    <td class="celldisplayheading" rowspan="2">
+                        <label for="MIR-CVG-STRS-EKG-CD-T[1]">Stress Electro-cardiogram</label>
+                    </td>
+                    <td class="celldisplayheading" rowspan="2">
+                        <label for="MIR-CVG-INSPC-RPT-CD-T[1]">Inspection Report</label>
+                    </td>
+                    <td class="celldisplayheading" rowspan="2">
+                        <label for="MIR-CVG-APS-CD-T[1]">Attending Physician Statement</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="5">Miscellaneous Underwriting      Requirements</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-UWG-USER-DEFN-1-CD-T[1]">#1</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-UWG-USER-DEFN-2-CD-T[1]">#2</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-UWG-USER-DEFN-3-CD-T[1]">#3</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-UWG-USER-DEFN-4-CD-T[1]">#4</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-UWG-USER-DEFN-5-CD-T[1]">#5</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-HO-SPCMN-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-HO-SPCMN-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STRS-EKG-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STRS-EKG-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-INSPC-RPT-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-INSPC-RPT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-APS-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-APS-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UWG-USER-DEFN-1-CD-T[]" stype="Text" displayonly="yes">MIR-UWG-USER-DEFN-1-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UWG-USER-DEFN-2-CD-T[]" stype="Text" displayonly="yes">MIR-UWG-USER-DEFN-2-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UWG-USER-DEFN-3-CD-T[]" stype="Text" displayonly="yes">MIR-UWG-USER-DEFN-3-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UWG-USER-DEFN-4-CD-T[]" stype="Text" displayonly="yes">MIR-UWG-USER-DEFN-4-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UWG-USER-DEFN-5-CD-T[]" stype="Text" displayonly="yes">MIR-UWG-USER-DEFN-5-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <p>
+                <input type="hidden" name="action" id="action" stype="Hidden" />
+            </p>
+            <p>
+                <input type="hidden" name="index" id="index" stype="Hidden" />
+            </p>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#CoverageLevelValues">Coverage Level Values</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#UnderwritingOutstandingRequirements">Underwriting Outstanding requirements</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

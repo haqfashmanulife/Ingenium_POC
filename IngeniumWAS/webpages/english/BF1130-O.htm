@@ -1,0 +1,173 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:25 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1130-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                              
+*
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                                                               
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1130-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DPOS-EFF-IDT-NUM">Deposit Effective Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DPOS-EFF-IDT-NUM" stype="Date" displayonly="yes">MIR-DPOS-EFF-IDT-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DPOS-CDA-SEQ-NUM">Sequence Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DPOS-CDA-SEQ-NUM" stype="Text" displayonly="yes">MIR-DPOS-CDA-SEQ-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DPOS-POL-PAYO-NUM">Payout Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DPOS-POL-PAYO-NUM" stype="Text" isplayonly="yes">MIR-DPOS-POL-PAYO-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CDA-EFF-IDT-NUM">Withdrawal Effective Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CDA-EFF-IDT-NUM" stype="Date" displayonly="yes">MIR-CDA-EFF-IDT-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CDA-SEQ-NUM">Withdrawal Sequence Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CDA-SEQ-NUM" stype="Text" displayonly="yes">MIR-CDA-SEQ-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-PAYO-NUM">Withdrawal Payout Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-PAYO-NUM" stype="Text" displayonly="yes">MIR-POL-PAYO-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey"></td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DWCHRG-SEQ-NUM">Sub-Sequence:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DWCHRG-SEQ-NUM" stype="Text" displayonly="yes">MIR-DWCHRG-SEQ-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DWCHRG-AVAIL-AMT">Amount Available for Withdrawal:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DWCHRG-AVAIL-AMT" stype="Currency" elength="15" displayonly="yes">MIR-DWCHRG-AVAIL-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DPOS-OVRID-EFF-DT">Override Payment Effective Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DPOS-OVRID-EFF-DT" stype="Date" displayonly="yes">MIR-DPOS-OVRID-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DWCHRG-FREE-AMT">Free Amount Applied:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DWCHRG-FREE-AMT" stype="Currency" elength="15" displayonly="yes">MIR-DWCHRG-FREE-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-DWCHRG-PCT">Surrender Charge Percent:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-DWCHRG-PCT" stype="Percent" elength="7" decimals="4" displayonly="yes">MIR-DV-DWCHRG-PCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DWCHRG-WTHDR-AMT">Total Withdrawal Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DWCHRG-WTHDR-AMT" stype="Currency" elength="15" displayonly="yes">MIR-DWCHRG-WTHDR-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DWCHRG-CHRG-AMT">Calculated Surrender Charge:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DWCHRG-CHRG-AMT" stype="Currency" elength="15" displayonly="yes">MIR-DWCHRG-CHRG-AMT</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

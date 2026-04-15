@@ -1,0 +1,1787 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:44 PM EDT
+*
+*********************************************************************************
+*  Component:   BF6983-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling
+*  017150  612J     Remove Currency decimals="2"
+*  02GL03  MAW      ADD POL-BT-SUSP-AMT, POL-PD-SUSP-AMT, POL-CC-SUSP-AMT
+*  02PR17  WBP      ADD Cash Back Bonus Section
+*  02GL57  DPK      CWA Suspense Account and Refund
+*  1CGL01  CLB      MODS TO ADD DHY CONVERSION ACCOUNTING
+*  PR006E  CSS      ADD CASH BACK BONUS FIELDS (MIR-CBB-MRB-LST-PD-AMT  and
+*  PR006E           MIR-CBB-MRB-LTD-PD-AMT)
+*  M00011  ROC      OUTSTANDING DISBURSEMENT
+*                      ADD OS-DISB-SURR-AMT, OS-DISB-SURR-DT,
+*                      ADD OS-DISB-MAT-AMT,  OS-DISB-MAT-DT,
+*                      ADD OS-DISB-DTH-AMT,  OS-DISB-DTH-DT,
+*                      ADD OS-DISB-CLM-AMT,  OS-DISB-CLM-DT,
+*                      ADD OS-DISB-AD-AMT ,  OS-DISB-AD-DT ,
+#*  P01931  H.L      ADD FOLLOWING FIELDS:                                     *
+#*                      MIR-TOT-PREM-COLCT-AMT-CURR/PREV/ACCUM                 *
+#*                      MIR-TOT-PARTL-SURR-AMT-CURR/PREV/ACCRM                 *
+#*                      MIR-TOT-COI-DED-AMT-CURR/PREV/ACCRM                    *
+#*                      MIR-TOT-PREM-COLCT-NUM-CURR/PREV/ACCUM                 *
+#*                      MIR-TOT-PARTL-SURR-NUM-CURR/PREV/ACCRM                 *
+#*                      MIR-TOT-COI-DED-NUM-CURR/PREV/ACCRM                    *
+#*                      MIR-DHY-CONV-RSRV-AMT                                  *
+#*                      MIR-DHY-CONV-PREM-AMT                                  *
+*  FEID09  CTS       ADDED FOLLOWING FEILDS FOR ACCOUNTING:                    *
+*                       MIR-INIT-PREM-SUSP-AMT                                 *
+*                       MIR-INIT-PREM-SUSP-DT                                  *
+*  NWLBCA  CTS       ADDED FOLLOWING FIELDS FOR TRAD POLICIES PROCESSING:      *
+*                       MIR-OVR-SHRT-PREM-AMT                                  *
+*                       MIR-OVR-SHRT-PREM-DT                                   *
+*                                                                              *
+*  NWLCAR  CTS       ADDED NEW FIELDS AND TAB FOR NWLCAR                       *
+*  ATU446  CTS       CHANGED LABELS FOR FIELDS INTRODUCED AS PART OF NWLCAR    *
+*  NWLPP5  CTS       ADDED NEW FIELD FOR UNEARNED PREMIUM                      *
+*  NWLLRP  CTS     CHANGES FOR LOAN REPAYMENT PROCESSING                       *
+*  NWLLTC  CTS       CHANGES DONE TO ADD OS LOAN DISB AMT AND OS LOAN DISB DT  *
+*                    FIELDS TO THE SCREEN                                      *
+*  M142F2  CTS       CHANGES DONE TO ADD OS DISB SURVIVOR BENIFIT AMT AND      *
+*                    OS SURVIVOR BENIFIT DT FIELDS TO THE SCREEN               *
+*  Q07571  CTS       M142F2 - SPELLING CHANGE FOR OS DISB SURVIVOR BENEFIT     *
+*                     AMOUNT                                                   *
+*  Q10123  CTS       M161CA - CHANGES DONE FOR CREDIT CARD                     *
+*  M245B2  CTS      Foreign Currency Formatting                                *
+*  M271A7  CTS      Online Screen Changes done as part of FRA                  *
+*  TDMG07  CTS      SCREEN CHANGES FOR NWL                                     *
+*  118579  CTS      CHANGES DONE TO CORRECT THE FIELD PREMIUM PAYMENT          *
+*  118579           DESCRIPTION                                                *
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                *
+*  23774B  CTS      Changes done for ie retirement project to make it          *
+*                   compatible for microsoft edge. Changes in html include     *
+*                   adding "id" attribute for all input fields and changes in  *
+*                   java scripts to modify certain functions/commands which    *
+*                   are no longer compatilble with edge.                                                 *
+*  UYS025  CTS      ADDITION ADVANCE PAYMENT RESERVE AMOUNT FIELD              *
+*  UYS104  CTS      ADDITION OF PROPORTIONAL DISTRIBUTION PAID                 *
+*                   PREMIUM CALC FLAG                                          *
+*  UYSD11  CTS      ADDIITION OF UNISYS MIGRATION TYPE CODE                    *
+*  UY3060  CTS      SYSTEM SPC B INGENIUM-DIVIDEND PROCESSING                  *
+*  UY3094  CTS      TERM INSURANCE FINAL ADJUSTMENT PAYMENT                    *
+*  UY304A  CTS      CALL CENTER SCREEN ENHANCEMENT                              *
+*  UY3153  CTS      CR 148 AND 149 CHANGES                                     *
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF6983-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <a name="top" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="5">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">Process Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CVG-REC-CTR">Number of Coverages:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+                <!--TDMG07 Changes Begin-->
+                <tr>
+                    <td class="celldisplaykeylabel">
+                    </td>
+                    <td class="celldisplaykey">
+                    </td>
+                    <td class="celldisplaykeylabel">
+					<!-- 118579 Changes Begion -->
+					<!-- <label for="MIR-PREM-PMT-CMPLT-IND">Premium Payment Completion:</label>	 -->
+						<label for="MIR-PREM-PMT-CMPLT-IND">Base Policy Premium Payment Completion:</label>
+					<!-- 118579 Changes End -->
+				</td>
+					<td class="celldisplaykey">
+						<input type="checkbox" name="MIR-PREM-PMT-CMPLT-IND" id="MIR-PREM-PMT-CMPLT-IND" stype="Indicator" value="Y" disabled="yes"/>
+				    </td>
+                    <!--UYSD11 - STARTS -->
+                    <td class="celldisplaykeylabel"><label for="MIR-USYS-MIGR-POL-IND">Migrated Policy:</label></td>
+                    <td class="celldisplaykey"><input type="checkbox" name="MIR-USYS-MIGR-POL-IND" stype="Indicator" value="Y" disabled="yes"/></td>
+                    <!--UYSD11 - ENDS -->
+			    </tr>
+			    <!--TDMG07 Changes end-->
+
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#SuspenseandBillingInformation">Suspense and Billing Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#DividendInformation">Dividend Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#FlexFundInformation">Flex Fund Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CashBackBonusInformation">Cash Back Bonus Information</a>
+                        </td>
+                        <td class="cellanchors">
+						    <a href="#SurvivorshipBenefitInformation">Survivorship Benefit Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#OtherPolicyInformation">Other Policy Information</a>
+                        </td>
+<!-- NWLCAR CHANGES BEGIN -->
+                        <td class="cellanchors">
+                            <a href="#TradPremiumIncrease/DecreaseDetails">Trad Premium Increase / Decrease Details</a>
+                        </td>
+<!-- NWLCAR CHANGES END -->
+                    </tr>
+                </table>
+            </center>
+            <h2>
+                <a name="SuspenseandBillingInformation">Suspense and Billing Information</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Suspense Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CRC-RECV-AMT">Receivable:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CRC-RECV-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CRC-RECV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CRC-RECV-UPDT-DT">Receivable  Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CRC-RECV-UPDT-DT" stype="Date" displayonly="yes">MIR-CRC-RECV-UPDT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MISC-SUSP-AMT">Miscellaneous Suspense:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MISC-SUSP-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-POL-MISC-SUSP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MISC-SUSP-DT">Miscellaneous Suspense Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MISC-SUSP-DT" stype="Date" displayonly="yes">MIR-POL-MISC-SUSP-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREM-SUSP-AMT">Premium Suspense:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREM-SUSP-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-POL-PREM-SUSP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREM-SUSP-DT">Premium Suspense Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREM-SUSP-DT" stype="Date" displayonly="yes">MIR-POL-PREM-SUSP-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-OS-DISB-AMT">Outstanding Disbursements:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-OS-DISB-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-POL-OS-DISB-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-OS-DISB-DT">Outstanding Disbursements Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-OS-DISB-DT" stype="Date" displayonly="yes">MIR-POL-OS-DISB-DT</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-SURR-AMT">OS Disb - Surrender:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-SURR-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-OS-DISB-SURR-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-SURR-DT">OS Disb - Surrender Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-SURR-DT" stype="Date" displayonly="yes">MIR-OS-DISB-SURR-DT</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-MAT-AMT">OS Disb - Maturity:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-MAT-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-OS-DISB-MAT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-MAT-DT">OS Disb - Maturity Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-MAT-DT" stype="Date" displayonly="yes">MIR-OS-DISB-MAT-DT</span>
+                    </td>
+                </tr>
+	            <tr>
+                   <td class="celldisplaylabel">
+                       <label for="MIR-TERM-INS-FINL-ADJ-TOT-PAY">OS Disb - Term:</label>
+                   </td>
+                   <td class="celldisplay">
+                       <span id="MIR-TERM-INS-FINL-ADJ-TOT-PAY" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TERM-INS-FINL-ADJ-TOT-PAY</span>
+                   </td>
+<!-- UY304A CHANGES BEGIN
+	               <td class="celldisplaylabel" />
+	               <td class="celldisplay"></td> -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-TRM-DT">OS Disb Term - Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-TRM-DT" stype="Date" displayonly="yes">MIR-OS-DISB-TRM-DT</span>
+                    </td>
+<!-- UY304A CHANGES ENDS-->
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-DTH-AMT">OS Disb - Death:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-DTH-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-OS-DISB-DTH-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-DTH-DT">OS Disb - Death Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-DTH-DT" stype="Date" displayonly="yes">MIR-OS-DISB-DTH-DT</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-CLM-AMT">OS Disb - Claim:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-CLM-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-OS-DISB-CLM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-CLM-DT">OS Disb - Claim Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-CLM-DT" stype="Date" displayonly="yes">MIR-OS-DISB-CLM-DT</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-AD-AMT">OS Disb - Acc Death:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-AD-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-OS-DISB-AD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-AD-DT">OS Disb - Acc Death Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-AD-DT" stype="Date" displayonly="yes">MIR-OS-DISB-AD-DT</span>
+                    </td>
+                </tr>
+<!-- NWLLTC CHANGES STARTS HERE -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-LOAN-AMT">OS Disb - Loan:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-LOAN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-OS-DISB-LOAN-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-LOAN-DT">OS Disb - Loan Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-LOAN-DT" stype="Date" displayonly="yes">MIR-OS-DISB-LOAN-DT</span>
+                    </td>
+                </tr>
+<!-- NWLLTC CHANGES ENDS HERE -->
+<!-- M142F2 CHANGES STARTS HERE -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-SRVBEN-AMT">OS Disb -UL Survivor Benefit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-SRVBEN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-OS-DISB-SRVBEN-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-SRVBEN-DT">OS Disb -UL Survivor Benefit Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-SRVBEN-DT" stype="Date" displayonly="yes">MIR-OS-DISB-SRVBEN-DT</span>
+                    </td>
+                </tr>
+<!-- M142F2 CHANGES ENDS HERE -->
+<!-- M271A7 Changes begin -->
+               <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-RFND-AMT">OS Disb - JPY Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-RFND-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-OS-DISB-RFND-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-OS-DISB-RFND-DT">OS Disb - JPY Premium Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OS-DISB-RFND-DT" stype="Date" displayonly="yes">MIR-OS-DISB-RFND-DT</span>
+                    </td>
+             </tr>
+
+<!-- M271A7 Changes end  -->
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PDF-SUSP-AMT">Premium Deposit Fund Suspense:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PDF-SUSP-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-PDF-SUSP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PDF-SUSP-DT">Premium Deposit Fund Suspense Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PDF-SUSP-DT" stype="Date" displayonly="yes">MIR-POL-PDF-SUSP-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DIV-SUSP-AMT">Dividend Suspense:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DIV-SUSP-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-DIV-SUSP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POST-LAPS-SURR-AMT">Post Lapse Surrender Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POST-LAPS-SURR-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POST-LAPS-SURR-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BT-SUSP-AMT">Bank Transfer Suspense:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BT-SUSP-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-POL-BT-SUSP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BT-SUSP-DT">Bank Transfer Suspense Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BT-SUSP-DT" stype="Date" displayonly="yes">MIR-POL-BT-SUSP-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PD-SUSP-AMT">Payroll Deduction Suspense:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PD-SUSP-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-POL-PD-SUSP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PD-SUSP-DT">Payroll Deduction Suspense Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PD-SUSP-DT" stype="Date" displayonly="yes">MIR-POL-PD-SUSP-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CC-SUSP-AMT">Cash Collection Suspense:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CC-SUSP-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-POL-CC-SUSP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CC-SUSP-DT">Cash Collection Suspense Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CC-SUSP-DT" stype="Date" displayonly="yes">MIR-POL-CC-SUSP-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CWA-SUSP-AMT">Cash with App Suspense:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CWA-SUSP-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-POL-CWA-SUSP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CWA-SUSP-DT">Cash with App Suspense Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CWA-SUSP-DT" stype="Date" displayonly="yes">MIR-POL-CWA-SUSP-DT</span>
+                    </td>
+                </tr>
+                <!-- NWLBCA CHANGES STARTS HERE -->
+				<tr>
+				    <td class="celldisplaylabel">
+				        <label for="MIR-OVR-SHRT-PREM-AMT">Over / Short Premium:</label>
+				    </td>
+				    <td class="celldisplay">
+				        <span id="MIR-OVR-SHRT-PREM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-OVR-SHRT-PREM-AMT </span>
+				    </td>
+				    <td class="celldisplaylabel">
+				        <label for="MIR-OVR-SHRT-PREM-DT"> Over / Short Premium Account Last Updated:</label>
+				    </td>
+				    <td class="celldisplay">
+				        <span id="MIR-OVR-SHRT-PREM-DT" stype="Date" displayonly="yes">MIR-OVR-SHRT-PREM-DT</span>
+				    </td>
+				</tr>
+				<!-- NWLBCA CHANGES ENDS HERE -->
+                <!-- NWLLRP CHANGES STARTS HERE -->
+				<tr>
+				    <td class="celldisplaylabel">
+				        <label for="MIR-LOAN-XCES-SHRT-AMT">Excess / Short Loan Interest:</label>
+				    </td>
+				    <td class="celldisplay">
+				        <span id="MIR-LOAN-XCES-SHRT-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-LOAN-XCES-SHRT-AMT </span>
+				    </td>
+				    <td class="celldisplaylabel">
+				        <label for="MIR-LOAN-XCES-SHRT-DT"> Excess / Short Loan Interest Account Last Updated:</label>
+				    </td>
+				    <td class="celldisplay">
+				        <span id="MIR-LOAN-XCES-SHRT-DT" stype="Date" displayonly="yes">MIR-LOAN-XCES-SHRT-DT</span>
+				    </td>
+				</tr>
+		  		<!-- NWLLRP CHANGES ENDS HERE -->
+
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSH-RFND-SUSP-AMT">Cash Refund Suspense:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSH-RFND-SUSP-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-CSH-RFND-SUSP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CSH-RFND-SUSP-DT">Cash Refund Suspense Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CSH-RFND-SUSP-DT" stype="Date" displayonly="yes">MIR-CSH-RFND-SUSP-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DHY-SPREM-SUSP-AMT">Conversion Single Premium Suspense:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DHY-SPREM-SUSP-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-DHY-SPREM-SUSP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DHY-SPREM-SUSP-DT">Conversion Single Premium Suspense Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DHY-SPREM-SUSP-DT" stype="Date" displayonly="yes">MIR-DHY-SPREM-SUSP-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DHY-RSRV-SUSP-AMT">Conversion Reserve Suspense:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DHY-RSRV-SUSP-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-DHY-RSRV-SUSP-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DHY-RSRV-SUSP-DT">Conversion Reserve Suspense Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DHY-RSRV-SUSP-DT" stype="Date" displayonly="yes">MIR-DHY-RSRV-SUSP-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DHY-OS-DISB-AMT">Conversion Outstanding Disbursements:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DHY-OS-DISB-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-DHY-OS-DISB-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DHY-OS-DISB-DT">Conversion Outstanding Disbursements Account Last Updated:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DHY-OS-DISB-DT" stype="Date" displayonly="yes">MIR-DHY-OS-DISB-DT</span>
+                    </td>
+                </tr>
+            <!--FEID09-->
+                <tr>
+		    <td class="celldisplaylabel">
+			<label for="MIR-INIT-PREM-SUSP-AMT">Accrual Initial Premium Suspense Amount:</label>
+		    </td>
+		    <td class="celldisplay">
+		        <span id="MIR-INIT-PREM-SUSP-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-INIT-PREM-SUSP-AMT</span>
+		    </td>
+		    <td class="celldisplaylabel">
+			<label for="MIR-INIT-PREM-SUSP-DT">Accrual Initial Premium Account Last Updated:</label>                    </td>
+	            <td class="celldisplay">
+			<span id="MIR-INIT-PREM-SUSP-DT" stype="Date" displayonly="yes">MIR-INIT-PREM-SUSP-DT</span>                    </td>
+                </tr>
+<!-- UYS025 changes starts here -->
+            <tr>
+               <td class="celldisplaylabel">
+                    <label for="MIR-ADV-PMT-RSRV-AMT">Advance Payment Reserve Amount:</label>
+               </td>
+               <td class="celldisplay">
+                    <span id="MIR-ADV-PMT-RSRV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-ADV-PMT-RSRV-AMT</span>
+               </td>
+
+               <td class="celldisplaylabel" />
+               <td class="celldisplay" />
+            </tr>
+<!-- UYS025 changes ends here -->
+<!-- UY3049 CHANGES STARTS HERE -->
+	       <tr>
+              <td class="celldisplaylabel">
+                  <label for="MIR-RCVBL-PREM-AMT">Receivable Premium Amount:</label>
+              </td>
+              <td class="celldisplay">
+                  <span id="MIR-RCVBL-PREM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-RCVBL-PREM-AMT</span>
+              </td>
+              <td class="celldisplaylabel">
+                  <label for="MIR-RCVBL-ACCT-DT">Receivable Premium Account Last Updated:</label>
+              </td>
+              <td class="celldisplay">
+                  <span id="MIR-RCVBL-ACCT-DT" stype="Date" displayonly="yes">MIR-RCVBL-ACCT-DT</span>
+              </td>
+           </tr>
+<!-- UY3049 CHANGES ENDS HERE -->
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Billing Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-TO-DT-NUM">Billed to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TO-DT-NUM" stype="Date" displayonly="yes">MIR-POL-BILL-TO-DT-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PD-TO-DT-NUM">Paid to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PD-TO-DT-NUM" stype="Date" displayonly="yes">MIR-POL-PD-TO-DT-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MPREM-AMT">Mode Premium Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MPREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-MPREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREM-DSCNT-PCT">Policy Discount Percentage:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREM-DSCNT-PCT" stype="Percent" elength="7" decimals="3" signed="yes" displayonly="yes">MIR-POL-PREM-DSCNT-PCT</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="FlexFundInformation">Flex Fund Information</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Flex Fund Change Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PREM-COLCT-AMT-CURR">Total Premium Collected Amount - Current Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PREM-COLCT-AMT-CURR" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TOT-PREM-COLCT-AMT-CURR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PREM-COLCT-NUM-CURR">Total Premium Collected Number - Current Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PREM-COLCT-NUM-CURR" stype="Text" elength="4" displayonly="yes">MIR-TOT-PREM-COLCT-NUM-CURR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PREM-COLCT-AMT-PREV">Total Premium Collected Amount - Previous Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PREM-COLCT-AMT-PREV" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TOT-PREM-COLCT-AMT-PREV</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PREM-COLCT-NUM-PREV">Total Premium Collected Number - Previous Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PREM-COLCT-NUM-PREV" stype="Text" elength="4" displayonly="yes">MIR-TOT-PREM-COLCT-NUM-PREV</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PREM-COLCT-AMT-ACCUM">Total Premium Collected Amount - Accumulation:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PREM-COLCT-AMT-ACCUM" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TOT-PREM-COLCT-AMT-ACCUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PREM-COLCT-NUM-ACCUM">Total Premium Collected Number - Accumulation:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PREM-COLCT-NUM-ACCUM" stype="Text" elength="4" displayonly="yes">MIR-TOT-PREM-COLCT-NUM-ACCUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DHY-CONV-RSRV-AMT">DHY Conversion Reserve Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DHY-CONV-RSRV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DHY-CONV-RSRV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DHY-CONV-PREM-AMT">DHY Conversion Single Premium Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DHY-CONV-PREM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DHY-CONV-PREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PARTL-SURR-AMT-CURR">Total Partial Surrender Amount - Current Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PARTL-SURR-AMT-CURR" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TOT-PARTL-SURR-AMT-CURR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PARTL-SURR-NUM-CURR">Total Partial Surrender Number - Current Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PARTL-SURR-NUM-CURR" stype="Text" elength="4" displayonly="yes">MIR-TOT-PARTL-SURR-NUM-CURR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PARTL-SURR-AMT-PREV">Total Partial Surrender Amount - Previous Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PARTL-SURR-AMT-PREV" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TOT-PARTL-SURR-AMT-PREV</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PARTL-SURR-NUM-PREV">Total Partial Surrender Number - Previous Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PARTL-SURR-NUM-PREV" stype="Text" elength="4" displayonly="yes">MIR-TOT-PARTL-SURR-NUM-PREV</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PARTL-SURR-AMT-ACCUM">Total Partial Surrender Amount - Accumulation:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PARTL-SURR-AMT-ACCUM" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TOT-PARTL-SURR-AMT-ACCUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PARTL-SURR-NUM-ACCUM">Total Partial Surrender Number - Accumulation:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PARTL-SURR-NUM-ACCUM" stype="Text" elength="4" displayonly="yes">MIR-TOT-PARTL-SURR-NUM-ACCUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-COI-DED-AMT-CURR">Total COI Deducted Amount - Current Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-COI-DED-AMT-CURR" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TOT-COI-DED-AMT-CURR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-COI-DED-NUM-CURR">Total COI Deducted Number - Current Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-COI-DED-NUM-CURR" stype="Text" elength="4" displayonly="yes">MIR-TOT-COI-DED-NUM-CURR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-COI-DED-AMT-PREV">Total COI Deducted Amount - Previous Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-COI-DED-AMT-PREV" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TOT-COI-DED-AMT-PREV</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-COI-DED-NUM-PREV">Total COI Deducted Number - Previous Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-COI-DED-NUM-PREV" stype="Text" elength="4" displayonly="yes">MIR-TOT-COI-DED-NUM-PREV</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-COI-DED-AMT-ACCUM">Total COI Deducted Amount - Accumulation:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-COI-DED-AMT-ACCUM" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TOT-COI-DED-AMT-ACCUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-COI-DED-NUM-ACCUM">Total COI Deducted Number - Accumulation:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-COI-DED-NUM-ACCUM" stype="Text" elength="4" displayonly="yes">MIR-TOT-COI-DED-NUM-ACCUM</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="CashBackBonusInformation">Cash Back Bonus Information</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Cash Back Bonus Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CBB-RBB-LST-PD-AMT">Rate Banding Bonus Amount Last Paid:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CBB-RBB-LST-PD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CBB-RBB-LST-PD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CBB-RBB-LTD-PD-AMT">Rate Banding Bonus Total Paid:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CBB-RBB-LTD-PD-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CBB-RBB-LTD-PD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CBB-CMB-LST-PD-AMT">Collection Method Bonus Amount Last Paid:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CBB-CMB-LST-PD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CBB-CMB-LST-PD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CBB-CMB-LTD-PD-AMT">Collection Method Bonus Total Paid:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CBB-CMB-LTD-PD-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CBB-CMB-LTD-PD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CBB-MRB-LST-PD-AMT">Medical Rider Bonus Amount Last Paid:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CBB-MRB-LST-PD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CBB-MRB-LST-PD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CBB-MRB-LTD-PD-AMT">Medical Rider Bonus Total Paid:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CBB-MRB-LTD-PD-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CBB-MRB-LTD-PD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CBB-LST-PD-YR">Year Last Paid:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CBB-LST-PD-YR" stype="Text" displayonly="yes">MIR-CBB-LST-PD-YR</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+<!-- M142F2 CHANGES STARTS HERE -->
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+			    <a name="SurvivorshipBenefitInformation">Survivorship Benefit Information</a>
+			</h2>
+			<table class="tabledisplay">
+			    <tr>
+			        <td class="celldisplayheading" colspan="4">Survivorship Benefit Details</td>
+			    </tr>
+			    <tr>
+			        <td class="celldisplaylabel">
+			            <label for="MIR-SRVBEN-LST-PD-YR">Survivorship Benefit Year Last Paid:</label>
+			        </td>
+			        <td class="celldisplay">
+			            <span id="MIR-SRVBEN-LST-PD-YR" stype="Text" elength="4" displayonly="yes">MIR-SRVBEN-LST-PD-YR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+						<label for="MIR-DV-ELIG-SRVBEN-AMT">Total Eligible Survivorship Benefit Last Time:</label>
+			        </td>
+                    <td class="celldisplay">
+						<span id="MIR-DV-ELIG-SRVBEN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DV-ELIG-SRVBEN-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+						<label for="MIR-SRVBEN-LST-PD-AMT">Survivorship Benefit Amount Last Paid to Client:</label>
+					</td>
+					<td class="celldisplay">
+						<span id="MIR-SRVBEN-LST-PD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-SRVBEN-LST-PD-AMT</span>
+					</td>
+		            <td class="celldisplaylabel">
+						<label for="MIR-DV-ELIG-SRVBEN-LTD-AMT">Total Eligible Survivorship Benefit Amount Life-to-Date:</label>
+					</td>
+					<td class="celldisplay">
+						<span id="MIR-DV-ELIG-SRVBEN-LTD-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-ELIG-SRVBEN-LTD-AMT</span>
+					</td>
+                </tr>
+                <tr>
+				<td class="celldisplaylabel">
+					<label for="MIR-SRVBEN-LTD-PD-AMT">Survivorship Benefit Amount Paid to Client Life-to-Date:</label>
+				</td>
+				<td class="celldisplay">
+					<span id="MIR-SRVBEN-LTD-PD-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-SRVBEN-LTD-PD-AMT</span>
+			    </td>
+			    <td class="celldisplaylabel" />
+				<td class="celldisplay"></td>
+                </tr>
+                </table>
+<!-- M142F2 CHANGES STARTS HERE -->
+            <p align="right">
+				<a href="#top" class="backtotop">
+				    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+				     Back to top
+				</a>
+            </p>
+            <h2>
+                <a name="DividendInformation">Dividend Information</a>
+            </h2>
+            <table class="tabledisplay">
+<!--#UY3121 CHANGES STARTS HERE
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Dividend Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DIV-OPT-CD">Policy Dividend Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DIV-OPT-CD" stype="Text" displayonly="yes">MIR-POL-DIV-OPT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-ANNV-PYR-QTY">Anniversary Processing Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ANNV-PYR-QTY" stype="Text" displayonly="yes">MIR-DV-ANNV-PYR-QTY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-PREV-DIV-YR-QTY">Year Last Declared:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PREV-DIV-YR-QTY" stype="Text" displayonly="yes">MIR-DV-PREV-DIV-YR-QTY</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DIV-DCLR-LTD-AMT">Total Dividends Declared:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIV-DCLR-LTD-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DIV-DCLR-LTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DIV-DCLR-YTD-AMT">Dividends Declared Year to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIV-DCLR-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DIV-DCLR-YTD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DIV-DT">Dividend Last Paid Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DIV-DT" stype="Date" displayonly="yes">MIR-POL-DIV-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-OYT-AMT">One Year Term Purchased with Dividend:</label>
+                    </td>
+                    <td class="celldisplay">
+ UY3121 CHANGES END HERE
+ M245B2 CHANGE START HERE
+                        <span id="MIR-POL-OYT-AMT" stype="Currency" elength="14" decimals="0" displayonly="yes">MIR-POL-OYT-AMT</span>
+                    </td> -->
+<!-- UY3121 CHANGES START HERE
+                     <span id="MIR-POL-OYT-AMT" stype="Currency" elength="14"  displayonly="yes">MIR-POL-OYT-AMT</span>
+                    </td>
+ M245B2 CHANGE END HERE
+ UY3060 CHANGES START HERE-->
+<!--                 <td class="celldisplaylabel" />
+                  <td class="celldisplay"></td> -->
+<!-- UY3121 CHANGES START HERE
+                      <td class="celldisplaylabel">
+                        <label for="MIR-SPCL-DIV-OPT-CD">Special Dividend Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SPCL-DIV-OPT-CD" stype="Text" elength="2" signed="yes" displayonly="yes">MIR-SPCL-DIV-OPT-CD</span>
+                    </td>
+ UY3060 CHANGES END HERE
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Dividends on Deposit Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DOD-ACUM-AMT">Dividends on Deposit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DOD-ACUM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-DOD-ACUM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DOD-AVB-AMT">Dividend Average Balance:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DOD-AVB-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-DOD-AVB-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DOD-CRNT-INT-AMT">Dividends on Deposit Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DOD-CRNT-INT-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-DOD-CRNT-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DOD-INT-RT">Current Dividend Interest Rate:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DOD-INT-RT" stype="Percent" elength="7" decimals="5" signed="yes" displayonly="yes">MIR-POL-DOD-INT-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURR-DIV-ACUM-AMT">Dividends Surrendered:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURR-DIV-ACUM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-SURR-DIV-ACUM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Paid Up Additions (PUA) Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PUA-LTD-FACE-AMT">Total Paid-up Additions:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PUA-LTD-FACE-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-PUA-LTD-FACE-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PUA-YTD-FACE-AMT">Current Paid-up Additions:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PUA-YTD-FACE-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-PUA-YTD-FACE-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PUA-CLR-FACE-AMT">Amount of Paid-up Additions Surrendered:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PUA-CLR-FACE-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-PUA-CLR-FACE-AMT</span>
+                    </td>
+ UY3060 CHANGES START HERE
+                 <td class="celldisplaylabel" />
+                <td class="celldisplay"></td>
+                   <td class="celldisplaylabel">
+                        <label for="MIR-PUA-VEST-FACE-AMT">Total Vesting Paid-up Additions:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PUA-VEST-FACE-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-PUA-VEST-FACE-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Deferred Dividend Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DEFR-DIV-AMT">Deferred Dividend Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEFR-DIV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DEFR-DIV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DEFR-DIV-INT-AMT">Deferred Dividend Interest Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEFR-DIV-INT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DEFR-DIV-INT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DEFR-DIV-DT">Deferred Dividend Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEFR-DIV-DT" stype="Date" elength="10" signed="yes" displayonly="yes">MIR-DEFR-DIV-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DEFR-DIV-INT-CAP-DT">Deferred Interest Capitalization Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEFR-DIV-INT-CAP-DT" stype="Date" elength="10" signed="yes" displayonly="yes">MIR-DEFR-DIV-INT-CAP-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+           <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Survival Insurance Deferred Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURV-DEFR-DIV-AMT">Survival Insurance Deferred Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURV-DEFR-DIV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-SURV-DEFR-DIV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURV-DEFR-INT-AMT">Survival Insurance Deferred Interest  Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURV-DEFR-INT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-SURV-DEFR-INT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURV-DEFR-DIV-DT">Survival Insurance Deferred Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURV-DEFR-DIV-DT" stype="Date" elength="10" signed="yes" displayonly="yes">MIR-SURV-DEFR-DIV-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURV-DEFR-INT-DT">Survival Insurance Deferred Interest Capitalization Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURV-DEFR-INT-DT" stype="Date" elength="10" signed="yes" displayonly="yes">MIR-SURV-DEFR-INT-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+           <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="2">Dividend on Custody Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DIV-CUSTOD-ACUM-AMT">Accumulated Dividend on Custody:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIV-CUSTOD-ACUM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DIV-CUSTOD-ACUM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DIV-CUSTOD-INT-AMT">Accumulated Interest on Custody:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIV-CUSTOD-INT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DIV-CUSTOD-INT-AMT</span>
+                    </td>
+                    </tr>
+            </table>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="1">Conversion Adjusted Dividend Details</td>
+                </tr>
+                <tr>
+                <td class="celldisplaylabel">
+                        <label for="MIR-CNVR-ADJ-TOT-DIV-AMT">Total Conversion Adjusted Dividend Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNVR-ADJ-TOT-DIV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CNVR-ADJ-TOT-DIV-AMT</span>
+                    </td>
+                </tr>
+            </table>
+ #UY3060 CHANGES END HERE -->
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Current Year Allocation</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DIV-CRNT-PMT-CTRL">Payment Control:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIV-CRNT-PMT-CTRL" stype="Text" displayonly="yes">MIR-DIV-CRNT-PMT-CTRL</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-CRNT-DIV-AMT">Dividend Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CRNT-DIV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes" value="0">MIR-DV-CRNT-DIV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-CRNT-DIV-YR">Dividend Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CRNT-DIV-YR" stype="Text" displayonly="yes">MIR-DV-CRNT-DIV-YR</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+				</tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Previous Year Allocation</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DIV-PREV-PMT-CTRL">Payment Control:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIV-PREV-PMT-CTRL" stype="Text" displayonly="yes" value="Paid" >MIR-DIV-PREV-PMT-CTRL</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-PREV-DIV-AMT">Dividend Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PREV-DIV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes" value="0">MIR-DV-PREV-DIV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-PREV-DIV-YR">Dividend Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-PREV-DIV-YR" stype="Text" displayonly="yes">MIR-DV-PREV-DIV-YR</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+				</tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Accumulated Dividends</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DOD-ACUM-AMT">Accumulated Dividends:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DOD-ACUM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-DOD-ACUM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DOD-CRNT-INT-AMT">Accumulated Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                         <span id="MIR-DOD-CRNT-INT-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DOD-CRNT-INT-AMT</span>
+                    </td>
+                </tr>
+<!-- UY3153 CHANGES STRATS HERE -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ANTY-ACUM-DIV-AMT">Annuity Accumulated Dividend Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-ACUM-DIV-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-ANTY-ACUM-DIV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay"></td>
+                </tr>
+<!-- UY3153 CHANGES ENDS HERE -->
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Vesting(Increased Endowment Benefit)/Vesting Deferred Amount</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PUA-VEST-FACE-AMT">Accumulative increased insurance benefits:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PUA-VEST-FACE-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-PUA-VEST-FACE-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DEFR-DIV-INT-CAP-DT">Deferral Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEFR-DIV-INT-CAP-DT" stype="Text" displayonly="yes">MIR-DEFR-DIV-INT-CAP-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-VEST-DEFR-DIV-AMT">Deferred Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-VEST-DEFR-DIV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-VEST-DEFR-DIV-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-VEST-DIV-INT-AMT">Accumulated Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-VEST-DIV-INT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-VEST-DIV-INT-AMT</span>
+                     </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-DT-OF-PMT">Date of Payment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-DT-OF-PMT" stype="Text" displayonly="yes">"MIR-DV-DT-OF-PMT</span>
+                     </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-VEST-AMT-PD">Vesting Amount Paid (including interest):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-VEST-AMT-PD" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DV-VEST-AMT-PD</span>
+                     </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Special Dividend Deferral Amount</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SPL-DEFR-DIV-AMT">Deposit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SPL-DEFR-DIV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-SPL-DEFR-DIV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SPL-DEFR-DIV-DT">Date of last deferred processing:</label>
+                    </td>
+                    <td class="celldisplay">
+                         <span id="MIR-SPL-DEFR-DIV-DT" stype="Text" displayonly="yes">MIR-SPL-DEFR-DIV-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SPL-DIV-INT-AMT">Accumulated Dividend:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SPL-DIV-INT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-SPL-DIV-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SPL-DIV-INT-CAP-DT">Capitilization Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                         <span id="MIR-SPL-DIV-INT-CAP-DT" stype="Text" displayonly="yes">MIR-SPL-DIV-INT-CAP-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Survival Insurance Amount/ Increased Insurance Deferral Amount</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-DT-OF-PRCHS">Date of Purchase:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-DT-OF-PRCHS" stype="Text"  displayonly="yes">MIR-DV-DT-OF-PRCHS</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURV-DEFR-DIV-DT">Deferral start date:</label>
+                    </td>
+                    <td class="celldisplay">
+                         <span id="MIR-SURV-DEFR-DIV-DT" stype="Text" displayonly="yes">MIR-SURV-DEFR-DIV-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INCR-SURV-FACE-AMT">Accumulative Purchase benefit :</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INCR-SURV-FACE-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-INCR-SURV-FACE-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURV-DEFR-INT-DT">Deferral Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                         <span id="MIR-SURV-DEFR-INT-DT" stype="Text" displayonly="yes">MIR-SURV-DEFR-INT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURV-DEFR-DIV-AMT">Survival Insurance Deferral Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURV-DEFR-DIV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-SURV-DEFR-DIV-AMT</span>
+                     </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SURV-DEFR-INT-AMT">Accrued Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SURV-DEFR-INT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-SURV-DEFR-INT-AMT</span>
+                     </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PUA-CLR-FACE-AMT">Total Cumulative Payments:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PUA-CLR-FACE-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-PUA-CLR-FACE-AMT</span>
+                     </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FNL-DEFR-PMT">Final Deferral Payment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FNL-DEFR-PMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DV-FNL-DEFR-PMT</span>
+                     </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel"></td>
+                    <td class="celldisplay"></td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-FNL-INT-PMT">Final Interest Payment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-FNL-INT-PMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DV-FNL-INT-PMT</span>
+                     </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Whole Life Insurance Purchase </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-WL-DT-OF-PRCHS">Date of Purchase :</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-WL-DT-OF-PRCHS" stype="Text" displayonly="yes">MIR-WL-DT-OF-PRCHS</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PUA-LTD-FACE-AMT">Accumulated Whole life insurance amount :</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PUA-LTD-FACE-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-PUA-LTD-FACE-AMT</span>
+                    </td>
+                </tr>
+            </table>
+			<br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Custody Dividend </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CUSTOD-DECL-DT">Declared Date :</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CUSTOD-DECL-DT" stype="Text" displayonly="yes">MIR-CUSTOD-DECL-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DIV-CUSTOD-ACUM-AMT">Custody Dividends :</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIV-CUSTOD-ACUM-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DIV-CUSTOD-ACUM-AMT</span>
+                    </td>
+                </tr>
+            </table>
+			<br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Dividend Paid </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ACUM-DIV-PD">Accumulated dividends paid :</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACUM-DIV-PD" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-ACUM-DIV-PD</span>
+                    </td>
+                </tr>
+            </table>
+			<br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Conversion Dividend </td>
+                </tr>
+                <tr>
+                <td class="celldisplaylabel">
+                        <label for="MIR-CNVR-DECL-DT">Declared Date :</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNVR-DECL-DT" stype="Text" displayonly="yes">MIR-CNVR-DECL-DT</span>
+                    </td>
+                <td class="celldisplaylabel">
+                        <label for="MIR-CNVR-ADJ-TOT-DIV-AMT">Total Adjusted Dividend :</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNVR-ADJ-TOT-DIV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CNVR-ADJ-TOT-DIV-AMT</span>
+                    </td>
+                </tr>
+            </table>
+			<br />
+<!-- UY3121 CHANGES ENDS HERE-->
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="OtherPolicyInformation">Other Policy Information</a>
+            </h2>
+<!-- UY3094 CHANGES STARTS HERE
+			<table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Term Insurance Final Adjustment Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NON-ACC-BNFT-PAY-AMT">Non-Accidental Benefit Payment Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NON-ACC-BNFT-PAY-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-NON-ACC-BNFT-PAY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DIV-AMT">Dividend Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIV-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DIV-AMT</span>
+                    </td>
+                </tr>
+				<tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-UNPD-NON-ACC-BNFT">Total unpaid non-accidental benefit:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-UNPD-NON-ACC-BNFT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TOT-UNPD-NON-ACC-BNFT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-HLTH-BNFT-BNUS">Health Award(Bonus):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HLTH-BNFT-BNUS" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-HLTH-BNFT-BNUS</span>
+                    </td>
+                </tr>
+				<tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UNERND-LOAN-INT">Loan Interest(Unearned):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UNERND-LOAN-INT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-UNERND-LOAN-INT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DEFR-PAY">Deferred Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEFR-PAY" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-DEFR-PAY</span>
+                    </td>
+                </tr>
+				<tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-EXCES-INT-POL-LOAN-REPAY">Excess interest of policy loan repayment:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-EXCES-INT-POL-LOAN-REPAY" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-EXCES-INT-POL-LOAN-REPAY</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SRV-BNFT-AMT">Survival Insurance Amount(Saving Rider):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SRV-BNFT-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-SRV-BNFT-AMT</span>
+                    </td>
+                </tr>
+			</table>
+            <br />
+    UY3094 CHANGES END HERE -->
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Premium Deposit Fund Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PDF-AMT">Premium Deposit Funds:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PDF-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-PDF-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PDF-AVB-AMT">Premium Deposit Funds Average Balance:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PDF-AVB-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-PDF-AVB-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PDF-INT-AMT">Interest Accrued on Premium Deposit Funds:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PDF-INT-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-POL-PDF-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PDF-INT-RT">Premium Deposit Funds Interest Rate:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PDF-INT-RT" stype="Percent" elength="7" decimals="5" signed="yes" displayonly="yes">MIR-POL-PDF-INT-RT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Claim Details</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-WP-YTD-AMT">Waiver of Premium Amounts Paid Year to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-WP-YTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-WP-YTD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-WP-LTD-AMT">Total Premiums Waived:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-WP-LTD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-WP-LTD-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-CLM-YTD-AMT">Claims Paid Year to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CLM-YTD-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CVG-CLM-YTD-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-CLM-LTD-AMT">Total Claims Paid:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CLM-LTD-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CVG-CLM-LTD-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Dates</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LATST-ACTV-DT">Last Accounting Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LATST-ACTV-DT" stype="Date" displayonly="yes">MIR-LATST-ACTV-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREV-FILE-MAINT-DT">Last Change Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREV-FILE-MAINT-DT" stype="Date" displayonly="yes">MIR-PREV-FILE-MAINT-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+<!--NWLCAR CHANGES -->
+            <h2>
+                <a name="TradPremiumIncrease/DecreaseDetails">Trad Premium Increase / Decrease Details</a>
+            </h2>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">Trad Premium Details</td>
+                </tr>
+                 <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PREM-COLCT-CRNT-YR">Trad Total Premium Collected Amount - Current Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PREM-COLCT-CRNT-YR" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-TOT-PREM-COLCT-AMT-CURR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PREM-COLCT-PREV-YR">Trad Total Premium Collected Amount - Previous Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PREM-COLCT-PREV-YR" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-TOT-PREM-COLCT-AMT-PREV</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-TOT-PREM-ACCUM-TPID">Trad Total Premium Collected Amount - Accumulation:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TOT-PREM-ACCUM-TPID" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-TOT-PREM-COLCT-AMT-ACCUM</span>
+                    </td>
+<!-- NWLPP5 CHANGES -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-UNEARN-PREM">Unearned Premium:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-UNEARN-PREM" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-UNEARN-PREM</span>
+                    </td>
+<!-- NWLPP5 CHANGES END -->
+                </tr>
+<!-- UYS104 CHANGES START -->
+                <tr>
+					<td class="celldisplaylabel">
+                        <label for="MIR-PROPORTN-PREM-IND">Proportional distribution type paid premium calculation flag:</label>
+                    </td>
+                    <td class="celldisplay">
+                    <input type="checkbox" name="MIR-PROPORTN-PREM-IND" stype="Indicator" elength="17" value="Y" disabled="yes"/>
+                    </td>
+				</tr>
+<!-- UYS104 CHANGES END -->
+            </table>
+<!-- NWLCAR CHANGES END -->
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#SuspenseandBillingInformation">Suspense and Billing Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CashBackBonusInformation">Cash Back Bonus Information</a>
+                        </td>
+                        <td class="cellanchors">
+						    <a href="#SurvivorshipBenefitInformation">Survivorship Benefit Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#DividendInformation">Dividend Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#OtherPolicyInformation">Other Policy Information</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

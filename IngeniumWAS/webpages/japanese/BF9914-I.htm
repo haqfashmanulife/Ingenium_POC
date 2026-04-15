@@ -1,0 +1,203 @@
+﻿<!--
+*********************************************************************************
+*  Component:   BF9914-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  MP0026  CTS      CUSTOMER/PROSPECT SEARCH INPUT PAGE
+*  MP0054  CTS      CHANGES AS A PART OF CP INQUIRY
+*  EN9547  CTS      PATH FOR JAVASCRIPTS ARE BEING MODIFIED 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                              
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9914-I</title>
+<link rel="stylesheet" type="text/css" href="../english/CustProspect.css" charset="ISO-8859-1" />
+<link rel="stylesheet" type="text/css" href="../Print.css" media="print" />
+</head>
+<body class="bodyws" >
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+<table width="100%" id="table1" class="celldisplaykeylabel">
+  <tr>
+    <td><label for="MIR-PRCES-DT">照会日: </label><span id="MIR-PRCES-DT" stype="Date" displayonly="yes">MIR-PRCES-DT</span></td>
+  </tr>
+</table>
+<table cellspacing="10" >
+  <tr>
+    <td class="celldisplaykeylabel2"><label for="MIR-DV-RO-SO-CD">RO-SOコード:</label></td>
+    <td class="celldisplaykeylabel2" ><span id="MIR-DV-RO-SO-CD" stype="Text" displayonly="yes">MIR-DV-RO-SO-CD</span></td>
+    <td class="celldisplaykeylabel2"><label for="MIR-AGT-ID">PAコード:</label></td>
+    <td class="celldisplaykeylabel2"><span id="MIR-AGT-ID" stype="Text" displayonly="yes">MIR-AGT-ID</span></td>
+    <td class="celldisplaykeylabel2"><label for="MIR-AGT-NM">PA氏名:</label></td>
+    <td class="celldisplaykeylabel2"><span id="MIR-AGT-NM" stype="Text" displayonly="yes">MIR-AGT-NM</span></td>
+  </tr>
+</table>
+<br/>
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td width="100" >
+    <img border="0" src="../japanese/images/search.gif" alt="Search"  />
+    </td>
+</tr>
+</table>
+<hr color="#0D4A2B"/>
+<table border="0" width="100%" class="tabledisplay">
+  <tr>
+      <td width="25%" class="celltitle">
+    <input type="radio" name="MIR-SRCH-TYP-CD" value="C" stype="YesNo"  onclick="onClickSrchTypCd()" onfocus="saveValue();enterField(this)" > 顧客</input>
+        </td>
+      <td width="25%" class="celltitle">
+<!-- MP0054 STARTS HERE -->
+    <input type="radio" name="MIR-SRCH-CD" value="NKADOB" stype="YesNoUnanswered"  onclick="onClickSrchCd()" onfocus="saveValue(); enterField(this)" > カナ（姓｜名）
+ ・ 生年月日
+ </input>
+<!-- MP0054 ENDS HERE -->
+        </td>
+      <td width="25%" class="celltitle"></td>
+      <td width="25%" class="celltitle"></td>
+    </tr>
+    <tr>
+
+      <td width="25%" class="celltitle">
+        <input type="radio" name="MIR-SRCH-TYP-CD" value="P" stype="YesNo" onclick="onClickSrchTypCd()" onfocus="saveValue();enterField(this)" > 見込客
+</input>
+        </td>
+      <td width="25%" class="celltitle">
+<!-- MP0054 STARTS HERE -->
+      <input type="radio" name="MIR-SRCH-CD" value="NKJDOB" stype="YesNoUnanswered"  onclick="onClickSrchCd()" onfocus="saveValue(); enterField(this)" > 漢字（姓｜名）
+ ・ 生年月日
+</input>
+<!-- MP0054 ENDS HERE -->
+        </td>
+      <td width="25%" class="celltitle"></td>
+      <td width="25%" class="celltitle"></td>
+    </tr>
+    <tr>
+      <td width="25%" class="celltitle">
+      </td>
+      <td width="25%" class="celltitle">
+    <input type="radio" name="MIR-SRCH-CD" value="PSTLCD" stype="YesNoUnanswered"  onclick="onClickSrchCd()" onfocus="saveValue(); enterField(this)" > 郵便番号
+ </input>
+      </td>
+      <td width="25%" class="celltitle"></td>
+      <td width="25%" class="celltitle"></td>
+    </tr>
+    <tr>
+      <td width="25%" class="celltitle">
+      </td>
+      <td width="50%" class="celltitle">
+    <input type="radio" name="MIR-SRCH-CD" value="POL" stype="YesNoUnanswered"  onclick="onClickSrchCd()" onfocus="saveValue(); enterField(this)" ></input>
+    <span id="PRODRADIO">小種
+ ・ 証券番号
+ </span>
+      </td>
+      <td width="25%" class="celltitle"></td>
+    </tr>
+
+</table>
+<br/>
+<table id="NameKana" border="1" width="100%" class="tabledisplay" cellpadding="3" cellspacing="3">
+  <tr>
+<td width="19%" class="celltitle"><label for="MIR-SUR-NM-KA">カナ（姓）
+:</label></td>
+    <td width="31%" class="celldisplay3"><input type="text" value=" " name="MIR-SUR-NM-KA" id="MIR-SUR-NM-KA" stype="Text" maxlength="50"   onfocus="enterField(this)"/></td>
+    <td width="19%" class="celltitle"><label for="MIR-GIV-NM-KA">カナ（名）
+:</label></td>
+    <td width="31%" class="celldisplay3"><input type="text" value=" " name="MIR-GIV-NM-KA" id="MIR-GIV-NM-KA" stype="Text" maxlength="50"   onfocus="enterField(this)"/></td>    
+  </tr>
+</table>
+<table id="NameKanji" border="1" width="100%" class="tabledisplay" cellpadding="3" cellspacing="3">
+  <tr>
+<td width="19%" class="celltitle"><label for="MIR-SUR-NM-KJ">漢字（姓）
+:</label></td>
+    <td width="31%" class="celldisplay3"><input type="text" value=" " name="MIR-SUR-NM-KJ" id="MIR-SUR-NM-KJ" stype="Text" maxlength="50"   onfocus="enterField(this)"/></td>
+    <td width="19%" class="celltitle"><label for="MIR-GIV-NM-KJ">漢字（名）
+:</label></td>
+    <td width="31%" class="celldisplay3"><input type="text" value=" " name="MIR-GIV-NM-KJ" id="MIR-GIV-NM-KJ" stype="Text" maxlength="50"   onfocus="enterField(this)"/></td>   
+  </tr>
+</table>
+<!-- MP0054 STARTS HERE -->
+<table id="DOB" border="1" width="100%" class="tabledisplay" cellpadding="3" cellspacing="3">
+  <tr>
+<!-- MP0054 STARTS HERE -->
+    <td width="19%" class="celltitle"><label for="MIR-DV-CLI-BTH-DT-1">生年月日From
+:</label></td>
+<!-- MP0054 ENDS HERE -->
+    <td width="31%" class="celldisplay3">
+	<input type="text" value=" " name="MIR-DV-CLI-BTH-YR-FROM" id="MIR-DV-CLI-BTH-YR-FROM" stype="Text" size ="2" maxlength="4"   onfocus="enterField(this)" />
+	<label for="MIR-DV-CLI-BTH-YR-FROM">年 </label>
+	<select name="MIR-DV-CLI-BTH-MO-FROM" id="MIR-DV-CLI-BTH-MO-FROM" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+	<label for="MIR-DV-CLI-BTH-MO-FROM">月 </label>
+	<select name="MIR-DV-CLI-BTH-DY-FROM" id="MIR-DV-CLI-BTH-DY-FROM" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+	<label for="MIR-DV-CLI-BTH-DY-FROM">日</label>
+	</td>
+<!-- MP0054 STARTS HERE -->    
+    <td width="19%" class="celltitle"><label for="MIR-DV-CLI-BTH-DT-2">生年月日To
+:</label></td>
+<!-- MP0054 ENDS HERE -->
+    <td width="31%" class="celldisplay3">
+	<input type="text" value=" " name="MIR-DV-CLI-BTH-YR-TO" id="MIR-DV-CLI-BTH-YR-TO" stype="Text" size ="2" maxlength="4"   onfocus="enterField(this)"/>
+	<label for="MIR-DV-CLI-BTH-YR-TO">年 </label>
+	<select name="MIR-DV-CLI-BTH-MO-TO" id="MIR-DV-CLI-BTH-MO-TO" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+	<label for="MIR-DV-CLI-BTH-MO-TO">月 </label>
+	<select name="MIR-DV-CLI-BTH-DY-TO" id="MIR-DV-CLI-BTH-DY-TO" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+	<label for="MIR-DV-CLI-BTH-DY-TO">日</label>
+	</td>
+  </tr>
+</table>
+<!-- MP0054 ENDS HERE -->
+<table id="PostalCode" border="1" width="100%" class="tabledisplay" cellpadding="3" cellspacing="3">
+  <tr>
+    <td width="19%" class="celltitle"><label for="MIR-PRT1-CLI-PSTL-CD">郵便番号
+:</label></td>
+    <td width="31%" class="celldisplay3">
+    <input type="text" value=" " name="MIR-PRT1-CLI-PSTL-CD" id="MIR-PRT1-CLI-PSTL-CD" stype="Text" maxlength="3"  size="5" onfocus="enterField(this)"/>
+    <span> - </span>
+    <input type="text" value=" " name="MIR-PRT2-CLI-PSTL-CD" id="MIR-PRT2-CLI-PSTL-CD" stype="Text" maxlength="7"  size="10" onfocus="enterField(this)"/>
+    </td>
+    <td width="25%" ></td>
+    <td width="25%" ></td>
+  </tr>
+</table>
+<table id="Other" border="1" width="100%" class="tabledisplay" cellpadding="3" cellspacing="3">
+  <tr>
+    <td width="19%" class="celltitle"><span id="PRODCD">小種
+:</span></td>
+    <td width="31%" class="celldisplay3">
+    <input type="text" value=" " name="MIR-PROD-CD" id="MIR-PROD-CD" stype="Text" maxlength="30"   onfocus="enterField(this)"/>
+    </td>
+    <td width="19%" class="celltitle"><span id="POLID">証券番号
+:</span></td>
+    <td width="31%" class="celldisplay3"><input type="text" value=" " name="MIR-POL-ID" id="MIR-POL-ID" stype="Text" maxlength="30"   onfocus="enterField(this)"/></td>
+  </tr>
+</table>
+
+<hr color="#0D4A2B"/>
+</form>
+<!-- EN9547 CHANGES BEGIN
+<script src="../../js/MessagesJapanese.js"></script>
+<script src="../../js/MessageFunctions.js"></script>
+<script src="../../js/ActionHandlers.js"></script>
+<script src="../../js/ClientLevelEdits.js"></script>
+<script src="../../js/GlobalUserMethods.js"></script>
+<script src="../../js/BF9914jap-I.js"></script>
+-->
+<script src="../js/MessagesJapanese.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<script src="../js/BF9914jap-I.js"></script>
+<!-- EN9547 CHANGES END -->
+<script>onLoadCustom()</script>
+</body>
+</html>

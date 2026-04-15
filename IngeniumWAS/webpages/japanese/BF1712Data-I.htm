@@ -1,0 +1,141 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:41 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1712Data-I.htm                                               
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                          
+*  UY3004  CTS      HTML POLICY TRIM                                            *
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1712Data-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad()"> -->
+    <body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                    </td>
+                    <td colspan="3" class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PEND-DPOS-EFF-DT">積立日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PEND-DPOS-EFF-DT" stype="Date" displayonly="yes">MIR-PEND-DPOS-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PEND-DPOS-SEQ-NUM">シーケンス番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PEND-DPOS-SEQ-NUM" stype="Text" displayonly="yes">MIR-PEND-DPOS-SEQ-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">
+                        <label for="MIR-FND-ID-T[1]">ペンディング積立リバース詳細</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-OS-DISB-IND">未払勘定への適用:</label>
+                    </td>
+                    <td colspan="3" class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-OS-DISB-IND" id="MIR-DV-OS-DISB-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PEND-DPOS-AMT-T[1]">金額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-PEND-DPOS-AMT-T[1]" stype="Currency" elength="15" displayonly="yes">MIR-PEND-DPOS-AMT-T[1]</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-REG-FND-SRC-CD-T[1]">ファンド源:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-REG-FND-SRC-CD-T[1]" stype="Text" displayonly="yes">MIR-REG-FND-SRC-CD-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-NUM-T[1]">保障番号:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CVG-NUM-T[1]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[1]</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FND-ID-T[1]">ファンド:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-FND-ID-T[1]" stype="Text" displayonly="yes">MIR-FND-ID-T[1]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PEND-DPOS-TAX-YR-T[1]">会計年度:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-PEND-DPOS-TAX-YR-T[1]" stype="Year" displayonly="yes">MIR-PEND-DPOS-TAX-YR-T[1]</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PEND-DPOS-STAT-CD-T[1]">積立ステータス:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-PEND-DPOS-STAT-CD-T[1]" stype="Text" displayonly="yes">MIR-PEND-DPOS-STAT-CD-T[1]</span>
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

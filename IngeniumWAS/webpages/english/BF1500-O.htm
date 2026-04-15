@@ -1,0 +1,297 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:33 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1500-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling
+*  017150  612J     Remove Currency decimals="2"
+*  IPMPPA  IPMP     New field MIR-DLAY-INT-AMT added for IPMPPA
+*  MPCR01  14DEC14  New field 'One-Time Deduction' & 'Payout Activity
+*                   Process Date' added
+*  ABU108  CTS      Fix to display Policy ID and CVG num correctly
+*  ISLIMP  18JAN10  ADDED 2 NEW FIELDS AS PART OF INSURANCE LAW IPMP
+*  MP113A  CTS      Changes for New Payout Plan Setup and New field Addition
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UY3004  CTS      INPUT HTML POLICY TRIM - 10 BYTES -> 7 BYTES
+*  UY3049  CTS      STREAM 3 - ANNUITY PAYOUTS    
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1500-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpArTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CDA-EFF-DT">Anniversary / Monthiversary Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CDA-EFF-DT" stype="Date" displayonly="yes">MIR-CDA-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-PAYO-NUM">Payout Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-PAYO-NUM" stype="Text" displayonly="yes">MIR-POL-PAYO-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CDA-SEQ-NUM">Sequence Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CDA-SEQ-NUM" stype="Text" displayonly="yes">MIR-CDA-SEQ-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-PAYO-TYP-CD">Payout Type:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-PAYO-TYP-CD" stype="Text" displayonly="yes">MIR-POL-PAYO-TYP-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br></br>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-FND-ID">Fund ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FND-ID" stype="Text" displayonly="yes">MIR-FND-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CDA-STAT-CD">Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDA-STAT-CD" stype="Text" displayonly="yes">MIR-CDA-STAT-CD</span>
+                    </td>
+                </tr>
+<!-- MP113A Field Addition and Re-arrangement Starts -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CDA-TOT-TRXN-AMT">Total Payout Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDA-TOT-TRXN-AMT" stype="Currency" elength="15" displayonly="yes">MIR-CDA-TOT-TRXN-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+					    <label for="MIR-MODE-PAYO-AMT">Modal Payout Amount:</label>
+  					</td>
+					<td class="celldisplay">
+					    <span id="MIR-MODE-PAYO-AMT" stype="Currency" elength="15" displayonly="yes">MIR-MODE-PAYO-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CDA-TOT-TAXWH-AMT">Total Amount of Tax Withheld:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDA-TOT-TAXWH-AMT" stype="Currency" elength="13" displayonly="yes">MIR-CDA-TOT-TAXWH-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+					    <label for="MIR-SPLT-INT-AMT">Split Payment Interest:</label>
+					</td>
+					<td class="celldisplay">
+					    <span id="MIR-SPLT-INT-AMT" stype="Currency" elength="13" displayonly="yes">MIR-SPLT-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+					    <label for="MIR-DLAY-INT-AMT">Delay Interest:</label>
+					</td>
+					<td class="celldisplay">
+					    <span id="MIR-DLAY-INT-AMT" stype="Currency" elength="13" displayonly="yes">MIR-DLAY-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ONE-TIME-DED-AMT">One-Time Deduction:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ONE-TIME-DED-AMT" stype="Currency" elength="15" displayonly="yes">MIR-ONE-TIME-DED-AMT</span>
+                    </td>
+			    </tr>
+<!-- ISLIMP Changes starts here  -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLM-DYS-BFR-PMT-DUE">Days before Claim Payment Due:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLM-DYS-BFR-PMT-DUE" stype="Text" displayonly="yes">MIR-CLM-DYS-BFR-PMT-DUE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DLY-INT-STRT-DT">Delay Interest Start Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DLY-INT-STRT-DT" stype="Date" displayonly="yes">MIR-DLY-INT-STRT-DT</span>
+                    </td>
+				    <td class="celldisplaylabel">
+				        <label for="MIR-PREV-UPDT-DT">Payout Activity Process Date:</label>
+				    </td>
+				    <td class="celldisplay">
+				        <span id="MIR-PREV-UPDT-DT" stype="Date" elength="10" displayonly="yes">MIR-PREV-UPDT-DT</span>
+				    </td>
+                </tr>
+<!-- UY3049 CHANGES STARTS HERE  -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-YEAR-NUM">Payment Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-YEAR-NUM" stype="Text" displayonly="yes">MIR-YEAR-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INSTL-NUM">Payment Time:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSTL-NUM" stype="Text" displayonly="yes">MIR-INSTL-NUM</span>
+                    </td>
+				    <td class="celldisplaylabel">
+                    </td>
+				    <td class="celldisplay">
+				    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BASIC-ANTY-AMT">Basic Annuity Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BASIC-ANTY-AMT" stype="Currency" elength="13" displayonly="yes">MIR-BASIC-ANTY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-ADDL-ANTY-AMT">Additional Annuity Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ADDL-ANTY-AMT" stype="Currency" elength="13" displayonly="yes">MIR-ADDL-ANTY-AMT</span>
+                    </td>
+				    <td class="celldisplaylabel">
+                    </td>
+				    <td class="celldisplay">
+				    </td>
+                </tr>
+<!-- UY3049 CHANGES ENDS HERE  -->
+<!-- MP113A Field Addition and Re-arrangement Ends -->
+<!-- ISLIMP Changes End here  -->
+
+<!--MPCR01 ENDS HERE-->
+<!---IPMPPA STARTS HERE-->
+<!-- Following field's position is re-arranged as part of MPCR01 above -->
+<!--                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DLAY-INT-AMT">Delay Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DLAY-INT-AMT" stype="Currency" elength="13" displayonly="yes">MIR-DLAY-INT-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+					<td class="celldisplay" />
+					<td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+-->
+<!---IPMPPA ENDS HERE-->
+            </table>
+            <br></br>
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDAD-PAYO-MTHD-CD-T[1]">Payout Method</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDAD-TRXN-AMT-T[1]">Transferred Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DEST-CHQ-ID-T[1]">Cheque Reference Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DEST-POL-ID-BASE-T[1]">Policy ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DEST-POL-ID-SFX-T[1]">Suffix</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DEST-CVG-NUM-T[1]">Destination Coverage Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DEST-FND-ID-T[1]">Fund ID</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CDAD-PAYO-MTHD-CD-T[]" stype="Text" displayonly="yes">MIR-CDAD-PAYO-MTHD-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDAD-TRXN-AMT-T[]" stype="Currency" elength="15" displayonly="yes">MIR-CDAD-TRXN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEST-CHQ-ID-T[]" stype="Text" displayonly="yes">MIR-DEST-CHQ-ID-T[]</span>
+                    </td>
+<!-- ABU108 change starts here -->
+                    <td class="celldisplay">
+                        <span id="MIR-DEST-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-DEST-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEST-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-DEST-POL-ID-SFX-T[]</span>
+                    </td>
+<!-- ABU108 change ends here -->
+                    <td class="celldisplay">
+                        <span id="MIR-DEST-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-DEST-CVG-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DEST-FND-ID-T[]" stype="Text" displayonly="yes">MIR-DEST-FND-ID-T[]</span>
+                    </td>
+<!-- ABU108 change -->
+<!--                    <td class="celldisplay"> -->
+<!--                        <span id="MIR-DEST-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-DEST-POL-ID-BASE-T[]</span> -->
+<!--                    </td> -->
+<!--                    <td class="celldisplay"> -->
+<!--                        <span id="MIR-DEST-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-DEST-POL-ID-SFX-T[]</span> -->
+<!--                    </td> -->
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

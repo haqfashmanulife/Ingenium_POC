@@ -1,0 +1,291 @@
+﻿<!--
+*********************************************************************************
+*  Component:   BF9B74-I.htm
+*  Description: 特約解約/特約減額試算- 更新画面
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  MP1171  CTS      INITIAL VERSION
+*  MP1669   CTS     To support APL,loan inFuture/Back dated trial calculation
+*  Q11779  CTS      CHANGES TO ADD DV EFFECTIVE DATE
+*  M213L1  CTS      CHANGES FOR RUM
+*  MP242F  CTS      CHANGES TO INCLUDE NEW JAVASCRIPT FOR WP INDICATOR
+*  M245B2  CTS      FOREIGN CURRENCY FORMATTING                               *
+*  MP334A  CTS      CHANGES TO ADD TOTAL PAID PREMIUM FIELD              
+*  UYS014  CTS      ADDITION OF NEW FIELD FOR INCREASING FACE AMOUNT          *
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.    
+*  UY3004  CTS     SUBSEQUENT HTML POLICY TRIM                                 *
+*  UY3068  CTS     CHANGES ADDED AS PART OF FA REDUCTION                             
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9B74-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  MP242F changes start here -->
+<!-- M245B2 CHANGE STARTS HERE -->
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();TrialCalc();WOPIndicatorEditable();validateCrcyDcml()"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy();TrialCalc();WOPIndicatorEditable();validateCrcyDcml()">
+<!--  UY3004 CHANGES ENDS HERE -->
+<!-- M245B2 CHANGE ENDS HERE -->
+<!--  MP242F changes end here -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+        <input type="hidden" name="action" id="action" stype="Hidden" />
+        <input type="hidden" name="index" id="index" stype="Hidden" />
+<!--  MP1669 changes starts here -->
+         <input type="hidden" name="MIR-DV-UNDO-VALID-CD" id="MIR-DV-UNDO-VALID-CD" stype="Hidden" />
+         <input type="hidden" name="MIR-DV-COMMIT-CD" id="MIR-DV-COMMIT-CD" stype="Hidden" />
+<!--  MP1669 changes ends here -->
+<!-- M245B2 CHANGE STARTS HERE -->
+    <input type="hidden" name="MIR-POL-CRCY-CD" id="MIR-POL-CRCY-CD" stype="Hidden" />
+<!-- M245B2 CHANGE ENDS HERE -->
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">変更日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-APPL-CTL-PRCES-DT" stype="Text" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-SNDRY-AMT">定期払込保険料:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-SNDRY-AMT" stype="Currency" displayonly="yes">MIR-POL-SNDRY-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">払込回数:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+<!--  MP1669 changes starts here -->
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-EFF-DT">有効日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-EFF-DT" stype="Text" displayonly="yes">MIR-DV-EFF-DT</span>
+                    </td>
+ <!--  MP1669 changes ends here -->
+                </tr>
+<!-- MP334A CHANGES START HERE -->
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-TOT-PD-PREM-AMT">既払込保険料:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-TOT-PD-PREM-AMT" stype="Currency" displayonly="yes">MIR-TOT-PD-PREM-AMT</span>
+                    </td>
+                    <td></td>                    
+                </tr>
+<!-- MP334A CHANGES ENDS HERE -->      
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keycolumn="1" id="CvgInfo">
+                <tr>
+              <td class="celldisplayheading" colspan="20">基本保険</td> 
+                   
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NUM-T[1]">保障番号</label>
+                    </td>
+<!--  M213L1 changes starts here -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-PRIM-GR-ID-T[1]">グループID</label>
+                    </td>
+<!--  M213L1 changes ends here -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-PLAN-ID-T[1]">プラン</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-FACE-AMT-T[1]">旧保険金額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-NEW-FACE-AMT-T[1]">新保険金額</label>
+                    </td>
+<!--  UYS014 changes starts here -->
+                    <td class="celldisplayheading">
+					    <label for="MIR-CRNT-INCR-FACE-AMT-T[1]">旧逓増保険金額</label>
+                    </td>
+<!--  UYS014 changes ends here -->						
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-ISS-EFF-DT-T[1]">契約日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-ID-T[1]">被保険者クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-INSRD-CLI-NM-T[1]">被保険者</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-SEX-CD-T[1]">性別</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-RT-AGE-T[1]">契約年齢</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-CSTAT-CD-T[1]">保障状況</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-SUB-STAT-CD-T[1]">保障サブステータス</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-STBL-1-CD-T[1]">期間</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-STBL-2-CD-T[1]">給付タイプ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-STBL-3-CD-T[1]">サブテーブル3</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-STBL-4-CD-T[1]">サブテーブル4</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LIAB-STRT-DT-T[1]">責任開始日</label>
+                    </td>
+<!-- MP161J STARTS -->
+                    <td class="celldisplayheading">
+<!-- MP242F STARTS -->
+                        <label for="MIR-CVG-WP-IND-T[1]">特疾P免特約/特則</label>
+<!--                        <label for="MIR-CVG-WP-IND-T[1]">特疾Ｐ免特約</label> -->
+<!-- MP242F ENDS -->
+                    </td>
+<!-- MP161J STARTS -->
+<!-- UY3068 CHANGES START HERE -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-PMT-CMPLT-IND-T[1]">一時払い保障インジケータ</label>
+                    </td>
+<!-- UY3068 CHANGES END HERE -->
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-NUM-T[]" stype="Text" displayonly="yes">MIR-CVG-NUM-T[]</span>
+                    </td>
+<!--  M213L1 changes starts here -->
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PRIM-GR-ID-T[]" stype="Text" displayonly="yes">MIR-CVG-PRIM-GR-ID-T[]</span>
+                    </td>
+<!--  M213L1 changes ends here -->
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-FACE-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-CVG-FACE-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay" >
+                    <!-- M245B2 CHANGES STARTS HERE-->
+                     <!--   <input type="text" style="color=#FF0000" value=" " name="MIR-CVG-NEW-FACE-AMT-T[]" id="MIR-CVG-NEW-FACE-AMT-T[]" stype="Currency" elength="16" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                     <input type="text" style="color=#FF0000" value=" " name="MIR-CVG-NEW-FACE-AMT-T[]" id="MIR-CVG-NEW-FACE-AMT-T[]" stype="Currency" elength="16" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGES ENDS HERE-->
+ <!-- UYS014 CHANGES STARTS HERE-->
+                      <td class="celldisplay">
+                          <span id="MIR-CRNT-INCR-FACE-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-CRNT-INCR-FACE-AMT-T[]</span>
+                      </td>
+ <!-- UYS014 CHANGES ENDS HERE-->						
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-ISS-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-CVG-ISS-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-INSRD-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SEX-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-SEX-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-RT-AGE-T[]" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-CVG-RT-AGE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SUB-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-SUB-STAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-1-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-1-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-2-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-2-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-3-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-3-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-STBL-4-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-STBL-4-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LIAB-STRT-DT-T[]" stype="Text" displayonly="yes">MIR-LIAB-STRT-DT-T[]</span>
+                    </td>
+<!-- MP161J STARTS -->
+                    <td class="celldisplay" >
+<!-- MP242F CHANGES START -->
+                        <input type="checkbox" value="Y" name="MIR-CVG-WP-IND-T[]" id="MIR-CVG-WP-IND-T[]" stype="Indicator" onclick="return false;" onfocus="return false;" />
+<!-- MP242F CHANGES END -->
+                    </td>
+<!-- MP161J ENDS -->
+<!--UY3068 CHANGES START HERE -->
+                    <td class="celldisplay">
+                         <input type="checkbox" value="Y" name="MIR-CVG-PMT-CMPLT-IND-T[]" id="MIR-CVG-PMT-CMPLT-IND-T[]" stype="Indicator" onclick="return false;" onfocus="return false;"  />    
+                    </td>
+<!-- UY3068 CHANGES END HERE -->
+
+                </tr>
+            </table>
+            <br />
+
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/TrialCal.js"></script>
+<!-- MP242F CHANGES START -->
+    <script src="../js/RiderSurrFARed.js"></script>
+<!-- MP242F CHANGES END -->
+<!-- M245B2 CHANGE STARTS HERE -->
+    <script src="../js/CrcyLevelEdits.js"></script>
+<!-- M245B2 CHANGE ENDS HERE -->
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

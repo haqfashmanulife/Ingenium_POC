@@ -1,0 +1,77 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:39 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1570-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                           
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1570-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <p>
+                <label for="MIR-POL-ID-BASE">証券番号:</label>
+                <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)" />
+            </p>
+            <p>
+                <label for="MIR-POL-ID-SFX">枝番:</label>
+                <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" />
+            </p>
+            <p>
+                <input type="hidden" name="action" id="action" stype="Hidden" />
+            </p>
+            <p>
+                <input type="hidden" name="index" id="index" stype="Hidden" />
+            </p>
+            <p>
+                <label for="MIR-APP-FORM-TYP-ID">申込書タイプ:</label>
+                <select name="MIR-APP-FORM-TYP-ID" id="MIR-APP-FORM-TYP-ID" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+            </p>
+            <p>
+                <label for="MIR-SPND-POL-EFF-DT">一時停止日:</label>
+                <input type="text" value=" " name="MIR-SPND-POL-EFF-DT" id="MIR-SPND-POL-EFF-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+            </p>
+            <p>
+                <label for="MIR-SPND-POL-REASN-CD">停止事由:</label>
+                <select name="MIR-SPND-POL-REASN-CD" id="MIR-SPND-POL-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+            </p>
+            <p>
+                <label for="MIR-SPND-POL-REDT-IND">日付変更可:</label>
+                <input type="checkbox" value="Y" name="MIR-SPND-POL-REDT-IND" id="MIR-SPND-POL-REDT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+            </p>
+            <p>
+                <label for="MIR-SPND-POL-UWG-IND">査定要:</label>
+                <input type="checkbox" value="Y" name="MIR-SPND-POL-UWG-IND" id="MIR-SPND-POL-UWG-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+            </p>
+            <p>
+                <label for="MIR-UW-USER-1-ID">第1査定人ID:</label>
+                <input type="text" value=" " name="MIR-UW-USER-1-ID" id="MIR-UW-USER-1-ID" stype="Text" maxlength="8" mandatory="yes" onfocus="enterField(this)" />
+            </p>
+            <p>
+                <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+            </p>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

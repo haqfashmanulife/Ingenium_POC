@@ -1,0 +1,80 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:07 PM EDT
+*
+********************************************************************************
+*  (C) COPYRIGHT 2001 INSURANCE SOFTWARE SOLUTIONS CORP.  ALL RIGHTS RESERVED   
+********************************************************************************
+*  Component:   TitleBar.htm                                                    
+*  Description:                                                                 
+*                                                                               
+********************************************************************************
+*  Chg#    Release  Description                                                 
+*                                                                               
+*  014590  6.0      New for release 6.0                                         
+*  022680  6.4      Correct ISO date formatting error when switching language   
+*  023108  PF3.0    Changed to accommodate print functionality and button       
+*  023123  PF3.0    Changed resource references to be relative                  
+*  023809  PF3.0    Changed to UTF-8                                            
+*  P02103  PF3.0    Temporarily remove Print button                                            
+********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- 23123 added .. to href  paths-->
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodytitle" onload="onLoad('english', 'Show Menu')">
+        <!-- 23108 - Added class attribute, removed width -->                
+        <table class="titlebanner" border="0" cellpadding="0" width="1024" background="../images/banner1.gif" height="70">
+            <tr>
+                <td width="105" />
+                <td width="338" align="left" class="celltitle1" valign="top">
+                    <div id="Title"></div>
+                </td>
+                <!-- 23108 - Added class attribute, changed width to '75' -->                
+                <td width="75" valign="top" class="cellbutton2">
+                    <!-- 23123 added .. to all src paths in -->
+                    <img id="menuimg" border="0" src="../english/images/hidemenu.gif" align="top" alt="Hide Menu" width="75" height="39" onclick="onMenu(this, 'english', 'Show Menu', 'Hide Menu');" />
+                </td>
+                <!-- 23108 - Added new cell with print button -->                
+                <!-- remove temporarily                
+                <td width="56" valign="top" class="cellbutton2">
+                        <img border="0" src="../english/images/print.gif" align="top" alt="Print" width="56" height="39" onclick="printPreview();" />
+                </td>
+                -->                
+                <!-- 23108 - Added class attribute -->                
+                <td width="57" valign="top" class="cellbutton2">
+                    <a href="../english/index.htm" target="_blank">
+                        <img border="0" src="../english/images/new.gif" align="top" alt="New Window" width="57" height="39" />
+                    </a>
+                </td>
+                <!-- 23108 - Added class attribute, changed width to '57' -->                
+                <td width="57" valign="top" class="cellbutton2">
+                    <a href="pageserver?ProcessClassID=BF0062Signoff&amp;PageReturn=Blank&amp;LocaleID=E" title="Sign-Off" target="pageserverFrame">
+                        <img border="0" src="../english/images/signoff.gif" alt="Sign Off" width="57" height="39" />
+                    </a>
+                </td>
+                <!-- 23108 - Added class attribute -->                
+                <td width="57" valign="top" class="cellbutton2">
+                    <a href="../english/help/user_guide.htm" target="_blank">
+                        <img border="0" src="../english/images/but_hlp.gif" alt="Help" width="57" height="39" />
+                    </a>
+                </td>
+                <!-- 23108 - Added class attribute -->                
+                <!-- 22680 - Correct ISO date formatting error when switching languages -->                
+                <td width="57" align="left" valign="baseline" class="cellbutton2">
+                    <select onclick="onClick()" onchange="onChange(this)">
+                        <option value="E" selected="selected">English</option>
+                        <option value="J">Japanese</option>
+                    </select>
+                </td>
+                <!-- 23108 - Added class attribute -->                
+                <td width="222"  class="cellbutton2"/>
+            </tr>
+        </table>
+    </body>
+    <!-- 23123 added .. to path -->
+    <script src="../js/TitleBar.js"></script>
+    <script src="../js/PrintPreview.js"></script>
+</html>

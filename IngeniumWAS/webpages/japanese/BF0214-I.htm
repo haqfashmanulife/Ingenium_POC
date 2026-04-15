@@ -1,0 +1,158 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:15 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0214-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2"                               
+*  FT7001 AKATO  FT7 Label Change 14JUN2004 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                      	                           
+*                                                                              
+*  UY3004  CTS     INPUT HTML POLICY TRIM - 10 BYTES -> 7 BYTES
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0214-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+<!-- UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)" size="20" tabindex="1" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" size="20" tabindex="2" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-TRNXT-DOC-CPY-QTY">部数:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-TRNXT-DOC-CPY-QTY" id="MIR-TRNXT-DOC-CPY-QTY" stype="Text" maxlength="2" mandatory="yes" onfocus="enterField(this)" size="20" tabindex="3" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-TRNXT-RPT-DSTRB-CD">プリンタ:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-TRNXT-RPT-DSTRB-CD" id="MIR-TRNXT-RPT-DSTRB-CD" size="1" stype="Selection" onfocus="enterField(this)" tabindex="4"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-TRNXT-RQST-STRT-DT">開始日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-TRNXT-RQST-STRT-DT" id="MIR-TRNXT-RQST-STRT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="5" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-TRNXT-RQST-END-DT">終了日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-TRNXT-RQST-END-DT" id="MIR-TRNXT-RQST-END-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="6" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">
+                        <label for="MIR-DV-CNTRCT-RQST-IND-T[1]">印刷リクエスト文書</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">全契約関連書類</td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-CNTRCT-RQST-IND-T[1]" id="MIR-DV-CNTRCT-RQST-IND-T[1]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="6" />
+                    </td>
+                    <td class="celllabelrightalign">契約書類</td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-CNTRCT-RQST-IND-T[2]" id="MIR-DV-CNTRCT-RQST-IND-T[2]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="7" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">契約書第1頁（証券）</td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-CNTRCT-RQST-IND-T[3]" id="MIR-DV-CNTRCT-RQST-IND-T[3]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="8" />
+                    </td>
+                    <td class="celllabelrightalign">契約書詳細頁（約款など）</td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-CNTRCT-RQST-IND-T[4]" id="MIR-DV-CNTRCT-RQST-IND-T[4]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="9" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">募集人カード</td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-CNTRCT-RQST-IND-T[5]" id="MIR-DV-CNTRCT-RQST-IND-T[5]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="10" />
+                    </td>
+                    <td class="celllabelrightalign">契約サマリ</td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-CNTRCT-RQST-IND-T[6]" id="MIR-DV-CNTRCT-RQST-IND-T[6]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="11" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">契約状況報告書</td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-CNTRCT-RQST-IND-T[7]" id="MIR-DV-CNTRCT-RQST-IND-T[7]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="12" />
+                    </td>
+                    <td class="celllabelrightalign">募集人インボイス</td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-CNTRCT-RQST-IND-T[8]" id="MIR-DV-CNTRCT-RQST-IND-T[8]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="13" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">修正条項</td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-CNTRCT-RQST-IND-T[9]" id="MIR-DV-CNTRCT-RQST-IND-T[9]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="14" />
+                    </td>
+                    <td class="celllabelrightalign">定期報告書</td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-CNTRCT-RQST-IND-T[15]" id="MIR-DV-CNTRCT-RQST-IND-T[15]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="15" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">コスト開示書</td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-CNTRCT-RQST-IND-T[16]" id="MIR-DV-CNTRCT-RQST-IND-T[16]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="16" />
+                    </td>
+                    <td class="celllabelrightalign">年次報告書</td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-DV-CNTRCT-RQST-IND-T[17]" id="MIR-DV-CNTRCT-RQST-IND-T[17]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="17" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

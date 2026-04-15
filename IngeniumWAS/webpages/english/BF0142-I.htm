@@ -1,0 +1,652 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:10 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0142-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"  
+*  23774B  CTS       23774B-IE Retirement changes                             
+*                                                                              
+*  UY3004  16JUL21  SUBSEQUENT HTML POLICY TRIM                                 *
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0142-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Tax">Tax</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#ACB">ACB</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Guideline">Guideline</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <h2>
+                <a name="Tax">Tax</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Withdrawals</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAXBL-PAYO-AMT">Taxable Amount of Annuity Payout:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAXBL-PAYO-AMT" id="MIR-TAXBL-PAYO-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAXBL-PAYO-YTD-AMT">Taxable Portion Year to Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAXBL-PAYO-YTD-AMT" id="MIR-TAXBL-PAYO-YTD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAXBL-PAYO-PYR-AMT">Taxable Portion Last Year:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAXBL-PAYO-PYR-AMT" id="MIR-TAXBL-PAYO-PYR-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAXBL-PAYO-NYR-AMT">Taxable Portion Next Year:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAXBL-PAYO-NYR-AMT" id="MIR-TAXBL-PAYO-NYR-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-POL-ANPAYO-LTD-AMT">Accmulated Payments Life to Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-ANPAYO-LTD-AMT" id="MIR-POL-ANPAYO-LTD-AMT" stype="Currency" elength="11" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign" />
+                    <td class="celllabeldataentry"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Provincial Tax</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-PROV-TAXWH-AMT">Tax Withheld from Most Recent Payout:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PROV-TAXWH-AMT" id="MIR-PROV-TAXWH-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-PROV-TAXWH-YTD-AMT"> Tax Withheld Year to Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PROV-TAXWH-YTD-AMT" id="MIR-PROV-TAXWH-YTD-AMT" stype="Currency" elength="9" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-PROV-TAXWH-NYR-AMT">Tax Withheld Next Year:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PROV-TAXWH-NYR-AMT" id="MIR-PROV-TAXWH-NYR-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-PROV-TAX-SUSP-AMT"> Tax Withheld on Post-dated Payout:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PROV-TAX-SUSP-AMT" id="MIR-PROV-TAX-SUSP-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Federal Tax</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-FED-TAXWH-AMT"> Tax Withheld from Most Recent Payout:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FED-TAXWH-AMT" id="MIR-FED-TAXWH-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-FED-TAXWH-YTD-AMT"> Tax Withheld Year to Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FED-TAXWH-YTD-AMT" id="MIR-FED-TAXWH-YTD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-FED-TAXWH-NYR-AMT"> Tax Withheld Next Year:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FED-TAXWH-NYR-AMT" id="MIR-FED-TAXWH-NYR-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-FED-TAXWH-ADDL-AMT"> Additional Taxes Withheld:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FED-TAXWH-ADDL-AMT" id="MIR-FED-TAXWH-ADDL-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-FED-TAXWH-PYR-AMT">Tax Withheld Prior Year:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FED-TAXWH-PYR-AMT" id="MIR-FED-TAXWH-PYR-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-FED-TAX-SUSP-AMT"> Tax Withheld on Post-dated payout:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-FED-TAX-SUSP-AMT" id="MIR-FED-TAX-SUSP-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">US Immediate Annuity Tax</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-IA-TAX-EXCL-PCT">Tax Exclusion Ratio:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-IA-TAX-EXCL-PCT" id="MIR-IA-TAX-EXCL-PCT" stype="Percent" elength="4" decimals="1" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-NTAXBL-PAY-YTD-AMT">Nontaxed Portion Year To date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-NTAXBL-PAY-YTD-AMT" id="MIR-NTAXBL-PAY-YTD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-NTAXBL-PAY-LTD-AMT">Nontaxed Portion Life to Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-NTAXBL-PAY-LTD-AMT" id="MIR-NTAXBL-PAY-LTD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAXBL-PAYO-LTD-AMT">Taxed Portion Life to Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAXBL-PAYO-LTD-AMT" id="MIR-TAXBL-PAYO-LTD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-IA-REMN-INV-AMT">Remaining Investment in the Contract:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-IA-REMN-INV-AMT" id="MIR-IA-REMN-INV-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAXBL-PREM-PD-AMT">Original      Investment:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-TAXBL-PREM-PD-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-TAXBL-PREM-PD-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="ACB">ACB</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Miscellaneous Tax Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAXBL-PREM-PD-AMT">Total Premiums Paid:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAXBL-PREM-PD-AMT" id="MIR-TAXBL-PREM-PD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-SUPP-PREM-AMT">Total Premiums for Supplementary Benefits:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-SUPP-PREM-AMT" id="MIR-TAX-SUPP-PREM-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-TRNST-ELE-AMT">Transitional Element Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-TRNST-ELE-AMT" id="MIR-TAX-TRNST-ELE-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-NCPI-AMT">Net Cost of Pure Insurance:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-NCPI-AMT" id="MIR-TAX-NCPI-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-LOAN-INT-AMT">Loan Interest Capitalized on Loans:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-LOAN-INT-AMT" id="MIR-TAX-LOAN-INT-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-ACQ-COST-AMT">Acquisition Costs:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-ACQ-COST-AMT" id="MIR-TAX-ACQ-COST-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-ACRU-AMT">Amount of Accruals Taxed:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-ACRU-AMT" id="MIR-TAX-ACRU-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-XPCT-PMT-AMT">Total Expected Premiums:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-XPCT-PMT-AMT" id="MIR-TAX-XPCT-PMT-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Adjusted Cost Basis</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-ANNV-ACB-AMT">Anniversary      ACB:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-ANNV-ACB-AMT" id="MIR-TAX-ANNV-ACB-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-ANNV-ACB-OVRID-CD">ACB Override Reason:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ANNV-ACB-OVRID-CD" id="MIR-ANNV-ACB-OVRID-CD" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Dispositions</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-DISP-YTD-AMT">Total Policy Dispositions:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-DISP-YTD-AMT" id="MIR-TAX-DISP-YTD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-LOAN-DISP-YTD-AMT">Taxable Loan      YTD:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-LOAN-DISP-YTD-AMT" id="MIR-LOAN-DISP-YTD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-LOAN-DISP-TAX-AMT">Taxable Loan Dispositions:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-LOAN-DISP-TAX-AMT" id="MIR-LOAN-DISP-TAX-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-PREV-DISP-TAX-AMT">Amount of Life to Date Dispositions Taxed:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PREV-DISP-TAX-AMT" id="MIR-PREV-DISP-TAX-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-PREV-DISP-AMT">Previous Dispositions:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-PREV-DISP-AMT" id="MIR-TAX-PREV-DISP-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-PREV-LOAN-DISP-AMT">Previous Loan Dispositions:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PREV-LOAN-DISP-AMT" id="MIR-PREV-LOAN-DISP-AMT" stype="Currency" elength="11" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Accumulating Fund Amount</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-ACUM-1-FND-AMT">Previous      Anniversary:</label>
+                    </td>
+                    <td colspan="3" class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-ACUM-1-FND-AMT" id="MIR-TAX-ACUM-1-FND-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-ACUM-2-FND-AMT">At Anniversary - 2 Years Ago:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-ACUM-2-FND-AMT" id="MIR-TAX-ACUM-2-FND-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-ACUM-3-FND-AMT">At Anniversary - 3 Years Ago:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-ACUM-3-FND-AMT" id="MIR-TAX-ACUM-3-FND-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">After Annuitization</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-MORT-GAIN-AMT">Mortality Gains:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-MORT-GAIN-AMT" id="MIR-TAX-MORT-GAIN-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-MORT-LOS-AMT">Mortality Loss:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-MORT-LOS-AMT" id="MIR-TAX-MORT-LOS-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Guideline">Guideline</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Guideline Premiums</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-POL-GDLN-SPREM-AMT">Total Guideline Single Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-GDLN-SPREM-AMT" id="MIR-POL-GDLN-SPREM-AMT" stype="Currency" elength="17" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-POL-GDLN-APREM-AMT">Cumulative Annual Premiums:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-GDLN-APREM-AMT" id="MIR-POL-GDLN-APREM-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-ACUM-GDLN-PREM-AMT">Total Guideline Annual Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ACUM-GDLN-PREM-AMT" id="MIR-ACUM-GDLN-PREM-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-POL-SE-GDLN-AMT">Total SEC Guideline Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-SE-GDLN-AMT" id="MIR-POL-SE-GDLN-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Modified Endowment Contract</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-POL-MEC-CD">Modified Endowment Contract (MEC):</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-MEC-CD" id="MIR-POL-MEC-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-POL-MEC-DT">MEC Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-MEC-DT" id="MIR-POL-MEC-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Loan Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-LOAN-DEDBL-AMT">Deductible Loan Repayments:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-LOAN-DEDBL-AMT" id="MIR-TAX-LOAN-DEDBL-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-LOAN-DOD-AMT">Loan Secured Against Dividends on Deposit:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-LOAN-DOD-AMT" id="MIR-TAX-LOAN-DOD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">1035 Exchange</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-1035-ACB-AMT">Previous Cost Basis:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-1035-ACB-AMT" id="MIR-TAX-1035-ACB-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-1035-PD-AMT">Total Premiums Received:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-1035-PD-AMT" id="MIR-TAX-1035-PD-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">7-Pay Premium</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-POL-7PAY-ANN-AMT"> Annual Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-7PAY-ANN-AMT" id="MIR-POL-7PAY-ANN-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-POL-7PAY-CUM-AMT"> Cumulative Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-7PAY-CUM-AMT" id="MIR-POL-7PAY-CUM-AMT" stype="Currency" elength="17" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-POL-MATRL-CHNG-DT">Material Change Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-MATRL-CHNG-DT" id="MIR-POL-MATRL-CHNG-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Tax Details</td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-POL-7702-CD">7702 Tax Regulation:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-7702-CD" id="MIR-POL-7702-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-POL-TAMRA-CD">Subject to TAMRA:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-TAMRA-CD" id="MIR-POL-TAMRA-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-PREV-XEMP-TST-DUR">Exemption Test Duration:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PREV-XEMP-TST-DUR" id="MIR-PREV-XEMP-TST-DUR" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAXBL-GAIN-81-AMT">Policy Gains as of 1981:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAXBL-GAIN-81-AMT" id="MIR-TAXBL-GAIN-81-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-TAX-GAIN-AMT">Taxable Gain Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-TAX-GAIN-AMT" id="MIR-TAX-GAIN-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-POL-TAX-RESTR-IND">Tax restrict applies:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" name="MIR-POL-TAX-RESTR-IND" id="MIR-POL-TAX-RESTR-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Tax">Tax</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#ACB">ACB</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Guideline">Guideline</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

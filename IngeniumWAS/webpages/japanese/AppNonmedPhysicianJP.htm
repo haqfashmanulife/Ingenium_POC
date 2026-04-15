@@ -1,0 +1,163 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:13 PM EDT
+*
+*********************************************************************************
+*  Component:   AppNonmedPhysicianJP.htm                                      
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  016423  602J     New for release 602J                                       
+*  017150  612J     Remove Currency decimals="2"                               
+*  PF 2.2  PF22     make refresh.gif Japanese  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>AppNonmedPhysicianJP</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <div align="right">
+                <table>
+                    <tr>
+                        <td class="celldisplaykeylabel">
+                            <label for="MIR-DV-INSRD-CLI-NM">申込者:</label>
+                        </td>
+                        <td class="celldisplaykey">
+                            <span id="MIR-DV-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">主治医情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-DOCTOR-NM">氏名:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-DOCTOR-NM" id="MIR-CLI-DOCTOR-NM" stype="Text" maxlength="50" onfocus="enterField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DOCTOR-CITY-NM-TXT">市/区/郡:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DOCTOR-CITY-NM-TXT" id="MIR-DOCTOR-CITY-NM-TXT" stype="Text" maxlength="25" onfocus="enterField(this)" size="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-DOCTOR-PROV-CD">州/国:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-DOCTOR-PROV-CD" id="MIR-CLI-DOCTOR-PROV-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                        <span id="refreshButtonspan" style="display: none">
+
+                            <input type="image" name="refreshButton" id="refreshButton" border="0" src="../japanese/images/refresh.gif" align="bottom" width="70" height="26" onclick="doRefresh()" />
+              </span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-DOCTOR-CTRY-CD">国:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-DOCTOR-CTRY-CD" id="MIR-CLI-DOCTOR-CTRY-CD" size="1" stype="Selection" onfocus="enterField(this)" onchange="refreshButtonspan.style.display='';"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">最近の受診について</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DOCTOR-PREV-VST-DT">受診日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DOCTOR-PREV-VST-DT" id="MIR-DOCTOR-PREV-VST-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-VST-REASN-CD">受診理由:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PREV-VST-REASN-CD" id="MIR-PREV-VST-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-VST-RSLT-TXT">受診結果:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PREV-VST-RSLT-TXT" id="MIR-PREV-VST-RSLT-TXT" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DISORD-DIAGNS-TXT">状態/診断:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DISORD-DIAGNS-TXT" id="MIR-DISORD-DIAGNS-TXT" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-TRTMNT-RECV-TXT">処置:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-TRTMNT-RECV-TXT" id="MIR-TRTMNT-RECV-TXT" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-MEDCTN-GIV-TXT">処方薬:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-MEDCTN-GIV-TXT" id="MIR-CLI-MEDCTN-GIV-TXT" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="6">妊娠について</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-PREG-IND">現在妊娠中:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CLI-PREG-IND" id="MIR-CLI-PREG-IND" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CLI-PREG-CNFMT-DT">出産予定日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CLI-PREG-CNFMT-DT" id="MIR-CLI-PREG-CNFMT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREG-CMPLIC-IND">現在あるいは過去の合併症:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PREG-CMPLIC-IND" id="MIR-PREG-CMPLIC-IND" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

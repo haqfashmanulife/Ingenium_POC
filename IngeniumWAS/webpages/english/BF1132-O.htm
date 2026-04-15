@@ -1,0 +1,147 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:25 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1132-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                              
+* 
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                                                             
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1132-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldatakey" colspan="5">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td />
+                    <td />
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CDA-EFF-IDT-NUM">Deposit Effective Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CDA-EFF-IDT-NUM" id="MIR-CDA-EFF-IDT-NUM" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CDA-SEQ-NUM">Sequence Number:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CDA-SEQ-NUM" id="MIR-CDA-SEQ-NUM" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-PAYO-NUM">Payout Number:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-PAYO-NUM" id="MIR-POL-PAYO-NUM" stype="Text" maxlength="5" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDA-EFF-IDT-NUM-T[1]">Deposit Effective Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DPOS-OVRID-EFF-DT-T[1]">Override Payment Effective Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDA-SEQ-NUM-T[1]">Sequence Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-PAYO-NUM-T[1]">Payout Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDA-STAT-CD-T[1]">Status</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDA-TOT-TRXN-AMT-T[1]">Total Deposit</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-DPOS-WTHDR-AMT-T[1]">Amount Removed</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CDA-DPOS-AVAIL-AMT-T[1]">Deposit Amount Remaining</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <a name="MIR-CDA-EFF-IDT-NUM-T[]" href="a" action="SelectItem" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">Deposit Effective Date</a>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DPOS-OVRID-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-DPOS-OVRID-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDA-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-CDA-SEQ-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAYO-NUM-T[]" stype="Text" displayonly="yes">MIR-POL-PAYO-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDA-STAT-CD-T[]" stype="Text" displayonly="yes">MIR-CDA-STAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDA-TOT-TRXN-AMT-T[]" stype="Currency" elength="15" displayonly="yes">MIR-CDA-TOT-TRXN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-DPOS-WTHDR-AMT-T[]" stype="Currency" elength="15" displayonly="yes">MIR-DV-DPOS-WTHDR-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CDA-DPOS-AVAIL-AMT-T[]" stype="Currency" elength="15" displayonly="yes">MIR-CDA-DPOS-AVAIL-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

@@ -1,0 +1,692 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:53 PM EDT
+*
+*********************************************************************************
+*  Component:   InqClientPolicyNoAddr-O.htm                                    
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*                                                                              
+*  M161CA  CTS      ADD INIT-PMT-TYP-CD FIELD
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Inquiry - Client / Policy</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <a name="top" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">Process Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">Sub Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CVG-REC-CTR">Number of Coverages:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey" />
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#GeneralInformation">General Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Options">Options</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#GeneralIndicators">Indicators</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PolicyDates">Dates</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Financial">Financial Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Application">Application Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Billing">Billing</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Notify">Notify</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="GeneralInformation">General  Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ID">Plan:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ISS-EFF-DT">Policy Issue Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ISS-LOC-CD">Issue Location:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ISS-LOC-CD" stype="Text" displayonly="yes">MIR-POL-ISS-LOC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-CRNT-LOC-CD">Current Location:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-CRNT-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-CRNT-LOC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-LANG-CD">Correspondence Language:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-LANG-CD" stype="Text" displayonly="yes">MIR-CLI-LANG-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CRCY-CD">Currency:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CRCY-CD" stype="Text" displayonly="yes">MIR-POL-CRCY-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CTRY-CD">Country:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CTRY-CD" stype="Text" displayonly="yes">MIR-POL-CTRY-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREV-CSTAT-CD">Previous Policy Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREV-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-PREV-CSTAT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-BNFY-TYP-CD">Beneficiary Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-TYP-CD" stype="Text" displayonly="yes">MIR-BNFY-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CLI-REL-SUB-CD">Relationship Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CLI-REL-SUB-CD" stype="Text" displayonly="yes">MIR-POL-CLI-REL-SUB-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Options">Options</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DIV-OPT-CD">Policy Dividend Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DIV-OPT-CD" stype="Text" displayonly="yes">MIR-POL-DIV-OPT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-NFO-CD">Non-forfeiture Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-NFO-CD" stype="Text" displayonly="yes">MIR-POL-NFO-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REINS-CD">Reinsurance:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-REINS-CD" stype="Text" displayonly="yes">MIR-POL-REINS-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-VPO-PU-YR-QTY">Vanishing Premium Year:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-VPO-PU-YR-QTY" stype="Text" displayonly="yes">MIR-DV-VPO-PU-YR-QTY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREM-RECALC-OPT-CD">Premium Recalculation Option:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREM-RECALC-OPT-CD" stype="Text" displayonly="yes">MIR-PREM-RECALC-OPT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="GeneralIndicators">Indicators</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-CHRTY-IND">Owner has been identified as a charity:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CLI-CHRTY-IND" id="MIR-CLI-CHRTY-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-CNFD-IND">Access to client information is confidential:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-CLI-CNFD-IND" id="MIR-CLI-CNFD-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-REL-XIST-IND">Owner Relationship Exists:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-DV-REL-XIST-IND" id="MIR-DV-REL-XIST-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-RUSH-IND">High-priority Processing:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-RUSH-IND" id="MIR-POL-RUSH-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CNFD-IND">Policy has been designated as confidential:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-CNFD-IND" id="MIR-POL-CNFD-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-APL-IND">Automatic premium loan is a separate option from nonforfeiture:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-APL-IND" id="MIR-POL-APL-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="PolicyDates">Policy Dates</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PD-TO-DT-NUM">Paid to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PD-TO-DT-NUM" stype="Text" displayonly="yes">MIR-POL-PD-TO-DT-NUM</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-TO-DT-NUM">Billed to Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TO-DT-NUM" stype="Text" displayonly="yes">MIR-POL-BILL-TO-DT-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LATST-ACTV-DT">Last Transaction Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LATST-ACTV-DT" stype="Date" displayonly="yes">MIR-LATST-ACTV-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREV-FILE-MAINT-DT">Last Maintain Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREV-FILE-MAINT-DT" stype="Date" displayonly="yes">MIR-PREV-FILE-MAINT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-STAT-CHNG-DT">Policy Status Last Changed:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-STAT-CHNG-DT" stype="Date" displayonly="yes">MIR-POL-STAT-CHNG-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PRT-DT">Policy Contract Printed Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PRT-DT" stype="Date" displayonly="yes">MIR-POL-PRT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MAIL-DT">Policy Mailed Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MAIL-DT" stype="Date" displayonly="yes">MIR-POL-MAIL-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FREE-LK-END-DT">Free Look End Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FREE-LK-END-DT" stype="Date" displayonly="yes">MIR-POL-FREE-LK-END-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREV-PERI-STMT-DT">Previous Statement Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREV-PERI-STMT-DT" stype="Date" displayonly="yes">MIR-PREV-PERI-STMT-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-NXT-PERI-STMT-DT">Next Statement Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NXT-PERI-STMT-DT" stype="Date" displayonly="yes">MIR-NXT-PERI-STMT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-APP-RECV-DT">Application Received Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-APP-RECV-DT" stype="Date" displayonly="yes">MIR-POL-APP-RECV-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-APP-SIGN-DT">Application Signed Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-APP-SIGN-DT" stype="Date" displayonly="yes">MIR-POL-APP-SIGN-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-FINAL-DISP-DT">Final Disposition Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-FINAL-DISP-DT" stype="Date" displayonly="yes">MIR-POL-FINAL-DISP-DT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Financial">Financial Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-POL-CSV-AMT">Cash Surrender Value:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-POL-CSV-AMT" stype="Currency" elength="19" signed="yes" displayonly="yes">MIR-DV-POL-CSV-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-NET-CV-MODE-QTY">Net Cash Value - Number of Modes:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-NET-CV-MODE-QTY" stype="Text" displayonly="yes">MIR-DV-NET-CV-MODE-QTY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-LOAN-VALU-AMT">Loan Value Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LOAN-VALU-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-LOAN-VALU-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MPREM-AMT">Mode Premium Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MPREM-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-MPREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PREM-DSCNT-PCT">Policy Discount Percentage:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREM-DSCNT-PCT" stype="Percent" elength="7" decimals="3" signed="yes" displayonly="yes">MIR-POL-PREM-DSCNT-PCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SNDRY-AMT">Sundry Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-SNDRY-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-SNDRY-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-LOAN-REPAY-AMT">Loan Repayment Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-LOAN-REPAY-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-LOAN-REPAY-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-TOT-BILL-AMT">Amount Billed:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-TOT-BILL-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-TOT-BILL-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-INT-BILL-AMT">Loan Interest Billed - APL:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-INT-BILL-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-LOAN-INT-BILL-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-INT-BILL-AMT-2">Loan Interest Billed - Cash:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-INT-BILL-AMT-2" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-LOAN-INT-BILL-AMT-2</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Application">Application Information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-APP-FORM-TYP-ID">Application Form Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-APP-FORM-TYP-ID" stype="Text" displayonly="yes">MIR-APP-FORM-TYP-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REJ-REASN-CD">Rejection Reason:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-REJ-REASN-CD" stype="Text" displayonly="yes">MIR-POL-REJ-REASN-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-MAIL-REASN-CD">Reason Duplicate Policy Mailed:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MAIL-REASN-CD" stype="Text" displayonly="yes">MIR-POL-MAIL-REASN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-OPTL-CD">Optional Policy:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-OPTL-CD" stype="Text" displayonly="yes">MIR-POL-OPTL-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CONN-OPTL-POL-ID-BASE">Optional Policy ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CONN-OPTL-POL-ID-BASE" stype="Text" displayonly="yes">MIR-CONN-OPTL-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CONN-OPTL-POL-ID-SFX">Optional Policy Suffix:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CONN-OPTL-POL-ID-SFX" stype="Text" displayonly="yes">MIR-CONN-OPTL-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-AMEX-XIST-IND">Amendments, endorsements or exclusions have been created:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-DV-AMEX-XIST-IND" id="MIR-DV-AMEX-XIST-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-POL-REPL-IND">This is a replacement policy:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-DV-POL-REPL-IND" id="MIR-DV-POL-REPL-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LINK-POL-ISS-IND">Linked Policy:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-LINK-POL-ISS-IND" id="MIR-LINK-POL-ISS-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UNMTCH-MAIL-IND">Unmatched mail:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-UNMTCH-MAIL-IND" id="MIR-UNMTCH-MAIL-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-SUPRES-ISS-IND">Suppress automatic issue / settlement process:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-SUPRES-ISS-IND" id="MIR-POL-SUPRES-ISS-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Billing">Billing</a>
+                    </td>
+                </tr>
+                <!-- M161CA START -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INIT-PMT-TYP-CD">Payment Route(First Premium):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INIT-PMT-TYP-CD" stype="Text" displayonly="yes">MIR-INIT-PMT-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+                <!-- M161CA END -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">Premium Mode:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <!-- M161CA START -->
+                        <!-- <label for="MIR-POL-BILL-TYP-CD">Billing Type:</label> -->
+                        <label for="MIR-POL-BILL-TYP-CD">Billing Type(Subsequent Premium):</label>
+                        <!-- M161CA END -->
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TYP-CD" stype="Text" displayonly="yes">MIR-POL-BILL-TYP-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <h2>
+                <a name="Notify">Notify</a>
+            </h2>
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-NOTI-REASN-CD-T[1]">Notification Reason</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-NOTI-DT-T[1]">Date Notice Produced</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-NOTI-DEPT-ID-T[1]">Department MessageSent</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-NOTI-QTY-T[1]">Number of Notifications Produced</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-NOTI-MO-DUR-T[1]">Frequency of Notices - Months</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-NOTI-REASN-CD-T[]" stype="Text" displayonly="yes">MIR-POL-NOTI-REASN-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-NOTI-DT-T[]" stype="Date" displayonly="yes">MIR-POL-NOTI-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-NOTI-DEPT-ID-T[]" stype="Text" displayonly="yes">MIR-POL-NOTI-DEPT-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-NOTI-QTY-T[]" stype="Text" displayonly="yes">MIR-POL-NOTI-QTY-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-NOTI-MO-DUR-T[]" stype="Text" displayonly="yes">MIR-POL-NOTI-MO-DUR-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#GeneralInformation">General Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Options">Options</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#GeneralIndicators">Indicators</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#PolicyDates">Dates</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Financial">Financial Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Application">Application Information</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Billing">Billing</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Notify">Notify</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

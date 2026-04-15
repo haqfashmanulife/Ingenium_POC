@@ -1,0 +1,91 @@
+﻿<!--
+*********************************************************************************
+*  Component:   BF9562VIR-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*  UYS043  CTS      CHANGES DONE FOR VIRTUAL QUOTE SCREEN
+*  S22244  CTS      CHANGES DONE  AS PART OF UDSD-2244 
+*  UY3004  CTS      10 DIGIT POLICY NUMBER                                                                                                                     
+*********************************************************************************
+ -->
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>BF9562VIR-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<!-- S22244 CHANGES STARTS HERE -->		
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+<!-- S22244 CHANGES ENDS HERE -->			
+        <table class="tabledatakey">
+		         <tr>
+                    <td colspan="4" class="celldataentryheading">契約者貸付返済試算―バーチャル試算条件入力</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">有効日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-VIR-ACTV-IND">有効中:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input name="MIR-VIR-ACTV-IND"  id="MIR-VIR-ACTV-IND" onclick="onCheckBox()" onfocus="enterField(this)" stype="Indicator" type="checkbox" value="Y">(有効中契約へ変更)</input>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-VIR-INT-STR-DT">利息開始日:</label>
+                    </td>
+                    <td class="celldatakey">
+                       <input type="text" value=" " name="MIR-VIR-INT-STR-DT"  id="MIR-VIR-INT-STR-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+
+                </tr>
+
+
+                <tr>
+                <td class="celldisplaykeylabel">
+                   <label for="MIR-VIR-LOAN-AMT">契約者貸付残高貸付:</label>
+                </td>
+                <td class="celldatakey">
+                   <input type="text" value=" " name="MIR-VIR-LOAN-AMT"  id="MIR-VIR-LOAN-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-VIR-SEI-ASS-IND">差押・質権:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="checkbox" name="MIR-VIR-SEI-ASS-IND"  id="MIR-VIR-SEI-ASS-IND" stype="Indicator" value="Y" disabled="Yes" >(ブランクは差押・質権なし)</input>
+                    </td>
+                </tr>
+
+</table>
+
+</form>
+</body>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/MessagesJapanese.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

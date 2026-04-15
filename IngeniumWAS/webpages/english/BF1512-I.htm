@@ -1,0 +1,336 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:33 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1512-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016736  611J     Code cleanup
+*  017150  612J     Remove Currency decimals="2"
+*  HCL103  HIN/CL   CREATE MASTER CLAIM              (HCL103A)
+*  PR0M92  AT       Add Hitachi Upload Recycling Days
+*  IPCAMC  CTS      Add fields for IPCAMC
+*  M119NB  CTS      ADD FIELD FOR LINC AGE LIMIT AND LINC FACE AMOUNT FOR
+*                   UNDER 15 AGE INSURED.
+*  MP176B  CTS      Add fields for Bulk Policy Number
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1512-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CO-ID">Company:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CO-ID" stype="Text" displayonly="yes">MIR-CO-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PREV-UPDT-DT">Previous Update
+      Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PREV-UPDT-DT" stype="Date" displayonly="yes">MIR-PREV-UPDT-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <h2>
+                <a name="Miscellaneous">Miscellaneous</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Miscellaneous Policy Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CO-DFLT-LANG-CD">Default Language:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CO-DFLT-LANG-CD" id="MIR-CO-DFLT-LANG-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CO-REG-CUT-DT">Registered Policies Cut-off
+                        Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CO-REG-CUT-DT" id="MIR-CO-REG-CUT-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CO-AUD-CTR-LOB-CD">Audit Counter Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CO-AUD-CTR-LOB-CD" id="MIR-CO-AUD-CTR-LOB-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CO-BNK-EDIT-IND">Use the information on the Bank Inquiry transaction:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CO-BNK-EDIT-IND" id="MIR-CO-BNK-EDIT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <h2>
+                Numbering
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Policy Number</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CO-POL-ID-ASIGN-CD">Policy Number Assignment:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CO-POL-ID-ASIGN-CD" id="MIR-CO-POL-ID-ASIGN-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ID-ASIGN-QTY">Maximum Number of Attempts:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-ID-ASIGN-QTY" id="MIR-POL-ID-ASIGN-QTY" stype="Text" maxlength="3" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Disability Claim Number</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CO-NXT-CLM-NUM">Next DI Claim Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CO-NXT-CLM-NUM" id="MIR-CO-NXT-CLM-NUM" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-ASIGN-CLM-NUM">Disability Claim Number
+      Maximum Attempts:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-ASIGN-CLM-NUM" id="MIR-MAX-ASIGN-CLM-NUM" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Medical Claim Number</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CO-NXT-CLMA-NUM">Next Master Claim Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CO-NXT-CLMA-NUM" id="MIR-CO-NXT-CLMA-NUM" stype="Text" maxlength="8" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-ASIGN-CLMA-NUM">Master Claim Number Maximum Attempts:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-ASIGN-CLMA-NUM" id="MIR-MAX-ASIGN-CLMA-NUM" stype="Number" elength="3"  onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+<!-- IPCAMC -->
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Death Claim Number</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CO-NXT-DCLM-NUM">Next Death Claim Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CO-NXT-DCLM-NUM" id="MIR-CO-NXT-DCLM-NUM" stype="Text" maxlength="8" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-ASIGN-DCLM-NUM">Death Claim Number Maximum Attempts:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-ASIGN-DCLM-NUM" id="MIR-MAX-ASIGN-DCLM-NUM" stype="Number" elength="3"  onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+<!--IPCAMC -->
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">RRSP Receipt Number</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-NXT-RRSP-RECPT-NUM">Next RRSP Receipt Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-NXT-RRSP-RECPT-NUM" id="MIR-NXT-RRSP-RECPT-NUM" stype="Text" maxlength="7" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-RECPT-TRY-NUM">RRSP Receipt Number -
+      Maximum Attempts:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-RECPT-TRY-NUM" id="MIR-MAX-RECPT-TRY-NUM" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+<!--MP176B CHANGES STARTS -->
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Bulk Policy Number</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-NXT-BULK-POL-ID">Next Bulk Policy Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-NXT-BULK-POL-ID" id="MIR-NXT-BULK-POL-ID" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAX-BULK-POL-QTY">Bulk Policy Number Maximum Attempts:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MAX-BULK-POL-QTY" id="MIR-MAX-BULK-POL-QTY" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+<!--MP176B CHANGES END -->
+            <br />
+            <h2>
+                Table Access
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Height / Weight Lookup</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-HWTB-MAX-CHILD-AGE">Maximum Sex Split Age:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-HWTB-MAX-CHILD-AGE" id="MIR-HWTB-MAX-CHILD-AGE" stype="Number" elength="3" decimals="0" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CO-HWTB-SCALE-CD">Measurement
+      Scale:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CO-HWTB-SCALE-CD" id="MIR-CO-HWTB-SCALE-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Indicators Used in Underwriter Assignments</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UWAR-ALPHA-IND">Use first
+      character of insured's surname:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-UWAR-ALPHA-IND" id="MIR-UWAR-ALPHA-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UWAR-LOB-IND">Use line of business:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-UWAR-LOB-IND" id="MIR-UWAR-LOB-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UWAR-SERV-BR-IND">Use servicing branch:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-UWAR-SERV-BR-IND" id="MIR-UWAR-SERV-BR-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UWAR-TCR-AMT-IND">Use total amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-UWAR-TCR-AMT-IND" id="MIR-UWAR-TCR-AMT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">LINC Selection Limits for Insured</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-LINC-LIFE-FACE-AMT">Maximum LINC Face Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-LINC-LIFE-FACE-AMT" id="MIR-LINC-LIFE-FACE-AMT" stype="Currency" elength="16" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-LINC-HLTH-FACE-AMT">Maximum Hospitalization/Disease Face Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-LINC-HLTH-FACE-AMT" id="MIR-LINC-HLTH-FACE-AMT" stype="Currency" elength="16" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+<!-- M119NB -->
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UNDR15-LINC-FACE-AMT">Maximum LINC Face Amount under 15 years:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-UNDR15-LINC-FACE-AMT" id="MIR-UNDR15-LINC-FACE-AMT" stype="Currency" elength="16" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-LINC-AGE-LMT">LINC Age Limit:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-LINC-AGE-LMT" id="MIR-LINC-AGE-LMT" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="1" class="celldataentryheading">Hitachi Upload</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MEDIC-FORM-RECY-DY">Recycling Days:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-MEDIC-FORM-RECY-DY" id="MIR-MEDIC-FORM-RECY-DY" stype="Number" elength="2" decimals="0" mandatory="no" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

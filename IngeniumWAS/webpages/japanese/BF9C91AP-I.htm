@@ -1,0 +1,115 @@
+﻿<!--
+*********************************************************************************
+*  Component:   BF9C91AP-I.htm
+*  Description:Input Edit Screen for Future Advance Payment Create Processs
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*  UYS025  CTS      Initial Version
+* UYCR42  CTS      IE UPGRADE
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9C91AP-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PBRQ-EFF-DT">処理日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PBRQ-EFF-DT" stype="Date" displayonly="yes">MIR-PBRQ-EFF-DT</span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-POL-FUT-ACTV-TYP-CD">処理タイプ:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-POL-FUT-ACTV-TYP-CD" stype="Text" displayonly="yes">MIR-DV-POL-FUT-ACTV-TYP-CD</span>
+                    </td>
+               </tr>
+            </table>
+			
+            <table class="tabledisplay">
+                <tr>
+                    <td colspan="4" class="celldisplayheading">
+                        <a name="Advance Payment Information">前払情報</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="celllabelleftalign">
+                        <label for="MIR-POL-ADV-PMT-DUR">前払期間:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+<!-- UYCR42 CHANGE STARTS HERE -->
+        <!-- <input type="text" value=" " name="MIR-POL-ADV-PMT-DUR"  stype="Text" maxlength="03" onfocus="enterField(this)" />  -->
+			<input type="text" value=" " name="MIR-POL-ADV-PMT-DUR" id="MIR-POL-ADV-PMT-DUR" stype="Text" maxlength="03" onfocus="enterField(this)" />
+<!-- UYCR42 CHANGE ENDS HERE -->
+
+                    </td>
+
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-ADV-PMT-TYP-CD">前払タイプコード:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-ADV-PMT-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td class="celllabelleftalign">
+                        <label for="MIR-POL-ADV-PMT-AMT">前払金額:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+<!-- UYCR42 CHANGE STARTS HERE -->
+     <!-- <input type="text" value=" " name="MIR-POL-ADV-PMT-AMT"  stype="Currency" maxlength="15"  onfocus="enterField(this)" />  -->
+			<input type="text" value=" " name="MIR-POL-ADV-PMT-AMT" id="MIR-POL-ADV-PMT-AMT" stype="Currency" maxlength="15"  onfocus="enterField(this)" />
+<!-- UYCR42 CHANGE ENDS HERE -->
+
+                    </td>
+
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-FUT-ACTV-STAT-CD">アクティビティステータス:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-POL-FUT-ACTV-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+                    </td>
+                 </tr>
+             </table>		
+
+<!-- UYCR42 CHANGE STARTS HERE -->
+          <!--  <input type="hidden" name="action" stype="Hidden" />
+            <input type="hidden" name="index" stype="Hidden" /> -->
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+<!-- UYCR42 CHANGE ENDS HERE -->
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

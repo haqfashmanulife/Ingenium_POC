@@ -1,0 +1,176 @@
+﻿<!--
+*********************************************************************************
+*  Component:   BF9C92AR-I.htm
+*  Description:Input Edit Screen for Annuity request reception cancellation process
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*  UY3049  CTS      ANNUITY TRANISTION PROCESSING STREAM 3
+*  UY3004  16JUL21  SUBSEQUENT HTML POLICY TRIM                                 
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9C92AR-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                 </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PBRQ-EFF-DT">処理日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PBRQ-EFF-DT" stype="Date" displayonly="yes">MIR-PBRQ-EFF-DT</span>
+                    </td>
+                </tr>
+                 <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-POL-FUT-ACTV-TYP-CD">処理タイプ:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-POL-FUT-ACTV-TYP-CD" stype="Text" displayonly="yes">MIR-DV-POL-FUT-ACTV-TYP-CD</span>
+                    </td>
+               </tr>
+            </table>
+                  <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="2" class="celldataentryheading">
+                        <a name="AnnuityRequestReceptionInformation">年金請求受付内容</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-RQST-REC-PRCS-DT" class="clsmandatory">請求受付処理日:</label>
+                    </td>
+                    <td width="10%" class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-RQST-REC-PRCS-DT" id="MIR-RQST-REC-PRCS-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign"></td>
+                    <td class="celllabeldataentry"></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ANTY-FREQ-CRNT-YR">支払頻度「本年」:</label>
+                    </td>
+                    <td width="10%" class="celllabeldataentry">
+                        <select name="MIR-ANTY-FREQ-CRNT-YR" id="MIR-ANTY-FREQ-CRNT-YR" size="1" stype="Selection" mandatory="yes" onfocus="enterField(this)"></select>
+                    </td>
+<!--S46307 CHANGES STARTS HERE
+					<td class="celllabelrightalign">
+                        <label for="MIR-ANTY-FREQ-NXT-YR">支払頻度「来年」:</label>
+                    </td>
+                    <td width="10%" class="celllabeldataentry">
+                        <select name="MIR-ANTY-FREQ-NXT-YR" id="MIR-ANTY-FREQ-NXT-YR" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+S46307 CHANGES ENDS HERE-->
+                </tr>
+				<tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-FUT-ACTV-STAT-CD">処理ステータス:</label>
+                    </td>
+                    <td width="10%" class="celllabeldataentry">
+                        <select name="MIR-POL-FUT-ACTV-STAT-CD" id="MIR-POL-FUT-ACTV-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+                    </td>
+                </tr>
+            </table>
+			 <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">銀行情報</td>
+                </tr>
+                <tr>
+				    <td class="celllabelrightalign">
+                        <label for="MIR-MRF-ACC-IND">MRF:</label>
+                    </td>
+                    <td width="10%" class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-MRF-ACC-IND" id="MIR-MRF-ACC-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>  
+                </tr>
+				<tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BNK-ID">銀行コード:</label>
+                    </td>
+                    <td width="10%" class="celldatakey">
+                        <input type="text" value=" " name="MIR-BNK-ID" id="MIR-BNK-ID" stype="Text" maxlength="4"   onfocus="enterField(this)"/>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BNK-NM">銀行名:</label>
+                    </td>
+                    <td width="10%" class="celldisplaykey">
+                        <span id="MIR-BNK-NM" stype="Text" displayonly="yes">MIR-BNK-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BNK-BR-ID">支店コード:</label>
+                    </td>
+                    <td width="10%" class="celldatakey">
+                        <input type="text" value=" " name="MIR-BNK-BR-ID" id="MIR-BNK-BR-ID" stype="Text" maxlength="3"   onfocus="enterField(this)"/>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BNK-BR-NM">支店名:</label>
+                    </td>
+                    <td width="10%" class="celldisplaykey">
+                        <span id="MIR-BNK-BR-NM" stype="Text" displayonly="yes">MIR-BNK-BR-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BNK-ACCT-TYP-CD">口座種類:</label>
+                    </td>
+                    <td width="10%" class="celldatakey">
+                        <select name="MIR-BNK-ACCT-TYP-CD" id="MIR-BNK-ACCT-TYP-CD" stype="Selection" maxlength="3"   onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BNK-ACCT-ID">口座番号:</label>
+                    </td>
+                    <td width="10%" class="celldatakey">
+                        <input type="text" value=" " name="MIR-BNK-ACCT-ID" id="MIR-BNK-ACCT-ID" stype="Text" maxlength="7"   onfocus="enterField(this)"/>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BNK-ACCT-HLDR-NM">口座名義人:</label>
+                    </td>
+                    <td width="10%" class="celldatakey">
+                        <input type="text" value=" " name="MIR-BNK-ACCT-HLDR-NM" id="MIR-BNK-ACCT-HLDR-NM" stype="Text" maxlength="50"
+                               onkeypress="KanaKeyCheck()"
+                               onchange="onlyKatakana()"
+                               onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

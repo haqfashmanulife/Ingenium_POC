@@ -1,0 +1,51 @@
+# Converted from PathFinder 2.2 to 3.0 Jun 18, 2004 3:13:05 PM EDT
+
+S-STEP BF9021-I
+{
+	ATTRIBUTES
+	{
+		BusinessFunctionType = "Create";
+		Type = "Input";
+		FocusField = "MIR-SO-ID";
+		FocusFrame = "ContentFrame";
+	}
+
+	IN Title;
+
+	IN TitleBar;
+	IN TitleBarSize;
+
+	IN ButtonBar;
+	IN ButtonBarSize;
+
+	IN MessageFrame;
+	IN MessageFrameSize;
+
+	OUT action
+	{
+		SType="Hidden";
+	}
+
+	INOUT MIR-SO-ID
+	{
+		Key;
+		Mandatory;
+		Length = "5";
+		CodeSource = "XTAB";
+		CodeType = "SALE";
+		SType = "Text";
+		Label = "Sales Office Number";
+	}
+
+	INOUT MIR-BR-ID
+	{
+		Key;
+		Mandatory;
+		Length = "5";
+		CodeSource = "XTAB";
+		CodeType = "BRCH";
+		SType = "Text";
+		Label = "Branch Number";
+	}
+
+}

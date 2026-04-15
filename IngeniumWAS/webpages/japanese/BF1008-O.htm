@@ -1,0 +1,418 @@
+<!--  
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:29 PM EDT
+*
+********************************************************************************* 
+*  Component:   BF1008-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+********************************************************************************* 
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  602J     Add onLoad() function to <body> tag for currency scaling   
+*  016064  602J     fix bottom anchors                                         
+*  015984  602J     swap text in labels for APL and Loan amts                  
+*  017150  612J     Remove Currency decimals="2"                               
+*  FT7001 AKATO  FT7 Label Change 14JUN2004  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                     	               
+*  UYS133  CTS      PD group size field addition                                *
+*                                                                              
+********************************************************************************* 
+ --> 
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1008-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad();">
+        
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());"> 
+            <input type="hidden" name="index" id="index" stype="Hidden" /> 
+            <input type="hidden" name="action" id="action" stype="Hidden" /> 
+            <table class="tabledatakey"> 
+                <tr> 
+                    <td class="celldatakeylabel"> 
+                        <label for="MIR-CLI-ID">クライアントID:</label> 
+                    </td> 
+                    <td class="celldatakey"> 
+                        <input type="text" value=" " name="MIR-CLI-ID" id="MIR-CLI-ID" stype="Text" maxlength="10" onfocus="enterField(this)" /> 
+                    </td> 
+                    <td class="celldatakeylabel"> 
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label> 
+                    </td> 
+                    <td class="celldatakey"> 
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span> 
+                    </td> 
+                </tr> 
+            </table> 
+            <center> 
+                <table class="tableanchors"> 
+                    <tr> 
+                        <td class="cellanchors"> 
+                            <a href="#Policy">契約情報</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#Premium">保険料</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Suspense">仮勘定</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CashValue">キャッシュバリュー</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Billing">請求</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Loan">貸付</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="6">
+                        <a name="Policy">契約情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-BASE-T[1]">証券番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-SFX-T[1]">枝番</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CSTAT-CD-T[1]">契約状況</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ISS-EFF-DT-T[1]">契約日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-ID-T[1]">第1被保険者ｸﾗｲｱﾝﾄID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-POL-JNT-OWN-IND-T[1]">連生契約</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ISS-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-DV-POL-JNT-OWN-IND-T[]" id="MIR-DV-POL-JNT-OWN-IND-T[]" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="5">
+                        <a name="Premium">保険料</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-BASE-T[1]">証券番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-SFX-T[1]">枝番</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-MPREM-AMT-T[1]">特約保険料</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-GRS-APREM-AMT-T[1]">年間保険料</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-PREM-DSCNT-PCT-T[1]">契約割引率</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MPREM-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-MPREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-GRS-APREM-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-GRS-APREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREM-DSCNT-PCT-T[]" stype="Percent" elength="7" decimals="3" signed="yes" displayonly="yes">MIR-POL-PREM-DSCNT-PCT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                       トップへ戻る 
+                </a> 
+            </p> 
+            <table class="tabledisplay" genrows="0"> 
+                <tr> 
+                    <td class="celldisplayheading" colspan="5"> 
+                        <a name="Suspense">仮勘定</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-BASE-T[1]">証券番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-SFX-T[1]">枝番</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-PREM-SUSP-AMT-T[1]">保険料仮勘定</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-MISC-SUSP-AMT-T[1]">雑仮勘定</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-OS-DISB-AMT-T[1]">未払金</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PREM-SUSP-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-PREM-SUSP-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-MISC-SUSP-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-MISC-SUSP-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-OS-DISB-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-POL-OS-DISB-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-SUSP-AMT">仮勘定額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-SUSP-AMT" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-CLI-SUSP-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="CashValue">キャッシュバリュー</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-BASE-T[1]">証券番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-SFX-T[1]">枝番</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-POL-CSV-AMT-T[1]">解約返戻金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CFN-APROX-AMT-T[1]">積立総出入額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-POL-CSV-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-POL-CSV-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CFN-APROX-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CFN-APROX-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                       トップへ戻る 
+                </a> 
+            </p> 
+            <table class="tabledisplay" genrows="0"> 
+                <tr> 
+<!--  UYS133 CHANGES STARTS HERE -->
+                 <!--   <td class="celldisplayheading" colspan="7"> -->
+                    <td class="celldisplayheading" colspan="8">
+<!--  UYS133 CHANGES STARTS HERE -->
+                        <a name="Billing">請求情報</a> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-POL-ID-BASE-T[1]">証券番号</label> 
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-POL-ID-SFX-T[1]">枝番</label> 
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-POL-SPND-IND-T[1]">一時停止ｽﾃｰﾀｽ</label> 
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-POL-BILL-TYP-CD-T[1]">請求タイプ</label> 
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-POL-BILL-MODE-CD-T[1]">払込経路（ﾓｰﾄﾞ）</label>
+                    </td>
+<!--  UYS133 CHANGES STARTS HERE -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-PD-GR-TYP-CD-T[1]">団体規模</label>
+                    </td>
+<!--  UYS133 CHANGES ENDS HERE -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-PD-TO-DT-NUM-T[1]">次回特約保険料充当日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-BILL-TO-DT-NUM-T[1]">最終請求日</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-SPND-IND-T[]" id="MIR-POL-SPND-IND-T[]" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-POL-BILL-TYP-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-MODE-CD-T[]" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD-T[]</span>
+                    </td>
+<!--  UYS133 CHANGES STARTS HERE -->
+                    <td class="celldisplay">
+                        <span id="MIR-PD-GR-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-PD-GR-TYP-CD-T[]</span>
+                    </td>
+<!--  UYS133 CHANGES ENDS HERE -->
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PD-TO-DT-NUM-T[]" stype="Text" displayonly="yes">MIR-POL-PD-TO-DT-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TO-DT-NUM-T[]" stype="Text" displayonly="yes">MIR-POL-BILL-TO-DT-NUM-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="6">
+                        <a name="Loan">貸付情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-BASE-T[1]">証券番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-SFX-T[1]">枝番</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-APL-LOAN-AMT-T[1]">保険料自動振替貸付額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LOAN-AMT-T[1]">貸付額合計</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-LOAN-REPAY-AMT-T[1]">貸付返済額合計</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-LOAN-DSCNT-AMT-T[1]">貸付最高額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-APL-LOAN-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-APL-LOAN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-LOAN-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LOAN-REPAY-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-LOAN-REPAY-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LOAN-DSCNT-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-LOAN-DSCNT-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                       トップへ戻る 
+                </a> 
+            </p> 
+            <center> 
+                <table class="tableanchors"> 
+                    <tr> 
+                        <td class="cellanchors"> 
+                            <a href="#Policy">契約情報</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#Premium">保険料</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Suspense">仮勘定</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CashValue">キャッシュバリュー</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Billing">請求</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Loan">貸付</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

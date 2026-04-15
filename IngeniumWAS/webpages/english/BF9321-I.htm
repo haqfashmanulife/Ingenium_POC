@@ -1,0 +1,219 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:50 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9321-I.htm
+*  Description: Firm Banking Disbursement-Create
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  M245K2  CTS      Initial Version
+*  Q50739  CTS      MP245 CHANGES FOR O/S DISB AMOUNT
+*  FFF10P  CTS      NOMURA ONLINE CHANGES
+*  UYS044  CTS      CHANGES TO ADD NEW DROP DOWN FIELD FOR CHOSHO
+*                   CLASSIFICATION
+*  UY3004  CTS     INPUT HTML POLICY TRIM - 10 BYTES -> 7 BYTES
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*********************************************************************************
+ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9321-I</title>
+<link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+<!-- UY3004 CHANGES START HERE
+<body class="bodyws" onLoad="onLoad();"> -->
+<body class="bodyws" onLoad="InpTrimPolicy1();validateCrcyDcml()">
+<!-- UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<input type="hidden" name="action" id="action" stype="Hidden"/>
+
+<table class="tabledatakey">
+  <tr>
+    <td class="celldataentryheading" colspan="4">Disbursement Information</td>
+  </tr>
+  <tr>
+    <td class="celldatakeylabel">
+    <label for="MIR-POL-ID">Policy Number:</label>
+    </td>
+    <td class="celldatakey">
+    <input type="text" value=" " name="MIR-POL-ID" id="MIR-POL-ID" stype="Text" maxlength="10" mandatory="yes" onfocus="enterField(this)" />
+    </td>
+    <td class="celllabelrightalign">
+    <label for="MIR-FBNK-CAT-CD">Operation Category:</label>
+    </td>
+    <td class="celllabeldataentry">
+    <select name="MIR-FBNK-CAT-CD" id="MIR-FBNK-CAT-CD" size="1" stype="Selection" mandatory="yes" onfocus="enterField(this)" />
+    </td>
+  </tr>
+  <tr>
+    <td class="celllabelrightalign">
+    <label for="MIR-ORIG-PMT-CRCY-CD">Currency of Outstanding Disbursement:</label>
+    </td>
+    <td class="celllabeldataentry">
+    <select name="MIR-ORIG-PMT-CRCY-CD" id="MIR-ORIG-PMT-CRCY-CD" size="1" stype="Selection" mandatory="yes" onfocus="enterField(this)" onchange="validateCrcyDcml()" />
+    </td>
+    <td class="celllabelrightalign">
+    <label for="MIR-JRNL-DT" >Journal Date:</label>
+    </td>
+    <td class="celllabeldataentry">
+    <input type="text" value="" name="MIR-JRNL-DT" id="MIR-JRNL-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)"  />
+    </td>
+  </tr>
+  <tr>
+    <td class="celllabelrightalign">
+    <label for="MIR-BNFT-PMT-AMT">Outstanding Amount:</label>
+    </td>
+    <td class="celllabeldataentry">
+    <!--Q50739 CHANGES STARTS HERE -->
+    <!--<input type="text" name="MIR-BNFT-PMT-AMT" id="MIR-BNFT-PMT-AMT" stype="Currency" elength="15" mandatory="yes" onfocus="enterField(this)" onblur="validateCrcyCd(this)" CurrencyCode="MIR-ORIG-PMT-CRCY-CD"  /> -->
+    <input type="text" name="MIR-BNFT-PMT-AMT" id="MIR-BNFT-PMT-AMT" stype="Currency" elength="17" mandatory="yes" onfocus="enterField(this)" onblur="validateCrcyCd(this)" CurrencyCode="MIR-ORIG-PMT-CRCY-CD"  />
+    <!--Q50739 CHANGES ENDS HERE -->
+    </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td class="celllabelrightalign">
+    <label for="MIR-REMIT-CRCY-CD">Payout Currency:</label>
+    </td>
+    <td class="celllabeldataentry">
+    <select name="MIR-REMIT-CRCY-CD" id="MIR-REMIT-CRCY-CD" size="1" stype="Selection" mandatory="yes" onfocus="enterField(this)"  />
+    </td>
+    <td class="celllabelrightalign">
+    <label for="MIR-XCHG-EFF-DT" >Exchange Effective Date:</label>
+    </td>
+    <td class="celllabeldataentry">
+    <input type="text" value="" name="MIR-XCHG-EFF-DT" id="MIR-XCHG-EFF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)"  />
+    </td>
+  </tr>
+  <tr>
+    <td class="celllabelrightalign">
+    <label for="MIR-DLAY-INT-CALC-DT">Delay Interest Period Start Date:</label>
+    </td>
+    <td class="celllabeldataentry">
+    <input type="text" value="" name="MIR-DLAY-INT-CALC-DT" id="MIR-DLAY-INT-CALC-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)"  />
+    </td>
+  </tr>
+<!--UYS044 CHANGES START HERE-->
+  <tr>
+    <td class="celllabelrightalign">
+    <label for="MIR-TAX-CLAS-CD">Chosho Classification:</label>
+    </td>
+    <td class="celllabeldataentry">
+    <select name="MIR-TAX-CLAS-CD" id="MIR-TAX-CLAS-CD" onfocus="enterField(this)" size="1" stype="Selection"  />
+    </td>
+    <!--<td> </td>-->
+    <!--<td> </td>-->
+<!--UYS044 CHANGES END HERE-->
+  </tr>
+</table>
+
+<table class="tabledatakey">
+  <tr>
+    <td class="celldataentryheading" colspan="4">Bank Detail</td>
+  </tr>
+<!-- FFF10P CHANGES START-->
+  <tr>
+      <td class="celldatakeylabel">
+          <label for="MIR-MRF-IND">MRF:</label>
+      </td>
+      <td class="celldatakey">
+	    <input name="MIR-MRF-IND" id="MIR-MRF-IND" onclick="onCheckBox()" onfocus="enterField(this)" stype="Indicator" type="checkbox" value="Y"/>
+      </td>
+      <td> </td>
+      <td> </td>
+  </tr>
+<!-- FFF10P CHANGES END-->
+  <tr>
+    <td class="celldatakeylabel">
+    <label for="MIR-BNK-ID">Bank ID:</label>
+    </td>
+    <td class="celldatakey">
+<!-- FFF10P CHANGES START-->
+<!--    <input type="text" value=" " name="MIR-BNK-ID" id="MIR-BNK-ID" stype="Text" maxlength="4"   mandatory="yes" onfocus="enterField(this)"/>  -->
+        <input type="text" value=" " name="MIR-BNK-ID" id="MIR-BNK-ID" stype="Text" maxlength="4"   onfocus="enterField(this)"/>
+<!-- FFF10P CHANGES END-->
+    </td>
+    <td class="celldatakeylabel">
+    <label for="MIR-BNK-NM">Bank Name:</label>
+    </td>
+    <td class="celldisplaykey">
+    <span id="MIR-BNK-NM" value=" " stype="Text" displayonly="yes">MIR-BNK-NM</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="celldatakeylabel">
+    <label for="MIR-BNK-BR-ID">Branch ID:</label>
+    </td>
+    <td class="celldatakey">
+<!-- FFF10P CHANGES START-->
+<!--    <input type="text" value=" " name="MIR-BNK-BR-ID" id="MIR-BNK-BR-ID" stype="Text" maxlength="3" mandatory="yes"  onfocus="enterField(this)"/>  -->
+         <input type="text" value=" " name="MIR-BNK-BR-ID" id="MIR-BNK-BR-ID" stype="Text" maxlength="3" onfocus="enterField(this)"/>
+<!-- FFF10P CHANGES END-->
+    </td>
+    <td class="celldatakeylabel">
+    <label for="MIR-BNK-BR-NM">Branch Name:</label>
+    </td>
+    <td class="celldisplaykey">
+    <span id="MIR-BNK-BR-NM" value=" " stype="Text" displayonly="yes">MIR-BNK-BR-NM</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="celldatakeylabel">
+    <label for="MIR-ACCT-TYP-CD">Account Type:</label>
+    </td>
+    <td class="celldatakey">
+<!-- FFF10P CHANGES START-->
+<!--    <select name="MIR-ACCT-TYP-CD" id="MIR-ACCT-TYP-CD" stype="Selection" maxlength="3"  mandatory="yes" onfocus="enterField(this)"></select>  -->
+        <select name="MIR-ACCT-TYP-CD" id="MIR-ACCT-TYP-CD" stype="Selection" maxlength="3"   onfocus="enterField(this)"></select>
+<!-- FFF10P CHANGES END-->
+    </td>
+  </tr>
+  <tr>
+    <td class="celldatakeylabel">
+    <label for="MIR-BNK-ACCT-ID">Bank Account Number:</label>
+    </td>
+    <td class="celldatakey">
+<!-- FFF10P CHANGES START-->
+<!--   <input type="text" value=" " name="MIR-BNK-ACCT-ID" id="MIR-BNK-ACCT-ID" stype="Text" maxlength="17" mandatory="yes"  onfocus="enterField(this)"/>  -->
+          <input type="text" value=" " name="MIR-BNK-ACCT-ID" id="MIR-BNK-ACCT-ID" stype="Text" maxlength="17"  onfocus="enterField(this)"/>
+<!-- FFF10P CHANGES END-->
+    </td>
+    <td class="celldatakeylabel">
+    <label for="MIR-ACCT-HLDR-NM">Account Holder Name:</label>
+    </td>
+    <td class="celldatakey">
+<!-- FFF10P CHANGES START-->
+<!--    <input type="text" value=" " name="MIR-ACCT-HLDR-NM" id="MIR-ACCT-HLDR-NM" stype="Text" maxlength="50" mandatory="yes"
+           onkeypress="KanaKeyCheck()"
+           onchange="onlyKatakana()"
+           onfocus="enterField(this)" /> -->
+        <input type="text" value=" " name="MIR-ACCT-HLDR-NM" id="MIR-ACCT-HLDR-NM" stype="Text" maxlength="50"
+           onkeypress="KanaKeyCheck()"
+           onchange="onlyKatakana()"
+           onfocus="enterField(this)" />
+<!-- FFF10P CHANGES END-->
+    </td>
+  </tr>
+</table>
+<br />
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/CrcyLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<script src="../js/OnlyKana.js"></script>
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

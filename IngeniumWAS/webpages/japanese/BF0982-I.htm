@@ -1,0 +1,155 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:29 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0982-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2"                               
+*  01BL11  TMC      Remove Address fields and added 3 indicators and xfer day  
+*  MP0016  01NOV05  2nd Bank Transfer - Added Transfer Day 2  
+*  M245K3  03APR14  Foreign currency indicator is added
+*  C23205  04AUG14  M245K3 - Changes done to fix a syntax error for MIR-FRGN-CRCY-REMIT-IND  
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                                                                       
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0982-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="splitBranch('MIR-BNK-BR-ID')">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="updateBranch('Branch'); return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" value="" name="MIR-BNK-BR-ID" id="MIR-BNK-BR-ID" jpnbranch="Branch" jpnsubbranch="SubBranch" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-BNK-ID">銀行番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-BNK-ID" stype="Text" displayonly="yes">MIR-BNK-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="Branch">支店番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="Branch" stype="Text" displayonly="yes">Branch</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="SubBranch">出張所番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="SubBranch" stype="Text" displayonly="yes">SubBranch</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">銀行（金融機関）情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-NM">銀行（金融機関）名:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-BNK-NM" id="MIR-BNK-NM" stype="Text" maxlength="36" mandatory="yes" onfocus="enterField(this)" size="30" tabindex="1" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-BR-NM">支店名:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-BNK-BR-NM" id="MIR-BNK-BR-NM" stype="Text" maxlength="36" mandatory="yes" onfocus="enterField(this)" size="30" tabindex="2" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">その他の支店情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-BR-STAT-CD">ステータス:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BNK-BR-STAT-CD" id="MIR-BNK-BR-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" tabindex="3"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-BR-LANG-CD">言語:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-BNK-BR-LANG-CD" id="MIR-BNK-BR-LANG-CD" size="1" stype="Selection" onfocus="enterField(this)" tabindex="4"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldisplayheading" colspan="6">その他の銀行情報</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-XFER-IND">振替指示:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-BNK-XFER-IND" id="MIR-BNK-XFER-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="5" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-XFER-DY">振替日:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-BNK-XFER-DY" id="MIR-BNK-XFER-DY" stype="Text" maxlength="2" onfocus="enterField(this)" tabindex="6" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-XFER-2-DY">振替日２:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-BNK-XFER-2-DY" id="MIR-BNK-XFER-2-DY" stype="Text" maxlength="2" onfocus="enterField(this)" tabindex="6" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-FIRM-IND">ファームバンキング指示:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-BNK-FIRM-IND" id="MIR-BNK-FIRM-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="7" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BNK-AGRE-IND">VIPグループ指示:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-BNK-AGRE-IND" id="MIR-BNK-AGRE-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="8" />
+                    </td>
+            <!-- M245K3 Changes start here-->
+            <!--        <td class="celllabelrightalign"></td>
+                    <td class="celllabeldataentry"></td>-->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-FRGN-CRCY-REMIT-IND">外貨送金インジケータ（SWIFTコード有無）</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-FRGN-CRCY-REMIT-IND" id="MIR-FRGN-CRCY-REMIT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" tabindex="9" />
+                    </td>
+            <!-- M245K3 Changes ends here-->
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/JapaneseBranch.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

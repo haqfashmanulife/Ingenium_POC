@@ -1,0 +1,215 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:33 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1300-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  016736  611J     Code Cleanup                                               
+*  017150  612J     Remove Currency decimals="2"                               
+*  FT7001 AKATO  FT7 Label Change 14JUN2004 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.   
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+                                   	               
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1300-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="5">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">保障番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">契約状況:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-CSTAT-CD">保障状況:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-CSTAT-CD" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey"></td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">契約情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ID">プラン:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-SUM-INS-AMT">保険金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SUM-INS-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-CVG-SUM-INS-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-INS-TYP-CD">保険タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-INS-TYP-CD" stype="Text" displayonly="yes">MIR-CVG-INS-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CLI-CRNT-LOC-CD">居住地:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-CRNT-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-CRNT-LOC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ISS-LOC-CD">証券発行地:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ISS-LOC-CD" stype="Text" displayonly="yes">MIR-POL-ISS-LOC-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-PAR-CD">配当の有無:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-PAR-CD" stype="Text" displayonly="yes">MIR-CVG-PAR-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-SUPP-BNFT-CD">補足給付:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-SUPP-BNFT-CD" stype="Text" displayonly="yes">MIR-CVG-SUPP-BNFT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-CRCY-CD">通貨:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CRCY-CD" stype="Text" displayonly="yes">MIR-POL-CRCY-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REG-CD">管轄行政区:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-REG-CD" stype="Text" displayonly="yes">MIR-POL-REG-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SERV-BR-ID">支店:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SERV-BR-ID" stype="Text" displayonly="yes">MIR-SERV-BR-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-REINS-CD">再保険:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-REINS-CD" stype="Text" displayonly="yes">MIR-POL-REINS-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">異動情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-MVT-LN-CD">異動ﾚﾎﾟｰﾄ行番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-MVT-LN-CD" stype="Text" displayonly="yes">MIR-DV-MVT-LN-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-MVT-CD">異動増減:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-MVT-CD" stype="Text" displayonly="yes">MIR-DV-MVT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-POL-MVT-CD">契約異動:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-POL-MVT-CD" stype="Text" displayonly="yes">MIR-DV-POL-MVT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-CVG-MVT-CD">保障異動:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CVG-MVT-CD" stype="Text" displayonly="yes">MIR-DV-CVG-MVT-CD</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

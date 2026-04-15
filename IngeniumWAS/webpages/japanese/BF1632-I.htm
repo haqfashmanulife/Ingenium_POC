@@ -1,0 +1,753 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:40 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1632-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                           
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1632-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+        <script>
+
+function onLoad()
+
+{
+
+	setEmperorDate("MIR-CLI-BTH-DT");
+
+}
+
+</script>
+        <script>
+
+function onLoad2()
+
+{
+
+	setEmperorDate("MIR-CLI-BTH-DT-2");
+
+}
+
+</script>
+    </head>
+    <body class="bodyws" onload="onLoad(); onLoad2();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <p>
+                <label for="MIR-CLI-ID">Client Number A:</label>
+                <input type="text" value=" " name="MIR-CLI-ID" id="MIR-CLI-ID" stype="Text" maxlength="10" onfocus="enterField(this)" />
+            </p>
+            <p>
+                <label for="MIR-CLI-ID-2">Client Number B:</label>
+                <input type="text" value=" " name="MIR-CLI-ID-2" id="MIR-CLI-ID-2" stype="Text" maxlength="10" onfocus="enterField(this)" />
+            </p>
+            <p>
+                <input type="hidden" name="action" id="action" stype="Hidden" />
+            </p>
+            <p>
+                <input type="hidden" name="index" id="index" stype="Hidden" />
+            </p>
+            <p>
+                <label for="MIR-SELCT-ADDL-ADDR-CD">Select A / B:</label>
+                <select name="MIR-SELCT-ADDL-ADDR-CD" id="MIR-SELCT-ADDL-ADDR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-ADDL-FILE-CD">Select A / B:</label>
+                <select name="MIR-SELCT-ADDL-FILE-CD" id="MIR-SELCT-ADDL-FILE-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-BEST-TIME-CD">Select A / B:</label>
+                <select name="MIR-SELCT-BEST-TIME-CD" id="MIR-SELCT-BEST-TIME-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-BNK-ACCT-CD">Select A / B:</label>
+                <select name="MIR-SELCT-BNK-ACCT-CD" id="MIR-SELCT-BNK-ACCT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-BTH-LOC-CD">Select A / B:</label>
+                <select name="MIR-SELCT-BTH-LOC-CD" id="MIR-SELCT-BTH-LOC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-BTH-SEX-CD">Select A / B:</label>
+                <select name="MIR-SELCT-BTH-SEX-CD" id="MIR-SELCT-BTH-SEX-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-CLI-CD">Select A / B:</label>
+                <select name="MIR-SELCT-CLI-CD" id="MIR-SELCT-CLI-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-CLI-NM-CD">Select A / B:</label>
+                <select name="MIR-SELCT-CLI-NM-CD" id="MIR-SELCT-CLI-NM-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-CNTCT-CD">Select A / B:</label>
+                <select name="MIR-SELCT-CNTCT-CD" id="MIR-SELCT-CNTCT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-COMNT-TXT-CD">Select A / B:</label>
+                <select name="MIR-SELCT-COMNT-TXT-CD" id="MIR-SELCT-COMNT-TXT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-CR-CARD-CD">Select A / B:</label>
+                <select name="MIR-SELCT-CR-CARD-CD" id="MIR-SELCT-CR-CARD-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-EMPLMNT-CD">Select A / B:</label>
+                <select name="MIR-SELCT-EMPLMNT-CD" id="MIR-SELCT-EMPLMNT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-INCM-CD">Select A / B:</label>
+                <select name="MIR-SELCT-INCM-CD" id="MIR-SELCT-INCM-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-LANG-CD">Select A / B:</label>
+                <select name="MIR-SELCT-LANG-CD" id="MIR-SELCT-LANG-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-MKT-INFO-CD">Select A / B:</label>
+                <select name="MIR-SELCT-MKT-INFO-CD" id="MIR-SELCT-MKT-INFO-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-PREV-NM-1-CD">Select A / B:</label>
+                <select name="MIR-SELCT-PREV-NM-1-CD" id="MIR-SELCT-PREV-NM-1-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-PREV-NM-2-CD">Select A / B:</label>
+                <select name="MIR-SELCT-PREV-NM-2-CD" id="MIR-SELCT-PREV-NM-2-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-PREV-NM-3-CD">Select A / B:</label>
+                <select name="MIR-SELCT-PREV-NM-3-CD" id="MIR-SELCT-PREV-NM-3-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-PRIM-ADDR-CD">Select A / B:</label>
+                <select name="MIR-SELCT-PRIM-ADDR-CD" id="MIR-SELCT-PRIM-ADDR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-SERV-AGT-CD">Select A / B:</label>
+                <select name="MIR-SELCT-SERV-AGT-CD" id="MIR-SELCT-SERV-AGT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-SMKR-CD">Select A / B:</label>
+                <select name="MIR-SELCT-SMKR-CD" id="MIR-SELCT-SMKR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-STMT-DT-CD">Select A / B:</label>
+                <select name="MIR-SELCT-STMT-DT-CD" id="MIR-SELCT-STMT-DT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-TAX-INFO-CD">Select A / B:</label>
+                <select name="MIR-SELCT-TAX-INFO-CD" id="MIR-SELCT-TAX-INFO-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-SELCT-UWG-INFO-CD">Select A / B:</label>
+                <select name="MIR-SELCT-UWG-INFO-CD" id="MIR-SELCT-UWG-INFO-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+            </p>
+            <p>
+                <label for="MIR-ADDR-STAT-CHNG-DT">Address Status Changed Date:</label>
+                <span id="MIR-ADDR-STAT-CHNG-DT" stype="Date" displayonly="yes">MIR-ADDR-STAT-CHNG-DT</span>
+            </p>
+            <p>
+                <label for="MIR-ADDR-STAT-CHNG-DT-2">Address Status Changed Date:</label>
+                <span id="MIR-ADDR-STAT-CHNG-DT-2" stype="Date" displayonly="yes">MIR-ADDR-STAT-CHNG-DT-2</span>
+            </p>
+            <p>
+                <label for="MIR-AGT-ID">Agent ID:</label>
+                <span id="MIR-AGT-ID" stype="Text" displayonly="yes">MIR-AGT-ID</span>
+            </p>
+            <p>
+                <label for="MIR-AGT-ID-2">Agent ID:</label>
+                <span id="MIR-AGT-ID-2" stype="Text" displayonly="yes">MIR-AGT-ID-2</span>
+            </p>
+            <p>
+                <label for="MIR-BEST-TIME-CALL-TXT">Best Time to Call:</label>
+                <span id="MIR-BEST-TIME-CALL-TXT" stype="Text" displayonly="yes">MIR-BEST-TIME-CALL-TXT</span>
+            </p>
+            <p>
+                <label for="MIR-BEST-TIME-CALL-TXT-2">Best Time to Call:</label>
+                <span id="MIR-BEST-TIME-CALL-TXT-2" stype="Text" displayonly="yes">MIR-BEST-TIME-CALL-TXT-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-ADDR-CHNG-DT">Address Changed Date:</label>
+                <span id="MIR-CLI-ADDR-CHNG-DT" stype="Date" displayonly="yes">MIR-CLI-ADDR-CHNG-DT</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-ADDR-CHNG-DT-2">Address Changed Date:</label>
+                <span id="MIR-CLI-ADDR-CHNG-DT-2" stype="Date" displayonly="yes">MIR-CLI-ADDR-CHNG-DT-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-ADDR-LN-1-TXT">Address:</label>
+                <span id="MIR-CLI-ADDR-LN-1-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-1-TXT</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-ADDR-LN-1-TXT-2">Address:</label>
+                <span id="MIR-CLI-ADDR-LN-1-TXT-2" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-1-TXT-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-ADDR-LN-2-TXT">MIR-CLI-ADDR-LN-2-TXT:</label>
+                <span id="MIR-CLI-ADDR-LN-2-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-2-TXT</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-ADDR-LN-2-TXT-2">MIR-CLI-ADDR-LN-2-TXT-2:</label>
+                <span id="MIR-CLI-ADDR-LN-2-TXT-2" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-2-TXT-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-ADDR-LN-3-TXT">MIR-CLI-ADDR-LN-3-TXT:</label>
+                <span id="MIR-CLI-ADDR-LN-3-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-3-TXT</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-ADDR-LN-3-TXT-2">MIR-CLI-ADDR-LN-3-TXT-2:</label>
+                <span id="MIR-CLI-ADDR-LN-3-TXT-2" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-3-TXT-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-ADDR-STAT-CD">Address Status:</label>
+                <span id="MIR-CLI-ADDR-STAT-CD" stype="Text" displayonly="yes">MIR-CLI-ADDR-STAT-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-ADDR-STAT-CD-2">Address Status:</label>
+                <span id="MIR-CLI-ADDR-STAT-CD-2" stype="Text" displayonly="yes">MIR-CLI-ADDR-STAT-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-ADDR-YR-DUR">Years at Address:</label>
+                <span id="MIR-CLI-ADDR-YR-DUR" stype="Text" displayonly="yes">MIR-CLI-ADDR-YR-DUR</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-ADDR-YR-DUR-2">Years at Address:</label>
+                <span id="MIR-CLI-ADDR-YR-DUR-2" stype="Text" displayonly="yes">MIR-CLI-ADDR-YR-DUR-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-AGE-PROOF-IND">Proof of age submitted:</label>
+                <input type="checkbox" name="MIR-CLI-AGE-PROOF-IND" id="MIR-CLI-AGE-PROOF-IND" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-AGE-PROOF-IND-2">Proof of age submitted:</label>
+                <input type="checkbox" name="MIR-CLI-AGE-PROOF-IND-2" id="MIR-CLI-AGE-PROOF-IND-2" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-BTH-DT">Birth Date:</label>
+                <span id="MIR-CLI-BTH-DT" stype="Date" displayonly="yes" emperorDate="myEmperorDate">MIR-CLI-BTH-DT</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-BTH-DT-2">Birth Date:</label>
+                <span id="MIR-CLI-BTH-DT-2" stype="Date" displayonly="yes" emperorDate="myEmperorDate2">MIR-CLI-BTH-DT-2</span>
+            </p>
+            <p>
+                <label for="myEmperorDate">Emperor Date:</label>
+                <span id="myEmperorDate" displayonly="yes">myEmperorDate</span>
+            </p>
+            <p>
+                <label for="myEmperorDate2">Emperor Date:</label>
+                <span id="myEmperorDate2" displayonly="yes">myEmperorDate2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-BTH-LOC-CD">Birth Location:</label>
+                <span id="MIR-CLI-BTH-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-BTH-LOC-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-BTH-LOC-CD-2">Birth Location:</label>
+                <span id="MIR-CLI-BTH-LOC-CD-2" stype="Text" displayonly="yes">MIR-CLI-BTH-LOC-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-CHRTY-IND">Owner has been identified as a charity:</label>
+                <input type="checkbox" name="MIR-CLI-CHRTY-IND" id="MIR-CLI-CHRTY-IND" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-CHRTY-IND-2">Owner has been identified as a charity:</label>
+                <input type="checkbox" name="MIR-CLI-CHRTY-IND-2" id="MIR-CLI-CHRTY-IND-2" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-CITY-NM-TXT">City:</label>
+                <span id="MIR-CLI-CITY-NM-TXT" stype="Text" displayonly="yes">MIR-CLI-CITY-NM-TXT</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-CITY-NM-TXT-2">City:</label>
+                <span id="MIR-CLI-CITY-NM-TXT-2" stype="Text" displayonly="yes">MIR-CLI-CITY-NM-TXT-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-CLAS-CD">Classification:</label>
+                <span id="MIR-CLI-CLAS-CD" stype="Text" displayonly="yes">MIR-CLI-CLAS-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-CLAS-CD-2">Classification:</label>
+                <span id="MIR-CLI-CLAS-CD-2" stype="Text" displayonly="yes">MIR-CLI-CLAS-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-CMPLT-CCAS-IND">Clear case processing attempted:</label>
+                <input type="checkbox" name="MIR-CLI-CMPLT-CCAS-IND" id="MIR-CLI-CMPLT-CCAS-IND" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-CMPLT-CCAS-IND-2">Clear case processing attempted:</label>
+                <input type="checkbox" name="MIR-CLI-CMPLT-CCAS-IND-2" id="MIR-CLI-CMPLT-CCAS-IND-2" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-CNFD-IND">Access to client information is confidential:</label>
+                <input type="checkbox" name="MIR-CLI-CNFD-IND" id="MIR-CLI-CNFD-IND" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-CNFD-IND-2">Access to client information is confidential:</label>
+                <input type="checkbox" name="MIR-CLI-CNFD-IND-2" id="MIR-CLI-CNFD-IND-2" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-COMNT-TXT">Additional Comments:</label>
+                <span id="MIR-CLI-COMNT-TXT" stype="Text" displayonly="yes">MIR-CLI-COMNT-TXT</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-COMNT-TXT-2">Additional Comments:</label>
+                <span id="MIR-CLI-COMNT-TXT-2" stype="Text" displayonly="yes">MIR-CLI-COMNT-TXT-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-CR-CARD-NUM">Chargecard Account Number:</label>
+                <span id="MIR-CLI-CR-CARD-NUM" stype="Text" displayonly="yes">MIR-CLI-CR-CARD-NUM</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-CR-CARD-NUM-2">Chargecard Account Number:</label>
+                <span id="MIR-CLI-CR-CARD-NUM-2" stype="Text" displayonly="yes">MIR-CLI-CR-CARD-NUM-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-CR-CARD-TYP-CD">Chargecard Type:</label>
+                <span id="MIR-CLI-CR-CARD-TYP-CD" stype="Text" displayonly="yes">MIR-CLI-CR-CARD-TYP-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-CR-CARD-TYP-CD-2">Chargecard Type:</label>
+                <span id="MIR-CLI-CR-CARD-TYP-CD-2" stype="Text" displayonly="yes">MIR-CLI-CR-CARD-TYP-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-CRNT-LOC-CD">Province/State:</label>
+                <span id="MIR-CLI-CRNT-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-CRNT-LOC-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-CRNT-LOC-CD-2">Province/State:</label>
+                <span id="MIR-CLI-CRNT-LOC-CD-2" stype="Text" displayonly="yes">MIR-CLI-CRNT-LOC-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-CTRY-CD">Country:</label>
+                <span id="MIR-CLI-CTRY-CD" stype="Text" displayonly="yes">MIR-CLI-CTRY-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-CTRY-CD-2">Country:</label>
+                <span id="MIR-CLI-CTRY-CD-2" stype="Text" displayonly="yes">MIR-CLI-CTRY-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-EMPLR-LOC-CD">Province/State:</label>
+                <span id="MIR-CLI-EMPLR-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-EMPLR-LOC-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-EMPLR-LOC-CD-2">Province/State:</label>
+                <span id="MIR-CLI-EMPLR-LOC-CD-2" stype="Text" displayonly="yes">MIR-CLI-EMPLR-LOC-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-EMPLR-NM">Current Employer Name:</label>
+                <span id="MIR-CLI-EMPLR-NM" stype="Text" displayonly="yes">MIR-CLI-EMPLR-NM</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-EMPLR-NM-2">Current Employer Name:</label>
+                <span id="MIR-CLI-EMPLR-NM-2" stype="Text" displayonly="yes">MIR-CLI-EMPLR-NM-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-EMPL-YR-DUR">Years with Employer:</label>
+                <span id="MIR-CLI-EMPL-YR-DUR" stype="Text" displayonly="yes">MIR-CLI-EMPL-YR-DUR</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-EMPL-YR-DUR-2">Years with Employer:</label>
+                <span id="MIR-CLI-EMPL-YR-DUR-2" stype="Text" displayonly="yes">MIR-CLI-EMPL-YR-DUR-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-INCM-EARN-CD">Income Class:</label>
+                <span id="MIR-CLI-INCM-EARN-CD" stype="Text" displayonly="yes">MIR-CLI-INCM-EARN-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-INCM-EARN-CD-2">Income Class:</label>
+                <span id="MIR-CLI-INCM-EARN-CD-2" stype="Text" displayonly="yes">MIR-CLI-INCM-EARN-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-LANG-CD">Correspondence Language:</label>
+                <span id="MIR-CLI-LANG-CD" stype="Text" displayonly="yes">MIR-CLI-LANG-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-LANG-CD-2">Correspondence Language:</label>
+                <span id="MIR-CLI-LANG-CD-2" stype="Text" displayonly="yes">MIR-CLI-LANG-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-LEGIT-DUP-IND">Legitimate duplicate - Do not consolidate:</label>
+                <input type="checkbox" name="MIR-CLI-LEGIT-DUP-IND" id="MIR-CLI-LEGIT-DUP-IND" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-LEGIT-DUP-IND-2">Legitimate duplicate - Do not consolidate:</label>
+                <input type="checkbox" name="MIR-CLI-LEGIT-DUP-IND-2" id="MIR-CLI-LEGIT-DUP-IND-2" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-MAIL-TITL-TXT">Title:</label>
+                <span id="MIR-CLI-MAIL-TITL-TXT" stype="Text" displayonly="yes">MIR-CLI-MAIL-TITL-TXT</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-MAIL-TITL-TXT-2">Title:</label>
+                <span id="MIR-CLI-MAIL-TITL-TXT-2" stype="Text" displayonly="yes">MIR-CLI-MAIL-TITL-TXT-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-MARIT-STAT-CD">Marital Status:</label>
+                <span id="MIR-CLI-MARIT-STAT-CD" stype="Text" displayonly="yes">MIR-CLI-MARIT-STAT-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-MARIT-STAT-CD-2">Marital Status:</label>
+                <span id="MIR-CLI-MARIT-STAT-CD-2" stype="Text" displayonly="yes">MIR-CLI-MARIT-STAT-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-MIB-IND-CD">MIB Indicator:</label>
+                <span id="MIR-CLI-MIB-IND-CD" stype="Text" displayonly="yes">MIR-CLI-MIB-IND-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-MIB-IND-CD-2">MIB Indicator:</label>
+                <span id="MIR-CLI-MIB-IND-CD-2" stype="Text" displayonly="yes">MIR-CLI-MIB-IND-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-MID-INIT-NM">Initial:</label>
+                <span id="MIR-CLI-MID-INIT-NM" stype="Text" displayonly="yes">MIR-CLI-MID-INIT-NM</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-MID-INIT-NM-2">Initial:</label>
+                <span id="MIR-CLI-MID-INIT-NM-2" stype="Text" displayonly="yes">MIR-CLI-MID-INIT-NM-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-NM-CHNG-DT">Client Name Change Date:</label>
+                <span id="MIR-CLI-NM-CHNG-DT" stype="Date" displayonly="yes">MIR-CLI-NM-CHNG-DT</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-NM-CHNG-DT-2">Client Name Change Date:</label>
+                <span id="MIR-CLI-NM-CHNG-DT-2" stype="Date" displayonly="yes">MIR-CLI-NM-CHNG-DT-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-OCCP-CLAS-CD">Occupation Class:</label>
+                <span id="MIR-CLI-OCCP-CLAS-CD" stype="Text" displayonly="yes">MIR-CLI-OCCP-CLAS-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-OCCP-CLAS-CD-2">Occupation Class:</label>
+                <span id="MIR-CLI-OCCP-CLAS-CD-2" stype="Text" displayonly="yes">MIR-CLI-OCCP-CLAS-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-PREV-DCLN-DT">Declined Date:</label>
+                <span id="MIR-CLI-PREV-DCLN-DT" stype="Date" displayonly="yes">MIR-CLI-PREV-DCLN-DT</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-PREV-DCLN-DT-2">Declined Date:</label>
+                <span id="MIR-CLI-PREV-DCLN-DT-2" stype="Date" displayonly="yes">MIR-CLI-PREV-DCLN-DT-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-PREV-DCLN-IND">Client previously declined by company:</label>
+                <input type="checkbox" name="MIR-CLI-PREV-DCLN-IND" id="MIR-CLI-PREV-DCLN-IND" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-PREV-DCLN-IND-2">Client previously declined by company:</label>
+                <input type="checkbox" name="MIR-CLI-PREV-DCLN-IND-2" id="MIR-CLI-PREV-DCLN-IND-2" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-PREV-EMPLR-NM">Previous Employer Name:</label>
+                <span id="MIR-CLI-PREV-EMPLR-NM" stype="Text" displayonly="yes">MIR-CLI-PREV-EMPLR-NM</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-PREV-EMPLR-NM-2">Previous Employer Name:</label>
+                <span id="MIR-CLI-PREV-EMPLR-NM-2" stype="Text" displayonly="yes">MIR-CLI-PREV-EMPLR-NM-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-PRST-RT">Persistency Rate:</label>
+                <span id="MIR-CLI-PRST-RT" stype="Percent" elength="3" decimals="0" displayonly="yes">MIR-CLI-PRST-RT</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-PRST-RT-2">Persistency Rate:</label>
+                <span id="MIR-CLI-PRST-RT-2" stype="Percent" elength="3" decimals="0" displayonly="yes">MIR-CLI-PRST-RT-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-PSTL-CD">Postal/Zip Code:</label>
+                <span id="MIR-CLI-PSTL-CD" stype="Text" displayonly="yes">MIR-CLI-PSTL-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-PSTL-CD-2">Postal/Zip Code:</label>
+                <span id="MIR-CLI-PSTL-CD-2" stype="Text" displayonly="yes">MIR-CLI-PSTL-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-SELF-EMPL-IND">Self-employed:</label>
+                <input type="checkbox" name="MIR-CLI-SELF-EMPL-IND" id="MIR-CLI-SELF-EMPL-IND" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-SELF-EMPL-IND-2">Self-employed:</label>
+                <input type="checkbox" name="MIR-CLI-SELF-EMPL-IND-2" id="MIR-CLI-SELF-EMPL-IND-2" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-SEX-CD">Sex:</label>
+                <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-SEX-CD-2">Sex:</label>
+                <span id="MIR-CLI-SEX-CD-2" stype="Text" displayonly="yes">MIR-CLI-SEX-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-SFX-NM">Suffix:</label>
+                <span id="MIR-CLI-SFX-NM" stype="Text" displayonly="yes">MIR-CLI-SFX-NM</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-SFX-NM-2">Suffix:</label>
+                <span id="MIR-CLI-SFX-NM-2" stype="Text" displayonly="yes">MIR-CLI-SFX-NM-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-SMKR-CD">Smoker:</label>
+                <span id="MIR-CLI-SMKR-CD" stype="Text" displayonly="yes">MIR-CLI-SMKR-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-SMKR-CD-2">Smoker:</label>
+                <span id="MIR-CLI-SMKR-CD-2" stype="Text" displayonly="yes">MIR-CLI-SMKR-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-STMT-DT">Statement Date:</label>
+                <span id="MIR-CLI-STMT-DT" stype="Date" displayonly="yes">MIR-CLI-STMT-DT</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-STMT-DT-2">Statement Date:</label>
+                <span id="MIR-CLI-STMT-DT-2" stype="Date" displayonly="yes">MIR-CLI-STMT-DT-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-TAX-ID">Tax Identification Number:</label>
+                <span id="MIR-CLI-TAX-ID" stype="Text" displayonly="yes">MIR-CLI-TAX-ID</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-TAX-ID-2">Tax Identification Number:</label>
+                <span id="MIR-CLI-TAX-ID-2" stype="Text" displayonly="yes">MIR-CLI-TAX-ID-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-TXEMP-CD">Tax Exempt:</label>
+                <span id="MIR-CLI-TXEMP-CD" stype="Text" displayonly="yes">MIR-CLI-TXEMP-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-TXEMP-CD-2">Tax Exempt:</label>
+                <span id="MIR-CLI-TXEMP-CD-2" stype="Text" displayonly="yes">MIR-CLI-TXEMP-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-UIC-QUALF-IND">UIC Qualified:</label>
+                <input type="checkbox" name="MIR-CLI-UIC-QUALF-IND" id="MIR-CLI-UIC-QUALF-IND" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-UIC-QUALF-IND-2">UIC Qualified:</label>
+                <input type="checkbox" name="MIR-CLI-UIC-QUALF-IND-2" id="MIR-CLI-UIC-QUALF-IND-2" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-UWGDECN-CD">Underwriting Decision:</label>
+                <span id="MIR-CLI-UWGDECN-CD" stype="Text" displayonly="yes">MIR-CLI-UWGDECN-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-UWGDECN-CD-2">Underwriting Decision:</label>
+                <span id="MIR-CLI-UWGDECN-CD-2" stype="Text" displayonly="yes">MIR-CLI-UWGDECN-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-UWGDECN-DT">UW Decision Changed Date:</label>
+                <span id="MIR-CLI-UWGDECN-DT" stype="Date" displayonly="yes">MIR-CLI-UWGDECN-DT</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-UWGDECN-DT-2">UW Decision Changed Date:</label>
+                <span id="MIR-CLI-UWGDECN-DT-2" stype="Date" displayonly="yes">MIR-CLI-UWGDECN-DT-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-UWGDECN-TYP-CD">Decision Type:</label>
+                <span id="MIR-CLI-UWGDECN-TYP-CD" stype="Text" displayonly="yes">MIR-CLI-UWGDECN-TYP-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-UWGDECN-TYP-CD-2">Decision Type:</label>
+                <span id="MIR-CLI-UWGDECN-TYP-CD-2" stype="Text" displayonly="yes">MIR-CLI-UWGDECN-TYP-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-WRK-CD">Worked/Period:</label>
+                <span id="MIR-CLI-WRK-CD" stype="Text" displayonly="yes">MIR-CLI-WRK-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-WRK-CD-2">Worked/Period:</label>
+                <span id="MIR-CLI-WRK-CD-2" stype="Text" displayonly="yes">MIR-CLI-WRK-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-WRK-DUR-CD">Worked/Period:</label>
+                <span id="MIR-CLI-WRK-DUR-CD" stype="Text" displayonly="yes">MIR-CLI-WRK-DUR-CD</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-WRK-DUR-CD-2">Worked/Period:</label>
+                <span id="MIR-CLI-WRK-DUR-CD-2" stype="Text" displayonly="yes">MIR-CLI-WRK-DUR-CD-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-WRK-PT-IND">Part-time:</label>
+                <input type="checkbox" name="MIR-CLI-WRK-PT-IND" id="MIR-CLI-WRK-PT-IND" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-WRK-PT-IND-2">Part-time:</label>
+                <input type="checkbox" name="MIR-CLI-WRK-PT-IND-2" id="MIR-CLI-WRK-PT-IND-2" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-CLI-WRK-QTY">Hours Worked:</label>
+                <span id="MIR-CLI-WRK-QTY" stype="Text" displayonly="yes">MIR-CLI-WRK-QTY</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-WRK-QTY-2">Hours Worked:</label>
+                <span id="MIR-CLI-WRK-QTY-2" stype="Text" displayonly="yes">MIR-CLI-WRK-QTY-2</span>
+            </p>
+            <p>
+                <label for="MIR-DV-APP-INFO-IND">Application Information:</label>
+                <input type="checkbox" name="MIR-DV-APP-INFO-IND" id="MIR-DV-APP-INFO-IND" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-DV-APP-INFO-IND-2">Application Information:</label>
+                <input type="checkbox" name="MIR-DV-APP-INFO-IND-2" id="MIR-DV-APP-INFO-IND-2" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-DV-BNK-ACCT-QTY">Number of Bank Accounts:</label>
+                <span id="MIR-DV-BNK-ACCT-QTY" stype="Text" displayonly="yes">MIR-DV-BNK-ACCT-QTY</span>
+            </p>
+            <p>
+                <label for="MIR-DV-BNK-ACCT-QTY-2">Number of Bank Accounts:</label>
+                <span id="MIR-DV-BNK-ACCT-QTY-2" stype="Text" displayonly="yes">MIR-DV-BNK-ACCT-QTY-2</span>
+            </p>
+            <p>
+                <label for="MIR-DV-CLI-NM">Client Name:</label>
+                <span id="MIR-DV-CLI-NM" stype="Text" displayonly="yes">MIR-DV-CLI-NM</span>
+            </p>
+            <p>
+                <label for="MIR-DV-CLI-NM-2">Client Name:</label>
+                <span id="MIR-DV-CLI-NM-2" stype="Text" displayonly="yes">MIR-DV-CLI-NM-2</span>
+            </p>
+            <p>
+                <label for="MIR-DV-CLI-PREV-NM-1">Previous Name:</label>
+                <span id="MIR-DV-CLI-PREV-NM-1" stype="Text" displayonly="yes">MIR-DV-CLI-PREV-NM-1</span>
+            </p>
+            <p>
+                <label for="MIR-DV-CLI-PREV-NM-1-2">Previous Name:</label>
+                <span id="MIR-DV-CLI-PREV-NM-1-2" stype="Text" displayonly="yes">MIR-DV-CLI-PREV-NM-1-2</span>
+            </p>
+            <p>
+                <label for="MIR-DV-CLI-PREV-NM-2">Previous Name:</label>
+                <span id="MIR-DV-CLI-PREV-NM-2" stype="Text" displayonly="yes">MIR-DV-CLI-PREV-NM-2</span>
+            </p>
+            <p>
+                <label for="MIR-DV-CLI-PREV-NM-2-2">Previous Name:</label>
+                <span id="MIR-DV-CLI-PREV-NM-2-2" stype="Text" displayonly="yes">MIR-DV-CLI-PREV-NM-2-2</span>
+            </p>
+            <p>
+                <label for="MIR-DV-CLI-PREV-NM-3">Previous Name:</label>
+                <span id="MIR-DV-CLI-PREV-NM-3" stype="Text" displayonly="yes">MIR-DV-CLI-PREV-NM-3</span>
+            </p>
+            <p>
+                <label for="MIR-DV-CLI-PREV-NM-3-2">Previous Name:</label>
+                <span id="MIR-DV-CLI-PREV-NM-3-2" stype="Text" displayonly="yes">MIR-DV-CLI-PREV-NM-3-2</span>
+            </p>
+            <p>
+                <label for="MIR-DV-CNTCT-QTY">Number of Contact Information:</label>
+                <span id="MIR-DV-CNTCT-QTY" stype="Text" displayonly="yes">MIR-DV-CNTCT-QTY</span>
+            </p>
+            <p>
+                <label for="MIR-DV-CNTCT-QTY-2">Number of Contact Information:</label>
+                <span id="MIR-DV-CNTCT-QTY-2" stype="Text" displayonly="yes">MIR-DV-CNTCT-QTY-2</span>
+            </p>
+            <p>
+                <label for="MIR-DV-INCM-QTY">Number of Income Information:</label>
+                <span id="MIR-DV-INCM-QTY" stype="Text" displayonly="yes">MIR-DV-INCM-QTY</span>
+            </p>
+            <p>
+                <label for="MIR-DV-INCM-QTY-2">Number of Income Information:</label>
+                <span id="MIR-DV-INCM-QTY-2" stype="Text" displayonly="yes">MIR-DV-INCM-QTY-2</span>
+            </p>
+            <p>
+                <label for="MIR-DV-OTHR-ADDR-IND">Other Mailing Address:</label>
+                <input type="checkbox" name="MIR-DV-OTHR-ADDR-IND" id="MIR-DV-OTHR-ADDR-IND" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-DV-OTHR-ADDR-IND-2">Other Mailing Address:</label>
+                <input type="checkbox" name="MIR-DV-OTHR-ADDR-IND-2" id="MIR-DV-OTHR-ADDR-IND-2" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-DV-PREV-ADDR-IND">Previous Address:</label>
+                <input type="checkbox" name="MIR-DV-PREV-ADDR-IND" id="MIR-DV-PREV-ADDR-IND" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-DV-PREV-ADDR-IND-2">Previous Address:</label>
+                <input type="checkbox" name="MIR-DV-PREV-ADDR-IND-2" id="MIR-DV-PREV-ADDR-IND-2" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-OCCP-ID">Occupation:</label>
+                <span id="MIR-OCCP-ID" stype="Text" displayonly="yes">MIR-OCCP-ID</span>
+            </p>
+            <p>
+                <label for="MIR-OCCP-ID-2">Occupation:</label>
+                <span id="MIR-OCCP-ID-2" stype="Text" displayonly="yes">MIR-OCCP-ID-2</span>
+            </p>
+            <p>
+                <label for="MIR-PREV-EMPL-YR-DUR">Number of Years with Employer:</label>
+                <span id="MIR-PREV-EMPL-YR-DUR" stype="Text" displayonly="yes">MIR-PREV-EMPL-YR-DUR</span>
+            </p>
+            <p>
+                <label for="MIR-PREV-EMPL-YR-DUR-2">Number of Years with Employer:</label>
+                <span id="MIR-PREV-EMPL-YR-DUR-2" stype="Text" displayonly="yes">MIR-PREV-EMPL-YR-DUR-2</span>
+            </p>
+            <p>
+                <label for="MIR-PREV-UPDT-DT">Client Record:</label>
+                <span id="MIR-PREV-UPDT-DT" stype="Date" displayonly="yes">MIR-PREV-UPDT-DT</span>
+            </p>
+            <p>
+                <label for="MIR-PREV-UPDT-DT-2">Client Record:</label>
+                <span id="MIR-PREV-UPDT-DT-2" stype="Date" displayonly="yes">MIR-PREV-UPDT-DT-2</span>
+            </p>
+            <p>
+                <label for="MIR-UNMTCH-MAIL-IND">Unmatched mail:</label>
+                <input type="checkbox" name="MIR-UNMTCH-MAIL-IND" id="MIR-UNMTCH-MAIL-IND" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-UNMTCH-MAIL-IND-2">Unmatched mail:</label>
+                <input type="checkbox" name="MIR-UNMTCH-MAIL-IND-2" id="MIR-UNMTCH-MAIL-IND-2" stype="Indicator" value="Y" disabled="yes" />
+            </p>
+            <p>
+                <label for="MIR-UWG-WRKSHT-NUM">Worksheet Number:</label>
+                <span id="MIR-UWG-WRKSHT-NUM" stype="Text" displayonly="yes">MIR-UWG-WRKSHT-NUM</span>
+            </p>
+            <p>
+                <label for="MIR-UWG-WRKSHT-NUM-2">Worksheet Number:</label>
+                <span id="MIR-UWG-WRKSHT-NUM-2" stype="Text" displayonly="yes">MIR-UWG-WRKSHT-NUM-2</span>
+            </p>
+            <p>
+                <label for="MIR-UW-USER-1-ID">1st Underwriter Initials:</label>
+                <span id="MIR-UW-USER-1-ID" stype="Text" displayonly="yes">MIR-UW-USER-1-ID</span>
+            </p>
+            <p>
+                <label for="MIR-UW-USER-1-ID-2">1st Underwriter Initials:</label>
+                <span id="MIR-UW-USER-1-ID-2" stype="Text" displayonly="yes">MIR-UW-USER-1-ID-2</span>
+            </p>
+            <p>
+                <label for="MIR-UW-USER-2-ID">2nd Underwriter Initials:</label>
+                <span id="MIR-UW-USER-2-ID" stype="Text" displayonly="yes">MIR-UW-USER-2-ID</span>
+            </p>
+            <p>
+                <label for="MIR-UW-USER-2-ID-2">2nd Underwriter Initials:</label>
+                <span id="MIR-UW-USER-2-ID-2" stype="Text" displayonly="yes">MIR-UW-USER-2-ID-2</span>
+            </p>
+            <p>
+                <label for="MIR-CLI-JP-ADDR-CD">Prefecture:</label>
+                <input type="text" value=" " name="MIR-CLI-JP-ADDR-CD" id="MIR-CLI-JP-ADDR-CD" stype="Text" maxlength="11" onfocus="enterField(this)" />
+            </p>
+            <p>
+                <label for="MIR-CLI-JP-ADDR-CD-2">Prefecture:</label>
+                <input type="text" value=" " name="MIR-CLI-JP-ADDR-CD-2" id="MIR-CLI-JP-ADDR-CD-2" stype="Text" maxlength="11" onfocus="enterField(this)" />
+            </p>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/EmperorDates.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

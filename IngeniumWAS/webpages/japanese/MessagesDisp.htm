@@ -1,0 +1,103 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:11 PM EDT
+*********************************************************************************
+*  (C) COPYRIGHT 2001 INSURANCE SOFTWARE SOLUTIONS CORP.  ALL RIGHTS RESERVED   *
+*********************************************************************************
+*  Component:   MessagesDisp.htm                                                *
+*  Description:                                                                 *
+*                                                                               *
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  014590  6.0      New for release 6.0                                         *
+*          1.3      Updated for new message function                            *
+*  023123  PF3.0    Changed resource references to be relative                  *
+*  023460  PF3.0    Changed table syntax                                        *
+*  023809  PF3.0    Changed encoding to UTF-8                                   *
+*  23774B  CTS      Changes done for ie retirement project to make it           *
+*                   compatible for microsoft edge. Changes in html include      *
+*                   adding "id" attribute for all input fields and changes in   *
+*                   java scripts to modify certain functions/commands which     *
+*                   are no longer compatilble with edge.                        *
+*                                                                               *
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- 23123 added .. to href path -->
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodymessage" onload="onLoad()">
+        <input type="hidden" name="MORE-MESSAGES-IND" id="MORE-MESSAGES-IND" />
+        <table class="tablemessage">
+            <tr>
+                <td class="cellmessage">
+                    <!-- 23460 changed table fields from -T-n to -T[n] -->
+                    <div id="MESSAGES-T[1]" />
+                </td>
+            </tr>
+            <tr>
+                <td class="cellmessage">
+                    <div id="MESSAGES-T[2]" />
+                </td>
+            </tr>
+            <tr>
+                <td class="cellmessage">
+                    <div id="MESSAGES-T[3]" />
+                </td>
+            </tr>
+            <tr>
+                <td class="cellmessage">
+                    <div id="MESSAGES-T[4]" />
+                </td>
+            </tr>
+            <tr>
+                <td class="cellmessage">
+                    <div id="MESSAGES-T[5]" />
+                </td>
+                <td width="1%" class="cellmessage">
+                    <!-- 23123 removed /servlet/ from href path -->
+                    <a name="More" style="display: none" href="pageserver?ProcessClassID=BF0090List&amp;PageReturn=Blank&amp;LocaleID=J" target="_window">
+                        <font face="Arial" size="1">さらに表示...</font>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="cellmessage">
+                    <div id="MESSAGES-T[6]" style="display: none"/>
+                </td>
+            </tr>
+        </table>
+    </body>
+    <script>
+
+function onLoad()
+
+{
+
+  // show more link if there are more than 5 messages
+
+  if ((document.getElementById("MESSAGES-T[6]").outerText != "") || (document.getElementById("MORE-MESSAGES-IND").value == "Y"))
+  {
+    document.getElementById("More").style.display = "";
+  }
+
+}
+
+// If MessageFrame receives focus, force it to go to the Content Frame; otherwise
+
+// other js will not take effect
+
+//window.onfocus=loseFocus;
+
+function loseFocus()
+
+{ 
+
+  parent.window.frames("ContentFrame").focus();
+
+}
+
+</script>
+</html>

@@ -1,0 +1,87 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:15 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0523-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"  
+*  23774B  CTS       23774B-IE Retirement changes                           
+*  UY3060  CTS      Dividend Payout Process for stream3 product                 
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0523-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-TRXN-EFF-DT">Effective Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-TRXN-EFF-DT" id="MIR-POL-TRXN-EFF-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-ACCT-TRXN-AMT">Amount:</label>
+                    </td>
+                    <td class="celldatakey">
+<!-- UY3060 changes starts here -->
+<!--                <input type="text" value=" " name="MIR-DV-ACCT-TRXN-AMT" id="MIR-DV-ACCT-TRXN-AMT" stype="Currency" elength="13" signed="yes" mandatory="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" /> -->
+                    <input type="text" value=" " name="MIR-DV-ACCT-TRXN-AMT" id="MIR-DV-ACCT-TRXN-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+<!-- UY3060 changes ends here -->
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-CHQ-CREAT-IND">Request cheque:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="checkbox" value="Y" name="MIR-DV-CHQ-CREAT-IND" id="MIR-DV-CHQ-CREAT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+<!-- UY3060 changes starts here -->
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-TRNXT-PAYO-MTHD-CD">Pay Out Method:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-DV-TRNXT-PAYO-MTHD-CD" id="MIR-DV-TRNXT-PAYO-MTHD-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+<!-- UY3060 changes ends here -->
+                    <td class="celldatakeylabel" />
+                    <td class="celldatakey" />
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!-- UY3004 CHANGES START HERE -->
+	    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

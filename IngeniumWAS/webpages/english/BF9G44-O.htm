@@ -1,0 +1,132 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:27 PM EDT
+*********************************************************************************
+*  Component:   BF9G44-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  TLB15C   CTS      REINSURANCE CHANGES                                        *
+*  TLB15C   CTS      Changes done for ie retirement project to make it
+*                    compatible for microsoft edge. Changes in html include
+*                    adding "id" attribute for all input fields.
+*  NVCR01   CTS      CHANGES DONE AS PRT OF ONTARIO REINSURANCE                 *
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9G44-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad();validateCrcyDcml();SelectionCheck()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID">Policy Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID" stype="Text" displayonly="yes">MIR-POL-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CLI-ID">Client Id:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keycolumn="1" id="ReinsInfo">
+                <tr>
+                    <td class="celldisplayheading" colspan="10">Coverage Information</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="SELECT-T[1]" >Select</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-T[1]">Policy ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PLAN-ID-T[1]">Plan Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-REINS-CO-ID-T[1]">Reinsurance Company</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-REINS-TRTY-NUM-T[1]">Treaty Number</label>
+                    </td>
+		            <td class="celldisplayheading">
+                        <label for="MIR-REINS-CED-PCT-T[1]">Ceding Percentage</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-REINS-INIT-CED-AMT-T[1]">Initial Ceded Amount</label>
+                    </td>
+                    <td class="celldisplayheading">
+                    <label for="MIR-REINS-TYP-CD-T[1]">Ceding Method</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-REINS-CVG-XIST-IND-T[1]">Rider</label>
+                    </td>
+<!-- NVCR01 CHANGES STARTS -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-WP-TYP-CD-T[1]">WoP Type</label>
+                    </td>
+<!-- NVCR01 CHANGES ENDS -->
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-T[]" stype="Text" displayonly="yes">MIR-POL-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID-T[]" stype="Text"  displayonly="yes">MIR-PLAN-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REINS-CO-ID-T[]" stype="Text" displayonly="yes">MIR-REINS-CO-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REINS-TRTY-NUM-T[]" stype="Text" displayonly="yes">MIR-REINS-TRTY-NUM-T[]</span>
+                    </td>
+		            <td class="celldisplay">
+                        <span id="MIR-REINS-CED-PCT-T[]" stype="Text" displayonly="yes">MIR-REINS-CED-PCT-T[]</span>
+                    </td>
+		            <td class="celldisplay">
+                        <span id="MIR-REINS-INIT-CED-AMT-T[]" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-REINS-INIT-CED-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-REINS-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-REINS-TYP-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-REINS-CVG-XIST-IND-T[]" id="MIR-REINS-CVG-XIST-IND-T[]" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+<!-- NVCR01 CHANGES STARTS -->
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-WP-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-WP-TYP-CD-T[]</span>
+                    </td>
+<!-- NVCR01 CHANGES ENDS -->					
+                </tr>
+            </table>
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/InquiryReins.js"></script>
+    <script src="../js/CrcyLevelEdits.js"></script>
+</html>

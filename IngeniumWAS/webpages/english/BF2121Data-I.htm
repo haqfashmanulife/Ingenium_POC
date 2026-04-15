@@ -1,0 +1,185 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:07 PM EDT
+*
+*********************************************************************************
+*  Component:   BF2121Data-I.htm                                               
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2"                               
+*  01BL18  BMB      Remove Listbill status and add Payroll Deduction fields    
+*  B00144  BMB      Remove Lead Time field and array element                   
+*                   Policy fields are display only and defaulted from Group    
+*                   Payroll Deduction fields not needed - removed              
+*  PF 3.0  PF30     Corrected "-T-" to "-T[" for some fields 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                    
+*                                                                              
+*  UYS133  CTS      PD group size field addition                                *
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF2121Data-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel" width="235" >
+                        <label for="MIR-DV-LBILL-CLI-NM">Payroll Deduction Client Name:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-LBILL-CLI-NM" stype="Text" displayonly="yes">MIR-DV-LBILL-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel" width="235" >
+                        <label for="MIR-CLI-ID">Payroll Deduction Client Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldataentryheading" colspan="6" >Group Client Payroll Deduction Values</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-TYP-CD">Billing Type:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TYP-CD" stype="Text" displayonly="yes">MIR-POL-BILL-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">Premium/Billing Mode:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-PAC-DRW-DY">Deposit/Draw Day:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAC-DRW-DY" stype="Day" displayonly="yes">MIR-POL-PAC-DRW-DY</span>
+                    </td>
+                </tr>
+<!-- UYS133 CHANGE STARTS HERE -->
+                <tr>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PD-GR-TYP-CD">PD group size:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PD-GR-TYP-CD" stype="Text" displayonly="yes">MIR-PD-GR-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+<!-- UYS133 CHANGE STARTS HERE -->
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="ALL=POLICIES">Update all policies:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" name="ALL-POLICIES" id="ALL-POLICIES" value="Y" onclick="onCheckAll('MIR-DV-SELCT-CD-T[')" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="1">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-SELCT-CD-T[1]">Select</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-BASE-T[1]">Policy ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-SFX-T[1]">Suffix</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SBSDRY-CO-ID-T[1]">Sub Company</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-OWN-CLI-NM-T[1]">Owner Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CSTAT-CD-T[1]">Policy Status</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-PD-TO-DT-NUM-T[1]">Paid to Date</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-BILL-TYP-CD-T[1]">Billing Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-BILL-MODE-CD-T[1]">Premium Mode</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-PAC-DRW-DY-T[1]">Deposit Day</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input type="checkbox" value="Y" name="MIR-DV-SELCT-CD-T[]" id="MIR-DV-SELCT-CD-T[]" stype="Indicator" index="1" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SBSDRY-CO-ID-T[]" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-OWN-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PD-TO-DT-NUM-T[]" stype="Text" displayonly="yes">MIR-POL-PD-TO-DT-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-POL-BILL-TYP-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-MODE-CD-T[]" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-PAC-DRW-DY-T[]" stype="Day" displayonly="yes">MIR-POL-PAC-DRW-DY-T[]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

@@ -1,0 +1,264 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:26 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1190-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  017150  612J     Remove Currency decimals="2"
+*
+*  Chg#    Date     Auth.  Description
+*
+*  EN1327  27Feb07  CLB    Add new fields for category code and comment
+*  BU1581  02NOV07  CTS    MIR-CPREQ-EFF-DT is replaced by MIR-PREV-UPDT-DT
+*  M328C2  23FEB17  CTS    ADDITION OF NEWFIELD MIR-REQIR-POL-ID FOR UW REQUIREMENTS
+*  23774B  10APR22  CTS    Changes done for ie retirement project to make it
+*                          compatible for microsoft edge. Changes in html include
+*                          adding "id" attribute for all input fields and changes in
+*                          java scripts to modify certain functions/commands which
+*                          are no longer compatilble with edge.
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1190-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="showHidePolicyClientKeys(document.getElementById('ReqtType'))">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="ReqtType" id="ReqtType" value="2" />
+            <TABLE CLASS="tabledisplaykey">
+                <TR>
+                    <TD CLASS="celldisplaykeylabel">
+                        <label for="MIR-DV-INSRD-CLI-NM">Client Name:</label>
+                    </TD>
+                    <TD colspan="3" CLASS="celldisplaykey">
+                        <span id="MIR-DV-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM</span>
+                    </TD>
+                </TR>
+                <TR id="ClientKeys" style="display: none">
+                    <TD CLASS="celldisplaykeylabel">
+                        <label for="MIR-CLI-ID">Client ID:</label>
+                    </TD>
+                    <TD CLASS="celldisplaykey">
+                        <span id="MIR-CLI-ID" stype="Text" displayonly="yes">MIR-CLI-ID</span>
+                    </TD>
+                    <TD CLASS="celldisplaykeylabel"></TD>
+                    <TD CLASS="celldisplaykey"></TD>
+                </TR>
+                <TR id="PolicyKeys" style="display: none">
+                    <TD CLASS="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </TD>
+                    <TD CLASS="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </TD>
+                    <TD CLASS="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </TD>
+                    <TD CLASS="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD CLASS="celldisplaykeylabel">
+                        <label for="MIR-REQIR-CAT-CD">Category:</label>
+                    </TD>
+                    <TD CLASS="celldisplaykey">
+                        <span id="MIR-REQIR-CAT-CD" stype="Text" displayonly="yes">MIR-REQIR-CAT-CD</span>
+                    </TD>
+                    <TD CLASS="celldisplaykeylabel"></TD>
+                    <TD CLASS="celldisplaykey"></TD>
+                </TR>
+                <TR>
+                    <TD CLASS="celldisplaykeylabel">
+                        <label for="MIR-REQIR-ID">Requirement:</label>
+                    </TD>
+                    <TD CLASS="celldisplaykey">
+                        <span id="MIR-REQIR-ID" stype="Text" displayonly="yes">MIR-REQIR-ID</span>
+                    </TD>
+                    <TD CLASS="celldisplaykeylabel">
+                        <LABEL FOR="MIR-CPREQ-SEQ-NUM">Sequence Number:</LABEL>
+                    </TD>
+                    <TD CLASS="celldisplaykey">
+                        <span id="MIR-CPREQ-SEQ-NUM" STYPE="Text" DISPLAYONLY="yes">MIR-CPREQ-SEQ-NUM</span>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD CLASS="celldisplaykeylabel">
+                        <label for="MIR-REQIR-TYP-CD">Requirement Needed For:</label>
+                    </TD>
+                    <TD CLASS="celldisplaykey">
+                        <span id="MIR-REQIR-TYP-CD" stype="Text" displayonly="yes">MIR-REQIR-TYP-CD</span>
+                    </TD>
+                    <TD CLASS="celldisplaykeylabel">
+                        <label for="MIR-SERV-BR-ID">Branch:</label>
+                    </TD>
+                    <TD CLASS="celldisplaykey">
+                        <span id="MIR-SERV-BR-ID" stype="Text" displayonly="yes">MIR-SERV-BR-ID</span>
+                    </TD>
+                </TR>
+            </TABLE>
+            <br />
+            <TABLE CLASS="tabledisplay">
+                <TR>
+<!-- M328C2 Changes start here -->
+<!--                <TD COLSPAN="4" CLASS="celldisplayheading">Status / Results</TD> -->
+                    <TD COLSPAN="6" CLASS="celldisplayheading">Status / Results</TD>
+<!-- M328C2 Changes end here -->
+                </TR>
+                <TR>
+                    <TD CLASS="celldisplaylabel">
+                        <label for="MIR-CPREQ-STAT-CD">Requirement Status:</label>
+                    </TD>
+                    <TD CLASS="celldisplay">
+                        <span id="MIR-CPREQ-STAT-CD" stype="Text" displayonly="yes">MIR-CPREQ-STAT-CD</span>
+                    </TD>
+                    <TD CLASS="celldisplaylabel">
+                        <label for="MIR-CPREQ-TST-RSLT-CD">Test Results:</label>
+                    </TD>
+                    <TD CLASS="celldisplay">
+                        <span id="MIR-CPREQ-TST-RSLT-CD" stype="Text" displayonly="yes">MIR-CPREQ-TST-RSLT-CD</span>
+                    </TD>
+<!-- M328C2 Changes start here -->
+                    <TD CLASS="celldisplaylabel">
+                        <label for="MIR-REQIR-POL-ID">Policy ID:</label>
+                    </TD>
+
+                    <TD CLASS="celldisplay">
+                        <span id="MIR-REQIR-POL-ID" stype="Text" displayonly="yes">MIR-REQIR-POL-ID</span>
+                    </TD>
+<!-- M328C2 Changes end here -->
+                </TR>
+            </TABLE>
+            <br />
+            <TABLE CLASS="tabledisplay">
+                <TR>
+                    <TD COLSPAN="4" CLASS="celldisplayheading">Requirement</TD>
+                </TR>
+                <TR>
+                    <TD CLASS="celldisplaylabel">
+                        <label for="MIR-CPREQ-DESGNT-ID">Requirement Requested By:</label>
+                    </TD>
+                    <TD CLASS="celldisplay">
+                        <span id="MIR-CPREQ-DESGNT-ID" stype="Text" displayonly="yes">MIR-CPREQ-DESGNT-ID</span>
+                    </TD>
+                    <TD CLASS="celldisplaylabel">
+                        <label for="MIR-USER-ID">Updated By:</label>
+                    </TD>
+                    <TD CLASS="celldisplay">
+                        <span id="MIR-USER-ID" stype="Text" displayonly="yes">MIR-USER-ID</span>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD CLASS="celldisplaylabel">
+                        <label for="MIR-CPREQ-PD-IND">Requirement fee paid:</label>
+                    </TD>
+                    <TD CLASS="celldisplay">
+                        <input type="checkbox" name="MIR-CPREQ-PD-IND" id="MIR-CPREQ-PD-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </TD>
+                    <TD CLASS="celldisplaylabel"></TD>
+                    <TD CLASS="celldisplay"></TD>
+                </TR>
+            </TABLE>
+            <br />
+            <TABLE CLASS="tabledisplay">
+                <TR>
+                    <TD COLSPAN="4" CLASS="celldisplayheading">Dates</TD>
+                </TR>
+                <TR>
+                    <TD CLASS="celldisplaylabel">
+                        <label for="MIR-CPREQ-CREAT-DT">Creation Date:</label>
+                    </TD>
+                    <TD CLASS="celldisplay">
+                        <span id="MIR-CPREQ-CREAT-DT" stype="Date" displayonly="yes">MIR-CPREQ-CREAT-DT</span>
+                    </TD>
+<!-- BU1581 Changes start here -->
+                    <TD CLASS="celldisplaylabel">
+                        <label for="MIR-PREV-UPDT-DT">Status Date:</label>
+                    </TD>
+                    <TD CLASS="celldisplay">
+                        <span id="MIR-PREV-UPDT-DT" stype="Date" displayonly="yes">MIR-PREV-UPDT-DT</span>
+                    </TD>
+<!-- BU1581 Changes end here -->
+                </TR>
+                <TR>
+                    <TD CLASS="celldisplaylabel">
+                        <label for="MIR-CPREQ-TST-DT">Test Date:</label>
+                    </TD>
+                    <TD CLASS="celldisplay">
+                        <span id="MIR-CPREQ-TST-DT" stype="Date" displayonly="yes">MIR-CPREQ-TST-DT</span>
+                    </TD>
+                    <TD CLASS="celldisplaylabel">
+                        <label for="MIR-CPREQ-VALID-DT">Validity Date:</label>
+                    </TD>
+                    <TD CLASS="celldisplay">
+                        <span id="MIR-CPREQ-VALID-DT" stype="Date" displayonly="yes">MIR-CPREQ-VALID-DT</span>
+                    </TD>
+                </TR>
+            </TABLE>
+            <br />
+            <TABLE CLASS="tabledisplay">
+                <TR>
+                    <TD COLSPAN="4" CLASS="celldisplayheading">Follow-up</TD>
+                </TR>
+                <TR>
+                    <TD CLASS="celldisplaylabel">
+                        <label for="MIR-CPREQ-FOLWUP-DT">Follow-up Date:</label>
+                    </TD>
+                    <TD CLASS="celldisplay">
+                        <span id="MIR-CPREQ-FOLWUP-DT" stype="Date" displayonly="yes">MIR-CPREQ-FOLWUP-DT</span>
+                    </TD>
+                    <TD CLASS="celldisplaylabel">
+                        <label for="MIR-CPREQ-FOLWUP-NUM">Next Follow-up Notice Number:</label>
+                    </TD>
+                    <TD CLASS="celldisplay">
+                        <span id="MIR-CPREQ-FOLWUP-NUM" stype="Text" displayonly="yes">MIR-CPREQ-FOLWUP-NUM</span>
+                    </TD>
+                </TR>
+            </TABLE>
+            <br />
+            <TABLE CLASS="tabledisplay">
+                <TR>
+                    <TD CLASS="celldisplayheading">Comment:</TD>
+                </TR>
+                <TR>
+                    <TD CLASS="celldisplay">
+                        <span id="MIR-REQIR-COMNT-INFO-TXT" stype="TextArea" displayonly="yes">MIR-REQIR-COMNT-INFO-TXT</span>
+                    </TD>
+                </TR>
+            </TABLE>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/PolicyClientKeys.js"></script>
+<!--    UNUSED FIELD:  ONLY REQUIRED IN CONJUNCTION WITH RESOLVE IN UPDATE MODE
+
+<br />
+
+<TABLE CLASS="tabledisplay">
+  <TR>
+    <TD COLSPAN="2" CLASS="celldisplayheading">Indicator</TD>
+  </TR>
+  <TR>
+    <TD CLASS="celldisplaylabel"><label for="MIR-CPREQ-NEW-RSLT-IND">Only use new test results when trying to resolve requirements:</label>
+    </TD>
+    <TD CLASS="celldisplay"><input type="checkbox" name="MIR-CPREQ-NEW-RSLT-IND" id="MIR-CPREQ-NEW-RSLT-IND" stype="Indicator" value="Y" disabled="yes"/>
+    </TD>
+  </TR>
+</TABLE>
+
+
+ -->
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

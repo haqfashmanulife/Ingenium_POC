@@ -1,0 +1,769 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:25 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0711-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  602J     Add onLoad() function to <body> tag for currency scaling   
+*  016150  602J     fix so birth date appears correctly                        
+*  017150  612J     Remove Currency decimals="2"                               
+*  FT7001 AKATO  FT7 Label Change 14JUN2004 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                      	               
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0711-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+        <script>
+
+function onLoad1()
+
+{
+
+	setEmperorDate("MIR-ANUTNT-1-BTH-DT");
+
+}
+
+</script>
+        <script>
+
+function onLoad2()
+
+{
+
+	setEmperorDate("MIR-ANUTNT-2-BTH-DT");
+
+}
+
+</script>
+    </head>
+    <body class="bodyws" onload="onLoad1(); onLoad2(); onLoad();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <a name="top" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-IA-QUOT-NUM">見積番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-IA-QUOT-NUM" stype="Text" displayonly="yes">MIR-IA-QUOT-NUM</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#RequestInformation">要求情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#QuoteInformation">見積情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Miscellaneous">その他</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AnnuitantInformation">年金受給者情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#IncomeGuaranteedtobePaid">支払保証収入情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#IncomeInformation">所得情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#IncomeAdjustment">所得調整情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AnnualInterestandScaleInformation">年間利率およびスケール情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#InterestRateInformation">利率情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CommissionInformation">手数料情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#MortalityInformation">死亡情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#OtherInformation">その他情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#StatusInformation">ステータス情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="RequestInformation">要求情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-AGT-NM-TXT">募集人名:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-AGT-NM-TXT" stype="Text" displayonly="yes">MIR-IA-QUOT-AGT-NM-TXT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-CO-NM-TXT">見積対象の会社:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-CO-NM-TXT" stype="Text" displayonly="yes">MIR-IA-QUOT-CO-NM-TXT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-REF-TXT">クライアント参照番号:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-REF-TXT" stype="Text" displayonly="yes">MIR-IA-QUOT-REF-TXT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="QuoteInformation">見積情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-USER-ID">ユーザーID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-USER-ID" stype="Text" displayonly="yes">MIR-USER-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-XPRY-DT">見積終了日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-XPRY-DT" stype="Date" displayonly="yes">MIR-IA-QUOT-XPRY-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-EFF-DT">見積発効日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-EFF-DT" stype="Date" displayonly="yes">MIR-IA-QUOT-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-EFF-TIME">見積有効期間:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-EFF-TIME" stype="Time" displayonly="yes">MIR-IA-QUOT-EFF-TIME</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                      トップに戻る
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="Miscellaneous">その他</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-TYP-CD">年金タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-TYP-CD" stype="Text" displayonly="yes">MIR-IA-QUOT-TYP-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-ID">プラン:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-ID" stype="Text" displayonly="yes">MIR-PLAN-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-BTH-DT-USE-CD">年金受給者生年月日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-BTH-DT-USE-CD" stype="Text" displayonly="yes">MIR-IA-BTH-DT-USE-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-FND-SRC-CD">ファンド源:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-FND-SRC-CD" stype="Text" displayonly="yes">MIR-IA-QUOT-FND-SRC-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-CTRY-CD">国:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-CTRY-CD" stype="Text" displayonly="yes">MIR-IA-QUOT-CTRY-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-PNSN-QUALF-CD">年金適格:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-PNSN-QUALF-CD" stype="Text" displayonly="yes">MIR-IA-PNSN-QUALF-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-JNT-PMT-CD">連生保険支払タイプ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-JNT-PMT-CD" stype="Text" displayonly="yes">MIR-IA-QUOT-JNT-PMT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="AnnuitantInformation">年金受給者情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplaylabel">
+                        <p align="left">生年月日</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">和暦</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">性別</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">第一年金受給者:</td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANUTNT-1-BTH-DT" stype="Date" displayonly="yes" emperorDate="myEmperorDate1">MIR-ANUTNT-1-BTH-DT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="myEmperorDate1" displayonly="yes">myEmperorDate1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANUTNT-1-SEX-CD" stype="Text" displayonly="yes">MIR-ANUTNT-1-SEX-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">第二年金受給者:</td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANUTNT-2-BTH-DT" stype="Date" displayonly="yes" emperorDate="myEmperorDate2">MIR-ANUTNT-2-BTH-DT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="myEmperorDate2" displayonly="yes">myEmperorDate2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ANUTNT-2-SEX-CD" stype="Text" displayonly="yes">MIR-ANUTNT-2-SEX-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                         トップに戻る
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="6">
+                        <a name="IncomeGuaranteedtobePaid">支払保証収入情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-GUAR-YR-DUR">年数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-GUAR-YR-DUR" stype="Text" displayonly="yes">MIR-IA-GUAR-YR-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-GUAR-MO-DUR">月数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-GUAR-MO-DUR" stype="Text" displayonly="yes">MIR-IA-GUAR-MO-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-GUAR-AGE">年齢:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-GUAR-AGE" stype="Number" elength="3" decimals="0" displayonly="yes">MIR-IA-QUOT-GUAR-AGE</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="IncomeInformation">所得情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-INCM-MODE-CD">所得モード:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INCM-MODE-CD" stype="Text" displayonly="yes">MIR-IA-INCM-MODE-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-CALC-TYP-CD">計算基準:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-CALC-TYP-CD" stype="Text" displayonly="yes">MIR-IA-CALC-TYP-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-GRS-SPREM-AMT">一時払保険料総出入額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-GRS-SPREM-AMT" stype="Currency" elength="15" displayonly="yes">MIR-IA-GRS-SPREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-INCM-AMT">最終定期収入:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-INCM-AMT" stype="Currency" elength="15" displayonly="yes">MIR-IA-QUOT-INCM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-PREM-PMT-DT">保険料支払日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-PREM-PMT-DT" stype="Date" displayonly="yes">MIR-IA-PREM-PMT-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-INCM-STRT-DT">所得日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INCM-STRT-DT" stype="Date" displayonly="yes">MIR-IA-INCM-STRT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-TAX-EXCL-PCT">課税控除率:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-TAX-EXCL-PCT" stype="Percent" elength="4" decimals="1" displayonly="yes">MIR-IA-TAX-EXCL-PCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-TAXBL-INCM-AMT">課税所得:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-TAXBL-INCM-AMT" stype="Currency" elength="13" displayonly="yes">MIR-IA-TAXBL-INCM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-FED-TAXWH-AMT">源泉課税額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-FED-TAXWH-AMT" stype="Currency" elength="13" displayonly="yes">MIR-IA-FED-TAXWH-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="IncomeAdjustment">所得調整情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-INCM-1-ADJ-FCT">係数1             - 第一年金受給者死亡:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INCM-1-ADJ-FCT" stype="Number" elength="5" decimals="4" signed="yes" displayonly="yes">MIR-IA-INCM-1-ADJ-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-INCM-2-ADJ-FCT">係数2             - 第二年金受給者死亡:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INCM-2-ADJ-FCT" stype="Number" elength="5" decimals="4" signed="yes" displayonly="yes">MIR-IA-INCM-2-ADJ-FCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-INCM-ADJ-DT">日付:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INCM-ADJ-DT" stype="Date" displayonly="yes">MIR-IA-INCM-ADJ-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-INCM-ADJ-AMT">金額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INCM-ADJ-AMT" stype="Currency" elength="12" signed="yes" displayonly="yes">MIR-IA-INCM-ADJ-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                        トップに戻る
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="AnnualInterestandScaleInformation">年間利率およびスケール情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-INT-RT-ID">年間利率:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INT-RT-ID" stype="Text" displayonly="yes">MIR-IA-INT-RT-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-INT-PREM-ID">利息保険料スケール:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INT-PREM-ID" stype="Text" displayonly="yes">MIR-IA-INT-PREM-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-INT-LEGAL-ID">利息法定スケール:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INT-LEGAL-ID" stype="Text" displayonly="yes">MIR-IA-INT-LEGAL-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-INT-TAX-ID">利息租税スケール:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INT-TAX-ID" stype="Text" displayonly="yes">MIR-IA-INT-TAX-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="5">
+                        <a name="InterestRateInformation">利率情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-INT-1-PCT">利率             (1):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-INT-1-PCT" stype="Percent" elength="7" decimals="4" displayonly="yes">MIR-IA-QUOT-INT-1-PCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-INT-2-PCT">利率             (2):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-INT-2-PCT" stype="Percent" elength="7" decimals="4" displayonly="yes">MIR-IA-QUOT-INT-2-PCT</span>
+                    </td>
+                    <td class="celldisplay" />
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-INT-1-RT-MO-DUR">利率適用期間:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INT-1-RT-MO-DUR" stype="Text" displayonly="yes">MIR-IA-INT-1-RT-MO-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel">ヶ月</td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-INT-1-RT-DY-DUR" stype="Text" displayonly="yes">MIR-IA-INT-1-RT-DY-DUR</span>
+                    </td>
+                    <td class="celldisplaylabel">日</td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="CommissionInformation">手数料情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplaylabel">
+                        <p align="left">(1)</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">(2)</p>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <p align="left">(3)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">率:</td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-COMM-BAND-1-PCT" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-IA-COMM-BAND-1-PCT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-COMM-BAND-2-PCT" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-IA-COMM-BAND-2-PCT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-COMM-BAND-3-PCT" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-IA-COMM-BAND-3-PCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">金額:</td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-COMM-BAND-1-AMT" stype="Currency" elength="15" displayonly="yes">MIR-IA-COMM-BAND-1-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-COMM-BAND-2-AMT" stype="Currency" elength="15" displayonly="yes">MIR-IA-COMM-BAND-2-AMT</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-COMM-BAND-3-AMT" stype="Currency" elength="15" displayonly="yes">MIR-IA-COMM-BAND-3-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-COMM-MAX-AMT">支払手数料上限額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-COMM-MAX-AMT" stype="Currency" elength="13" displayonly="yes">MIR-IA-COMM-MAX-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-TOT-COMM-AMT">支払手数料合計:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-TOT-COMM-AMT" stype="Currency" elength="13" displayonly="yes">MIR-IA-TOT-COMM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-PFEE-AMT">証券発行手数料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-PFEE-AMT" stype="Currency" elength="11" displayonly="yes">MIR-IA-QUOT-PFEE-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel" />
+                    <td class="celldisplay" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                       トップに戻る
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="MortalityInformation">死亡情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-MORT-UVAL-ID">年金死亡者数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-MORT-UVAL-ID" stype="Text" displayonly="yes">MIR-IA-MORT-UVAL-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-MORT-PREM-ID">死亡率保険料スケール:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-MORT-PREM-ID" stype="Text" displayonly="yes">MIR-IA-MORT-PREM-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-MORT-LEGAL-ID">死亡率法定スケール:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-MORT-LEGAL-ID" stype="Text" displayonly="yes">MIR-IA-MORT-LEGAL-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-MORT-TAX-ID">死亡率税金スケール:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-MORT-TAX-ID" stype="Text" displayonly="yes">MIR-IA-MORT-TAX-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="OtherInformation">その他情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-BNFT-CD">評価給付インジケータ:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-BNFT-CD" stype="Text" displayonly="yes">MIR-IA-QUOT-BNFT-CD</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-NPREM-AMT">純保険料額:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-NPREM-AMT" stype="Currency" elength="15" displayonly="yes">MIR-IA-QUOT-NPREM-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-GUAR-TRM-FCT">確定期間係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-GUAR-TRM-FCT" stype="Number" elength="9" decimals="5" displayonly="yes">MIR-IA-GUAR-TRM-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-LIFE-FCT">終身保険係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-LIFE-FCT" stype="Number" elength="9" decimals="5" displayonly="yes">MIR-IA-QUOT-LIFE-FCT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-DEFR-FCT">支払猶予係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-DEFR-FCT" stype="Number" elength="9" decimals="5" displayonly="yes">MIR-IA-QUOT-DEFR-FCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-TOT-FCT">合計年金係数:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-IA-QUOT-TOT-FCT" stype="Number" elength="9" decimals="5" displayonly="yes">MIR-IA-QUOT-TOT-FCT</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                       トップに戻る
+                </a>
+            </p>
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">
+                        <a name="StatusInformation">ステータス情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-IA-QUOT-STAT-CD">見積ステータス:</label>
+                    </td>
+                    <td class="celldisplay" colspan="3">
+                        <span id="MIR-IA-QUOT-STAT-CD" stype="Text" displayonly="yes">MIR-IA-QUOT-STAT-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#RequestInformation">要求情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#QuoteInformation">見積情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Miscellaneous">その他</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AnnuitantInformation">年金受給者情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#IncomeGuaranteedtobePaid">支払保証収入情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#IncomeInformation">所得情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#IncomeAdjustment">所得調整情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#AnnualInterestandScaleInformation">年間利率およびスケール情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#InterestRateInformation">利率情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#CommissionInformation">手数料情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#MortalityInformation">死亡情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#OtherInformation">その他情報</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#StatusInformation">ステータス情報</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+<!-- <label for="MIR-DV-FILE-RQST-CD">Quote Save Indicator:</label><input type="checkbox" name="MIR-DV-FILE-RQST-CD" id="MIR-DV-FILE-RQST-CD" stype="Indicator" value="Y" disabled="yes"/> -->
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/EmperorDates.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

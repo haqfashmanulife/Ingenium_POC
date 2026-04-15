@@ -1,0 +1,288 @@
+<!--  
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:29 PM EDT
+*
+********************************************************************************* 
+*  Component:   BF1006-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+********************************************************************************* 
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  FT7001 AKATO  FT7 Label Change 14JUN2004   
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                    	               
+*                                                                              
+********************************************************************************* 
+ --> 
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1006-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onload="onLoad();">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());"> 
+            <input type="hidden" name="index" id="index" stype="Hidden" /> 
+            <input type="hidden" name="action" id="action" stype="Hidden" /> 
+            <table class="tabledatakey"> 
+                <tr> 
+                    <td class="celldatakeylabel"> 
+                        <label for="MIR-CLI-ID">クライアントID:</label> 
+                    </td> 
+                    <td class="celldatakey"> 
+                        <input type="text" value=" " name="MIR-CLI-ID" id="MIR-CLI-ID" stype="Text" maxlength="10" onfocus="enterField(this)" /> 
+                    </td> 
+                    <td class="celldatakeylabel"> 
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label> 
+                    </td> 
+                    <td class="celldatakey"> 
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span> 
+                    </td> 
+                </tr> 
+            </table> 
+            <br /> 
+            <center> 
+                <table class="tableanchors"> 
+                    <tr> 
+                        <td class="cellanchors"> 
+                            <a href="#PolicyDetails">契約情報</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#Withholding">源泉課税</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#ACB">調整ｺｽﾄﾍﾞｰｽ</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Exemption">非課税</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="6">
+                        <a name="PolicyDetails">契約情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-BASE-T[1]">証券番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-SFX-T[1]">枝番</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SBSDRY-CO-ID-T[1]">子会社</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ISS-EFF-DT-T[1]">契約日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-CSTAT-CD-T[1]">契約状況</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-SPND-IND-T[1]">一時停止ｽﾃｰﾀｽ</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SBSDRY-CO-ID-T[]" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ISS-EFF-DT-T[]" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-CSTAT-CD-T[]" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <input type="checkbox" name="MIR-POL-SPND-IND-T[]" id="MIR-POL-SPND-IND-T[]" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="6">
+                        <a name="Withholding">源泉課税情報</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-BASE-T[1]">証券番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-SFX-T[1]">枝番</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-TAX-RPT-FREQ-CD-T[1]">税申告頻度</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-GAIN-RPT-TIME-CD-T[1]">収益報告時期</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PROV-TAXWH-YTD-AMT-T[1]">本年度地方源泉課税額</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FED-TAXWH-YTD-AMT-T[1]">本年度連邦源泉課税額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAX-RPT-FREQ-CD-T[]" stype="Text" displayonly="yes">MIR-TAX-RPT-FREQ-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-GAIN-RPT-TIME-CD-T[]" stype="Text" displayonly="yes">MIR-GAIN-RPT-TIME-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PROV-TAXWH-YTD-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-PROV-TAXWH-YTD-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FED-TAXWH-YTD-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-FED-TAXWH-YTD-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                       トップへ戻る 
+                </a> 
+            </p> 
+            <table class="tabledisplay" genrows="0"> 
+                <tr> 
+                    <td class="celldisplayheading" colspan="5"> 
+                        <a name="ACB">調整コストベース</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-BASE-T[1]">証券番号</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-ID-SFX-T[1]">枝番</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-CDN-TAX-ACB-AMT-T[1]">調整コストベース</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-TAX-ANNV-ACB-AMT-T[1]">契約応答日調整ｺｽﾄﾍﾞｰｽ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-TAX-GAIN-AMT-T[1]">課税対象収益額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-CDN-TAX-ACB-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-DV-CDN-TAX-ACB-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAX-ANNV-ACB-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-TAX-ANNV-ACB-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-TAX-GAIN-AMT-T[]" stype="Currency" elength="17" signed="yes" displayonly="yes">MIR-TAX-GAIN-AMT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                       トップへ戻る 
+                </a> 
+            </p> 
+            <table class="tabledisplay" genrows="0"> 
+                <tr> 
+                    <td class="celldisplayheading" colspan="5"> 
+                        <a name="Exemption">非課税情報</a> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-POL-ID-BASE-T[1]">証券番号</label> 
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-POL-ID-SFX-T[1]">枝番</label> 
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-DV-TXEMP-PYR-QTY-T[1]">前非課税ﾃｽﾄ実施年</label> 
+                    </td> 
+                    <td class="celldisplayheading"> 
+                        <label for="MIR-POL-TXEMP-CD-T[1]">非課税ステータス</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-POL-TAX-TYP-CD-T[1]">契約タイプ</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-BASE-T[]" stype="Text" displayonly="yes">MIR-POL-ID-BASE-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ID-SFX-T[]" stype="Text" displayonly="yes">MIR-POL-ID-SFX-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TXEMP-PYR-QTY-T[]" stype="Text" displayonly="yes">MIR-DV-TXEMP-PYR-QTY-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-TXEMP-CD-T[]" stype="Text" displayonly="yes">MIR-POL-TXEMP-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-TAX-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-POL-TAX-TYP-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="トップへ戻る" width="14" height="14" />
+                       トップへ戻る 
+                </a> 
+            </p> 
+            <center> 
+                <table class="tableanchors"> 
+                    <tr> 
+                        <td class="cellanchors"> 
+                            <a href="#PolicyDetails">契約情報</a> 
+                        </td> 
+                        <td class="cellanchors"> 
+                            <a href="#Withholding">源泉課税</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#ACB">調整ｺｽﾄﾍﾞｰｽ</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Exemption">非課税</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

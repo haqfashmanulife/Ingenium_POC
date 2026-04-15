@@ -1,0 +1,117 @@
+﻿<!--
+*
+*********************************************************************************
+*  Component:   BF9C44-O.htm                                                    *
+*  Description: CREATED FOR ANNUITY TRANSFER QUOTE SCREEN                       *
+*********************************************************************************
+*  Chg#    Release  AUTHOR Description                                          *
+*                                                                               *
+*  MP113C  24NOV10  CTS    INITIAL VERSION                                      *
+*  23774B  CTS      Changes done for ie retirement project to make it           *
+*                   compatible for microsoft edge. Changes in html include      *
+*                   adding "id" attribute for all input fields and changes in   *
+*                   java scripts to modify certain functions/commands which     *
+*                   are no longer compatilble with edge.                        *
+*  UY3004  CTS             HTML POLICY TRIM                                     *
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9C44-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">保障番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-ANTY-ESTB-DT">年金基金設定日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-ANTY-ESTB-DT" stype="Date" displayonly="yes">MIR-ANTY-ESTB-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-ANTY-CAP-AMT">年金原資:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-ANTY-CAP-AMT" stype="Currency" displayonly="yes">MIR-ANTY-CAP-AMT</span>
+                    </td>
+               </tr>
+        </table>
+   <br />
+        <table class="tabledisplay" genrows="0">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ANTY-PERI-T[1]">年金支払期間:</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ASSUM-INT-RT-T[1]">予定利率:</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ANTY-AMT-T[1]">年金額:</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-TOT-ANTY-AMT-T[1]">年金受取総額:</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-ANTY-CAP-SHRT-AMT-T[1]">年金原資不足額:</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-ANTY-PERI-T[]" stype="Text" displayonly="yes">MIR-ANTY-PERI-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ASSUM-INT-RT-T[]" stype="Percent" elength="7" decimals="3" signed="yes" displayonly="yes">MIR-DV-ASSUM-INT-RT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ANTY-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-DV-ANTY-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-TOT-ANTY-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-DV-TOT-ANTY-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-ANTY-CAP-SHRT-AMT-T[]" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-DV-ANTY-CAP-SHRT-AMT-T[]</span>
+                    </td>
+                </tr>
+        </table>
+    <br />
+    </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

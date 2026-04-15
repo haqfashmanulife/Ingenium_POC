@@ -1,0 +1,113 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:15 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0216-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                           
+*                                                                              
+*  UY3004  CTS     INPUT HTML POLICY TRIM - 10 BYTES -> 7 BYTES
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0216-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+<!-- UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" onfocus="enterField(this)" size="20" tabindex="1" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" size="20" tabindex="2" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CLI-ID">クライアントID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CLI-ID" id="MIR-CLI-ID" stype="Text" maxlength="10" onfocus="enterField(this)" size="20" tabindex="3" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DOC-ID">文書名:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-DOC-ID" id="MIR-DOC-ID" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" tabindex="4"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-TRNXT-DOC-CPY-QTY">部数:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-TRNXT-DOC-CPY-QTY" id="MIR-TRNXT-DOC-CPY-QTY" stype="Text" maxlength="2" mandatory="yes" onfocus="enterField(this)" size="20" tabindex="5" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-REQIR-ID">要件:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-REQIR-ID" id="MIR-REQIR-ID" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" tabindex="6"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-TRNXT-LANG-CD">言語:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-TRNXT-LANG-CD" id="MIR-TRNXT-LANG-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" tabindex="7"></select>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-TRNXT-RPT-DSTRB-CD">プリンタ:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-TRNXT-RPT-DSTRB-CD" id="MIR-TRNXT-RPT-DSTRB-CD" size="1" stype="Selection" onfocus="enterField(this)" tabindex="8"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CPREQ-SEQ-NUM">シーケンス番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CPREQ-SEQ-NUM" id="MIR-CPREQ-SEQ-NUM" stype="Text" maxlength="3" mandatory="yes" onfocus="enterField(this)" size="20" tabindex="9" />
+                    </td>
+                    <td class="celldatakeylabel" />
+                    <td class="celldatakey" />
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

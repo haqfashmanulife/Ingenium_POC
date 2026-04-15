@@ -1,0 +1,184 @@
+﻿<!--
+*********************************************************************************
+*  Component:   BF9C22-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*  NWLGLR  CTS      Initial Version
+*  NWLLR3  CTS      ADDITION OF EXPIRY DATE FIELD IN TREIN
+*  ATU668  CTS      ENHANCEMENT FOR U/W RESULT & EXCLUSION INFO FIELDS
+*  C13892  CTS      ADDITION OF LAPS DATE FIELD IN SCREEN
+*  R15533  CTS      MODIFIED THE LABEL FOR DELINQUENT INTEREST
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9C22-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <!-- ATU668 Changes starts here -->
+    <!--
+    <body class="bodyws" onLoad="onLoad()">
+     -->
+    <body class="bodyws" onLoad="onLoad();UwgResultCheck()">
+    <!-- ATU668 Changes ends here -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel"><label for="MIR-POL-ID-BASE">証券番号:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-POL-ID-SFX">枝番:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span></td>
+                </tr>
+
+                <tr>
+                <td class="celldisplaykeylabel"><label for="MIR-INFO-STAT-CD">情報ステータス:</label></td>
+                <td class="celldisplaykey"><span id="MIR-INFO-STAT-CD" stype="Text" displayonly="yes">MIR-INFO-STAT-CD</span></td>
+                    <td class="celldisplaykeylabel"><label for="MIR-PRCES-DT">処理日:</label></td>
+                    <td class="celldisplaykey"><span id="MIR-PRCES-DT" stype="Date" displayonly="yes">MIR-PRCES-DT</span></td>
+                </tr>
+            </table>
+
+
+        <br />
+      <table class="tabledisplay">
+          <tr>
+            <td class="celldatakeylabel"><label for="MIR-INSRD-CLI-ID">被保険者クライアントID:</label></td>
+              <td class="celldisplaykey"><span id="MIR-INSRD-CLI-ID" stype="Text" elength="10"   displayonly="yes">MIR-INSRD-CLI-ID</span></td>
+              <td class="celldatakeylabel">
+            <label for="MIR-OVRDU-PREM-AMT">延滞保険料:</label>
+            </td>
+            <td class="celldatakey">
+            <input type="text" value=" " name="MIR-OVRDU-PREM-AMT" id="MIR-OVRDU-PREM-AMT" stype="Currency" elength="15" onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" />
+                </td>
+          </tr>
+          <tr>
+                <td class="celldatakeylabel"><label for="MIR-DV-INSRD-NM">被保険者名:</label></td>
+              <td class="celldisplaykey"><span id="MIR-DV-INSRD-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-NM</span></td>
+              <td class="celldatakeylabel">
+<!-- CHANGES FOR R15533 STARTS FROM HERE -->
+   <!--     <label for="MIR-OVRDU-INT-AMT">延滞利息:</label> -->
+        <label for="MIR-OVRDU-INT-AMT">延滞利息/FRA両替の端数金額:</label>
+        </td>
+        <td class="celldatakey">
+        <input type="text" value=" " name="MIR-OVRDU-INT-AMT" id="MIR-OVRDU-INT-AMT" stype="Currency" elength="15"  signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20"/>
+                </td>
+<!-- CHANGES FOR R15533 END FROM HERE -->
+          </tr>
+          <tr>
+              <td class="celldatakeylabel">
+              <label for="MIR-SELF-DSCLSRE-DT">告知日:</label>
+        </td>
+          <td class="celldatakey">
+        <input type="text" value=" " name="MIR-SELF-DSCLSRE-DT" id="MIR-SELF-DSCLSRE-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+                </td>
+                <td class="celldatakeylabel">
+        <label for="MIR-TOT-REQIR-AMT ">復活保険料合計額:</label>
+        </td>
+        <td class="celldatakey">
+        <input type="text" value=" " name="MIR-TOT-REQIR-AMT" id="MIR-TOT-REQIR-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20"/>
+        </td>
+          </tr>
+
+          <tr>
+            <td class="celldatakeylabel">
+        <label for="MIR-APCHD-LOC-CD">復活経路:</label>
+        </td>
+        <td class="celldatakey">
+        <select name="MIR-APCHD-LOC-CD" id="MIR-APCHD-LOC-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+                </td>
+                <td class="celldatakeylabel">
+        <label for="MIR-PREM-DUE-MO-NUM">払込期月:</label>
+        </td>
+        <td class="celldatakey">
+        <input type="text" value=" " name="MIR-PREM-DUE-MO-NUM" id="MIR-PREM-DUE-MO-NUM" stype="Text" maxlength="7" onfocus="enterField(this)" onblur="validateField(this)"/>
+                </td>
+          </tr>
+
+          <tr>
+               <td class="celldatakeylabel">
+         <label for="MIR-UWG-RSLT-CD">復活査定結果:</label>
+         </td>
+         <td class="celldatakey">
+         <!-- ATU668 Changes starts here -->
+         <!--
+         <select name="MIR-UWG-RSLT-CD" id="MIR-UWG-RSLT-CD" size="1" stype="Selection" onfocus="enterField(this)" ></select>
+          -->
+         <select name="MIR-UWG-RSLT-CD" id="MIR-UWG-RSLT-CD" size="1" stype="Selection" onfocus="enterField(this)" onchange="UwgResultCheck()"></select>
+         <!-- ATU668 Changes ends here -->
+         </td>
+         <td class="celldatakeylabel">
+         <label for="MIR-PREM-DUE-QTY">回数:</label>
+         </td>
+         <td class="celldatakey">
+         <input type="text" value=" " name="MIR-PREM-DUE-QTY" id="MIR-PREM-DUE-QTY" stype="Number" elength="03" onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)"/>
+                 </td>
+          </tr>
+
+          <tr>
+               <td class="celldatakeylabel">
+         <label for="MIR-EXCL-INFO-TXT">不担保情報:</label>
+         </td>
+         <td class="celldatakey">
+         <input type="text" value=" " name="MIR-EXCL-INFO-TXT" id="MIR-EXCL-INFO-TXT" stype="Text" maxlength="30"   onfocus="enterField(this)"/>
+         </td>
+         <!-- NWLLR3 Changes starts here -->
+         <!-- <td class="celldatakeylabel">
+         <label for="MIR-DV-EXP-DT">復活有効期限:</label>
+         </td>
+         <td class="celldatakey">
+         <span id="MIR-DV-EXP-DT" stype="Date" elength="10"   displayonly="yes">MIR-DV-EXP-DT</span></td> -->
+         <td class="celldatakeylabel">
+         <label for="MIR-REINST-XPRY-DT">復活有効期限:</label>
+         </td>
+         <td class="celldatakey">
+         <input type="text" value=" " name="MIR-REINST-XPRY-DT" id="MIR-REINST-XPRY-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+         </td>
+         <!-- NWLLR3 Changes ends here -->
+          </tr>
+
+          <tr>
+              <td class="celldatakeylabel">
+         <label for="MIR-UWG-DT">復活査定結果入力日:</label>
+         </td>
+         <td class="celldatakey">
+         <input type="text" value=" " name="MIR-UWG-DT" id="MIR-UWG-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+         </td>
+         <td class="celldatakeylabel">
+         <label for="MIR-REINST-DT">復活日:</label>
+         </td>
+         <td class="celldatakey">
+         <input type="text" value=" " name="MIR-REINST-DT" id="MIR-REINST-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+                 </td>
+        </tr>
+         <!-- C13892 Changes starts here -->
+         <tr>
+         <td class="celldatakeylabel">
+         <label for="MIR-LAPS-DT">失効日:</label>
+         </td>
+         <td class="celldatakey">
+         <input type="text" value=" " name="MIR-LAPS-DT" id="MIR-LAPS-DT" stype="Date"   onfocus="enterField(this)" onblur="validateField(this)"/>
+                 </td>
+        </tr>
+        <!-- C13892 Changes ends here -->
+        </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <!-- ATU668 Changes starts here -->
+    <script src="../js/BF9C22Update.js"></script>
+    <!-- ATU668 Changes ends here -->
+</html>

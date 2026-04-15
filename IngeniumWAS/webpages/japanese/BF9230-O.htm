@@ -1,0 +1,261 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:58 PM EDT
+*
+*********************************************************************************
+*  Component  : BF9230-O.htm                                                   
+*  Description: Policy's bank detail enquiry / confirmation screen.            
+*               Simple client detail preceding bank info.                      
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  HNB001  HIN/AI   NEW BUSINESS SCREENS                                       
+*  HIS006  HIN/AI   REMOVED USE OF GENROWS=0,ADDED CURRENT ADDRESS LABEL       
+*  HIS038  HIN/AI   CORRECT MIR NAMES                                          
+*  HIS076  HIN/AI   REMOVE THE POLICY SUFFIX FIELD FROM THE WEBPAGE            
+*  HIS052  HIN/AI   ADD MIR-COMB-BILL-IND                                      
+*  HIS129  HIN/AI   CHANGE LABEL OF MIR-COMB-BILL-IND                          
+*  B10889  HIN/AI   ADD MIR-BNK-BR-NM FIELD 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                                
+*********************************************************************************
+
+-->
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9230-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+</head>
+<body class="bodyws" onLoad="onLoad()">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<table class="tabledisplaykey">
+    <tr>
+        <td class="celldisplaykeylabel">
+          <label for="MIR-POL-ID-BASE">証券番号:</label>
+        </td>
+        <td class="celldisplaykey">
+          <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+        </td>
+        <td class="celldisplaykeylabel"></td>
+        <td class="celldisplaykey"></td>
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+          <label for="MIR-POL-APP-FORM-ID">申込番号:</label>
+        </td>
+        <td class="celldisplaykey">
+          <span id="MIR-POL-APP-FORM-ID" stype="Text" displayonly="yes">MIR-POL-APP-FORM-ID</span>
+        </td>
+        <td class="celldisplaykeylabel">
+          <label for="MIR-POL-CSTAT-CD">契約ｽﾃｰﾀｽ:</label>
+        </td>
+        <td class="celldisplaykey">
+          <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+          <label for="MIR-DV-PAYR-CLI-ID">払込者クライアント ID:</label>
+        </td>
+        <td class="celldisplaykey">
+          <span id="MIR-DV-PAYR-CLI-ID" stype="Text" displayonly="yes">MIR-DV-PAYR-CLI-ID</span>
+        </td>
+        <td class="celldisplaykeylabel">
+          <label for="MIR-DV-PAYR-CLI-KANA-NM">払込者名:</label>
+        </td>
+        <td class="celldisplaykey">
+          <span id="MIR-DV-PAYR-CLI-KANA-NM" stype="Text" displayonly="yes">MIR-DV-PAYR-CLI-KANA-NM</span>
+        </td>
+    </tr>
+</table>
+<h2>
+    <a name="Address">住所</a>
+</h2>
+<table class="tabledisplay" >
+                <tr>
+                    <td class="celldisplayheading" colspan="4">現住所</td>
+                </tr>
+    <tr>
+        <td class="celldisplaylabel">
+          <label for="MIR-CLI-ADDR-LOC-CD">住所コード:</label>
+        </td>
+        <td class="celldisplay">
+          <span id="MIR-CLI-ADDR-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-ADDR-LOC-CD</span>
+        </td>
+        <td class="celldisplaylabel">
+          <label for="MIR-CLI-CRNT-LOC-CD">所在地コード:</label>
+        </td>
+        <td class="celldisplay">
+          <span id="MIR-CLI-CRNT-LOC-CD" stype="Text" displayonly="yes">MIR-CLI-CRNT-LOC-CD</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaylabel">
+          <label for="MIR-CLI-PSTL-CD">郵便番号:</label>
+        </td>
+        <td class="celldisplay">
+          <span id="MIR-CLI-PSTL-CD" stype="Text" displayonly="yes">MIR-CLI-PSTL-CD</span>
+        </td>
+        <td class="celldisplaylabel">
+          <label for="MIR-CLI-CTRY-CD">国:</label>
+        </td>
+        <td class="celldisplay">
+          <span id="MIR-CLI-CTRY-CD" stype="Text" displayonly="yes">MIR-CLI-CTRY-CD</span>
+        </td>
+    </tr>
+</table>
+
+<br />
+<table class="tabledisplay" >
+    <tr>
+        <td class="celldisplayheading" colspan="2">
+          <a name="Kanji Address">住所（漢字）</a>
+        </td>
+        <td class="celldisplayheading" colspan="2">
+          <a name="Katakana Address">住所（カタカナ）</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplay" colspan="2">
+          <span id="MIR-CLI-PREFCT-TXT" stype="Text" displayonly="yes">MIR-CLI-PREFCT-TXT</span>
+        </td>
+        <td class="celldisplay" colspan="2">
+          <span id="MIR-CLI-KA-PREFCT-TXT" stype="Text" displayonly="yes">MIR-CLI-KA-PREFCT-TXT</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplay" colspan="2">
+          <span id="MIR-CLI-CITY-NM-TXT" stype="Text" displayonly="yes">MIR-CLI-CITY-NM-TXT</span>
+        </td>
+        <td class="celldisplay" colspan="2">
+          <span id="MIR-CLI-KA-CITY-TXT" stype="Text" displayonly="yes">MIR-CLI-KA-CITY-TXT</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplay" colspan="2">
+          <span id="MIR-CLI-ADDR-LN-1-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-1-TXT</span>
+        </td>
+        <td class="celldisplay" colspan="2">
+          <span id="MIR-CLI-KA-NGHBRHD-TXT" stype="Text" displayonly="yes">MIR-CLI-KA-NGHBRHD-TXT</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplay" colspan="2">
+          <span id="MIR-CLI-ADDR-LN-2-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-2-TXT</span>
+        </td>
+        <td class="celldisplay" colspan="2">
+          <span id="MIR-CLI-ADDR-LN-3-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-LN-3-TXT</span>
+        </td>
+    </tr>
+</table>
+
+<br />
+<table class="tabledisplay" >
+    <tr>
+        <td class="celldisplaylabel" colspan="3">
+          <label for="MIR-CLI-ADDR-ADDL-TXT">住所カナ部:</label>
+        </td>
+        <td class="celldisplay">
+          <span id="MIR-CLI-ADDR-ADDL-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-ADDL-TXT</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaylabel" colspan="3">
+          <label for="MIR-CLI-ADDR-CNTCT-TXT">連絡先:</label>
+        </td>
+        <td class="celldisplay">
+          <span id="MIR-CLI-ADDR-CNTCT-TXT" stype="Text" displayonly="yes">MIR-CLI-ADDR-CNTCT-TXT</span>
+        </td>
+    </tr>
+</table>
+
+<h2>
+    <a name="CurrentBankDetail">現在の銀行(金融機関)口座</a>
+</h2>
+<table class="tabledisplay">
+    <tr>
+        <td class="celldisplaylabel">
+          <label for="MIR-BNK-ID">銀行番号:</label>
+        </td>
+        <td class="celldisplay">
+          <span id="MIR-BNK-ID" stype="Text" displayonly="yes">MIR-BNK-ID</span>
+        </td>
+        <td class="celldisplaylabel">
+          <label for="MIR-BNK-BR-ID">支店番号:</label>
+        </td>
+        <td class="celldisplay">
+          <span id="MIR-BNK-BR-ID" stype="Text" displayonly="yes">MIR-BNK-BR-ID</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaylabel">
+          <label for="MIR-BNK-NM">銀行（金融機関）名:</label>
+        </td>
+        <td class="celldisplay">
+          <span id="MIR-BNK-NM" stype="Text" displayonly="yes">MIR-BNK-NM</span>
+        </td>
+        <td class="celldisplaylabel">
+          <label for="MIR-BNK-BR-NM">支店名:</label>
+        </td>
+        <td class="celldisplay">
+          <span id="MIR-BNK-BR-NM" stype="Text" displayonly="yes">MIR-BNK-BR-NM</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaylabel">
+          <label for="MIR-BNK-ACCT-ID">口座番号:</label>
+        </td>
+        <td class="celldisplay">
+          <span id="MIR-BNK-ACCT-ID" stype="Text" displayonly="yes">MIR-BNK-ACCT-ID</span>
+        </td>
+        <td class="celldisplaylabel">
+          <label for="MIR-BNK-ACCT-TYP-CD">口座種目:</label>
+        </td>
+        <td class="celldisplay">
+          <span id="MIR-BNK-ACCT-TYP-CD" stype="Text" displayonly="yes">MIR-BNK-ACCT-TYP-CD</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaylabel">
+          <label for="MIR-ACCT-HLDR-TYP-CD">銀行口座名義タイプ:</label></td>
+        <td class="celldisplay">
+          <span id="MIR-ACCT-HLDR-TYP-CD" stype="Text" displayonly="yes">MIR-ACCT-HLDR-TYP-CD</span></td>
+        <td class="celldisplaylabel">
+          <label for="MIR-BNK-ACCT-HLDR-NM">口座名義:</label>　</td>
+        <td class="celldisplay">
+          <span id="MIR-BNK-ACCT-HLDR-NM" stype="Text" displayonly="yes">MIR-BNK-ACCT-HLDR-NM</span>　</td>
+    </tr>
+    <tr>
+        <td class="celldisplaylabel">
+          <label for="MIR-COMB-BILL-IND">名寄否契約:</label>
+        </td>
+        <td class="celldisplay">
+          <span id="MIR-COMB-BILL-IND" stype="Text" displayonly="yes">MIR-COMB-BILL-IND</span>
+        </td>
+        <td class="celldisplay" />
+        <td class="celldisplay" />
+    </tr>
+
+    </table>
+
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+
+トップへ戻る
+                </a>
+            </p>
+
+    <input type="hidden" name="action" id="action" stype="Hidden" />
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+</html>

@@ -1,0 +1,151 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:29 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1368-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling
+*  017150  612J     Remove Currency decimals="2"
+*  RPU002  CTS      Screen Enhancement for RPU Processing
+*  RPUV2B  CTS      SULV2 RPU PROCESSING CHANGES
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*  UY3004  CTS      INPUT HTML POLICY TRIM - 10 BYTES -> 7 BYTES                *
+*  27549A  CTS      CHANGES DONE AS PART OF CDAP                                *
+
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1368-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+<!-- UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" mandatory="yes" onfocus="enterField(this)" size="20" tabindex="1" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" size="20" tabindex="2" />
+                    </td>
+<!-- RPU002 Changes Starts from here -->
+                    <td class="celldatakeylabel">
+                        <label for="MIR-PRCES-DT">Process Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-PRCES-DT" id="MIR-PRCES-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="4" />
+                    </td>
+<!-- RPU002 Changes ends from here -->
+                </tr>
+                <tr>
+<!-- RPU002 Changes Starts from here
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CVG-NUM" id="MIR-CVG-NUM" stype="Text" maxlength="2" onfocus="enterField(this)" size="20" tabindex="3" />
+                    </td>
+RPU002 Changes ends from here -->
+                    <td class="celldatakeylabel">
+<!-- RPU002 Changes Starts from here
+                        <label for="MIR-APPL-CTL-PRCES-DT">Process Date:</label> -->
+						<label for="MIR-APPL-CTL-PRCES-DT">Company Received Date:</label>
+<!-- RPU002 Changes Ends from here -->
+                    </td>
+<!-- RPU002 Changes Starts from here -->
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-APPL-CTL-PRCES-DT" id="MIR-APPL-CTL-PRCES-DT" stype="Date" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="4" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-HO-RECV-DT">Head Office Received Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-DV-HO-RECV-DT" id="MIR-DV-HO-RECV-DT" stype="Date" maxlength="10" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+                   <td class="celldatakeylabel">
+                        <label for="MIR-DV-PAYO-JPY-BNFT-CD">JPY Benefit Rider:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-DV-PAYO-JPY-BNFT-CD" id="MIR-DV-PAYO-JPY-BNFT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-DV-TRNXT-PAYO-MTHD-CD">Pay Out Method:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-DV-TRNXT-PAYO-MTHD-CD" id="MIR-DV-TRNXT-PAYO-MTHD-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+<!-- RPU002 Changes Ends from here -->
+                </tr>
+<!-- RPU002 Changes Starts from here
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-CVG-FACE-AMT">Face Amount:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-CVG-FACE-AMT" id="MIR-CVG-FACE-AMT" stype="Currency" elength="15" signed="yes" mandatory="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" size="20" tabindex="5" />
+                    </td>
+                    <td class="celldatakeylabel" />
+                    <td class="celldatakey" />
+                </tr>
+     RPU002 Changes ends from here -->
+<!-- RPU002 Changes Starts from here -->
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-JRNL-DT">Journal Date:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value="" name="MIR-JRNL-DT" id="MIR-JRNL-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)"/>
+                    </td>
+<!-- RPUV2B Changes Starts from here -->
+                    <td class="celldatakeylabel">
+                        <label for="MIR-RPU-POL-TYP-CD">RPU Policy Type:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-RPU-POL-TYP-CD" id="MIR-RPU-POL-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+<!-- RPUV2B Changes ends from here -->
+<!-- 27549A Change Starts Here -->
+                     <td class="celldatakeylabel">
+			         <label for="MIR-ATO-NOT-APPL-IND">ATO not applicable:</label>
+			         </td>
+			         <td class="celldatakey">
+			           <input type="checkbox" value="Y" name="MIR-ATO-NOT-APPL-IND" id="MIR-ATO-NOT-APPL-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+<!-- 27549A Change Ends Here -->
+                 </tr>
+<!-- RPU002 Changes ends from here -->
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

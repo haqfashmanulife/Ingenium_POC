@@ -1,0 +1,174 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:25 PM EDT
+*
+*********************************************************************************
+*  Component:   BF1054-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  017150  612J     Remove Currency decimals="2"
+*  B00050  DPK      Added Insured Client's Name to List
+*  B00205  BMB      Remove CVG fields from display - this value will be 00
+*  B00310  WBP      Add Insured ID to display
+*  NWLANR  CTS      Add Annuity Period Field as part of NWL changes
+*  MP332B  CTS      XML Changes for Money Laundering
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+*
+*  UY3004  CTS      DUPLICATE POLICY ID LIST CHANGES
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF1054-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws"> 
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">-->
+    <body class="bodyws" onLoad="onLoad(); inputlisttrimpolicy();InpTrimPolicy()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="returnlisttrimpolicy();return(onSubmit())">
+            <input type="hidden" name="Dispolval" stype="Hidden" />
+            <input type="hidden" name="Dissfxval" stype="Hidden" />
+<!-- UY3004 CHANGES ENDS HERE -->
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy Id:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-INSRD-CLI-ID">Insured's Client Id:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-INSRD-CLI-ID" id="MIR-INSRD-CLI-ID" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-BNFY-SEQ-NUM">Sequence Number:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-BNFY-SEQ-NUM" id="MIR-BNFY-SEQ-NUM" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="6">
+                <tr>
+                    <td class="celldisplayheading"></td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-ID-T[1]">Insured Client's ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-INSRD-CLI-NM-T[1]">Insured Client's Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-SEQ-NUM-T[1]">Sequence Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-T[1]">Client Number</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-NM-T[1]">Beneficiary's Name</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-TYP-CD-T[1]">Beneficiary Type</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-DESGNT-CD-T[1]">Designation</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-PRCDS-PCT-T[1]">Percentage</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-REL-INSRD-CD-T[1]">Relation to Insured</label>
+                    </td>
+<!-- MP332B Changes start Here -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-SEX-CD-T[1]">Sex</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-BTH-DT-T[1]">Birth Date</label>
+                    </td>
+<!-- MP332B Changes End Here -->
+<!-- NWLANR Changes Start Here -->
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFY-ANTY-PERI-CD-T[1]">Annuity Period</label>
+                    </td>
+<!-- NWLANR Changes End Here -->
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <input stype="Indicator" type="checkbox" name="SELECT-T[]" id="SELECT-T[]" value=" " index="1" onclick="onListCheckBox()" />
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INSRD-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-INSRD-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-SEQ-NUM-T[]" stype="Text" displayonly="yes">MIR-BNFY-SEQ-NUM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-T[]" stype="Text" displayonly="yes">MIR-CLI-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-NM-T[]" stype="Text" displayonly="yes">MIR-BNFY-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <a name="MIR-BNFY-TYP-CD-T[]" href="a" action="SelectItem" index="1" onclick="onAction();return(false);" onfocus="enterField(this)">Beneficiary Type</a>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-DESGNT-CD-T[]" stype="Text" displayonly="yes">MIR-BNFY-DESGNT-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-PRCDS-PCT-T[]" stype="Percent" elength="3" decimals="0" displayonly="yes">MIR-BNFY-PRCDS-PCT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-REL-INSRD-CD-T[]" stype="Text" displayonly="yes">MIR-BNFY-REL-INSRD-CD-T[]</span>
+                    </td>
+<!-- MP332B Changes Start Here -->
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-SEX-CD-T[]" stype="Text" displayonly="yes">MIR-BNFY-SEX-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-BTH-DT-T[]" stype="Text" displayonly="yes">MIR-BNFY-BTH-DT-T[]</span>
+                    </td>
+<!-- MP332B Chnages End Here -->
+<!-- NWLANR Changes Start Here -->
+                    <td class="celldisplay">
+                        <span id="MIR-BNFY-ANTY-PERI-CD-T[]" stype="Text" displayonly="yes">MIR-BNFY-ANTY-PERI-CD-T[]</span>
+                    </td>
+<!-- NWLANR Changes End Here -->
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

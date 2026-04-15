@@ -1,0 +1,77 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:26:00 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9894-I.htm                                                   
+*  Description: Disease/Surgery List -Input                                    
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  HCL111  HIN/CL   DISEASE AND SURGERY TABLES                                 
+*  B11062  HIN/CL   FIX SMALL AND LARGE KANA SEARCH                            
+*  MP143R           CHANGES FOR KANJI NAME SEARCH 
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                                                                        
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9894-I</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return onSubmitCustom();">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-MEDIC-CD">医療タイプ:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <select name="MIR-MEDIC-CD" id="MIR-MEDIC-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes"></select>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-MEDC-ID">コード:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-MEDC-ID" id="MIR-MEDC-ID" stype="Text" maxlength="10" onfocus="enterField(this)" size="10" />
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-LANG-DESC-1-TXT">ｶﾀｶﾅ表記:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-LANG-DESC-1-TXT" id="MIR-LANG-DESC-1-TXT" stype="Text" maxlength="60" onfocus="enterField(this)" SIZE="60" onkeypress="KanaKeyCheck()"/>
+                    </td>
+                </tr>
+                <!-- MP143R Changes Starts here-->
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-LANG-DESC-2-TXT">漢字名:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input type="text" value=" " name="MIR-LANG-DESC-2-TXT" id="MIR-LANG-DESC-2-TXT" stype="Text" maxlength="60" onfocus="enterField(this)" SIZE="60" onkeypress="KanjiKeyCheck()"/>
+                    </td>
+                </tr>
+                <!-- MP143R Changes Ends here-->
+                   
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/OnlyKana.js"></script>
+    <script src="../js/OnlyKanaClm.js"></script>
+<!-- MP143R Changes Starts here-->
+    <script src="../js/OnlyKanji.js"></script>
+    <script src="../js/OnlyKanjiClm.js"></script>
+<!-- MP143R Changes Starts here-->
+</html>

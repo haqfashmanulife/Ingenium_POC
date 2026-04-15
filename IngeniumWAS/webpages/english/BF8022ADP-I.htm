@@ -1,0 +1,1890 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:46 PM EDT
+*
+*********************************************************************************
+*  Component:   BF8022ADP-I.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description                                                 *
+*                                                                               *
+*  014590  6.0      New for release 6.0                                         *
+*  016171  602J     Fix MIR name for MIR-CVG-AD-PREM-AMT                        *
+*  016246  602J     Add support for currency scaling                            *
+*  016736  611J     Code Cleanup - fixed ultimate rate fields                   *
+*  017150  612J     Remove Currency decimals="2"                                *
+*  01CP02  GW       Added 'Agent Type' & 'Plan benefit Type' - Agent info.      *
+*  02PR55  RNL      Add MAT-XPRY-REASN-CD                                       *
+*  M00025  MAW      ADD MIR-CVG-SUB-STAT-CD                                     *
+*  PR006I  BMB      Change labels for connected coverages                       *
+*  P00859  FB       Add MIR-CVG-REINS-IND and MIR-CVG-REINS-CO-ID               *
+*  MFPL1B  H.L      ADD MIR-CVG-ILLUS-CD                                        *
+*  U40083  CLB      Display/edit new REDC FACE flds for Opt 2                   *
+*  MFFAN8  MC       ADD EXPECTED ANNUITY AGE AND DATE                           *
+*  RP2009  CTS      ADD MIR-CVG-PREM-CHNG-REASN-CD                              *
+*  MP29NB  CTS      ADD NEW FIELDS FOR TREATY NUMBER,CEDING PERCENTAGE AND      *
+*  MP29NB           CEDING AMOUNT.                                              *
+*  FEID01  CTS      ADD LIAB-STRT-DT for for LCD Issue Date Calculation         *
+*  FEID01           - Online Screen Changes                                     *
+*  MP211B  CTS      ADD NEW FIELDS FOR LIEN DURATION.                           *
+*  M213K1  CTS      CHANGES FOR ADDING NEW FIELD GROUP ID FOR RUM               *
+*  M241A3  CTS      FILTER SELECTION CHANGES TO IDENTIFY AGE OR DURATION        *
+*  M245B2  CTS      Foreign Currency Formatting                                 *
+*  MP245J  CTS      ADD NEW FIELD FOR SUBSTANDARD AGE DURATION AS PART OF SPWL  *
+*  M271A8  CTS      TAX QUALIFIED INDIVIDUAL INDICATOR CHANGES                  *
+*  Q60745  CTS      CHANGES DONE AS PART OF FRA                                 *
+*  UY3004  16JUL21  SUBSEQUENT HTML POLICY TRIM                                 *
+*  23774B  CTS      Changes done for ie retirement project to make it           *
+*                   compatible for microsoft edge. Changes in html include      *
+*                   adding "id" attribute for all input fields and changes in   *
+*                   java scripts to modify certain functions/commands which     *
+*                   are no longer compatilble with edge.                            *
+*  UYS014  CTS      ADDITION OF NEW FIELD FOR INCREASING FACE AMOUNT            *
+*  UYS133  CTS      PD group size field addition                                *
+*  S21925  CTS      CHANGES DONE AS PART OF UDSD-1925                           *
+*  S21925  CTS      RETROFIT ISSUE                                             ` *
+*  R16993  CTS      Fix for Prod log RITM05156822. The ReinsuranceEligibleAD    *
+*                   function is added as MIR-PLAN-ID is SPAN  in this html      *
+*  UCR244  CTS      CHANGES AS PART OF STREAM 3                                 *
+*********************************************************************************
+ -->
+<html>
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF8022ADP-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <!-- M245B2 CHANGE STARTS HERE -->
+    <!--<body class="bodyws" onload="onLoad();onLoadCustom();ReinsuranceEligible()"> -->
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws" onload="onLoad();onLoadCustom();ReinsuranceEligible();validateCrcyDcml()"> -->
+    <body class="bodyws" onload="onLoad();SubInpTrimPolicy();onLoadCustom();ReinsuranceEligible();validateCrcyDcml()">
+<!-- UY3004 CHANGES ENDS HERE -->
+    <!-- M245B2 CHANGE STARTS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <!-- M245B2 CHANGE STARTS HERE -->
+			 <input type="hidden" name="MIR-POL-CRCY-CD" id="MIR-POL-CRCY-CD" stype="Hidden" />
+<!-- M245B2 CHANGE ENDS HERE -->
+<!-- Q60745 CHANGE STARTS HERE -->
+		    <input type="hidden" name="MIR-PREM-CRCY-CD" id="MIR-PREM-CRCY-CD" stype="Hidden" />
+<!-- Q60745 CHANGE ENDS HERE -->
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-INSRD-CLI-NM">Insured Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-DV-INSRD-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-CSTAT-CD">Coverage Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-CSTAT-CD" stype="Text" displayonly="yes">MIR-CVG-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">Coverage Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">Policy Status:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-PD-TO-DT-NUM">Paid to Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-PD-TO-DT-NUM" stype="Text" displayonly="yes">MIR-POL-PD-TO-DT-NUM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-MPREM-AMT">Policy Mode Premium:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-MPREM-AMT" stype="Currency" elength="15" displayonly="yes">MIR-POL-MPREM-AMT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">Premium Mode:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CVG-REC-CTR">Number of Coverages:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-CSN-REC-CTR">Number of Reinsurance Records:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-CSN-REC-CTR" stype="Text" displayonly="yes">MIR-CVG-CSN-REC-CTR</span>
+                    </td>
+                </tr>
+<!-- UYS133 CHANGE STARTS HERE -->
+                <tr>
+                    <td class="celldisplaykeylabel">
+                    </td>
+                    <td class="celldisplaykey">
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-PD-GR-TYP-CD">PD group size:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-PD-GR-TYP-CD" stype="Text" displayonly="yes">MIR-PD-GR-TYP-CD</span>
+                    </td>
+                </tr>
+<!-- UYS133 CHANGE ENDS HERE -->
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Coverage Details">Coverage Details</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Benefits">Benefits</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Insured Information">Insured</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Premium Information">Premium</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Annuity Information">Annuity</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Connected Policy/Coverage Information">Connected Policy/Coverage</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Agent Information">Agent</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Coverage Dates">Dates</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Substandard Ratings">Substandard</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Underwriting Information">Underwriting</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Notify Information">Notify</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Universal Life Targets">Targets</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Guaranteed Interest Information">Guaranteed Interest</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Sweep Threshold Information">Sweep</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Guaranteed Insurability Rider Information">GIR</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Miscellaneous Information">Miscellaneous</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <h2>
+                <a name="Coverage Details">Coverage Details</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Basic Coverage Details</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PLAN-ID">Plan:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+<!-- **** M241A3 START **** -->
+                        <!--<select name="MIR-PLAN-ID" id="MIR-PLAN-ID" size="1" stype="Selection" onfocus="enterField(this)"></select> -->
+                        <select name="MIR-PLAN-ID" id="MIR-PLAN-ID" size="1" stype="Selection" onfocus="enterField(this)" onchange="doRefresh()"></select>
+<!-- **** M241A3 END **** -->
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-PAR-CD">Coverage Participation:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-PAR-CD" id="MIR-CVG-PAR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-APP-RECV-DT">Sales Office Report Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-APP-RECV-DT" id="MIR-CVG-APP-RECV-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-ISS-EFF-DT">Issue Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CVG-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-CVG-ISS-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-FACE-AMT">Face Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CVG-FACE-AMT" id="MIR-CVG-FACE-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                      <input type="text" value=" " name="MIR-CVG-FACE-AMT" id="MIR-CVG-FACE-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>\
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-SUM-INS-AMT">Sum Insured Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                    <!--    <input type="text" value=" " name="MIR-CVG-SUM-INS-AMT" id="MIR-CVG-SUM-INS-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-CVG-SUM-INS-AMT" id="MIR-CVG-SUM-INS-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-REINS-IND">Reinsured:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CVG-REINS-IND" id="MIR-CVG-REINS-IND" stype="Indicator" onclick="onCheckBox();ReinsuranceCheck()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-REINS-CO-ID">Reinsurance Company:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-REINS-CO-ID" id="MIR-CVG-REINS-CO-ID" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-REINS-TRTY-NUM">Treaty Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-REINS-TRTY-NUM" id="MIR-CVG-REINS-TRTY-NUM" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-REINS-CED-PCT">Ceding Percentage:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-REINS-CED-PCT" id="MIR-CVG-REINS-CED-PCT" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-REINS-CED-AMT">Ceded Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                      <!--  <input type="text" value=" " name="MIR-CVG-REINS-CED-AMT" id="MIR-CVG-REINS-CED-AMT"  stype="Currency" elength="15" decimal="2" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+					</td> -->
+					<!-- Q60745 CHANGE STARTS HERE -->
+					 <!-- <input type="text" value=" " name="MIR-CVG-REINS-CED-AMT" id="MIR-CVG-REINS-CED-AMT"  stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" decimal="2" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" /> -->
+					      <input type="text" value=" " name="MIR-CVG-REINS-CED-AMT" id="MIR-CVG-REINS-CED-AMT"  stype="Currency" elength="15" CurrencyCode="MIR-PREM-CRCY-CD" decimal="2" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+					<!-- Q60745 CHANGE ENDS HERE -->
+					</td>
+					<!-- M245B2 CHANGE STARTS HERE -->
+<!-- S21925 CHANGE STARTS HERE -->
+                    <!-- <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" /> -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-REINS-TYP-CD">Reinsurance Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-REINS-TYP-CD" stype="Text" displayonly="yes">MIR-REINS-TYP-CD</span>
+                    </td>
+<!-- S21925 CHANGE ENDS HERE -->
+					<td class="celllabelrightalign"></td>
+					<td class="celllabeldataentry"></td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-RT-AGE">Age:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-RT-AGE" id="MIR-CVG-RT-AGE" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-AGE-RAT-REASN-CD">Age Restrict Reason:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-AGE-RAT-REASN-CD" id="MIR-AGE-RAT-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-SEX-CD">Sex:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-SEX-CD" id="MIR-CVG-SEX-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-SMKR-CD">Smoker:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-SMKR-CD" id="MIR-CVG-SMKR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-STBL-1-CD">Sub-table 1:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-STBL-1-CD" id="MIR-CVG-STBL-1-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-STBL-2-CD">Sub-table 2:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-STBL-2-CD" id="MIR-CVG-STBL-2-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-STBL-3-CD">Sub-table 3:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-STBL-3-CD" id="MIR-CVG-STBL-3-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-STBL-4-CD">Sub-table 4:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-STBL-4-CD" id="MIR-CVG-STBL-4-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-JNT-LIFE-CD">Joint Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-JNT-LIFE-CD" id="MIR-CVG-JNT-LIFE-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-LIVES-INSRD-CD">Number of Lives Insured:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-LIVES-INSRD-CD" id="MIR-CVG-LIVES-INSRD-CD" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-APP-NUM">Number of
+      Applications/Policy:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-POL-APP-NUM" id="MIR-POL-APP-NUM" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-REL-CVG-NUM">Connecting Coverage Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-REL-CVG-NUM" id="MIR-REL-CVG-NUM" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PLAN-BNFT-TYP-CD">Plan benefit type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-PLAN-BNFT-TYP-CD" stype="Text" displayonly="yes">MIR-PLAN-BNFT-TYP-CD</span>
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-SUB-STAT-CD">Coverage Sub Status:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-SUB-STAT-CD" id="MIR-CVG-SUB-STAT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-ILLUS-CD">Coverage Illustration Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-ILLUS-CD" id="MIR-CVG-ILLUS-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+	<!-- FEID01 Changes Begin -->
+		<tr>
+		    <td class="celllabelrightalign">
+			<label for="MIR-LIAB-STRT-DT">Liability Commencement date:</label>
+		    </td>
+		    <td class="celllabeldataentry">
+			<span id="MIR-LIAB-STRT-DT" stype="Text" displayonly="yes">MIR-LIAB-STRT-DT</span>
+		    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+		</tr>
+	<!-- FEID01 Changes end -->
+
+	<!-- M213K1 Changes begin -->
+		  <tr>
+		        <td class="celllabelrightalign">
+		            <label for="MIR-PRIM-1-CVG-NUM">Base Rider Coverage Number 1:</label>
+		        </td>
+		        <td class="celllabeldataentry">
+		            <input type="text" value=" " name="MIR-PRIM-1-CVG-NUM" id="MIR-PRIM-1-CVG-NUM" stype="Text" maxlength="2" onfocus="enterField(this)" />
+
+		        </td>
+		        <td class="celllabelrightalign">
+		            <label for="MIR-PRIM-2-CVG-NUM">Base Rider Coverage Number 2:</label>
+		        </td>
+		        <td class="celllabeldataentry">
+		            <input type="text" value=" " name="MIR-PRIM-2-CVG-NUM" id="MIR-PRIM-2-CVG-NUM" stype="Text" maxlength="2" onfocus="enterField(this)" />
+		        </td>
+		    </tr>
+		    <tr>
+			   <td class="celllabelrightalign">
+			         <label for="MIR-CVG-PRIM-GR-ID">Group ID:</label>
+			   </td>
+			   <td class="celllabeldataentry">
+			         <input type="text" value=" " name="MIR-CVG-PRIM-GR-ID" id="MIR-CVG-PRIM-GR-ID" stype="Text" maxlength="2" onfocus="enterField(this)" />
+			    </td>
+                <!-- M271A8 Changes begin -->                
+                          <td class="celllabelrightalign">
+                                 <label for="MIR-TAX-QUALF-IND">Tax Qualified Indicator:</label>
+                         </td>
+                         <td class="celllabeldataentry">
+                                <input type="checkbox" value="Y" name="MIR-TAX-QUALF-IND" id="MIR-TAX-QUALF-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                         </td>               
+                <!-- M271A8 Changes end  -->
+			    <td class="celllabelrightalign" />
+			    <td class="celllabeldataentry" />
+			</tr>
+		<!-- M213K1 Changes end -->
+<!-- UYS014 CHANGES STARTS HERE-->
+                <tr>
+                    <td class=" celllabelrightalign">
+                        <label for="MIR-INCR-FACE-AMT">Increased Face Amount:</label>
+                    </td>
+                    <td class=" celllabeldataentry">
+                        <span id="MIR-INCR-FACE-AMT" stype="Currency" elength="16" signed="yes" displayonly="yes">MIR-INCR-FACE-AMT</span>
+                    </td>
+	            <td class="celllabelrightalign" />
+	            <td class="celllabeldataentry" />
+                </tr>
+<!-- UYS014 CHANGES ENDS HERE-->
+            </table>
+            <br />
+            <h2>
+                <a name="Benefits">Benefits</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="6">Life Benefits</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-AD-FACE-AMT">ADB Face Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                    <!--    <input type="text" value=" " name="MIR-CVG-AD-FACE-AMT" id="MIR-CVG-AD-FACE-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                      <input type="text" value=" " name="MIR-CVG-AD-FACE-AMT" id="MIR-CVG-AD-FACE-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-AD-MULT-FCT">ADB Multipler:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-AD-MULT-FCT" id="MIR-CVG-AD-MULT-FCT" stype="Number" elength="3" decimals="2" signed="yes" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-WP-MULT-FCT">Waiver of Premium Multiplier:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-WP-MULT-FCT" id="MIR-CVG-WP-MULT-FCT" stype="Number" elength="3" decimals="2" signed="yes" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="6">Disability Benefits</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-REDC-EP-SELCT-IND">EP/HOSP Benefit Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-REDC-EP-SELCT-IND" id="MIR-REDC-EP-SELCT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-OWN-OCCP-SELCT-IND">Own occupation benefit:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-OWN-OCCP-SELCT-IND" id="MIR-OWN-OCCP-SELCT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-LTA-SELCT-IND">Lifetime Accident Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CVG-LTA-SELCT-IND" id="MIR-CVG-LTA-SELCT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-LTB-SELCT-IND">Lifetime Benefit Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CVG-LTB-SELCT-IND" id="MIR-CVG-LTB-SELCT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PDISAB-SELCT-IND">Partial Disability Benefit Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-PDISAB-SELCT-IND" id="MIR-PDISAB-SELCT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-COLA-SELCT-CD">COLA:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-COLA-SELCT-CD" id="MIR-CVG-COLA-SELCT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Insured Information">Insured Information</a>
+            </h2>
+            <table class="tabledataentry" genrows="5">
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-INSRD-CLI-ID-T[1]">Client ID</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DV-INSRD-CLI-NM-T[1]">Insured Name</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-INSRD-CLI-ID-T[]" id="MIR-INSRD-CLI-ID-T[]" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-DV-INSRD-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-INSRD-CLI-NM-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <h2>
+                <a name="Premium Information">Premium Information</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Basic Coverage</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-MPREM-AMT">Modal Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CVG-MPREM-AMT" id="MIR-CVG-MPREM-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <!-- Q60745 CHANGE STARTS HERE -->
+                      <!-- <input type="text" value=" " name="MIR-CVG-MPREM-AMT" id="MIR-CVG-MPREM-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" /> -->
+                           <input type="text" value=" " name="MIR-CVG-MPREM-AMT" id="MIR-CVG-MPREM-AMT" stype="Currency" elength="13" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    <!-- Q60745 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-BASIC-PREM-AMT">Annual Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                    <!--    <input type="text" value=" " name="MIR-CVG-BASIC-PREM-AMT" id="MIR-CVG-BASIC-PREM-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <!-- Q60745 CHANGE STARTS HERE -->
+<!--                    <input type="text" value=" " name="MIR-CVG-BASIC-PREM-AMT" id="MIR-CVG-BASIC-PREM-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" /> -->
+                    <input type="text" value=" " name="MIR-CVG-BASIC-PREM-AMT" id="MIR-CVG-BASIC-PREM-AMT" stype="Currency" elength="13" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    <!-- Q60745 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-PFEE-AMT">Flat Policy Fee:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                     <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CVG-PFEE-AMT" id="MIR-CVG-PFEE-AMT" stype="Currency" elength="9" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <!-- Q60745 CHANGE STARTS HERE -->
+                    <!-- <input type="text" value=" " name="MIR-CVG-PFEE-AMT" id="MIR-CVG-PFEE-AMT" stype="Currency" elength="9" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" /> -->
+                    <input type="text" value=" " name="MIR-CVG-PFEE-AMT" id="MIR-CVG-PFEE-AMT" stype="Currency" elength="9" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    <!-- Q60745 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-RESTR-PREM-IND">Restrict Premium Calculation Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CVG-RESTR-PREM-IND" id="MIR-CVG-RESTR-PREM-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Life Benefits</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-AD-PREM-AMT">ADB Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CVG-AD-PREM-AMT" id="MIR-CVG-AD-PREM-AMT" stype="Currency" elength="13" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <!-- Q60745 CHANGE STARTS HERE -->
+                       <!-- <input type="text" value=" " name="MIR-CVG-AD-PREM-AMT" id="MIR-CVG-AD-PREM-AMT" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" /> -->
+                            <input type="text" value=" " name="MIR-CVG-AD-PREM-AMT" id="MIR-CVG-AD-PREM-AMT" stype="Currency" elength="13" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    <!-- Q60745 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-WP-PREM-AMT">Waiver of Premium Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CVG-WP-PREM-AMT" id="MIR-CVG-WP-PREM-AMT" stype="Currency" elength="11" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <!-- Q60745 CHANGE STARTS HERE -->
+                      <!--<input type="text" value=" " name="MIR-CVG-WP-PREM-AMT" id="MIR-CVG-WP-PREM-AMT" stype="Currency" elength="11" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" /> -->
+                          <input type="text" value=" " name="MIR-CVG-WP-PREM-AMT" id="MIR-CVG-WP-PREM-AMT" stype="Currency" elength="11" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                   <!-- Q60745 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="4" class="celldataentryheading">Disability Benefits</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-REDC-EP-PREM-AMT">EP/HOSP Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-REDC-EP-PREM-AMT" id="MIR-REDC-EP-PREM-AMT" stype="Currency" elength="11" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <!-- Q60745 CHANGE STARTS HERE -->
+                    <!-- <input type="text" value=" " name="MIR-REDC-EP-PREM-AMT" id="MIR-REDC-EP-PREM-AMT" stype="Currency" elength="11" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" /> -->
+                    <input type="text" value=" " name="MIR-REDC-EP-PREM-AMT" id="MIR-REDC-EP-PREM-AMT" stype="Currency" elength="11" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    <!-- Q60745 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-OWN-OCCP-PREM-AMT">Own Occupation Definition of Disability
+      (OCC)Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-OWN-OCCP-PREM-AMT" id="MIR-OWN-OCCP-PREM-AMT" stype="Currency" elength="11" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <!-- Q60745 CHANGE STARTS HERE -->
+                    <!-- <input type="text" value=" " name="MIR-OWN-OCCP-PREM-AMT" id="MIR-OWN-OCCP-PREM-AMT" stype="Currency" elength="11" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" /> -->
+                    <input type="text" value=" " name="MIR-OWN-OCCP-PREM-AMT" id="MIR-OWN-OCCP-PREM-AMT" stype="Currency" elength="11" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    <!-- Q60745 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-LTA-PREM-AMT">LTA Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CVG-LTA-PREM-AMT" id="MIR-CVG-LTA-PREM-AMT" stype="Currency" elength="11" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <!-- Q60745 CHANGE STARTS HERE -->
+                   <!-- <input type="text" value=" " name="MIR-CVG-LTA-PREM-AMT" id="MIR-CVG-LTA-PREM-AMT" stype="Currency" elength="11" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" /> -->
+                    <input type="text" value=" " name="MIR-CVG-LTA-PREM-AMT" id="MIR-CVG-LTA-PREM-AMT" stype="Currency" elength="11" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    <!-- Q60745 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-LTB-PREM-AMT">LTB Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CVG-LTB-PREM-AMT" id="MIR-CVG-LTB-PREM-AMT" stype="Currency" elength="11" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <!-- Q60745 CHANGE STARTS HERE -->
+                    <!-- <input type="text" value=" " name="MIR-CVG-LTB-PREM-AMT" id="MIR-CVG-LTB-PREM-AMT" stype="Currency" elength="11" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" /> -->
+                    <input type="text" value=" " name="MIR-CVG-LTB-PREM-AMT" id="MIR-CVG-LTB-PREM-AMT" stype="Currency" elength="11" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    <!-- Q60745 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PDISAB-PREM-AMT">Partial Disability Benefit Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-PDISAB-PREM-AMT" id="MIR-PDISAB-PREM-AMT" stype="Currency" elength="11" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <!-- Q60745 CHANGE STARTS HERE -->
+                    <!-- <input type="text" value=" " name="MIR-PDISAB-PREM-AMT" id="MIR-PDISAB-PREM-AMT" stype="Currency" elength="11" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />-->
+                    <input type="text" value=" " name="MIR-PDISAB-PREM-AMT" id="MIR-PDISAB-PREM-AMT" stype="Currency" elength="11" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    <!-- Q60745 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-COLA-PREM-AMT">COLA Premium:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CVG-COLA-PREM-AMT" id="MIR-CVG-COLA-PREM-AMT" stype="Currency" elength="11" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <!-- Q60745 CHANGE STARTS HERE -->
+                    <!-- <input type="text" value=" " name="MIR-CVG-COLA-PREM-AMT" id="MIR-CVG-COLA-PREM-AMT" stype="Currency" elength="11" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" /> -->
+                    <input type="text" value=" " name="MIR-CVG-COLA-PREM-AMT" id="MIR-CVG-COLA-PREM-AMT" stype="Currency" elength="11" CurrencyCode="MIR-PREM-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    <!-- Q60745 CHANGE ENDS HERE -->
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Annuity Information">Annuity Information</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-IA-QUOT-NUM">Immediate Annuity Quote Number:</label>
+                    </td>
+                    <td class="celllabeldataentry" colspan="3">
+                        <input type="text" value=" " name="MIR-IA-QUOT-NUM" id="MIR-IA-QUOT-NUM" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DPOS-TRM-DY-DUR">Deposit Term Days:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DPOS-TRM-DY-DUR" id="MIR-DPOS-TRM-DY-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DPOS-TRM-MO-DUR">Deposit Term Months:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DPOS-TRM-MO-DUR" id="MIR-DPOS-TRM-MO-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-WTHDR-ORDR-CD">Withdrawal Order:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-WTHDR-ORDR-CD" id="MIR-CVG-WTHDR-ORDR-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-INT-PAYO-CD">Interest Handling Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-INT-PAYO-CD" id="MIR-CVG-INT-PAYO-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-OUT-ALLOC-CD">Coverage Level Payout
+      Split:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-OUT-ALLOC-CD" id="MIR-CVG-OUT-ALLOC-CD" size="1" stype="Selection" onfocus="enterField(this)" onchange="onChangeScaling(this, 'MIR-OUT-ALLOC-AMT-PCT')"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-OUT-ALLOC-AMT-PCT">Share
+      Percent/Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OUT-ALLOC-AMT-PCT" id="MIR-OUT-ALLOC-AMT-PCT" stype="Number" elength="15" decimals="3" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                 <!-- **** MFFAN8 START ****-->
+                 <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-XPCT-ANTY-AGE">Expected Annuity Age:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-XPCT-ANTY-AGE" id="MIR-CVG-XPCT-ANTY-AGE" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                     <td class="celllabelrightalign">
+                        <label for="MIR-CVG-XPCT-ANTY-DT">Expected Annuity Date:</label>
+                    </td>
+                     <td class="celllabeldataentry">
+                        <span id="MIR-CVG-XPCT-ANTY-DT" stype="Date" displayonly="yes">MIR-CVG-XPCT-ANTY-DT</span>
+                    </td>
+                </tr>
+                <!-- **** MFFAN8 END****-->
+            </table>
+            <br />
+            <h2>
+                <a name="Connected Policy/Coverage Information">Connected Policy/Coverage Information</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CONN-POL-ID">Connected Policy Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CONN-POL-ID" id="MIR-CONN-POL-ID" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CONN-CVG-NUM">Connected Coverage Number:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CONN-CVG-NUM" id="MIR-CONN-CVG-NUM" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-CONN-REASN-CD">Connected Policy/Coverage Reason:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-CONN-REASN-CD" id="MIR-CVG-CONN-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <!-- UCR244 CHANGE STARTS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CONN-CORP-INSRD-ID">Connected Corporate Insured ID:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CONN-CORP-INSRD-ID" id="MIR-CONN-CORP-INSRD-ID" stype="Text" maxlength="10" onfocus="enterField(this)" />
+                    </td>
+                   <!-- UCR244 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Agent Information">Agent Information</a>
+            </h2>
+            <table class="tabledataentry" genrows="2">
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-AGT-ID-T[1]">Agent ID</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CVG-AGT-SHR-PCT-T[1]">Share</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-AGT-TYP-CD-T[1]">Agent Type</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-ADDL-FYR-COMM-RT-T[1]">First Year Adjustment</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CVG-AGT-CPREM-AMT-T[1]">Commissionable Premium</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-AGT-ID-T[]" id="MIR-AGT-ID-T[]" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-CVG-AGT-SHR-PCT-T[]" id="MIR-CVG-AGT-SHR-PCT-T[]" stype="Percent" elength="5" decimals="2" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-AGT-TYP-CD-T[]" id="MIR-CVG-AGT-TYP-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-ADDL-FYR-COMM-RT-T[]" id="MIR-ADDL-FYR-COMM-RT-T[]" stype="Percent" elength="5" decimals="3" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CVG-AGT-CPREM-AMT-T[]" id="MIR-CVG-AGT-CPREM-AMT-T[]" stype="Currency" elength="13" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-CVG-AGT-CPREM-AMT-T[]" id="MIR-CVG-AGT-CPREM-AMT-T[]" stype="Currency" elength="13" CurrencyCode="MIR-POL-CRCY-CD" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" genrows="2">
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-AGT-ID-T[1]">Agent ID</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-COMM-RT-TBAC-ID-T[1]">Commission Pattern</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-OVRID-BASE-AGT-ID-T[1]">Override
+      Key</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-OVRID-ID-T[1]">Override Situation</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-AGT-ID-T[]" stype="Text" displayonly="yes">MIR-AGT-ID-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-COMM-RT-TBAC-ID-T[]" id="MIR-COMM-RT-TBAC-ID-T[]" stype="Text" maxlength="5" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OVRID-BASE-AGT-ID-T[]" id="MIR-OVRID-BASE-AGT-ID-T[]" stype="Text" maxlength="6" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-OVRID-ID-T[]" id="MIR-OVRID-ID-T[]" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" genrows="2">
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-AGT-ID-T[1]">Agent ID</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-CPREM-CALC-CD-T[1]">Commissionable Premium Method</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-FYR-COMM-CALC-CD-T[1]">First Year Commission Method of Payment</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-RENW-COMM-CALC-CD-T[1]">Renewal Commission Method of Payment</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-AGT-ID-T[]" stype="Text" displayonly="yes">MIR-AGT-ID-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CPREM-CALC-CD-T[]" id="MIR-CPREM-CALC-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-FYR-COMM-CALC-CD-T[]" id="MIR-FYR-COMM-CALC-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-RENW-COMM-CALC-CD-T[]" id="MIR-RENW-COMM-CALC-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldataentryheading">
+                        <label for="MIR-AGT-ID-T[1]">Agent ID</label>
+                    </td>
+                    <td class="celldataentryheading">
+                        <label for="MIR-DV-AGT-CLI-NM-T[1]">Agent Name</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-AGT-ID-T[]" stype="Text" displayonly="yes">MIR-AGT-ID-T[]</span>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-DV-AGT-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-AGT-CLI-NM-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Coverage Dates">Coverage Dates</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-MAT-XPRY-DT">Maturity/Expiry Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CVG-MAT-XPRY-DT" stype="Date" displayonly="yes">MIR-CVG-MAT-XPRY-DT</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-PREM-CHNG-DT">Premium Change Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CVG-PREM-CHNG-DT" stype="Date" displayonly="yes">MIR-CVG-PREM-CHNG-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MAT-XPRY-REASN-CD">Maturity/Expiry Reason:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-MAT-XPRY-REASN-CD" id="MIR-MAT-XPRY-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+<!-- ***RP2009 CHANGES STARTS HERE ********-->
+<!--                <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />  -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREM-CHNG-REASN-CD">Premium Change Reason:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-PREM-CHNG-REASN-CD" stype="Text" displayonly="yes">MIR-PREM-CHNG-REASN-CD</span>
+                    </td>
+
+<!-- **** RP2009 cHANGES ENDS ****-->
+
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-MAT-XPRY-AGE">Maturity Age:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-MAT-XPRY-AGE" id="MIR-CVG-MAT-XPRY-AGE" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-MAT-XPRY-DUR">Maturity Years:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-MAT-XPRY-DUR" id="MIR-CVG-MAT-XPRY-DUR" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-CNVR-XPRY-DT">Conversion Expiry Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CVG-CNVR-XPRY-DT" stype="Date" displayonly="yes">MIR-CVG-CNVR-XPRY-DT</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MORT-XPNS-CHG-DT">
+                            Mortality
+&amp;                             Expense Change Date:
+                        </label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-MORT-XPNS-CHG-DT" stype="Date" displayonly="yes">MIR-MORT-XPNS-CHG-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <h2>
+                <a name="Substandard Ratings">Substandard Ratings</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Flat Extra Rating</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-FE-UPREM-AMT">Flat Extra Dollar
+      Amount/Unit:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                    <!--   <input type="text" value=" " name="MIR-CVG-FE-UPREM-AMT" id="MIR-CVG-FE-UPREM-AMT" stype="Currency" elength="9" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-CVG-FE-UPREM-AMT" id="MIR-CVG-FE-UPREM-AMT" stype="Currency" elength="9" CurrencyCode="MIR-POL-CRCY-CD" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-FE-DUR">Flat Extra Duration:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-FE-DUR" id="MIR-CVG-FE-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-FE-REASN-CD">Flat Extra Reason:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-FE-REASN-CD" id="MIR-CVG-FE-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-FE-PREM-AMT">Flat Extra Premium Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CVG-FE-PREM-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-CVG-FE-PREM-AMT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Mortality/Morbidity
+      Rating</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-ME-FCT">Mortality/Morbidity Extra Premium Rating:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-ME-FCT" id="MIR-CVG-ME-FCT" stype="Number" elength="3" decimals="2" signed="yes" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-ME-RAT-CD">True Table Rating:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-ME-RAT-CD" id="MIR-CVG-ME-RAT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-ME-DUR">Mortality/Morbidity Extra Premium Duration:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-ME-DUR" id="MIR-CVG-ME-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-ME-REASN-CD">Mortality/Morbidity Extra Premium Reason:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-ME-REASN-CD" id="MIR-CVG-ME-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-ME-PREM-AMT">Mortality/Morbidity Extra Premium Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-CVG-ME-PREM-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-CVG-ME-PREM-AMT</span>
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-MISC-RAT-1-CD">Miscellaneous Reason 1:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-MISC-RAT-1-CD" id="MIR-CVG-MISC-RAT-1-CD" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-MISC-RAT-2-CD">Miscellaneous Reason 2:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-MISC-RAT-2-CD" id="MIR-CVG-MISC-RAT-2-CD" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+<!--   MP211B CHANGES START HERE -->
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-LIEN-DUR">Lien Duration:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-LIEN-DUR" id="MIR-CVG-LIEN-DUR" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+<!--   MP245J CHANGES STARTS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SSTD-AGE-ADD-DUR"> Substandard Age Duration:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-SSTD-AGE-ADD-DUR" stype="Number" elength="2" decimals="0" displayonly="yes">MIR-SSTD-AGE-ADD-DUR</span>
+                    </td>
+<!--   MP245J CHANGES ENDS   HERE -->
+                </tr>
+<!--   MP211B CHANGES ENDS HERE -->
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Underwriting Information">Underwriting Information</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UW-USER-ID">Underwriter's Initial:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-UW-USER-ID" id="MIR-UW-USER-ID" stype="Text" maxlength="8" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UWG-REQIR-ESTB-IND">Underwriting Requirements Established:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-UWG-REQIR-ESTB-IND" id="MIR-UWG-REQIR-ESTB-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-UWGDECN-CD">Coverage Decision:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-UWGDECN-CD" id="MIR-CVG-UWGDECN-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-UWGDECN-SUB-CD">Coverage Decision Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-UWGDECN-SUB-CD" id="MIR-CVG-UWGDECN-SUB-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Underwriting Requirements</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-NMED-CD">Non-Medical:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-NMED-CD" id="MIR-CVG-NMED-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-APS-CD">Attending Physician Statement:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-APS-CD" id="MIR-CVG-APS-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-PHYS-EXAM-CD">Medical Examination:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-PHYS-EXAM-CD" id="MIR-CVG-PHYS-EXAM-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-EKG-CD">Electro-Cardiogram:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-EKG-CD" id="MIR-CVG-EKG-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-HO-SPCMN-CD">Head Office Specimen:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-HO-SPCMN-CD" id="MIR-CVG-HO-SPCMN-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-INTRNL-EXAM-CD">Medical Internal Exam:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-INTRNL-EXAM-CD" id="MIR-CVG-INTRNL-EXAM-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-PMED-CD">Paramedical:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-PMED-CD" id="MIR-CVG-PMED-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-INSPC-RPT-CD">Inspection Report:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-INSPC-RPT-CD" id="MIR-CVG-INSPC-RPT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-STRS-EKG-CD">Stress Electro-Cardiogram:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-STRS-EKG-CD" id="MIR-CVG-STRS-EKG-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-XRAY-CD">X-Ray:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-XRAY-CD" id="MIR-CVG-XRAY-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UWG-USER-DEFN-1-CD">Miscellaneous Underwriting Requirement 1:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-UWG-USER-DEFN-1-CD" id="MIR-UWG-USER-DEFN-1-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UWG-USER-DEFN-2-CD">Miscellaneous Underwriting Requirement 2:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-UWG-USER-DEFN-2-CD" id="MIR-UWG-USER-DEFN-2-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UWG-USER-DEFN-3-CD">Miscellaneous Underwriting Requirement 3:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-UWG-USER-DEFN-3-CD" id="MIR-UWG-USER-DEFN-3-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UWG-USER-DEFN-4-CD">Miscellaneous Underwriting Requirement 4:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-UWG-USER-DEFN-4-CD" id="MIR-UWG-USER-DEFN-4-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-UWG-USER-DEFN-5-CD">Miscellaneous Underwriting Requirement 5:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-UWG-USER-DEFN-5-CD" id="MIR-UWG-USER-DEFN-5-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry" genrows="3">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Medical or Avocation Exclusion</td>
+                </tr>
+                <tr>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-UWG-EXCL-1-CD-T[]" id="MIR-CVG-UWG-EXCL-1-CD-T[]" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celldataentryheading" colspan="4">Miscellaneous Underwriting Information</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-NMED-PRVLG-IND">Non-Medical Priviledge:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CVG-NMED-PRVLG-IND" id="MIR-CVG-NMED-PRVLG-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-OCCP-CLAS-CD">Occupation Class:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-OCCP-CLAS-CD" id="MIR-CVG-OCCP-CLAS-CD" stype="Text" maxlength="2" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-PRST-RAT-PCT">Persistency Rating:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-CVG-PRST-RAT-PCT" id="MIR-CVG-PRST-RAT-PCT" stype="Percent" elength="3" decimals="0" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-SALE-SRC-CD">Source of Sale:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-SALE-SRC-CD" id="MIR-CVG-SALE-SRC-CD" stype="Text" maxlength="1" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MORT-ASSESS-PCT">Mortality Assessment Percentage:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-MORT-ASSESS-PCT" id="MIR-MORT-ASSESS-PCT" stype="Percent" elength="3" decimals="0" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SNGL-CASE-AGRE-IND">Single Case Agreement:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-SNGL-CASE-AGRE-IND" id="MIR-SNGL-CASE-AGRE-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-INCM-BRCKT-CD">Income Bracket:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-INCM-BRCKT-CD" id="MIR-CVG-INCM-BRCKT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Notify Information">Notify Information</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-NOTI-DT">Notify date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-NOTI-DT" id="MIR-CVG-NOTI-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-NOTI-REASN-CD">Notify Reason:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-NOTI-REASN-CD" id="MIR-CVG-NOTI-REASN-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-NOTI-DEPT-ID">Notify Department:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-NOTI-DEPT-ID" id="MIR-CVG-NOTI-DEPT-ID" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <br />
+            <h2>
+                <a name="Universal Life Targets">Universal Life Targets</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MNPMT-TRG-LTD-AMT">Minimum Payment Target:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <span id="MIR-MNPMT-TRG-LTD-AMT" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-MNPMT-TRG-LTD-AMT</span>
+                    </td> -->
+                    <span id="MIR-MNPMT-TRG-LTD-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-MNPMT-TRG-LTD-AMT</span>
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-COMM-TRG-AMT">Annual Commission Target:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                    <!--    <input type="text" value=" " name="MIR-CVG-COMM-TRG-AMT" id="MIR-CVG-COMM-TRG-AMT" stype="Currency" elength="11" decimals="0" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-CVG-COMM-TRG-AMT" id="MIR-CVG-COMM-TRG-AMT" stype="Currency" elength="11" CurrencyCode="MIR-POL-CRCY-CD"  signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-COMM-TRG-CALC-CD">Commission Target Mode:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-COMM-TRG-CALC-CD" id="MIR-COMM-TRG-CALC-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PMT-LOAD-TRG-AMT">Annual Payment Load Target:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                    <!--    <input type="text" value=" " name="MIR-PMT-LOAD-TRG-AMT" id="MIR-PMT-LOAD-TRG-AMT" stype="Currency" elength="11" decimals="0" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-PMT-LOAD-TRG-AMT" id="MIR-PMT-LOAD-TRG-AMT" stype="Currency" elength="11" CurrencyCode="MIR-POL-CRCY-CD"  signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PMT-LOAD-TRG-CD">Payment Load Target Mode:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PMT-LOAD-TRG-CD" id="MIR-PMT-LOAD-TRG-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <h2>
+                <a name="Guaranteed Interest Information">Guaranteed Interest Information</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-GUAR-INT-CD">Interest Guarantee Type:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-GUAR-INT-CD" id="MIR-CVG-GUAR-INT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-GUAR-INT-PERI-DUR">Interest Guarantee Period:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-GUAR-INT-PERI-DUR" id="MIR-GUAR-INT-PERI-DUR" stype="Text" maxlength="3" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-GUAR-INT-STRT-DT">Guaranteed Interest Start Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-GUAR-INT-STRT-DT" id="MIR-GUAR-INT-STRT-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-GUAR-INT-END-DT">Guaranteed Interest End Date:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-GUAR-INT-END-DT" id="MIR-GUAR-INT-END-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-GUAR-INT-PCT">Guaranteed Interest Rate:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-CVG-GUAR-INT-PCT" id="MIR-CVG-GUAR-INT-PCT" stype="Percent" elength="9" decimals="6" signed="yes" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-GUAR-IMPRD-INT-PCT">Impaired Rate:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" name="MIR-GUAR-IMPRD-INT-PCT" id="MIR-GUAR-IMPRD-INT-PCT" stype="Percent" elength="9" decimals="6" signed="yes" value="" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Sweep Threshold Information">Sweep Threshold Information</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DIA-SWP-THRSHD-AMT">Sweep Threshold Minimum Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                    <!--    <input type="text" value=" " name="MIR-DIA-SWP-THRSHD-AMT" id="MIR-DIA-SWP-THRSHD-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                    <input type="text" value=" " name="MIR-DIA-SWP-THRSHD-AMT" id="MIR-DIA-SWP-THRSHD-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DIA-SWP-THRSHD-CD">Sweep
+      Threshold Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-DIA-SWP-THRSHD-CD" id="MIR-DIA-SWP-THRSHD-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <h2>
+                <a name="Guaranteed Insurability Rider Information">Guaranteed Insurability Rider Information</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-GIR-OPT-REMN-AMT">Maximum Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-GIR-OPT-REMN-AMT" stype="Currency" elength="15" displayonly="yes">MIR-GIR-OPT-REMN-AMT</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-GIR-OPT-REMN-QTY">Number of Options Left:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-GIR-OPT-REMN-QTY" stype="Text" displayonly="yes">MIR-GIR-OPT-REMN-QTY</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-GIR-SEND-LTR-IND">Send Letter Advising Next Option:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" name="MIR-GIR-SEND-LTR-IND" id="MIR-GIR-SEND-LTR-IND" stype="Indicator" value="Y" disabled="yes" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+            </table>
+            <p align="right">
+                <a href="#top" class="backtotop">
+                    <img src="../images/top.gif" border="0" alt="Back to top" width="14" height="14" />
+                     Back to top
+                </a>
+            </p>
+            <h2>
+                <a name="Miscellaneous Information">Miscellaneous Information</a>
+            </h2>
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-POL-APPL-CTL-CD">Application System Code:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <span id="MIR-POL-APPL-CTL-CD" stype="Text" displayonly="yes">MIR-POL-APPL-CTL-CD</span>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-UNIT-VALU-AMT">Unit Value:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <span id="MIR-CVG-UNIT-VALU-AMT" stype="Currency" elength="7" decimals="0" displayonly="yes">MIR-CVG-UNIT-VALU-AMT</span>
+                    </td> -->
+                    <span id="MIR-CVG-UNIT-VALU-AMT" stype="Currency" elength="7"  displayonly="yes">MIR-CVG-UNIT-VALU-AMT</span>
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-ORIG-CD">Source of Business:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-ORIG-CD" id="MIR-CVG-ORIG-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-ROLOVR-DT-IND">Cash Flow Rollover Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-CVG-ROLOVR-DT-IND" id="MIR-CVG-ROLOVR-DT-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PREV-RENW-RT-CD">Last Premium Renewal Rate Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-PREV-RENW-RT-CD" id="MIR-PREV-RENW-RT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-PREV-CPI-FCT">Last Premium Rate:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-PREV-CPI-FCT" id="MIR-CVG-PREV-CPI-FCT" stype="Number" elength="5" decimals="3" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-NXT-RENW-RT-CD">Next Premium Renewal Rate Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-NXT-RENW-RT-CD" id="MIR-CVG-NXT-RENW-RT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-NXT-CPI-FCT">Next Premium Rate:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-CVG-NXT-CPI-FCT" id="MIR-CVG-NXT-CPI-FCT" stype="Number" elength="5" decimals="3" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-PREV-FACE-AMT">Last Face Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-CVG-PREV-FACE-AMT" id="MIR-CVG-PREV-FACE-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-CVG-PREV-FACE-AMT" id="MIR-CVG-PREV-FACE-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD"  onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-ORIG-FACE-AMT">Original Face Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                    <!--    <input type="text" value=" " name="MIR-CVG-ORIG-FACE-AMT" id="MIR-CVG-ORIG-FACE-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-CVG-ORIG-FACE-AMT" id="MIR-CVG-ORIG-FACE-AMT" stype="Currency" elength="15" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ULT-PREM-RT-CD">Step-rated Ultimate Rate:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-ULT-PREM-RT-CD" id="MIR-ULT-PREM-RT-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-ULT-PREM-RT-AGE">Step-Rated Ultimate Rate Age:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ULT-PREM-RT-AGE" id="MIR-ULT-PREM-RT-AGE" stype="Number" elength="3" decimals="0" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-CVG-ENHC-TYP-CD">Enhancement Indicator:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-CVG-ENHC-TYP-CD" id="MIR-CVG-ENHC-TYP-CD" size="1" stype="Selection" onfocus="enterField(this)"></select>
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SW-REDC-FACE-AMT">Opt 2 Switch, Reduced Face Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <!-- M245B2 CHANGE STARTS HERE -->
+                     <!--   <input type="text" value=" " name="MIR-SW-REDC-FACE-AMT" id="MIR-SW-REDC-FACE-AMT" stype="Currency" elength="15" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td> -->
+                     <input type="text" value=" " name="MIR-SW-REDC-FACE-AMT" id="MIR-SW-REDC-FACE-AMT" stype="Currency" elength="15" CurrencyCode="MIR-POL-CRCY-CD" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateCrcyCd(this)" />
+                    </td>
+                    <!-- M245B2 CHANGE ENDS HERE -->
+                    <td class="celllabelrightalign">
+                        <label for="MIR-SW-REDC-EFF-DT">Opt 2 Switch, Effective Date of Reduced Face Amount:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-SW-REDC-EFF-DT" id="MIR-SW-REDC-EFF-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Coverage Details">Coverage Details</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Benefits">Benefits</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Insured Information">Insured</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Premium Information">Premium</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Annuity Information">Annuity</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Connected Policy/Coverage Information">Connected Policy/Coverage</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Agent Information">Agent</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Coverage Dates">Dates</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Substandard Ratings">Substandard</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Underwriting Information">Underwriting</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Notify Information">Notify</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center>
+                <table class="tableanchors">
+                    <tr>
+                        <td class="cellanchors">
+                            <a href="#Universal Life Targets">Targets</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Guaranteed Interest Information">Guaranteed Interest</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Sweep Threshold Information">Sweep</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Guaranteed Insurability Rider Information">GIR</a>
+                        </td>
+                        <td class="cellanchors">
+                            <a href="#Miscellaneous Information">Miscellaneous</a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/polc.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+    <script src="../js/BF8022Reins.js"></script>
+<!-- M245B2 CHANGE STARTS HERE -->
+    <script src="../js/CrcyLevelEdits.js"></script>
+<!-- M245B2 CHANGE ENDS HERE -->
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

@@ -1,0 +1,93 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:59 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9441-O.htm                                                   
+*  Description: Output HTML                                                    
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  P00891  YC       Add Journal Date with no limitation   06JUN2003            
+*  PF22    BMB      Add input type "action" to satisfy pagetest requirements   
+*  ISLADM  CTS      CHANGES FOR INSURANCE LAW PROJECT
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge. 
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+            
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9441-O</title>
+<link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+</head>
+<!--  UY3004 CHANGES STARTS HERE
+<body class="bodyws"> -->
+<body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<input type="hidden" name="action" id="action" stype="Hidden" />
+<table class="tabledisplay">
+<!--  P00891 YC   06JUN2003  Add 1 lines for Adding Journal Date  -->
+                <tr>
+<td class="celldisplaykeylabel">
+<label for="MIR-APPL-CTL-PRCES-DT">有効日:</label></td><td class="celldisplaykey"><span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span></td>
+<td class="celldisplaykeylabel">
+<label for="MIR-POL-ID-BASE">証券番号:</label></td><td class="celldisplaykey"><span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span></td>
+<td class="celldisplaykeylabel">
+<label for="MIR-POL-ID-SFX">枝番:</label></td><td class="celldisplaykey"><span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span></td>
+<!--  P00891 YC   06JUN2003  Add 13 lines for Adding Journal Date  -->
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-JRNL-DT">日報計上日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-JRNL-DT" stype="Date" displayonly="yes">MIR-JRNL-DT</span>
+                    </td>
+<!-- ISLADM Changes Start -->
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SURR-FORM-ACPT-DT">解約請求書受理日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SURR-FORM-ACPT-DT" stype="Date" displayonly="yes">MIR-SURR-FORM-ACPT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-ASIGN-SURR-EFF-DT">質権•差押契約解約効力発生日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-ASIGN-SURR-EFF-DT" stype="Date"  displayonly="yes">MIR-ASIGN-SURR-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-STEP-IN-RIGHT-IND">介入権対象契約:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <input type="checkbox" name="MIR-POL-STEP-IN-RIGHT-IND" id="MIR-POL-STEP-IN-RIGHT-IND" stype="Indicator" value="Y" disabled="yes"/>
+                    </td>
+<!-- ISLADM Changes End -->
+<!-- ISLADM Changes Start
+                    <td class="celldisplaykeylabel"></td>
+                    <td class="celldisplaykey"></td>
+                    <td class="celldisplaykeylabel"></td>
+                    <td class="celldisplaykey"></td>
+ISLADM Changes Ends -->
+                </tr>
+</table>
+</form>
+</body>
+<script src="../js/MessagesJapanese.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

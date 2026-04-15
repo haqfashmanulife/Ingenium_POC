@@ -1,0 +1,333 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:50 PM EDT
+*
+*********************************************************************************
+*  Component:   BF6910-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"                               
+*  01CP02  GW       Add Agent Type and Servicing Sales Office                  
+*  FT7001 AKATO  FT7 Label Change 14JUN2004                          	               
+*
+*  Q51101  CTS      Foreign currency formatting  
+*  TDMG24  CTS      INQUIRY SCREEN CHANGES
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                                                                          
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF6910-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-OWN-CLI-NM">契約者名:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-DV-OWN-CLI-NM" stype="Text" displayonly="yes">MIR-DV-OWN-CLI-NM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-SBSDRY-CO-ID">子会社:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-SBSDRY-CO-ID" stype="Text" displayonly="yes">MIR-SBSDRY-CO-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CSTAT-CD">契約状況:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CSTAT-CD" stype="Text" displayonly="yes">MIR-POL-CSTAT-CD</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-CVG-REC-CTR">保障数:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-CVG-REC-CTR" stype="Text" displayonly="yes">MIR-POL-CVG-REC-CTR</span>
+                    </td>
+                </tr>
+<!--TDMG24 Changes Begin-->
+                <tr>
+                    <td class="celldisplaykeylabel">
+		           <label for="MIR-PREM-PMT-CMPLT-IND">主契約払込満了:</label>
+		    </td>
+		    <td class="celldisplaykey">
+			  <input type="checkbox" name="MIR-PREM-PMT-CMPLT-IND" id="MIR-PREM-PMT-CMPLT-IND" stype="Indicator" value="Y" disabled="yes"/>
+	            </td>
+                </tr>
+<!--TDMG24 Changes end-->
+
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-CVG-NUM">保障番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-CVG-NUM" stype="Text" displayonly="yes">MIR-CVG-NUM</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">処理日:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-APPL-CTL-PRCES-DT" stype="Date" displayonly="yes">MIR-APPL-CTL-PRCES-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">扱者情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SERV-BR-ID">扱RO:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SERV-BR-ID" stype="Text" displayonly="yes">MIR-SERV-BR-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SERV-AGT-ID">扱者ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SERV-AGT-ID" stype="Text" displayonly="yes">MIR-SERV-AGT-ID</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PREV-SERV-AGT-ID">旧扱者ID:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PREV-SERV-AGT-ID" stype="Text" displayonly="yes">MIR-PREV-SERV-AGT-ID</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-SERV-SO-ID">扱営業所:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SERV-SO-ID" stype="Text" displayonly="yes">MIR-SERV-SO-ID</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="7">手数料情報(1)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-ID-T[1]">手数料対象募集者ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DV-AGT-CLI-NM-T[1]">募集者名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-AGT-SHR-PCT-T[1]">募集割合</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-AGT-TYP-CD-T[1]">募集者タイプ</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-AGT-CPREM-AMT-T[1]">手数料対象保険料</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-FYR-COMM-AMT-T[1]">初年度手数料</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ADDL-FYR-COMM-RT-T[1]">初年度調整</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-ID-T[]" stype="Text" displayonly="yes">MIR-AGT-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-AGT-CLI-NM-T[]" stype="Text" displayonly="yes">MIR-DV-AGT-CLI-NM-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-AGT-SHR-PCT-T[]" stype="Percent" elength="5" decimals="2" displayonly="yes">MIR-CVG-AGT-SHR-PCT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-AGT-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-CVG-AGT-TYP-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-AGT-CPREM-AMT-T[]" stype="Currency" elength="13" displayonly="yes">MIR-CVG-AGT-CPREM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-FYR-COMM-AMT-T[]" stype="Currency" elength="13" displayonly="yes">MIR-CVG-FYR-COMM-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ADDL-FYR-COMM-RT-T[]" stype="Percent" elength="5" decimals="5" signed="yes" displayonly="yes">MIR-ADDL-FYR-COMM-RT-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading" genrows="0" colspan="5">手数料情報(2)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-ID-T[1]">手数料募集者ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVGD-DUR-T[1]">期間</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-COMM-CHNG-CD-T[1]">手数料変更事由</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-COMM-RT-TBAC-ID-T[1]">支払手数料率</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OVRID-BASE-AGT-ID-T[1]">上乗せ手数料</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-ID-T[]" stype="Text" displayonly="yes">MIR-AGT-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVGD-DUR-T[]" stype="Text" displayonly="yes">MIR-CVGD-DUR-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COMM-CHNG-CD-T[]" stype="Text" displayonly="yes">MIR-COMM-CHNG-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COMM-RT-TBAC-ID-T[]" stype="Text" displayonly="yes">MIR-COMM-RT-TBAC-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OVRID-BASE-AGT-ID-T[]" stype="Text" displayonly="yes">MIR-OVRID-BASE-AGT-ID-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="5">手数料情報(3)</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-ID-T[1]">手数料募集者ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-COMM-PD-1-AMT-T[1]">支払手数料</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-COMM-EARN-1-AMT-T[1]">受取手数料</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-COMM-ADV-1-AMT-T[1]">前払手数料</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CVG-MDRT-AMT-T[1]">MDRT額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-ID-T[]" stype="Text" displayonly="yes">MIR-AGT-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COMM-PD-1-AMT-T[]" stype="Currency" elength="13" displayonly="yes">MIR-COMM-PD-1-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COMM-EARN-1-AMT-T[]" stype="Currency" elength="13" displayonly="yes">MIR-COMM-EARN-1-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-COMM-ADV-1-AMT-T[]" stype="Currency" elength="13" displayonly="yes">MIR-COMM-ADV-1-AMT-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+<!-- Q51101 CHANGES START  -->
+                       <!-- <span id="MIR-CVG-MDRT-AMT-T[]" stype="Currency" elength="13" decimals="0" signed="yes" displayonly="yes">MIR-CVG-MDRT-AMT-T[]</span> -->
+                        <span id="MIR-CVG-MDRT-AMT-T[]" stype="Currency" elength="13"  signed="yes" displayonly="yes">MIR-CVG-MDRT-AMT-T[]</span>
+<!-- Q51101 CHANGES END  -->
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay" genrows="0" keyfield="0">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">計算/支払方式</td>
+                </tr>
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-AGT-ID-T[1]">手数料募集者ID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CPREM-CALC-CD-T[1]">計算方式 - 手数料保険料</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FYR-COMM-CALC-CD-T[1]">初年度手数料支払方式</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RENW-COMM-CALC-CD-T[1]">更新手数料支払方式</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-AGT-ID-T[]" stype="Text" displayonly="yes">MIR-AGT-ID-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CPREM-CALC-CD-T[]" stype="Text" displayonly="yes">MIR-CPREM-CALC-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FYR-COMM-CALC-CD-T[]" stype="Text" displayonly="yes">MIR-FYR-COMM-CALC-CD-T[]</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RENW-COMM-CALC-CD-T[]" stype="Text" displayonly="yes">MIR-RENW-COMM-CALC-CD-T[]</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-TRAIL-COMM-DT">ﾄﾚｲﾙｺﾐｯｼｮﾝ日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-TRAIL-COMM-DT" stype="Date" displayonly="yes">MIR-POL-TRAIL-COMM-DT</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

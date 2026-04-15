@@ -1,0 +1,98 @@
+ <!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:07 PM EDT
+*
+********************************************************************************
+*  Component:   AddNewBusProc.htm                                              
+*  Description:                                                                
+*                                                                              
+********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  016423  602J     New for release 602J                                       
+*  017150  612J     Remove Currency decimals="2"                               
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.
+********************************************************************************
+ -->
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Add a New Business Process</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledataentry">
+                <tr>
+                    <td class="celllabelrightalign">
+                    <label for="MIR-ETBL-VALU-ID">Process Flow ID:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <input type="text" value=" " name="MIR-ETBL-VALU-ID" id="MIR-ETBL-VALU-ID" stype="Text" maxlength="15" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                    <label for="MIR-ETBL-DESC-TXT">Description:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-ETBL-DESC-TXT" id="MIR-ETBL-DESC-TXT" stype="Text" maxlength="40" mandatory="yes" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                    <label for="MIR-SECUR-CLAS-ID">Security Class:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <select name="MIR-SECUR-CLAS-ID" id="MIR-SECUR-CLAS-ID" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                    <label for="MIR-BPF-SECUR-GR-CD">Security Group:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                    <select name="MIR-BPF-SECUR-GR-CD" id="MIR-BPF-SECUR-GR-CD" size="1" stype="Selection" onfocus="enterField(this)" mandatory="yes" />
+                    </td>
+                    <td class="celllabelrightalign" />
+                    <td class="celllabeldataentry" />
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BPF-SECUR-LVL-NUM">Security Level:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-BPF-SECUR-LVL-NUM" id="MIR-BPF-SECUR-LVL-NUM" stype="Number" elength="3" decimals="0" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelleftalign" colspan="2">
+                        <a name="CheckSecurityLevelsLink" href="a" action="CheckSecurityLevels" onclick="onAction();return(false);" onfocus="enterField(this)">Check for available Security Levels</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-MSG-SECUR-CLAS-CD">Message Class:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <select name="MIR-MSG-SECUR-CLAS-CD" id="MIR-MSG-SECUR-CLAS-CD" size="1" stype="Selection" onfocus="enterField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-BPF-SECUR-AUD-IND">Enable Auditing:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="checkbox" value="Y" name="MIR-BPF-SECUR-AUD-IND" id="MIR-BPF-SECUR-AUD-IND" stype="Indicator" onclick="onCheckBox()" onfocus="enterField(this)" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

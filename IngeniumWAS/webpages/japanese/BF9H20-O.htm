@@ -1,0 +1,3421 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:22 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9H20-O.htm
+*  Description:
+*
+********************************************************************************
+*  Chg#    Release  Description
+*
+*  UYDM29  CTS      Benefit History Inquiry Screen
+********************************************************************************
+ -->
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF9H20-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+    <style>
+    .celldisplayheading
+{
+    BACKGROUND-COLOR: #0000A4;
+    COLOR: #ffef52;
+    FONT-FAMILY: ms pgothic, verdana;
+    FONT-SIZE: 7pt;
+    FONT-WEIGHT: bold;
+}
+
+   .tabledisplaykey1
+{
+    BORDER-LEFT: 2px solid ;
+    BORDER-RIGHT: 2px solid;
+    BORDER-TOP: 2px solid;
+    BORDER-BOTTOM: 1px solid;
+}
+
+   .tabledisplaykey2
+{
+    PADDING-BOTTOM: 0px;
+    FONT-FAMILY: ms pgothic, tahoma, verdana, arial, helvetica, sans-serif;
+    width: 100%;
+}
+   .tabledatakey1
+{
+    PADDING-BOTTOM: 1px;
+    FONT-FAMILY: tahoma, verdana, arial, helvetica, sans-serif, ms pgothic;
+    WIDTH: 100%;
+}
+    </style>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" stype="Hidden" id="index" />
+            <input type="hidden" name="action" stype="Hidden" id="action" />
+            <input type="hidden" name="MIR-HIST-NUM" id="MIR-HIST-NUM" stype="Hidden" />
+            <input type="hidden" name="MIR-JRNL-DT" id="MIR-JRNL-DT" stype="Hidden" />
+            <input type="hidden" name="MIR-RO-CD" id="MIR-RO-CD" stype="Hidden" />
+            <table class="tabledatakey1">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                         <label for="MIR-POL-ID">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                         <span id="MIR-POL-ID" stype="Text" displayonly="yes">MIR-POL-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                         <label for="MIR-LARG-TYP-CD">大種:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                         <span id="MIR-LARG-TYP-CD" stype="Text" displayonly="yes">MIR-LARG-TYP-CD</span>
+                    </td>
+                </tr>
+          </table>
+          <table  class="tabledisplaykey1">
+          <td>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HIST-NUM-1">ヒストリーNO</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RO-CD-1">日報計上支社コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-JRNL-DT-1">日報計上日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFT-CAT-CD-1">給付区分</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-1">回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DIS-CD-1">病名コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-STRT-DT-1">入院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-END-DT-1">退院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ADV-PAYOUT-1">内払回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-EXCLU-DAYS-1">控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-MD-1">支払月日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PRCES-CD-1">処理</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-BNFT-AMT-1">入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LS-DIS-BNFT-AMT-1">女性疾病入院給付金／成人病給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CAN-MNTH-BNFT-AMT-1">ガン治療月払給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-PAY-DAYS-1">長期支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-DAYS-1">長期通算実入院日数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-HIST-NUM-1" stype="Text" displayonly="yes">MIR-HIST-NUM-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RO-CD-1" stype="Text" displayonly="yes">MIR-RO-CD-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JRNL-DT-1" stype="Text" displayonly="yes">MIR-JRNL-DT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFT-CAT-CD-1" stype="Text" displayonly="yes">MIR-BNFT-CAT-CD-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-1" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIS-CD-1" stype="Text" displayonly="yes">MIR-DIS-CD-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-STRT-DT-1" stype="Text" displayonly="yes">MIR-HOSP-STRT-DT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-END-DT-1" stype="Text" displayonly="yes">MIR-HOSP-END-DT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ADV-PAYOUT-1" stype="Text" displayonly="yes">MIR-NO-OF-ADV-PAYOUT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-EXCLU-DAYS-1" stype="Text" displayonly="yes">MIR-NO-OF-EXCLU-DAYS-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-MD-1" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-MD-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PRCES-CD-1" stype="Text" displayonly="yes">MIR-PRCES-CD-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-BNFT-AMT-1" stype="Text" displayonly="yes">MIR-HOSP-BNFT-AMT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LS-DIS-BNFT-AMT-1" stype="Text" displayonly="yes">MIR-LS-DIS-BNFT-AMT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CAN-MNTH-BNFT-AMT-1" stype="Text" displayonly="yes">MIR-CAN-MNTH-BNFT-AMT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-PAY-DAYS-1" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-PAY-DAYS-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-DAYS-1" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-DAYS-1</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LT-BNFT-AMT-1">長期療養給付金／長期入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-DT-1">手術年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-CD-1">手術コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-MULT-1">手術倍率</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-AMT-1">手術給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-FIX-DT-1">障害固定日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-GR-1">障害等級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-NUM-1">障害号級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-BNFT-AMT-1">障害給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-START-DT-1">通院開始年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-END-DT-1">通院終了年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-DAYS-1">通院日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OUT-DAYS-EXCLU-1">通院控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-BNFT-PAY-DAYS-1">通院支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OP-BNFT-AMT-1">通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-PAY-DAYS-1">初期支払回数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-LT-BNFT-AMT-1" stype="Text" displayonly="yes">MIR-LT-BNFT-AMT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-DT-1" stype="Text" displayonly="yes">MIR-SUR-DT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-CD-1" stype="Text" displayonly="yes">MIR-SUR-CD-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-MULT-1" stype="Text" displayonly="yes">MIR-SUR-BNFT-MULT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-AMT-1" stype="Text" displayonly="yes">MIR-SUR-BNFT-AMT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-FIX-DT-1" stype="Text" displayonly="yes">MIR-DISB-FIX-DT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-GR-1" stype="Text" displayonly="yes">MIR-DISA-GR-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-NUM-1" stype="Text" displayonly="yes">MIR-DISA-NUM-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-BNFT-AMT-1" stype="Text" displayonly="yes">MIR-DISB-BNFT-AMT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-START-DT-1" stype="Text" displayonly="yes">MIR-OUT-START-DT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-END-DT-1" stype="Text" displayonly="yes">MIR-OUT-END-DT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-DAYS-1" stype="Text" displayonly="yes">MIR-NO-OF-OP-DAYS-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OUT-DAYS-EXCLU-1" stype="Text" displayonly="yes">MIR-NO-OF-OUT-DAYS-EXCLU-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-BNFT-PAY-DAYS-1" stype="Text" displayonly="yes">MIR-NO-OF-OP-BNFT-PAY-DAYS-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OP-BNFT-AMT-1" stype="Text" displayonly="yes">MIR-OP-BNFT-AMT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-PAY-DAYS-1" stype="Text" displayonly="yes">MIR-SHRT-HOSP-PAY-DAYS-1</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-CD-1">災害コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-EFF-DT-1">災害発生日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-STRT-DT-1">災害通院開始日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-END-DT-1">災害通院終了日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-1">災害実日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-EXCLU-1">災害控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-1">災害支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-BNFT-AMT-1">災害通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISC-BNFT-AMT-1">快気祝金支払／退院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RCVR-BNFT-RFND-1">快気祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HLTH-BNFT-RFND-1">健康祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-1">クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-BNFT-AMT-1">入院初期給付金額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-CD-1" stype="Text" displayonly="yes">MIR-ACCI-CD-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-EFF-DT-1" stype="Text" displayonly="yes">MIR-ACCI-EFF-DT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-STRT-DT-1" stype="Text" displayonly="yes">MIR-ACCI-OUT-STRT-DT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-END-DT-1" stype="Text" displayonly="yes">MIR-ACCI-OUT-END-DT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-1" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-EXCLU-1" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-EXCLU-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-1" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-BNFT-PAY-DAYS-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-BNFT-AMT-1" stype="Text" displayonly="yes">MIR-ACCI-OUT-BNFT-AMT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISC-BNFT-AMT-1" stype="Text" displayonly="yes">MIR-DISC-BNFT-AMT-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RCVR-BNFT-RFND-1" stype="Text" displayonly="yes">MIR-RCVR-BNFT-RFND-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HLTH-BNFT-RFND-1" stype="Text" displayonly="yes">MIR-HLTH-BNFT-RFND-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-1" stype="Text" displayonly="yes">MIR-CLI-ID-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-BNFT-AMT-1" stype="Text" displayonly="yes">MIR-SHRT-HOSP-BNFT-AMT-1</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+               <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-TYP-RID-CD-1">家持コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-NM-1">家族名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CNFM-CD-1">確認</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="5">
+                        <label for="MIR-UW-INFO-1">査定情報</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-NM-1">クライアント名</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-TYP-RID-CD-1" stype="Text" displayonly="yes">MIR-FMLY-TYP-RID-CD-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-NM-1" stype="Text" displayonly="yes">MIR-FMLY-NM-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNFM-CD-1" stype="Text" displayonly="yes">MIR-CNFM-CD-1</span>
+                    </td>
+                    <td class="celldisplay" colspan="5">
+                        <span id="MIR-UW-INFO-1" stype="Text" displayonly="yes">MIR-UW-INFO-1</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-NM-1" stype="Text" displayonly="yes">MIR-CLI-NM-1</span>
+                    </td>
+                </tr>
+           </table>
+           </td>
+           </table>
+          <table  class="tabledisplaykey1">
+          <td>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HIST-NUM-2">ヒストリーNO</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RO-CD-2">日報計上支社コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-JRNL-DT-2">日報計上日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFT-CAT-CD-2">給付区分</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-2">回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DIS-CD-2">病名コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-STRT-DT-2">入院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-END-DT-2">退院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ADV-PAYOUT-2">内払回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-EXCLU-DAYS-2">控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-MD-2">支払月日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PRCES-CD-2">処理</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-BNFT-AMT-2">入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LS-DIS-BNFT-AMT-2">女性疾病入院給付金／成人病給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CAN-MNTH-BNFT-AMT-2">ガン治療月払給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-PAY-DAYS-2">長期支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-DAYS-2">長期通算実入院日数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-HIST-NUM-2" stype="Text" displayonly="yes">MIR-HIST-NUM-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RO-CD-2" stype="Text" displayonly="yes">MIR-RO-CD-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JRNL-DT-2" stype="Text" displayonly="yes">MIR-JRNL-DT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFT-CAT-CD-2" stype="Text" displayonly="yes">MIR-BNFT-CAT-CD-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-2" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIS-CD-2" stype="Text" displayonly="yes">MIR-DIS-CD-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-STRT-DT-2" stype="Text" displayonly="yes">MIR-HOSP-STRT-DT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-END-DT-2" stype="Text" displayonly="yes">MIR-HOSP-END-DT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ADV-PAYOUT-2" stype="Text" displayonly="yes">MIR-NO-OF-ADV-PAYOUT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-EXCLU-DAYS-2" stype="Text" displayonly="yes">MIR-NO-OF-EXCLU-DAYS-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-MD-2" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-MD-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PRCES-CD-2" stype="Text" displayonly="yes">MIR-PRCES-CD-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-BNFT-AMT-2" stype="Text" displayonly="yes">MIR-HOSP-BNFT-AMT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LS-DIS-BNFT-AMT-2" stype="Text" displayonly="yes">MIR-LS-DIS-BNFT-AMT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CAN-MNTH-BNFT-AMT-2" stype="Text" displayonly="yes">MIR-CAN-MNTH-BNFT-AMT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-PAY-DAYS-2" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-PAY-DAYS-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-DAYS-2" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-DAYS-2</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LT-BNFT-AMT-2">長期療養給付金／長期入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-DT-2">手術年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-CD-2">手術コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-MULT-2">手術倍率</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-AMT-2">手術給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-FIX-DT-2">障害固定日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-GR-2">障害等級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-NUM-2">障害号級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-BNFT-AMT-2">障害給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-START-DT-2">通院開始年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-END-DT-2">通院終了年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-DAYS-2">通院日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OUT-DAYS-EXCLU-2">通院控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-BNFT-PAY-DAYS-2">通院支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OP-BNFT-AMT-2">通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-PAY-DAYS-2">初期支払回数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-LT-BNFT-AMT-2" stype="Text" displayonly="yes">MIR-LT-BNFT-AMT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-DT-2" stype="Text" displayonly="yes">MIR-SUR-DT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-CD-2" stype="Text" displayonly="yes">MIR-SUR-CD-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-MULT-2" stype="Text" displayonly="yes">MIR-SUR-BNFT-MULT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-AMT-2" stype="Text" displayonly="yes">MIR-SUR-BNFT-AMT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-FIX-DT-2" stype="Text" displayonly="yes">MIR-DISB-FIX-DT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-GR-2" stype="Text" displayonly="yes">MIR-DISA-GR-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-NUM-2" stype="Text" displayonly="yes">MIR-DISA-NUM-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-BNFT-AMT-2" stype="Text" displayonly="yes">MIR-DISB-BNFT-AMT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-START-DT-2" stype="Text" displayonly="yes">MIR-OUT-START-DT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-END-DT-2" stype="Text" displayonly="yes">MIR-OUT-END-DT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-DAYS-2" stype="Text" displayonly="yes">MIR-NO-OF-OP-DAYS-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OUT-DAYS-EXCLU-2" stype="Text" displayonly="yes">MIR-NO-OF-OUT-DAYS-EXCLU-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-BNFT-PAY-DAYS-2" stype="Text" displayonly="yes">MIR-NO-OF-OP-BNFT-PAY-DAYS-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OP-BNFT-AMT-2" stype="Text" displayonly="yes">MIR-OP-BNFT-AMT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-PAY-DAYS-2" stype="Text" displayonly="yes">MIR-SHRT-HOSP-PAY-DAYS-2</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-CD-2">災害コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-EFF-DT-2">災害発生日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-STRT-DT-2">災害通院開始日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-END-DT-2">災害通院終了日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-2">災害実日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-EXCLU-2">災害控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-2">災害支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-BNFT-AMT-2">災害通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISC-BNFT-AMT-2">快気祝金支払／退院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RCVR-BNFT-RFND-2">快気祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HLTH-BNFT-RFND-2">健康祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-2">クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-BNFT-AMT-2">入院初期給付金額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-CD-2" stype="Text" displayonly="yes">MIR-ACCI-CD-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-EFF-DT-2" stype="Text" displayonly="yes">MIR-ACCI-EFF-DT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-STRT-DT-2" stype="Text" displayonly="yes">MIR-ACCI-OUT-STRT-DT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-END-DT-2" stype="Text" displayonly="yes">MIR-ACCI-OUT-END-DT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-2" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-EXCLU-2" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-EXCLU-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-2" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-BNFT-PAY-DAYS-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-BNFT-AMT-2" stype="Text" displayonly="yes">MIR-ACCI-OUT-BNFT-AMT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISC-BNFT-AMT-2" stype="Text" displayonly="yes">MIR-DISC-BNFT-AMT-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RCVR-BNFT-RFND-2" stype="Text" displayonly="yes">MIR-RCVR-BNFT-RFND-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HLTH-BNFT-RFND-2" stype="Text" displayonly="yes">MIR-HLTH-BNFT-RFND-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-2" stype="Text" displayonly="yes">MIR-CLI-ID-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-BNFT-AMT-2" stype="Text" displayonly="yes">MIR-SHRT-HOSP-BNFT-AMT-2</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+               <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-TYP-RID-CD-2">家持コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-NM-2">家族名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CNFM-CD-2">確認</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="5">
+                        <label for="MIR-UW-INFO-2">査定情報</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-NM-2">クライアント名</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-TYP-RID-CD-2" stype="Text" displayonly="yes">MIR-FMLY-TYP-RID-CD-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-NM-2" stype="Text" displayonly="yes">MIR-FMLY-NM-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNFM-CD-2" stype="Text" displayonly="yes">MIR-CNFM-CD-2</span>
+                    </td>
+                    <td class="celldisplay" colspan="5">
+                        <span id="MIR-UW-INFO-2" stype="Text" displayonly="yes">MIR-UW-INFO-2</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-NM-2" stype="Text" displayonly="yes">MIR-CLI-NM-2</span>
+                    </td>
+                </tr>
+           </table>
+           </td>
+           </table>
+          <table  class="tabledisplaykey1">
+          <td>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HIST-NUM-3">ヒストリーNO</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RO-CD-3">日報計上支社コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-JRNL-DT-3">日報計上日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFT-CAT-CD-3">給付区分</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-3">回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DIS-CD-3">病名コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-STRT-DT-3">入院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-END-DT-3">退院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ADV-PAYOUT-3">内払回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-EXCLU-DAYS-3">控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-MD-3">支払月日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PRCES-CD-3">処理</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-BNFT-AMT-3">入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LS-DIS-BNFT-AMT-3">女性疾病入院給付金／成人病給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CAN-MNTH-BNFT-AMT-3">ガン治療月払給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-PAY-DAYS-3">長期支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-DAYS-3">長期通算実入院日数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-HIST-NUM-3" stype="Text" displayonly="yes">MIR-HIST-NUM-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RO-CD-3" stype="Text" displayonly="yes">MIR-RO-CD-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JRNL-DT-3" stype="Text" displayonly="yes">MIR-JRNL-DT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFT-CAT-CD-3" stype="Text" displayonly="yes">MIR-BNFT-CAT-CD-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-3" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIS-CD-3" stype="Text" displayonly="yes">MIR-DIS-CD-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-STRT-DT-3" stype="Text" displayonly="yes">MIR-HOSP-STRT-DT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-END-DT-3" stype="Text" displayonly="yes">MIR-HOSP-END-DT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ADV-PAYOUT-3" stype="Text" displayonly="yes">MIR-NO-OF-ADV-PAYOUT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-EXCLU-DAYS-3" stype="Text" displayonly="yes">MIR-NO-OF-EXCLU-DAYS-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-MD-3" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-MD-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PRCES-CD-3" stype="Text" displayonly="yes">MIR-PRCES-CD-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-BNFT-AMT-3" stype="Text" displayonly="yes">MIR-HOSP-BNFT-AMT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LS-DIS-BNFT-AMT-3" stype="Text" displayonly="yes">MIR-LS-DIS-BNFT-AMT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CAN-MNTH-BNFT-AMT-3" stype="Text" displayonly="yes">MIR-CAN-MNTH-BNFT-AMT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-PAY-DAYS-3" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-PAY-DAYS-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-DAYS-3" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-DAYS-3</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LT-BNFT-AMT-3">長期療養給付金／長期入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-DT-3">手術年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-CD-3">手術コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-MULT-3">手術倍率</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-AMT-3">手術給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-FIX-DT-3">障害固定日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-GR-3">障害等級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-NUM-3">障害号級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-BNFT-AMT-3">障害給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-START-DT-3">通院開始年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-END-DT-3">通院終了年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-DAYS-3">通院日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OUT-DAYS-EXCLU-3">通院控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-BNFT-PAY-DAYS-3">通院支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OP-BNFT-AMT-3">通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-PAY-DAYS-3">初期支払回数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-LT-BNFT-AMT-3" stype="Text" displayonly="yes">MIR-LT-BNFT-AMT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-DT-3" stype="Text" displayonly="yes">MIR-SUR-DT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-CD-3" stype="Text" displayonly="yes">MIR-SUR-CD-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-MULT-3" stype="Text" displayonly="yes">MIR-SUR-BNFT-MULT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-AMT-3" stype="Text" displayonly="yes">MIR-SUR-BNFT-AMT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-FIX-DT-3" stype="Text" displayonly="yes">MIR-DISB-FIX-DT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-GR-3" stype="Text" displayonly="yes">MIR-DISA-GR-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-NUM-3" stype="Text" displayonly="yes">MIR-DISA-NUM-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-BNFT-AMT-3" stype="Text" displayonly="yes">MIR-DISB-BNFT-AMT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-START-DT-3" stype="Text" displayonly="yes">MIR-OUT-START-DT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-END-DT-3" stype="Text" displayonly="yes">MIR-OUT-END-DT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-DAYS-3" stype="Text" displayonly="yes">MIR-NO-OF-OP-DAYS-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OUT-DAYS-EXCLU-3" stype="Text" displayonly="yes">MIR-NO-OF-OUT-DAYS-EXCLU-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-BNFT-PAY-DAYS-3" stype="Text" displayonly="yes">MIR-NO-OF-OP-BNFT-PAY-DAYS-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OP-BNFT-AMT-3" stype="Text" displayonly="yes">MIR-OP-BNFT-AMT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-PAY-DAYS-3" stype="Text" displayonly="yes">MIR-SHRT-HOSP-PAY-DAYS-3</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-CD-3">災害コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-EFF-DT-3">災害発生日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-STRT-DT-3">災害通院開始日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-END-DT-3">災害通院終了日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-3">災害実日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-EXCLU-3">災害控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-3">災害支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-BNFT-AMT-3">災害通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISC-BNFT-AMT-3">快気祝金支払／退院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RCVR-BNFT-RFND-3">快気祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HLTH-BNFT-RFND-3">健康祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-3">クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-BNFT-AMT-3">入院初期給付金額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-CD-3" stype="Text" displayonly="yes">MIR-ACCI-CD-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-EFF-DT-3" stype="Text" displayonly="yes">MIR-ACCI-EFF-DT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-STRT-DT-3" stype="Text" displayonly="yes">MIR-ACCI-OUT-STRT-DT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-END-DT-3" stype="Text" displayonly="yes">MIR-ACCI-OUT-END-DT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-3" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-EXCLU-3" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-EXCLU-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-3" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-BNFT-PAY-DAYS-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-BNFT-AMT-3" stype="Text" displayonly="yes">MIR-ACCI-OUT-BNFT-AMT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISC-BNFT-AMT-3" stype="Text" displayonly="yes">MIR-DISC-BNFT-AMT-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RCVR-BNFT-RFND-3" stype="Text" displayonly="yes">MIR-RCVR-BNFT-RFND-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HLTH-BNFT-RFND-3" stype="Text" displayonly="yes">MIR-HLTH-BNFT-RFND-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-3" stype="Text" displayonly="yes">MIR-CLI-ID-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-BNFT-AMT-3" stype="Text" displayonly="yes">MIR-SHRT-HOSP-BNFT-AMT-3</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+               <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-TYP-RID-CD-3">家持コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-NM-3">家族名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CNFM-CD-3">確認</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="5">
+                        <label for="MIR-UW-INFO-3">査定情報</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-NM-3">クライアント名</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-TYP-RID-CD-3" stype="Text" displayonly="yes">MIR-FMLY-TYP-RID-CD-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-NM-3" stype="Text" displayonly="yes">MIR-FMLY-NM-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNFM-CD-3" stype="Text" displayonly="yes">MIR-CNFM-CD-3</span>
+                    </td>
+                    <td class="celldisplay" colspan="5">
+                        <span id="MIR-UW-INFO-3" stype="Text" displayonly="yes">MIR-UW-INFO-3</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-NM-3" stype="Text" displayonly="yes">MIR-CLI-NM-3</span>
+                    </td>
+                </tr>
+           </table>
+           </td>
+           </table>
+          <table  class="tabledisplaykey1">
+          <td>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HIST-NUM-4">ヒストリーNO</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RO-CD-4">日報計上支社コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-JRNL-DT-4">日報計上日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFT-CAT-CD-4">給付区分</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-4">回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DIS-CD-4">病名コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-STRT-DT-4">入院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-END-DT-4">退院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ADV-PAYOUT-4">内払回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-EXCLU-DAYS-4">控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-MD-4">支払月日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PRCES-CD-4">処理</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-BNFT-AMT-4">入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LS-DIS-BNFT-AMT-4">女性疾病入院給付金／成人病給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CAN-MNTH-BNFT-AMT-4">ガン治療月払給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-PAY-DAYS-4">長期支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-DAYS-4">長期通算実入院日数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-HIST-NUM-4" stype="Text" displayonly="yes">MIR-HIST-NUM-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RO-CD-4" stype="Text" displayonly="yes">MIR-RO-CD-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JRNL-DT-4" stype="Text" displayonly="yes">MIR-JRNL-DT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFT-CAT-CD-4" stype="Text" displayonly="yes">MIR-BNFT-CAT-CD-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-4" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIS-CD-4" stype="Text" displayonly="yes">MIR-DIS-CD-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-STRT-DT-4" stype="Text" displayonly="yes">MIR-HOSP-STRT-DT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-END-DT-4" stype="Text" displayonly="yes">MIR-HOSP-END-DT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ADV-PAYOUT-4" stype="Text" displayonly="yes">MIR-NO-OF-ADV-PAYOUT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-EXCLU-DAYS-4" stype="Text" displayonly="yes">MIR-NO-OF-EXCLU-DAYS-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-MD-4" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-MD-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PRCES-CD-4" stype="Text" displayonly="yes">MIR-PRCES-CD-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-BNFT-AMT-4" stype="Text" displayonly="yes">MIR-HOSP-BNFT-AMT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LS-DIS-BNFT-AMT-4" stype="Text" displayonly="yes">MIR-LS-DIS-BNFT-AMT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CAN-MNTH-BNFT-AMT-4" stype="Text" displayonly="yes">MIR-CAN-MNTH-BNFT-AMT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-PAY-DAYS-4" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-PAY-DAYS-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-DAYS-4" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-DAYS-4</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LT-BNFT-AMT-4">長期療養給付金／長期入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-DT-4">手術年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-CD-4">手術コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-MULT-4">手術倍率</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-AMT-4">手術給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-FIX-DT-4">障害固定日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-GR-4">障害等級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-NUM-4">障害号級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-BNFT-AMT-4">障害給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-START-DT-4">通院開始年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-END-DT-4">通院終了年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-DAYS-4">通院日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OUT-DAYS-EXCLU-4">通院控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-BNFT-PAY-DAYS-4">通院支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OP-BNFT-AMT-4">通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-PAY-DAYS-4">初期支払回数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-LT-BNFT-AMT-4" stype="Text" displayonly="yes">MIR-LT-BNFT-AMT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-DT-4" stype="Text" displayonly="yes">MIR-SUR-DT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-CD-4" stype="Text" displayonly="yes">MIR-SUR-CD-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-MULT-4" stype="Text" displayonly="yes">MIR-SUR-BNFT-MULT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-AMT-4" stype="Text" displayonly="yes">MIR-SUR-BNFT-AMT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-FIX-DT-4" stype="Text" displayonly="yes">MIR-DISB-FIX-DT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-GR-4" stype="Text" displayonly="yes">MIR-DISA-GR-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-NUM-4" stype="Text" displayonly="yes">MIR-DISA-NUM-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-BNFT-AMT-4" stype="Text" displayonly="yes">MIR-DISB-BNFT-AMT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-START-DT-4" stype="Text" displayonly="yes">MIR-OUT-START-DT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-END-DT-4" stype="Text" displayonly="yes">MIR-OUT-END-DT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-DAYS-4" stype="Text" displayonly="yes">MIR-NO-OF-OP-DAYS-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OUT-DAYS-EXCLU-4" stype="Text" displayonly="yes">MIR-NO-OF-OUT-DAYS-EXCLU-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-BNFT-PAY-DAYS-4" stype="Text" displayonly="yes">MIR-NO-OF-OP-BNFT-PAY-DAYS-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OP-BNFT-AMT-4" stype="Text" displayonly="yes">MIR-OP-BNFT-AMT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-PAY-DAYS-4" stype="Text" displayonly="yes">MIR-SHRT-HOSP-PAY-DAYS-4</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-CD-4">災害コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-EFF-DT-4">災害発生日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-STRT-DT-4">災害通院開始日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-END-DT-4">災害通院終了日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-4">災害実日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-EXCLU-4">災害控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-4">災害支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-BNFT-AMT-4">災害通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISC-BNFT-AMT-4">快気祝金支払／退院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RCVR-BNFT-RFND-4">快気祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HLTH-BNFT-RFND-4">健康祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-4">クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-BNFT-AMT-4">入院初期給付金額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-CD-4" stype="Text" displayonly="yes">MIR-ACCI-CD-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-EFF-DT-4" stype="Text" displayonly="yes">MIR-ACCI-EFF-DT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-STRT-DT-4" stype="Text" displayonly="yes">MIR-ACCI-OUT-STRT-DT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-END-DT-4" stype="Text" displayonly="yes">MIR-ACCI-OUT-END-DT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-4" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-EXCLU-4" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-EXCLU-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-4" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-BNFT-PAY-DAYS-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-BNFT-AMT-4" stype="Text" displayonly="yes">MIR-ACCI-OUT-BNFT-AMT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISC-BNFT-AMT-4" stype="Text" displayonly="yes">MIR-DISC-BNFT-AMT-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RCVR-BNFT-RFND-4" stype="Text" displayonly="yes">MIR-RCVR-BNFT-RFND-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HLTH-BNFT-RFND-4" stype="Text" displayonly="yes">MIR-HLTH-BNFT-RFND-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-4" stype="Text" displayonly="yes">MIR-CLI-ID-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-BNFT-AMT-4" stype="Text" displayonly="yes">MIR-SHRT-HOSP-BNFT-AMT-4</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+               <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-TYP-RID-CD-4">家持コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-NM-4">家族名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CNFM-CD-4">確認</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="5">
+                        <label for="MIR-UW-INFO-4">査定情報</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-NM-4">クライアント名</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-TYP-RID-CD-4" stype="Text" displayonly="yes">MIR-FMLY-TYP-RID-CD-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-NM-4" stype="Text" displayonly="yes">MIR-FMLY-NM-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNFM-CD-4" stype="Text" displayonly="yes">MIR-CNFM-CD-4</span>
+                    </td>
+                    <td class="celldisplay" colspan="5">
+                        <span id="MIR-UW-INFO-4" stype="Text" displayonly="yes">MIR-UW-INFO-4</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-NM-4" stype="Text" displayonly="yes">MIR-CLI-NM-4</span>
+                    </td>
+                </tr>
+           </table>
+           </td>
+           </table>
+          <table  class="tabledisplaykey1">
+          <td>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HIST-NUM-5">ヒストリーNO</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RO-CD-5">日報計上支社コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-JRNL-DT-5">日報計上日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFT-CAT-CD-5">給付区分</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-5">回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DIS-CD-5">病名コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-STRT-DT-5">入院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-END-DT-5">退院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ADV-PAYOUT-5">内払回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-EXCLU-DAYS-5">控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-MD-5">支払月日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PRCES-CD-5">処理</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-BNFT-AMT-5">入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LS-DIS-BNFT-AMT-5">女性疾病入院給付金／成人病給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CAN-MNTH-BNFT-AMT-5">ガン治療月払給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-PAY-DAYS-5">長期支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-DAYS-5">長期通算実入院日数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-HIST-NUM-5" stype="Text" displayonly="yes">MIR-HIST-NUM-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RO-CD-5" stype="Text" displayonly="yes">MIR-RO-CD-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JRNL-DT-5" stype="Text" displayonly="yes">MIR-JRNL-DT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFT-CAT-CD-5" stype="Text" displayonly="yes">MIR-BNFT-CAT-CD-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-5" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIS-CD-5" stype="Text" displayonly="yes">MIR-DIS-CD-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-STRT-DT-5" stype="Text" displayonly="yes">MIR-HOSP-STRT-DT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-END-DT-5" stype="Text" displayonly="yes">MIR-HOSP-END-DT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ADV-PAYOUT-5" stype="Text" displayonly="yes">MIR-NO-OF-ADV-PAYOUT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-EXCLU-DAYS-5" stype="Text" displayonly="yes">MIR-NO-OF-EXCLU-DAYS-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-MD-5" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-MD-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PRCES-CD-5" stype="Text" displayonly="yes">MIR-PRCES-CD-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-BNFT-AMT-5" stype="Text" displayonly="yes">MIR-HOSP-BNFT-AMT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LS-DIS-BNFT-AMT-5" stype="Text" displayonly="yes">MIR-LS-DIS-BNFT-AMT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CAN-MNTH-BNFT-AMT-5" stype="Text" displayonly="yes">MIR-CAN-MNTH-BNFT-AMT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-PAY-DAYS-5" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-PAY-DAYS-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-DAYS-5" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-DAYS-5</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LT-BNFT-AMT-5">長期療養給付金／長期入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-DT-5">手術年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-CD-5">手術コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-MULT-5">手術倍率</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-AMT-5">手術給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-FIX-DT-5">障害固定日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-GR-5">障害等級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-NUM-5">障害号級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-BNFT-AMT-5">障害給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-START-DT-5">通院開始年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-END-DT-5">通院終了年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-DAYS-5">通院日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OUT-DAYS-EXCLU-5">通院控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-BNFT-PAY-DAYS-5">通院支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OP-BNFT-AMT-5">通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-PAY-DAYS-5">初期支払回数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-LT-BNFT-AMT-5" stype="Text" displayonly="yes">MIR-LT-BNFT-AMT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-DT-5" stype="Text" displayonly="yes">MIR-SUR-DT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-CD-5" stype="Text" displayonly="yes">MIR-SUR-CD-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-MULT-5" stype="Text" displayonly="yes">MIR-SUR-BNFT-MULT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-AMT-5" stype="Text" displayonly="yes">MIR-SUR-BNFT-AMT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-FIX-DT-5" stype="Text" displayonly="yes">MIR-DISB-FIX-DT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-GR-5" stype="Text" displayonly="yes">MIR-DISA-GR-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-NUM-5" stype="Text" displayonly="yes">MIR-DISA-NUM-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-BNFT-AMT-5" stype="Text" displayonly="yes">MIR-DISB-BNFT-AMT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-START-DT-5" stype="Text" displayonly="yes">MIR-OUT-START-DT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-END-DT-5" stype="Text" displayonly="yes">MIR-OUT-END-DT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-DAYS-5" stype="Text" displayonly="yes">MIR-NO-OF-OP-DAYS-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OUT-DAYS-EXCLU-5" stype="Text" displayonly="yes">MIR-NO-OF-OUT-DAYS-EXCLU-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-BNFT-PAY-DAYS-5" stype="Text" displayonly="yes">MIR-NO-OF-OP-BNFT-PAY-DAYS-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OP-BNFT-AMT-5" stype="Text" displayonly="yes">MIR-OP-BNFT-AMT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-PAY-DAYS-5" stype="Text" displayonly="yes">MIR-SHRT-HOSP-PAY-DAYS-5</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-CD-5">災害コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-EFF-DT-5">災害発生日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-STRT-DT-5">災害通院開始日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-END-DT-5">災害通院終了日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-5">災害実日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-EXCLU-5">災害控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-5">災害支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-BNFT-AMT-5">災害通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISC-BNFT-AMT-5">快気祝金支払／退院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RCVR-BNFT-RFND-5">快気祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HLTH-BNFT-RFND-5">健康祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-5">クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-BNFT-AMT-5">入院初期給付金額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-CD-5" stype="Text" displayonly="yes">MIR-ACCI-CD-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-EFF-DT-5" stype="Text" displayonly="yes">MIR-ACCI-EFF-DT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-STRT-DT-5" stype="Text" displayonly="yes">MIR-ACCI-OUT-STRT-DT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-END-DT-5" stype="Text" displayonly="yes">MIR-ACCI-OUT-END-DT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-5" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-EXCLU-5" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-EXCLU-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-5" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-BNFT-PAY-DAYS-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-BNFT-AMT-5" stype="Text" displayonly="yes">MIR-ACCI-OUT-BNFT-AMT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISC-BNFT-AMT-5" stype="Text" displayonly="yes">MIR-DISC-BNFT-AMT-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RCVR-BNFT-RFND-5" stype="Text" displayonly="yes">MIR-RCVR-BNFT-RFND-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HLTH-BNFT-RFND-5" stype="Text" displayonly="yes">MIR-HLTH-BNFT-RFND-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-5" stype="Text" displayonly="yes">MIR-CLI-ID-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-BNFT-AMT-5" stype="Text" displayonly="yes">MIR-SHRT-HOSP-BNFT-AMT-5</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+               <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-TYP-RID-CD-5">家持コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-NM-5">家族名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CNFM-CD-5">確認</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="5">
+                        <label for="MIR-UW-INFO-5">査定情報</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-NM-5">クライアント名</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-TYP-RID-CD-5" stype="Text" displayonly="yes">MIR-FMLY-TYP-RID-CD-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-NM-5" stype="Text" displayonly="yes">MIR-FMLY-NM-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNFM-CD-5" stype="Text" displayonly="yes">MIR-CNFM-CD-5</span>
+                    </td>
+                    <td class="celldisplay" colspan="5">
+                        <span id="MIR-UW-INFO-5" stype="Text" displayonly="yes">MIR-UW-INFO-5</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-NM-5" stype="Text" displayonly="yes">MIR-CLI-NM-5</span>
+                    </td>
+                </tr>
+           </table>
+           </td>
+           </table>
+          <table  class="tabledisplaykey1">
+          <td>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HIST-NUM-6">ヒストリーNO</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RO-CD-6">日報計上支社コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-JRNL-DT-6">日報計上日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFT-CAT-CD-6">給付区分</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-6">回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DIS-CD-6">病名コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-STRT-DT-6">入院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-END-DT-6">退院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ADV-PAYOUT-6">内払回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-EXCLU-DAYS-6">控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-MD-6">支払月日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PRCES-CD-6">処理</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-BNFT-AMT-6">入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LS-DIS-BNFT-AMT-6">女性疾病入院給付金／成人病給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CAN-MNTH-BNFT-AMT-6">ガン治療月払給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-PAY-DAYS-6">長期支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-DAYS-6">長期通算実入院日数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-HIST-NUM-6" stype="Text" displayonly="yes">MIR-HIST-NUM-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RO-CD-6" stype="Text" displayonly="yes">MIR-RO-CD-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JRNL-DT-6" stype="Text" displayonly="yes">MIR-JRNL-DT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFT-CAT-CD-6" stype="Text" displayonly="yes">MIR-BNFT-CAT-CD-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-6" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIS-CD-6" stype="Text" displayonly="yes">MIR-DIS-CD-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-STRT-DT-6" stype="Text" displayonly="yes">MIR-HOSP-STRT-DT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-END-DT-6" stype="Text" displayonly="yes">MIR-HOSP-END-DT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ADV-PAYOUT-6" stype="Text" displayonly="yes">MIR-NO-OF-ADV-PAYOUT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-EXCLU-DAYS-6" stype="Text" displayonly="yes">MIR-NO-OF-EXCLU-DAYS-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-MD-6" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-MD-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PRCES-CD-6" stype="Text" displayonly="yes">MIR-PRCES-CD-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-BNFT-AMT-6" stype="Text" displayonly="yes">MIR-HOSP-BNFT-AMT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LS-DIS-BNFT-AMT-6" stype="Text" displayonly="yes">MIR-LS-DIS-BNFT-AMT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CAN-MNTH-BNFT-AMT-6" stype="Text" displayonly="yes">MIR-CAN-MNTH-BNFT-AMT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-PAY-DAYS-6" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-PAY-DAYS-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-DAYS-6" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-DAYS-6</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LT-BNFT-AMT-6">長期療養給付金／長期入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-DT-6">手術年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-CD-6">手術コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-MULT-6">手術倍率</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-AMT-6">手術給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-FIX-DT-6">障害固定日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-GR-6">障害等級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-NUM-6">障害号級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-BNFT-AMT-6">障害給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-START-DT-6">通院開始年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-END-DT-6">通院終了年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-DAYS-6">通院日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OUT-DAYS-EXCLU-6">通院控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-BNFT-PAY-DAYS-6">通院支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OP-BNFT-AMT-6">通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-PAY-DAYS-6">初期支払回数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-LT-BNFT-AMT-6" stype="Text" displayonly="yes">MIR-LT-BNFT-AMT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-DT-6" stype="Text" displayonly="yes">MIR-SUR-DT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-CD-6" stype="Text" displayonly="yes">MIR-SUR-CD-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-MULT-6" stype="Text" displayonly="yes">MIR-SUR-BNFT-MULT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-AMT-6" stype="Text" displayonly="yes">MIR-SUR-BNFT-AMT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-FIX-DT-6" stype="Text" displayonly="yes">MIR-DISB-FIX-DT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-GR-6" stype="Text" displayonly="yes">MIR-DISA-GR-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-NUM-6" stype="Text" displayonly="yes">MIR-DISA-NUM-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-BNFT-AMT-6" stype="Text" displayonly="yes">MIR-DISB-BNFT-AMT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-START-DT-6" stype="Text" displayonly="yes">MIR-OUT-START-DT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-END-DT-6" stype="Text" displayonly="yes">MIR-OUT-END-DT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-DAYS-6" stype="Text" displayonly="yes">MIR-NO-OF-OP-DAYS-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OUT-DAYS-EXCLU-6" stype="Text" displayonly="yes">MIR-NO-OF-OUT-DAYS-EXCLU-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-BNFT-PAY-DAYS-6" stype="Text" displayonly="yes">MIR-NO-OF-OP-BNFT-PAY-DAYS-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OP-BNFT-AMT-6" stype="Text" displayonly="yes">MIR-OP-BNFT-AMT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-PAY-DAYS-6" stype="Text" displayonly="yes">MIR-SHRT-HOSP-PAY-DAYS-6</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-CD-6">災害コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-EFF-DT-6">災害発生日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-STRT-DT-6">災害通院開始日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-END-DT-6">災害通院終了日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-6">災害実日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-EXCLU-6">災害控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-6">災害支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-BNFT-AMT-6">災害通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISC-BNFT-AMT-6">快気祝金支払／退院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RCVR-BNFT-RFND-6">快気祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HLTH-BNFT-RFND-6">健康祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-6">クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-BNFT-AMT-6">入院初期給付金額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-CD-6" stype="Text" displayonly="yes">MIR-ACCI-CD-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-EFF-DT-6" stype="Text" displayonly="yes">MIR-ACCI-EFF-DT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-STRT-DT-6" stype="Text" displayonly="yes">MIR-ACCI-OUT-STRT-DT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-END-DT-6" stype="Text" displayonly="yes">MIR-ACCI-OUT-END-DT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-6" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-EXCLU-6" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-EXCLU-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-6" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-BNFT-PAY-DAYS-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-BNFT-AMT-6" stype="Text" displayonly="yes">MIR-ACCI-OUT-BNFT-AMT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISC-BNFT-AMT-6" stype="Text" displayonly="yes">MIR-DISC-BNFT-AMT-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RCVR-BNFT-RFND-6" stype="Text" displayonly="yes">MIR-RCVR-BNFT-RFND-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HLTH-BNFT-RFND-6" stype="Text" displayonly="yes">MIR-HLTH-BNFT-RFND-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-6" stype="Text" displayonly="yes">MIR-CLI-ID-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-BNFT-AMT-6" stype="Text" displayonly="yes">MIR-SHRT-HOSP-BNFT-AMT-6</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+               <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-TYP-RID-CD-6">家持コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-NM-6">家族名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CNFM-CD-6">確認</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="5">
+                        <label for="MIR-UW-INFO-6">査定情報</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-NM-6">クライアント名</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-TYP-RID-CD-6" stype="Text" displayonly="yes">MIR-FMLY-TYP-RID-CD-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-NM-6" stype="Text" displayonly="yes">MIR-FMLY-NM-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNFM-CD-6" stype="Text" displayonly="yes">MIR-CNFM-CD-6</span>
+                    </td>
+                    <td class="celldisplay" colspan="5">
+                        <span id="MIR-UW-INFO-6" stype="Text" displayonly="yes">MIR-UW-INFO-6</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-NM-6" stype="Text" displayonly="yes">MIR-CLI-NM-6</span>
+                    </td>
+                </tr>
+           </table>
+           </td>
+           </table>
+          <table  class="tabledisplaykey1">
+          <td>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HIST-NUM-7">ヒストリーNO</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RO-CD-7">日報計上支社コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-JRNL-DT-7">日報計上日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFT-CAT-CD-7">給付区分</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-7">回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DIS-CD-7">病名コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-STRT-DT-7">入院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-END-DT-7">退院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ADV-PAYOUT-7">内払回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-EXCLU-DAYS-7">控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-MD-7">支払月日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PRCES-CD-7">処理</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-BNFT-AMT-7">入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LS-DIS-BNFT-AMT-7">女性疾病入院給付金／成人病給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CAN-MNTH-BNFT-AMT-7">ガン治療月払給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-PAY-DAYS-7">長期支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-DAYS-7">長期通算実入院日数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-HIST-NUM-7" stype="Text" displayonly="yes">MIR-HIST-NUM-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RO-CD-7" stype="Text" displayonly="yes">MIR-RO-CD-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JRNL-DT-7" stype="Text" displayonly="yes">MIR-JRNL-DT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFT-CAT-CD-7" stype="Text" displayonly="yes">MIR-BNFT-CAT-CD-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-7" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIS-CD-7" stype="Text" displayonly="yes">MIR-DIS-CD-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-STRT-DT-7" stype="Text" displayonly="yes">MIR-HOSP-STRT-DT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-END-DT-7" stype="Text" displayonly="yes">MIR-HOSP-END-DT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ADV-PAYOUT-7" stype="Text" displayonly="yes">MIR-NO-OF-ADV-PAYOUT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-EXCLU-DAYS-7" stype="Text" displayonly="yes">MIR-NO-OF-EXCLU-DAYS-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-MD-7" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-MD-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PRCES-CD-7" stype="Text" displayonly="yes">MIR-PRCES-CD-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-BNFT-AMT-7" stype="Text" displayonly="yes">MIR-HOSP-BNFT-AMT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LS-DIS-BNFT-AMT-7" stype="Text" displayonly="yes">MIR-LS-DIS-BNFT-AMT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CAN-MNTH-BNFT-AMT-7" stype="Text" displayonly="yes">MIR-CAN-MNTH-BNFT-AMT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-PAY-DAYS-7" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-PAY-DAYS-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-DAYS-7" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-DAYS-7</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LT-BNFT-AMT-7">長期療養給付金／長期入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-DT-7">手術年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-CD-7">手術コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-MULT-7">手術倍率</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-AMT-7">手術給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-FIX-DT-7">障害固定日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-GR-7">障害等級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-NUM-7">障害号級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-BNFT-AMT-7">障害給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-START-DT-7">通院開始年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-END-DT-7">通院終了年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-DAYS-7">通院日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OUT-DAYS-EXCLU-7">通院控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-BNFT-PAY-DAYS-7">通院支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OP-BNFT-AMT-7">通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-PAY-DAYS-7">初期支払回数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-LT-BNFT-AMT-7" stype="Text" displayonly="yes">MIR-LT-BNFT-AMT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-DT-7" stype="Text" displayonly="yes">MIR-SUR-DT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-CD-7" stype="Text" displayonly="yes">MIR-SUR-CD-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-MULT-7" stype="Text" displayonly="yes">MIR-SUR-BNFT-MULT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-AMT-7" stype="Text" displayonly="yes">MIR-SUR-BNFT-AMT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-FIX-DT-7" stype="Text" displayonly="yes">MIR-DISB-FIX-DT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-GR-7" stype="Text" displayonly="yes">MIR-DISA-GR-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-NUM-7" stype="Text" displayonly="yes">MIR-DISA-NUM-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-BNFT-AMT-7" stype="Text" displayonly="yes">MIR-DISB-BNFT-AMT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-START-DT-7" stype="Text" displayonly="yes">MIR-OUT-START-DT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-END-DT-7" stype="Text" displayonly="yes">MIR-OUT-END-DT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-DAYS-7" stype="Text" displayonly="yes">MIR-NO-OF-OP-DAYS-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OUT-DAYS-EXCLU-7" stype="Text" displayonly="yes">MIR-NO-OF-OUT-DAYS-EXCLU-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-BNFT-PAY-DAYS-7" stype="Text" displayonly="yes">MIR-NO-OF-OP-BNFT-PAY-DAYS-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OP-BNFT-AMT-7" stype="Text" displayonly="yes">MIR-OP-BNFT-AMT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-PAY-DAYS-7" stype="Text" displayonly="yes">MIR-SHRT-HOSP-PAY-DAYS-7</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-CD-7">災害コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-EFF-DT-7">災害発生日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-STRT-DT-7">災害通院開始日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-END-DT-7">災害通院終了日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-7">災害実日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-EXCLU-7">災害控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-7">災害支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-BNFT-AMT-7">災害通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISC-BNFT-AMT-7">快気祝金支払／退院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RCVR-BNFT-RFND-7">快気祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HLTH-BNFT-RFND-7">健康祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-7">クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-BNFT-AMT-7">入院初期給付金額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-CD-7" stype="Text" displayonly="yes">MIR-ACCI-CD-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-EFF-DT-7" stype="Text" displayonly="yes">MIR-ACCI-EFF-DT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-STRT-DT-7" stype="Text" displayonly="yes">MIR-ACCI-OUT-STRT-DT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-END-DT-7" stype="Text" displayonly="yes">MIR-ACCI-OUT-END-DT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-7" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-EXCLU-7" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-EXCLU-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-7" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-BNFT-PAY-DAYS-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-BNFT-AMT-7" stype="Text" displayonly="yes">MIR-ACCI-OUT-BNFT-AMT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISC-BNFT-AMT-7" stype="Text" displayonly="yes">MIR-DISC-BNFT-AMT-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RCVR-BNFT-RFND-7" stype="Text" displayonly="yes">MIR-RCVR-BNFT-RFND-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HLTH-BNFT-RFND-7" stype="Text" displayonly="yes">MIR-HLTH-BNFT-RFND-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-7" stype="Text" displayonly="yes">MIR-CLI-ID-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-BNFT-AMT-7" stype="Text" displayonly="yes">MIR-SHRT-HOSP-BNFT-AMT-7</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+               <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-TYP-RID-CD-7">家持コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-NM-7">家族名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CNFM-CD-7">確認</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="5">
+                        <label for="MIR-UW-INFO-7">査定情報</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-NM-7">クライアント名</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-TYP-RID-CD-7" stype="Text" displayonly="yes">MIR-FMLY-TYP-RID-CD-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-NM-7" stype="Text" displayonly="yes">MIR-FMLY-NM-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNFM-CD-7" stype="Text" displayonly="yes">MIR-CNFM-CD-7</span>
+                    </td>
+                    <td class="celldisplay" colspan="5">
+                        <span id="MIR-UW-INFO-7" stype="Text" displayonly="yes">MIR-UW-INFO-7</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-NM-7" stype="Text" displayonly="yes">MIR-CLI-NM-7</span>
+                    </td>
+                </tr>
+           </table>
+           </td>
+           </table>
+          <table  class="tabledisplaykey1">
+          <td>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HIST-NUM-8">ヒストリーNO</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RO-CD-8">日報計上支社コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-JRNL-DT-8">日報計上日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFT-CAT-CD-8">給付区分</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-8">回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DIS-CD-8">病名コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-STRT-DT-8">入院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-END-DT-8">退院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ADV-PAYOUT-8">内払回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-EXCLU-DAYS-8">控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-MD-8">支払月日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PRCES-CD-8">処理</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-BNFT-AMT-8">入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LS-DIS-BNFT-AMT-8">女性疾病入院給付金／成人病給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CAN-MNTH-BNFT-AMT-8">ガン治療月払給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-PAY-DAYS-8">長期支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-DAYS-8">長期通算実入院日数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-HIST-NUM-8" stype="Text" displayonly="yes">MIR-HIST-NUM-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RO-CD-8" stype="Text" displayonly="yes">MIR-RO-CD-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JRNL-DT-8" stype="Text" displayonly="yes">MIR-JRNL-DT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFT-CAT-CD-8" stype="Text" displayonly="yes">MIR-BNFT-CAT-CD-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-8" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIS-CD-8" stype="Text" displayonly="yes">MIR-DIS-CD-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-STRT-DT-8" stype="Text" displayonly="yes">MIR-HOSP-STRT-DT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-END-DT-8" stype="Text" displayonly="yes">MIR-HOSP-END-DT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ADV-PAYOUT-8" stype="Text" displayonly="yes">MIR-NO-OF-ADV-PAYOUT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-EXCLU-DAYS-8" stype="Text" displayonly="yes">MIR-NO-OF-EXCLU-DAYS-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-MD-8" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-MD-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PRCES-CD-8" stype="Text" displayonly="yes">MIR-PRCES-CD-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-BNFT-AMT-8" stype="Text" displayonly="yes">MIR-HOSP-BNFT-AMT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LS-DIS-BNFT-AMT-8" stype="Text" displayonly="yes">MIR-LS-DIS-BNFT-AMT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CAN-MNTH-BNFT-AMT-8" stype="Text" displayonly="yes">MIR-CAN-MNTH-BNFT-AMT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-PAY-DAYS-8" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-PAY-DAYS-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-DAYS-8" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-DAYS-8</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LT-BNFT-AMT-8">長期療養給付金／長期入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-DT-8">手術年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-CD-8">手術コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-MULT-8">手術倍率</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-AMT-8">手術給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-FIX-DT-8">障害固定日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-GR-8">障害等級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-NUM-8">障害号級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-BNFT-AMT-8">障害給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-START-DT-8">通院開始年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-END-DT-8">通院終了年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-DAYS-8">通院日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OUT-DAYS-EXCLU-8">通院控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-BNFT-PAY-DAYS-8">通院支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OP-BNFT-AMT-8">通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-PAY-DAYS-8">初期支払回数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-LT-BNFT-AMT-8" stype="Text" displayonly="yes">MIR-LT-BNFT-AMT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-DT-8" stype="Text" displayonly="yes">MIR-SUR-DT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-CD-8" stype="Text" displayonly="yes">MIR-SUR-CD-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-MULT-8" stype="Text" displayonly="yes">MIR-SUR-BNFT-MULT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-AMT-8" stype="Text" displayonly="yes">MIR-SUR-BNFT-AMT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-FIX-DT-8" stype="Text" displayonly="yes">MIR-DISB-FIX-DT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-GR-8" stype="Text" displayonly="yes">MIR-DISA-GR-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-NUM-8" stype="Text" displayonly="yes">MIR-DISA-NUM-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-BNFT-AMT-8" stype="Text" displayonly="yes">MIR-DISB-BNFT-AMT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-START-DT-8" stype="Text" displayonly="yes">MIR-OUT-START-DT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-END-DT-8" stype="Text" displayonly="yes">MIR-OUT-END-DT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-DAYS-8" stype="Text" displayonly="yes">MIR-NO-OF-OP-DAYS-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OUT-DAYS-EXCLU-8" stype="Text" displayonly="yes">MIR-NO-OF-OUT-DAYS-EXCLU-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-BNFT-PAY-DAYS-8" stype="Text" displayonly="yes">MIR-NO-OF-OP-BNFT-PAY-DAYS-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OP-BNFT-AMT-8" stype="Text" displayonly="yes">MIR-OP-BNFT-AMT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-PAY-DAYS-8" stype="Text" displayonly="yes">MIR-SHRT-HOSP-PAY-DAYS-8</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-CD-8">災害コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-EFF-DT-8">災害発生日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-STRT-DT-8">災害通院開始日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-END-DT-8">災害通院終了日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-8">災害実日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-EXCLU-8">災害控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-8">災害支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-BNFT-AMT-8">災害通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISC-BNFT-AMT-8">快気祝金支払／退院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RCVR-BNFT-RFND-8">快気祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HLTH-BNFT-RFND-8">健康祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-8">クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-BNFT-AMT-8">入院初期給付金額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-CD-8" stype="Text" displayonly="yes">MIR-ACCI-CD-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-EFF-DT-8" stype="Text" displayonly="yes">MIR-ACCI-EFF-DT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-STRT-DT-8" stype="Text" displayonly="yes">MIR-ACCI-OUT-STRT-DT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-END-DT-8" stype="Text" displayonly="yes">MIR-ACCI-OUT-END-DT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-8" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-EXCLU-8" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-EXCLU-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-8" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-BNFT-PAY-DAYS-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-BNFT-AMT-8" stype="Text" displayonly="yes">MIR-ACCI-OUT-BNFT-AMT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISC-BNFT-AMT-8" stype="Text" displayonly="yes">MIR-DISC-BNFT-AMT-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RCVR-BNFT-RFND-8" stype="Text" displayonly="yes">MIR-RCVR-BNFT-RFND-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HLTH-BNFT-RFND-8" stype="Text" displayonly="yes">MIR-HLTH-BNFT-RFND-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-8" stype="Text" displayonly="yes">MIR-CLI-ID-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-BNFT-AMT-8" stype="Text" displayonly="yes">MIR-SHRT-HOSP-BNFT-AMT-8</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+               <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-TYP-RID-CD-8">家持コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-NM-8">家族名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CNFM-CD-8">確認</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="5">
+                        <label for="MIR-UW-INFO-8">査定情報</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-NM-8">クライアント名</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-TYP-RID-CD-8" stype="Text" displayonly="yes">MIR-FMLY-TYP-RID-CD-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-NM-8" stype="Text" displayonly="yes">MIR-FMLY-NM-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNFM-CD-8" stype="Text" displayonly="yes">MIR-CNFM-CD-8</span>
+                    </td>
+                    <td class="celldisplay" colspan="5">
+                        <span id="MIR-UW-INFO-8" stype="Text" displayonly="yes">MIR-UW-INFO-8</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-NM-8" stype="Text" displayonly="yes">MIR-CLI-NM-8</span>
+                    </td>
+                </tr>
+           </table>
+           </td>
+           </table>
+          <table  class="tabledisplaykey1">
+          <td>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HIST-NUM-9">ヒストリーNO</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RO-CD-9">日報計上支社コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-JRNL-DT-9">日報計上日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFT-CAT-CD-9">給付区分</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-9">回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DIS-CD-9">病名コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-STRT-DT-9">入院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-END-DT-9">退院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ADV-PAYOUT-9">内払回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-EXCLU-DAYS-9">控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-MD-9">支払月日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PRCES-CD-9">処理</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-BNFT-AMT-9">入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LS-DIS-BNFT-AMT-9">女性疾病入院給付金／成人病給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CAN-MNTH-BNFT-AMT-9">ガン治療月払給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-PAY-DAYS-9">長期支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-DAYS-9">長期通算実入院日数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-HIST-NUM-9" stype="Text" displayonly="yes">MIR-HIST-NUM-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RO-CD-9" stype="Text" displayonly="yes">MIR-RO-CD-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JRNL-DT-9" stype="Text" displayonly="yes">MIR-JRNL-DT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFT-CAT-CD-9" stype="Text" displayonly="yes">MIR-BNFT-CAT-CD-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-9" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIS-CD-9" stype="Text" displayonly="yes">MIR-DIS-CD-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-STRT-DT-9" stype="Text" displayonly="yes">MIR-HOSP-STRT-DT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-END-DT-9" stype="Text" displayonly="yes">MIR-HOSP-END-DT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ADV-PAYOUT-9" stype="Text" displayonly="yes">MIR-NO-OF-ADV-PAYOUT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-EXCLU-DAYS-9" stype="Text" displayonly="yes">MIR-NO-OF-EXCLU-DAYS-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-MD-9" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-MD-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PRCES-CD-9" stype="Text" displayonly="yes">MIR-PRCES-CD-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-BNFT-AMT-9" stype="Text" displayonly="yes">MIR-HOSP-BNFT-AMT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LS-DIS-BNFT-AMT-9" stype="Text" displayonly="yes">MIR-LS-DIS-BNFT-AMT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CAN-MNTH-BNFT-AMT-9" stype="Text" displayonly="yes">MIR-CAN-MNTH-BNFT-AMT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-PAY-DAYS-9" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-PAY-DAYS-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-DAYS-9" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-DAYS-9</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LT-BNFT-AMT-9">長期療養給付金／長期入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-DT-9">手術年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-CD-9">手術コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-MULT-9">手術倍率</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-AMT-9">手術給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-FIX-DT-9">障害固定日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-GR-9">障害等級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-NUM-9">障害号級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-BNFT-AMT-9">障害給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-START-DT-9">通院開始年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-END-DT-9">通院終了年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-DAYS-9">通院日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OUT-DAYS-EXCLU-9">通院控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-BNFT-PAY-DAYS-9">通院支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OP-BNFT-AMT-9">通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-PAY-DAYS-9">初期支払回数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-LT-BNFT-AMT-9" stype="Text" displayonly="yes">MIR-LT-BNFT-AMT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-DT-9" stype="Text" displayonly="yes">MIR-SUR-DT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-CD-9" stype="Text" displayonly="yes">MIR-SUR-CD-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-MULT-9" stype="Text" displayonly="yes">MIR-SUR-BNFT-MULT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-AMT-9" stype="Text" displayonly="yes">MIR-SUR-BNFT-AMT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-FIX-DT-9" stype="Text" displayonly="yes">MIR-DISB-FIX-DT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-GR-9" stype="Text" displayonly="yes">MIR-DISA-GR-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-NUM-9" stype="Text" displayonly="yes">MIR-DISA-NUM-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-BNFT-AMT-9" stype="Text" displayonly="yes">MIR-DISB-BNFT-AMT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-START-DT-9" stype="Text" displayonly="yes">MIR-OUT-START-DT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-END-DT-9" stype="Text" displayonly="yes">MIR-OUT-END-DT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-DAYS-9" stype="Text" displayonly="yes">MIR-NO-OF-OP-DAYS-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OUT-DAYS-EXCLU-9" stype="Text" displayonly="yes">MIR-NO-OF-OUT-DAYS-EXCLU-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-BNFT-PAY-DAYS-9" stype="Text" displayonly="yes">MIR-NO-OF-OP-BNFT-PAY-DAYS-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OP-BNFT-AMT-9" stype="Text" displayonly="yes">MIR-OP-BNFT-AMT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-PAY-DAYS-9" stype="Text" displayonly="yes">MIR-SHRT-HOSP-PAY-DAYS-9</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-CD-9">災害コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-EFF-DT-9">災害発生日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-STRT-DT-9">災害通院開始日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-END-DT-9">災害通院終了日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-9">災害実日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-EXCLU-9">災害控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-9">災害支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-BNFT-AMT-9">災害通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISC-BNFT-AMT-9">快気祝金支払／退院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RCVR-BNFT-RFND-9">快気祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HLTH-BNFT-RFND-9">健康祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-9">クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-BNFT-AMT-9">入院初期給付金額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-CD-9" stype="Text" displayonly="yes">MIR-ACCI-CD-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-EFF-DT-9" stype="Text" displayonly="yes">MIR-ACCI-EFF-DT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-STRT-DT-9" stype="Text" displayonly="yes">MIR-ACCI-OUT-STRT-DT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-END-DT-9" stype="Text" displayonly="yes">MIR-ACCI-OUT-END-DT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-9" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-EXCLU-9" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-EXCLU-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-BNFT-PAY-DAYS-9" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-BNFT-PAY-DAYS-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-BNFT-AMT-9" stype="Text" displayonly="yes">MIR-ACCI-OUT-BNFT-AMT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISC-BNFT-AMT-9" stype="Text" displayonly="yes">MIR-DISC-BNFT-AMT-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RCVR-BNFT-RFND-9" stype="Text" displayonly="yes">MIR-RCVR-BNFT-RFND-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HLTH-BNFT-RFND-9" stype="Text" displayonly="yes">MIR-HLTH-BNFT-RFND-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-9" stype="Text" displayonly="yes">MIR-CLI-ID-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-BNFT-AMT-9" stype="Text" displayonly="yes">MIR-SHRT-HOSP-BNFT-AMT-9</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+               <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-TYP-RID-CD-9">家持コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-NM-9">家族名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CNFM-CD-9">確認</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="5">
+                        <label for="MIR-UW-INFO-9">査定情報</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-NM-9">クライアント名</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-TYP-RID-CD-9" stype="Text" displayonly="yes">MIR-FMLY-TYP-RID-CD-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-NM-9" stype="Text" displayonly="yes">MIR-FMLY-NM-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNFM-CD-9" stype="Text" displayonly="yes">MIR-CNFM-CD-9</span>
+                    </td>
+                    <td class="celldisplay" colspan="5">
+                        <span id="MIR-UW-INFO-9" stype="Text" displayonly="yes">MIR-UW-INFO-9</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-NM-9" stype="Text" displayonly="yes">MIR-CLI-NM-9</span>
+                    </td>
+                </tr>
+           </table>
+           </td>
+           </table>
+          <table  class="tabledisplaykey1">
+          <td>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HIST-NUM-10">ヒストリーNO</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RO-CD-10">日報計上支社コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-JRNL-DT-10">日報計上日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-BNFT-CAT-CD-10">給付区分</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-10">回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DIS-CD-10">病名コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-STRT-DT-10">入院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-END-DT-10">退院年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ADV-PAYOUT-10">内払回数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-EXCLU-DAYS-10">控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-PAYOUT-MD-10">支払月日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-PRCES-CD-10">処理</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HOSP-BNFT-AMT-10">入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LS-DIS-BNFT-AMT-10">女性疾病入院給付金／成人病給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CAN-MNTH-BNFT-AMT-10">ガン治療月払給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-PAY-DAYS-10">長期支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-LT-HOSP-DAYS-10">長期通算実入院日数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-HIST-NUM-10" stype="Text" displayonly="yes">MIR-HIST-NUM-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RO-CD-10" stype="Text" displayonly="yes">MIR-RO-CD-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JRNL-DT-10" stype="Text" displayonly="yes">MIR-JRNL-DT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-BNFT-CAT-CD-10" stype="Text" displayonly="yes">MIR-BNFT-CAT-CD-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-10" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DIS-CD-10" stype="Text" displayonly="yes">MIR-DIS-CD-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-STRT-DT-10" stype="Text" displayonly="yes">MIR-HOSP-STRT-DT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-END-DT-10" stype="Text" displayonly="yes">MIR-HOSP-END-DT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ADV-PAYOUT-10" stype="Text" displayonly="yes">MIR-NO-OF-ADV-PAYOUT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-EXCLU-DAYS-10" stype="Text" displayonly="yes">MIR-NO-OF-EXCLU-DAYS-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-PAYOUT-MD-10" stype="Text" displayonly="yes">MIR-NO-OF-PAYOUT-MD-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PRCES-CD-10" stype="Text" displayonly="yes">MIR-PRCES-CD-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HOSP-BNFT-AMT-10" stype="Text" displayonly="yes">MIR-HOSP-BNFT-AMT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LS-DIS-BNFT-AMT-10" stype="Text" displayonly="yes">MIR-LS-DIS-BNFT-AMT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CAN-MNTH-BNFT-AMT-10" stype="Text" displayonly="yes">MIR-CAN-MNTH-BNFT-AMT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-PAY-DAYS-10" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-PAY-DAYS-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-LT-HOSP-DAYS-10" stype="Text" displayonly="yes">MIR-NO-OF-LT-HOSP-DAYS-10</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-LT-BNFT-AMT-10">長期療養給付金／長期入院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-DT-10">手術年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-CD-10">手術コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-MULT-10">手術倍率</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SUR-BNFT-AMT-10">手術給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-FIX-DT-10">障害固定日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-GR-10">障害等級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISA-NUM-10">障害号級</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISB-BNFT-AMT-10">障害給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-START-DT-10">通院開始年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OUT-END-DT-10">通院終了年月日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-DAYS-10">通院日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OUT-DAYS-EXCLU-10">通院控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-OP-BNFT-PAY-DAYS-10">通院支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-OP-BNFT-AMT-10">通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-PAY-DAYS-10">初期支払回数</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-LT-BNFT-AMT-10" stype="Text" displayonly="yes">MIR-LT-BNFT-AMT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-DT-10" stype="Text" displayonly="yes">MIR-SUR-DT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-CD-10" stype="Text" displayonly="yes">MIR-SUR-CD-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-MULT-10" stype="Text" displayonly="yes">MIR-SUR-BNFT-MULT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SUR-BNFT-AMT-10" stype="Text" displayonly="yes">MIR-SUR-BNFT-AMT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-FIX-DT-10" stype="Text" displayonly="yes">MIR-DISB-FIX-DT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-GR-10" stype="Text" displayonly="yes">MIR-DISA-GR-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISA-NUM-10" stype="Text" displayonly="yes">MIR-DISA-NUM-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISB-BNFT-AMT-10" stype="Text" displayonly="yes">MIR-DISB-BNFT-AMT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-START-DT-10" stype="Text" displayonly="yes">MIR-OUT-START-DT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OUT-END-DT-10" stype="Text" displayonly="yes">MIR-OUT-END-DT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-DAYS-10" stype="Text" displayonly="yes">MIR-NO-OF-OP-DAYS-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OUT-DAYS-EXCLU-10" stype="Text" displayonly="yes">MIR-NO-OF-OUT-DAYS-EXCLU-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-OP-BNFT-PAY-DAYS-10" stype="Text" displayonly="yes">MIR-NO-OF-OP-BNFT-PAY-DAYS-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-OP-BNFT-AMT-10" stype="Text" displayonly="yes">MIR-OP-BNFT-AMT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-PAY-DAYS-10" stype="Text" displayonly="yes">MIR-SHRT-HOSP-PAY-DAYS-10</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+                <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-CD-10">災害コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-EFF-DT-10">災害発生日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-STRT-DT-10">災害通院開始日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-END-DT-10">災害通院終了日</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-10">災害実日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-DAYS-EXCLU-10">災害控除日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-NO-OF-ACCI-BNFT-PAY-DAY-10">災害支払日数</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-ACCI-OUT-BNFT-AMT-10">災害通院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-DISC-BNFT-AMT-10">快気祝金支払／退院給付金</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-RCVR-BNFT-RFND-10">快気祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-HLTH-BNFT-RFND-10">健康祝金戻入</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-ID-10">クライアントID</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-SHRT-HOSP-BNFT-AMT-10">入院初期給付金額</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-CD-10" stype="Text" displayonly="yes">MIR-ACCI-CD-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-EFF-DT-10" stype="Text" displayonly="yes">MIR-ACCI-EFF-DT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-STRT-DT-10" stype="Text" displayonly="yes">MIR-ACCI-OUT-STRT-DT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-END-DT-10" stype="Text" displayonly="yes">MIR-ACCI-OUT-END-DT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-10" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-DAYS-EXCLU-10" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-DAYS-EXCLU-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-NO-OF-ACCI-BNFT-PAY-DAY-10" stype="Text" displayonly="yes">MIR-NO-OF-ACCI-BNFT-PAY-DAY-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-ACCI-OUT-BNFT-AMT-10" stype="Text" displayonly="yes">MIR-ACCI-OUT-BNFT-AMT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DISC-BNFT-AMT-10" stype="Text" displayonly="yes">MIR-DISC-BNFT-AMT-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-RCVR-BNFT-RFND-10" stype="Text" displayonly="yes">MIR-RCVR-BNFT-RFND-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-HLTH-BNFT-RFND-10" stype="Text" displayonly="yes">MIR-HLTH-BNFT-RFND-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-ID-10" stype="Text" displayonly="yes">MIR-CLI-ID-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-SHRT-HOSP-BNFT-AMT-10" stype="Text" displayonly="yes">MIR-SHRT-HOSP-BNFT-AMT-10</span>
+                    </td>
+                </tr>
+          </table>
+          <table class="tabledisplaykey2">
+               <tr>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-TYP-RID-CD-10">家持コード</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-FMLY-NM-10">家族名</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CNFM-CD-10">確認</label>
+                    </td>
+                    <td class="celldisplayheading" colspan="5">
+                        <label for="MIR-UW-INFO-10">査定情報</label>
+                    </td>
+                    <td class="celldisplayheading">
+                        <label for="MIR-CLI-NM-10">クライアント名</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-TYP-RID-CD-10" stype="Text" displayonly="yes">MIR-FMLY-TYP-RID-CD-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-FMLY-NM-10" stype="Text" displayonly="yes">MIR-FMLY-NM-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CNFM-CD-10" stype="Text" displayonly="yes">MIR-CNFM-CD-10</span>
+                    </td>
+                    <td class="celldisplay" colspan="5">
+                        <span id="MIR-UW-INFO-10" stype="Text" displayonly="yes">MIR-UW-INFO-10</span>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CLI-NM-10" stype="Text" displayonly="yes">MIR-CLI-NM-10</span>
+                    </td>
+                </tr>
+           </table>
+           </td>
+           </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>

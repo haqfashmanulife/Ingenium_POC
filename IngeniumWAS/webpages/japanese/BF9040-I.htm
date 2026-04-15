@@ -1,0 +1,92 @@
+﻿<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:54 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9040-I.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  P00929  ROC     CHANGE RECEIPT NUMBER FROM 10 TO 8 BIT                      
+*  P01161  SUG     CHANGE MIR-RECPT-AMT LENGTH FROM 15 TO 13                   
+*                                                                              
+*  M245B2  CTS      Foreign currency formatting
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge. 
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+            
+*********************************************************************************
+ -->
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9040-I</title>
+<link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+</head>
+<!-- M245B2 CHANGE STARTS HERE -->
+<!--<body class="bodyws"> -->
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="validateCrcyDcml();"> -->
+    <body class="bodyws" onLoad="validateCrcyDcml();onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+<!-- M245B2 CHANGE ENDS HERE -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+<table class="tabledatakey">
+    <tr>
+  <td class="celldatakeylabel">
+<label for="MIR-POL-ID-BASE">証券番号:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" stype="Text" maxlength="9"   onfocus="enterField(this)"/></td>
+  <td class="celldatakeylabel">
+<label for="MIR-POL-ID-SFX">枝番:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" stype="Text" maxlength="1"   onfocus="enterField(this)"/></td>
+    </tr>
+    <tr>
+  <td class="celldatakeylabel">
+<label for="MIR-POL-APP-FORM-ID">申込書番号:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-POL-APP-FORM-ID" id="MIR-POL-APP-FORM-ID" stype="Text" maxlength="15"   onfocus="enterField(this)"/>
+<input type="hidden" name="action" id="action" stype="Hidden"/></td>
+  <td class="celldatakeylabel">
+  <!-- M245B2 CHANGE STARTS HERE -->
+<!-- <label for="MIR-RECPT-AMT">金額:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-RECPT-AMT" id="MIR-RECPT-AMT" stype="Currency" elength="13"   mandatory="yes"  onkeypress ="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(
+this)"/></td> -->
+<label for="MIR-RECPT-AMT">金額:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-RECPT-AMT" id="MIR-RECPT-AMT" stype="Currency" elength="13"   mandatory="yes"  onkeypress ="NumberKeyCheck()" CurrencyCode="MIR-PMT-CRCY-CD" onfocus="enterField(this)" onblur="validateCrcyCd(
+this)"/>
+<!-- M245B2 CHANGE ENDS HERE -->
+  </td>
+   </tr>
+   <tr>
+  <td class="celldatakeylabel">
+<label for="MIR-RECPT-DT">領収日:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-RECPT-DT" id="MIR-RECPT-DT" stype="Date" mandatory="yes"  onfocus="enterField(this)" onblur="validateField(this)"/></td>   
+  <td class="celldatakeylabel">
+<label for="MIR-RECPT-NBR">領収番号:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-RECPT-NBR" id="MIR-RECPT-NBR" stype="text" elength="8" maxlength="8" mandatory="yes" onfocus="enterField(this)" onblur="validateField(this)"/>
+  </td>
+   </tr>
+   <tr>
+  <td class="celldatakeylabel">
+<label for="MIR-JRNL-DT">日報計上日:</label></td><td class="celldatakey"><input type="text" value=" " name="MIR-JRNL-DT" id="MIR-JRNL-DT" stype="Date" onfocus="enterField(this)" onblur="validateField(this)"/></td>   
+<!-- M245B2 CHANGE STARTS HERE -->
+<td class="celldatakeylabel">
+    <label for="MIR-PMT-CRCY-CD">払込通貨:</label>
+</td>
+<td class="celldatakey">
+    <select name="MIR-PMT-CRCY-CD" id="MIR-PMT-CRCY-CD" size="1" stype="Selection" onfocus="enterField(this)" onchange="validateCrcyDcml()" mandatory="yes" ></select>
+</td>
+<!-- M245B2 CHANGE ENDS HERE -->
+   </tr>
+</table>
+<input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden"/>
+</form>
+</body>
+<script src="../js/MessagesJapanese.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<!-- M245B2 CHANGE STARTS HERE -->
+<script src="../js/CrcyLevelEdits.js"></script>
+<!-- M245B2 CHANGE ENDS HERE -->
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

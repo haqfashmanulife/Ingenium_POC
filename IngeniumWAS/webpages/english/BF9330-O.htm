@@ -1,0 +1,341 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:50 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9330-O.htm
+*  Description: Claim Payment Inquiry
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  HCL109  HIN/CL   Initial version
+*  CCL05   HIN/CL   PICK-UP FACILITY
+*  P029	   CSE022   Add function for dialog box pop up for decision code
+*                   validation(as part of EN000265)
+*  ISLCLM  CTS      Added fields under 'Paid Information' and 'Payment Information
+*                   by Payee section'
+*  MP300C  CTS      ADDED NEW FIELDS FOR ETC MEDICAL CLAIM CHANGES
+*  CS0008  CTS      CSA IMPROVEMENTS - MEDICAL CLAIM CHANGES
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge. 
+*  UYSDMC  CTS      USYS CLAIM IND ADDITION            
+*********************************************************************************
+ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>BF9330-O</title>
+    <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+</head>
+    <body class="bodyws" onLoad="onLoad();SubInpArTrimPolicy2();SubInpArTrimPolicy3();SubInpArTrimPolicy4();SubInpArTrimPolicy5()">
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="chkDecsnStat('There are pending decisions. Are you sure to Approve', 'ACTION_NEXT','ACTION_CAN');return(onSubmit());">
+    <input type="hidden" name="action" id="action" stype="Hidden"/>
+    <input type="hidden" name="index" id="index" stype="Hidden" />
+<table class="tabledisplaykey">
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLM-ID">Master Claim ID:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLM-ID" stype="Text" displayonly="yes">MIR-CLM-ID</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLMA-CLM-STAT-CD">Master Claim Status:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLMA-CLM-STAT-CD" stype="Text" displayonly="yes">MIR-CLMA-CLM-STAT-CD</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLMA-INSRD-CLI-ID">Insured Client ID:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLMA-INSRD-CLI-ID" stype="Text" displayonly="yes">MIR-CLMA-INSRD-CLI-ID</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-DV-INS-CLI-NM">Insured Name:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-DV-INS-CLI-NM" stype="Text" displayonly="yes">MIR-DV-INS-CLI-NM</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLI-BTH-DT">Birth Date:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLI-BTH-DT" stype="Date" displayonly="yes">MIR-CLI-BTH-DT</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLI-SEX-CD">Sex:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLI-SEX-CD" stype="Text" displayonly="yes">MIR-CLI-SEX-CD</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLMA-HO-ACPT-DT">Head Office Claim Form Acceptance Date:</label>
+        </td>
+        <td class="celldisplaykey">
+            <span id="MIR-CLMA-HO-ACPT-DT" stype="Date" displayonly="yes">MIR-CLMA-HO-ACPT-DT</span>
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-LIFE-INS-CLM-IND">Life Insurance Claim In Progress:</label>
+        </td>
+        <td class="celldisplaykey">
+            <input type="checkbox" name="MIR-LIFE-INS-CLM-IND" id="MIR-LIFE-INS-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="celldisplaykeylabel">
+<!-- UYSDMC CHANGES START -->
+            <label for="MIR-CLMA-USYS-CLM-IND">Unisys Claim:</label>
+<!-- UYSDMC CHANGES END -->
+        </td>
+        <td class="celldisplaykey">
+<!-- UYSDMC CHANGES START -->
+            <input type="checkbox" name="MIR-CLMA-USYS-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+<!-- UYSDMC CHANGES END -->
+        </td>
+        <td class="celldisplaykeylabel">
+            <label for="MIR-CLMA-HIST-CLM-IND">Historical Claim:</label>
+        </td>
+        <td class="celldisplaykey">
+            <input type="checkbox" name="MIR-CLMA-HIST-CLM-IND" id="MIR-CLMA-HIST-CLM-IND" stype="Indicator" value="Y" disabled="yes"/>
+        </td>
+    </tr>
+</table>
+<br />
+<h2>Paid Information</h2>
+<table class="tabledisplay" genrows="0" keyfield="0">
+    <tr>
+        <td class="celldisplayheading"><label for="MIR-POL-ID-T[1]">Policy ID</label></td>
+        <td class="celldisplayheading"><label for="MIR-PAYEE-NM-TXT-T[1]">Payee</label></td>
+        <td class="celldisplayheading"><label for="MIR-FINAL-APROV-DT-T[1]">Journal Date</label></td>
+        <td class="celldisplayheading"><label for="MIR-BNFT-PMT-AMT-T[1]">Payment Amount</label></td>
+<!-- UY323A Change Begin -->	
+        <td class="celldisplayheading"><label for="MIR-SRVBEN-CHRGBCK-AMT-T[1]">Benefit Chargeback Amount</label></td>
+<!-- UY323A Change ends -->		
+        <td class="celldisplayheading"><label for="MIR-PREM-DED-AMT-T[1]">Premium Deducted</label></td>
+        <td class="celldisplayheading"><label for="MIR-DLAY-INT-AMT-T[1]">Interest Paid</label></td>
+        <td class="celldisplayheading"><label for="MIR-REMIT-AMT-T[1]">Adjusted Payment Amount</label></td>
+<!-- ISLCLM Change Begin -->
+        <td class="celldisplayheading"><label for="MIR-CLMA-DYS-BFR-PMT-DUE-T[1]">Days Before Claim Payment Due</label></td>
+        <td class="celldisplayheading"><label for="MIR-INT-STRT-DT-T[1]">Interest Period Start Date</label></td>
+        <td class="celldisplayheading"><label for="MIR-DV-INT-DY-QTY-T[1]">Number of Days for Interest</label></td>
+<!-- ISLCLM Change End -->
+    </tr>
+    <tr>
+        <td class="celldisplay"><span id="MIR-POL-ID-T[]" stype="Text" displayonly="yes">MIR-POL-ID-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-PAYEE-NM-TXT-T[]" stype="Text" displayonly="yes">MIR-PAYEE-NM-TXT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-FINAL-APROV-DT-T[]" stype="Date" displayonly="yes">MIR-FINAL-APROV-DT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-BNFT-PMT-AMT-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-BNFT-PMT-AMT-T[]</span>
+        </td>
+<!-- UY323A Change Begin -->	
+        <td class="celldisplay"><span id="MIR-SRVBEN-CHRGBCK-AMT-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-SRVBEN-CHRGBCK-AMT-T[]</span>
+        </td>	
+<!-- UY323A Change Ends -->		
+        <td class="celldisplay"><span id="MIR-PREM-DED-AMT-T[]" stype="Currency" elength="11"  signed="yes" displayonly="yes">MIR-PREM-DED-AMT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-DLAY-INT-AMT-T[]" stype="Currency" elength="11"  signed="yes" displayonly="yes">MIR-DLAY-INT-AMT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-REMIT-AMT-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-REMIT-AMT-T[]</span>
+        </td>
+<!-- ISLCLM Change Begin -->
+        <td class="celldisplay"><span id="MIR-CLMA-DYS-BFR-PMT-DUE-T[]" stype="Text" displayonly="yes">MIR-CLMA-DYS-BFR-PMT-DUE-T[]</span>
+		</td>
+        <td class="celldisplay"><span id="MIR-INT-STRT-DT-T[]" stype="Date" displayonly="yes">MIR-INT-STRT-DT-T[]</span>
+		</td>
+		<td class="celldisplay"><span id="MIR-DV-INT-DY-QTY-T[]" stype="Text" displayonly="yes">MIR-DV-INT-DY-QTY-T[]</span>
+        </td>
+<!-- ISLCLM Change End -->
+    </tr>
+</table>
+<h2>Payment Information (By Payee)</h2>
+<table class="tabledisplay" genrows="0" keyfield="0">
+    <tr>
+        <td class="celldisplayheading"><label for="MIR-POL-ID-2-T[1]">Policy ID</label></td>
+        <td class="celldisplayheading"><label for="MIR-PAYEE-NM-TXT-2-T[1]">Payee</label></td>
+        <td class="celldisplayheading"><label for="MIR-CLBN-ACRU-AMT-T[1]">Payment Amount</label></td>
+<!-- UY323A Change Begin -->	
+        <td class="celldisplayheading"><label for="MIR-SRVBEN-CHRGBCK-AMT-2-T[1]">Benefit Chargeback Amount</label></td>
+<!-- UY323A Change ends -->			
+        <td class="celldisplayheading"><label for="MIR-PREM-DED-AMT-2-T[1]">Premium Amount to Deduct</label></td>
+        <td class="celldisplayheading"><label for="MIR-NET-PMT-AMT-T[1]">Payment Less Premium</label></td>
+        <td class="celldisplayheading"><label for="MIR-INT-STRT-DT-T[1]">Interest Period Start Date</label></td>
+<!-- ISLCLM Change Begin -->
+        <td class="celldisplayheading"><label for="MIR-CLMA-DYS-BFR-PMT-DUE-T[1]">Days Before Claim Payment Due</label></td>
+<!-- ISLCLM Change End -->
+        <td class="celldisplayheading"><label for="MIR-DV-INT-DY-QTY-T[1]">Number of Days for Interest</label></td>
+        <td class="celldisplayheading"><label for="MIR-DLAY-INT-AMT-2-T[1]">Delay Interest Amount</label></td>
+        <td class="celldisplayheading"><label for="MIR-ADJ-PMT-AMT-T[1]">Adjusted Payment Amount</label></td>
+    </tr>
+    <tr>
+        <td class="celldisplay"><span id="MIR-POL-ID-2-T[]" stype="Text" displayonly="yes">MIR-POL-ID-2-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-PAYEE-NM-TXT-2-T[]" stype="Text" displayonly="yes">MIR-PAYEE-NM-TXT-2-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-CLBN-ACRU-AMT-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-CLBN-ACRU-AMT-T[]</span>
+        </td>
+		<!-- UY323A Change Begin -->	
+		<td class="celldisplay"><span id="MIR-SRVBEN-CHRGBCK-AMT-2-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-SRVBEN-CHRGBCK-AMT-2-T[]</span>
+        </td>
+		 <!-- UY323A Change Ends -->	
+        <td class="celldisplay"><span id="MIR-PREM-DED-AMT-2-T[]" stype="Currency" elength="11"  signed="yes" displayonly="yes">MIR-PREM-DED-AMT-2-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-NET-PMT-AMT-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-NET-PMT-AMT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-INT-STRT-DT-T[]" stype="Date" displayonly="yes">MIR-INT-STRT-DT-T[]</span>
+        </td>
+<!-- ISLCLM Change Begin -->
+        <td class="celldisplay"><span id="MIR-CLMA-DYS-BFR-PMT-DUE-T[]" stype="Text" displayonly="yes">MIR-CLMA-DYS-BFR-PMT-DUE-T[]</span>
+		</td>
+<!-- ISLCLM Change End -->
+        <td class="celldisplay"><span id="MIR-DV-INT-DY-QTY-T[]" stype="Text" displayonly="yes">MIR-DV-INT-DY-QTY-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-DLAY-INT-AMT-2-T[]" stype="Currency" elength="11"  signed="yes" displayonly="yes">MIR-DLAY-INT-AMT-2-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-ADJ-PMT-AMT-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-ADJ-PMT-AMT-T[]</span>
+        </td>
+    </tr>
+</table>
+<h2>Payment Information (By Benefit)</h2>
+<table class="tabledisplay" genrows="0" keyfield="0">
+    <tr>
+        <td class="celldisplayheading"><label for="MIR-POL-ID-3-T[1]">Policy ID</label></td>
+        <td class="celldisplayheading"><label for="MIR-PLAN-ID-T[1]">Rider Name</label></td>
+        <td class="celldisplayheading"><label for="MIR-BNFT-NM-ID-T[1]">Benefit Name</label></td>
+        <td class="celldisplayheading"><label for="MIR-BNFT-DECSN-CD-T[1]">Decision</label></td>
+        <td class="celldisplayheading"><label for="MIR-CLBN-ACRU-AMT-2-T[1]">Payment Amount</label></td>
+<!-- CS0008 CHANGES STARTS HERE -->
+        <td class="celldisplayheading"><label for="MIR-NON-PMT-REASN-TXT-T[1]">Non-payment reason code</label></td>
+<!-- CS0008 CHANGES ENDS HERE -->
+        <td class="celldisplayheading"><label for="MIR-FINAL-APROV-DT-2-T[1]">Final Approval Date</label></td>
+        <td class="celldisplayheading"><label for="MIR-PAYEE-NM-TXT-3-T[1]">Payee</label></td>
+    </tr>
+    <tr>
+        <td class="celldisplay"><span id="MIR-POL-ID-3-T[]" stype="Text" displayonly="yes">MIR-POL-ID-3-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-PLAN-ID-T[]" stype="Text" displayonly="yes">MIR-PLAN-ID-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-BNFT-NM-ID-T[]" stype="Text" displayonly="yes">MIR-BNFT-NM-ID-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-BNFT-DECSN-CD-T[]" stype="Text" displayonly="yes">MIR-BNFT-DECSN-CD-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-CLBN-ACRU-AMT-2-T[]" stype="Currency" elength="15"  signed="yes" displayonly="yes">MIR-CLBN-ACRU-AMT-2-T[]</span>
+        </td>
+<!-- CS0008 CHANGES STARTS HERE -->
+        <td class="celldisplay"><span id="MIR-NON-PMT-REASN-TXT-T[]" stype="Text" elength="08"  signed="yes" displayonly="yes">MIR-NON-PMT-REASN-TXT-T[]</span>
+        </td>
+<!-- CS0008 CHANGES ENDS HERE -->
+        <td class="celldisplay"><span id="MIR-FINAL-APROV-DT-2-T[]" stype="Date" displayonly="yes">MIR-FINAL-APROV-DT-2-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-PAYEE-NM-TXT-3-T[]" stype="Text" displayonly="yes">MIR-PAYEE-NM-TXT-3-T[]</span>
+        </td>
+    </tr>
+</table>
+<!-- MP300C CHANGES START HERE -->
+<h2>Pre-LCD Check</h2>
+<table class="tabledisplay" genrows="0" keyfield="0">
+    <tr>
+        <td class="celldisplayheading"><label for="MIR-POL-ID-4-T[1]">Policy ID</label></td>
+ 
+        <td class="celldisplayheading"><label for="MIR-PRE-LCD-CHK-IND-T[1]">Pre-LCD Check</label></td>
+    </tr>
+    <tr>
+        <td class="celldisplay"><span id="MIR-POL-ID-4-T[]" stype="Text" displayonly="yes">MIR-POL-ID-4-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-PRE-LCD-CHK-IND-T[]" stype="Text" displayonly="yes">PRE-LCD-CHK-IND-T[]</span>
+        </td>
+    </tr>
+</table>
+<!-- MP300C CHANGES END HERE -->
+<div id="BnftDescn" style="DISPLAY: none">
+<table class="tabledisplay" genrows="0" keyfield="0">
+    <tr>
+        <td class="celldisplay">
+            <span id="MIR-BNFT-DECSN-CD-2-T[]" stype="Text" displayonly="yes">MIR-BNFT-DECSN-CD-2-T[]</span>
+        </td>
+    </tr>
+</table>
+</div>
+<h2>Payee Information</h2>
+<table class="tabledisplay" genrows="0" keyfield="0">
+    <tr>
+        <td class="celldisplayheading"><label for="MIR-PAYEE-NM-TXT-5-T[1]">Kanji Payee Name</label></td>
+        <td class="celldisplayheading"><label for="MIR-BNK-NM-T[1]">Bank Name</label></td>
+        <td class="celldisplayheading"><label for="MIR-BNK-BR-NM-T[1]">Branch Name</label></td>
+        <td class="celldisplayheading"><label for="MIR-PAYEE-ACCT-TYP-CD-T[1]">Account Type</label></td>
+        <td class="celldisplayheading"><label for="MIR-PAYEE-BNK-ACCT-ID-T[1]">Bank Account Number</label></td>
+        <td class="celldisplayheading"><label for="MIR-PAYEE-ACCT-HLDR-NM-T[1]">Account Holder Name</label></td>
+        <td class="celldisplayheading"><label for="MIR-PAYEE-INSRD-REL-CD-T[1]">Relationship to Insured</label></td>
+    </tr>
+    <tr>
+        <td class="celldisplay"><span id="MIR-PAYEE-NM-TXT-5-T[]" stype="Text" displayonly="yes">MIR-PAYEE-NM-TXT-5-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-BNK-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-NM-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-BNK-BR-NM-T[]" stype="Text" displayonly="yes">MIR-BNK-BR-NM-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-PAYEE-ACCT-TYP-CD-T[]" stype="Text" displayonly="yes">MIR-PAYEE-ACCT-TYP-CD-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-PAYEE-BNK-ACCT-ID-T[]" stype="Text" displayonly="yes">MIR-PAYEE-BNK-ACCT-ID-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-PAYEE-ACCT-HLDR-NM-T[]" stype="Text" displayonly="yes">MIR-PAYEE-ACCT-HLDR-NM-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-PAYEE-INSRD-REL-CD-T[]" stype="Text" displayonly="yes">MIR-PAYEE-INSRD-REL-CD-T[]</span>
+        </td>
+    </tr>
+</table>
+<br />
+<table class="tabledisplay" genrows="0" keyfield="0">
+    <tr>
+        <td class="celldisplayheading"><label for="MIR-PAYEE-NM-TXT-6-T[1]">Kanji Payee Name</label></td>
+        <td class="celldisplayheading"><label for="MIR-SEND-PMT-NOTI-IND-T[1]">Send Payment Notice</label></td>
+        <td class="celldisplayheading"><label for="MIR-KJ-PREFCT-TXT-T[1]">Address Line 1</label></td>
+        <td class="celldisplayheading"><label for="MIR-KJ-CITY-TXT-T[1]">Address Line 2</label></td>
+        <td class="celldisplayheading"><label for="MIR-KJ-NGHBRHD-TXT-T[1]">Address Line 3</label></td>
+        <td class="celldisplayheading"><label for="MIR-CLRL-SAMAKATA-BU-TXT-T[1]">Address Line 4</label></td>
+        <td class="celldisplayheading"><label for="MIR-PREV-UPDT-DT-T[1]">Payee Previous Update Date</label></td>
+        <td class="celldisplayheading"><label for="MIR-PREV-UPDT-USER-ID-T[1]">Payee Previous Update User ID</label></td>
+    </tr>
+    <tr>
+        <td class="celldisplay"><span id="MIR-PAYEE-NM-TXT-6-T[]" stype="Text" displayonly="yes">MIR-PAYEE-NM-TXT-6-T[]</span>
+        </td>
+        <td class="celldisplay"><input type="checkbox" name="MIR-SEND-PMT-NOTI-IND-T[]" id="MIR-SEND-PMT-NOTI-IND-T[]" stype="Indicator" value="Y" disabled="yes"/>
+        </td>
+        <td class="celldisplay"><span id="MIR-KJ-PREFCT-TXT-T[]" stype="Text" displayonly="yes">MIR-KJ-PREFCT-TXT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-KJ-CITY-TXT-T[]" stype="Text" displayonly="yes">MIR-KJ-CITY-TXT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-KJ-NGHBRHD-TXT-T[]" stype="Text" displayonly="yes">MIR-KJ-NGHBRHD-TXT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-CLRL-SAMAKATA-BU-TXT-T[]" stype="Text" displayonly="yes">MIR-CLRL-SAMAKATA-BU-TXT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-PREV-UPDT-DT-T[]" stype="Date" displayonly="yes">MIR-PREV-UPDT-DT-T[]</span>
+        </td>
+        <td class="celldisplay"><span id="MIR-PREV-UPDT-USER-ID-T[]" stype="Text" displayonly="yes">MIR-PREV-UPDT-USER-ID-T[]</span>
+        </td>
+    </tr>
+</table>
+
+</form>
+</body>
+<script src="../js/MessagesEnglish.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<script src="../js/ClaimsApprove.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

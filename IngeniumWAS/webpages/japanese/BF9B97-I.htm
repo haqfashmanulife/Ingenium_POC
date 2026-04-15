@@ -1,0 +1,91 @@
+﻿<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:32 PM EDT
+*
+*********************************************************************************
+*  Component:   BF9B97-I.htm
+*  Description:
+*
+*********************************************************************************
+#*  Chg#    Release  Description
+#*
+#*  MP166A  CTS      APL INTEREST CAPITALIZATION
+#*  Q10095  CTS      CHANGES FOR CORRECTING EFFECTIVE DATE FIELD
+#*  23774B  CTS      Changes done for ie retirement project to make it
+#*                   compatible for microsoft edge. Changes in html include
+#*                   adding "id" attribute for all input fields and changes in
+#*                   java scripts to modify certain functions/commands which
+#*                   are no longer compatilble with edge.
+*  UY3004  CTS     INPUT HTML POLICY TRIM - 10 BYTES -> 7 BYTES
+
+*********************************************************************************
+ -->
+<html>
+    <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <title>BF9B97-I</title>
+        <link charset="UTF-8" href="../japanese/Ingenium.css" rel="stylesheet" type="text/css"/>
+    </head>
+<!-- UY3004 CHANGES START HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();InpTrimPolicy()">
+<!-- UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" id="inputForm" method="post" onsubmit="return(onSubmit());" target="_parent">
+            <input name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" type="hidden"/>
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledatakey">
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input mandatory="yes" maxlength="9" name="MIR-POL-ID-BASE" id="MIR-POL-ID-BASE" onfocus="enterField(this)" stype="Text" type="text" value=" "/>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input maxlength="1" name="MIR-POL-ID-SFX" id="MIR-POL-ID-SFX" onfocus="enterField(this)" stype="Text" type="text" value=" "/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-APPL-CTL-PRCES-DT">元加有効日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input mandatory="yes" name="MIR-APPL-CTL-PRCES-DT" id="MIR-APPL-CTL-PRCES-DT" onblur="validateField(this)" onfocus="enterField(this)" stype="Date" type="text" value=" "/>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-POL-LOAN-SEQ-NUM">シーケンス番号:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input mandatory="yes" maxlength="3" name="MIR-POL-LOAN-SEQ-NUM" id="MIR-POL-LOAN-SEQ-NUM" onfocus="enterField(this)" stype="Text" type="text" value=" "/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-SUPRES-CNFRM-IND">確認通知発行停止:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input name="MIR-SUPRES-CNFRM-IND" id="MIR-SUPRES-CNFRM-IND" onfocus="enterField(this)" stype="Indicator" type="checkbox" value="Y"/>
+                    </td>
+                    <td class="celldatakeylabel">
+                        <label for="MIR-JRNL-DT">日報計上日:</label>
+                    </td>
+                    <td class="celldatakey">
+                        <input name="MIR-JRNL-DT" id="MIR-JRNL-DT" onblur="validateField(this)" onfocus="enterField(this)" stype="Date" type="text" value=" "/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/MessagesJapanese.js" ></script>
+    <script src="../js/MessageFunctions.js" ></script>
+    <script src="../js/ActionHandlers.js" ></script>
+    <script src="../js/ClientLevelEdits.js" ></script>
+    <script src="../js/GlobalUserMethods.js" ></script>
+    <script src="../js/UpdateAllowedValues.js" ></script>
+<!-- UY3004 CHANGES START HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!-- UY3004 CHANGES ENDS HERE -->
+</html>

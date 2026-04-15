@@ -1,0 +1,136 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:25:16 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0251-O.htm                                                   
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2"
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.                                            
+*                                                                              
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM                                 *
+*********************************************************************************
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0251-O</title>
+        <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">証券番号:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">枝番:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">契約情報</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-ISS-EFF-DT">契約発行日:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-ISS-EFF-DT" stype="Date" displayonly="yes">MIR-POL-ISS-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-DB-OPT-CD">死亡給付オプション:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-DB-OPT-CD" stype="Text" displayonly="yes">MIR-POL-DB-OPT-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-DV-LMPSM-AMT">追加一時金:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-DV-LMPSM-AMT" stype="Currency" elength="13" displayonly="yes">MIR-DV-LMPSM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-BILL-MODE-CD">保険料モード:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-BILL-MODE-CD" stype="Text" displayonly="yes">MIR-POL-BILL-MODE-CD</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">保険料モード</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-INIT-DPOS-INT-PCT">契約当初積立金利率:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-INIT-DPOS-INT-PCT" stype="Percent" elength="7" decimals="4" displayonly="yes">MIR-INIT-DPOS-INT-PCT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-CVG-GUAR-INT-PCT">利息保証期間       - 利率:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-CVG-GUAR-INT-PCT" stype="Percent" elength="7" decimals="4" signed="yes" displayonly="yes">MIR-CVG-GUAR-INT-PCT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplayheading" colspan="4">保険料</td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-PLAN-PERI-PREM-AMT">プラン保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-PLAN-PERI-PREM-AMT" stype="Currency" elength="13" displayonly="yes">MIR-PLAN-PERI-PREM-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-UL-INIT-PREM-AMT">予定当初保険料:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-UL-INIT-PREM-AMT" stype="Currency" elength="13" displayonly="yes">MIR-UL-INIT-PREM-AMT</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesJapanese.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

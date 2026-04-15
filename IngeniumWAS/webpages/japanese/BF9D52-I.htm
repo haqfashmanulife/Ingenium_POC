@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*********************************************************************************
+*  Component:   BF9D52-I.htm
+*  Description: CURRENCY EXCHANGE RATE UPDATE SCREEN
+*
+*********************************************************************************
+
+*  M271O2  CTS      NEW SCREEN FOR CURRENCY EXCHANGE RATE UPDATE SCREEN
+*  23774B  CTS      Changes done for ie retirement project to make it
+*                   compatible for microsoft edge. Changes in html include
+*                   adding "id" attribute for all input fields and changes in
+*                   java scripts to modify certain functions/commands which
+*                   are no longer compatilble with edge.             
+*
+*********************************************************************************
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BF9D52-I</title>
+       <link rel="stylesheet" type="text/css" href="../japanese/Ingenium.css" charset="ISO-8859-1" />
+</head>
+<!-- Q50806 CHANGES STARTS -->
+<!--  <body class="bodyws" Onload="initCal();validateCrcyDcml()"> -->
+<body class="bodyws" Onload="validateCrcyDcml()">
+<!-- Q50806 CHANGES ENDS   -->
+<form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+     <table class="tabledisplaykey">
+        <tr>
+            <td class="celldisplaykeylabel">
+                 <label for="MIR-XCHNG-FROM-CRCY-CD">From 通貨::</label>
+            </td>
+            <td class="celldisplaykey">
+                 <span id="MIR-XCHNG-FROM-CRCY-CD" stype="Text" displayonly="yes">MIR-XCHNG-FROM-CRCY-CD</span>
+            </td>
+            <td class="celldisplaykeylabel">
+                 <label for="MIR-XCHNG-TO-CRCY-CD">To 通貨::</label>
+            </td>
+            <td class="celldisplaykey">
+                 <span id="MIR-XCHNG-TO-CRCY-CD" stype="Text" displayonly="yes">MIR-XCHNG-TO-CRCY-CD</span>
+            </td>
+
+            <td class="celldisplaykeylabel">
+                 <label for="MIR-XCHNG-EFF-DT">為替レート基準日:</label>
+            </td>
+            <td class="celldisplaykey">
+                 <span id="MIR-XCHNG-EFF-DT" stype="Date" displayonly="yes">MIR-XCHNG-EFF-DT</span>
+            </td>
+            <td class="celldisplaykeylabel">
+            	<label for="MIR-XCHNG-RT-TYP-CD">為替レートタイプコード:</label>
+            </td>
+            <td class="celldisplaykey">
+            	<span id="MIR-XCHNG-RT-TYP-CD" stype="Text" displayonly="yes">MIR-XCHNG-RT-TYP-CD</span>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <br />
+       <table class="tabledisplay"  >
+        <tr>
+              <td class="celldisplayheading" colspan="4"></td>
+        </tr>
+        <tr>
+            <td class="celldisplayheading"><label for="MIR-XCHNG-1-RT">TTSレート</label></td>
+			<td class="celldisplayheading"><label for="MIR-XCHNG-2-RT">TTBレート</label></td>
+			<td class="celldisplayheading"><label for="MIR-XCHNG-3-RT">TTMレート</label></td>
+			<td class="celldisplayheading"><label for="MIR-XCHNG-4-RT">入金用MLJレート</label></td>
+            <td class="celldisplayheading"><label for="MIR-XCHNG-5-RT">支払用MLJレート</label></td>
+
+        </tr>
+        <tr>
+            <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-XCHNG-1-RT" id="MIR-XCHNG-1-RT" stype="Number" elength="18" decimals="5" onfocus="enterField(this)" onblur="validateField(this)" mandatory="yes" />
+            </td>
+            <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-XCHNG-2-RT" id="MIR-XCHNG-2-RT" stype="Number" elength="18" decimals="5" onfocus="enterField(this)" onblur="validateField(this)" mandatory="yes" />
+            </td>
+            <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-XCHNG-3-RT" id="MIR-XCHNG-3-RT" stype="Number" elength="18" decimals="5" onfocus="enterField(this)" onblur="validateField(this)" mandatory="yes" />
+            </td>
+            <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-XCHNG-4-RT" id="MIR-XCHNG-4-RT" stype="Number" elength="18" decimals="5" onfocus="enterField(this)" onblur="validateField(this)" mandatory="yes" />
+            </td>
+            <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-XCHNG-5-RT" id="MIR-XCHNG-5-RT" stype="Number" elength="18" decimals="5" onfocus="enterField(this)" onblur="validateField(this)" mandatory="yes" />
+            </td>
+         </tr>
+</table>
+    <br />
+
+   <br />
+</form>
+</body>
+<script src="../js/MessagesJapanese.js"></script>
+<script src="../js/MessageFunctions.js"></script>
+<script src="../js/ActionHandlers.js"></script>
+<script src="../js/ClientLevelEdits.js"></script>
+<script src="../js/GlobalUserMethods.js"></script>
+<script src="../js/CrcyLevelEdits.js"></script>
+</html>

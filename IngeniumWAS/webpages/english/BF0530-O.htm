@@ -1,0 +1,210 @@
+<!--
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:15 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0530-O.htm
+*  Description:
+*
+*********************************************************************************
+*  Chg#    Release  Description
+*
+*  014590  6.0      New for release 6.0
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling
+*  017150  612J     Remove Currency decimals="2"
+*  NWLPLH  CTS      Changes for policy loan processing
+*  M319A2  CTS      Changes done for FXWL Policy Loan Processing
+*  23774B  CTS       23774B-IE Retirement changes
+*  UY3004  CTS      SUBSEQUENT HTML POLICY TRIM
+*  UYS057  CTS      Policy Loan Changes for Unisys Products
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0530-O</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+<!--  UY3004 CHANGES STARTS HERE
+    <body class="bodyws" onLoad="onLoad();"> -->
+    <body class="bodyws" onLoad="onLoad();SubInpTrimPolicy()">
+<!--  UY3004 CHANGES ENDS HERE -->
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-DV-CLI-NM">Owner Name:</label>
+                    </td>
+                    <td class="celldisplaykey" colspan="3">
+                        <span id="MIR-DV-CLI-NM" stype="Text" displayonly="yes">MIR-DV-CLI-NM</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-BASE">Policy ID:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-BASE" stype="Text" displayonly="yes">MIR-POL-ID-BASE</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-ID-SFX">Suffix:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-ID-SFX" stype="Text" displayonly="yes">MIR-POL-ID-SFX</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-LOAN-ID">Type of Loan:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-LOAN-ID" stype="Text" displayonly="yes">MIR-POL-LOAN-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-LOAN-EFF-DT">Effective Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-LOAN-EFF-DT" stype="Date" displayonly="yes">MIR-POL-LOAN-EFF-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-POL-LOAN-SEQ-NUM">Sequence Number:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-POL-LOAN-SEQ-NUM" stype="Text" displayonly="yes">MIR-POL-LOAN-SEQ-NUM</span>
+                    </td>
+                <!-- M319A2 CHANGES START HERE -->
+                <!--<td class="celldisplaykeylabel" />
+                    <td class="celldisplaykey"></td>-->
+                    <td class="celldisplaykeylabel">
+					    <label for="MIR-HO-RECV-DT">Head Office Received Date:</label>
+					</td>
+					<td class="celldisplaykey" colspan="3">
+					    <span id="MIR-HO-RECV-DT" stype="Date" displayonly="yes">MIR-HO-RECV-DT</span>
+					</td>
+                <!-- M319A2 CHANGES END HERE -->
+                </tr>
+            </table>
+            <br />
+            <table class="tabledisplay">
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-LOAN-STAT-CD">Status:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-LOAN-STAT-CD" stype="Text" displayonly="yes">MIR-POL-LOAN-STAT-CD</span>
+                    </td>
+                <!-- NWLPLH changes begin -->
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-LOAN-TRXN-CD">Loan Transaction Category:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-LOAN-TRXN-CD" stype="Text" displayonly="yes">MIR-POL-LOAN-TRXN-CD</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-POL-LOAN-TRXN-AMT">Loan Transaction Amount:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-POL-LOAN-TRXN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-POL-LOAN-TRXN-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-INCR-DECR-AMT">Policy Loan Balance Increased/Decreased:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-INCR-DECR-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-LOAN-INCR-DECR-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-BAL-AMT">Policy Loan Balance:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-BAL-AMT" stype="Currency" elength="15" displayonly="yes">MIR-LOAN-BAL-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-INT-AMT">Policy Loan Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-INT-AMT" stype="Currency" elength="15" displayonly="yes">MIR-LOAN-INT-AMT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-XCES-SHRT-AMT">Excess/Short Interest:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-XCES-SHRT-AMT" stype="Currency" elength="13" signed="yes" displayonly="yes">MIR-LOAN-XCES-SHRT-AMT</span>
+                    </td>
+                <!-- UYS057 CHANGES START HERE -->
+                    <!-- <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-PRCES-DT">Process Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-PRCES-DT" stype="Date" displayonly="yes">MIR-LOAN-PRCES-DT</span>
+                    </td> -->
+
+					<td class="celldisplaylabel">
+				        <label for="MIR-LOAN-INT-STRT-DT">Loan Interest Start Date</label>
+					 </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-INT-STRT-DT" stype="Date" displayonly="yes">MIR-LOAN-INT-STRT-DT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-LOAN-PRCES-DT">Process Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-LOAN-PRCES-DT" stype="Date" displayonly="yes">MIR-LOAN-PRCES-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+                <!-- UYS057 CHANGES END HERE -->
+                <!-- M319A2 CHANGES STARTS HERE -->
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-JPY-XCHNG-EFF-DT">Currency Exchange Date:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JPY-XCHNG-EFF-DT" stype="Text" displayonly="yes">MIR-JPY-XCHNG-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-JPY-XCHNG-RT">Exchange rate to JPY:</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JPY-XCHNG-RT" stype="Text" elength="7" decimals="2" signed="yes" displayonly="yes">MIR-JPY-XCHNG-RT</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celldisplaylabel">
+                        <label for="MIR-JPY-TRXN-AMT">Loan Transaction Amount (Converted in Yen):</label>
+                    </td>
+                    <td class="celldisplay">
+                        <span id="MIR-JPY-TRXN-AMT" stype="Currency" elength="15" signed="yes" displayonly="yes">MIR-JPY-TRXN-AMT</span>
+                    </td>
+                    <td class="celldisplaylabel">
+                    </td>
+                    <td class="celldisplay">
+                    </td>
+                </tr>
+                <!-- M319A2 CHANGES ENDS HERE -->
+                <!-- NWLPLH changes end -->
+            </table>
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+<!--  UY3004 CHANGES STARTS HERE -->
+    <script src="../js/Policytrim.js"></script>
+<!--  UY3004 CHANGES ENDS HERE -->
+</html>

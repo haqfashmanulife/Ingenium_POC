@@ -1,0 +1,117 @@
+<!-- 
+* Converted to Pathfinder 3.0 on Jun 18, 2004 3:22:10 PM EDT
+*
+*********************************************************************************
+*  Component:   BF0112Initaccumsame-I.htm                                      
+*  Description:                                                                
+*                                                                              
+*********************************************************************************
+*  Chg#    Release  Description                                                
+*                                                                              
+*  014590  6.0      New for release 6.0                                        
+*  016246  6.0.2J   Add onLoad() function to <body> tag for currency scaling   
+*  017150  612J     Remove Currency decimals="2" 
+*  23774B  CTS       23774B-IE Retirement changes                              
+*                                                                              
+*********************************************************************************
+ -->
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>BF0112Initaccumsame-I</title>
+        <link rel="stylesheet" type="text/css" href="../english/Ingenium.css" charset="UTF-8" />
+    </head>
+    <body class="bodyws" onLoad="onLoad()">
+        <form action="pageserver" method="post" id="inputForm" target="_parent" onsubmit="return(onSubmit());">
+            <table class="tabledisplaykey">
+                <tr>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-FND-ID">Fund:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-FND-ID" stype="Text" displayonly="yes">MIR-FND-ID</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-FNDVL-EFF-DT">Fund Valuation Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-FNDVL-EFF-DT" stype="Date" displayonly="yes">MIR-FNDVL-EFF-DT</span>
+                    </td>
+                    <td class="celldisplaykeylabel">
+                        <label for="MIR-FND-NXT-VALN-DT">Next Fund Valuation Date:</label>
+                    </td>
+                    <td class="celldisplaykey">
+                        <span id="MIR-FND-NXT-VALN-DT" stype="Date" displayonly="yes">MIR-FND-NXT-VALN-DT</span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="2" class="celldataentryheading">Accumulation Units</td>
+                    <td colspan="2" class="celldataentryheading">Initial Units</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INTG-UNIT-1-QTY">Number of Units:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-INTG-UNIT-1-QTY" id="MIR-INTG-UNIT-1-QTY" stype="Number" elength="18" decimals="9" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-INTG-UNIT-2-QTY">Number of Units:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-INTG-UNIT-2-QTY" id="MIR-INTG-UNIT-2-QTY" stype="Number" elength="18" decimals="9" onfocus="enterField(this)" onblur="validateField(this)" onkeypress="NumberKeyCheck()" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="tabledataentry">
+                <tr>
+                    <td colspan="2" class="celldataentryheading">Accumulation Buy/Sell</td>
+                    <td colspan="2" class="celldataentryheading">Initial Buy/Sell</td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-FNDVL-AMT">Fund Value:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-FNDVL-AMT" id="MIR-DV-FNDVL-AMT" stype="Currency" elength="18" decimals="9" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-DV-FNDVL-AMT-3">Fund Value:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-DV-FNDVL-AMT-3" id="MIR-DV-FNDVL-AMT-3" stype="Currency" elength="18" decimals="9" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PURCH-PRIC-1-AMT">Unit Price:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PURCH-PRIC-1-AMT" id="MIR-PURCH-PRIC-1-AMT" stype="Currency" elength="17" decimals="9" signed="yes" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                    <td class="celllabelrightalign">
+                        <label for="MIR-PURCH-PRIC-2-AMT">Unit Price:</label>
+                    </td>
+                    <td class="celllabeldataentry">
+                        <input type="text" value=" " name="MIR-PURCH-PRIC-2-AMT" id="MIR-PURCH-PRIC-2-AMT" stype="Currency" elength="17" decimals="9" onkeypress="NumberKeyCheck()" onfocus="enterField(this)" onblur="validateField(this)" />
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="MIR-DV-PRCES-STATE-CD" id="MIR-DV-PRCES-STATE-CD" stype="Hidden" />
+            <input type="hidden" name="MIR-DV-PRCES-OVRID-IND" id="MIR-DV-PRCES-OVRID-IND" stype="Hidden" />
+            <input type="hidden" name="MIR-FND-PRIC-STRUCT-CD" id="MIR-FND-PRIC-STRUCT-CD" stype="Hidden" />
+            <input type="hidden" name="MIR-FND-UNIT-TYP-CD" id="MIR-FND-UNIT-TYP-CD" stype="Hidden" />
+            <input type="hidden" name="action" id="action" stype="Hidden" />
+            <input type="hidden" name="index" id="index" stype="Hidden" />
+        </form>
+    </body>
+    <script src="../js/ActionHandlers.js"></script>
+    <script src="../js/MessageFunctions.js"></script>
+    <script src="../js/MessagesEnglish.js"></script>
+    <script src="../js/ClientLevelEdits.js"></script>
+    <script src="../js/GlobalUserMethods.js"></script>
+</html>
