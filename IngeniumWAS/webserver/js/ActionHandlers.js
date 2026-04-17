@@ -40,6 +40,7 @@
 //*                   java scripts to modify certain functions/commands which  *
 //*                   are no longer compatilble with edge.                     *                                                                              *
 //*                                                                            *
+//* MLJ IT IS
 //******************************************************************************
 
 
