@@ -1,22 +1,31 @@
-<changeSet id="zap-trt-status" author="firoz">
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
 
-    <!-- BEFORE CHECK -->
-    <preConditions onFail="HALT">
-        <sqlCheck expectedResult="5">
-            SELECT COUNT(*) FROM TLQBASE WHERE STATUS_CD = 'A'
-        </sqlCheck>
-    </preConditions>
+    <changeSet author="firoz" id="zap-trt-status">
 
-    <!-- UPDATE -->
-    <sql>
-        UPDATE TLQBASE SET STATUS_CD = 'I' WHERE STATUS_CD = 'A'
-    </sql>
+        <!-- BEFORE CHECK -->
+        <preConditions onFail="HALT">
+            <sqlCheck expectedResult="5">
+                SELECT COUNT(*) FROM TLQBASE WHERE STATUS_CD = 'A'
+            </sqlCheck>
+        </preConditions>
 
-    <!-- AFTER CHECK -->
-    <preConditions onFail="HALT">
-        <sqlCheck expectedResult="0">
-            SELECT COUNT(*) FROM TLQBASE WHERE STATUS_CD = 'A'
-        </sqlCheck>
-    </preConditions>
+        <!-- UPDATE -->
+        <sql>
+            UPDATE TLQBASE SET STATUS_CD = 'I' WHERE STATUS_CD = 'A'
+        </sql>
 
-</changeSet>
+        <!-- AFTER CHECK -->
+        <preConditions onFail="HALT">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM TLQBASE WHERE STATUS_CD = 'A'
+            </sqlCheck>
+        </preConditions>
+
+    </changeSet>
+</databaseChangeLog>
