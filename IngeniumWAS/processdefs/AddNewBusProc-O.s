@@ -10,7 +10,7 @@
 #*  016423  602J     New for release 602J                                      *
 #*  017150  612J     Remove Currency Decimals = "2"                            *
 #*                                                                             *
-FASHUL TEST
+#FASHUL TEST
 #*******************************************************************************
 
 S-STEP AddNewBusProc-O
